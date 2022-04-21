@@ -1835,11 +1835,13 @@ func (o GroupTagArrayOutput) Index(i pulumi.IntInput) GroupTagOutput {
 }
 
 type GroupWarmPool struct {
+	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+	InstanceReusePolicy *GroupWarmPoolInstanceReusePolicy `pulumi:"instanceReusePolicy"`
 	// Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
 	MaxGroupPreparedCapacity *int `pulumi:"maxGroupPreparedCapacity"`
 	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 	MinSize *int `pulumi:"minSize"`
-	// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+	// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
 	PoolState *string `pulumi:"poolState"`
 }
 
@@ -1855,11 +1857,13 @@ type GroupWarmPoolInput interface {
 }
 
 type GroupWarmPoolArgs struct {
+	// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+	InstanceReusePolicy GroupWarmPoolInstanceReusePolicyPtrInput `pulumi:"instanceReusePolicy"`
 	// Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
 	MaxGroupPreparedCapacity pulumi.IntPtrInput `pulumi:"maxGroupPreparedCapacity"`
 	// Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
 	MinSize pulumi.IntPtrInput `pulumi:"minSize"`
-	// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+	// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
 	PoolState pulumi.StringPtrInput `pulumi:"poolState"`
 }
 
@@ -1940,6 +1944,11 @@ func (o GroupWarmPoolOutput) ToGroupWarmPoolPtrOutputWithContext(ctx context.Con
 	}).(GroupWarmPoolPtrOutput)
 }
 
+// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+func (o GroupWarmPoolOutput) InstanceReusePolicy() GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return o.ApplyT(func(v GroupWarmPool) *GroupWarmPoolInstanceReusePolicy { return v.InstanceReusePolicy }).(GroupWarmPoolInstanceReusePolicyPtrOutput)
+}
+
 // Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
 func (o GroupWarmPoolOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupWarmPool) *int { return v.MaxGroupPreparedCapacity }).(pulumi.IntPtrOutput)
@@ -1950,7 +1959,7 @@ func (o GroupWarmPoolOutput) MinSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupWarmPool) *int { return v.MinSize }).(pulumi.IntPtrOutput)
 }
 
-// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
 func (o GroupWarmPoolOutput) PoolState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupWarmPool) *string { return v.PoolState }).(pulumi.StringPtrOutput)
 }
@@ -1979,6 +1988,16 @@ func (o GroupWarmPoolPtrOutput) Elem() GroupWarmPoolOutput {
 	}).(GroupWarmPoolOutput)
 }
 
+// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+func (o GroupWarmPoolPtrOutput) InstanceReusePolicy() GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return o.ApplyT(func(v *GroupWarmPool) *GroupWarmPoolInstanceReusePolicy {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceReusePolicy
+	}).(GroupWarmPoolInstanceReusePolicyPtrOutput)
+}
+
 // Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
 func (o GroupWarmPoolPtrOutput) MaxGroupPreparedCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupWarmPool) *int {
@@ -1999,7 +2018,7 @@ func (o GroupWarmPoolPtrOutput) MinSize() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
 func (o GroupWarmPoolPtrOutput) PoolState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupWarmPool) *string {
 		if v == nil {
@@ -2007,6 +2026,143 @@ func (o GroupWarmPoolPtrOutput) PoolState() pulumi.StringPtrOutput {
 		}
 		return v.PoolState
 	}).(pulumi.StringPtrOutput)
+}
+
+type GroupWarmPoolInstanceReusePolicy struct {
+	// Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+	ReuseOnScaleIn *bool `pulumi:"reuseOnScaleIn"`
+}
+
+// GroupWarmPoolInstanceReusePolicyInput is an input type that accepts GroupWarmPoolInstanceReusePolicyArgs and GroupWarmPoolInstanceReusePolicyOutput values.
+// You can construct a concrete instance of `GroupWarmPoolInstanceReusePolicyInput` via:
+//
+//          GroupWarmPoolInstanceReusePolicyArgs{...}
+type GroupWarmPoolInstanceReusePolicyInput interface {
+	pulumi.Input
+
+	ToGroupWarmPoolInstanceReusePolicyOutput() GroupWarmPoolInstanceReusePolicyOutput
+	ToGroupWarmPoolInstanceReusePolicyOutputWithContext(context.Context) GroupWarmPoolInstanceReusePolicyOutput
+}
+
+type GroupWarmPoolInstanceReusePolicyArgs struct {
+	// Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+	ReuseOnScaleIn pulumi.BoolPtrInput `pulumi:"reuseOnScaleIn"`
+}
+
+func (GroupWarmPoolInstanceReusePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupWarmPoolInstanceReusePolicy)(nil)).Elem()
+}
+
+func (i GroupWarmPoolInstanceReusePolicyArgs) ToGroupWarmPoolInstanceReusePolicyOutput() GroupWarmPoolInstanceReusePolicyOutput {
+	return i.ToGroupWarmPoolInstanceReusePolicyOutputWithContext(context.Background())
+}
+
+func (i GroupWarmPoolInstanceReusePolicyArgs) ToGroupWarmPoolInstanceReusePolicyOutputWithContext(ctx context.Context) GroupWarmPoolInstanceReusePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolInstanceReusePolicyOutput)
+}
+
+func (i GroupWarmPoolInstanceReusePolicyArgs) ToGroupWarmPoolInstanceReusePolicyPtrOutput() GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return i.ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GroupWarmPoolInstanceReusePolicyArgs) ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolInstanceReusePolicyOutput).ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx)
+}
+
+// GroupWarmPoolInstanceReusePolicyPtrInput is an input type that accepts GroupWarmPoolInstanceReusePolicyArgs, GroupWarmPoolInstanceReusePolicyPtr and GroupWarmPoolInstanceReusePolicyPtrOutput values.
+// You can construct a concrete instance of `GroupWarmPoolInstanceReusePolicyPtrInput` via:
+//
+//          GroupWarmPoolInstanceReusePolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupWarmPoolInstanceReusePolicyPtrInput interface {
+	pulumi.Input
+
+	ToGroupWarmPoolInstanceReusePolicyPtrOutput() GroupWarmPoolInstanceReusePolicyPtrOutput
+	ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Context) GroupWarmPoolInstanceReusePolicyPtrOutput
+}
+
+type groupWarmPoolInstanceReusePolicyPtrType GroupWarmPoolInstanceReusePolicyArgs
+
+func GroupWarmPoolInstanceReusePolicyPtr(v *GroupWarmPoolInstanceReusePolicyArgs) GroupWarmPoolInstanceReusePolicyPtrInput {
+	return (*groupWarmPoolInstanceReusePolicyPtrType)(v)
+}
+
+func (*groupWarmPoolInstanceReusePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupWarmPoolInstanceReusePolicy)(nil)).Elem()
+}
+
+func (i *groupWarmPoolInstanceReusePolicyPtrType) ToGroupWarmPoolInstanceReusePolicyPtrOutput() GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return i.ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *groupWarmPoolInstanceReusePolicyPtrType) ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupWarmPoolInstanceReusePolicyPtrOutput)
+}
+
+type GroupWarmPoolInstanceReusePolicyOutput struct{ *pulumi.OutputState }
+
+func (GroupWarmPoolInstanceReusePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupWarmPoolInstanceReusePolicy)(nil)).Elem()
+}
+
+func (o GroupWarmPoolInstanceReusePolicyOutput) ToGroupWarmPoolInstanceReusePolicyOutput() GroupWarmPoolInstanceReusePolicyOutput {
+	return o
+}
+
+func (o GroupWarmPoolInstanceReusePolicyOutput) ToGroupWarmPoolInstanceReusePolicyOutputWithContext(ctx context.Context) GroupWarmPoolInstanceReusePolicyOutput {
+	return o
+}
+
+func (o GroupWarmPoolInstanceReusePolicyOutput) ToGroupWarmPoolInstanceReusePolicyPtrOutput() GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return o.ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GroupWarmPoolInstanceReusePolicyOutput) ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupWarmPoolInstanceReusePolicy) *GroupWarmPoolInstanceReusePolicy {
+		return &v
+	}).(GroupWarmPoolInstanceReusePolicyPtrOutput)
+}
+
+// Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+func (o GroupWarmPoolInstanceReusePolicyOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GroupWarmPoolInstanceReusePolicy) *bool { return v.ReuseOnScaleIn }).(pulumi.BoolPtrOutput)
+}
+
+type GroupWarmPoolInstanceReusePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupWarmPoolInstanceReusePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupWarmPoolInstanceReusePolicy)(nil)).Elem()
+}
+
+func (o GroupWarmPoolInstanceReusePolicyPtrOutput) ToGroupWarmPoolInstanceReusePolicyPtrOutput() GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return o
+}
+
+func (o GroupWarmPoolInstanceReusePolicyPtrOutput) ToGroupWarmPoolInstanceReusePolicyPtrOutputWithContext(ctx context.Context) GroupWarmPoolInstanceReusePolicyPtrOutput {
+	return o
+}
+
+func (o GroupWarmPoolInstanceReusePolicyPtrOutput) Elem() GroupWarmPoolInstanceReusePolicyOutput {
+	return o.ApplyT(func(v *GroupWarmPoolInstanceReusePolicy) GroupWarmPoolInstanceReusePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GroupWarmPoolInstanceReusePolicy
+		return ret
+	}).(GroupWarmPoolInstanceReusePolicyOutput)
+}
+
+// Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+func (o GroupWarmPoolInstanceReusePolicyPtrOutput) ReuseOnScaleIn() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupWarmPoolInstanceReusePolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReuseOnScaleIn
+	}).(pulumi.BoolPtrOutput)
 }
 
 type PolicyPredictiveScalingConfiguration struct {
@@ -6464,6 +6620,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagArrayInput)(nil)).Elem(), GroupTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupWarmPoolInput)(nil)).Elem(), GroupWarmPoolArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupWarmPoolPtrInput)(nil)).Elem(), GroupWarmPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupWarmPoolInstanceReusePolicyInput)(nil)).Elem(), GroupWarmPoolInstanceReusePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupWarmPoolInstanceReusePolicyPtrInput)(nil)).Elem(), GroupWarmPoolInstanceReusePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPredictiveScalingConfigurationInput)(nil)).Elem(), PolicyPredictiveScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPredictiveScalingConfigurationPtrInput)(nil)).Elem(), PolicyPredictiveScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyPredictiveScalingConfigurationMetricSpecificationInput)(nil)).Elem(), PolicyPredictiveScalingConfigurationMetricSpecificationArgs{})
@@ -6544,6 +6702,8 @@ func init() {
 	pulumi.RegisterOutputType(GroupTagArrayOutput{})
 	pulumi.RegisterOutputType(GroupWarmPoolOutput{})
 	pulumi.RegisterOutputType(GroupWarmPoolPtrOutput{})
+	pulumi.RegisterOutputType(GroupWarmPoolInstanceReusePolicyOutput{})
+	pulumi.RegisterOutputType(GroupWarmPoolInstanceReusePolicyPtrOutput{})
 	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyPredictiveScalingConfigurationMetricSpecificationOutput{})

@@ -34,42 +34,46 @@ namespace Pulumi.Aws.CloudTrail
     ///         var bucketV2 = new Aws.S3.BucketV2("bucketV2", new Aws.S3.BucketV2Args
     ///         {
     ///         });
-    ///         var bucketPolicy = new Aws.S3.BucketPolicy("bucketPolicy", new Aws.S3.BucketPolicyArgs
+    ///         var fooBucketV2 = new Aws.S3.BucketV2("fooBucketV2", new Aws.S3.BucketV2Args
     ///         {
-    ///             Bucket = bucketV2.Id,
-    ///             Policy = Output.Tuple(bucketV2.Id, bucketV2.Id, current).Apply(values =&gt;
+    ///             ForceDestroy = true,
+    ///         });
+    ///         var fooBucketPolicy = new Aws.S3.BucketPolicy("fooBucketPolicy", new Aws.S3.BucketPolicyArgs
+    ///         {
+    ///             Bucket = fooBucketV2.Id,
+    ///             Policy = Output.Tuple(fooBucketV2.Arn, fooBucketV2.Arn, current).Apply(values =&gt;
     ///             {
-    ///                 var bucketV2Id = values.Item1;
-    ///                 var bucketV2Id1 = values.Item2;
+    ///                 var fooBucketV2Arn = values.Item1;
+    ///                 var fooBucketV2Arn1 = values.Item2;
     ///                 var current = values.Item3;
-    ///                 return @$"  {{
-    ///       ""Version"": ""2012-10-17"",
-    ///       ""Statement"": [
-    ///           {{
-    ///               ""Sid"": ""AWSCloudTrailAclCheck"",
-    ///               ""Effect"": ""Allow"",
-    ///               ""Principal"": {{
-    ///                 ""Service"": ""cloudtrail.amazonaws.com""
-    ///               }},
-    ///               ""Action"": ""s3:GetBucketAcl"",
-    ///               ""Resource"": ""arn:aws:s3:::{bucketV2Id}""
-    ///           }},
-    ///           {{
-    ///               ""Sid"": ""AWSCloudTrailWrite"",
-    ///               ""Effect"": ""Allow"",
-    ///               ""Principal"": {{
-    ///                 ""Service"": ""cloudtrail.amazonaws.com""
-    ///               }},
-    ///               ""Action"": ""s3:PutObject"",
-    ///               ""Resource"": ""arn:aws:s3:::{bucketV2Id1}/prefix/AWSLogs/{current.AccountId}/*"",
-    ///               ""Condition"": {{
-    ///                   ""StringEquals"": {{
-    ///                       ""s3:x-amz-acl"": ""bucket-owner-full-control""
-    ///                   }}
-    ///               }}
-    ///           }}
-    ///       ]
-    ///   }}
+    ///                 return @$"{{
+    ///     ""Version"": ""2012-10-17"",
+    ///     ""Statement"": [
+    ///         {{
+    ///             ""Sid"": ""AWSCloudTrailAclCheck"",
+    ///             ""Effect"": ""Allow"",
+    ///             ""Principal"": {{
+    ///               ""Service"": ""cloudtrail.amazonaws.com""
+    ///             }},
+    ///             ""Action"": ""s3:GetBucketAcl"",
+    ///             ""Resource"": ""{fooBucketV2Arn}""
+    ///         }},
+    ///         {{
+    ///             ""Sid"": ""AWSCloudTrailWrite"",
+    ///             ""Effect"": ""Allow"",
+    ///             ""Principal"": {{
+    ///               ""Service"": ""cloudtrail.amazonaws.com""
+    ///             }},
+    ///             ""Action"": ""s3:PutObject"",
+    ///             ""Resource"": ""{fooBucketV2Arn1}/prefix/AWSLogs/{current.AccountId}/*"",
+    ///             ""Condition"": {{
+    ///                 ""StringEquals"": {{
+    ///                     ""s3:x-amz-acl"": ""bucket-owner-full-control""
+    ///                 }}
+    ///             }}
+    ///         }}
+    ///     ]
+    /// }}
     /// ";
     ///             }),
     ///         });

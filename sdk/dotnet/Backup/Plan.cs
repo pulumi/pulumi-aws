@@ -31,6 +31,10 @@ namespace Pulumi.Aws.Backup
     ///                     RuleName = "tf_example_backup_rule",
     ///                     TargetVaultName = aws_backup_vault.Test.Name,
     ///                     Schedule = "cron(0 12 * * ? *)",
+    ///                     Lifecycle = new Aws.Backup.Inputs.PlanRuleLifecycleArgs
+    ///                     {
+    ///                         DeleteAfter = 14,
+    ///                     },
     ///                 },
     ///             },
     ///             AdvancedBackupSettings = 

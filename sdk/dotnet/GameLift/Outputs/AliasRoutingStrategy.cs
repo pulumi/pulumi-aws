@@ -14,7 +14,7 @@ namespace Pulumi.Aws.GameLift.Outputs
     public sealed class AliasRoutingStrategy
     {
         /// <summary>
-        /// ID of the Gamelift Fleet to point the alias to.
+        /// ID of the GameLift Fleet to point the alias to.
         /// </summary>
         public readonly string? FleetId;
         /// <summary>

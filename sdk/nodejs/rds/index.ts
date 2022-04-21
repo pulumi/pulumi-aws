@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cluster";
+export * from "./clusterActivityStream";
 export * from "./clusterEndpoint";
 export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
@@ -26,6 +27,7 @@ export * from "./getSnapshot";
 export * from "./getSubnetGroup";
 export * from "./globalCluster";
 export * from "./instance";
+export * from "./instanceAutomatedBackupsReplication";
 export * from "./instanceType";
 export * from "./optionGroup";
 export * from "./parameterGroup";
@@ -44,6 +46,7 @@ export * from "../types/enums/rds";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
+import { ClusterActivityStream } from "./clusterActivityStream";
 import { ClusterEndpoint } from "./clusterEndpoint";
 import { ClusterInstance } from "./clusterInstance";
 import { ClusterParameterGroup } from "./clusterParameterGroup";
@@ -52,6 +55,7 @@ import { ClusterSnapshot } from "./clusterSnapshot";
 import { EventSubscription } from "./eventSubscription";
 import { GlobalCluster } from "./globalCluster";
 import { Instance } from "./instance";
+import { InstanceAutomatedBackupsReplication } from "./instanceAutomatedBackupsReplication";
 import { OptionGroup } from "./optionGroup";
 import { ParameterGroup } from "./parameterGroup";
 import { Proxy } from "./proxy";
@@ -69,6 +73,8 @@ const _module = {
         switch (type) {
             case "aws:rds/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws:rds/clusterActivityStream:ClusterActivityStream":
+                return new ClusterActivityStream(name, <any>undefined, { urn })
             case "aws:rds/clusterEndpoint:ClusterEndpoint":
                 return new ClusterEndpoint(name, <any>undefined, { urn })
             case "aws:rds/clusterInstance:ClusterInstance":
@@ -85,6 +91,8 @@ const _module = {
                 return new GlobalCluster(name, <any>undefined, { urn })
             case "aws:rds/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication":
+                return new InstanceAutomatedBackupsReplication(name, <any>undefined, { urn })
             case "aws:rds/optionGroup:OptionGroup":
                 return new OptionGroup(name, <any>undefined, { urn })
             case "aws:rds/parameterGroup:ParameterGroup":
@@ -111,6 +119,7 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "rds/cluster", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/clusterActivityStream", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/clusterParameterGroup", _module)
@@ -119,6 +128,7 @@ pulumi.runtime.registerResourceModule("aws", "rds/clusterSnapshot", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/globalCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/instance", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/instanceAutomatedBackupsReplication", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/optionGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/proxy", _module)

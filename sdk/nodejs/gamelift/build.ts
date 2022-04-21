@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Gamelift Build resource.
+ * Provides an GameLift Build resource.
  *
  * ## Example Usage
  *
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Gamelift Builds can be imported using the ID, e.g.,
+ * GameLift Builds can be imported using the ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:gamelift/build:Build example <build-id>
@@ -61,7 +61,7 @@ export class Build extends pulumi.CustomResource {
     }
 
     /**
-     * Gamelift Build ARN.
+     * GameLift Build ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -81,7 +81,7 @@ export class Build extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -135,7 +135,7 @@ export class Build extends pulumi.CustomResource {
  */
 export interface BuildState {
     /**
-     * Gamelift Build ARN.
+     * GameLift Build ARN.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -155,7 +155,7 @@ export interface BuildState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

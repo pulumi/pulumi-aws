@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift
 {
     /// <summary>
-    /// Provides a Gamelift Alias resource.
+    /// Provides a GameLift Alias resource.
     /// 
     /// ## Example Usage
     /// 
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Gamelift Aliases can be imported using the ID, e.g.,
+    /// GameLift Aliases can be imported using the ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/alias:Alias example &lt;alias-id&gt;

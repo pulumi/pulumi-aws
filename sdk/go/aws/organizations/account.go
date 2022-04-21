@@ -15,7 +15,7 @@ import (
 //
 // > **Note:** Account management must be done from the organization's master account.
 //
-// !> **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
+// > **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `closeOnDeletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `closeOnDeletion` argument, which you can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 // The AWS member account can be imported by using the `account_id`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:organizations/account:Account my_org 111111111111
+//  $ pulumi import aws:organizations/account:Account my_account 111111111111
 // ```
 //
 //  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
@@ -72,6 +72,8 @@ type Account struct {
 
 	// The ARN for this account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	CloseOnDeletion pulumi.BoolPtrOutput `pulumi:"closeOnDeletion"`
 	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
@@ -85,7 +87,7 @@ type Account struct {
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
 	RoleName pulumi.StringPtrOutput `pulumi:"roleName"`
 	Status   pulumi.StringOutput    `pulumi:"status"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -125,6 +127,8 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// The ARN for this account.
 	Arn *string `pulumi:"arn"`
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	CloseOnDeletion *bool `pulumi:"closeOnDeletion"`
 	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email *string `pulumi:"email"`
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
@@ -138,7 +142,7 @@ type accountState struct {
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
 	RoleName *string `pulumi:"roleName"`
 	Status   *string `pulumi:"status"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -147,6 +151,8 @@ type accountState struct {
 type AccountState struct {
 	// The ARN for this account.
 	Arn pulumi.StringPtrInput
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	CloseOnDeletion pulumi.BoolPtrInput
 	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringPtrInput
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
@@ -160,7 +166,7 @@ type AccountState struct {
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
 	RoleName pulumi.StringPtrInput
 	Status   pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider.
 	TagsAll pulumi.StringMapInput
@@ -171,6 +177,8 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	CloseOnDeletion *bool `pulumi:"closeOnDeletion"`
 	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email string `pulumi:"email"`
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
@@ -181,12 +189,14 @@ type accountArgs struct {
 	ParentId *string `pulumi:"parentId"`
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
 	RoleName *string `pulumi:"roleName"`
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	CloseOnDeletion pulumi.BoolPtrInput
 	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringInput
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
@@ -197,7 +207,7 @@ type AccountArgs struct {
 	ParentId pulumi.StringPtrInput
 	// The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
 	RoleName pulumi.StringPtrInput
-	// Key-value mapping of resource tags.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

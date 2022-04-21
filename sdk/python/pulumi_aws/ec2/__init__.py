@@ -54,6 +54,7 @@ from .get_local_gateway_virtual_interface_groups import *
 from .get_local_gateways import *
 from .get_managed_prefix_list import *
 from .get_nat_gateway import *
+from .get_nat_gateways import *
 from .get_network_acls import *
 from .get_network_interface import *
 from .get_network_interfaces import *

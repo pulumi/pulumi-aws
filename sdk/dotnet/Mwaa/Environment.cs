@@ -290,6 +290,12 @@ namespace Pulumi.Aws.Mwaa
         public Output<string?> RequirementsS3Path { get; private set; } = null!;
 
         /// <summary>
+        /// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        /// </summary>
+        [Output("schedulers")]
+        public Output<int> Schedulers { get; private set; } = null!;
+
+        /// <summary>
         /// The Service Role ARN of the Amazon MWAA Environment
         /// </summary>
         [Output("serviceRoleArn")]
@@ -480,6 +486,12 @@ namespace Pulumi.Aws.Mwaa
         public Input<string>? RequirementsS3Path { get; set; }
 
         /// <summary>
+        /// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        /// </summary>
+        [Input("schedulers")]
+        public Input<int>? Schedulers { get; set; }
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         /// </summary>
         [Input("sourceBucketArn", required: true)]
@@ -632,6 +644,12 @@ namespace Pulumi.Aws.Mwaa
         /// </summary>
         [Input("requirementsS3Path")]
         public Input<string>? RequirementsS3Path { get; set; }
+
+        /// <summary>
+        /// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        /// </summary>
+        [Input("schedulers")]
+        public Input<int>? Schedulers { get; set; }
 
         /// <summary>
         /// The Service Role ARN of the Amazon MWAA Environment

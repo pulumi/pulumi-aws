@@ -24,13 +24,13 @@ class RuleArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Rule resource.
-        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         :param pulumi.Input[str] description: Description of the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
-        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         :param pulumi.Input[str] name: The name of the rule
-        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule as documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source", source)
         if description is not None:
@@ -50,7 +50,7 @@ class RuleArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input['RuleSourceArgs']:
         """
-        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         """
         return pulumi.get(self, "source")
 
@@ -86,7 +86,7 @@ class RuleArgs:
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 
@@ -110,7 +110,7 @@ class RuleArgs:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
         """
-        Scope defines which resources can trigger an evaluation for the rule as documented below.
+        Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         """
         return pulumi.get(self, "scope")
 
@@ -122,7 +122,7 @@ class RuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -149,12 +149,12 @@ class _RuleState:
         :param pulumi.Input[str] arn: The ARN of the config rule
         :param pulumi.Input[str] description: Description of the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
-        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] rule_id: The ID of the config rule
-        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule as documented below.
-        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input['RuleScopeArgs'] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input['RuleSourceArgs'] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if arn is not None:
@@ -218,7 +218,7 @@ class _RuleState:
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[pulumi.Input[str]]:
         """
-        The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 
@@ -254,7 +254,7 @@ class _RuleState:
     @pulumi.getter
     def scope(self) -> Optional[pulumi.Input['RuleScopeArgs']]:
         """
-        Scope defines which resources can trigger an evaluation for the rule as documented below.
+        Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         """
         return pulumi.get(self, "scope")
 
@@ -266,7 +266,7 @@ class _RuleState:
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['RuleSourceArgs']]:
         """
-        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         """
         return pulumi.get(self, "source")
 
@@ -278,7 +278,7 @@ class _RuleState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -387,6 +387,33 @@ class Rule(pulumi.CustomResource):
                 example_permission,
             ]))
         ```
+        ### Custom Policies
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
+            owner="CUSTOM_POLICY",
+            source_details=[aws.cfg.RuleSourceSourceDetailArgs(
+                message_type="ConfigurationItemChangeNotification",
+            )],
+            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
+                policy_runtime="guard-2.x.x",
+                policy_text=\"\"\"	  rule tableisactive when
+        		  resourceType == "AWS::DynamoDB::Table" {
+        		  configuration.tableStatus == ['ACTIVE']
+        	  }
+        	  
+        	  rule checkcompliance when
+        		  resourceType == "AWS::DynamoDB::Table"
+        		  tableisactive {
+        			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+        	  }
+        \"\"\",
+            ),
+        ))
+        ```
 
         ## Import
 
@@ -400,11 +427,11 @@ class Rule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
-        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         :param pulumi.Input[str] name: The name of the rule
-        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule as documented below.
-        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -486,6 +513,33 @@ class Rule(pulumi.CustomResource):
                 example_recorder,
                 example_permission,
             ]))
+        ```
+        ### Custom Policies
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cfg.Rule("example", source=aws.cfg.RuleSourceArgs(
+            owner="CUSTOM_POLICY",
+            source_details=[aws.cfg.RuleSourceSourceDetailArgs(
+                message_type="ConfigurationItemChangeNotification",
+            )],
+            custom_policy_details=aws.cfg.RuleSourceCustomPolicyDetailsArgs(
+                policy_runtime="guard-2.x.x",
+                policy_text=\"\"\"	  rule tableisactive when
+        		  resourceType == "AWS::DynamoDB::Table" {
+        		  configuration.tableStatus == ['ACTIVE']
+        	  }
+        	  
+        	  rule checkcompliance when
+        		  resourceType == "AWS::DynamoDB::Table"
+        		  tableisactive {
+        			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+        	  }
+        \"\"\",
+            ),
+        ))
         ```
 
         ## Import
@@ -572,12 +626,12 @@ class Rule(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the config rule
         :param pulumi.Input[str] description: Description of the rule
         :param pulumi.Input[str] input_parameters: A string in JSON format that is passed to the AWS Config rule Lambda function.
-        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        :param pulumi.Input[str] maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         :param pulumi.Input[str] name: The name of the rule
         :param pulumi.Input[str] rule_id: The ID of the config rule
-        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule as documented below.
-        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[pulumi.InputType['RuleScopeArgs']] scope: Scope defines which resources can trigger an evaluation for the rule. See Source Below.
+        :param pulumi.Input[pulumi.InputType['RuleSourceArgs']] source: Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -624,7 +678,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> pulumi.Output[Optional[str]]:
         """
-        The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 
@@ -648,7 +702,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def scope(self) -> pulumi.Output[Optional['outputs.RuleScope']]:
         """
-        Scope defines which resources can trigger an evaluation for the rule as documented below.
+        Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         """
         return pulumi.get(self, "scope")
 
@@ -656,7 +710,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output['outputs.RuleSource']:
         """
-        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         """
         return pulumi.get(self, "source")
 
@@ -664,7 +718,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

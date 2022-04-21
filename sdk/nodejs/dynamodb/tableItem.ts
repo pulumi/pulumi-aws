@@ -76,8 +76,7 @@ export class TableItem extends pulumi.CustomResource {
      */
     public readonly hashKey!: pulumi.Output<string>;
     /**
-     * JSON representation of a map of attribute name/value pairs, one for each attribute.
-     * Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+     * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
     public readonly item!: pulumi.Output<string>;
     /**
@@ -85,7 +84,7 @@ export class TableItem extends pulumi.CustomResource {
      */
     public readonly rangeKey!: pulumi.Output<string | undefined>;
     /**
-     * The name of the table to contain the item.
+     * Name of the table to contain the item.
      */
     public readonly tableName!: pulumi.Output<string>;
 
@@ -136,8 +135,7 @@ export interface TableItemState {
      */
     hashKey?: pulumi.Input<string>;
     /**
-     * JSON representation of a map of attribute name/value pairs, one for each attribute.
-     * Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+     * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
     item?: pulumi.Input<string>;
     /**
@@ -145,7 +143,7 @@ export interface TableItemState {
      */
     rangeKey?: pulumi.Input<string>;
     /**
-     * The name of the table to contain the item.
+     * Name of the table to contain the item.
      */
     tableName?: pulumi.Input<string>;
 }
@@ -159,8 +157,7 @@ export interface TableItemArgs {
      */
     hashKey: pulumi.Input<string>;
     /**
-     * JSON representation of a map of attribute name/value pairs, one for each attribute.
-     * Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+     * JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
      */
     item: pulumi.Input<string>;
     /**
@@ -168,7 +165,7 @@ export interface TableItemArgs {
      */
     rangeKey?: pulumi.Input<string>;
     /**
-     * The name of the table to contain the item.
+     * Name of the table to contain the item.
      */
     tableName: pulumi.Input<string>;
 }

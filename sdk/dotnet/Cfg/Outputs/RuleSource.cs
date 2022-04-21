@@ -14,26 +14,33 @@ namespace Pulumi.Aws.Cfg.Outputs
     public sealed class RuleSource
     {
         /// <summary>
-        /// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `aws.lambda.Permission` resource.
+        /// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+        /// </summary>
+        public readonly Outputs.RuleSourceCustomPolicyDetails? CustomPolicyDetails;
+        /// <summary>
+        /// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`aws.lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
         /// </summary>
         public readonly string Owner;
         /// <summary>
-        /// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+        /// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleSourceSourceDetail> SourceDetails;
         /// <summary>
         /// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
         /// </summary>
-        public readonly string SourceIdentifier;
+        public readonly string? SourceIdentifier;
 
         [OutputConstructor]
         private RuleSource(
+            Outputs.RuleSourceCustomPolicyDetails? customPolicyDetails,
+
             string owner,
 
             ImmutableArray<Outputs.RuleSourceSourceDetail> sourceDetails,
 
-            string sourceIdentifier)
+            string? sourceIdentifier)
         {
+            CustomPolicyDetails = customPolicyDetails;
             Owner = owner;
             SourceDetails = sourceDetails;
             SourceIdentifier = sourceIdentifier;

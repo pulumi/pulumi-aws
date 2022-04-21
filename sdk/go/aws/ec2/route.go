@@ -99,6 +99,8 @@ type Route struct {
 
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId pulumi.StringPtrOutput `pulumi:"carrierGatewayId"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn pulumi.StringPtrOutput `pulumi:"coreNetworkArn"`
 	// The destination CIDR block.
 	DestinationCidrBlock pulumi.StringPtrOutput `pulumi:"destinationCidrBlock"`
 	// The destination IPv6 CIDR block.
@@ -169,6 +171,8 @@ func GetRoute(ctx *pulumi.Context,
 type routeState struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The destination CIDR block.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// The destination IPv6 CIDR block.
@@ -208,6 +212,8 @@ type routeState struct {
 type RouteState struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn pulumi.StringPtrInput
 	// The destination CIDR block.
 	DestinationCidrBlock pulumi.StringPtrInput
 	// The destination IPv6 CIDR block.
@@ -251,6 +257,8 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The destination CIDR block.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// The destination IPv6 CIDR block.
@@ -285,6 +293,8 @@ type routeArgs struct {
 type RouteArgs struct {
 	// Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
 	CarrierGatewayId pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn pulumi.StringPtrInput
 	// The destination CIDR block.
 	DestinationCidrBlock pulumi.StringPtrInput
 	// The destination IPv6 CIDR block.

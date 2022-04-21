@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -16,6 +17,10 @@ import * as utilities from "../utilities";
  * const example = new aws.xray.Group("example", {
  *     filterExpression: "responsetime > 5",
  *     groupName: "example",
+ *     insightsConfiguration: {
+ *         insightsEnabled: true,
+ *         notificationsEnabled: true,
+ *     },
  * });
  * ```
  *
@@ -68,6 +73,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly groupName!: pulumi.Output<string>;
     /**
+     * Configuration options for enabling insights.
+     */
+    public readonly insightsConfiguration!: pulumi.Output<outputs.xray.GroupInsightsConfiguration>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -92,6 +101,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["filterExpression"] = state ? state.filterExpression : undefined;
             resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["insightsConfiguration"] = state ? state.insightsConfiguration : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -104,6 +114,7 @@ export class Group extends pulumi.CustomResource {
             }
             resourceInputs["filterExpression"] = args ? args.filterExpression : undefined;
             resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["insightsConfiguration"] = args ? args.insightsConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -130,6 +141,10 @@ export interface GroupState {
      */
     groupName?: pulumi.Input<string>;
     /**
+     * Configuration options for enabling insights.
+     */
+    insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfiguration>;
+    /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -151,6 +166,10 @@ export interface GroupArgs {
      * The name of the group.
      */
     groupName: pulumi.Input<string>;
+    /**
+     * Configuration options for enabling insights.
+     */
+    insightsConfiguration?: pulumi.Input<inputs.xray.GroupInsightsConfiguration>;
     /**
      * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

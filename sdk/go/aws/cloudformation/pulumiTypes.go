@@ -455,6 +455,446 @@ func (o StackSetInstanceDeploymentTargetsPtrOutput) OrganizationalUnitIds() pulu
 	}).(pulumi.StringArrayOutput)
 }
 
+type StackSetInstanceOperationPreferences struct {
+	FailureToleranceCount      *int     `pulumi:"failureToleranceCount"`
+	FailureTolerancePercentage *int     `pulumi:"failureTolerancePercentage"`
+	MaxConcurrentCount         *int     `pulumi:"maxConcurrentCount"`
+	MaxConcurrentPercentage    *int     `pulumi:"maxConcurrentPercentage"`
+	RegionConcurrencyType      *string  `pulumi:"regionConcurrencyType"`
+	RegionOrders               []string `pulumi:"regionOrders"`
+}
+
+// StackSetInstanceOperationPreferencesInput is an input type that accepts StackSetInstanceOperationPreferencesArgs and StackSetInstanceOperationPreferencesOutput values.
+// You can construct a concrete instance of `StackSetInstanceOperationPreferencesInput` via:
+//
+//          StackSetInstanceOperationPreferencesArgs{...}
+type StackSetInstanceOperationPreferencesInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceOperationPreferencesOutput() StackSetInstanceOperationPreferencesOutput
+	ToStackSetInstanceOperationPreferencesOutputWithContext(context.Context) StackSetInstanceOperationPreferencesOutput
+}
+
+type StackSetInstanceOperationPreferencesArgs struct {
+	FailureToleranceCount      pulumi.IntPtrInput      `pulumi:"failureToleranceCount"`
+	FailureTolerancePercentage pulumi.IntPtrInput      `pulumi:"failureTolerancePercentage"`
+	MaxConcurrentCount         pulumi.IntPtrInput      `pulumi:"maxConcurrentCount"`
+	MaxConcurrentPercentage    pulumi.IntPtrInput      `pulumi:"maxConcurrentPercentage"`
+	RegionConcurrencyType      pulumi.StringPtrInput   `pulumi:"regionConcurrencyType"`
+	RegionOrders               pulumi.StringArrayInput `pulumi:"regionOrders"`
+}
+
+func (StackSetInstanceOperationPreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceOperationPreferences)(nil)).Elem()
+}
+
+func (i StackSetInstanceOperationPreferencesArgs) ToStackSetInstanceOperationPreferencesOutput() StackSetInstanceOperationPreferencesOutput {
+	return i.ToStackSetInstanceOperationPreferencesOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceOperationPreferencesArgs) ToStackSetInstanceOperationPreferencesOutputWithContext(ctx context.Context) StackSetInstanceOperationPreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOperationPreferencesOutput)
+}
+
+func (i StackSetInstanceOperationPreferencesArgs) ToStackSetInstanceOperationPreferencesPtrOutput() StackSetInstanceOperationPreferencesPtrOutput {
+	return i.ToStackSetInstanceOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceOperationPreferencesArgs) ToStackSetInstanceOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetInstanceOperationPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOperationPreferencesOutput).ToStackSetInstanceOperationPreferencesPtrOutputWithContext(ctx)
+}
+
+// StackSetInstanceOperationPreferencesPtrInput is an input type that accepts StackSetInstanceOperationPreferencesArgs, StackSetInstanceOperationPreferencesPtr and StackSetInstanceOperationPreferencesPtrOutput values.
+// You can construct a concrete instance of `StackSetInstanceOperationPreferencesPtrInput` via:
+//
+//          StackSetInstanceOperationPreferencesArgs{...}
+//
+//  or:
+//
+//          nil
+type StackSetInstanceOperationPreferencesPtrInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceOperationPreferencesPtrOutput() StackSetInstanceOperationPreferencesPtrOutput
+	ToStackSetInstanceOperationPreferencesPtrOutputWithContext(context.Context) StackSetInstanceOperationPreferencesPtrOutput
+}
+
+type stackSetInstanceOperationPreferencesPtrType StackSetInstanceOperationPreferencesArgs
+
+func StackSetInstanceOperationPreferencesPtr(v *StackSetInstanceOperationPreferencesArgs) StackSetInstanceOperationPreferencesPtrInput {
+	return (*stackSetInstanceOperationPreferencesPtrType)(v)
+}
+
+func (*stackSetInstanceOperationPreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetInstanceOperationPreferences)(nil)).Elem()
+}
+
+func (i *stackSetInstanceOperationPreferencesPtrType) ToStackSetInstanceOperationPreferencesPtrOutput() StackSetInstanceOperationPreferencesPtrOutput {
+	return i.ToStackSetInstanceOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetInstanceOperationPreferencesPtrType) ToStackSetInstanceOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetInstanceOperationPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceOperationPreferencesPtrOutput)
+}
+
+type StackSetInstanceOperationPreferencesOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceOperationPreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceOperationPreferences)(nil)).Elem()
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) ToStackSetInstanceOperationPreferencesOutput() StackSetInstanceOperationPreferencesOutput {
+	return o
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) ToStackSetInstanceOperationPreferencesOutputWithContext(ctx context.Context) StackSetInstanceOperationPreferencesOutput {
+	return o
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) ToStackSetInstanceOperationPreferencesPtrOutput() StackSetInstanceOperationPreferencesPtrOutput {
+	return o.ToStackSetInstanceOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) ToStackSetInstanceOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetInstanceOperationPreferencesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetInstanceOperationPreferences) *StackSetInstanceOperationPreferences {
+		return &v
+	}).(StackSetInstanceOperationPreferencesPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.FailureTolerancePercentage }).(pulumi.IntPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.MaxConcurrentCount }).(pulumi.IntPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *int { return v.MaxConcurrentPercentage }).(pulumi.IntPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetInstanceOperationPreferences) *string { return v.RegionConcurrencyType }).(pulumi.StringPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesOutput) RegionOrders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetInstanceOperationPreferences) []string { return v.RegionOrders }).(pulumi.StringArrayOutput)
+}
+
+type StackSetInstanceOperationPreferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceOperationPreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetInstanceOperationPreferences)(nil)).Elem()
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) ToStackSetInstanceOperationPreferencesPtrOutput() StackSetInstanceOperationPreferencesPtrOutput {
+	return o
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) ToStackSetInstanceOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetInstanceOperationPreferencesPtrOutput {
+	return o
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) Elem() StackSetInstanceOperationPreferencesOutput {
+	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) StackSetInstanceOperationPreferences {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetInstanceOperationPreferences
+		return ret
+	}).(StackSetInstanceOperationPreferencesOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureToleranceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureTolerancePercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentCount
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionConcurrencyType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o StackSetInstanceOperationPreferencesPtrOutput) RegionOrders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetInstanceOperationPreferences) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionOrders
+	}).(pulumi.StringArrayOutput)
+}
+
+type StackSetOperationPreferences struct {
+	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+	FailureToleranceCount *int `pulumi:"failureToleranceCount"`
+	// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+	FailureTolerancePercentage *int `pulumi:"failureTolerancePercentage"`
+	// The maximum number of accounts in which to perform this operation at one time.
+	MaxConcurrentCount *int `pulumi:"maxConcurrentCount"`
+	// The maximum percentage of accounts in which to perform this operation at one time.
+	MaxConcurrentPercentage *int `pulumi:"maxConcurrentPercentage"`
+	// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+	RegionConcurrencyType *string `pulumi:"regionConcurrencyType"`
+	// The order of the Regions in where you want to perform the stack operation.
+	RegionOrders []string `pulumi:"regionOrders"`
+}
+
+// StackSetOperationPreferencesInput is an input type that accepts StackSetOperationPreferencesArgs and StackSetOperationPreferencesOutput values.
+// You can construct a concrete instance of `StackSetOperationPreferencesInput` via:
+//
+//          StackSetOperationPreferencesArgs{...}
+type StackSetOperationPreferencesInput interface {
+	pulumi.Input
+
+	ToStackSetOperationPreferencesOutput() StackSetOperationPreferencesOutput
+	ToStackSetOperationPreferencesOutputWithContext(context.Context) StackSetOperationPreferencesOutput
+}
+
+type StackSetOperationPreferencesArgs struct {
+	// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+	FailureToleranceCount pulumi.IntPtrInput `pulumi:"failureToleranceCount"`
+	// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+	FailureTolerancePercentage pulumi.IntPtrInput `pulumi:"failureTolerancePercentage"`
+	// The maximum number of accounts in which to perform this operation at one time.
+	MaxConcurrentCount pulumi.IntPtrInput `pulumi:"maxConcurrentCount"`
+	// The maximum percentage of accounts in which to perform this operation at one time.
+	MaxConcurrentPercentage pulumi.IntPtrInput `pulumi:"maxConcurrentPercentage"`
+	// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+	RegionConcurrencyType pulumi.StringPtrInput `pulumi:"regionConcurrencyType"`
+	// The order of the Regions in where you want to perform the stack operation.
+	RegionOrders pulumi.StringArrayInput `pulumi:"regionOrders"`
+}
+
+func (StackSetOperationPreferencesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetOperationPreferences)(nil)).Elem()
+}
+
+func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesOutput() StackSetOperationPreferencesOutput {
+	return i.ToStackSetOperationPreferencesOutputWithContext(context.Background())
+}
+
+func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesOutputWithContext(ctx context.Context) StackSetOperationPreferencesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesOutput)
+}
+
+func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
+	return i.ToStackSetOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetOperationPreferencesArgs) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesOutput).ToStackSetOperationPreferencesPtrOutputWithContext(ctx)
+}
+
+// StackSetOperationPreferencesPtrInput is an input type that accepts StackSetOperationPreferencesArgs, StackSetOperationPreferencesPtr and StackSetOperationPreferencesPtrOutput values.
+// You can construct a concrete instance of `StackSetOperationPreferencesPtrInput` via:
+//
+//          StackSetOperationPreferencesArgs{...}
+//
+//  or:
+//
+//          nil
+type StackSetOperationPreferencesPtrInput interface {
+	pulumi.Input
+
+	ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput
+	ToStackSetOperationPreferencesPtrOutputWithContext(context.Context) StackSetOperationPreferencesPtrOutput
+}
+
+type stackSetOperationPreferencesPtrType StackSetOperationPreferencesArgs
+
+func StackSetOperationPreferencesPtr(v *StackSetOperationPreferencesArgs) StackSetOperationPreferencesPtrInput {
+	return (*stackSetOperationPreferencesPtrType)(v)
+}
+
+func (*stackSetOperationPreferencesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetOperationPreferences)(nil)).Elem()
+}
+
+func (i *stackSetOperationPreferencesPtrType) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
+	return i.ToStackSetOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetOperationPreferencesPtrType) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetOperationPreferencesPtrOutput)
+}
+
+type StackSetOperationPreferencesOutput struct{ *pulumi.OutputState }
+
+func (StackSetOperationPreferencesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetOperationPreferences)(nil)).Elem()
+}
+
+func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesOutput() StackSetOperationPreferencesOutput {
+	return o
+}
+
+func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesOutputWithContext(ctx context.Context) StackSetOperationPreferencesOutput {
+	return o
+}
+
+func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
+	return o.ToStackSetOperationPreferencesPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetOperationPreferencesOutput) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetOperationPreferences) *StackSetOperationPreferences {
+		return &v
+	}).(StackSetOperationPreferencesPtrOutput)
+}
+
+// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+func (o StackSetOperationPreferencesOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.FailureToleranceCount }).(pulumi.IntPtrOutput)
+}
+
+// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+func (o StackSetOperationPreferencesOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.FailureTolerancePercentage }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of accounts in which to perform this operation at one time.
+func (o StackSetOperationPreferencesOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.MaxConcurrentCount }).(pulumi.IntPtrOutput)
+}
+
+// The maximum percentage of accounts in which to perform this operation at one time.
+func (o StackSetOperationPreferencesOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *int { return v.MaxConcurrentPercentage }).(pulumi.IntPtrOutput)
+}
+
+// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+func (o StackSetOperationPreferencesOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) *string { return v.RegionConcurrencyType }).(pulumi.StringPtrOutput)
+}
+
+// The order of the Regions in where you want to perform the stack operation.
+func (o StackSetOperationPreferencesOutput) RegionOrders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetOperationPreferences) []string { return v.RegionOrders }).(pulumi.StringArrayOutput)
+}
+
+type StackSetOperationPreferencesPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetOperationPreferencesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetOperationPreferences)(nil)).Elem()
+}
+
+func (o StackSetOperationPreferencesPtrOutput) ToStackSetOperationPreferencesPtrOutput() StackSetOperationPreferencesPtrOutput {
+	return o
+}
+
+func (o StackSetOperationPreferencesPtrOutput) ToStackSetOperationPreferencesPtrOutputWithContext(ctx context.Context) StackSetOperationPreferencesPtrOutput {
+	return o
+}
+
+func (o StackSetOperationPreferencesPtrOutput) Elem() StackSetOperationPreferencesOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) StackSetOperationPreferences {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetOperationPreferences
+		return ret
+	}).(StackSetOperationPreferencesOutput)
+}
+
+// The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+func (o StackSetOperationPreferencesPtrOutput) FailureToleranceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureToleranceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+func (o StackSetOperationPreferencesPtrOutput) FailureTolerancePercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.FailureTolerancePercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of accounts in which to perform this operation at one time.
+func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum percentage of accounts in which to perform this operation at one time.
+func (o StackSetOperationPreferencesPtrOutput) MaxConcurrentPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+func (o StackSetOperationPreferencesPtrOutput) RegionConcurrencyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionConcurrencyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The order of the Regions in where you want to perform the stack operation.
+func (o StackSetOperationPreferencesPtrOutput) RegionOrders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetOperationPreferences) []string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionOrders
+	}).(pulumi.StringArrayOutput)
+}
+
 type GetCloudFormationTypeLoggingConfig struct {
 	// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName string `pulumi:"logGroupName"`
@@ -568,6 +1008,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentPtrInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsPtrInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceOperationPreferencesInput)(nil)).Elem(), StackSetInstanceOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceOperationPreferencesPtrInput)(nil)).Elem(), StackSetInstanceOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetOperationPreferencesPtrInput)(nil)).Elem(), StackSetOperationPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigArrayInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArray{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigOutput{})
@@ -576,6 +1020,10 @@ func init() {
 	pulumi.RegisterOutputType(StackSetAutoDeploymentPtrOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceDeploymentTargetsOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceDeploymentTargetsPtrOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceOperationPreferencesOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceOperationPreferencesPtrOutput{})
+	pulumi.RegisterOutputType(StackSetOperationPreferencesOutput{})
+	pulumi.RegisterOutputType(StackSetOperationPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(GetCloudFormationTypeLoggingConfigOutput{})
 	pulumi.RegisterOutputType(GetCloudFormationTypeLoggingConfigArrayOutput{})
 }

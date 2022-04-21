@@ -14,37 +14,37 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfigurationRule
     {
         /// <summary>
-        /// Whether delete markers are replicated.
+        /// Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
         /// </summary>
         public readonly string? DeleteMarkerReplicationStatus;
         /// <summary>
-        /// The destination for the rule.
+        /// Specifies the destination for the rule (documented below).
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestination> Destinations;
         /// <summary>
-        /// Filter that identifies subset of objects to which the replication rule applies.
+        /// Filter that identifies subset of objects to which the replication rule applies (documented below).
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleFilter> Filters;
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Object keyname prefix identifying one or more objects to which the rule applies
+        /// Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// The priority associated with the rule.
+        /// The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
         /// </summary>
         public readonly int? Priority;
         /// <summary>
-        /// The special object selection criteria.
+        /// Specifies special object selection criteria (documented below).
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> SourceSelectionCriterias;
         /// <summary>
-        /// The status of the rule.
+        /// The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
         /// </summary>
-        public readonly string? Status;
+        public readonly string Status;
 
         [OutputConstructor]
         private BucketV2ReplicationConfigurationRule(
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.S3.Outputs
 
             ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria> sourceSelectionCriterias,
 
-            string? status)
+            string status)
         {
             DeleteMarkerReplicationStatus = deleteMarkerReplicationStatus;
             Destinations = destinations;

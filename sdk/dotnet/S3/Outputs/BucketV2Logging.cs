@@ -14,17 +14,17 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2Logging
     {
         /// <summary>
-        /// The name of the bucket that receives the log objects.
+        /// The name of the bucket that will receive the log objects.
         /// </summary>
-        public readonly string? TargetBucket;
+        public readonly string TargetBucket;
         /// <summary>
-        /// The prefix for all log object keys/
+        /// To specify a key prefix for log objects.
         /// </summary>
         public readonly string? TargetPrefix;
 
         [OutputConstructor]
         private BucketV2Logging(
-            string? targetBucket,
+            string targetBucket,
 
             string? targetPrefix)
         {

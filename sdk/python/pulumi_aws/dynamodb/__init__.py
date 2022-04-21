@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .contributor_insights import *
 from .get_table import *
 from .global_table import *
 from .kinesis_streaming_destination import *

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfigurationRuleDestinationMetric
     {
         /// <summary>
-        /// Threshold within which objects are to be replicated.
+        /// Threshold within which objects are to be replicated. The only valid value is `15`.
         /// </summary>
         public readonly int? Minutes;
         /// <summary>
-        /// The status of the rule.
+        /// The status of replication metrics. Either `Enabled` or `Disabled`.
         /// </summary>
         public readonly string? Status;
 

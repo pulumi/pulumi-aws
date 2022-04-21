@@ -10,6 +10,7 @@ export * from "./getDelegationSet";
 export * from "./getResolverEndpoint";
 export * from "./getResolverRule";
 export * from "./getResolverRules";
+export * from "./getTrafficPolicyDocument";
 export * from "./getZone";
 export * from "./healthCheck";
 export * from "./hostedZoneDnsSec";
@@ -28,6 +29,8 @@ export * from "./resolverQueryLogConfig";
 export * from "./resolverQueryLogConfigAssociation";
 export * from "./resolverRule";
 export * from "./resolverRuleAssociation";
+export * from "./trafficPolicy";
+export * from "./trafficPolicyInstance";
 export * from "./vpcAssociationAuthorization";
 export * from "./zone";
 export * from "./zoneAssociation";
@@ -53,6 +56,8 @@ import { ResolverQueryLogConfig } from "./resolverQueryLogConfig";
 import { ResolverQueryLogConfigAssociation } from "./resolverQueryLogConfigAssociation";
 import { ResolverRule } from "./resolverRule";
 import { ResolverRuleAssociation } from "./resolverRuleAssociation";
+import { TrafficPolicy } from "./trafficPolicy";
+import { TrafficPolicyInstance } from "./trafficPolicyInstance";
 import { VpcAssociationAuthorization } from "./vpcAssociationAuthorization";
 import { Zone } from "./zone";
 import { ZoneAssociation } from "./zoneAssociation";
@@ -95,6 +100,10 @@ const _module = {
                 return new ResolverRule(name, <any>undefined, { urn })
             case "aws:route53/resolverRuleAssociation:ResolverRuleAssociation":
                 return new ResolverRuleAssociation(name, <any>undefined, { urn })
+            case "aws:route53/trafficPolicy:TrafficPolicy":
+                return new TrafficPolicy(name, <any>undefined, { urn })
+            case "aws:route53/trafficPolicyInstance:TrafficPolicyInstance":
+                return new TrafficPolicyInstance(name, <any>undefined, { urn })
             case "aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization":
                 return new VpcAssociationAuthorization(name, <any>undefined, { urn })
             case "aws:route53/zone:Zone":
@@ -123,6 +132,8 @@ pulumi.runtime.registerResourceModule("aws", "route53/resolverQueryLogConfig", _
 pulumi.runtime.registerResourceModule("aws", "route53/resolverQueryLogConfigAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverRule", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/resolverRuleAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/trafficPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "route53/trafficPolicyInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/vpcAssociationAuthorization", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/zone", _module)
 pulumi.runtime.registerResourceModule("aws", "route53/zoneAssociation", _module)

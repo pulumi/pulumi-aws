@@ -66,6 +66,8 @@ type Authorizer struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the authorizer's Lambda function.
 	AuthorizerFunctionArn pulumi.StringOutput `pulumi:"authorizerFunctionArn"`
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp pulumi.BoolPtrOutput `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
@@ -114,6 +116,8 @@ type authorizerState struct {
 	Arn *string `pulumi:"arn"`
 	// The ARN of the authorizer's Lambda function.
 	AuthorizerFunctionArn *string `pulumi:"authorizerFunctionArn"`
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
@@ -131,6 +135,8 @@ type AuthorizerState struct {
 	Arn pulumi.StringPtrInput
 	// The ARN of the authorizer's Lambda function.
 	AuthorizerFunctionArn pulumi.StringPtrInput
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp pulumi.BoolPtrInput
 	// The name of the authorizer.
 	Name pulumi.StringPtrInput
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
@@ -150,6 +156,8 @@ func (AuthorizerState) ElementType() reflect.Type {
 type authorizerArgs struct {
 	// The ARN of the authorizer's Lambda function.
 	AuthorizerFunctionArn string `pulumi:"authorizerFunctionArn"`
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp *bool `pulumi:"enableCachingForHttp"`
 	// The name of the authorizer.
 	Name *string `pulumi:"name"`
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
@@ -166,6 +174,8 @@ type authorizerArgs struct {
 type AuthorizerArgs struct {
 	// The ARN of the authorizer's Lambda function.
 	AuthorizerFunctionArn pulumi.StringInput
+	// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+	EnableCachingForHttp pulumi.BoolPtrInput
 	// The name of the authorizer.
 	Name pulumi.StringPtrInput
 	// Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.

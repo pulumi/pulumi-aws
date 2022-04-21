@@ -13,24 +13,23 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2LifecycleRuleGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of days after initiating a multipart upload when the multipart upload must be completed.
+        /// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
         /// </summary>
         [Input("abortIncompleteMultipartUploadDays")]
         public Input<int>? AbortIncompleteMultipartUploadDays { get; set; }
 
         /// <summary>
-        /// Whether versioning is enabled.
+        /// Specifies lifecycle rule status.
         /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
 
         [Input("expirations")]
         private InputList<Inputs.BucketV2LifecycleRuleExpirationGetArgs>? _expirations;
 
         /// <summary>
-        /// The expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.
+        /// Specifies a period in the object's expire. See Expiration below for details.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_lifecycle_configuration resource instead")]
         public InputList<Inputs.BucketV2LifecycleRuleExpirationGetArgs> Expirations
         {
             get => _expirations ?? (_expirations = new InputList<Inputs.BucketV2LifecycleRuleExpirationGetArgs>());
@@ -38,7 +37,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Unique identifier for the rule. Must be less than or equal to 255 characters in length.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -47,9 +46,8 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionExpirationGetArgs>? _noncurrentVersionExpirations;
 
         /// <summary>
-        /// When noncurrent object versions expire.
+        /// Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_lifecycle_configuration resource instead")]
         public InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionExpirationGetArgs> NoncurrentVersionExpirations
         {
             get => _noncurrentVersionExpirations ?? (_noncurrentVersionExpirations = new InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionExpirationGetArgs>());
@@ -60,9 +58,8 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionTransitionGetArgs>? _noncurrentVersionTransitions;
 
         /// <summary>
-        /// When noncurrent object versions transition.
+        /// Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_lifecycle_configuration resource instead")]
         public InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionTransitionGetArgs> NoncurrentVersionTransitions
         {
             get => _noncurrentVersionTransitions ?? (_noncurrentVersionTransitions = new InputList<Inputs.BucketV2LifecycleRuleNoncurrentVersionTransitionGetArgs>());
@@ -70,7 +67,7 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Object keyname prefix identifying one or more objects to which the rule applies
+        /// Object key prefix identifying one or more objects to which the rule applies.
         /// </summary>
         [Input("prefix")]
         public Input<string>? Prefix { get; set; }
@@ -79,9 +76,8 @@ namespace Pulumi.Aws.S3.Inputs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
+        /// Specifies object tags key and value.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_lifecycle_configuration resource instead")]
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -92,9 +88,8 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<Inputs.BucketV2LifecycleRuleTransitionGetArgs>? _transitions;
 
         /// <summary>
-        /// Specifies when an Amazon S3 object transitions to a specified storage class.
+        /// Specifies a period in the object's transitions. See Transition below for details.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_lifecycle_configuration resource instead")]
         public InputList<Inputs.BucketV2LifecycleRuleTransitionGetArgs> Transitions
         {
             get => _transitions ?? (_transitions = new InputList<Inputs.BucketV2LifecycleRuleTransitionGetArgs>());

@@ -11,7 +11,17 @@ import (
 )
 
 type LifecyclePolicyPolicyDetails struct {
-	// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+	// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+	Action *LifecyclePolicyPolicyDetailsAction `pulumi:"action"`
+	// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
+	EventSource *LifecyclePolicyPolicyDetailsEventSource `pulumi:"eventSource"`
+	// Information about the event. See the `parameters` configuration block.
+	Parameters *LifecyclePolicyPolicyDetailsParameters `pulumi:"parameters"`
+	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+	PolicyType *string `pulumi:"policyType"`
+	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+	ResourceLocations *string `pulumi:"resourceLocations"`
+	// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
 	ResourceTypes []string `pulumi:"resourceTypes"`
 	// See the `schedule` configuration block.
 	Schedules []LifecyclePolicyPolicyDetailsSchedule `pulumi:"schedules"`
@@ -31,7 +41,17 @@ type LifecyclePolicyPolicyDetailsInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsArgs struct {
-	// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+	// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+	Action LifecyclePolicyPolicyDetailsActionPtrInput `pulumi:"action"`
+	// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
+	EventSource LifecyclePolicyPolicyDetailsEventSourcePtrInput `pulumi:"eventSource"`
+	// Information about the event. See the `parameters` configuration block.
+	Parameters LifecyclePolicyPolicyDetailsParametersPtrInput `pulumi:"parameters"`
+	// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+	PolicyType pulumi.StringPtrInput `pulumi:"policyType"`
+	// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+	ResourceLocations pulumi.StringPtrInput `pulumi:"resourceLocations"`
+	// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
 	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
 	// See the `schedule` configuration block.
 	Schedules LifecyclePolicyPolicyDetailsScheduleArrayInput `pulumi:"schedules"`
@@ -116,7 +136,32 @@ func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOut
 	}).(LifecyclePolicyPolicyDetailsPtrOutput)
 }
 
-// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+func (o LifecyclePolicyPolicyDetailsOutput) Action() LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsAction { return v.Action }).(LifecyclePolicyPolicyDetailsActionPtrOutput)
+}
+
+// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
+func (o LifecyclePolicyPolicyDetailsOutput) EventSource() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsEventSource { return v.EventSource }).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
+}
+
+// Information about the event. See the `parameters` configuration block.
+func (o LifecyclePolicyPolicyDetailsOutput) Parameters() LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsParameters { return v.Parameters }).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
+}
+
+// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+func (o LifecyclePolicyPolicyDetailsOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
+}
+
+// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+func (o LifecyclePolicyPolicyDetailsOutput) ResourceLocations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) *string { return v.ResourceLocations }).(pulumi.StringPtrOutput)
+}
+
+// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
 func (o LifecyclePolicyPolicyDetailsOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -155,7 +200,57 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) Elem() LifecyclePolicyPolicyDetai
 	}).(LifecyclePolicyPolicyDetailsOutput)
 }
 
-// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+// The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+func (o LifecyclePolicyPolicyDetailsPtrOutput) Action() LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsAction {
+		if v == nil {
+			return nil
+		}
+		return v.Action
+	}).(LifecyclePolicyPolicyDetailsActionPtrOutput)
+}
+
+// The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
+func (o LifecyclePolicyPolicyDetailsPtrOutput) EventSource() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsEventSource {
+		if v == nil {
+			return nil
+		}
+		return v.EventSource
+	}).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
+}
+
+// Information about the event. See the `parameters` configuration block.
+func (o LifecyclePolicyPolicyDetailsPtrOutput) Parameters() LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetailsParameters {
+		if v == nil {
+			return nil
+		}
+		return v.Parameters
+	}).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
+}
+
+// The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+func (o LifecyclePolicyPolicyDetailsPtrOutput) PolicyType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PolicyType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceLocations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceLocations
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
 func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []string {
 		if v == nil {
@@ -185,6 +280,993 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutp
 	}).(pulumi.StringMapOutput)
 }
 
+type LifecyclePolicyPolicyDetailsAction struct {
+	// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
+	CrossRegionCopies []LifecyclePolicyPolicyDetailsActionCrossRegionCopy `pulumi:"crossRegionCopies"`
+	// A name for the schedule.
+	Name string `pulumi:"name"`
+}
+
+// LifecyclePolicyPolicyDetailsActionInput is an input type that accepts LifecyclePolicyPolicyDetailsActionArgs and LifecyclePolicyPolicyDetailsActionOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsActionInput` via:
+//
+//          LifecyclePolicyPolicyDetailsActionArgs{...}
+type LifecyclePolicyPolicyDetailsActionInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsActionOutput() LifecyclePolicyPolicyDetailsActionOutput
+	ToLifecyclePolicyPolicyDetailsActionOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsActionOutput
+}
+
+type LifecyclePolicyPolicyDetailsActionArgs struct {
+	// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
+	CrossRegionCopies LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput `pulumi:"crossRegionCopies"`
+	// A name for the schedule.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LifecyclePolicyPolicyDetailsActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsAction)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsActionArgs) ToLifecyclePolicyPolicyDetailsActionOutput() LifecyclePolicyPolicyDetailsActionOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsActionArgs) ToLifecyclePolicyPolicyDetailsActionOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsActionArgs) ToLifecyclePolicyPolicyDetailsActionPtrOutput() LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsActionArgs) ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionOutput).ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsActionPtrInput is an input type that accepts LifecyclePolicyPolicyDetailsActionArgs, LifecyclePolicyPolicyDetailsActionPtr and LifecyclePolicyPolicyDetailsActionPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsActionPtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsActionArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsActionPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsActionPtrOutput() LifecyclePolicyPolicyDetailsActionPtrOutput
+	ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsActionPtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsActionPtrType LifecyclePolicyPolicyDetailsActionArgs
+
+func LifecyclePolicyPolicyDetailsActionPtr(v *LifecyclePolicyPolicyDetailsActionArgs) LifecyclePolicyPolicyDetailsActionPtrInput {
+	return (*lifecyclePolicyPolicyDetailsActionPtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsAction)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsActionPtrType) ToLifecyclePolicyPolicyDetailsActionPtrOutput() LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsActionPtrType) ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsAction)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsActionOutput) ToLifecyclePolicyPolicyDetailsActionOutput() LifecyclePolicyPolicyDetailsActionOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionOutput) ToLifecyclePolicyPolicyDetailsActionOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionOutput) ToLifecyclePolicyPolicyDetailsActionPtrOutput() LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsActionOutput) ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsAction) *LifecyclePolicyPolicyDetailsAction {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsActionPtrOutput)
+}
+
+// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
+func (o LifecyclePolicyPolicyDetailsActionOutput) CrossRegionCopies() LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsAction) []LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
+		return v.CrossRegionCopies
+	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput)
+}
+
+// A name for the schedule.
+func (o LifecyclePolicyPolicyDetailsActionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsAction) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsAction)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsActionPtrOutput) ToLifecyclePolicyPolicyDetailsActionPtrOutput() LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionPtrOutput) ToLifecyclePolicyPolicyDetailsActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionPtrOutput) Elem() LifecyclePolicyPolicyDetailsActionOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsAction) LifecyclePolicyPolicyDetailsAction {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsAction
+		return ret
+	}).(LifecyclePolicyPolicyDetailsActionOutput)
+}
+
+// The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
+func (o LifecyclePolicyPolicyDetailsActionPtrOutput) CrossRegionCopies() LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsAction) []LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
+		if v == nil {
+			return nil
+		}
+		return v.CrossRegionCopies
+	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput)
+}
+
+// A name for the schedule.
+func (o LifecyclePolicyPolicyDetailsActionPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopy struct {
+	// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
+	EncryptionConfiguration LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	RetainRule *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule `pulumi:"retainRule"`
+	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+	Target string `pulumi:"target"`
+}
+
+// LifecyclePolicyPolicyDetailsActionCrossRegionCopyInput is an input type that accepts LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs and LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsActionCrossRegionCopyInput` via:
+//
+//          LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs{...}
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs struct {
+	// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
+	EncryptionConfiguration LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInput `pulumi:"encryptionConfiguration"`
+	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	RetainRule LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrInput `pulumi:"retainRule"`
+	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopy)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput)
+}
+
+// LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput is an input type that accepts LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray and LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput` via:
+//
+//          LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray{ LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs{...} }
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray []LifecyclePolicyPolicyDetailsActionCrossRegionCopyInput
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyPolicyDetailsActionCrossRegionCopy)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopy)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput {
+	return o
+}
+
+// The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) EncryptionConfiguration() LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopy) LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration {
+		return v.EncryptionConfiguration
+	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput)
+}
+
+// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) RetainRule() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopy) *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
+		return v.RetainRule
+	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput)
+}
+
+// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopy) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyPolicyDetailsActionCrossRegionCopy)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
+		return vs[0].([]LifecyclePolicyPolicyDetailsActionCrossRegionCopy)[vs[1].(int)]
+	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration struct {
+	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+	CmkArn *string `pulumi:"cmkArn"`
+	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+	Encrypted *bool `pulumi:"encrypted"`
+}
+
+// LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInput is an input type that accepts LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs and LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInput` via:
+//
+//          LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs{...}
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+	CmkArn pulumi.StringPtrInput `pulumi:"cmkArn"`
+	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+	Encrypted pulumi.BoolPtrInput `pulumi:"encrypted"`
+}
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) CmkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration) *string {
+		return v.CmkArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput) Encrypted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration) *bool {
+		return v.Encrypted
+	}).(pulumi.BoolPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule struct {
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval int `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit string `pulumi:"intervalUnit"`
+}
+
+// LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs and LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleInput` via:
+//
+//          LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs{...}
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs struct {
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
+}
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput).ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrInput is an input type that accepts LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs, LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtr and LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput
+	ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrType LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs
+
+func LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtr(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrInput {
+	return (*lifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrType) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrType) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput) IntervalUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) string { return v.IntervalUnit }).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) ToLifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule
+		return ret
+	}).(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IntervalUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsEventSource struct {
+	// Information about the event. See the `parameters` configuration block.
+	Parameters LifecyclePolicyPolicyDetailsEventSourceParameters `pulumi:"parameters"`
+	// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+	Type string `pulumi:"type"`
+}
+
+// LifecyclePolicyPolicyDetailsEventSourceInput is an input type that accepts LifecyclePolicyPolicyDetailsEventSourceArgs and LifecyclePolicyPolicyDetailsEventSourceOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsEventSourceInput` via:
+//
+//          LifecyclePolicyPolicyDetailsEventSourceArgs{...}
+type LifecyclePolicyPolicyDetailsEventSourceInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsEventSourceOutput() LifecyclePolicyPolicyDetailsEventSourceOutput
+	ToLifecyclePolicyPolicyDetailsEventSourceOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsEventSourceOutput
+}
+
+type LifecyclePolicyPolicyDetailsEventSourceArgs struct {
+	// Information about the event. See the `parameters` configuration block.
+	Parameters LifecyclePolicyPolicyDetailsEventSourceParametersInput `pulumi:"parameters"`
+	// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (LifecyclePolicyPolicyDetailsEventSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsEventSource)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsEventSourceArgs) ToLifecyclePolicyPolicyDetailsEventSourceOutput() LifecyclePolicyPolicyDetailsEventSourceOutput {
+	return i.ToLifecyclePolicyPolicyDetailsEventSourceOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsEventSourceArgs) ToLifecyclePolicyPolicyDetailsEventSourceOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourceOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsEventSourceArgs) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutput() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsEventSourceArgs) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourceOutput).ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsEventSourcePtrInput is an input type that accepts LifecyclePolicyPolicyDetailsEventSourceArgs, LifecyclePolicyPolicyDetailsEventSourcePtr and LifecyclePolicyPolicyDetailsEventSourcePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsEventSourcePtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsEventSourceArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsEventSourcePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsEventSourcePtrOutput() LifecyclePolicyPolicyDetailsEventSourcePtrOutput
+	ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsEventSourcePtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsEventSourcePtrType LifecyclePolicyPolicyDetailsEventSourceArgs
+
+func LifecyclePolicyPolicyDetailsEventSourcePtr(v *LifecyclePolicyPolicyDetailsEventSourceArgs) LifecyclePolicyPolicyDetailsEventSourcePtrInput {
+	return (*lifecyclePolicyPolicyDetailsEventSourcePtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsEventSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsEventSource)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsEventSourcePtrType) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutput() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsEventSourcePtrType) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsEventSourceOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsEventSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsEventSource)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceOutput) ToLifecyclePolicyPolicyDetailsEventSourceOutput() LifecyclePolicyPolicyDetailsEventSourceOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceOutput) ToLifecyclePolicyPolicyDetailsEventSourceOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceOutput) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutput() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceOutput) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsEventSource) *LifecyclePolicyPolicyDetailsEventSource {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsEventSourcePtrOutput)
+}
+
+// Information about the event. See the `parameters` configuration block.
+func (o LifecyclePolicyPolicyDetailsEventSourceOutput) Parameters() LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSource) LifecyclePolicyPolicyDetailsEventSourceParameters {
+		return v.Parameters
+	}).(LifecyclePolicyPolicyDetailsEventSourceParametersOutput)
+}
+
+// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+func (o LifecyclePolicyPolicyDetailsEventSourceOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSource) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyPolicyDetailsEventSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsEventSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsEventSource)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutput() LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) ToLifecyclePolicyPolicyDetailsEventSourcePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourcePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Elem() LifecyclePolicyPolicyDetailsEventSourceOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSource) LifecyclePolicyPolicyDetailsEventSource {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsEventSource
+		return ret
+	}).(LifecyclePolicyPolicyDetailsEventSourceOutput)
+}
+
+// Information about the event. See the `parameters` configuration block.
+func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Parameters() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSource) *LifecyclePolicyPolicyDetailsEventSourceParameters {
+		if v == nil {
+			return nil
+		}
+		return &v.Parameters
+	}).(LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput)
+}
+
+// The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+func (o LifecyclePolicyPolicyDetailsEventSourcePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsEventSourceParameters struct {
+	// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+	DescriptionRegex string `pulumi:"descriptionRegex"`
+	// The type of event. Currently, only `shareSnapshot` events are supported.
+	EventType string `pulumi:"eventType"`
+	// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+	SnapshotOwners []string `pulumi:"snapshotOwners"`
+}
+
+// LifecyclePolicyPolicyDetailsEventSourceParametersInput is an input type that accepts LifecyclePolicyPolicyDetailsEventSourceParametersArgs and LifecyclePolicyPolicyDetailsEventSourceParametersOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsEventSourceParametersInput` via:
+//
+//          LifecyclePolicyPolicyDetailsEventSourceParametersArgs{...}
+type LifecyclePolicyPolicyDetailsEventSourceParametersInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsEventSourceParametersOutput() LifecyclePolicyPolicyDetailsEventSourceParametersOutput
+	ToLifecyclePolicyPolicyDetailsEventSourceParametersOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersOutput
+}
+
+type LifecyclePolicyPolicyDetailsEventSourceParametersArgs struct {
+	// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+	DescriptionRegex pulumi.StringInput `pulumi:"descriptionRegex"`
+	// The type of event. Currently, only `shareSnapshot` events are supported.
+	EventType pulumi.StringInput `pulumi:"eventType"`
+	// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+	SnapshotOwners pulumi.StringArrayInput `pulumi:"snapshotOwners"`
+}
+
+func (LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsEventSourceParameters)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ToLifecyclePolicyPolicyDetailsEventSourceParametersOutput() LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
+	return i.ToLifecyclePolicyPolicyDetailsEventSourceParametersOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ToLifecyclePolicyPolicyDetailsEventSourceParametersOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourceParametersOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsEventSourceParametersArgs) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourceParametersOutput).ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsEventSourceParametersPtrInput is an input type that accepts LifecyclePolicyPolicyDetailsEventSourceParametersArgs, LifecyclePolicyPolicyDetailsEventSourceParametersPtr and LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsEventSourceParametersPtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsEventSourceParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsEventSourceParametersPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput
+	ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsEventSourceParametersPtrType LifecyclePolicyPolicyDetailsEventSourceParametersArgs
+
+func LifecyclePolicyPolicyDetailsEventSourceParametersPtr(v *LifecyclePolicyPolicyDetailsEventSourceParametersArgs) LifecyclePolicyPolicyDetailsEventSourceParametersPtrInput {
+	return (*lifecyclePolicyPolicyDetailsEventSourceParametersPtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsEventSourceParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsEventSourceParameters)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsEventSourceParametersPtrType) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsEventSourceParametersPtrType) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsEventSourceParametersOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsEventSourceParameters)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ToLifecyclePolicyPolicyDetailsEventSourceParametersOutput() LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ToLifecyclePolicyPolicyDetailsEventSourceParametersOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsEventSourceParameters) *LifecyclePolicyPolicyDetailsEventSourceParameters {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput)
+}
+
+// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) DescriptionRegex() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSourceParameters) string { return v.DescriptionRegex }).(pulumi.StringOutput)
+}
+
+// The type of event. Currently, only `shareSnapshot` events are supported.
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) EventType() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSourceParameters) string { return v.EventType }).(pulumi.StringOutput)
+}
+
+// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersOutput) SnapshotOwners() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsEventSourceParameters) []string { return v.SnapshotOwners }).(pulumi.StringArrayOutput)
+}
+
+type LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsEventSourceParameters)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput() LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) ToLifecyclePolicyPolicyDetailsEventSourceParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) Elem() LifecyclePolicyPolicyDetailsEventSourceParametersOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSourceParameters) LifecyclePolicyPolicyDetailsEventSourceParameters {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsEventSourceParameters
+		return ret
+	}).(LifecyclePolicyPolicyDetailsEventSourceParametersOutput)
+}
+
+// The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) DescriptionRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSourceParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DescriptionRegex
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of event. Currently, only `shareSnapshot` events are supported.
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) EventType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSourceParameters) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+func (o LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput) SnapshotOwners() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsEventSourceParameters) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotOwners
+	}).(pulumi.StringArrayOutput)
+}
+
+type LifecyclePolicyPolicyDetailsParameters struct {
+	// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+	ExcludeBootVolume *bool `pulumi:"excludeBootVolume"`
+	// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+	NoReboot *bool `pulumi:"noReboot"`
+}
+
+// LifecyclePolicyPolicyDetailsParametersInput is an input type that accepts LifecyclePolicyPolicyDetailsParametersArgs and LifecyclePolicyPolicyDetailsParametersOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsParametersInput` via:
+//
+//          LifecyclePolicyPolicyDetailsParametersArgs{...}
+type LifecyclePolicyPolicyDetailsParametersInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsParametersOutput() LifecyclePolicyPolicyDetailsParametersOutput
+	ToLifecyclePolicyPolicyDetailsParametersOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsParametersOutput
+}
+
+type LifecyclePolicyPolicyDetailsParametersArgs struct {
+	// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+	ExcludeBootVolume pulumi.BoolPtrInput `pulumi:"excludeBootVolume"`
+	// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+	NoReboot pulumi.BoolPtrInput `pulumi:"noReboot"`
+}
+
+func (LifecyclePolicyPolicyDetailsParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsParameters)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsParametersArgs) ToLifecyclePolicyPolicyDetailsParametersOutput() LifecyclePolicyPolicyDetailsParametersOutput {
+	return i.ToLifecyclePolicyPolicyDetailsParametersOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsParametersArgs) ToLifecyclePolicyPolicyDetailsParametersOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsParametersOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsParametersArgs) ToLifecyclePolicyPolicyDetailsParametersPtrOutput() LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsParametersArgs) ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsParametersOutput).ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsParametersPtrInput is an input type that accepts LifecyclePolicyPolicyDetailsParametersArgs, LifecyclePolicyPolicyDetailsParametersPtr and LifecyclePolicyPolicyDetailsParametersPtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsParametersPtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsParametersArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsParametersPtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsParametersPtrOutput() LifecyclePolicyPolicyDetailsParametersPtrOutput
+	ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsParametersPtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsParametersPtrType LifecyclePolicyPolicyDetailsParametersArgs
+
+func LifecyclePolicyPolicyDetailsParametersPtr(v *LifecyclePolicyPolicyDetailsParametersArgs) LifecyclePolicyPolicyDetailsParametersPtrInput {
+	return (*lifecyclePolicyPolicyDetailsParametersPtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsParametersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsParameters)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsParametersPtrType) ToLifecyclePolicyPolicyDetailsParametersPtrOutput() LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsParametersPtrType) ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsParametersOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsParameters)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsParametersOutput) ToLifecyclePolicyPolicyDetailsParametersOutput() LifecyclePolicyPolicyDetailsParametersOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsParametersOutput) ToLifecyclePolicyPolicyDetailsParametersOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsParametersOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsParametersOutput) ToLifecyclePolicyPolicyDetailsParametersPtrOutput() LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsParametersOutput) ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsParameters) *LifecyclePolicyPolicyDetailsParameters {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsParametersPtrOutput)
+}
+
+// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+func (o LifecyclePolicyPolicyDetailsParametersOutput) ExcludeBootVolume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsParameters) *bool { return v.ExcludeBootVolume }).(pulumi.BoolPtrOutput)
+}
+
+// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+func (o LifecyclePolicyPolicyDetailsParametersOutput) NoReboot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsParameters) *bool { return v.NoReboot }).(pulumi.BoolPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsParametersPtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsParametersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsParameters)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ToLifecyclePolicyPolicyDetailsParametersPtrOutput() LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ToLifecyclePolicyPolicyDetailsParametersPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsParametersPtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) Elem() LifecyclePolicyPolicyDetailsParametersOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsParameters) LifecyclePolicyPolicyDetailsParameters {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsParameters
+		return ret
+	}).(LifecyclePolicyPolicyDetailsParametersOutput)
+}
+
+// Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) ExcludeBootVolume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeBootVolume
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+func (o LifecyclePolicyPolicyDetailsParametersPtrOutput) NoReboot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsParameters) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoReboot
+	}).(pulumi.BoolPtrOutput)
+}
+
 type LifecyclePolicyPolicyDetailsSchedule struct {
 	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 	CopyTags *bool `pulumi:"copyTags"`
@@ -192,12 +1274,20 @@ type LifecyclePolicyPolicyDetailsSchedule struct {
 	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRule `pulumi:"createRule"`
 	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
 	CrossRegionCopyRules []LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule `pulumi:"crossRegionCopyRules"`
+	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+	DeprecateRule *LifecyclePolicyPolicyDetailsScheduleDeprecateRule `pulumi:"deprecateRule"`
+	// See the `fastRestoreRule` block. Max of 1 per schedule.
+	FastRestoreRule *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule `pulumi:"fastRestoreRule"`
 	// A name for the schedule.
 	Name string `pulumi:"name"`
 	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRule `pulumi:"retainRule"`
+	// See the `shareRule` block. Max of 1 per schedule.
+	ShareRule *LifecyclePolicyPolicyDetailsScheduleShareRule `pulumi:"shareRule"`
 	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 	TagsToAdd map[string]string `pulumi:"tagsToAdd"`
+	// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
+	VariableTags map[string]string `pulumi:"variableTags"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleArgs and LifecyclePolicyPolicyDetailsScheduleOutput values.
@@ -218,12 +1308,20 @@ type LifecyclePolicyPolicyDetailsScheduleArgs struct {
 	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRuleInput `pulumi:"createRule"`
 	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
 	CrossRegionCopyRules LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput `pulumi:"crossRegionCopyRules"`
+	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+	DeprecateRule LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput `pulumi:"deprecateRule"`
+	// See the `fastRestoreRule` block. Max of 1 per schedule.
+	FastRestoreRule LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput `pulumi:"fastRestoreRule"`
 	// A name for the schedule.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRuleInput `pulumi:"retainRule"`
+	// See the `shareRule` block. Max of 1 per schedule.
+	ShareRule LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput `pulumi:"shareRule"`
 	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 	TagsToAdd pulumi.StringMapInput `pulumi:"tagsToAdd"`
+	// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
+	VariableTags pulumi.StringMapInput `pulumi:"variableTags"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleArgs) ElementType() reflect.Type {
@@ -296,6 +1394,20 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) CrossRegionCopyRules() Lifec
 	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput)
 }
 
+// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+func (o LifecyclePolicyPolicyDetailsScheduleOutput) DeprecateRule() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
+		return v.DeprecateRule
+	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput)
+}
+
+// See the `fastRestoreRule` block. Max of 1 per schedule.
+func (o LifecyclePolicyPolicyDetailsScheduleOutput) FastRestoreRule() LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+		return v.FastRestoreRule
+	}).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput)
+}
+
 // A name for the schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) string { return v.Name }).(pulumi.StringOutput)
@@ -308,9 +1420,21 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) RetainRule() LifecyclePolicy
 	}).(LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput)
 }
 
+// See the `shareRule` block. Max of 1 per schedule.
+func (o LifecyclePolicyPolicyDetailsScheduleOutput) ShareRule() LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *LifecyclePolicyPolicyDetailsScheduleShareRule {
+		return v.ShareRule
+	}).(LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput)
+}
+
 // A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) TagsToAdd() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) map[string]string { return v.TagsToAdd }).(pulumi.StringMapOutput)
+}
+
+// A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
+func (o LifecyclePolicyPolicyDetailsScheduleOutput) VariableTags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) map[string]string { return v.VariableTags }).(pulumi.StringMapOutput)
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArrayOutput struct{ *pulumi.OutputState }
@@ -334,10 +1458,14 @@ func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) Index(i pulumi.IntInput
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
+	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+	CronExpression *string `pulumi:"cronExpression"`
 	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-	Interval int `pulumi:"interval"`
+	Interval *int `pulumi:"interval"`
 	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
 	IntervalUnit *string `pulumi:"intervalUnit"`
+	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+	Location *string `pulumi:"location"`
 	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
 	Times *string `pulumi:"times"`
 }
@@ -354,10 +1482,14 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs struct {
+	// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+	CronExpression pulumi.StringPtrInput `pulumi:"cronExpression"`
 	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-	Interval pulumi.IntInput `pulumi:"interval"`
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
 	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
+	// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+	Location pulumi.StringPtrInput `pulumi:"location"`
 	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
 	Times pulumi.StringPtrInput `pulumi:"times"`
 }
@@ -388,14 +1520,24 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
+// The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) CronExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.CronExpression }).(pulumi.StringPtrOutput)
+}
+
 // The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
-func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Interval() pulumi.IntOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) int { return v.Interval }).(pulumi.IntOutput)
+func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
 // The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
@@ -865,9 +2007,382 @@ func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+type LifecyclePolicyPolicyDetailsScheduleDeprecateRule struct {
+	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	Count *int `pulumi:"count"`
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval *int `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit *string `pulumi:"intervalUnit"`
+}
+
+// LifecyclePolicyPolicyDetailsScheduleDeprecateRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs and LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleDeprecateRuleInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs{...}
+type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput
+	ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs struct {
+	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
+}
+
+func (LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleDeprecateRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput).ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs, LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtr and LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput
+	ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrType LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs
+
+func LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtr(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs) LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput {
+	return (*lifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleDeprecateRule)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleDeprecateRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput)
+}
+
+// How many snapshots to keep. Must be an integer between `1` and `1000`.
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleDeprecateRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsScheduleDeprecateRule
+		return ret
+	}).(LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput)
+}
+
+// How many snapshots to keep. Must be an integer between `1` and `1000`.
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleDeprecateRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleFastRestoreRule struct {
+	// The Availability Zones in which to enable fast snapshot restore.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	Count *int `pulumi:"count"`
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval *int `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit *string `pulumi:"intervalUnit"`
+}
+
+// LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs and LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs{...}
+type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput
+	ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs struct {
+	// The Availability Zones in which to enable fast snapshot restore.
+	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
+	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
+}
+
+func (LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleFastRestoreRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput).ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs, LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtr and LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput
+	ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrType LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs
+
+func LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtr(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs) LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput {
+	return (*lifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleFastRestoreRule)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleFastRestoreRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput)
+}
+
+// The Availability Zones in which to enable fast snapshot restore.
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
+}
+
+// How many snapshots to keep. Must be an integer between `1` and `1000`.
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleFastRestoreRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsScheduleFastRestoreRule
+		return ret
+	}).(LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput)
+}
+
+// The Availability Zones in which to enable fast snapshot restore.
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZones
+	}).(pulumi.StringArrayOutput)
+}
+
+// How many snapshots to keep. Must be an integer between `1` and `1000`.
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleFastRestoreRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalUnit
+	}).(pulumi.StringPtrOutput)
+}
+
 type LifecyclePolicyPolicyDetailsScheduleRetainRule struct {
-	// How many snapshots to keep. Must be an integer between 1 and 1000.
-	Count int `pulumi:"count"`
+	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	Count *int `pulumi:"count"`
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval *int `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit *string `pulumi:"intervalUnit"`
 }
 
 // LifecyclePolicyPolicyDetailsScheduleRetainRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs and LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput values.
@@ -882,8 +2397,12 @@ type LifecyclePolicyPolicyDetailsScheduleRetainRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs struct {
-	// How many snapshots to keep. Must be an integer between 1 and 1000.
-	Count pulumi.IntInput `pulumi:"count"`
+	// How many snapshots to keep. Must be an integer between `1` and `1000`.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 }
 
 func (LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs) ElementType() reflect.Type {
@@ -912,14 +2431,204 @@ func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// How many snapshots to keep. Must be an integer between 1 and 1000.
-func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) int { return v.Count }).(pulumi.IntOutput)
+// How many snapshots to keep. Must be an integer between `1` and `1000`.
+func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleRetainRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleShareRule struct {
+	// The IDs of the AWS accounts with which to share the snapshots.
+	TargetAccounts      []string `pulumi:"targetAccounts"`
+	UnshareInterval     *int     `pulumi:"unshareInterval"`
+	UnshareIntervalUnit *string  `pulumi:"unshareIntervalUnit"`
+}
+
+// LifecyclePolicyPolicyDetailsScheduleShareRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleShareRuleArgs and LifecyclePolicyPolicyDetailsScheduleShareRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleShareRuleInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleShareRuleArgs{...}
+type LifecyclePolicyPolicyDetailsScheduleShareRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutput() LifecyclePolicyPolicyDetailsScheduleShareRuleOutput
+	ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleShareRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsScheduleShareRuleArgs struct {
+	// The IDs of the AWS accounts with which to share the snapshots.
+	TargetAccounts      pulumi.StringArrayInput `pulumi:"targetAccounts"`
+	UnshareInterval     pulumi.IntPtrInput      `pulumi:"unshareInterval"`
+	UnshareIntervalUnit pulumi.StringPtrInput   `pulumi:"unshareIntervalUnit"`
+}
+
+func (LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleShareRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutput() LifecyclePolicyPolicyDetailsScheduleShareRuleOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleShareRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleShareRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleShareRuleOutput).ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleShareRuleArgs, LifecyclePolicyPolicyDetailsScheduleShareRulePtr and LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleShareRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput
+	ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsScheduleShareRulePtrType LifecyclePolicyPolicyDetailsScheduleShareRuleArgs
+
+func LifecyclePolicyPolicyDetailsScheduleShareRulePtr(v *LifecyclePolicyPolicyDetailsScheduleShareRuleArgs) LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput {
+	return (*lifecyclePolicyPolicyDetailsScheduleShareRulePtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsScheduleShareRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleShareRule)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleShareRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleShareRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleShareRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleShareRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutput() LifecyclePolicyPolicyDetailsScheduleShareRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleShareRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleShareRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsScheduleShareRule) *LifecyclePolicyPolicyDetailsScheduleShareRule {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput)
+}
+
+// The IDs of the AWS accounts with which to share the snapshots.
+func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) TargetAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) []string { return v.TargetAccounts }).(pulumi.StringArrayOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) UnshareInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) *int { return v.UnshareInterval }).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRuleOutput) UnshareIntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleShareRule) *string { return v.UnshareIntervalUnit }).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleShareRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleShareRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleShareRuleOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) LifecyclePolicyPolicyDetailsScheduleShareRule {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsScheduleShareRule
+		return ret
+	}).(LifecyclePolicyPolicyDetailsScheduleShareRuleOutput)
+}
+
+// The IDs of the AWS accounts with which to share the snapshots.
+func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) TargetAccounts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TargetAccounts
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) UnshareInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnshareInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput) UnshareIntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleShareRule) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UnshareIntervalUnit
+	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsActionCrossRegionCopyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsEventSourceInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsEventSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsEventSourcePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsEventSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsEventSourceParametersInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsEventSourceParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsEventSourceParametersPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsEventSourceParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsParametersInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsParametersPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleArrayInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCreateRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{})
@@ -929,9 +2638,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleDeprecateRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleRetainRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleShareRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleShareRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleShareRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleShareRuleArgs{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsActionOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsActionPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsActionCrossRegionCopyOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsActionCrossRegionCopyArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRulePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsEventSourceOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsEventSourcePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsEventSourceParametersOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsEventSourceParametersPtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsParametersOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsParametersPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput{})
@@ -941,5 +2669,11 @@ func init() {
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleDeprecateRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleDeprecateRulePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleFastRestoreRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleShareRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleShareRulePtrOutput{})
 }

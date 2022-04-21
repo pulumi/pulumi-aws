@@ -273,7 +273,6 @@ class IPSet(pulumi.CustomResource):
         bucket = aws.s3.BucketV2("bucket")
         # ... other configuration
         my_ip_set = aws.s3.BucketObjectv2("myIPSet",
-            acl="public-read",
             content="10.0.0.0/8\n",
             bucket=bucket.id,
             key="MyIPSet")
@@ -325,7 +324,6 @@ class IPSet(pulumi.CustomResource):
         bucket = aws.s3.BucketV2("bucket")
         # ... other configuration
         my_ip_set = aws.s3.BucketObjectv2("myIPSet",
-            acl="public-read",
             content="10.0.0.0/8\n",
             bucket=bucket.id,
             key="MyIPSet")

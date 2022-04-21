@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     ///                     Protocol = "-1",
     ///                     RuleNo = 100,
     ///                     Action = "allow",
-    ///                     CidrBlock = mainvpc.CidrBlock,
+    ///                     CidrBlock = "0.0.0.0/0",
     ///                     FromPort = 0,
     ///                     ToPort = 0,
     ///                 },

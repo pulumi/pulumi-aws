@@ -15,12 +15,13 @@ __all__ = ['MaintenanceWindowTaskArgs', 'MaintenanceWindowTask']
 @pulumi.input_type
 class MaintenanceWindowTaskArgs:
     def __init__(__self__, *,
-                 max_concurrency: pulumi.Input[str],
-                 max_errors: pulumi.Input[str],
                  task_arn: pulumi.Input[str],
                  task_type: pulumi.Input[str],
                  window_id: pulumi.Input[str],
+                 cutoff_behavior: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 max_concurrency: Optional[pulumi.Input[str]] = None,
+                 max_errors: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[int]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
@@ -28,25 +29,30 @@ class MaintenanceWindowTaskArgs:
                  task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None):
         """
         The set of arguments for constructing a MaintenanceWindowTask resource.
-        :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
-        :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[str] task_arn: The ARN of the task to execute.
         :param pulumi.Input[str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
+        :param pulumi.Input[str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         :param pulumi.Input[str] description: The description of the maintenance window task.
+        :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
+        :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[str] name: The name of the maintenance window task.
         :param pulumi.Input[int] priority: The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
         :param pulumi.Input[str] service_role_arn: The role that should be assumed when executing the task. If a role is not provided, Systems Manager uses your account's service-linked role. If no service-linked role for Systems Manager exists in your account, it is created for you.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTargetArgs']]] targets: The targets (either instances or window target ids). Instances are specified using Key=InstanceIds,Values=instanceid1,instanceid2. Window target ids are specified using Key=WindowTargetIds,Values=window target id1, window target id2.
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs'] task_invocation_parameters: Configuration block with parameters for task execution.
         """
-        pulumi.set(__self__, "max_concurrency", max_concurrency)
-        pulumi.set(__self__, "max_errors", max_errors)
         pulumi.set(__self__, "task_arn", task_arn)
         pulumi.set(__self__, "task_type", task_type)
         pulumi.set(__self__, "window_id", window_id)
+        if cutoff_behavior is not None:
+            pulumi.set(__self__, "cutoff_behavior", cutoff_behavior)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if max_concurrency is not None:
+            pulumi.set(__self__, "max_concurrency", max_concurrency)
+        if max_errors is not None:
+            pulumi.set(__self__, "max_errors", max_errors)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if priority is not None:
@@ -57,30 +63,6 @@ class MaintenanceWindowTaskArgs:
             pulumi.set(__self__, "targets", targets)
         if task_invocation_parameters is not None:
             pulumi.set(__self__, "task_invocation_parameters", task_invocation_parameters)
-
-    @property
-    @pulumi.getter(name="maxConcurrency")
-    def max_concurrency(self) -> pulumi.Input[str]:
-        """
-        The maximum number of targets this task can be run for in parallel.
-        """
-        return pulumi.get(self, "max_concurrency")
-
-    @max_concurrency.setter
-    def max_concurrency(self, value: pulumi.Input[str]):
-        pulumi.set(self, "max_concurrency", value)
-
-    @property
-    @pulumi.getter(name="maxErrors")
-    def max_errors(self) -> pulumi.Input[str]:
-        """
-        The maximum number of errors allowed before this task stops being scheduled.
-        """
-        return pulumi.get(self, "max_errors")
-
-    @max_errors.setter
-    def max_errors(self, value: pulumi.Input[str]):
-        pulumi.set(self, "max_errors", value)
 
     @property
     @pulumi.getter(name="taskArn")
@@ -119,6 +101,18 @@ class MaintenanceWindowTaskArgs:
         pulumi.set(self, "window_id", value)
 
     @property
+    @pulumi.getter(name="cutoffBehavior")
+    def cutoff_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+        """
+        return pulumi.get(self, "cutoff_behavior")
+
+    @cutoff_behavior.setter
+    def cutoff_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cutoff_behavior", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -129,6 +123,30 @@ class MaintenanceWindowTaskArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum number of targets this task can be run for in parallel.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_concurrency", value)
+
+    @property
+    @pulumi.getter(name="maxErrors")
+    def max_errors(self) -> Optional[pulumi.Input[str]]:
+        """
+        The maximum number of errors allowed before this task stops being scheduled.
+        """
+        return pulumi.get(self, "max_errors")
+
+    @max_errors.setter
+    def max_errors(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "max_errors", value)
 
     @property
     @pulumi.getter
@@ -194,6 +212,8 @@ class MaintenanceWindowTaskArgs:
 @pulumi.input_type
 class _MaintenanceWindowTaskState:
     def __init__(__self__, *,
+                 arn: Optional[pulumi.Input[str]] = None,
+                 cutoff_behavior: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
@@ -204,9 +224,12 @@ class _MaintenanceWindowTaskState:
                  task_arn: Optional[pulumi.Input[str]] = None,
                  task_invocation_parameters: Optional[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs']] = None,
                  task_type: Optional[pulumi.Input[str]] = None,
-                 window_id: Optional[pulumi.Input[str]] = None):
+                 window_id: Optional[pulumi.Input[str]] = None,
+                 window_task_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MaintenanceWindowTask resources.
+        :param pulumi.Input[str] arn: The ARN of the maintenance window task.
+        :param pulumi.Input[str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         :param pulumi.Input[str] description: The description of the maintenance window task.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
@@ -218,7 +241,12 @@ class _MaintenanceWindowTaskState:
         :param pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersArgs'] task_invocation_parameters: Configuration block with parameters for task execution.
         :param pulumi.Input[str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
+        :param pulumi.Input[str] window_task_id: The ID of the maintenance window task.
         """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if cutoff_behavior is not None:
+            pulumi.set(__self__, "cutoff_behavior", cutoff_behavior)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if max_concurrency is not None:
@@ -241,6 +269,32 @@ class _MaintenanceWindowTaskState:
             pulumi.set(__self__, "task_type", task_type)
         if window_id is not None:
             pulumi.set(__self__, "window_id", window_id)
+        if window_task_id is not None:
+            pulumi.set(__self__, "window_task_id", window_task_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the maintenance window task.
+        """
+        return pulumi.get(self, "arn")
+
+    @arn.setter
+    def arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="cutoffBehavior")
+    def cutoff_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+        """
+        return pulumi.get(self, "cutoff_behavior")
+
+    @cutoff_behavior.setter
+    def cutoff_behavior(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cutoff_behavior", value)
 
     @property
     @pulumi.getter
@@ -374,12 +428,25 @@ class _MaintenanceWindowTaskState:
     def window_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "window_id", value)
 
+    @property
+    @pulumi.getter(name="windowTaskId")
+    def window_task_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the maintenance window task.
+        """
+        return pulumi.get(self, "window_task_id")
+
+    @window_task_id.setter
+    def window_task_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "window_task_id", value)
+
 
 class MaintenanceWindowTask(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cutoff_behavior: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
@@ -493,6 +560,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         :param pulumi.Input[str] description: The description of the maintenance window task.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
@@ -625,6 +693,7 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cutoff_behavior: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  max_concurrency: Optional[pulumi.Input[str]] = None,
                  max_errors: Optional[pulumi.Input[str]] = None,
@@ -648,12 +717,9 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MaintenanceWindowTaskArgs.__new__(MaintenanceWindowTaskArgs)
 
+            __props__.__dict__["cutoff_behavior"] = cutoff_behavior
             __props__.__dict__["description"] = description
-            if max_concurrency is None and not opts.urn:
-                raise TypeError("Missing required property 'max_concurrency'")
             __props__.__dict__["max_concurrency"] = max_concurrency
-            if max_errors is None and not opts.urn:
-                raise TypeError("Missing required property 'max_errors'")
             __props__.__dict__["max_errors"] = max_errors
             __props__.__dict__["name"] = name
             __props__.__dict__["priority"] = priority
@@ -669,6 +735,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             if window_id is None and not opts.urn:
                 raise TypeError("Missing required property 'window_id'")
             __props__.__dict__["window_id"] = window_id
+            __props__.__dict__["arn"] = None
+            __props__.__dict__["window_task_id"] = None
         super(MaintenanceWindowTask, __self__).__init__(
             'aws:ssm/maintenanceWindowTask:MaintenanceWindowTask',
             resource_name,
@@ -679,6 +747,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            arn: Optional[pulumi.Input[str]] = None,
+            cutoff_behavior: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             max_concurrency: Optional[pulumi.Input[str]] = None,
             max_errors: Optional[pulumi.Input[str]] = None,
@@ -689,7 +759,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
             task_arn: Optional[pulumi.Input[str]] = None,
             task_invocation_parameters: Optional[pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']]] = None,
             task_type: Optional[pulumi.Input[str]] = None,
-            window_id: Optional[pulumi.Input[str]] = None) -> 'MaintenanceWindowTask':
+            window_id: Optional[pulumi.Input[str]] = None,
+            window_task_id: Optional[pulumi.Input[str]] = None) -> 'MaintenanceWindowTask':
         """
         Get an existing MaintenanceWindowTask resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -697,6 +768,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] arn: The ARN of the maintenance window task.
+        :param pulumi.Input[str] cutoff_behavior: Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
         :param pulumi.Input[str] description: The description of the maintenance window task.
         :param pulumi.Input[str] max_concurrency: The maximum number of targets this task can be run for in parallel.
         :param pulumi.Input[str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
@@ -708,11 +781,14 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['MaintenanceWindowTaskTaskInvocationParametersArgs']] task_invocation_parameters: Configuration block with parameters for task execution.
         :param pulumi.Input[str] task_type: The type of task being registered. Valid values: `AUTOMATION`, `LAMBDA`, `RUN_COMMAND` or `STEP_FUNCTIONS`.
         :param pulumi.Input[str] window_id: The Id of the maintenance window to register the task with.
+        :param pulumi.Input[str] window_task_id: The ID of the maintenance window task.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _MaintenanceWindowTaskState.__new__(_MaintenanceWindowTaskState)
 
+        __props__.__dict__["arn"] = arn
+        __props__.__dict__["cutoff_behavior"] = cutoff_behavior
         __props__.__dict__["description"] = description
         __props__.__dict__["max_concurrency"] = max_concurrency
         __props__.__dict__["max_errors"] = max_errors
@@ -724,7 +800,24 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         __props__.__dict__["task_invocation_parameters"] = task_invocation_parameters
         __props__.__dict__["task_type"] = task_type
         __props__.__dict__["window_id"] = window_id
+        __props__.__dict__["window_task_id"] = window_task_id
         return MaintenanceWindowTask(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the maintenance window task.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="cutoffBehavior")
+    def cutoff_behavior(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+        """
+        return pulumi.get(self, "cutoff_behavior")
 
     @property
     @pulumi.getter
@@ -813,4 +906,12 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         The Id of the maintenance window to register the task with.
         """
         return pulumi.get(self, "window_id")
+
+    @property
+    @pulumi.getter(name="windowTaskId")
+    def window_task_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the maintenance window task.
+        """
+        return pulumi.get(self, "window_task_id")
 

@@ -628,36 +628,37 @@ class Trail(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         bucket_v2 = aws.s3.BucketV2("bucketV2")
-        bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
-            bucket=bucket_v2.id,
-            policy=pulumi.Output.all(bucket_v2.id, bucket_v2.id).apply(lambda bucketV2Id, bucketV2Id1: f\"\"\"  {{
-              "Version": "2012-10-17",
-              "Statement": [
-                  {{
-                      "Sid": "AWSCloudTrailAclCheck",
-                      "Effect": "Allow",
-                      "Principal": {{
-                        "Service": "cloudtrail.amazonaws.com"
-                      }},
-                      "Action": "s3:GetBucketAcl",
-                      "Resource": "arn:aws:s3:::{bucket_v2_id}"
-                  }},
-                  {{
-                      "Sid": "AWSCloudTrailWrite",
-                      "Effect": "Allow",
-                      "Principal": {{
-                        "Service": "cloudtrail.amazonaws.com"
-                      }},
-                      "Action": "s3:PutObject",
-                      "Resource": "arn:aws:s3:::{bucket_v2_id1}/prefix/AWSLogs/{current.account_id}/*",
-                      "Condition": {{
-                          "StringEquals": {{
-                              "s3:x-amz-acl": "bucket-owner-full-control"
-                          }}
-                      }}
-                  }}
-              ]
-          }}
+        foo_bucket_v2 = aws.s3.BucketV2("fooBucketV2", force_destroy=True)
+        foo_bucket_policy = aws.s3.BucketPolicy("fooBucketPolicy",
+            bucket=foo_bucket_v2.id,
+            policy=pulumi.Output.all(foo_bucket_v2.arn, foo_bucket_v2.arn).apply(lambda fooBucketV2Arn, fooBucketV2Arn1: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Sid": "AWSCloudTrailAclCheck",
+                    "Effect": "Allow",
+                    "Principal": {{
+                      "Service": "cloudtrail.amazonaws.com"
+                    }},
+                    "Action": "s3:GetBucketAcl",
+                    "Resource": "{foo_bucket_v2_arn}"
+                }},
+                {{
+                    "Sid": "AWSCloudTrailWrite",
+                    "Effect": "Allow",
+                    "Principal": {{
+                      "Service": "cloudtrail.amazonaws.com"
+                    }},
+                    "Action": "s3:PutObject",
+                    "Resource": "{foo_bucket_v2_arn1}/prefix/AWSLogs/{current.account_id}/*",
+                    "Condition": {{
+                        "StringEquals": {{
+                            "s3:x-amz-acl": "bucket-owner-full-control"
+                        }}
+                    }}
+                }}
+            ]
+        }}
         \"\"\"))
         foobar = aws.cloudtrail.Trail("foobar",
             s3_bucket_name=bucket_v2.id,
@@ -933,36 +934,37 @@ class Trail(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         bucket_v2 = aws.s3.BucketV2("bucketV2")
-        bucket_policy = aws.s3.BucketPolicy("bucketPolicy",
-            bucket=bucket_v2.id,
-            policy=pulumi.Output.all(bucket_v2.id, bucket_v2.id).apply(lambda bucketV2Id, bucketV2Id1: f\"\"\"  {{
-              "Version": "2012-10-17",
-              "Statement": [
-                  {{
-                      "Sid": "AWSCloudTrailAclCheck",
-                      "Effect": "Allow",
-                      "Principal": {{
-                        "Service": "cloudtrail.amazonaws.com"
-                      }},
-                      "Action": "s3:GetBucketAcl",
-                      "Resource": "arn:aws:s3:::{bucket_v2_id}"
-                  }},
-                  {{
-                      "Sid": "AWSCloudTrailWrite",
-                      "Effect": "Allow",
-                      "Principal": {{
-                        "Service": "cloudtrail.amazonaws.com"
-                      }},
-                      "Action": "s3:PutObject",
-                      "Resource": "arn:aws:s3:::{bucket_v2_id1}/prefix/AWSLogs/{current.account_id}/*",
-                      "Condition": {{
-                          "StringEquals": {{
-                              "s3:x-amz-acl": "bucket-owner-full-control"
-                          }}
-                      }}
-                  }}
-              ]
-          }}
+        foo_bucket_v2 = aws.s3.BucketV2("fooBucketV2", force_destroy=True)
+        foo_bucket_policy = aws.s3.BucketPolicy("fooBucketPolicy",
+            bucket=foo_bucket_v2.id,
+            policy=pulumi.Output.all(foo_bucket_v2.arn, foo_bucket_v2.arn).apply(lambda fooBucketV2Arn, fooBucketV2Arn1: f\"\"\"{{
+            "Version": "2012-10-17",
+            "Statement": [
+                {{
+                    "Sid": "AWSCloudTrailAclCheck",
+                    "Effect": "Allow",
+                    "Principal": {{
+                      "Service": "cloudtrail.amazonaws.com"
+                    }},
+                    "Action": "s3:GetBucketAcl",
+                    "Resource": "{foo_bucket_v2_arn}"
+                }},
+                {{
+                    "Sid": "AWSCloudTrailWrite",
+                    "Effect": "Allow",
+                    "Principal": {{
+                      "Service": "cloudtrail.amazonaws.com"
+                    }},
+                    "Action": "s3:PutObject",
+                    "Resource": "{foo_bucket_v2_arn1}/prefix/AWSLogs/{current.account_id}/*",
+                    "Condition": {{
+                        "StringEquals": {{
+                            "s3:x-amz-acl": "bucket-owner-full-control"
+                        }}
+                    }}
+                }}
+            ]
+        }}
         \"\"\"))
         foobar = aws.cloudtrail.Trail("foobar",
             s3_bucket_name=bucket_v2.id,

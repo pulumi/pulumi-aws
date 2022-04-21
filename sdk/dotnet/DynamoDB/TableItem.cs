@@ -71,8 +71,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> HashKey { get; private set; } = null!;
 
         /// <summary>
-        /// JSON representation of a map of attribute name/value pairs, one for each attribute.
-        /// Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         /// </summary>
         [Output("item")]
         public Output<string> Item { get; private set; } = null!;
@@ -84,7 +83,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> RangeKey { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the table to contain the item.
+        /// Name of the table to contain the item.
         /// </summary>
         [Output("tableName")]
         public Output<string> TableName { get; private set; } = null!;
@@ -142,8 +141,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string> HashKey { get; set; } = null!;
 
         /// <summary>
-        /// JSON representation of a map of attribute name/value pairs, one for each attribute.
-        /// Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         /// </summary>
         [Input("item", required: true)]
         public Input<string> Item { get; set; } = null!;
@@ -155,7 +153,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? RangeKey { get; set; }
 
         /// <summary>
-        /// The name of the table to contain the item.
+        /// Name of the table to contain the item.
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;
@@ -174,8 +172,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? HashKey { get; set; }
 
         /// <summary>
-        /// JSON representation of a map of attribute name/value pairs, one for each attribute.
-        /// Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        /// JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         /// </summary>
         [Input("item")]
         public Input<string>? Item { get; set; }
@@ -187,7 +184,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? RangeKey { get; set; }
 
         /// <summary>
-        /// The name of the table to contain the item.
+        /// Name of the table to contain the item.
         /// </summary>
         [Input("tableName")]
         public Input<string>? TableName { get; set; }

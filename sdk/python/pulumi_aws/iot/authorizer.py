@@ -14,6 +14,7 @@ __all__ = ['AuthorizerArgs', 'Authorizer']
 class AuthorizerArgs:
     def __init__(__self__, *,
                  authorizer_function_arn: pulumi.Input[str],
+                 enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -22,6 +23,7 @@ class AuthorizerArgs:
         """
         The set of arguments for constructing a Authorizer resource.
         :param pulumi.Input[str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
+        :param pulumi.Input[bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -29,6 +31,8 @@ class AuthorizerArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] token_signing_public_keys: The public keys used to verify the digital signature returned by your custom authentication service. This value is required if signing is enabled in your authorizer.
         """
         pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
+        if enable_caching_for_http is not None:
+            pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if signing_disabled is not None:
@@ -51,6 +55,18 @@ class AuthorizerArgs:
     @authorizer_function_arn.setter
     def authorizer_function_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "authorizer_function_arn", value)
+
+    @property
+    @pulumi.getter(name="enableCachingForHttp")
+    def enable_caching_for_http(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the HTTP caching is enabled or not. Default: `false`.
+        """
+        return pulumi.get(self, "enable_caching_for_http")
+
+    @enable_caching_for_http.setter
+    def enable_caching_for_http(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_caching_for_http", value)
 
     @property
     @pulumi.getter
@@ -118,6 +134,7 @@ class _AuthorizerState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  authorizer_function_arn: Optional[pulumi.Input[str]] = None,
+                 enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -127,6 +144,7 @@ class _AuthorizerState:
         Input properties used for looking up and filtering Authorizer resources.
         :param pulumi.Input[str] arn: The ARN of the authorizer.
         :param pulumi.Input[str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
+        :param pulumi.Input[bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -137,6 +155,8 @@ class _AuthorizerState:
             pulumi.set(__self__, "arn", arn)
         if authorizer_function_arn is not None:
             pulumi.set(__self__, "authorizer_function_arn", authorizer_function_arn)
+        if enable_caching_for_http is not None:
+            pulumi.set(__self__, "enable_caching_for_http", enable_caching_for_http)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if signing_disabled is not None:
@@ -171,6 +191,18 @@ class _AuthorizerState:
     @authorizer_function_arn.setter
     def authorizer_function_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authorizer_function_arn", value)
+
+    @property
+    @pulumi.getter(name="enableCachingForHttp")
+    def enable_caching_for_http(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the HTTP caching is enabled or not. Default: `false`.
+        """
+        return pulumi.get(self, "enable_caching_for_http")
+
+    @enable_caching_for_http.setter
+    def enable_caching_for_http(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_caching_for_http", value)
 
     @property
     @pulumi.getter
@@ -239,6 +271,7 @@ class Authorizer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizer_function_arn: Optional[pulumi.Input[str]] = None,
+                 enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -275,6 +308,7 @@ class Authorizer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
+        :param pulumi.Input[bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -330,6 +364,7 @@ class Authorizer(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorizer_function_arn: Optional[pulumi.Input[str]] = None,
+                 enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  signing_disabled: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -350,6 +385,7 @@ class Authorizer(pulumi.CustomResource):
             if authorizer_function_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'authorizer_function_arn'")
             __props__.__dict__["authorizer_function_arn"] = authorizer_function_arn
+            __props__.__dict__["enable_caching_for_http"] = enable_caching_for_http
             __props__.__dict__["name"] = name
             __props__.__dict__["signing_disabled"] = signing_disabled
             __props__.__dict__["status"] = status
@@ -368,6 +404,7 @@ class Authorizer(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             authorizer_function_arn: Optional[pulumi.Input[str]] = None,
+            enable_caching_for_http: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             signing_disabled: Optional[pulumi.Input[bool]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -382,6 +419,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the authorizer.
         :param pulumi.Input[str] authorizer_function_arn: The ARN of the authorizer's Lambda function.
+        :param pulumi.Input[bool] enable_caching_for_http: Specifies whether the HTTP caching is enabled or not. Default: `false`.
         :param pulumi.Input[str] name: The name of the authorizer.
         :param pulumi.Input[bool] signing_disabled: Specifies whether AWS IoT validates the token signature in an authorization request. Default: `false`.
         :param pulumi.Input[str] status: The status of Authorizer request at creation. Valid values: `ACTIVE`, `INACTIVE`. Default: `ACTIVE`.
@@ -394,6 +432,7 @@ class Authorizer(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["authorizer_function_arn"] = authorizer_function_arn
+        __props__.__dict__["enable_caching_for_http"] = enable_caching_for_http
         __props__.__dict__["name"] = name
         __props__.__dict__["signing_disabled"] = signing_disabled
         __props__.__dict__["status"] = status
@@ -416,6 +455,14 @@ class Authorizer(pulumi.CustomResource):
         The ARN of the authorizer's Lambda function.
         """
         return pulumi.get(self, "authorizer_function_arn")
+
+    @property
+    @pulumi.getter(name="enableCachingForHttp")
+    def enable_caching_for_http(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the HTTP caching is enabled or not. Default: `false`.
+        """
+        return pulumi.get(self, "enable_caching_for_http")
 
     @property
     @pulumi.getter

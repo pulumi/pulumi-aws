@@ -46,12 +46,18 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = s3.NewBucketPolicy(ctx, "bucketPolicy", &s3.BucketPolicyArgs{
-// 			Bucket: bucketV2.ID(),
-// 			Policy: pulumi.All(bucketV2.ID(), bucketV2.ID()).ApplyT(func(_args []interface{}) (string, error) {
-// 				bucketV2Id := _args[0].(string)
-// 				bucketV2Id1 := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  {\n", "      \"Version\": \"2012-10-17\",\n", "      \"Statement\": [\n", "          {\n", "              \"Sid\": \"AWSCloudTrailAclCheck\",\n", "              \"Effect\": \"Allow\",\n", "              \"Principal\": {\n", "                \"Service\": \"cloudtrail.amazonaws.com\"\n", "              },\n", "              \"Action\": \"s3:GetBucketAcl\",\n", "              \"Resource\": \"arn:aws:s3:::", bucketV2Id, "\"\n", "          },\n", "          {\n", "              \"Sid\": \"AWSCloudTrailWrite\",\n", "              \"Effect\": \"Allow\",\n", "              \"Principal\": {\n", "                \"Service\": \"cloudtrail.amazonaws.com\"\n", "              },\n", "              \"Action\": \"s3:PutObject\",\n", "              \"Resource\": \"arn:aws:s3:::", bucketV2Id1, "/prefix/AWSLogs/", current.AccountId, "/*\",\n", "              \"Condition\": {\n", "                  \"StringEquals\": {\n", "                      \"s3:x-amz-acl\": \"bucket-owner-full-control\"\n", "                  }\n", "              }\n", "          }\n", "      ]\n", "  }\n"), nil
+// 		fooBucketV2, err := s3.NewBucketV2(ctx, "fooBucketV2", &s3.BucketV2Args{
+// 			ForceDestroy: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = s3.NewBucketPolicy(ctx, "fooBucketPolicy", &s3.BucketPolicyArgs{
+// 			Bucket: fooBucketV2.ID(),
+// 			Policy: pulumi.All(fooBucketV2.Arn, fooBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
+// 				fooBucketV2Arn := _args[0].(string)
+// 				fooBucketV2Arn1 := _args[1].(string)
+// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Sid\": \"AWSCloudTrailAclCheck\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": {\n", "              \"Service\": \"cloudtrail.amazonaws.com\"\n", "            },\n", "            \"Action\": \"s3:GetBucketAcl\",\n", "            \"Resource\": \"", fooBucketV2Arn, "\"\n", "        },\n", "        {\n", "            \"Sid\": \"AWSCloudTrailWrite\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": {\n", "              \"Service\": \"cloudtrail.amazonaws.com\"\n", "            },\n", "            \"Action\": \"s3:PutObject\",\n", "            \"Resource\": \"", fooBucketV2Arn1, "/prefix/AWSLogs/", current.AccountId, "/*\",\n", "            \"Condition\": {\n", "                \"StringEquals\": {\n", "                    \"s3:x-amz-acl\": \"bucket-owner-full-control\"\n", "                }\n", "            }\n", "        }\n", "    ]\n", "}\n"), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

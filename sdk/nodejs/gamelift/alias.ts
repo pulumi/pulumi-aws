@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Gamelift Alias resource.
+ * Provides a GameLift Alias resource.
  *
  * ## Example Usage
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Gamelift Aliases can be imported using the ID, e.g.,
+ * GameLift Aliases can be imported using the ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:gamelift/alias:Alias example <alias-id>

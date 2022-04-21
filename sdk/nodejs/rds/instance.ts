@@ -213,7 +213,7 @@ export class Instance extends pulumi.CustomResource {
     /**
      * The engine version to use. If `autoMinorVersionUpgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-     * The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'. Cannot be specified for a replica.
      */
@@ -719,7 +719,7 @@ export interface InstanceState {
     /**
      * The engine version to use. If `autoMinorVersionUpgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-     * The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'. Cannot be specified for a replica.
      */
@@ -1058,7 +1058,7 @@ export interface InstanceArgs {
     /**
      * The engine version to use. If `autoMinorVersionUpgrade`
      * is enabled, you can provide a prefix of the version such as `5.7` (for `5.7.10`).
-     * The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      * For supported values, see the EngineVersion parameter in [API action CreateDBInstance](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html).
      * Note that for Amazon Aurora instances the engine version must match the DB cluster's engine version'. Cannot be specified for a replica.
      */

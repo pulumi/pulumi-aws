@@ -5,12 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./connector";
 export * from "./customPlugin";
+export * from "./getConnector";
 export * from "./getCustomPlugin";
 export * from "./getWorkerConfiguration";
 export * from "./workerConfiguration";
 
 // Import resources to register:
+import { Connector } from "./connector";
 import { CustomPlugin } from "./customPlugin";
 import { WorkerConfiguration } from "./workerConfiguration";
 
@@ -18,6 +21,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:mskconnect/connector:Connector":
+                return new Connector(name, <any>undefined, { urn })
             case "aws:mskconnect/customPlugin:CustomPlugin":
                 return new CustomPlugin(name, <any>undefined, { urn })
             case "aws:mskconnect/workerConfiguration:WorkerConfiguration":
@@ -27,5 +32,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "mskconnect/connector", _module)
 pulumi.runtime.registerResourceModule("aws", "mskconnect/customPlugin", _module)
 pulumi.runtime.registerResourceModule("aws", "mskconnect/workerConfiguration", _module)

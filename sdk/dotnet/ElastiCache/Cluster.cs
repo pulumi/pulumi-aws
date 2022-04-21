@@ -96,6 +96,45 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// }
     /// ```
+    /// ### Redis Log Delivery configuration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.ElastiCache.Cluster("test", new Aws.ElastiCache.ClusterArgs
+    ///         {
+    ///             Engine = "redis",
+    ///             NodeType = "cache.t3.micro",
+    ///             NumCacheNodes = 1,
+    ///             Port = 6379,
+    ///             ApplyImmediately = true,
+    ///             LogDeliveryConfigurations = 
+    ///             {
+    ///                 new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
+    ///                 {
+    ///                     Destination = aws_cloudwatch_log_group.Example.Name,
+    ///                     DestinationType = "cloudwatch-logs",
+    ///                     LogFormat = "text",
+    ///                     LogType = "slow-log",
+    ///                 },
+    ///                 new Aws.ElastiCache.Inputs.ClusterLogDeliveryConfigurationArgs
+    ///                 {
+    ///                     Destination = aws_kinesis_firehose_delivery_stream.Example.Name,
+    ///                     DestinationType = "kinesis-firehose",
+    ///                     LogFormat = "json",
+    ///                     LogType = "engine-log",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -119,6 +158,14 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+        /// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        /// Defaults to `true`.
+        /// </summary>
+        [Output("autoMinorVersionUpgrade")]
+        public Output<string?> AutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
@@ -164,8 +211,9 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Version number of the cache engine to be used.
+        /// If not set, defaults to the latest version.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        /// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        /// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -181,6 +229,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Output("finalSnapshotIdentifier")]
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        /// </summary>
+        [Output("logDeliveryConfigurations")]
+        public Output<ImmutableArray<Outputs.ClusterLogDeliveryConfiguration>> LogDeliveryConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the weekly time range for when maintenance
@@ -336,6 +390,14 @@ namespace Pulumi.Aws.ElastiCache
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
+        /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+        /// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        /// Defaults to `true`.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        public Input<string>? AutoMinorVersionUpgrade { get; set; }
+
+        /// <summary>
         /// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         /// </summary>
         [Input("availabilityZone")]
@@ -361,8 +423,9 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Version number of the cache engine to be used.
+        /// If not set, defaults to the latest version.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        /// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        /// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -372,6 +435,18 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
+
+        [Input("logDeliveryConfigurations")]
+        private InputList<Inputs.ClusterLogDeliveryConfigurationArgs>? _logDeliveryConfigurations;
+
+        /// <summary>
+        /// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        /// </summary>
+        public InputList<Inputs.ClusterLogDeliveryConfigurationArgs> LogDeliveryConfigurations
+        {
+            get => _logDeliveryConfigurations ?? (_logDeliveryConfigurations = new InputList<Inputs.ClusterLogDeliveryConfigurationArgs>());
+            set => _logDeliveryConfigurations = value;
+        }
 
         /// <summary>
         /// Specifies the weekly time range for when maintenance
@@ -515,6 +590,14 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+        /// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+        /// Defaults to `true`.
+        /// </summary>
+        [Input("autoMinorVersionUpgrade")]
+        public Input<string>? AutoMinorVersionUpgrade { get; set; }
+
+        /// <summary>
         /// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
         /// </summary>
         [Input("availabilityZone")]
@@ -564,8 +647,9 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// Version number of the cache engine to be used.
+        /// If not set, defaults to the latest version.
         /// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        /// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        /// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -581,6 +665,18 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
+
+        [Input("logDeliveryConfigurations")]
+        private InputList<Inputs.ClusterLogDeliveryConfigurationGetArgs>? _logDeliveryConfigurations;
+
+        /// <summary>
+        /// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+        /// </summary>
+        public InputList<Inputs.ClusterLogDeliveryConfigurationGetArgs> LogDeliveryConfigurations
+        {
+            get => _logDeliveryConfigurations ?? (_logDeliveryConfigurations = new InputList<Inputs.ClusterLogDeliveryConfigurationGetArgs>());
+            set => _logDeliveryConfigurations = value;
+        }
 
         /// <summary>
         /// Specifies the weekly time range for when maintenance

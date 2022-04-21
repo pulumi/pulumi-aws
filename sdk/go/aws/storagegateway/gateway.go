@@ -225,6 +225,8 @@ type Gateway struct {
 	GatewayVpcEndpoint pulumi.StringPtrOutput `pulumi:"gatewayVpcEndpoint"`
 	// The type of hypervisor environment used by the host.
 	HostEnvironment pulumi.StringOutput `pulumi:"hostEnvironment"`
+	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+	MaintenanceStartTime GatewayMaintenanceStartTimeOutput `pulumi:"maintenanceStartTime"`
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType pulumi.StringPtrOutput `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
@@ -308,6 +310,8 @@ type gatewayState struct {
 	GatewayVpcEndpoint *string `pulumi:"gatewayVpcEndpoint"`
 	// The type of hypervisor environment used by the host.
 	HostEnvironment *string `pulumi:"hostEnvironment"`
+	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+	MaintenanceStartTime *GatewayMaintenanceStartTime `pulumi:"maintenanceStartTime"`
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType *string `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
@@ -357,6 +361,8 @@ type GatewayState struct {
 	GatewayVpcEndpoint pulumi.StringPtrInput
 	// The type of hypervisor environment used by the host.
 	HostEnvironment pulumi.StringPtrInput
+	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+	MaintenanceStartTime GatewayMaintenanceStartTimePtrInput
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
@@ -398,6 +404,8 @@ type gatewayArgs struct {
 	GatewayType *string `pulumi:"gatewayType"`
 	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint *string `pulumi:"gatewayVpcEndpoint"`
+	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+	MaintenanceStartTime *GatewayMaintenanceStartTime `pulumi:"maintenanceStartTime"`
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType *string `pulumi:"mediumChangerType"`
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
@@ -434,6 +442,8 @@ type GatewayArgs struct {
 	GatewayType pulumi.StringPtrInput
 	// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
 	GatewayVpcEndpoint pulumi.StringPtrInput
+	// The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+	MaintenanceStartTime GatewayMaintenanceStartTimePtrInput
 	// Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
 	MediumChangerType pulumi.StringPtrInput
 	// Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.

@@ -639,7 +639,7 @@ class ReceiptRuleStopAction(dict):
                  topic_arn: Optional[str] = None):
         """
         :param int position: The position of the action in the receipt rule
-        :param str scope: The scope to apply
+        :param str scope: The scope to apply. The only acceptable value is `RuleSet`.
         :param str topic_arn: The ARN of an SNS topic to notify
         """
         pulumi.set(__self__, "position", position)
@@ -659,7 +659,7 @@ class ReceiptRuleStopAction(dict):
     @pulumi.getter
     def scope(self) -> str:
         """
-        The scope to apply
+        The scope to apply. The only acceptable value is `RuleSet`.
         """
         return pulumi.get(self, "scope")
 

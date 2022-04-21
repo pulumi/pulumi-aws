@@ -96,6 +96,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> CarrierGatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of a core network.
+        /// </summary>
+        [Output("coreNetworkArn")]
+        public Output<string?> CoreNetworkArn { get; private set; } = null!;
+
+        /// <summary>
         /// The destination CIDR block.
         /// </summary>
         [Output("destinationCidrBlock")]
@@ -244,6 +250,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CarrierGatewayId { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) of a core network.
+        /// </summary>
+        [Input("coreNetworkArn")]
+        public Input<string>? CoreNetworkArn { get; set; }
+
+        /// <summary>
         /// The destination CIDR block.
         /// </summary>
         [Input("destinationCidrBlock")]
@@ -333,6 +345,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("carrierGatewayId")]
         public Input<string>? CarrierGatewayId { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of a core network.
+        /// </summary>
+        [Input("coreNetworkArn")]
+        public Input<string>? CoreNetworkArn { get; set; }
 
         /// <summary>
         /// The destination CIDR block.

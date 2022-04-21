@@ -790,6 +790,8 @@ class VpnConnectionArgs:
 class _VpnConnectionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 core_network_arn: Optional[pulumi.Input[str]] = None,
+                 core_network_attachment_arn: Optional[pulumi.Input[str]] = None,
                  customer_gateway_configuration: Optional[pulumi.Input[str]] = None,
                  customer_gateway_id: Optional[pulumi.Input[str]] = None,
                  enable_acceleration: Optional[pulumi.Input[bool]] = None,
@@ -856,6 +858,8 @@ class _VpnConnectionState:
         """
         Input properties used for looking up and filtering VpnConnection resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the VPN Connection.
+        :param pulumi.Input[str] core_network_arn: The ARN of the core network.
+        :param pulumi.Input[str] core_network_attachment_arn: The ARN of the core network attachment.
         :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
@@ -922,6 +926,10 @@ class _VpnConnectionState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if core_network_arn is not None:
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
+        if core_network_attachment_arn is not None:
+            pulumi.set(__self__, "core_network_attachment_arn", core_network_attachment_arn)
         if customer_gateway_configuration is not None:
             pulumi.set(__self__, "customer_gateway_configuration", customer_gateway_configuration)
         if customer_gateway_id is not None:
@@ -1060,6 +1068,30 @@ class _VpnConnectionState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the core network.
+        """
+        return pulumi.get(self, "core_network_arn")
+
+    @core_network_arn.setter
+    def core_network_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "core_network_arn", value)
+
+    @property
+    @pulumi.getter(name="coreNetworkAttachmentArn")
+    def core_network_attachment_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the core network attachment.
+        """
+        return pulumi.get(self, "core_network_attachment_arn")
+
+    @core_network_attachment_arn.setter
+    def core_network_attachment_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "core_network_attachment_arn", value)
 
     @property
     @pulumi.getter(name="customerGatewayConfiguration")
@@ -2159,6 +2191,8 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["type"] = type
             __props__.__dict__["vpn_gateway_id"] = vpn_gateway_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["core_network_arn"] = None
+            __props__.__dict__["core_network_attachment_arn"] = None
             __props__.__dict__["customer_gateway_configuration"] = None
             __props__.__dict__["routes"] = None
             __props__.__dict__["tags_all"] = None
@@ -2185,6 +2219,8 @@ class VpnConnection(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            core_network_arn: Optional[pulumi.Input[str]] = None,
+            core_network_attachment_arn: Optional[pulumi.Input[str]] = None,
             customer_gateway_configuration: Optional[pulumi.Input[str]] = None,
             customer_gateway_id: Optional[pulumi.Input[str]] = None,
             enable_acceleration: Optional[pulumi.Input[bool]] = None,
@@ -2256,6 +2292,8 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the VPN Connection.
+        :param pulumi.Input[str] core_network_arn: The ARN of the core network.
+        :param pulumi.Input[str] core_network_attachment_arn: The ARN of the core network attachment.
         :param pulumi.Input[str] customer_gateway_configuration: The configuration information for the VPN connection's customer gateway (in the native XML format).
         :param pulumi.Input[str] customer_gateway_id: The ID of the customer gateway.
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
@@ -2325,6 +2363,8 @@ class VpnConnection(pulumi.CustomResource):
         __props__ = _VpnConnectionState.__new__(_VpnConnectionState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["core_network_arn"] = core_network_arn
+        __props__.__dict__["core_network_attachment_arn"] = core_network_attachment_arn
         __props__.__dict__["customer_gateway_configuration"] = customer_gateway_configuration
         __props__.__dict__["customer_gateway_id"] = customer_gateway_id
         __props__.__dict__["enable_acceleration"] = enable_acceleration
@@ -2397,6 +2437,22 @@ class VpnConnection(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the VPN Connection.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the core network.
+        """
+        return pulumi.get(self, "core_network_arn")
+
+    @property
+    @pulumi.getter(name="coreNetworkAttachmentArn")
+    def core_network_attachment_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the core network attachment.
+        """
+        return pulumi.get(self, "core_network_attachment_arn")
 
     @property
     @pulumi.getter(name="customerGatewayConfiguration")

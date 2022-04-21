@@ -24,6 +24,7 @@ class GatewayArgs:
                  gateway_ip_address: Optional[pulumi.Input[str]] = None,
                  gateway_type: Optional[pulumi.Input[str]] = None,
                  gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
+                 maintenance_start_time: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']] = None,
                  medium_changer_type: Optional[pulumi.Input[str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']] = None,
                  smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
@@ -42,6 +43,7 @@ class GatewayArgs:
         :param pulumi.Input[str] gateway_ip_address: Gateway IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. Gateway must be accessible on port 80 from where this provider is running. Additional information is available in the [Storage Gateway User Guide](https://docs.aws.amazon.com/storagegateway/latest/userguide/get-activation-key.html).
         :param pulumi.Input[str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         :param pulumi.Input[str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+        :param pulumi.Input['GatewayMaintenanceStartTimeArgs'] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input['GatewaySmbActiveDirectorySettingsArgs'] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
@@ -66,6 +68,8 @@ class GatewayArgs:
             pulumi.set(__self__, "gateway_type", gateway_type)
         if gateway_vpc_endpoint is not None:
             pulumi.set(__self__, "gateway_vpc_endpoint", gateway_vpc_endpoint)
+        if maintenance_start_time is not None:
+            pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
         if medium_changer_type is not None:
             pulumi.set(__self__, "medium_changer_type", medium_changer_type)
         if smb_active_directory_settings is not None:
@@ -190,6 +194,18 @@ class GatewayArgs:
         pulumi.set(self, "gateway_vpc_endpoint", value)
 
     @property
+    @pulumi.getter(name="maintenanceStartTime")
+    def maintenance_start_time(self) -> Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']]:
+        """
+        The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+        """
+        return pulumi.get(self, "maintenance_start_time")
+
+    @maintenance_start_time.setter
+    def maintenance_start_time(self, value: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']]):
+        pulumi.set(self, "maintenance_start_time", value)
+
+    @property
     @pulumi.getter(name="mediumChangerType")
     def medium_changer_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -292,6 +308,7 @@ class _GatewayState:
                  gateway_type: Optional[pulumi.Input[str]] = None,
                  gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
                  host_environment: Optional[pulumi.Input[str]] = None,
+                 maintenance_start_time: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']] = None,
                  medium_changer_type: Optional[pulumi.Input[str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input['GatewaySmbActiveDirectorySettingsArgs']] = None,
                  smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
@@ -317,6 +334,7 @@ class _GatewayState:
         :param pulumi.Input[str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         :param pulumi.Input[str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         :param pulumi.Input[str] host_environment: The type of hypervisor environment used by the host.
+        :param pulumi.Input['GatewayMaintenanceStartTimeArgs'] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input['GatewaySmbActiveDirectorySettingsArgs'] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
@@ -356,6 +374,8 @@ class _GatewayState:
             pulumi.set(__self__, "gateway_vpc_endpoint", gateway_vpc_endpoint)
         if host_environment is not None:
             pulumi.set(__self__, "host_environment", host_environment)
+        if maintenance_start_time is not None:
+            pulumi.set(__self__, "maintenance_start_time", maintenance_start_time)
         if medium_changer_type is not None:
             pulumi.set(__self__, "medium_changer_type", medium_changer_type)
         if smb_active_directory_settings is not None:
@@ -554,6 +574,18 @@ class _GatewayState:
         pulumi.set(self, "host_environment", value)
 
     @property
+    @pulumi.getter(name="maintenanceStartTime")
+    def maintenance_start_time(self) -> Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']]:
+        """
+        The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+        """
+        return pulumi.get(self, "maintenance_start_time")
+
+    @maintenance_start_time.setter
+    def maintenance_start_time(self, value: Optional[pulumi.Input['GatewayMaintenanceStartTimeArgs']]):
+        pulumi.set(self, "maintenance_start_time", value)
+
+    @property
     @pulumi.getter(name="mediumChangerType")
     def medium_changer_type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -664,6 +696,7 @@ class Gateway(pulumi.CustomResource):
                  gateway_timezone: Optional[pulumi.Input[str]] = None,
                  gateway_type: Optional[pulumi.Input[str]] = None,
                  gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
+                 maintenance_start_time: Optional[pulumi.Input[pulumi.InputType['GatewayMaintenanceStartTimeArgs']]] = None,
                  medium_changer_type: Optional[pulumi.Input[str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']]] = None,
                  smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
@@ -783,6 +816,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_timezone: Time zone for the gateway. The time zone is of the format "GMT", "GMT-hr:mm", or "GMT+hr:mm". For example, `GMT-4:00` indicates the time is 4 hours behind GMT. The time zone is used, for example, for scheduling snapshots and your gateway's maintenance schedule.
         :param pulumi.Input[str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         :param pulumi.Input[str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+        :param pulumi.Input[pulumi.InputType['GatewayMaintenanceStartTimeArgs']] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
@@ -921,6 +955,7 @@ class Gateway(pulumi.CustomResource):
                  gateway_timezone: Optional[pulumi.Input[str]] = None,
                  gateway_type: Optional[pulumi.Input[str]] = None,
                  gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
+                 maintenance_start_time: Optional[pulumi.Input[pulumi.InputType['GatewayMaintenanceStartTimeArgs']]] = None,
                  medium_changer_type: Optional[pulumi.Input[str]] = None,
                  smb_active_directory_settings: Optional[pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']]] = None,
                  smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
@@ -953,6 +988,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["gateway_timezone"] = gateway_timezone
             __props__.__dict__["gateway_type"] = gateway_type
             __props__.__dict__["gateway_vpc_endpoint"] = gateway_vpc_endpoint
+            __props__.__dict__["maintenance_start_time"] = maintenance_start_time
             __props__.__dict__["medium_changer_type"] = medium_changer_type
             __props__.__dict__["smb_active_directory_settings"] = smb_active_directory_settings
             __props__.__dict__["smb_file_share_visibility"] = smb_file_share_visibility
@@ -992,6 +1028,7 @@ class Gateway(pulumi.CustomResource):
             gateway_type: Optional[pulumi.Input[str]] = None,
             gateway_vpc_endpoint: Optional[pulumi.Input[str]] = None,
             host_environment: Optional[pulumi.Input[str]] = None,
+            maintenance_start_time: Optional[pulumi.Input[pulumi.InputType['GatewayMaintenanceStartTimeArgs']]] = None,
             medium_changer_type: Optional[pulumi.Input[str]] = None,
             smb_active_directory_settings: Optional[pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']]] = None,
             smb_file_share_visibility: Optional[pulumi.Input[bool]] = None,
@@ -1022,6 +1059,7 @@ class Gateway(pulumi.CustomResource):
         :param pulumi.Input[str] gateway_type: Type of the gateway. The default value is `STORED`. Valid values: `CACHED`, `FILE_FSX_SMB`, `FILE_S3`, `STORED`, `VTL`.
         :param pulumi.Input[str] gateway_vpc_endpoint: VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         :param pulumi.Input[str] host_environment: The type of hypervisor environment used by the host.
+        :param pulumi.Input[pulumi.InputType['GatewayMaintenanceStartTimeArgs']] maintenance_start_time: The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
         :param pulumi.Input[str] medium_changer_type: Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
         :param pulumi.Input[pulumi.InputType['GatewaySmbActiveDirectorySettingsArgs']] smb_active_directory_settings: Nested argument with Active Directory domain join information for Server Message Block (SMB) file shares. Only valid for `FILE_S3` and `FILE_FSX_SMB` gateway types. Must be set before creating `ActiveDirectory` authentication SMB file shares. More details below.
         :param pulumi.Input[bool] smb_file_share_visibility: Specifies whether the shares on this gateway appear when listing shares.
@@ -1050,6 +1088,7 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["gateway_type"] = gateway_type
         __props__.__dict__["gateway_vpc_endpoint"] = gateway_vpc_endpoint
         __props__.__dict__["host_environment"] = host_environment
+        __props__.__dict__["maintenance_start_time"] = maintenance_start_time
         __props__.__dict__["medium_changer_type"] = medium_changer_type
         __props__.__dict__["smb_active_directory_settings"] = smb_active_directory_settings
         __props__.__dict__["smb_file_share_visibility"] = smb_file_share_visibility
@@ -1179,6 +1218,14 @@ class Gateway(pulumi.CustomResource):
         The type of hypervisor environment used by the host.
         """
         return pulumi.get(self, "host_environment")
+
+    @property
+    @pulumi.getter(name="maintenanceStartTime")
+    def maintenance_start_time(self) -> pulumi.Output['outputs.GatewayMaintenanceStartTime']:
+        """
+        The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+        """
+        return pulumi.get(self, "maintenance_start_time")
 
     @property
     @pulumi.getter(name="mediumChangerType")

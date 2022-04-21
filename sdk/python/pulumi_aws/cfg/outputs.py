@@ -21,6 +21,7 @@ __all__ = [
     'RemediationConfigurationParameter',
     'RuleScope',
     'RuleSource',
+    'RuleSourceCustomPolicyDetails',
     'RuleSourceSourceDetail',
 ]
 
@@ -572,10 +573,12 @@ class RuleSource(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "sourceIdentifier":
-            suggest = "source_identifier"
+        if key == "customPolicyDetails":
+            suggest = "custom_policy_details"
         elif key == "sourceDetails":
             suggest = "source_details"
+        elif key == "sourceIdentifier":
+            suggest = "source_identifier"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RuleSource. Access the value via the '{suggest}' property getter instead.")
@@ -590,41 +593,116 @@ class RuleSource(dict):
 
     def __init__(__self__, *,
                  owner: str,
-                 source_identifier: str,
-                 source_details: Optional[Sequence['outputs.RuleSourceSourceDetail']] = None):
+                 custom_policy_details: Optional['outputs.RuleSourceCustomPolicyDetails'] = None,
+                 source_details: Optional[Sequence['outputs.RuleSourceSourceDetail']] = None,
+                 source_identifier: Optional[str] = None):
         """
-        :param str owner: Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
+        :param str owner: Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
+        :param 'RuleSourceCustomPolicyDetailsArgs' custom_policy_details: Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+        :param Sequence['RuleSourceSourceDetailArgs'] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         :param str source_identifier: For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
-        :param Sequence['RuleSourceSourceDetailArgs'] source_details: Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
         """
         pulumi.set(__self__, "owner", owner)
-        pulumi.set(__self__, "source_identifier", source_identifier)
+        if custom_policy_details is not None:
+            pulumi.set(__self__, "custom_policy_details", custom_policy_details)
         if source_details is not None:
             pulumi.set(__self__, "source_details", source_details)
+        if source_identifier is not None:
+            pulumi.set(__self__, "source_identifier", source_identifier)
 
     @property
     @pulumi.getter
     def owner(self) -> str:
         """
-        Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
+        Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
         """
         return pulumi.get(self, "owner")
 
     @property
-    @pulumi.getter(name="sourceIdentifier")
-    def source_identifier(self) -> str:
+    @pulumi.getter(name="customPolicyDetails")
+    def custom_policy_details(self) -> Optional['outputs.RuleSourceCustomPolicyDetails']:
         """
-        For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+        Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
         """
-        return pulumi.get(self, "source_identifier")
+        return pulumi.get(self, "custom_policy_details")
 
     @property
     @pulumi.getter(name="sourceDetails")
     def source_details(self) -> Optional[Sequence['outputs.RuleSourceSourceDetail']]:
         """
-        Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+        Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
         """
         return pulumi.get(self, "source_details")
+
+    @property
+    @pulumi.getter(name="sourceIdentifier")
+    def source_identifier(self) -> Optional[str]:
+        """
+        For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+        """
+        return pulumi.get(self, "source_identifier")
+
+
+@pulumi.output_type
+class RuleSourceCustomPolicyDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "policyRuntime":
+            suggest = "policy_runtime"
+        elif key == "policyText":
+            suggest = "policy_text"
+        elif key == "enableDebugLogDelivery":
+            suggest = "enable_debug_log_delivery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleSourceCustomPolicyDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleSourceCustomPolicyDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleSourceCustomPolicyDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 policy_runtime: str,
+                 policy_text: str,
+                 enable_debug_log_delivery: Optional[bool] = None):
+        """
+        :param str policy_runtime: The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+        :param str policy_text: The policy definition containing the logic for your Config Custom Policy rule.
+        :param bool enable_debug_log_delivery: The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+        """
+        pulumi.set(__self__, "policy_runtime", policy_runtime)
+        pulumi.set(__self__, "policy_text", policy_text)
+        if enable_debug_log_delivery is not None:
+            pulumi.set(__self__, "enable_debug_log_delivery", enable_debug_log_delivery)
+
+    @property
+    @pulumi.getter(name="policyRuntime")
+    def policy_runtime(self) -> str:
+        """
+        The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+        """
+        return pulumi.get(self, "policy_runtime")
+
+    @property
+    @pulumi.getter(name="policyText")
+    def policy_text(self) -> str:
+        """
+        The policy definition containing the logic for your Config Custom Policy rule.
+        """
+        return pulumi.get(self, "policy_text")
+
+    @property
+    @pulumi.getter(name="enableDebugLogDelivery")
+    def enable_debug_log_delivery(self) -> Optional[bool]:
+        """
+        The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+        """
+        return pulumi.get(self, "enable_debug_log_delivery")
 
 
 @pulumi.output_type
@@ -655,9 +733,9 @@ class RuleSourceSourceDetail(dict):
                  maximum_execution_frequency: Optional[str] = None,
                  message_type: Optional[str] = None):
         """
-        :param str event_source: The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
-        :param str maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
-        :param str message_type: The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+        :param str event_source: The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
+        :param str maximum_execution_frequency: The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        :param str message_type: The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
         """
         if event_source is not None:
             pulumi.set(__self__, "event_source", event_source)
@@ -670,7 +748,7 @@ class RuleSourceSourceDetail(dict):
     @pulumi.getter(name="eventSource")
     def event_source(self) -> Optional[str]:
         """
-        The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+        The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
         """
         return pulumi.get(self, "event_source")
 
@@ -678,7 +756,7 @@ class RuleSourceSourceDetail(dict):
     @pulumi.getter(name="maximumExecutionFrequency")
     def maximum_execution_frequency(self) -> Optional[str]:
         """
-        The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         """
         return pulumi.get(self, "maximum_execution_frequency")
 
@@ -686,7 +764,7 @@ class RuleSourceSourceDetail(dict):
     @pulumi.getter(name="messageType")
     def message_type(self) -> Optional[str]:
         """
-        The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+        The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
         """
         return pulumi.get(self, "message_type")
 

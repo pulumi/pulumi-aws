@@ -19,6 +19,7 @@ class StackSetInstanceArgs:
                  account_id: Optional[pulumi.Input[str]] = None,
                  call_as: Optional[pulumi.Input[str]] = None,
                  deployment_targets: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']] = None,
+                 operation_preferences: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retain_stack: Optional[pulumi.Input[bool]] = None):
@@ -28,6 +29,7 @@ class StackSetInstanceArgs:
         :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         :param pulumi.Input[str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input['StackSetInstanceDeploymentTargetsArgs'] deployment_targets: The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        :param pulumi.Input['StackSetInstanceOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
         :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         :param pulumi.Input[bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
@@ -39,6 +41,8 @@ class StackSetInstanceArgs:
             pulumi.set(__self__, "call_as", call_as)
         if deployment_targets is not None:
             pulumi.set(__self__, "deployment_targets", deployment_targets)
+        if operation_preferences is not None:
+            pulumi.set(__self__, "operation_preferences", operation_preferences)
         if parameter_overrides is not None:
             pulumi.set(__self__, "parameter_overrides", parameter_overrides)
         if region is not None:
@@ -95,6 +99,18 @@ class StackSetInstanceArgs:
         pulumi.set(self, "deployment_targets", value)
 
     @property
+    @pulumi.getter(name="operationPreferences")
+    def operation_preferences(self) -> Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']]:
+        """
+        Preferences for how AWS CloudFormation performs a stack set operation.
+        """
+        return pulumi.get(self, "operation_preferences")
+
+    @operation_preferences.setter
+    def operation_preferences(self, value: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']]):
+        pulumi.set(self, "operation_preferences", value)
+
+    @property
     @pulumi.getter(name="parameterOverrides")
     def parameter_overrides(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -137,6 +153,7 @@ class _StackSetInstanceState:
                  account_id: Optional[pulumi.Input[str]] = None,
                  call_as: Optional[pulumi.Input[str]] = None,
                  deployment_targets: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']] = None,
+                 operation_preferences: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']] = None,
                  organizational_unit_id: Optional[pulumi.Input[str]] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
@@ -148,6 +165,7 @@ class _StackSetInstanceState:
         :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         :param pulumi.Input[str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input['StackSetInstanceDeploymentTargetsArgs'] deployment_targets: The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        :param pulumi.Input['StackSetInstanceOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
         :param pulumi.Input[str] organizational_unit_id: The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
         :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
@@ -161,6 +179,8 @@ class _StackSetInstanceState:
             pulumi.set(__self__, "call_as", call_as)
         if deployment_targets is not None:
             pulumi.set(__self__, "deployment_targets", deployment_targets)
+        if operation_preferences is not None:
+            pulumi.set(__self__, "operation_preferences", operation_preferences)
         if organizational_unit_id is not None:
             pulumi.set(__self__, "organizational_unit_id", organizational_unit_id)
         if parameter_overrides is not None:
@@ -209,6 +229,18 @@ class _StackSetInstanceState:
     @deployment_targets.setter
     def deployment_targets(self, value: Optional[pulumi.Input['StackSetInstanceDeploymentTargetsArgs']]):
         pulumi.set(self, "deployment_targets", value)
+
+    @property
+    @pulumi.getter(name="operationPreferences")
+    def operation_preferences(self) -> Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']]:
+        """
+        Preferences for how AWS CloudFormation performs a stack set operation.
+        """
+        return pulumi.get(self, "operation_preferences")
+
+    @operation_preferences.setter
+    def operation_preferences(self, value: Optional[pulumi.Input['StackSetInstanceOperationPreferencesArgs']]):
+        pulumi.set(self, "operation_preferences", value)
 
     @property
     @pulumi.getter(name="organizationalUnitId")
@@ -291,6 +323,7 @@ class StackSetInstance(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  call_as: Optional[pulumi.Input[str]] = None,
                  deployment_targets: Optional[pulumi.Input[pulumi.InputType['StackSetInstanceDeploymentTargetsArgs']]] = None,
+                 operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetInstanceOperationPreferencesArgs']]] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retain_stack: Optional[pulumi.Input[bool]] = None,
@@ -358,10 +391,16 @@ class StackSetInstance(pulumi.CustomResource):
 
         ## Import
 
-        CloudFormation StackSet Instances can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.,
+        CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
 
         ```sh
          $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+        ```
+
+         CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+
+        ```sh
+         $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -369,6 +408,7 @@ class StackSetInstance(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         :param pulumi.Input[str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input[pulumi.InputType['StackSetInstanceDeploymentTargetsArgs']] deployment_targets: The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        :param pulumi.Input[pulumi.InputType['StackSetInstanceOperationPreferencesArgs']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
         :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
         :param pulumi.Input[bool] retain_stack: During resource destroy, remove Instance from StackSet while keeping the Stack and its associated resources. Must be enabled in the state _before_ destroy operation to take effect. You cannot reassociate a retained Stack or add an existing, saved Stack to a new StackSet. Defaults to `false`.
@@ -442,10 +482,16 @@ class StackSetInstance(pulumi.CustomResource):
 
         ## Import
 
-        CloudFormation StackSet Instances can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.,
+        CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
 
         ```sh
          $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+        ```
+
+         CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+
+        ```sh
+         $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -466,6 +512,7 @@ class StackSetInstance(pulumi.CustomResource):
                  account_id: Optional[pulumi.Input[str]] = None,
                  call_as: Optional[pulumi.Input[str]] = None,
                  deployment_targets: Optional[pulumi.Input[pulumi.InputType['StackSetInstanceDeploymentTargetsArgs']]] = None,
+                 operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetInstanceOperationPreferencesArgs']]] = None,
                  parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  region: Optional[pulumi.Input[str]] = None,
                  retain_stack: Optional[pulumi.Input[bool]] = None,
@@ -485,6 +532,7 @@ class StackSetInstance(pulumi.CustomResource):
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["call_as"] = call_as
             __props__.__dict__["deployment_targets"] = deployment_targets
+            __props__.__dict__["operation_preferences"] = operation_preferences
             __props__.__dict__["parameter_overrides"] = parameter_overrides
             __props__.__dict__["region"] = region
             __props__.__dict__["retain_stack"] = retain_stack
@@ -506,6 +554,7 @@ class StackSetInstance(pulumi.CustomResource):
             account_id: Optional[pulumi.Input[str]] = None,
             call_as: Optional[pulumi.Input[str]] = None,
             deployment_targets: Optional[pulumi.Input[pulumi.InputType['StackSetInstanceDeploymentTargetsArgs']]] = None,
+            operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetInstanceOperationPreferencesArgs']]] = None,
             organizational_unit_id: Optional[pulumi.Input[str]] = None,
             parameter_overrides: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             region: Optional[pulumi.Input[str]] = None,
@@ -522,6 +571,7 @@ class StackSetInstance(pulumi.CustomResource):
         :param pulumi.Input[str] account_id: Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
         :param pulumi.Input[str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input[pulumi.InputType['StackSetInstanceDeploymentTargetsArgs']] deployment_targets: The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        :param pulumi.Input[pulumi.InputType['StackSetInstanceOperationPreferencesArgs']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set operation.
         :param pulumi.Input[str] organizational_unit_id: The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameter_overrides: Key-value map of input parameters to override from the StackSet for this Instance.
         :param pulumi.Input[str] region: Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
@@ -536,6 +586,7 @@ class StackSetInstance(pulumi.CustomResource):
         __props__.__dict__["account_id"] = account_id
         __props__.__dict__["call_as"] = call_as
         __props__.__dict__["deployment_targets"] = deployment_targets
+        __props__.__dict__["operation_preferences"] = operation_preferences
         __props__.__dict__["organizational_unit_id"] = organizational_unit_id
         __props__.__dict__["parameter_overrides"] = parameter_overrides
         __props__.__dict__["region"] = region
@@ -567,6 +618,14 @@ class StackSetInstance(pulumi.CustomResource):
         The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
         """
         return pulumi.get(self, "deployment_targets")
+
+    @property
+    @pulumi.getter(name="operationPreferences")
+    def operation_preferences(self) -> pulumi.Output[Optional['outputs.StackSetInstanceOperationPreferences']]:
+        """
+        Preferences for how AWS CloudFormation performs a stack set operation.
+        """
+        return pulumi.get(self, "operation_preferences")
 
     @property
     @pulumi.getter(name="organizationalUnitId")

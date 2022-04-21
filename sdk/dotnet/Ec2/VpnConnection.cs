@@ -100,6 +100,18 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The ARN of the core network.
+        /// </summary>
+        [Output("coreNetworkArn")]
+        public Output<string> CoreNetworkArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of the core network attachment.
+        /// </summary>
+        [Output("coreNetworkAttachmentArn")]
+        public Output<string> CoreNetworkAttachmentArn { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration information for the VPN connection's customer gateway (in the native XML format).
         /// </summary>
         [Output("customerGatewayConfiguration")]
@@ -913,6 +925,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The ARN of the core network.
+        /// </summary>
+        [Input("coreNetworkArn")]
+        public Input<string>? CoreNetworkArn { get; set; }
+
+        /// <summary>
+        /// The ARN of the core network attachment.
+        /// </summary>
+        [Input("coreNetworkAttachmentArn")]
+        public Input<string>? CoreNetworkAttachmentArn { get; set; }
 
         /// <summary>
         /// The configuration information for the VPN connection's customer gateway (in the native XML format).

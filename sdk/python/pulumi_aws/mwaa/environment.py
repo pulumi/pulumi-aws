@@ -31,6 +31,7 @@ class EnvironmentArgs:
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
+                 schedulers: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
                  weekly_maintenance_window_start: Optional[pulumi.Input[str]] = None):
@@ -52,6 +53,7 @@ class EnvironmentArgs:
         :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
         :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
         :param pulumi.Input[str] weekly_maintenance_window_start: Specifies the start date for the weekly maintenance window.
@@ -84,6 +86,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "requirements_s3_object_version", requirements_s3_object_version)
         if requirements_s3_path is not None:
             pulumi.set(__self__, "requirements_s3_path", requirements_s3_path)
+        if schedulers is not None:
+            pulumi.set(__self__, "schedulers", schedulers)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if webserver_access_mode is not None:
@@ -285,6 +289,18 @@ class EnvironmentArgs:
 
     @property
     @pulumi.getter
+    def schedulers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        """
+        return pulumi.get(self, "schedulers")
+
+    @schedulers.setter
+    def schedulers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedulers", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -341,6 +357,7 @@ class _EnvironmentState:
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
+                 schedulers: Optional[pulumi.Input[int]] = None,
                  service_role_arn: Optional[pulumi.Input[str]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -369,6 +386,7 @@ class _EnvironmentState:
         :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
         :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[str] service_role_arn: The Service Role ARN of the Amazon MWAA Environment
         :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[str] status: The status of the Amazon MWAA Environment
@@ -414,6 +432,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "requirements_s3_object_version", requirements_s3_object_version)
         if requirements_s3_path is not None:
             pulumi.set(__self__, "requirements_s3_path", requirements_s3_path)
+        if schedulers is not None:
+            pulumi.set(__self__, "schedulers", schedulers)
         if service_role_arn is not None:
             pulumi.set(__self__, "service_role_arn", service_role_arn)
         if source_bucket_arn is not None:
@@ -646,6 +666,18 @@ class _EnvironmentState:
         pulumi.set(self, "requirements_s3_path", value)
 
     @property
+    @pulumi.getter
+    def schedulers(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        """
+        return pulumi.get(self, "schedulers")
+
+    @schedulers.setter
+    def schedulers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "schedulers", value)
+
+    @property
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -762,6 +794,7 @@ class Environment(pulumi.CustomResource):
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
+                 schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
@@ -891,6 +924,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
         :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of resource tags to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] webserver_access_mode: Specifies whether the webserver should be accessible over the internet or via your specified VPC. Possible options: `PRIVATE_ONLY` (default) and `PUBLIC_ONLY`.
@@ -1039,6 +1073,7 @@ class Environment(pulumi.CustomResource):
                  plugins_s3_path: Optional[pulumi.Input[str]] = None,
                  requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
                  requirements_s3_path: Optional[pulumi.Input[str]] = None,
+                 schedulers: Optional[pulumi.Input[int]] = None,
                  source_bucket_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  webserver_access_mode: Optional[pulumi.Input[str]] = None,
@@ -1076,6 +1111,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["plugins_s3_path"] = plugins_s3_path
             __props__.__dict__["requirements_s3_object_version"] = requirements_s3_object_version
             __props__.__dict__["requirements_s3_path"] = requirements_s3_path
+            __props__.__dict__["schedulers"] = schedulers
             if source_bucket_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'source_bucket_arn'")
             __props__.__dict__["source_bucket_arn"] = source_bucket_arn
@@ -1117,6 +1153,7 @@ class Environment(pulumi.CustomResource):
             plugins_s3_path: Optional[pulumi.Input[str]] = None,
             requirements_s3_object_version: Optional[pulumi.Input[str]] = None,
             requirements_s3_path: Optional[pulumi.Input[str]] = None,
+            schedulers: Optional[pulumi.Input[int]] = None,
             service_role_arn: Optional[pulumi.Input[str]] = None,
             source_bucket_arn: Optional[pulumi.Input[str]] = None,
             status: Optional[pulumi.Input[str]] = None,
@@ -1150,6 +1187,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] plugins_s3_path: The relative path to the plugins.zip file on your Amazon S3 storage bucket. For example, plugins.zip. If a relative path is provided in the request, then plugins_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[str] requirements_s3_object_version: The requirements.txt file version you want to use.
         :param pulumi.Input[str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
+        :param pulumi.Input[int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[str] service_role_arn: The Service Role ARN of the Amazon MWAA Environment
         :param pulumi.Input[str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[str] status: The status of the Amazon MWAA Environment
@@ -1181,6 +1219,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["plugins_s3_path"] = plugins_s3_path
         __props__.__dict__["requirements_s3_object_version"] = requirements_s3_object_version
         __props__.__dict__["requirements_s3_path"] = requirements_s3_path
+        __props__.__dict__["schedulers"] = schedulers
         __props__.__dict__["service_role_arn"] = service_role_arn
         __props__.__dict__["source_bucket_arn"] = source_bucket_arn
         __props__.__dict__["status"] = status
@@ -1332,6 +1371,14 @@ class Environment(pulumi.CustomResource):
         The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         """
         return pulumi.get(self, "requirements_s3_path")
+
+    @property
+    @pulumi.getter
+    def schedulers(self) -> pulumi.Output[int]:
+        """
+        The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+        """
+        return pulumi.get(self, "schedulers")
 
     @property
     @pulumi.getter(name="serviceRoleArn")

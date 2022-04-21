@@ -546,7 +546,7 @@ class ReceiptRuleStopActionArgs:
                  topic_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[int] position: The position of the action in the receipt rule
-        :param pulumi.Input[str] scope: The scope to apply
+        :param pulumi.Input[str] scope: The scope to apply. The only acceptable value is `RuleSet`.
         :param pulumi.Input[str] topic_arn: The ARN of an SNS topic to notify
         """
         pulumi.set(__self__, "position", position)
@@ -570,7 +570,7 @@ class ReceiptRuleStopActionArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[str]:
         """
-        The scope to apply
+        The scope to apply. The only acceptable value is `RuleSet`.
         """
         return pulumi.get(self, "scope")
 

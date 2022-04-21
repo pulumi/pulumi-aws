@@ -157,6 +157,7 @@ class Endpoints(dict):
                  cloudtrail: Optional[str] = None,
                  cloudwatch: Optional[str] = None,
                  cloudwatchevents: Optional[str] = None,
+                 cloudwatchevidently: Optional[str] = None,
                  cloudwatchlogs: Optional[str] = None,
                  cloudwatchrum: Optional[str] = None,
                  codeartifact: Optional[str] = None,
@@ -320,6 +321,8 @@ class Endpoints(dict):
                  networkfirewall: Optional[str] = None,
                  networkmanager: Optional[str] = None,
                  nimblestudio: Optional[str] = None,
+                 opensearch: Optional[str] = None,
+                 opensearchservice: Optional[str] = None,
                  opsworks: Optional[str] = None,
                  opsworkscm: Optional[str] = None,
                  organizations: Optional[str] = None,
@@ -512,6 +515,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "cloudwatch", cloudwatch)
         if cloudwatchevents is not None:
             pulumi.set(__self__, "cloudwatchevents", cloudwatchevents)
+        if cloudwatchevidently is not None:
+            pulumi.set(__self__, "cloudwatchevidently", cloudwatchevidently)
         if cloudwatchlogs is not None:
             pulumi.set(__self__, "cloudwatchlogs", cloudwatchlogs)
         if cloudwatchrum is not None:
@@ -838,6 +843,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "networkmanager", networkmanager)
         if nimblestudio is not None:
             pulumi.set(__self__, "nimblestudio", nimblestudio)
+        if opensearch is not None:
+            pulumi.set(__self__, "opensearch", opensearch)
+        if opensearchservice is not None:
+            pulumi.set(__self__, "opensearchservice", opensearchservice)
         if opsworks is not None:
             pulumi.set(__self__, "opsworks", opsworks)
         if opsworkscm is not None:
@@ -1271,6 +1280,11 @@ class Endpoints(dict):
     @pulumi.getter
     def cloudwatchevents(self) -> Optional[str]:
         return pulumi.get(self, "cloudwatchevents")
+
+    @property
+    @pulumi.getter
+    def cloudwatchevidently(self) -> Optional[str]:
+        return pulumi.get(self, "cloudwatchevidently")
 
     @property
     @pulumi.getter
@@ -2086,6 +2100,16 @@ class Endpoints(dict):
     @pulumi.getter
     def nimblestudio(self) -> Optional[str]:
         return pulumi.get(self, "nimblestudio")
+
+    @property
+    @pulumi.getter
+    def opensearch(self) -> Optional[str]:
+        return pulumi.get(self, "opensearch")
+
+    @property
+    @pulumi.getter
+    def opensearchservice(self) -> Optional[str]:
+        return pulumi.get(self, "opensearchservice")
 
     @property
     @pulumi.getter

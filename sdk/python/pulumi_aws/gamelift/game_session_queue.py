@@ -232,7 +232,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides an Gamelift Game Session Queue resource.
+        Provides an GameLift Game Session Queue resource.
 
         ## Example Usage
 
@@ -259,7 +259,7 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Game Session Queues can be imported by their `name`, e.g.,
+        GameLift Game Session Queues can be imported by their `name`, e.g.,
 
         ```sh
          $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
@@ -280,7 +280,7 @@ class GameSessionQueue(pulumi.CustomResource):
                  args: Optional[GameSessionQueueArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Gamelift Game Session Queue resource.
+        Provides an GameLift Game Session Queue resource.
 
         ## Example Usage
 
@@ -307,7 +307,7 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Game Session Queues can be imported by their `name`, e.g.,
+        GameLift Game Session Queues can be imported by their `name`, e.g.,
 
         ```sh
          $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example

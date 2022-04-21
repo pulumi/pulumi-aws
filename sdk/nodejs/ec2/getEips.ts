@@ -66,7 +66,7 @@ export interface GetEipsResult {
      */
     readonly id: string;
     /**
-     * A list of all the Elastic IP addresses for use with EC2-Classic.
+     * A list of all the Elastic IP addresses.
      */
     readonly publicIps: string[];
     readonly tags: {[key: string]: string};

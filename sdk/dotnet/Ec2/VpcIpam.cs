@@ -30,6 +30,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+        /// </summary>
+        [Output("cascade")]
+        public Output<bool?> Cascade { get; private set; } = null!;
+
+        /// <summary>
         /// A description for the IPAM.
         /// </summary>
         [Output("description")]
@@ -119,6 +125,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcIpamArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+        /// </summary>
+        [Input("cascade")]
+        public Input<bool>? Cascade { get; set; }
+
+        /// <summary>
         /// A description for the IPAM.
         /// </summary>
         [Input("description")]
@@ -160,6 +172,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+        /// </summary>
+        [Input("cascade")]
+        public Input<bool>? Cascade { get; set; }
 
         /// <summary>
         /// A description for the IPAM.

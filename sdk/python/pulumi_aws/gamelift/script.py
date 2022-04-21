@@ -112,7 +112,7 @@ class _ScriptState:
                  zip_file: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Script resources.
-        :param pulumi.Input[str] arn: Gamelift Script ARN.
+        :param pulumi.Input[str] arn: GameLift Script ARN.
         :param pulumi.Input[str] name: Name of the script
         :param pulumi.Input['ScriptStorageLocationArgs'] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -139,7 +139,7 @@ class _ScriptState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Gamelift Script ARN.
+        GameLift Script ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -232,7 +232,7 @@ class Script(pulumi.CustomResource):
                  zip_file: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Gamelift Script resource.
+        Provides an GameLift Script resource.
 
         ## Example Usage
 
@@ -249,7 +249,7 @@ class Script(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Scripts can be imported using the ID, e.g.,
+        GameLift Scripts can be imported using the ID, e.g.,
 
         ```sh
          $ pulumi import aws:gamelift/script:Script example <script-id>
@@ -270,7 +270,7 @@ class Script(pulumi.CustomResource):
                  args: Optional[ScriptArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Gamelift Script resource.
+        Provides an GameLift Script resource.
 
         ## Example Usage
 
@@ -287,7 +287,7 @@ class Script(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Scripts can be imported using the ID, e.g.,
+        GameLift Scripts can be imported using the ID, e.g.,
 
         ```sh
          $ pulumi import aws:gamelift/script:Script example <script-id>
@@ -356,7 +356,7 @@ class Script(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Gamelift Script ARN.
+        :param pulumi.Input[str] arn: GameLift Script ARN.
         :param pulumi.Input[str] name: Name of the script
         :param pulumi.Input[pulumi.InputType['ScriptStorageLocationArgs']] storage_location: Information indicating where your game script files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -381,7 +381,7 @@ class Script(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Gamelift Script ARN.
+        GameLift Script ARN.
         """
         return pulumi.get(self, "arn")
 

@@ -62,7 +62,7 @@ export class Addon extends pulumi.CustomResource {
 
     /**
      * Name of the EKS add-on. The name must match one of
-     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
     public readonly addonName!: pulumi.Output<string>;
     /**
@@ -87,6 +87,10 @@ export class Addon extends pulumi.CustomResource {
      */
     public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
     /**
+     * Indicates if you want to preserve the created resources when deleting the EKS add-on.
+     */
+    public readonly preserve!: pulumi.Output<boolean | undefined>;
+    /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
      * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -102,7 +106,7 @@ export class Addon extends pulumi.CustomResource {
      */
     public readonly serviceAccountRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -129,6 +133,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["clusterName"] = state ? state.clusterName : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["modifiedAt"] = state ? state.modifiedAt : undefined;
+            resourceInputs["preserve"] = state ? state.preserve : undefined;
             resourceInputs["resolveConflicts"] = state ? state.resolveConflicts : undefined;
             resourceInputs["serviceAccountRoleArn"] = state ? state.serviceAccountRoleArn : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -144,6 +149,7 @@ export class Addon extends pulumi.CustomResource {
             resourceInputs["addonName"] = args ? args.addonName : undefined;
             resourceInputs["addonVersion"] = args ? args.addonVersion : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["preserve"] = args ? args.preserve : undefined;
             resourceInputs["resolveConflicts"] = args ? args.resolveConflicts : undefined;
             resourceInputs["serviceAccountRoleArn"] = args ? args.serviceAccountRoleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -163,7 +169,7 @@ export class Addon extends pulumi.CustomResource {
 export interface AddonState {
     /**
      * Name of the EKS add-on. The name must match one of
-     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
     addonName?: pulumi.Input<string>;
     /**
@@ -188,6 +194,10 @@ export interface AddonState {
      */
     modifiedAt?: pulumi.Input<string>;
     /**
+     * Indicates if you want to preserve the created resources when deleting the EKS add-on.
+     */
+    preserve?: pulumi.Input<boolean>;
+    /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
      * version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -203,7 +213,7 @@ export interface AddonState {
      */
     serviceAccountRoleArn?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -218,7 +228,7 @@ export interface AddonState {
 export interface AddonArgs {
     /**
      * Name of the EKS add-on. The name must match one of
-     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     * the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
      */
     addonName: pulumi.Input<string>;
     /**
@@ -230,6 +240,10 @@ export interface AddonArgs {
      * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
      */
     clusterName: pulumi.Input<string>;
+    /**
+     * Indicates if you want to preserve the created resources when deleting the EKS add-on.
+     */
+    preserve?: pulumi.Input<boolean>;
     /**
      * Define how to resolve parameter value conflicts
      * when migrating an existing add-on to an Amazon EKS add-on or when applying
@@ -246,7 +260,7 @@ export interface AddonArgs {
      */
     serviceAccountRoleArn?: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

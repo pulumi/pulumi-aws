@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// Identity Notification Topics can be imported using ID of the record. The ID is made up as IDENTITY|TYPE where IDENTITY is the SES Identity and TYPE is the Notification Type.
+// Identity Notification Topics can be imported using the ID of the record. The ID is made up as `IDENTITY|TYPE` where `IDENTITY` is the SES Identity and `TYPE` is the Notification Type.
 //
 // ```sh
 //  $ pulumi import aws:ses/identityNotificationTopic:IdentityNotificationTopic test 'example.com|Bounce'
@@ -51,11 +51,11 @@ type IdentityNotificationTopic struct {
 
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
 	Identity pulumi.StringOutput `pulumi:"identity"`
-	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+	// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
 	IncludeOriginalHeaders pulumi.BoolPtrOutput `pulumi:"includeOriginalHeaders"`
-	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType pulumi.StringOutput `pulumi:"notificationType"`
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn pulumi.StringPtrOutput `pulumi:"topicArn"`
 }
 
@@ -96,22 +96,22 @@ func GetIdentityNotificationTopic(ctx *pulumi.Context,
 type identityNotificationTopicState struct {
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
 	Identity *string `pulumi:"identity"`
-	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+	// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
 	IncludeOriginalHeaders *bool `pulumi:"includeOriginalHeaders"`
-	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType *string `pulumi:"notificationType"`
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn *string `pulumi:"topicArn"`
 }
 
 type IdentityNotificationTopicState struct {
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
 	Identity pulumi.StringPtrInput
-	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+	// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
 	IncludeOriginalHeaders pulumi.BoolPtrInput
-	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn pulumi.StringPtrInput
 }
 
@@ -122,11 +122,11 @@ func (IdentityNotificationTopicState) ElementType() reflect.Type {
 type identityNotificationTopicArgs struct {
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
 	Identity string `pulumi:"identity"`
-	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+	// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
 	IncludeOriginalHeaders *bool `pulumi:"includeOriginalHeaders"`
-	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType string `pulumi:"notificationType"`
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn *string `pulumi:"topicArn"`
 }
 
@@ -134,11 +134,11 @@ type identityNotificationTopicArgs struct {
 type IdentityNotificationTopicArgs struct {
 	// The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN).
 	Identity pulumi.StringInput
-	// Whether SES should include original email headers in SNS notifications of this type. *false* by default.
+	// Whether SES should include original email headers in SNS notifications of this type. `false` by default.
 	IncludeOriginalHeaders pulumi.BoolPtrInput
-	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: *Bounce*, *Complaint* or *Delivery*.
+	// The type of notifications that will be published to the specified Amazon SNS topic. Valid Values: `Bounce`, `Complaint` or `Delivery`.
 	NotificationType pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to "" (an empty string) to disable publishing.
+	// The Amazon Resource Name (ARN) of the Amazon SNS topic. Can be set to `""` (an empty string) to disable publishing.
 	TopicArn pulumi.StringPtrInput
 }
 

@@ -1383,6 +1383,181 @@ func (o StageAccessLogSettingsPtrOutput) Format() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type StageCanarySettings struct {
+	// The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+	PercentTraffic *float64 `pulumi:"percentTraffic"`
+	// A map of overridden stage `variables` (including new variables) for the canary deployment.
+	StageVariableOverrides map[string]interface{} `pulumi:"stageVariableOverrides"`
+	// Whether the canary deployment uses the stage cache. Defaults to false.
+	UseStageCache *bool `pulumi:"useStageCache"`
+}
+
+// StageCanarySettingsInput is an input type that accepts StageCanarySettingsArgs and StageCanarySettingsOutput values.
+// You can construct a concrete instance of `StageCanarySettingsInput` via:
+//
+//          StageCanarySettingsArgs{...}
+type StageCanarySettingsInput interface {
+	pulumi.Input
+
+	ToStageCanarySettingsOutput() StageCanarySettingsOutput
+	ToStageCanarySettingsOutputWithContext(context.Context) StageCanarySettingsOutput
+}
+
+type StageCanarySettingsArgs struct {
+	// The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+	PercentTraffic pulumi.Float64PtrInput `pulumi:"percentTraffic"`
+	// A map of overridden stage `variables` (including new variables) for the canary deployment.
+	StageVariableOverrides pulumi.MapInput `pulumi:"stageVariableOverrides"`
+	// Whether the canary deployment uses the stage cache. Defaults to false.
+	UseStageCache pulumi.BoolPtrInput `pulumi:"useStageCache"`
+}
+
+func (StageCanarySettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageCanarySettings)(nil)).Elem()
+}
+
+func (i StageCanarySettingsArgs) ToStageCanarySettingsOutput() StageCanarySettingsOutput {
+	return i.ToStageCanarySettingsOutputWithContext(context.Background())
+}
+
+func (i StageCanarySettingsArgs) ToStageCanarySettingsOutputWithContext(ctx context.Context) StageCanarySettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingsOutput)
+}
+
+func (i StageCanarySettingsArgs) ToStageCanarySettingsPtrOutput() StageCanarySettingsPtrOutput {
+	return i.ToStageCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i StageCanarySettingsArgs) ToStageCanarySettingsPtrOutputWithContext(ctx context.Context) StageCanarySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingsOutput).ToStageCanarySettingsPtrOutputWithContext(ctx)
+}
+
+// StageCanarySettingsPtrInput is an input type that accepts StageCanarySettingsArgs, StageCanarySettingsPtr and StageCanarySettingsPtrOutput values.
+// You can construct a concrete instance of `StageCanarySettingsPtrInput` via:
+//
+//          StageCanarySettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type StageCanarySettingsPtrInput interface {
+	pulumi.Input
+
+	ToStageCanarySettingsPtrOutput() StageCanarySettingsPtrOutput
+	ToStageCanarySettingsPtrOutputWithContext(context.Context) StageCanarySettingsPtrOutput
+}
+
+type stageCanarySettingsPtrType StageCanarySettingsArgs
+
+func StageCanarySettingsPtr(v *StageCanarySettingsArgs) StageCanarySettingsPtrInput {
+	return (*stageCanarySettingsPtrType)(v)
+}
+
+func (*stageCanarySettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageCanarySettings)(nil)).Elem()
+}
+
+func (i *stageCanarySettingsPtrType) ToStageCanarySettingsPtrOutput() StageCanarySettingsPtrOutput {
+	return i.ToStageCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *stageCanarySettingsPtrType) ToStageCanarySettingsPtrOutputWithContext(ctx context.Context) StageCanarySettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StageCanarySettingsPtrOutput)
+}
+
+type StageCanarySettingsOutput struct{ *pulumi.OutputState }
+
+func (StageCanarySettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StageCanarySettings)(nil)).Elem()
+}
+
+func (o StageCanarySettingsOutput) ToStageCanarySettingsOutput() StageCanarySettingsOutput {
+	return o
+}
+
+func (o StageCanarySettingsOutput) ToStageCanarySettingsOutputWithContext(ctx context.Context) StageCanarySettingsOutput {
+	return o
+}
+
+func (o StageCanarySettingsOutput) ToStageCanarySettingsPtrOutput() StageCanarySettingsPtrOutput {
+	return o.ToStageCanarySettingsPtrOutputWithContext(context.Background())
+}
+
+func (o StageCanarySettingsOutput) ToStageCanarySettingsPtrOutputWithContext(ctx context.Context) StageCanarySettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StageCanarySettings) *StageCanarySettings {
+		return &v
+	}).(StageCanarySettingsPtrOutput)
+}
+
+// The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+func (o StageCanarySettingsOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v StageCanarySettings) *float64 { return v.PercentTraffic }).(pulumi.Float64PtrOutput)
+}
+
+// A map of overridden stage `variables` (including new variables) for the canary deployment.
+func (o StageCanarySettingsOutput) StageVariableOverrides() pulumi.MapOutput {
+	return o.ApplyT(func(v StageCanarySettings) map[string]interface{} { return v.StageVariableOverrides }).(pulumi.MapOutput)
+}
+
+// Whether the canary deployment uses the stage cache. Defaults to false.
+func (o StageCanarySettingsOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v StageCanarySettings) *bool { return v.UseStageCache }).(pulumi.BoolPtrOutput)
+}
+
+type StageCanarySettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (StageCanarySettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StageCanarySettings)(nil)).Elem()
+}
+
+func (o StageCanarySettingsPtrOutput) ToStageCanarySettingsPtrOutput() StageCanarySettingsPtrOutput {
+	return o
+}
+
+func (o StageCanarySettingsPtrOutput) ToStageCanarySettingsPtrOutputWithContext(ctx context.Context) StageCanarySettingsPtrOutput {
+	return o
+}
+
+func (o StageCanarySettingsPtrOutput) Elem() StageCanarySettingsOutput {
+	return o.ApplyT(func(v *StageCanarySettings) StageCanarySettings {
+		if v != nil {
+			return *v
+		}
+		var ret StageCanarySettings
+		return ret
+	}).(StageCanarySettingsOutput)
+}
+
+// The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+func (o StageCanarySettingsPtrOutput) PercentTraffic() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *StageCanarySettings) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.PercentTraffic
+	}).(pulumi.Float64PtrOutput)
+}
+
+// A map of overridden stage `variables` (including new variables) for the canary deployment.
+func (o StageCanarySettingsPtrOutput) StageVariableOverrides() pulumi.MapOutput {
+	return o.ApplyT(func(v *StageCanarySettings) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.StageVariableOverrides
+	}).(pulumi.MapOutput)
+}
+
+// Whether the canary deployment uses the stage cache. Defaults to false.
+func (o StageCanarySettingsPtrOutput) UseStageCache() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *StageCanarySettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseStageCache
+	}).(pulumi.BoolPtrOutput)
+}
+
 type UsagePlanApiStage struct {
 	// API Id of the associated API stage in a usage plan.
 	ApiId string `pulumi:"apiId"`
@@ -2158,6 +2333,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiEndpointConfigurationPtrInput)(nil)).Elem(), RestApiEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsPtrInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageCanarySettingsInput)(nil)).Elem(), StageCanarySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StageCanarySettingsPtrInput)(nil)).Elem(), StageCanarySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageInput)(nil)).Elem(), UsagePlanApiStageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageArrayInput)(nil)).Elem(), UsagePlanApiStageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageThrottleInput)(nil)).Elem(), UsagePlanApiStageThrottleArgs{})
@@ -2186,6 +2363,8 @@ func init() {
 	pulumi.RegisterOutputType(RestApiEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsPtrOutput{})
+	pulumi.RegisterOutputType(StageCanarySettingsOutput{})
+	pulumi.RegisterOutputType(StageCanarySettingsPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageThrottleOutput{})

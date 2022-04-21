@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift
 {
     /// <summary>
-    /// Provides an Gamelift Game Session Queue resource.
+    /// Provides an GameLift Game Session Queue resource.
     /// 
     /// ## Example Usage
     /// 
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Gamelift Game Session Queues can be imported by their `name`, e.g.,
+    /// GameLift Game Session Queues can be imported by their `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example

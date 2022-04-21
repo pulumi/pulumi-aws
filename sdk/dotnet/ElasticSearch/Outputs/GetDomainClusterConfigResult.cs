@@ -14,6 +14,10 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     public sealed class GetDomainClusterConfigResult
     {
         /// <summary>
+        /// Configuration block containing cold storage configuration.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainClusterConfigColdStorageOptionResult> ColdStorageOptions;
+        /// <summary>
         /// Number of dedicated master nodes in the cluster.
         /// </summary>
         public readonly int DedicatedMasterCount;
@@ -40,7 +44,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
         /// <summary>
         /// Indicates warm storage is enabled.
         /// </summary>
-        public readonly bool? WarmEnabled;
+        public readonly bool WarmEnabled;
         /// <summary>
         /// The instance type for the Elasticsearch cluster's warm nodes.
         /// </summary>
@@ -56,6 +60,8 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
 
         [OutputConstructor]
         private GetDomainClusterConfigResult(
+            ImmutableArray<Outputs.GetDomainClusterConfigColdStorageOptionResult> coldStorageOptions,
+
             int dedicatedMasterCount,
 
             bool dedicatedMasterEnabled,
@@ -68,7 +74,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
 
             int warmCount,
 
-            bool? warmEnabled,
+            bool warmEnabled,
 
             string warmType,
 
@@ -76,6 +82,7 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
 
             bool zoneAwarenessEnabled)
         {
+            ColdStorageOptions = coldStorageOptions;
             DedicatedMasterCount = dedicatedMasterCount;
             DedicatedMasterEnabled = dedicatedMasterEnabled;
             DedicatedMasterType = dedicatedMasterType;

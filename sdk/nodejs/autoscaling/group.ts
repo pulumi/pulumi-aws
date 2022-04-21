@@ -213,9 +213,12 @@ import {Metric} from "./index";
  *     maxSize: 5,
  *     minSize: 1,
  *     warmPool: {
- *         poolState: "Stopped",
+ *         poolState: "Hibernated",
  *         minSize: 1,
  *         maxGroupPreparedCapacity: 10,
+ *         instanceReusePolicy: {
+ *             reuseOnScaleIn: true,
+ *         },
  *     },
  * });
  * ```
@@ -430,9 +433,11 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly placementGroup!: pulumi.Output<string | undefined>;
     /**
-     * Allows setting instance protection. The
-     * Auto Scaling Group will not select instances with this setting for termination
-     * during scale in events.
+     * Indicates whether newly launched instances
+     * are automatically protected from termination by Amazon EC2 Auto Scaling when
+     * scaling in. For more information about preventing instances from terminating
+     * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+     * in the Amazon EC2 Auto Scaling User Guide.
      */
     public readonly protectFromScaleIn!: pulumi.Output<boolean | undefined>;
     /**
@@ -702,9 +707,11 @@ export interface GroupState {
      */
     placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
-     * Allows setting instance protection. The
-     * Auto Scaling Group will not select instances with this setting for termination
-     * during scale in events.
+     * Indicates whether newly launched instances
+     * are automatically protected from termination by Amazon EC2 Auto Scaling when
+     * scaling in. For more information about preventing instances from terminating
+     * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+     * in the Amazon EC2 Auto Scaling User Guide.
      */
     protectFromScaleIn?: pulumi.Input<boolean>;
     /**
@@ -874,9 +881,11 @@ export interface GroupArgs {
      */
     placementGroup?: pulumi.Input<string | PlacementGroup>;
     /**
-     * Allows setting instance protection. The
-     * Auto Scaling Group will not select instances with this setting for termination
-     * during scale in events.
+     * Indicates whether newly launched instances
+     * are automatically protected from termination by Amazon EC2 Auto Scaling when
+     * scaling in. For more information about preventing instances from terminating
+     * on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+     * in the Amazon EC2 Auto Scaling User Guide.
      */
     protectFromScaleIn?: pulumi.Input<boolean>;
     /**

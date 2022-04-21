@@ -39,6 +39,7 @@ export function getRoute(args: GetRouteArgs, opts?: pulumi.InvokeOptions): Promi
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getRoute:getRoute", {
         "carrierGatewayId": args.carrierGatewayId,
+        "coreNetworkArn": args.coreNetworkArn,
         "destinationCidrBlock": args.destinationCidrBlock,
         "destinationIpv6CidrBlock": args.destinationIpv6CidrBlock,
         "destinationPrefixListId": args.destinationPrefixListId,
@@ -62,6 +63,10 @@ export interface GetRouteArgs {
      * EC2 Carrier Gateway ID of the Route belonging to the Route Table.
      */
     carrierGatewayId?: string;
+    /**
+     * Core network ARN of the Route belonging to the Route Table.
+     */
+    coreNetworkArn?: string;
     /**
      * CIDR block of the Route belonging to the Route Table.
      */
@@ -117,6 +122,7 @@ export interface GetRouteArgs {
  */
 export interface GetRouteResult {
     readonly carrierGatewayId: string;
+    readonly coreNetworkArn: string;
     readonly destinationCidrBlock: string;
     readonly destinationIpv6CidrBlock: string;
     readonly destinationPrefixListId: string;
@@ -147,6 +153,10 @@ export interface GetRouteOutputArgs {
      * EC2 Carrier Gateway ID of the Route belonging to the Route Table.
      */
     carrierGatewayId?: pulumi.Input<string>;
+    /**
+     * Core network ARN of the Route belonging to the Route Table.
+     */
+    coreNetworkArn?: pulumi.Input<string>;
     /**
      * CIDR block of the Route belonging to the Route Table.
      */

@@ -133,6 +133,7 @@ __all__ = [
     'GetLocalGatewaysFilterArgs',
     'GetManagedPrefixListFilterArgs',
     'GetNatGatewayFilterArgs',
+    'GetNatGatewaysFilterArgs',
     'GetNetworkAclsFilterArgs',
     'GetNetworkInterfaceFilterArgs',
     'GetNetworkInterfacesFilterArgs',
@@ -1062,6 +1063,7 @@ class DefaultNetworkAclIngressArgs:
 class DefaultRouteTableRouteArgs:
     def __init__(__self__, *,
                  cidr_block: Optional[pulumi.Input[str]] = None,
+                 core_network_arn: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
@@ -1074,6 +1076,7 @@ class DefaultRouteTableRouteArgs:
                  vpc_peering_connection_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cidr_block: The CIDR block of the route.
+        :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination of the route.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
@@ -1087,6 +1090,8 @@ class DefaultRouteTableRouteArgs:
         """
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
+        if core_network_arn is not None:
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
         if destination_prefix_list_id is not None:
             pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_gateway_id is not None:
@@ -1119,6 +1124,18 @@ class DefaultRouteTableRouteArgs:
     @cidr_block.setter
     def cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        return pulumi.get(self, "core_network_arn")
+
+    @core_network_arn.setter
+    def core_network_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "core_network_arn", value)
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
@@ -4780,6 +4797,7 @@ class RouteTableRouteArgs:
     def __init__(__self__, *,
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
                  cidr_block: Optional[pulumi.Input[str]] = None,
+                 core_network_arn: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
                  egress_only_gateway_id: Optional[pulumi.Input[str]] = None,
                  gateway_id: Optional[pulumi.Input[str]] = None,
@@ -4794,6 +4812,7 @@ class RouteTableRouteArgs:
         """
         :param pulumi.Input[str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         :param pulumi.Input[str] cidr_block: The CIDR block of the route.
+        :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination of the route.
         :param pulumi.Input[str] egress_only_gateway_id: Identifier of a VPC Egress Only Internet Gateway.
         :param pulumi.Input[str] gateway_id: Identifier of a VPC internet gateway or a virtual private gateway.
@@ -4810,6 +4829,8 @@ class RouteTableRouteArgs:
             pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
         if cidr_block is not None:
             pulumi.set(__self__, "cidr_block", cidr_block)
+        if core_network_arn is not None:
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
         if destination_prefix_list_id is not None:
             pulumi.set(__self__, "destination_prefix_list_id", destination_prefix_list_id)
         if egress_only_gateway_id is not None:
@@ -4859,6 +4880,18 @@ class RouteTableRouteArgs:
     @cidr_block.setter
     def cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cidr_block", value)
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        return pulumi.get(self, "core_network_arn")
+
+    @core_network_arn.setter
+    def core_network_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "core_network_arn", value)
 
     @property
     @pulumi.getter(name="destinationPrefixListId")
@@ -8452,6 +8485,47 @@ class GetNatGatewayFilterArgs:
         """
         Set of values that are accepted for the given field.
         An Nat Gateway will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetNatGatewaysFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by
+               [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field.
+               A Nat Gateway will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by
+        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field.
+        A Nat Gateway will be selected if any one of the given values matches.
         """
         return pulumi.get(self, "values")
 

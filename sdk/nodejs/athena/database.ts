@@ -20,6 +20,30 @@ import * as utilities from "../utilities";
  *     bucket: exampleBucketV2.bucket,
  * });
  * ```
+ *
+ * ## Import
+ *
+ * Athena Databases can be imported using their name, e.g.,
+ *
+ * ```sh
+ *  $ pulumi import aws:athena/database:Database example example
+ * ```
+ *
+ *  Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+ *
+ *  name
+ *
+ *  = "database_name"
+ *
+ *  bucket = aws_s3_bucket.example.bucket
+ *
+ * # There is no API for reading bucket
+ *
+ *  lifecycle {
+ *
+ *  ignore_changes = [bucket]
+ *
+ *  } }
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -77,6 +101,10 @@ export class Database extends pulumi.CustomResource {
      * Name of the database to create.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * A key-value map of custom metadata properties for the database definition.
+     */
+    public readonly properties!: pulumi.Output<{[key: string]: string} | undefined>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -98,6 +126,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = state ? state.expectedBucketOwner : undefined;
             resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
         } else {
             const args = argsOrState as DatabaseArgs | undefined;
             resourceInputs["aclConfiguration"] = args ? args.aclConfiguration : undefined;
@@ -107,6 +136,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["expectedBucketOwner"] = args ? args.expectedBucketOwner : undefined;
             resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Database.__pulumiType, name, resourceInputs, opts);
@@ -145,6 +175,10 @@ export interface DatabaseState {
      * Name of the database to create.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A key-value map of custom metadata properties for the database definition.
+     */
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -179,4 +213,8 @@ export interface DatabaseArgs {
      * Name of the database to create.
      */
     name?: pulumi.Input<string>;
+    /**
+     * A key-value map of custom metadata properties for the database definition.
+     */
+    properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

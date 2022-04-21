@@ -130,6 +130,47 @@ import (
 // 	})
 // }
 // ```
+// ### Create a user pool client with Cognito as the identity provider
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cognito"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		pool, err := cognito.NewUserPool(ctx, "pool", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cognito.NewUserPoolClient(ctx, "userpoolClient", &cognito.UserPoolClientArgs{
+// 			UserPoolId: pool.ID(),
+// 			CallbackUrls: pulumi.StringArray{
+// 				pulumi.String("https://example.com"),
+// 			},
+// 			AllowedOauthFlowsUserPoolClient: pulumi.Bool(true),
+// 			AllowedOauthFlows: pulumi.StringArray{
+// 				pulumi.String("code"),
+// 				pulumi.String("implicit"),
+// 			},
+// 			AllowedOauthScopes: pulumi.StringArray{
+// 				pulumi.String("email"),
+// 				pulumi.String("openid"),
+// 			},
+// 			SupportedIdentityProviders: pulumi.StringArray{
+// 				pulumi.String("COGNITO"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //

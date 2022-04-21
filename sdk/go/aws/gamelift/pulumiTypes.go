@@ -11,7 +11,7 @@ import (
 )
 
 type AliasRoutingStrategy struct {
-	// ID of the Gamelift Fleet to point the alias to.
+	// ID of the GameLift Fleet to point the alias to.
 	FleetId *string `pulumi:"fleetId"`
 	// Message text to be used with the `TERMINAL` routing strategy.
 	Message *string `pulumi:"message"`
@@ -31,7 +31,7 @@ type AliasRoutingStrategyInput interface {
 }
 
 type AliasRoutingStrategyArgs struct {
-	// ID of the Gamelift Fleet to point the alias to.
+	// ID of the GameLift Fleet to point the alias to.
 	FleetId pulumi.StringPtrInput `pulumi:"fleetId"`
 	// Message text to be used with the `TERMINAL` routing strategy.
 	Message pulumi.StringPtrInput `pulumi:"message"`
@@ -116,7 +116,7 @@ func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutputWithContext(c
 	}).(AliasRoutingStrategyPtrOutput)
 }
 
-// ID of the Gamelift Fleet to point the alias to.
+// ID of the GameLift Fleet to point the alias to.
 func (o AliasRoutingStrategyOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.FleetId }).(pulumi.StringPtrOutput)
 }
@@ -155,7 +155,7 @@ func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
 	}).(AliasRoutingStrategyOutput)
 }
 
-// ID of the Gamelift Fleet to point the alias to.
+// ID of the GameLift Fleet to point the alias to.
 func (o AliasRoutingStrategyPtrOutput) FleetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
 		if v == nil {

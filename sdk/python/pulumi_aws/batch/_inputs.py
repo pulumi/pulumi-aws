@@ -48,7 +48,7 @@ class ComputeEnvironmentComputeResourcesArgs:
         :param pulumi.Input[int] desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs'] ec2_configuration: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[str] ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `image_id_override` instead)
+        :param pulumi.Input[str] image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         :param pulumi.Input[str] instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs'] launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -197,7 +197,7 @@ class ComputeEnvironmentComputeResourcesArgs:
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `image_id_override` instead)
+        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         """
         return pulumi.get(self, "image_id")
 

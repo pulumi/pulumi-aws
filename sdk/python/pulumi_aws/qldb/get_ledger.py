@@ -20,7 +20,7 @@ class GetLedgerResult:
     """
     A collection of values returned by getLedger.
     """
-    def __init__(__self__, arn=None, deletion_protection=None, id=None, name=None, permissions_mode=None):
+    def __init__(__self__, arn=None, deletion_protection=None, id=None, kms_key=None, name=None, permissions_mode=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -30,12 +30,18 @@ class GetLedgerResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kms_key and not isinstance(kms_key, str):
+            raise TypeError("Expected argument 'kms_key' to be a str")
+        pulumi.set(__self__, "kms_key", kms_key)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if permissions_mode and not isinstance(permissions_mode, str):
             raise TypeError("Expected argument 'permissions_mode' to be a str")
         pulumi.set(__self__, "permissions_mode", permissions_mode)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -56,6 +62,11 @@ class GetLedgerResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kmsKey")
+    def kms_key(self) -> str:
+        return pulumi.get(self, "kms_key")
+
+    @property
     @pulumi.getter
     def name(self) -> str:
         return pulumi.get(self, "name")
@@ -64,6 +75,11 @@ class GetLedgerResult:
     @pulumi.getter(name="permissionsMode")
     def permissions_mode(self) -> str:
         return pulumi.get(self, "permissions_mode")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        return pulumi.get(self, "tags")
 
 
 class AwaitableGetLedgerResult(GetLedgerResult):
@@ -75,11 +91,14 @@ class AwaitableGetLedgerResult(GetLedgerResult):
             arn=self.arn,
             deletion_protection=self.deletion_protection,
             id=self.id,
+            kms_key=self.kms_key,
             name=self.name,
-            permissions_mode=self.permissions_mode)
+            permissions_mode=self.permissions_mode,
+            tags=self.tags)
 
 
 def get_ledger(name: Optional[str] = None,
+               tags: Optional[Mapping[str, str]] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLedgerResult:
     """
     Use this data source to fetch information about a Quantum Ledger Database.
@@ -98,6 +117,7 @@ def get_ledger(name: Optional[str] = None,
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -108,12 +128,15 @@ def get_ledger(name: Optional[str] = None,
         arn=__ret__.arn,
         deletion_protection=__ret__.deletion_protection,
         id=__ret__.id,
+        kms_key=__ret__.kms_key,
         name=__ret__.name,
-        permissions_mode=__ret__.permissions_mode)
+        permissions_mode=__ret__.permissions_mode,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_ledger)
 def get_ledger_output(name: Optional[pulumi.Input[str]] = None,
+                      tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLedgerResult]:
     """
     Use this data source to fetch information about a Quantum Ledger Database.

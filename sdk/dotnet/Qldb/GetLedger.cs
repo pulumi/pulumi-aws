@@ -79,6 +79,14 @@ namespace Pulumi.Aws.Qldb
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetLedgerArgs()
         {
         }
@@ -91,6 +99,14 @@ namespace Pulumi.Aws.Qldb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         public GetLedgerInvokeArgs()
         {
@@ -107,8 +123,10 @@ namespace Pulumi.Aws.Qldb
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string KmsKey;
         public readonly string Name;
         public readonly string PermissionsMode;
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetLedgerResult(
@@ -118,15 +136,21 @@ namespace Pulumi.Aws.Qldb
 
             string id,
 
+            string kmsKey,
+
             string name,
 
-            string permissionsMode)
+            string permissionsMode,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             DeletionProtection = deletionProtection;
             Id = id;
+            KmsKey = kmsKey;
             Name = name;
             PermissionsMode = permissionsMode;
+            Tags = tags;
         }
     }
 }

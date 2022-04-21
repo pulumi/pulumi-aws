@@ -782,6 +782,27 @@ class UserPoolClient(pulumi.CustomResource):
                 user_data_shared=True,
             ))
         ```
+        ### Create a user pool client with Cognito as the identity provider
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pool = aws.cognito.UserPool("pool")
+        userpool_client = aws.cognito.UserPoolClient("userpoolClient",
+            user_pool_id=pool.id,
+            callback_urls=["https://example.com"],
+            allowed_oauth_flows_user_pool_client=True,
+            allowed_oauth_flows=[
+                "code",
+                "implicit",
+            ],
+            allowed_oauth_scopes=[
+                "email",
+                "openid",
+            ],
+            supported_identity_providers=["COGNITO"])
+        ```
 
         ## Import
 
@@ -892,6 +913,27 @@ class UserPoolClient(pulumi.CustomResource):
                 role_arn=test_role.arn,
                 user_data_shared=True,
             ))
+        ```
+        ### Create a user pool client with Cognito as the identity provider
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        pool = aws.cognito.UserPool("pool")
+        userpool_client = aws.cognito.UserPoolClient("userpoolClient",
+            user_pool_id=pool.id,
+            callback_urls=["https://example.com"],
+            allowed_oauth_flows_user_pool_client=True,
+            allowed_oauth_flows=[
+                "code",
+                "implicit",
+            ],
+            allowed_oauth_scopes=[
+                "email",
+                "openid",
+            ],
+            supported_identity_providers=["COGNITO"])
         ```
 
         ## Import

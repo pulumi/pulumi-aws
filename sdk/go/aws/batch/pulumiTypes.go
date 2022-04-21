@@ -21,7 +21,7 @@ type ComputeEnvironmentComputeResources struct {
 	Ec2Configuration *ComputeEnvironmentComputeResourcesEc2Configuration `pulumi:"ec2Configuration"`
 	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair *string `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
+	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 	ImageId *string `pulumi:"imageId"`
 	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceRole *string `pulumi:"instanceRole"`
@@ -67,7 +67,7 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	Ec2Configuration ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput `pulumi:"ec2Configuration"`
 	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair pulumi.StringPtrInput `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
+	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
 	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceRole pulumi.StringPtrInput `pulumi:"instanceRole"`
@@ -195,7 +195,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) Ec2KeyPair() pulumi.StringPtrO
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.Ec2KeyPair }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
+// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 func (o ComputeEnvironmentComputeResourcesOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
@@ -326,7 +326,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
+// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {

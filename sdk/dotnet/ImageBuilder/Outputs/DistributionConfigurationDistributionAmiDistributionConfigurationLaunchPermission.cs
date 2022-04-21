@@ -14,6 +14,14 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission
     {
         /// <summary>
+        /// Set of AWS Organization ARNs to assign.
+        /// </summary>
+        public readonly ImmutableArray<string> OrganizationArns;
+        /// <summary>
+        /// Set of AWS Organizational Unit ARNs to assign.
+        /// </summary>
+        public readonly ImmutableArray<string> OrganizationalUnitArns;
+        /// <summary>
         /// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
         /// </summary>
         public readonly ImmutableArray<string> UserGroups;
@@ -24,10 +32,16 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
         [OutputConstructor]
         private DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission(
+            ImmutableArray<string> organizationArns,
+
+            ImmutableArray<string> organizationalUnitArns,
+
             ImmutableArray<string> userGroups,
 
             ImmutableArray<string> userIds)
         {
+            OrganizationArns = organizationArns;
+            OrganizationalUnitArns = organizationalUnitArns;
             UserGroups = userGroups;
             UserIds = userIds;
         }

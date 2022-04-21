@@ -8,8 +8,11 @@ import * as utilities from "../utilities";
 export * from "./authorizer";
 export * from "./certificate";
 export * from "./getEndpoint";
+export * from "./indexingConfiguration";
+export * from "./loggingOptions";
 export * from "./policy";
 export * from "./policyAttachment";
+export * from "./provisioningTemplate";
 export * from "./roleAlias";
 export * from "./thing";
 export * from "./thingGroup";
@@ -21,8 +24,11 @@ export * from "./topicRule";
 // Import resources to register:
 import { Authorizer } from "./authorizer";
 import { Certificate } from "./certificate";
+import { IndexingConfiguration } from "./indexingConfiguration";
+import { LoggingOptions } from "./loggingOptions";
 import { Policy } from "./policy";
 import { PolicyAttachment } from "./policyAttachment";
+import { ProvisioningTemplate } from "./provisioningTemplate";
 import { RoleAlias } from "./roleAlias";
 import { Thing } from "./thing";
 import { ThingGroup } from "./thingGroup";
@@ -39,10 +45,16 @@ const _module = {
                 return new Authorizer(name, <any>undefined, { urn })
             case "aws:iot/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "aws:iot/indexingConfiguration:IndexingConfiguration":
+                return new IndexingConfiguration(name, <any>undefined, { urn })
+            case "aws:iot/loggingOptions:LoggingOptions":
+                return new LoggingOptions(name, <any>undefined, { urn })
             case "aws:iot/policy:Policy":
                 return new Policy(name, <any>undefined, { urn })
             case "aws:iot/policyAttachment:PolicyAttachment":
                 return new PolicyAttachment(name, <any>undefined, { urn })
+            case "aws:iot/provisioningTemplate:ProvisioningTemplate":
+                return new ProvisioningTemplate(name, <any>undefined, { urn })
             case "aws:iot/roleAlias:RoleAlias":
                 return new RoleAlias(name, <any>undefined, { urn })
             case "aws:iot/thing:Thing":
@@ -64,8 +76,11 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "iot/authorizer", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/certificate", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/indexingConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/loggingOptions", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/policyAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/provisioningTemplate", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/roleAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/thing", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/thingGroup", _module)

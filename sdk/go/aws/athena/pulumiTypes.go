@@ -308,13 +308,13 @@ type WorkgroupConfiguration struct {
 	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
 	// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 	EnforceWorkgroupConfiguration *bool `pulumi:"enforceWorkgroupConfiguration"`
-	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 	EngineVersion *WorkgroupConfigurationEngineVersion `pulumi:"engineVersion"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
 	RequesterPaysEnabled *bool `pulumi:"requesterPaysEnabled"`
-	// Configuration block with result settings. Documented below.
+	// Configuration block with result settings. See Result Configuration below.
 	ResultConfiguration *WorkgroupConfigurationResultConfiguration `pulumi:"resultConfiguration"`
 }
 
@@ -334,13 +334,13 @@ type WorkgroupConfigurationArgs struct {
 	BytesScannedCutoffPerQuery pulumi.IntPtrInput `pulumi:"bytesScannedCutoffPerQuery"`
 	// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 	EnforceWorkgroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkgroupConfiguration"`
-	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 	EngineVersion WorkgroupConfigurationEngineVersionPtrInput `pulumi:"engineVersion"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
 	RequesterPaysEnabled pulumi.BoolPtrInput `pulumi:"requesterPaysEnabled"`
-	// Configuration block with result settings. Documented below.
+	// Configuration block with result settings. See Result Configuration below.
 	ResultConfiguration WorkgroupConfigurationResultConfigurationPtrInput `pulumi:"resultConfiguration"`
 }
 
@@ -431,7 +431,7 @@ func (o WorkgroupConfigurationOutput) EnforceWorkgroupConfiguration() pulumi.Boo
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.EnforceWorkgroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 func (o WorkgroupConfigurationOutput) EngineVersion() WorkgroupConfigurationEngineVersionPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationEngineVersion { return v.EngineVersion }).(WorkgroupConfigurationEngineVersionPtrOutput)
 }
@@ -446,7 +446,7 @@ func (o WorkgroupConfigurationOutput) RequesterPaysEnabled() pulumi.BoolPtrOutpu
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.RequesterPaysEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block with result settings. Documented below.
+// Configuration block with result settings. See Result Configuration below.
 func (o WorkgroupConfigurationOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
 		return v.ResultConfiguration
@@ -497,7 +497,7 @@ func (o WorkgroupConfigurationPtrOutput) EnforceWorkgroupConfiguration() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
 func (o WorkgroupConfigurationPtrOutput) EngineVersion() WorkgroupConfigurationEngineVersionPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationEngineVersion {
 		if v == nil {
@@ -527,7 +527,7 @@ func (o WorkgroupConfigurationPtrOutput) RequesterPaysEnabled() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Configuration block with result settings. Documented below.
+// Configuration block with result settings. See Result Configuration below.
 func (o WorkgroupConfigurationPtrOutput) ResultConfiguration() WorkgroupConfigurationResultConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationResultConfiguration {
 		if v == nil {
@@ -694,8 +694,12 @@ func (o WorkgroupConfigurationEngineVersionPtrOutput) SelectedEngineVersion() pu
 }
 
 type WorkgroupConfigurationResultConfiguration struct {
-	// Configuration block with encryption settings. Documented below.
+	// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+	AclConfiguration *WorkgroupConfigurationResultConfigurationAclConfiguration `pulumi:"aclConfiguration"`
+	// Configuration block with encryption settings. See Encryption Configuration below.
 	EncryptionConfiguration *WorkgroupConfigurationResultConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
+	// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
 	OutputLocation *string `pulumi:"outputLocation"`
 }
@@ -712,8 +716,12 @@ type WorkgroupConfigurationResultConfigurationInput interface {
 }
 
 type WorkgroupConfigurationResultConfigurationArgs struct {
-	// Configuration block with encryption settings. Documented below.
+	// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+	AclConfiguration WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput `pulumi:"aclConfiguration"`
+	// Configuration block with encryption settings. See Encryption Configuration below.
 	EncryptionConfiguration WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
+	// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+	ExpectedBucketOwner pulumi.StringPtrInput `pulumi:"expectedBucketOwner"`
 	// The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
 	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
 }
@@ -795,11 +803,23 @@ func (o WorkgroupConfigurationResultConfigurationOutput) ToWorkgroupConfiguratio
 	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
 }
 
-// Configuration block with encryption settings. Documented below.
+// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+func (o WorkgroupConfigurationResultConfigurationOutput) AclConfiguration() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationAclConfiguration {
+		return v.AclConfiguration
+	}).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
+}
+
+// Configuration block with encryption settings. See Encryption Configuration below.
 func (o WorkgroupConfigurationResultConfigurationOutput) EncryptionConfiguration() WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
 		return v.EncryptionConfiguration
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
+}
+
+// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+func (o WorkgroupConfigurationResultConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfiguration) *string { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }
 
 // The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
@@ -831,7 +851,17 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) Elem() WorkgroupConf
 	}).(WorkgroupConfigurationResultConfigurationOutput)
 }
 
-// Configuration block with encryption settings. Documented below.
+// Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+func (o WorkgroupConfigurationResultConfigurationPtrOutput) AclConfiguration() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationAclConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AclConfiguration
+	}).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
+}
+
+// Configuration block with encryption settings. See Encryption Configuration below.
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) EncryptionConfiguration() WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
 		if v == nil {
@@ -841,6 +871,16 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) EncryptionConfigurat
 	}).(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput)
 }
 
+// The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+func (o WorkgroupConfigurationResultConfigurationPtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
 // The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
 func (o WorkgroupConfigurationResultConfigurationPtrOutput) OutputLocation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfigurationResultConfiguration) *string {
@@ -848,6 +888,143 @@ func (o WorkgroupConfigurationResultConfigurationPtrOutput) OutputLocation() pul
 			return nil
 		}
 		return v.OutputLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkgroupConfigurationResultConfigurationAclConfiguration struct {
+	// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+	S3AclOption string `pulumi:"s3AclOption"`
+}
+
+// WorkgroupConfigurationResultConfigurationAclConfigurationInput is an input type that accepts WorkgroupConfigurationResultConfigurationAclConfigurationArgs and WorkgroupConfigurationResultConfigurationAclConfigurationOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationAclConfigurationInput` via:
+//
+//          WorkgroupConfigurationResultConfigurationAclConfigurationArgs{...}
+type WorkgroupConfigurationResultConfigurationAclConfigurationInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationResultConfigurationAclConfigurationOutput() WorkgroupConfigurationResultConfigurationAclConfigurationOutput
+	ToWorkgroupConfigurationResultConfigurationAclConfigurationOutputWithContext(context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationOutput
+}
+
+type WorkgroupConfigurationResultConfigurationAclConfigurationArgs struct {
+	// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+	S3AclOption pulumi.StringInput `pulumi:"s3AclOption"`
+}
+
+func (WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationResultConfigurationAclConfiguration)(nil)).Elem()
+}
+
+func (i WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ToWorkgroupConfigurationResultConfigurationAclConfigurationOutput() WorkgroupConfigurationResultConfigurationAclConfigurationOutput {
+	return i.ToWorkgroupConfigurationResultConfigurationAclConfigurationOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ToWorkgroupConfigurationResultConfigurationAclConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationAclConfigurationOutput)
+}
+
+func (i WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationResultConfigurationAclConfigurationArgs) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationAclConfigurationOutput).ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(ctx)
+}
+
+// WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput is an input type that accepts WorkgroupConfigurationResultConfigurationAclConfigurationArgs, WorkgroupConfigurationResultConfigurationAclConfigurationPtr and WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput` via:
+//
+//          WorkgroupConfigurationResultConfigurationAclConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput
+	ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput
+}
+
+type workgroupConfigurationResultConfigurationAclConfigurationPtrType WorkgroupConfigurationResultConfigurationAclConfigurationArgs
+
+func WorkgroupConfigurationResultConfigurationAclConfigurationPtr(v *WorkgroupConfigurationResultConfigurationAclConfigurationArgs) WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput {
+	return (*workgroupConfigurationResultConfigurationAclConfigurationPtrType)(v)
+}
+
+func (*workgroupConfigurationResultConfigurationAclConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationResultConfigurationAclConfiguration)(nil)).Elem()
+}
+
+func (i *workgroupConfigurationResultConfigurationAclConfigurationPtrType) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return i.ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupConfigurationResultConfigurationAclConfigurationPtrType) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
+}
+
+type WorkgroupConfigurationResultConfigurationAclConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationResultConfigurationAclConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ToWorkgroupConfigurationResultConfigurationAclConfigurationOutput() WorkgroupConfigurationResultConfigurationAclConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ToWorkgroupConfigurationResultConfigurationAclConfigurationOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return o.ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationResultConfigurationAclConfiguration) *WorkgroupConfigurationResultConfigurationAclConfiguration {
+		return &v
+	}).(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput)
+}
+
+// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationOutput) S3AclOption() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationResultConfigurationAclConfiguration) string { return v.S3AclOption }).(pulumi.StringOutput)
+}
+
+type WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationResultConfigurationAclConfiguration)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput() WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) ToWorkgroupConfigurationResultConfigurationAclConfigurationPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) Elem() WorkgroupConfigurationResultConfigurationAclConfigurationOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationAclConfiguration) WorkgroupConfigurationResultConfigurationAclConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfigurationResultConfigurationAclConfiguration
+		return ret
+	}).(WorkgroupConfigurationResultConfigurationAclConfigurationOutput)
+}
+
+// The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+func (o WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput) S3AclOption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationResultConfigurationAclConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3AclOption
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1020,6 +1197,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationEngineVersionPtrInput)(nil)).Elem(), WorkgroupConfigurationEngineVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationAclConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationAclConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationAclConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationAclConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
 	pulumi.RegisterOutputType(DatabaseAclConfigurationOutput{})
@@ -1032,6 +1211,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkgroupConfigurationEngineVersionPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationAclConfigurationOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationAclConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutput{})
 }

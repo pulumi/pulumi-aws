@@ -110,12 +110,12 @@ class _BuildState:
                  version: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Build resources.
-        :param pulumi.Input[str] arn: Gamelift Build ARN.
+        :param pulumi.Input[str] arn: GameLift Build ARN.
         :param pulumi.Input[str] name: Name of the build
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
         :param pulumi.Input['BuildStorageLocationArgs'] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: Version that is associated with this build.
         """
         if arn is not None:
@@ -137,7 +137,7 @@ class _BuildState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Gamelift Build ARN.
+        GameLift Build ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -197,7 +197,7 @@ class _BuildState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -230,7 +230,7 @@ class Build(pulumi.CustomResource):
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an Gamelift Build resource.
+        Provides an GameLift Build resource.
 
         ## Example Usage
 
@@ -249,7 +249,7 @@ class Build(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Builds can be imported using the ID, e.g.,
+        GameLift Builds can be imported using the ID, e.g.,
 
         ```sh
          $ pulumi import aws:gamelift/build:Build example <build-id>
@@ -270,7 +270,7 @@ class Build(pulumi.CustomResource):
                  args: BuildArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Gamelift Build resource.
+        Provides an GameLift Build resource.
 
         ## Example Usage
 
@@ -289,7 +289,7 @@ class Build(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Builds can be imported using the ID, e.g.,
+        GameLift Builds can be imported using the ID, e.g.,
 
         ```sh
          $ pulumi import aws:gamelift/build:Build example <build-id>
@@ -362,12 +362,12 @@ class Build(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Gamelift Build ARN.
+        :param pulumi.Input[str] arn: GameLift Build ARN.
         :param pulumi.Input[str] name: Name of the build
         :param pulumi.Input[str] operating_system: Operating system that the game server binaries are built to run onE.g., `WINDOWS_2012`, `AMAZON_LINUX` or `AMAZON_LINUX_2`.
         :param pulumi.Input[pulumi.InputType['BuildStorageLocationArgs']] storage_location: Information indicating where your game build files are stored. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version: Version that is associated with this build.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -387,7 +387,7 @@ class Build(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Gamelift Build ARN.
+        GameLift Build ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -427,7 +427,7 @@ class Build(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

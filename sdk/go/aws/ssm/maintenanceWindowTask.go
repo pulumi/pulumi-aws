@@ -174,6 +174,10 @@ import (
 type MaintenanceWindowTask struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the maintenance window task.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+	CutoffBehavior pulumi.StringPtrOutput `pulumi:"cutoffBehavior"`
 	// The description of the maintenance window task.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The maximum number of targets this task can be run for in parallel.
@@ -196,6 +200,8 @@ type MaintenanceWindowTask struct {
 	TaskType pulumi.StringOutput `pulumi:"taskType"`
 	// The Id of the maintenance window to register the task with.
 	WindowId pulumi.StringOutput `pulumi:"windowId"`
+	// The ID of the maintenance window task.
+	WindowTaskId pulumi.StringOutput `pulumi:"windowTaskId"`
 }
 
 // NewMaintenanceWindowTask registers a new resource with the given unique name, arguments, and options.
@@ -205,12 +211,6 @@ func NewMaintenanceWindowTask(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.MaxConcurrency == nil {
-		return nil, errors.New("invalid value for required argument 'MaxConcurrency'")
-	}
-	if args.MaxErrors == nil {
-		return nil, errors.New("invalid value for required argument 'MaxErrors'")
-	}
 	if args.TaskArn == nil {
 		return nil, errors.New("invalid value for required argument 'TaskArn'")
 	}
@@ -242,6 +242,10 @@ func GetMaintenanceWindowTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering MaintenanceWindowTask resources.
 type maintenanceWindowTaskState struct {
+	// The ARN of the maintenance window task.
+	Arn *string `pulumi:"arn"`
+	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+	CutoffBehavior *string `pulumi:"cutoffBehavior"`
 	// The description of the maintenance window task.
 	Description *string `pulumi:"description"`
 	// The maximum number of targets this task can be run for in parallel.
@@ -264,9 +268,15 @@ type maintenanceWindowTaskState struct {
 	TaskType *string `pulumi:"taskType"`
 	// The Id of the maintenance window to register the task with.
 	WindowId *string `pulumi:"windowId"`
+	// The ID of the maintenance window task.
+	WindowTaskId *string `pulumi:"windowTaskId"`
 }
 
 type MaintenanceWindowTaskState struct {
+	// The ARN of the maintenance window task.
+	Arn pulumi.StringPtrInput
+	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+	CutoffBehavior pulumi.StringPtrInput
 	// The description of the maintenance window task.
 	Description pulumi.StringPtrInput
 	// The maximum number of targets this task can be run for in parallel.
@@ -289,6 +299,8 @@ type MaintenanceWindowTaskState struct {
 	TaskType pulumi.StringPtrInput
 	// The Id of the maintenance window to register the task with.
 	WindowId pulumi.StringPtrInput
+	// The ID of the maintenance window task.
+	WindowTaskId pulumi.StringPtrInput
 }
 
 func (MaintenanceWindowTaskState) ElementType() reflect.Type {
@@ -296,12 +308,14 @@ func (MaintenanceWindowTaskState) ElementType() reflect.Type {
 }
 
 type maintenanceWindowTaskArgs struct {
+	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+	CutoffBehavior *string `pulumi:"cutoffBehavior"`
 	// The description of the maintenance window task.
 	Description *string `pulumi:"description"`
 	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency string `pulumi:"maxConcurrency"`
+	MaxConcurrency *string `pulumi:"maxConcurrency"`
 	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors string `pulumi:"maxErrors"`
+	MaxErrors *string `pulumi:"maxErrors"`
 	// The name of the maintenance window task.
 	Name *string `pulumi:"name"`
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.
@@ -322,12 +336,14 @@ type maintenanceWindowTaskArgs struct {
 
 // The set of arguments for constructing a MaintenanceWindowTask resource.
 type MaintenanceWindowTaskArgs struct {
+	// Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+	CutoffBehavior pulumi.StringPtrInput
 	// The description of the maintenance window task.
 	Description pulumi.StringPtrInput
 	// The maximum number of targets this task can be run for in parallel.
-	MaxConcurrency pulumi.StringInput
+	MaxConcurrency pulumi.StringPtrInput
 	// The maximum number of errors allowed before this task stops being scheduled.
-	MaxErrors pulumi.StringInput
+	MaxErrors pulumi.StringPtrInput
 	// The name of the maintenance window task.
 	Name pulumi.StringPtrInput
 	// The priority of the task in the Maintenance Window, the lower the number the higher the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks that have the same priority scheduled in parallel.

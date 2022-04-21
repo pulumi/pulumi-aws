@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./contributorInsights";
 export * from "./dynamodbMixins";
 export * from "./getTable";
 export * from "./globalTable";
@@ -14,6 +15,7 @@ export * from "./tableItem";
 export * from "./tag";
 
 // Import resources to register:
+import { ContributorInsights } from "./contributorInsights";
 import { GlobalTable } from "./globalTable";
 import { KinesisStreamingDestination } from "./kinesisStreamingDestination";
 import { Table } from "./table";
@@ -24,6 +26,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:dynamodb/contributorInsights:ContributorInsights":
+                return new ContributorInsights(name, <any>undefined, { urn })
             case "aws:dynamodb/globalTable:GlobalTable":
                 return new GlobalTable(name, <any>undefined, { urn })
             case "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
@@ -39,6 +43,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "dynamodb/contributorInsights", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/globalTable", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/kinesisStreamingDestination", _module)
 pulumi.runtime.registerResourceModule("aws", "dynamodb/table", _module)

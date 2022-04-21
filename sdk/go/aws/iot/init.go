@@ -25,10 +25,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Authorizer{}
 	case "aws:iot/certificate:Certificate":
 		r = &Certificate{}
+	case "aws:iot/indexingConfiguration:IndexingConfiguration":
+		r = &IndexingConfiguration{}
+	case "aws:iot/loggingOptions:LoggingOptions":
+		r = &LoggingOptions{}
 	case "aws:iot/policy:Policy":
 		r = &Policy{}
 	case "aws:iot/policyAttachment:PolicyAttachment":
 		r = &PolicyAttachment{}
+	case "aws:iot/provisioningTemplate:ProvisioningTemplate":
+		r = &ProvisioningTemplate{}
 	case "aws:iot/roleAlias:RoleAlias":
 		r = &RoleAlias{}
 	case "aws:iot/thing:Thing":
@@ -68,12 +74,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"iot/indexingConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iot/loggingOptions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"iot/policy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iot/policyAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iot/provisioningTemplate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

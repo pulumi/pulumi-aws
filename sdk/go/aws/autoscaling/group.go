@@ -333,9 +333,12 @@ import (
 // 			MaxSize:         pulumi.Int(5),
 // 			MinSize:         pulumi.Int(1),
 // 			WarmPool: &autoscaling.GroupWarmPoolArgs{
-// 				PoolState:                pulumi.String("Stopped"),
+// 				PoolState:                pulumi.String("Hibernated"),
 // 				MinSize:                  pulumi.Int(1),
 // 				MaxGroupPreparedCapacity: pulumi.Int(10),
+// 				InstanceReusePolicy: &autoscaling.GroupWarmPoolInstanceReusePolicyArgs{
+// 					ReuseOnScaleIn: pulumi.Bool(true),
+// 				},
 // 			},
 // 		})
 // 		if err != nil {
@@ -483,9 +486,11 @@ type Group struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup pulumi.StringPtrOutput `pulumi:"placementGroup"`
-	// Allows setting instance protection. The
-	// Auto Scaling Group will not select instances with this setting for termination
-	// during scale in events.
+	// Indicates whether newly launched instances
+	// are automatically protected from termination by Amazon EC2 Auto Scaling when
+	// scaling in. For more information about preventing instances from terminating
+	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn pulumi.BoolPtrOutput `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringOutput `pulumi:"serviceLinkedRoleArn"`
@@ -622,9 +627,11 @@ type groupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup interface{} `pulumi:"placementGroup"`
-	// Allows setting instance protection. The
-	// Auto Scaling Group will not select instances with this setting for termination
-	// during scale in events.
+	// Indicates whether newly launched instances
+	// are automatically protected from termination by Amazon EC2 Auto Scaling when
+	// scaling in. For more information about preventing instances from terminating
+	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn *string `pulumi:"serviceLinkedRoleArn"`
@@ -727,9 +734,11 @@ type GroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup pulumi.Input
-	// Allows setting instance protection. The
-	// Auto Scaling Group will not select instances with this setting for termination
-	// during scale in events.
+	// Indicates whether newly launched instances
+	// are automatically protected from termination by Amazon EC2 Auto Scaling when
+	// scaling in. For more information about preventing instances from terminating
+	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn pulumi.BoolPtrInput
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringPtrInput
@@ -834,9 +843,11 @@ type groupArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup interface{} `pulumi:"placementGroup"`
-	// Allows setting instance protection. The
-	// Auto Scaling Group will not select instances with this setting for termination
-	// during scale in events.
+	// Indicates whether newly launched instances
+	// are automatically protected from termination by Amazon EC2 Auto Scaling when
+	// scaling in. For more information about preventing instances from terminating
+	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn *bool `pulumi:"protectFromScaleIn"`
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn *string `pulumi:"serviceLinkedRoleArn"`
@@ -938,9 +949,11 @@ type GroupArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// The name of the placement group into which you'll launch your instances, if any.
 	PlacementGroup pulumi.Input
-	// Allows setting instance protection. The
-	// Auto Scaling Group will not select instances with this setting for termination
-	// during scale in events.
+	// Indicates whether newly launched instances
+	// are automatically protected from termination by Amazon EC2 Auto Scaling when
+	// scaling in. For more information about preventing instances from terminating
+	// on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+	// in the Amazon EC2 Auto Scaling User Guide.
 	ProtectFromScaleIn pulumi.BoolPtrInput
 	// The ARN of the service-linked role that the ASG will use to call other AWS services
 	ServiceLinkedRoleArn pulumi.StringPtrInput

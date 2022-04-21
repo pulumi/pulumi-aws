@@ -67,6 +67,8 @@ func LookupRoute(ctx *pulumi.Context, args *LookupRouteArgs, opts ...pulumi.Invo
 type LookupRouteArgs struct {
 	// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
+	// Core network ARN of the Route belonging to the Route Table.
+	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// CIDR block of the Route belonging to the Route Table.
 	DestinationCidrBlock *string `pulumi:"destinationCidrBlock"`
 	// IPv6 CIDR block of the Route belonging to the Route Table.
@@ -96,6 +98,7 @@ type LookupRouteArgs struct {
 // A collection of values returned by getRoute.
 type LookupRouteResult struct {
 	CarrierGatewayId         string `pulumi:"carrierGatewayId"`
+	CoreNetworkArn           string `pulumi:"coreNetworkArn"`
 	DestinationCidrBlock     string `pulumi:"destinationCidrBlock"`
 	DestinationIpv6CidrBlock string `pulumi:"destinationIpv6CidrBlock"`
 	DestinationPrefixListId  string `pulumi:"destinationPrefixListId"`
@@ -125,6 +128,8 @@ func LookupRouteOutput(ctx *pulumi.Context, args LookupRouteOutputArgs, opts ...
 type LookupRouteOutputArgs struct {
 	// EC2 Carrier Gateway ID of the Route belonging to the Route Table.
 	CarrierGatewayId pulumi.StringPtrInput `pulumi:"carrierGatewayId"`
+	// Core network ARN of the Route belonging to the Route Table.
+	CoreNetworkArn pulumi.StringPtrInput `pulumi:"coreNetworkArn"`
 	// CIDR block of the Route belonging to the Route Table.
 	DestinationCidrBlock pulumi.StringPtrInput `pulumi:"destinationCidrBlock"`
 	// IPv6 CIDR block of the Route belonging to the Route Table.
@@ -172,6 +177,10 @@ func (o LookupRouteResultOutput) ToLookupRouteResultOutputWithContext(ctx contex
 
 func (o LookupRouteResultOutput) CarrierGatewayId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRouteResult) string { return v.CarrierGatewayId }).(pulumi.StringOutput)
+}
+
+func (o LookupRouteResultOutput) CoreNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupRouteResult) string { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
 func (o LookupRouteResultOutput) DestinationCidrBlock() pulumi.StringOutput {

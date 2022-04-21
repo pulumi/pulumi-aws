@@ -16,6 +16,7 @@ export * from "./identityProvider";
 export * from "./resourceServer";
 export * from "./user";
 export * from "./userGroup";
+export * from "./userInGroup";
 export * from "./userPool";
 export * from "./userPoolClient";
 export * from "./userPoolDomain";
@@ -29,6 +30,7 @@ import { IdentityProvider } from "./identityProvider";
 import { ResourceServer } from "./resourceServer";
 import { User } from "./user";
 import { UserGroup } from "./userGroup";
+import { UserInGroup } from "./userInGroup";
 import { UserPool } from "./userPool";
 import { UserPoolClient } from "./userPoolClient";
 import { UserPoolDomain } from "./userPoolDomain";
@@ -52,6 +54,8 @@ const _module = {
                 return new User(name, <any>undefined, { urn })
             case "aws:cognito/userGroup:UserGroup":
                 return new UserGroup(name, <any>undefined, { urn })
+            case "aws:cognito/userInGroup:UserInGroup":
+                return new UserInGroup(name, <any>undefined, { urn })
             case "aws:cognito/userPool:UserPool":
                 return new UserPool(name, <any>undefined, { urn })
             case "aws:cognito/userPoolClient:UserPoolClient":
@@ -72,6 +76,7 @@ pulumi.runtime.registerResourceModule("aws", "cognito/identityProvider", _module
 pulumi.runtime.registerResourceModule("aws", "cognito/resourceServer", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/user", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/userGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "cognito/userInGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/userPool", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/userPoolClient", _module)
 pulumi.runtime.registerResourceModule("aws", "cognito/userPoolDomain", _module)

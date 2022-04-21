@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// A list of all the Elastic IP addresses for use with EC2-Classic.
+        /// A list of all the Elastic IP addresses.
         /// </summary>
         public readonly ImmutableArray<string> PublicIps;
         public readonly ImmutableDictionary<string, string> Tags;

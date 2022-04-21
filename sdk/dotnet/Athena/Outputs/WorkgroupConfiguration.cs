@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly bool? EnforceWorkgroupConfiguration;
         /// <summary>
-        /// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+        /// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
         /// </summary>
         public readonly Outputs.WorkgroupConfigurationEngineVersion? EngineVersion;
         /// <summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly bool? RequesterPaysEnabled;
         /// <summary>
-        /// Configuration block with result settings. Documented below.
+        /// Configuration block with result settings. See Result Configuration below.
         /// </summary>
         public readonly Outputs.WorkgroupConfigurationResultConfiguration? ResultConfiguration;
 

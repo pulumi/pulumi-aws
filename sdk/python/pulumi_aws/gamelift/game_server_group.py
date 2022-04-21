@@ -229,7 +229,7 @@ class _GameServerGroupState:
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering GameServerGroup resources.
-        :param pulumi.Input[str] arn: The ARN of the Gamelift Game Server Group.
+        :param pulumi.Input[str] arn: The ARN of the GameLift Game Server Group.
         :param pulumi.Input[str] auto_scaling_group_arn: The ARN of the created EC2 Auto Scaling group.
         :param pulumi.Input[str] balancing_strategy: Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
                Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
@@ -283,7 +283,7 @@ class _GameServerGroupState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Gamelift Game Server Group.
+        The ARN of the GameLift Game Server Group.
         """
         return pulumi.get(self, "arn")
 
@@ -465,7 +465,7 @@ class GameServerGroup(pulumi.CustomResource):
                  vpc_subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides an Gamelift Game Server Group resource.
+        Provides an GameLift Game Server Group resource.
 
         ## Example Usage
 
@@ -534,7 +534,7 @@ class GameServerGroup(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
         ```
-        ### Example IAM Role for Gamelift Game Server Group
+        ### Example IAM Role for GameLift Game Server Group
 
         ```python
         import pulumi
@@ -564,7 +564,7 @@ class GameServerGroup(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Game Server Group can be imported using the `name`, e.g.
+        GameLift Game Server Group can be imported using the `name`, e.g.
 
         ```sh
          $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
@@ -598,7 +598,7 @@ class GameServerGroup(pulumi.CustomResource):
                  args: GameServerGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an Gamelift Game Server Group resource.
+        Provides an GameLift Game Server Group resource.
 
         ## Example Usage
 
@@ -667,7 +667,7 @@ class GameServerGroup(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[aws_iam_role_policy_attachment["example"]]))
         ```
-        ### Example IAM Role for Gamelift Game Server Group
+        ### Example IAM Role for GameLift Game Server Group
 
         ```python
         import pulumi
@@ -697,7 +697,7 @@ class GameServerGroup(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Game Server Group can be imported using the `name`, e.g.
+        GameLift Game Server Group can be imported using the `name`, e.g.
 
         ```sh
          $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
@@ -799,7 +799,7 @@ class GameServerGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the Gamelift Game Server Group.
+        :param pulumi.Input[str] arn: The ARN of the GameLift Game Server Group.
         :param pulumi.Input[str] auto_scaling_group_arn: The ARN of the created EC2 Auto Scaling group.
         :param pulumi.Input[str] balancing_strategy: Indicates how GameLift FleetIQ balances the use of Spot Instances and On-Demand Instances.
                Valid values: `SPOT_ONLY`, `SPOT_PREFERRED`, `ON_DEMAND_ONLY`. Defaults to `SPOT_PREFERRED`.
@@ -844,7 +844,7 @@ class GameServerGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the Gamelift Game Server Group.
+        The ARN of the GameLift Game Server Group.
         """
         return pulumi.get(self, "arn")
 

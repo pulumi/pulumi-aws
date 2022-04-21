@@ -55,6 +55,8 @@ type NfsFileShare struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the storage used for audit logs.
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
+	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
+	BucketRegion pulumi.StringPtrOutput `pulumi:"bucketRegion"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes NfsFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -95,6 +97,8 @@ type NfsFileShare struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// The DNS name of the VPC endpoint for S3 PrivateLink.
+	VpcEndpointDnsName pulumi.StringPtrOutput `pulumi:"vpcEndpointDnsName"`
 }
 
 // NewNfsFileShare registers a new resource with the given unique name, arguments, and options.
@@ -142,6 +146,8 @@ type nfsFileShareState struct {
 	Arn *string `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the storage used for audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
+	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
+	BucketRegion *string `pulumi:"bucketRegion"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes *NfsFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -182,6 +188,8 @@ type nfsFileShareState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// The DNS name of the VPC endpoint for S3 PrivateLink.
+	VpcEndpointDnsName *string `pulumi:"vpcEndpointDnsName"`
 }
 
 type NfsFileShareState struct {
@@ -189,6 +197,8 @@ type NfsFileShareState struct {
 	Arn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the storage used for audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
+	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
+	BucketRegion pulumi.StringPtrInput
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes NfsFileShareCacheAttributesPtrInput
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -229,6 +239,8 @@ type NfsFileShareState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
+	// The DNS name of the VPC endpoint for S3 PrivateLink.
+	VpcEndpointDnsName pulumi.StringPtrInput
 }
 
 func (NfsFileShareState) ElementType() reflect.Type {
@@ -238,6 +250,8 @@ func (NfsFileShareState) ElementType() reflect.Type {
 type nfsFileShareArgs struct {
 	// The Amazon Resource Name (ARN) of the storage used for audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
+	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
+	BucketRegion *string `pulumi:"bucketRegion"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes *NfsFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -272,12 +286,16 @@ type nfsFileShareArgs struct {
 	Squash *string `pulumi:"squash"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// The DNS name of the VPC endpoint for S3 PrivateLink.
+	VpcEndpointDnsName *string `pulumi:"vpcEndpointDnsName"`
 }
 
 // The set of arguments for constructing a NfsFileShare resource.
 type NfsFileShareArgs struct {
 	// The Amazon Resource Name (ARN) of the storage used for audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
+	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
+	BucketRegion pulumi.StringPtrInput
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes NfsFileShareCacheAttributesPtrInput
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -312,6 +330,8 @@ type NfsFileShareArgs struct {
 	Squash pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// The DNS name of the VPC endpoint for S3 PrivateLink.
+	VpcEndpointDnsName pulumi.StringPtrInput
 }
 
 func (NfsFileShareArgs) ElementType() reflect.Type {

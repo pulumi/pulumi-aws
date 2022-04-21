@@ -16,6 +16,7 @@ __all__ = [
     'DomainAutoTuneOptionsMaintenanceSchedule',
     'DomainAutoTuneOptionsMaintenanceScheduleDuration',
     'DomainClusterConfig',
+    'DomainClusterConfigColdStorageOptions',
     'DomainClusterConfigZoneAwarenessConfig',
     'DomainCognitoOptions',
     'DomainDomainEndpointOptions',
@@ -32,6 +33,7 @@ __all__ = [
     'GetDomainAutoTuneOptionMaintenanceScheduleResult',
     'GetDomainAutoTuneOptionMaintenanceScheduleDurationResult',
     'GetDomainClusterConfigResult',
+    'GetDomainClusterConfigColdStorageOptionResult',
     'GetDomainClusterConfigZoneAwarenessConfigResult',
     'GetDomainCognitoOptionResult',
     'GetDomainEbsOptionResult',
@@ -323,7 +325,9 @@ class DomainClusterConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dedicatedMasterCount":
+        if key == "coldStorageOptions":
+            suggest = "cold_storage_options"
+        elif key == "dedicatedMasterCount":
             suggest = "dedicated_master_count"
         elif key == "dedicatedMasterEnabled":
             suggest = "dedicated_master_enabled"
@@ -356,6 +360,7 @@ class DomainClusterConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 cold_storage_options: Optional['outputs.DomainClusterConfigColdStorageOptions'] = None,
                  dedicated_master_count: Optional[int] = None,
                  dedicated_master_enabled: Optional[bool] = None,
                  dedicated_master_type: Optional[str] = None,
@@ -367,6 +372,7 @@ class DomainClusterConfig(dict):
                  zone_awareness_config: Optional['outputs.DomainClusterConfigZoneAwarenessConfig'] = None,
                  zone_awareness_enabled: Optional[bool] = None):
         """
+        :param 'DomainClusterConfigColdStorageOptionsArgs' cold_storage_options: Configuration block containing cold storage configuration. Detailed below.
         :param int dedicated_master_count: Number of dedicated main nodes in the cluster.
         :param bool dedicated_master_enabled: Whether dedicated main nodes are enabled for the cluster.
         :param str dedicated_master_type: Instance type of the dedicated main nodes in the cluster.
@@ -378,6 +384,8 @@ class DomainClusterConfig(dict):
         :param 'DomainClusterConfigZoneAwarenessConfigArgs' zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
         :param bool zone_awareness_enabled: Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         """
+        if cold_storage_options is not None:
+            pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         if dedicated_master_count is not None:
             pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
         if dedicated_master_enabled is not None:
@@ -398,6 +406,14 @@ class DomainClusterConfig(dict):
             pulumi.set(__self__, "zone_awareness_config", zone_awareness_config)
         if zone_awareness_enabled is not None:
             pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
+
+    @property
+    @pulumi.getter(name="coldStorageOptions")
+    def cold_storage_options(self) -> Optional['outputs.DomainClusterConfigColdStorageOptions']:
+        """
+        Configuration block containing cold storage configuration. Detailed below.
+        """
+        return pulumi.get(self, "cold_storage_options")
 
     @property
     @pulumi.getter(name="dedicatedMasterCount")
@@ -478,6 +494,25 @@ class DomainClusterConfig(dict):
         Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         """
         return pulumi.get(self, "zone_awareness_enabled")
+
+
+@pulumi.output_type
+class DomainClusterConfigColdStorageOptions(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        :param bool enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -919,7 +954,7 @@ class DomainSamlOptionsSamlOptions(dict):
         :param str master_user_name: This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         :param str roles_key: Element of the SAML assertion to use for backend roles. Default is roles.
         :param int session_timeout_minutes: Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-        :param str subject_key: Element of the SAML assertion to use for username. Default is NameID.
+        :param str subject_key: Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -988,7 +1023,7 @@ class DomainSamlOptionsSamlOptions(dict):
     @pulumi.getter(name="subjectKey")
     def subject_key(self) -> Optional[str]:
         """
-        Element of the SAML assertion to use for username. Default is NameID.
+        Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
         """
         return pulumi.get(self, "subject_key")
 
@@ -1287,39 +1322,49 @@ class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
 @pulumi.output_type
 class GetDomainClusterConfigResult(dict):
     def __init__(__self__, *,
+                 cold_storage_options: Sequence['outputs.GetDomainClusterConfigColdStorageOptionResult'],
                  dedicated_master_count: int,
                  dedicated_master_enabled: bool,
                  dedicated_master_type: str,
                  instance_count: int,
                  instance_type: str,
                  warm_count: int,
+                 warm_enabled: bool,
                  warm_type: str,
                  zone_awareness_configs: Sequence['outputs.GetDomainClusterConfigZoneAwarenessConfigResult'],
-                 zone_awareness_enabled: bool,
-                 warm_enabled: Optional[bool] = None):
+                 zone_awareness_enabled: bool):
         """
+        :param Sequence['GetDomainClusterConfigColdStorageOptionArgs'] cold_storage_options: Configuration block containing cold storage configuration.
         :param int dedicated_master_count: Number of dedicated master nodes in the cluster.
         :param bool dedicated_master_enabled: Indicates whether dedicated master nodes are enabled for the cluster.
         :param str dedicated_master_type: Instance type of the dedicated master nodes in the cluster.
         :param int instance_count: Number of instances in the cluster.
         :param str instance_type: Instance type of data nodes in the cluster.
         :param int warm_count: The number of warm nodes in the cluster.
+        :param bool warm_enabled: Indicates warm storage is enabled.
         :param str warm_type: The instance type for the Elasticsearch cluster's warm nodes.
         :param Sequence['GetDomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_configs: Configuration block containing zone awareness settings.
         :param bool zone_awareness_enabled: Indicates whether zone awareness is enabled.
-        :param bool warm_enabled: Indicates warm storage is enabled.
         """
+        pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
         pulumi.set(__self__, "dedicated_master_enabled", dedicated_master_enabled)
         pulumi.set(__self__, "dedicated_master_type", dedicated_master_type)
         pulumi.set(__self__, "instance_count", instance_count)
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "warm_count", warm_count)
+        pulumi.set(__self__, "warm_enabled", warm_enabled)
         pulumi.set(__self__, "warm_type", warm_type)
         pulumi.set(__self__, "zone_awareness_configs", zone_awareness_configs)
         pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
-        if warm_enabled is not None:
-            pulumi.set(__self__, "warm_enabled", warm_enabled)
+
+    @property
+    @pulumi.getter(name="coldStorageOptions")
+    def cold_storage_options(self) -> Sequence['outputs.GetDomainClusterConfigColdStorageOptionResult']:
+        """
+        Configuration block containing cold storage configuration.
+        """
+        return pulumi.get(self, "cold_storage_options")
 
     @property
     @pulumi.getter(name="dedicatedMasterCount")
@@ -1370,6 +1415,14 @@ class GetDomainClusterConfigResult(dict):
         return pulumi.get(self, "warm_count")
 
     @property
+    @pulumi.getter(name="warmEnabled")
+    def warm_enabled(self) -> bool:
+        """
+        Indicates warm storage is enabled.
+        """
+        return pulumi.get(self, "warm_enabled")
+
+    @property
     @pulumi.getter(name="warmType")
     def warm_type(self) -> str:
         """
@@ -1393,13 +1446,23 @@ class GetDomainClusterConfigResult(dict):
         """
         return pulumi.get(self, "zone_awareness_enabled")
 
+
+@pulumi.output_type
+class GetDomainClusterConfigColdStorageOptionResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool):
+        """
+        :param bool enabled: Whether node to node encryption is enabled.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
     @property
-    @pulumi.getter(name="warmEnabled")
-    def warm_enabled(self) -> Optional[bool]:
+    @pulumi.getter
+    def enabled(self) -> bool:
         """
-        Indicates warm storage is enabled.
+        Whether node to node encryption is enabled.
         """
-        return pulumi.get(self, "warm_enabled")
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type

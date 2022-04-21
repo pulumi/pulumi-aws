@@ -53,6 +53,7 @@ class InstanceArgs:
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
+                 user_data_replace_on_change: Optional[pulumi.Input[bool]] = None,
                  volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -93,8 +94,9 @@ class InstanceArgs:
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
-        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
+        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
+        :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: A map of tags to assign, at instance-creation time, to root and EBS volumes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
         """
@@ -175,6 +177,8 @@ class InstanceArgs:
             pulumi.set(__self__, "user_data", user_data)
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
+        if user_data_replace_on_change is not None:
+            pulumi.set(__self__, "user_data_replace_on_change", user_data_replace_on_change)
         if volume_tags is not None:
             pulumi.set(__self__, "volume_tags", volume_tags)
         if vpc_security_group_ids is not None:
@@ -605,7 +609,7 @@ class InstanceArgs:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
+        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         """
         return pulumi.get(self, "user_data")
 
@@ -617,13 +621,25 @@ class InstanceArgs:
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         """
         return pulumi.get(self, "user_data_base64")
 
     @user_data_base64.setter
     def user_data_base64(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_data_base64", value)
+
+    @property
+    @pulumi.getter(name="userDataReplaceOnChange")
+    def user_data_replace_on_change(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+        """
+        return pulumi.get(self, "user_data_replace_on_change")
+
+    @user_data_replace_on_change.setter
+    def user_data_replace_on_change(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "user_data_replace_on_change", value)
 
     @property
     @pulumi.getter(name="volumeTags")
@@ -699,6 +715,7 @@ class _InstanceState:
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
+                 user_data_replace_on_change: Optional[pulumi.Input[bool]] = None,
                  volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -748,8 +765,9 @@ class _InstanceState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
-        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
+        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
+        :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: A map of tags to assign, at instance-creation time, to root and EBS volumes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
         """
@@ -848,6 +866,8 @@ class _InstanceState:
             pulumi.set(__self__, "user_data", user_data)
         if user_data_base64 is not None:
             pulumi.set(__self__, "user_data_base64", user_data_base64)
+        if user_data_replace_on_change is not None:
+            pulumi.set(__self__, "user_data_replace_on_change", user_data_replace_on_change)
         if volume_tags is not None:
             pulumi.set(__self__, "volume_tags", volume_tags)
         if vpc_security_group_ids is not None:
@@ -1386,7 +1406,7 @@ class _InstanceState:
     @pulumi.getter(name="userData")
     def user_data(self) -> Optional[pulumi.Input[str]]:
         """
-        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
+        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         """
         return pulumi.get(self, "user_data")
 
@@ -1398,13 +1418,25 @@ class _InstanceState:
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         """
         return pulumi.get(self, "user_data_base64")
 
     @user_data_base64.setter
     def user_data_base64(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_data_base64", value)
+
+    @property
+    @pulumi.getter(name="userDataReplaceOnChange")
+    def user_data_replace_on_change(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+        """
+        return pulumi.get(self, "user_data_replace_on_change")
+
+    @user_data_replace_on_change.setter
+    def user_data_replace_on_change(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "user_data_replace_on_change", value)
 
     @property
     @pulumi.getter(name="volumeTags")
@@ -1473,6 +1505,7 @@ class Instance(pulumi.CustomResource):
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
+                 user_data_replace_on_change: Optional[pulumi.Input[bool]] = None,
                  volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1587,8 +1620,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
-        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
+        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
+        :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: A map of tags to assign, at instance-creation time, to root and EBS volumes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
         """
@@ -1723,6 +1757,7 @@ class Instance(pulumi.CustomResource):
                  tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
                  user_data: Optional[pulumi.Input[str]] = None,
                  user_data_base64: Optional[pulumi.Input[str]] = None,
+                 user_data_replace_on_change: Optional[pulumi.Input[bool]] = None,
                  volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -1777,6 +1812,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["tenancy"] = tenancy
             __props__.__dict__["user_data"] = user_data
             __props__.__dict__["user_data_base64"] = user_data_base64
+            __props__.__dict__["user_data_replace_on_change"] = user_data_replace_on_change
             __props__.__dict__["volume_tags"] = volume_tags
             __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
             __props__.__dict__["arn"] = None
@@ -1844,6 +1880,7 @@ class Instance(pulumi.CustomResource):
             tenancy: Optional[pulumi.Input[Union[str, 'Tenancy']]] = None,
             user_data: Optional[pulumi.Input[str]] = None,
             user_data_base64: Optional[pulumi.Input[str]] = None,
+            user_data_replace_on_change: Optional[pulumi.Input[bool]] = None,
             volume_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Instance':
         """
@@ -1898,8 +1935,9 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[Union[str, 'Tenancy']] tenancy: Tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware. The host tenancy is not supported for the import-instance command.
-        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
-        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+        :param pulumi.Input[str] user_data: User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
+        :param pulumi.Input[str] user_data_base64: Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
+        :param pulumi.Input[bool] user_data_replace_on_change: When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] volume_tags: A map of tags to assign, at instance-creation time, to root and EBS volumes.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_ids: A list of security group IDs to associate with.
         """
@@ -1953,6 +1991,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["tenancy"] = tenancy
         __props__.__dict__["user_data"] = user_data
         __props__.__dict__["user_data_base64"] = user_data_base64
+        __props__.__dict__["user_data_replace_on_change"] = user_data_replace_on_change
         __props__.__dict__["volume_tags"] = volume_tags
         __props__.__dict__["vpc_security_group_ids"] = vpc_security_group_ids
         return Instance(resource_name, opts=opts, __props__=__props__)
@@ -2314,7 +2353,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="userData")
     def user_data(self) -> pulumi.Output[str]:
         """
-        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
+        User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `user_data_base64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         """
         return pulumi.get(self, "user_data")
 
@@ -2322,9 +2361,17 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="userDataBase64")
     def user_data_base64(self) -> pulumi.Output[str]:
         """
-        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+        Can be used instead of `user_data` to pass base64-encoded binary data directly. Use this instead of `user_data` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `user_data_replace_on_change` is set then updates to this field will trigger a destroy and recreate.
         """
         return pulumi.get(self, "user_data_base64")
+
+    @property
+    @pulumi.getter(name="userDataReplaceOnChange")
+    def user_data_replace_on_change(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When used in combination with `user_data` or `user_data_base64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+        """
+        return pulumi.get(self, "user_data_replace_on_change")
 
     @property
     @pulumi.getter(name="volumeTags")

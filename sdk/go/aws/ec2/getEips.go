@@ -64,7 +64,7 @@ type GetEipsResult struct {
 	Filters       []GetEipsFilter `pulumi:"filters"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// A list of all the Elastic IP addresses for use with EC2-Classic.
+	// A list of all the Elastic IP addresses.
 	PublicIps []string          `pulumi:"publicIps"`
 	Tags      map[string]string `pulumi:"tags"`
 }
@@ -119,7 +119,7 @@ func (o GetEipsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEipsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// A list of all the Elastic IP addresses for use with EC2-Classic.
+// A list of all the Elastic IP addresses.
 func (o GetEipsResultOutput) PublicIps() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEipsResult) []string { return v.PublicIps }).(pulumi.StringArrayOutput)
 }

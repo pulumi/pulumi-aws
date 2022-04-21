@@ -40,6 +40,30 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Athena Databases can be imported using their name, e.g.,
+//
+// ```sh
+//  $ pulumi import aws:athena/database:Database example example
+// ```
+//
+//  Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+//
+//  name
+//
+//  = "database_name"
+//
+//  bucket = aws_s3_bucket.example.bucket
+//
+// # There is no API for reading bucket
+//
+//  lifecycle {
+//
+//  ignore_changes = [bucket]
+//
+//  } }
 type Database struct {
 	pulumi.CustomResourceState
 
@@ -57,6 +81,8 @@ type Database struct {
 	ForceDestroy pulumi.BoolPtrOutput `pulumi:"forceDestroy"`
 	// Name of the database to create.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// A key-value map of custom metadata properties for the database definition.
+	Properties pulumi.StringMapOutput `pulumi:"properties"`
 }
 
 // NewDatabase registers a new resource with the given unique name, arguments, and options.
@@ -102,6 +128,8 @@ type databaseState struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the database to create.
 	Name *string `pulumi:"name"`
+	// A key-value map of custom metadata properties for the database definition.
+	Properties map[string]string `pulumi:"properties"`
 }
 
 type DatabaseState struct {
@@ -119,6 +147,8 @@ type DatabaseState struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the database to create.
 	Name pulumi.StringPtrInput
+	// A key-value map of custom metadata properties for the database definition.
+	Properties pulumi.StringMapInput
 }
 
 func (DatabaseState) ElementType() reflect.Type {
@@ -140,6 +170,8 @@ type databaseArgs struct {
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// Name of the database to create.
 	Name *string `pulumi:"name"`
+	// A key-value map of custom metadata properties for the database definition.
+	Properties map[string]string `pulumi:"properties"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -158,6 +190,8 @@ type DatabaseArgs struct {
 	ForceDestroy pulumi.BoolPtrInput
 	// Name of the database to create.
 	Name pulumi.StringPtrInput
+	// A key-value map of custom metadata properties for the database definition.
+	Properties pulumi.StringMapInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

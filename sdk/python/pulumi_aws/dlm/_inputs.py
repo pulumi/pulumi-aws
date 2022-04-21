@@ -10,64 +10,451 @@ from .. import _utilities
 
 __all__ = [
     'LifecyclePolicyPolicyDetailsArgs',
+    'LifecyclePolicyPolicyDetailsActionArgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs',
+    'LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs',
+    'LifecyclePolicyPolicyDetailsEventSourceArgs',
+    'LifecyclePolicyPolicyDetailsEventSourceParametersArgs',
+    'LifecyclePolicyPolicyDetailsParametersArgs',
     'LifecyclePolicyPolicyDetailsScheduleArgs',
     'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs',
     'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs',
     'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs',
     'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs',
     'LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs',
+    'LifecyclePolicyPolicyDetailsScheduleShareRuleArgs',
 ]
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsArgs:
     def __init__(__self__, *,
-                 resource_types: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 schedules: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]],
-                 target_tags: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+                 action: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs']] = None,
+                 event_source: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs']] = None,
+                 parameters: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs']] = None,
+                 policy_type: Optional[pulumi.Input[str]] = None,
+                 resource_locations: Optional[pulumi.Input[str]] = None,
+                 resource_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]] = None,
+                 target_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs'] action: The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs'] event_source: The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs'] parameters: Information about the event. See the `parameters` configuration block.
+        :param pulumi.Input[str] policy_type: The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+        :param pulumi.Input[str] resource_locations: The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] resource_types: A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]] schedules: See the `schedule` configuration block.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] target_tags: A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         """
-        pulumi.set(__self__, "resource_types", resource_types)
-        pulumi.set(__self__, "schedules", schedules)
-        pulumi.set(__self__, "target_tags", target_tags)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
+        if event_source is not None:
+            pulumi.set(__self__, "event_source", event_source)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if policy_type is not None:
+            pulumi.set(__self__, "policy_type", policy_type)
+        if resource_locations is not None:
+            pulumi.set(__self__, "resource_locations", resource_locations)
+        if resource_types is not None:
+            pulumi.set(__self__, "resource_types", resource_types)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
+        if target_tags is not None:
+            pulumi.set(__self__, "target_tags", target_tags)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs']]:
+        """
+        The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionArgs']]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="eventSource")
+    def event_source(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs']]:
+        """
+        The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `event_source` configuration block.
+        """
+        return pulumi.get(self, "event_source")
+
+    @event_source.setter
+    def event_source(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceArgs']]):
+        pulumi.set(self, "event_source", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs']]:
+        """
+        Information about the event. See the `parameters` configuration block.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsParametersArgs']]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="policyType")
+    def policy_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+        """
+        return pulumi.get(self, "policy_type")
+
+    @policy_type.setter
+    def policy_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "policy_type", value)
+
+    @property
+    @pulumi.getter(name="resourceLocations")
+    def resource_locations(self) -> Optional[pulumi.Input[str]]:
+        """
+        The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+        """
+        return pulumi.get(self, "resource_locations")
+
+    @resource_locations.setter
+    def resource_locations(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_locations", value)
 
     @property
     @pulumi.getter(name="resourceTypes")
-    def resource_types(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+    def resource_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+        A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
         """
         return pulumi.get(self, "resource_types")
 
     @resource_types.setter
-    def resource_types(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+    def resource_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "resource_types", value)
 
     @property
     @pulumi.getter
-    def schedules(self) -> pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]:
+    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]]:
         """
         See the `schedule` configuration block.
         """
         return pulumi.get(self, "schedules")
 
     @schedules.setter
-    def schedules(self, value: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]):
+    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleArgs']]]]):
         pulumi.set(self, "schedules", value)
 
     @property
     @pulumi.getter(name="targetTags")
-    def target_tags(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+    def target_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of tag keys and their values. Any resources that match the `resource_types` and are tagged with _any_ of these tags will be targeted.
         """
         return pulumi.get(self, "target_tags")
 
     @target_tags.setter
-    def target_tags(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+    def target_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "target_tags", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsActionArgs:
+    def __init__(__self__, *,
+                 cross_region_copies: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]],
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]] cross_region_copies: The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+        :param pulumi.Input[str] name: A name for the schedule.
+        """
+        pulumi.set(__self__, "cross_region_copies", cross_region_copies)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="crossRegionCopies")
+    def cross_region_copies(self) -> pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]]:
+        """
+        The rule for copying shared snapshots across Regions. See the `cross_region_copy` configuration block.
+        """
+        return pulumi.get(self, "cross_region_copies")
+
+    @cross_region_copies.setter
+    def cross_region_copies(self, value: pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs']]]):
+        pulumi.set(self, "cross_region_copies", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        A name for the schedule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsActionCrossRegionCopyArgs:
+    def __init__(__self__, *,
+                 encryption_configuration: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs'],
+                 target: pulumi.Input[str],
+                 retain_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs']] = None):
+        """
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs'] encryption_configuration: The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        :param pulumi.Input[str] target: The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs'] retain_rule: The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+        """
+        pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        pulumi.set(__self__, "target", target)
+        if retain_rule is not None:
+            pulumi.set(__self__, "retain_rule", retain_rule)
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs']:
+        """
+        The encryption settings for the copied snapshot. See the `encryption_configuration` block. Max of 1 per action.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @encryption_configuration.setter
+    def encryption_configuration(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs']):
+        pulumi.set(self, "encryption_configuration", value)
+
+    @property
+    @pulumi.getter
+    def target(self) -> pulumi.Input[str]:
+        """
+        The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+        """
+        return pulumi.get(self, "target")
+
+    @target.setter
+    def target(self, value: pulumi.Input[str]):
+        pulumi.set(self, "target", value)
+
+    @property
+    @pulumi.getter(name="retainRule")
+    def retain_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs']]:
+        """
+        The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+        """
+        return pulumi.get(self, "retain_rule")
+
+    @retain_rule.setter
+    def retain_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs']]):
+        pulumi.set(self, "retain_rule", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfigurationArgs:
+    def __init__(__self__, *,
+                 cmk_arn: Optional[pulumi.Input[str]] = None,
+                 encrypted: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] cmk_arn: The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+        :param pulumi.Input[bool] encrypted: To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+        """
+        if cmk_arn is not None:
+            pulumi.set(__self__, "cmk_arn", cmk_arn)
+        if encrypted is not None:
+            pulumi.set(__self__, "encrypted", encrypted)
+
+    @property
+    @pulumi.getter(name="cmkArn")
+    def cmk_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+        """
+        return pulumi.get(self, "cmk_arn")
+
+    @cmk_arn.setter
+    def cmk_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cmk_arn", value)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> Optional[pulumi.Input[bool]]:
+        """
+        To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @encrypted.setter
+    def encrypted(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "encrypted", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRuleArgs:
+    def __init__(__self__, *,
+                 interval: pulumi.Input[int],
+                 interval_unit: pulumi.Input[str]):
+        """
+        :param pulumi.Input[int] interval: The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        :param pulumi.Input[str] interval_unit: The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "interval_unit", interval_unit)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> pulumi.Input[int]:
+        """
+        The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: pulumi.Input[int]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> pulumi.Input[str]:
+        """
+        The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        return pulumi.get(self, "interval_unit")
+
+    @interval_unit.setter
+    def interval_unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "interval_unit", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsEventSourceArgs:
+    def __init__(__self__, *,
+                 parameters: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs'],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs'] parameters: Information about the event. See the `parameters` configuration block.
+        :param pulumi.Input[str] type: The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs']:
+        """
+        Information about the event. See the `parameters` configuration block.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input['LifecyclePolicyPolicyDetailsEventSourceParametersArgs']):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsEventSourceParametersArgs:
+    def __init__(__self__, *,
+                 description_regex: pulumi.Input[str],
+                 event_type: pulumi.Input[str],
+                 snapshot_owners: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[str] description_regex: The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+        :param pulumi.Input[str] event_type: The type of event. Currently, only `shareSnapshot` events are supported.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snapshot_owners: The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+        """
+        pulumi.set(__self__, "description_regex", description_regex)
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "snapshot_owners", snapshot_owners)
+
+    @property
+    @pulumi.getter(name="descriptionRegex")
+    def description_regex(self) -> pulumi.Input[str]:
+        """
+        The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+        """
+        return pulumi.get(self, "description_regex")
+
+    @description_regex.setter
+    def description_regex(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description_regex", value)
+
+    @property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> pulumi.Input[str]:
+        """
+        The type of event. Currently, only `shareSnapshot` events are supported.
+        """
+        return pulumi.get(self, "event_type")
+
+    @event_type.setter
+    def event_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_type", value)
+
+    @property
+    @pulumi.getter(name="snapshotOwners")
+    def snapshot_owners(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+        """
+        return pulumi.get(self, "snapshot_owners")
+
+    @snapshot_owners.setter
+    def snapshot_owners(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "snapshot_owners", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsParametersArgs:
+    def __init__(__self__, *,
+                 exclude_boot_volume: Optional[pulumi.Input[bool]] = None,
+                 no_reboot: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] exclude_boot_volume: Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+        :param pulumi.Input[bool] no_reboot: Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+        """
+        if exclude_boot_volume is not None:
+            pulumi.set(__self__, "exclude_boot_volume", exclude_boot_volume)
+        if no_reboot is not None:
+            pulumi.set(__self__, "no_reboot", no_reboot)
+
+    @property
+    @pulumi.getter(name="excludeBootVolume")
+    def exclude_boot_volume(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+        """
+        return pulumi.get(self, "exclude_boot_volume")
+
+    @exclude_boot_volume.setter
+    def exclude_boot_volume(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "exclude_boot_volume", value)
+
+    @property
+    @pulumi.getter(name="noReboot")
+    def no_reboot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+        """
+        return pulumi.get(self, "no_reboot")
+
+    @no_reboot.setter
+    def no_reboot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_reboot", value)
 
 
 @pulumi.input_type
@@ -78,14 +465,22 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
                  retain_rule: pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs'],
                  copy_tags: Optional[pulumi.Input[bool]] = None,
                  cross_region_copy_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]]] = None,
-                 tags_to_add: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 deprecate_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs']] = None,
+                 fast_restore_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs']] = None,
+                 share_rule: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']] = None,
+                 tags_to_add: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 variable_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs'] create_rule: See the `create_rule` block. Max of 1 per schedule.
         :param pulumi.Input[str] name: A name for the schedule.
         :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs'] retain_rule: The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
         :param pulumi.Input[bool] copy_tags: Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs']]] cross_region_copy_rules: See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs'] deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs'] fast_restore_rule: See the `fast_restore_rule` block. Max of 1 per schedule.
+        :param pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs'] share_rule: See the `share_rule` block. Max of 1 per schedule.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_to_add: A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variable_tags: A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
         """
         pulumi.set(__self__, "create_rule", create_rule)
         pulumi.set(__self__, "name", name)
@@ -94,8 +489,16 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
             pulumi.set(__self__, "copy_tags", copy_tags)
         if cross_region_copy_rules is not None:
             pulumi.set(__self__, "cross_region_copy_rules", cross_region_copy_rules)
+        if deprecate_rule is not None:
+            pulumi.set(__self__, "deprecate_rule", deprecate_rule)
+        if fast_restore_rule is not None:
+            pulumi.set(__self__, "fast_restore_rule", fast_restore_rule)
+        if share_rule is not None:
+            pulumi.set(__self__, "share_rule", share_rule)
         if tags_to_add is not None:
             pulumi.set(__self__, "tags_to_add", tags_to_add)
+        if variable_tags is not None:
+            pulumi.set(__self__, "variable_tags", variable_tags)
 
     @property
     @pulumi.getter(name="createRule")
@@ -158,6 +561,42 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
         pulumi.set(self, "cross_region_copy_rules", value)
 
     @property
+    @pulumi.getter(name="deprecateRule")
+    def deprecate_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs']]:
+        """
+        The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        """
+        return pulumi.get(self, "deprecate_rule")
+
+    @deprecate_rule.setter
+    def deprecate_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs']]):
+        pulumi.set(self, "deprecate_rule", value)
+
+    @property
+    @pulumi.getter(name="fastRestoreRule")
+    def fast_restore_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs']]:
+        """
+        See the `fast_restore_rule` block. Max of 1 per schedule.
+        """
+        return pulumi.get(self, "fast_restore_rule")
+
+    @fast_restore_rule.setter
+    def fast_restore_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs']]):
+        pulumi.set(self, "fast_restore_rule", value)
+
+    @property
+    @pulumi.getter(name="shareRule")
+    def share_rule(self) -> Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']]:
+        """
+        See the `share_rule` block. Max of 1 per schedule.
+        """
+        return pulumi.get(self, "share_rule")
+
+    @share_rule.setter
+    def share_rule(self, value: Optional[pulumi.Input['LifecyclePolicyPolicyDetailsScheduleShareRuleArgs']]):
+        pulumi.set(self, "share_rule", value)
+
+    @property
     @pulumi.getter(name="tagsToAdd")
     def tags_to_add(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -169,34 +608,67 @@ class LifecyclePolicyPolicyDetailsScheduleArgs:
     def tags_to_add(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_to_add", value)
 
+    @property
+    @pulumi.getter(name="variableTags")
+    def variable_tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resource_types` is `INSTANCE`.
+        """
+        return pulumi.get(self, "variable_tags")
+
+    @variable_tags.setter
+    def variable_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "variable_tags", value)
+
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
     def __init__(__self__, *,
-                 interval: pulumi.Input[int],
+                 cron_expression: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
                  interval_unit: Optional[pulumi.Input[str]] = None,
+                 location: Optional[pulumi.Input[str]] = None,
                  times: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[str] cron_expression: The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
         :param pulumi.Input[int] interval: The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
         :param pulumi.Input[str] interval_unit: The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        :param pulumi.Input[str] location: Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
         :param pulumi.Input[str] times: A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
         """
-        pulumi.set(__self__, "interval", interval)
+        if cron_expression is not None:
+            pulumi.set(__self__, "cron_expression", cron_expression)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
         if interval_unit is not None:
             pulumi.set(__self__, "interval_unit", interval_unit)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
         if times is not None:
             pulumi.set(__self__, "times", times)
 
     @property
+    @pulumi.getter(name="cronExpression")
+    def cron_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+        """
+        return pulumi.get(self, "cron_expression")
+
+    @cron_expression.setter
+    def cron_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cron_expression", value)
+
+    @property
     @pulumi.getter
-    def interval(self) -> pulumi.Input[int]:
+    def interval(self) -> Optional[pulumi.Input[int]]:
         """
         The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
         """
         return pulumi.get(self, "interval")
 
     @interval.setter
-    def interval(self, value: pulumi.Input[int]):
+    def interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "interval", value)
 
     @property
@@ -210,6 +682,18 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs:
     @interval_unit.setter
     def interval_unit(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "interval_unit", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -400,24 +884,228 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs:
 
 
 @pulumi.input_type
-class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs:
+class LifecyclePolicyPolicyDetailsScheduleDeprecateRuleArgs:
     def __init__(__self__, *,
-                 count: pulumi.Input[int]):
+                 count: Optional[pulumi.Input[int]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 interval_unit: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] count: How many snapshots to keep. Must be an integer between 1 and 1000.
+        :param pulumi.Input[int] count: How many snapshots to keep. Must be an integer between `1` and `1000`.
+        :param pulumi.Input[int] interval: The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        :param pulumi.Input[str] interval_unit: The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
         """
-        pulumi.set(__self__, "count", count)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if interval_unit is not None:
+            pulumi.set(__self__, "interval_unit", interval_unit)
 
     @property
     @pulumi.getter
-    def count(self) -> pulumi.Input[int]:
+    def count(self) -> Optional[pulumi.Input[int]]:
         """
-        How many snapshots to keep. Must be an integer between 1 and 1000.
+        How many snapshots to keep. Must be an integer between `1` and `1000`.
         """
         return pulumi.get(self, "count")
 
     @count.setter
-    def count(self, value: pulumi.Input[int]):
+    def count(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        return pulumi.get(self, "interval_unit")
+
+    @interval_unit.setter
+    def interval_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interval_unit", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsScheduleFastRestoreRuleArgs:
+    def __init__(__self__, *,
+                 availability_zones: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 count: Optional[pulumi.Input[int]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 interval_unit: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: The Availability Zones in which to enable fast snapshot restore.
+        :param pulumi.Input[int] count: How many snapshots to keep. Must be an integer between `1` and `1000`.
+        :param pulumi.Input[int] interval: The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        :param pulumi.Input[str] interval_unit: The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        pulumi.set(__self__, "availability_zones", availability_zones)
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if interval_unit is not None:
+            pulumi.set(__self__, "interval_unit", interval_unit)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The Availability Zones in which to enable fast snapshot restore.
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @availability_zones.setter
+    def availability_zones(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "availability_zones", value)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        How many snapshots to keep. Must be an integer between `1` and `1000`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        return pulumi.get(self, "interval_unit")
+
+    @interval_unit.setter
+    def interval_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interval_unit", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 interval_unit: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] count: How many snapshots to keep. Must be an integer between `1` and `1000`.
+        :param pulumi.Input[int] interval: The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        :param pulumi.Input[str] interval_unit: The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if interval_unit is not None:
+            pulumi.set(__self__, "interval_unit", interval_unit)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        """
+        How many snapshots to keep. Must be an integer between `1` and `1000`.
+        """
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        return pulumi.get(self, "interval_unit")
+
+    @interval_unit.setter
+    def interval_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "interval_unit", value)
+
+
+@pulumi.input_type
+class LifecyclePolicyPolicyDetailsScheduleShareRuleArgs:
+    def __init__(__self__, *,
+                 target_accounts: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 unshare_interval: Optional[pulumi.Input[int]] = None,
+                 unshare_interval_unit: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_accounts: The IDs of the AWS accounts with which to share the snapshots.
+        """
+        pulumi.set(__self__, "target_accounts", target_accounts)
+        if unshare_interval is not None:
+            pulumi.set(__self__, "unshare_interval", unshare_interval)
+        if unshare_interval_unit is not None:
+            pulumi.set(__self__, "unshare_interval_unit", unshare_interval_unit)
+
+    @property
+    @pulumi.getter(name="targetAccounts")
+    def target_accounts(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The IDs of the AWS accounts with which to share the snapshots.
+        """
+        return pulumi.get(self, "target_accounts")
+
+    @target_accounts.setter
+    def target_accounts(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "target_accounts", value)
+
+    @property
+    @pulumi.getter(name="unshareInterval")
+    def unshare_interval(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "unshare_interval")
+
+    @unshare_interval.setter
+    def unshare_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "unshare_interval", value)
+
+    @property
+    @pulumi.getter(name="unshareIntervalUnit")
+    def unshare_interval_unit(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "unshare_interval_unit")
+
+    @unshare_interval_unit.setter
+    def unshare_interval_unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unshare_interval_unit", value)
 
 

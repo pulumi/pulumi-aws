@@ -81,6 +81,28 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Create a user pool client with Cognito as the identity provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const pool = new aws.cognito.UserPool("pool", {});
+ * const userpoolClient = new aws.cognito.UserPoolClient("userpoolClient", {
+ *     userPoolId: pool.id,
+ *     callbackUrls: ["https://example.com"],
+ *     allowedOauthFlowsUserPoolClient: true,
+ *     allowedOauthFlows: [
+ *         "code",
+ *         "implicit",
+ *     ],
+ *     allowedOauthScopes: [
+ *         "email",
+ *         "openid",
+ *     ],
+ *     supportedIdentityProviders: ["COGNITO"],
+ * });
+ * ```
  *
  * ## Import
  *

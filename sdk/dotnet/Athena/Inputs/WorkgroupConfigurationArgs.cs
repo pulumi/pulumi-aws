@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<bool>? EnforceWorkgroupConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+        /// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
         /// </summary>
         [Input("engineVersion")]
         public Input<Inputs.WorkgroupConfigurationEngineVersionArgs>? EngineVersion { get; set; }
@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<bool>? RequesterPaysEnabled { get; set; }
 
         /// <summary>
-        /// Configuration block with result settings. Documented below.
+        /// Configuration block with result settings. See Result Configuration below.
         /// </summary>
         [Input("resultConfiguration")]
         public Input<Inputs.WorkgroupConfigurationResultConfigurationArgs>? ResultConfiguration { get; set; }

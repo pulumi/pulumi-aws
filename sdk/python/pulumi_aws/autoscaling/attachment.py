@@ -199,7 +199,7 @@ class Attachment(pulumi.CustomResource):
         # Create a new ALB Target Group attachment
         asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
             autoscaling_group_name=aws_autoscaling_group["asg"]["id"],
-            alb_target_group_arn=aws_lb_target_group["test"]["arn"])
+            lb_target_group_arn=aws_lb_target_group["test"]["arn"])
         ```
         ## With An AutoScaling Group Resource
 
@@ -257,7 +257,7 @@ class Attachment(pulumi.CustomResource):
         # Create a new ALB Target Group attachment
         asg_attachment_bar = aws.autoscaling.Attachment("asgAttachmentBar",
             autoscaling_group_name=aws_autoscaling_group["asg"]["id"],
-            alb_target_group_arn=aws_lb_target_group["test"]["arn"])
+            lb_target_group_arn=aws_lb_target_group["test"]["arn"])
         ```
         ## With An AutoScaling Group Resource
 

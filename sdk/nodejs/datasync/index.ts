@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./agent";
 export * from "./efsLocation";
+export * from "./fsxOpenZfsFileSystem";
 export * from "./locationFsxLustre";
 export * from "./locationFsxWindows";
 export * from "./locationHdfs";
@@ -18,6 +19,7 @@ export * from "./task";
 // Import resources to register:
 import { Agent } from "./agent";
 import { EfsLocation } from "./efsLocation";
+import { FsxOpenZfsFileSystem } from "./fsxOpenZfsFileSystem";
 import { LocationFsxLustre } from "./locationFsxLustre";
 import { LocationFsxWindows } from "./locationFsxWindows";
 import { LocationHdfs } from "./locationHdfs";
@@ -34,6 +36,8 @@ const _module = {
                 return new Agent(name, <any>undefined, { urn })
             case "aws:datasync/efsLocation:EfsLocation":
                 return new EfsLocation(name, <any>undefined, { urn })
+            case "aws:datasync/fsxOpenZfsFileSystem:FsxOpenZfsFileSystem":
+                return new FsxOpenZfsFileSystem(name, <any>undefined, { urn })
             case "aws:datasync/locationFsxLustre:LocationFsxLustre":
                 return new LocationFsxLustre(name, <any>undefined, { urn })
             case "aws:datasync/locationFsxWindows:LocationFsxWindows":
@@ -55,6 +59,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "datasync/agent", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/efsLocation", _module)
+pulumi.runtime.registerResourceModule("aws", "datasync/fsxOpenZfsFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxLustre", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationFsxWindows", _module)
 pulumi.runtime.registerResourceModule("aws", "datasync/locationHdfs", _module)

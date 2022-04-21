@@ -14,11 +14,12 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfigurationRuleFilter
     {
         /// <summary>
-        /// Object keyname prefix identifying one or more objects to which the rule applies
+        /// Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
         /// </summary>
         public readonly string? Prefix;
         /// <summary>
-        /// A map of tags to assign to the bucket. If configured with a provider [`default_tags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags that identifies subset of objects to which the rule applies.
+        /// The rule applies only to objects having all the tags in its tagset.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
 

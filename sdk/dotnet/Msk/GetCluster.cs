@@ -166,6 +166,10 @@ namespace Pulumi.Aws.Msk
         /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
         /// </summary>
         public readonly string ZookeeperConnectString;
+        /// <summary>
+        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// </summary>
+        public readonly string ZookeeperConnectStringTls;
 
         [OutputConstructor]
         private GetClusterResult(
@@ -189,7 +193,9 @@ namespace Pulumi.Aws.Msk
 
             ImmutableDictionary<string, string> tags,
 
-            string zookeeperConnectString)
+            string zookeeperConnectString,
+
+            string zookeeperConnectStringTls)
         {
             Arn = arn;
             BootstrapBrokers = bootstrapBrokers;
@@ -202,6 +208,7 @@ namespace Pulumi.Aws.Msk
             NumberOfBrokerNodes = numberOfBrokerNodes;
             Tags = tags;
             ZookeeperConnectString = zookeeperConnectString;
+            ZookeeperConnectStringTls = zookeeperConnectStringTls;
         }
     }
 }

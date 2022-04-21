@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * // Create a new ALB Target Group attachment
  * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
  *     autoscalingGroupName: aws_autoscaling_group.asg.id,
- *     albTargetGroupArn: aws_lb_target_group.test.arn,
+ *     lbTargetGroupArn: aws_lb_target_group.test.arn,
  * });
  * ```
  * ## With An AutoScaling Group Resource

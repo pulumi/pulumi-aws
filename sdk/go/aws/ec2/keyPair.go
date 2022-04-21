@@ -58,9 +58,8 @@ type KeyPair struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringOutput `pulumi:"fingerprint"`
-	// The name for the key pair.
-	KeyName pulumi.StringOutput `pulumi:"keyName"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
+	// The key pair name.
+	KeyName       pulumi.StringOutput `pulumi:"keyName"`
 	KeyNamePrefix pulumi.StringOutput `pulumi:"keyNamePrefix"`
 	// The key pair ID.
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
@@ -108,9 +107,8 @@ type keyPairState struct {
 	Arn *string `pulumi:"arn"`
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint *string `pulumi:"fingerprint"`
-	// The name for the key pair.
-	KeyName *string `pulumi:"keyName"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
+	// The key pair name.
+	KeyName       *string `pulumi:"keyName"`
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The key pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
@@ -127,9 +125,8 @@ type KeyPairState struct {
 	Arn pulumi.StringPtrInput
 	// The MD5 public key fingerprint as specified in section 4 of RFC 4716.
 	Fingerprint pulumi.StringPtrInput
-	// The name for the key pair.
-	KeyName pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
+	// The key pair name.
+	KeyName       pulumi.StringPtrInput
 	KeyNamePrefix pulumi.StringPtrInput
 	// The key pair ID.
 	KeyPairId pulumi.StringPtrInput
@@ -146,9 +143,8 @@ func (KeyPairState) ElementType() reflect.Type {
 }
 
 type keyPairArgs struct {
-	// The name for the key pair.
-	KeyName *string `pulumi:"keyName"`
-	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
+	// The key pair name.
+	KeyName       *string `pulumi:"keyName"`
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The public key material.
 	PublicKey string `pulumi:"publicKey"`
@@ -158,9 +154,8 @@ type keyPairArgs struct {
 
 // The set of arguments for constructing a KeyPair resource.
 type KeyPairArgs struct {
-	// The name for the key pair.
-	KeyName pulumi.StringPtrInput
-	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
+	// The key pair name.
+	KeyName       pulumi.StringPtrInput
 	KeyNamePrefix pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringInput

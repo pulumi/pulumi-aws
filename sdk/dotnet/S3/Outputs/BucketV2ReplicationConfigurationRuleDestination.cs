@@ -14,31 +14,32 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfigurationRuleDestination
     {
         /// <summary>
-        /// The overrides to use for object owners on replication.
+        /// Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation> AccessControlTranslations;
         /// <summary>
-        /// The Account ID to use for overriding the object owner on replication.
+        /// The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
         /// </summary>
         public readonly string? AccountId;
         /// <summary>
-        /// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
+        /// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         /// </summary>
-        public readonly string? Bucket;
+        public readonly string Bucket;
         /// <summary>
-        /// Replication metrics.
+        /// Enables replication metrics (required for S3 RTC) (documented below).
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationMetric> Metrics;
         /// <summary>
-        /// Destination KMS encryption key ARN for SSE-KMS replication.
+        /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
+        /// `sse_kms_encrypted_objects` source selection criteria.
         /// </summary>
         public readonly string? ReplicaKmsKeyId;
         /// <summary>
-        /// S3 Replication Time Control (S3 RTC).
+        /// Enables S3 Replication Time Control (S3 RTC) (documented below).
         /// </summary>
         public readonly ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationReplicationTime> ReplicationTimes;
         /// <summary>
-        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
+        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         /// </summary>
         public readonly string? StorageClass;
 
@@ -48,7 +49,7 @@ namespace Pulumi.Aws.S3.Outputs
 
             string? accountId,
 
-            string? bucket,
+            string bucket,
 
             ImmutableArray<Outputs.BucketV2ReplicationConfigurationRuleDestinationMetric> metrics,
 

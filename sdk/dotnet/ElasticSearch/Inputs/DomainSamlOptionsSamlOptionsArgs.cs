@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ElasticSearch.Inputs
         public Input<int>? SessionTimeoutMinutes { get; set; }
 
         /// <summary>
-        /// Element of the SAML assertion to use for username. Default is NameID.
+        /// Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
         /// </summary>
         [Input("subjectKey")]
         public Input<string>? SubjectKey { get; set; }

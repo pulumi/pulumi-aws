@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2LifecycleRuleNoncurrentVersionExpiration
     {
         /// <summary>
-        /// The number of days specified for the default retention period.
+        /// Specifies the number of days noncurrent object versions expire.
         /// </summary>
         public readonly int? Days;
 

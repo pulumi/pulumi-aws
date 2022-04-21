@@ -14,6 +14,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult
     {
         /// <summary>
+        /// The account ID that this configuration applies to.
+        /// </summary>
+        public readonly string AccountId;
+        /// <summary>
         /// Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
         /// </summary>
         public readonly bool Default;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
         [OutputConstructor]
         private GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult(
+            string accountId,
+
             bool @default,
 
             string launchTemplateId)
         {
+            AccountId = accountId;
             Default = @default;
             LaunchTemplateId = launchTemplateId;
         }

@@ -1295,6 +1295,10 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationPtrOutp
 }
 
 type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission struct {
+	// Set of AWS Organization ARNs to assign.
+	OrganizationArns []string `pulumi:"organizationArns"`
+	// Set of AWS Organizational Unit ARNs to assign.
+	OrganizationalUnitArns []string `pulumi:"organizationalUnitArns"`
 	// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
 	UserGroups []string `pulumi:"userGroups"`
 	// Set of AWS Account identifiers to assign.
@@ -1313,6 +1317,10 @@ type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPerm
 }
 
 type DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs struct {
+	// Set of AWS Organization ARNs to assign.
+	OrganizationArns pulumi.StringArrayInput `pulumi:"organizationArns"`
+	// Set of AWS Organizational Unit ARNs to assign.
+	OrganizationalUnitArns pulumi.StringArrayInput `pulumi:"organizationalUnitArns"`
 	// Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
 	UserGroups pulumi.StringArrayInput `pulumi:"userGroups"`
 	// Set of AWS Account identifiers to assign.
@@ -1396,6 +1404,20 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput)
 }
 
+// Set of AWS Organization ARNs to assign.
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) OrganizationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
+		return v.OrganizationArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of AWS Organizational Unit ARNs to assign.
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
+		return v.OrganizationalUnitArns
+	}).(pulumi.StringArrayOutput)
+}
+
 // Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
 func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) UserGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
@@ -1432,6 +1454,26 @@ func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 		var ret DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission
 		return ret
 	}).(DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
+}
+
+// Set of AWS Organization ARNs to assign.
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) OrganizationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of AWS Organizational Unit ARNs to assign.
+func (o DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitArns
+	}).(pulumi.StringArrayOutput)
 }
 
 // Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
@@ -1796,6 +1838,8 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 }
 
 type DistributionConfigurationDistributionLaunchTemplateConfiguration struct {
+	// The account ID that this configuration applies to.
+	AccountId *string `pulumi:"accountId"`
 	// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
 	Default *bool `pulumi:"default"`
 	// The ID of the Amazon EC2 launch template to use.
@@ -1814,6 +1858,8 @@ type DistributionConfigurationDistributionLaunchTemplateConfigurationInput inter
 }
 
 type DistributionConfigurationDistributionLaunchTemplateConfigurationArgs struct {
+	// The account ID that this configuration applies to.
+	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
 	Default pulumi.BoolPtrInput `pulumi:"default"`
 	// The ID of the Amazon EC2 launch template to use.
@@ -1869,6 +1915,11 @@ func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) 
 
 func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) ToDistributionConfigurationDistributionLaunchTemplateConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionLaunchTemplateConfigurationOutput {
 	return o
+}
+
+// The account ID that this configuration applies to.
+func (o DistributionConfigurationDistributionLaunchTemplateConfigurationOutput) AccountId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionLaunchTemplateConfiguration) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
@@ -4842,6 +4893,10 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationArra
 }
 
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission struct {
+	// Set of AWS Organization ARNs.
+	OrganizationArns []string `pulumi:"organizationArns"`
+	// Set of AWS Organizational Unit ARNs.
+	OrganizationalUnitArns []string `pulumi:"organizationalUnitArns"`
 	// Set of EC2 launch permission user groups.
 	UserGroups []string `pulumi:"userGroups"`
 	// Set of AWS Account identifiers.
@@ -4860,6 +4915,10 @@ type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 }
 
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs struct {
+	// Set of AWS Organization ARNs.
+	OrganizationArns pulumi.StringArrayInput `pulumi:"organizationArns"`
+	// Set of AWS Organizational Unit ARNs.
+	OrganizationalUnitArns pulumi.StringArrayInput `pulumi:"organizationalUnitArns"`
 	// Set of EC2 launch permission user groups.
 	UserGroups pulumi.StringArrayInput `pulumi:"userGroups"`
 	// Set of AWS Account identifiers.
@@ -4915,6 +4974,20 @@ func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaun
 
 func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput {
 	return o
+}
+
+// Set of AWS Organization ARNs.
+func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) OrganizationArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
+		return v.OrganizationArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Set of AWS Organizational Unit ARNs.
+func (o GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) OrganizationalUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission) []string {
+		return v.OrganizationalUnitArns
+	}).(pulumi.StringArrayOutput)
 }
 
 // Set of EC2 launch permission user groups.
@@ -5183,6 +5256,8 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 }
 
 type GetDistributionConfigurationDistributionLaunchTemplateConfiguration struct {
+	// The account ID that this configuration applies to.
+	AccountId string `pulumi:"accountId"`
 	// Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
 	Default bool `pulumi:"default"`
 	// ID of the Amazon EC2 launch template.
@@ -5201,6 +5276,8 @@ type GetDistributionConfigurationDistributionLaunchTemplateConfigurationInput in
 }
 
 type GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs struct {
+	// The account ID that this configuration applies to.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
 	// Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
 	Default pulumi.BoolInput `pulumi:"default"`
 	// ID of the Amazon EC2 launch template.
@@ -5256,6 +5333,11 @@ func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutpu
 
 func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) ToGetDistributionConfigurationDistributionLaunchTemplateConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput {
 	return o
+}
+
+// The account ID that this configuration applies to.
+func (o GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionLaunchTemplateConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
 // Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
@@ -5942,6 +6024,112 @@ func (o GetImagePipelineScheduleArrayOutput) Index(i pulumi.IntInput) GetImagePi
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagePipelineSchedule {
 		return vs[0].([]GetImagePipelineSchedule)[vs[1].(int)]
 	}).(GetImagePipelineScheduleOutput)
+}
+
+type GetImagePipelinesFilter struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetImagePipelinesFilterInput is an input type that accepts GetImagePipelinesFilterArgs and GetImagePipelinesFilterOutput values.
+// You can construct a concrete instance of `GetImagePipelinesFilterInput` via:
+//
+//          GetImagePipelinesFilterArgs{...}
+type GetImagePipelinesFilterInput interface {
+	pulumi.Input
+
+	ToGetImagePipelinesFilterOutput() GetImagePipelinesFilterOutput
+	ToGetImagePipelinesFilterOutputWithContext(context.Context) GetImagePipelinesFilterOutput
+}
+
+type GetImagePipelinesFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetImagePipelinesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelinesFilter)(nil)).Elem()
+}
+
+func (i GetImagePipelinesFilterArgs) ToGetImagePipelinesFilterOutput() GetImagePipelinesFilterOutput {
+	return i.ToGetImagePipelinesFilterOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelinesFilterArgs) ToGetImagePipelinesFilterOutputWithContext(ctx context.Context) GetImagePipelinesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelinesFilterOutput)
+}
+
+// GetImagePipelinesFilterArrayInput is an input type that accepts GetImagePipelinesFilterArray and GetImagePipelinesFilterArrayOutput values.
+// You can construct a concrete instance of `GetImagePipelinesFilterArrayInput` via:
+//
+//          GetImagePipelinesFilterArray{ GetImagePipelinesFilterArgs{...} }
+type GetImagePipelinesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetImagePipelinesFilterArrayOutput() GetImagePipelinesFilterArrayOutput
+	ToGetImagePipelinesFilterArrayOutputWithContext(context.Context) GetImagePipelinesFilterArrayOutput
+}
+
+type GetImagePipelinesFilterArray []GetImagePipelinesFilterInput
+
+func (GetImagePipelinesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelinesFilter)(nil)).Elem()
+}
+
+func (i GetImagePipelinesFilterArray) ToGetImagePipelinesFilterArrayOutput() GetImagePipelinesFilterArrayOutput {
+	return i.ToGetImagePipelinesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetImagePipelinesFilterArray) ToGetImagePipelinesFilterArrayOutputWithContext(ctx context.Context) GetImagePipelinesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelinesFilterArrayOutput)
+}
+
+type GetImagePipelinesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelinesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImagePipelinesFilter)(nil)).Elem()
+}
+
+func (o GetImagePipelinesFilterOutput) ToGetImagePipelinesFilterOutput() GetImagePipelinesFilterOutput {
+	return o
+}
+
+func (o GetImagePipelinesFilterOutput) ToGetImagePipelinesFilterOutputWithContext(ctx context.Context) GetImagePipelinesFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+func (o GetImagePipelinesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImagePipelinesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetImagePipelinesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImagePipelinesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetImagePipelinesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImagePipelinesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImagePipelinesFilter)(nil)).Elem()
+}
+
+func (o GetImagePipelinesFilterArrayOutput) ToGetImagePipelinesFilterArrayOutput() GetImagePipelinesFilterArrayOutput {
+	return o
+}
+
+func (o GetImagePipelinesFilterArrayOutput) ToGetImagePipelinesFilterArrayOutputWithContext(ctx context.Context) GetImagePipelinesFilterArrayOutput {
+	return o
+}
+
+func (o GetImagePipelinesFilterArrayOutput) Index(i pulumi.IntInput) GetImagePipelinesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImagePipelinesFilter {
+		return vs[0].([]GetImagePipelinesFilter)[vs[1].(int)]
+	}).(GetImagePipelinesFilterOutput)
 }
 
 type GetImageRecipeBlockDeviceMapping struct {
@@ -6937,6 +7125,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineScheduleInput)(nil)).Elem(), GetImagePipelineScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineScheduleArrayInput)(nil)).Elem(), GetImagePipelineScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelinesFilterInput)(nil)).Elem(), GetImagePipelinesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelinesFilterArrayInput)(nil)).Elem(), GetImagePipelinesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeBlockDeviceMappingInput)(nil)).Elem(), GetImageRecipeBlockDeviceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeBlockDeviceMappingArrayInput)(nil)).Elem(), GetImageRecipeBlockDeviceMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeBlockDeviceMappingEbInput)(nil)).Elem(), GetImageRecipeBlockDeviceMappingEbArgs{})
@@ -7041,6 +7231,8 @@ func init() {
 	pulumi.RegisterOutputType(GetImagePipelineImageTestsConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineScheduleOutput{})
 	pulumi.RegisterOutputType(GetImagePipelineScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetImagePipelinesFilterOutput{})
+	pulumi.RegisterOutputType(GetImagePipelinesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetImageRecipeBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(GetImageRecipeBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(GetImageRecipeBlockDeviceMappingEbOutput{})

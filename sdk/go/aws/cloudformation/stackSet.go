@@ -123,6 +123,8 @@ type StackSet struct {
 	ExecutionRoleName pulumi.StringOutput `pulumi:"executionRoleName"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Preferences for how AWS CloudFormation performs a stack set update.
+	OperationPreferences StackSetOperationPreferencesPtrOutput `pulumi:"operationPreferences"`
 	// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
@@ -184,6 +186,8 @@ type stackSetState struct {
 	ExecutionRoleName *string `pulumi:"executionRoleName"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name *string `pulumi:"name"`
+	// Preferences for how AWS CloudFormation performs a stack set update.
+	OperationPreferences *StackSetOperationPreferences `pulumi:"operationPreferences"`
 	// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
@@ -217,6 +221,8 @@ type StackSetState struct {
 	ExecutionRoleName pulumi.StringPtrInput
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringPtrInput
+	// Preferences for how AWS CloudFormation performs a stack set update.
+	OperationPreferences StackSetOperationPreferencesPtrInput
 	// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
 	Parameters pulumi.StringMapInput
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
@@ -252,6 +258,8 @@ type stackSetArgs struct {
 	ExecutionRoleName *string `pulumi:"executionRoleName"`
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name *string `pulumi:"name"`
+	// Preferences for how AWS CloudFormation performs a stack set update.
+	OperationPreferences *StackSetOperationPreferences `pulumi:"operationPreferences"`
 	// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
 	Parameters map[string]string `pulumi:"parameters"`
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
@@ -280,6 +288,8 @@ type StackSetArgs struct {
 	ExecutionRoleName pulumi.StringPtrInput
 	// Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
 	Name pulumi.StringPtrInput
+	// Preferences for how AWS CloudFormation performs a stack set update.
+	OperationPreferences StackSetOperationPreferencesPtrInput
 	// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignoreChanges` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignoreChanges` argument.
 	Parameters pulumi.StringMapInput
 	// Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.

@@ -16,5 +16,6 @@ from .security_group import *
 from .subnet_group import *
 from .user import *
 from .user_group import *
+from .user_group_association import *
 from ._inputs import *
 from . import outputs

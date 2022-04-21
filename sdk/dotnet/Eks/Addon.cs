@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
-        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Output("addonName")]
         public Output<string> AddonName { get; private set; } = null!;
@@ -87,6 +87,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> ModifiedAt { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+        /// </summary>
+        [Output("preserve")]
+        public Output<bool?> Preserve { get; private set; } = null!;
+
+        /// <summary>
         /// Define how to resolve parameter value conflicts
         /// when migrating an existing add-on to an Amazon EKS add-on or when applying
         /// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -106,7 +112,7 @@ namespace Pulumi.Aws.Eks
         public Output<string?> ServiceAccountRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -165,7 +171,7 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
-        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Input("addonName", required: true)]
         public Input<string> AddonName { get; set; } = null!;
@@ -182,6 +188,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+        /// </summary>
+        [Input("preserve")]
+        public Input<bool>? Preserve { get; set; }
 
         /// <summary>
         /// Define how to resolve parameter value conflicts
@@ -206,7 +218,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -223,7 +235,7 @@ namespace Pulumi.Aws.Eks
     {
         /// <summary>
         /// Name of the EKS add-on. The name must match one of
-        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
         /// </summary>
         [Input("addonName")]
         public Input<string>? AddonName { get; set; }
@@ -260,6 +272,12 @@ namespace Pulumi.Aws.Eks
         public Input<string>? ModifiedAt { get; set; }
 
         /// <summary>
+        /// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+        /// </summary>
+        [Input("preserve")]
+        public Input<bool>? Preserve { get; set; }
+
+        /// <summary>
         /// Define how to resolve parameter value conflicts
         /// when migrating an existing add-on to an Amazon EKS add-on or when applying
         /// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -282,7 +300,7 @@ namespace Pulumi.Aws.Eks
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

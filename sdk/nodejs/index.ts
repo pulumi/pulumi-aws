@@ -118,6 +118,7 @@ import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as iot from "./iot";
+import * as keyspaces from "./keyspaces";
 import * as kinesis from "./kinesis";
 import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
 import * as kms from "./kms";
@@ -140,6 +141,7 @@ import * as mwaa from "./mwaa";
 import * as neptune from "./neptune";
 import * as networkfirewall from "./networkfirewall";
 import * as networkmanager from "./networkmanager";
+import * as opensearch from "./opensearch";
 import * as opsworks from "./opsworks";
 import * as organizations from "./organizations";
 import * as outposts from "./outposts";
@@ -276,6 +278,7 @@ export {
     imagebuilder,
     inspector,
     iot,
+    keyspaces,
     kinesis,
     kinesisanalyticsv2,
     kms,
@@ -298,6 +301,7 @@ export {
     neptune,
     networkfirewall,
     networkmanager,
+    opensearch,
     opsworks,
     organizations,
     outposts,

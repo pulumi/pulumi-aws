@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// &gt; **Note:** Account management must be done from the organization's master account.
     /// 
-    /// !&gt; **WARNING:** Deleting this resource will only remove an AWS account from an organization. This provider will not close the account. The member account must be prepared to be a standalone account beforehand. See the [AWS Organizations documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html) for more information.
+    /// &gt; **Note:** By default, deleting this resource will only remove an AWS account from an organization. You must set the `close_on_deletion` flag to true to close the account. It is worth noting that quotas are enforced when using the `close_on_deletion` argument, which you can produce a [CLOSE_ACCOUNT_QUOTA_EXCEEDED](https://docs.aws.amazon.com/organizations/latest/APIReference/API_CloseAccount.html) error, and require you to close the account manually.
     /// 
     /// ## Example Usage
     /// 
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Organizations
     /// The AWS member account can be imported by using the `account_id`, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:organizations/account:Account my_org 111111111111
+    ///  $ pulumi import aws:organizations/account:Account my_account 111111111111
     /// ```
     /// 
     ///  Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the this provider configuration on an imported resource, this provider will always show a difference. To workaround this behavior, either omit the argument from the this provider configuration or use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to hide the difference, e.g. terraform resource "aws_organizations_account" "account" {
@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        /// </summary>
+        [Output("closeOnDeletion")]
+        public Output<bool?> CloseOnDeletion { get; private set; } = null!;
 
         /// <summary>
         /// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
@@ -112,7 +118,7 @@ namespace Pulumi.Aws.Organizations
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -170,6 +176,12 @@ namespace Pulumi.Aws.Organizations
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        /// </summary>
+        [Input("closeOnDeletion")]
+        public Input<bool>? CloseOnDeletion { get; set; }
+
+        /// <summary>
         /// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         /// </summary>
         [Input("email", required: true)]
@@ -203,7 +215,7 @@ namespace Pulumi.Aws.Organizations
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -223,6 +235,12 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        /// </summary>
+        [Input("closeOnDeletion")]
+        public Input<bool>? CloseOnDeletion { get; set; }
 
         /// <summary>
         /// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
@@ -267,7 +285,7 @@ namespace Pulumi.Aws.Organizations
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value mapping of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

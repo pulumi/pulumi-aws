@@ -123,6 +123,7 @@ const (
 	imageBuilderMod             = "ImageBuilder"             // ImageBuilder
 	inspectorMod                = "Inspector"                // Inspector
 	iotMod                      = "Iot"                      // Internet of Things (IoT)
+	keyspacesMod                = "Keyspaces"                // Keyspaces
 	kinesisMod                  = "Kinesis"                  // Kinesis
 	kinesisAnalyticsMod         = "KinesisAnalyticsV2"       // Kinesis Analytics V2
 	kmsMod                      = "Kms"                      // Key Management Service (KMS)
@@ -144,6 +145,7 @@ const (
 	neptuneMod                  = "Neptune"                  // Neptune
 	networkFirewallMod          = "NetworkFirewall"          // Network Firewall
 	networkManagerMod           = "NetworkManager"           // Network Manager
+	opensearchMod               = "OpenSearch"               // OpenSearch
 	opsworksMod                 = "OpsWorks"                 // OpsWorks
 	organizationsMod            = "Organizations"            // Organizations
 	outpostsMod                 = "Outposts"                 // Outposts
@@ -919,6 +921,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_user_pool_ui_customization":           {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
 			"aws_cognito_identity_pool_provider_principal_tag": {Tok: awsResource(cognitoMod, "IdentityPoolProviderPrincipalTag")},
 			"aws_cognito_user":                                 {Tok: awsResource(cognitoMod, "User")},
+			"aws_cognito_user_in_group":                        {Tok: awsResource(cognitoMod, "UserInGroup")},
 
 			// Connect
 			"aws_connect_contact_flow":                {Tok: awsResource(connectMod, "ContactFlow")},
@@ -982,8 +985,22 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datasync_location_fsx_windows_file_system": {Tok: awsResource(datasyncMod, "LocationFsxWindows")},
 			"aws_datasync_location_fsx_lustre_file_system":  {Tok: awsResource(datasyncMod, "LocationFsxLustre")},
 			"aws_datasync_location_hdfs":                    {Tok: awsResource(datasyncMod, "LocationHdfs")},
+			"aws_datasync_location_fsx_openzfs_file_system": {Tok: awsResource(datasyncMod, "FsxOpenZfsFileSystem")},
 			// Data Lifecycle Manager
-			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
+			"aws_dlm_lifecycle_policy": {
+				Tok: awsResource(dlmMod, "LifecyclePolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy_details": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"resource_types": {
+									MaxItemsOne: tfbridge.False(),
+								},
+							},
+						},
+					},
+				},
+			},
 
 			// Detective
 			"aws_detective_graph":               {Tok: awsResource(detectiveMod, "Graph")},
@@ -1071,6 +1088,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dynamodb_table_item":                    {Tok: awsResource(dynamodbMod, "TableItem")},
 			"aws_dynamodb_kinesis_streaming_destination": {Tok: awsResource(dynamodbMod, "KinesisStreamingDestination")},
 			"aws_dynamodb_tag":                           {Tok: awsResource(dynamodbMod, "Tag")},
+			"aws_dynamodb_contributor_insights":          {Tok: awsResource(dynamodbMod, "ContributorInsights")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_application": {Tok: awsResource(elasticbeanstalkMod, "Application")},
 			"aws_elastic_beanstalk_application_version": {
@@ -1129,6 +1147,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(elasticacheMod, "ReplicationGroup"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"replication_group_id": tfbridge.AutoNameTransform("replicationGroupId", 40, strings.ToLower),
+					"auto_minor_version_upgrade": {
+						Type: "boolean",
+					},
 				},
 			},
 			"aws_elasticache_security_group": {
@@ -1150,6 +1171,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticache_global_replication_group": {Tok: awsResource(elasticacheMod, "GlobalReplicationGroup")},
 			"aws_elasticache_user":                     {Tok: awsResource(elasticacheMod, "User")},
 			"aws_elasticache_user_group":               {Tok: awsResource(elasticacheMod, "UserGroup")},
+			"aws_elasticache_user_group_association":   {Tok: awsResource(elasticacheMod, "UserGroupAssociation")},
 			// Elastic Compute (EC2)
 			"aws_ami": {
 				Tok: awsResource(ec2Mod, "Ami"),
@@ -1685,6 +1707,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_grafana_license_association":          {Tok: awsResource(grafanaMod, "LicenseAssociation")},
 			"aws_grafana_workspace":                    {Tok: awsResource(grafanaMod, "Workspace")},
 			"aws_grafana_workspace_saml_configuration": {Tok: awsResource(grafanaMod, "WorkspaceSamlConfiguration")},
+			"aws_grafana_role_association":             {Tok: awsResource(grafanaMod, "RoleAssociation")},
 			// GuardDuty
 			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},
@@ -1923,6 +1946,11 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_iot_thing_group":            {Tok: awsResource(iotMod, "ThingGroup")},
 			"aws_iot_thing_group_membership": {Tok: awsResource(iotMod, "ThingGroupMembership")},
+			"aws_iot_indexing_configuration": {Tok: awsResource(iotMod, "IndexingConfiguration")},
+			"aws_iot_logging_options":        {Tok: awsResource(iotMod, "LoggingOptions")},
+			"aws_iot_provisioning_template":  {Tok: awsResource(iotMod, "ProvisioningTemplate")},
+			// Keyspaces
+			"aws_keyspaces_keyspace": {Tok: awsResource(keyspacesMod, "Keyspace")},
 			// Kinesis
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsResource(kinesisMod, "FirehoseDeliveryStream")},
 			"aws_kinesis_stream":                   {Tok: awsResource(kinesisMod, "Stream")},
@@ -1991,6 +2019,14 @@ func Provider() tfbridge.ProviderInfo {
 					"architectures": {
 						MaxItemsOne: tfbridge.False(),
 						Name:        "architectures",
+					},
+				},
+			},
+			"aws_lambda_function_url": {
+				Tok: awsResource(lambdaMod, "FunctionUrl"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"function_url": {
+						CSharpName: "FunctionUrlResult",
 					},
 				},
 			},
@@ -2120,6 +2156,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_site":                                     {Tok: awsResource(networkManagerMod, "Site")},
 			"aws_networkmanager_transit_gateway_connect_peer_association": {Tok: awsResource(networkManagerMod, "TransitGatewayConnectPeerAssociation")},
 			"aws_networkmanager_transit_gateway_registration":             {Tok: awsResource(networkManagerMod, "TransitGatewayRegistration")},
+			// OpenSearch
+			"aws_opensearch_domain":              {Tok: awsResource(opensearchMod, "Domain")},
+			"aws_opensearch_domain_policy":       {Tok: awsResource(opensearchMod, "DomainPolicy")},
+			"aws_opensearch_domain_saml_options": {Tok: awsResource(opensearchMod, "DomainSamlOptions")},
 			// OpsWorks
 			"aws_opsworks_application":       {Tok: awsResource(opsworksMod, "Application")},
 			"aws_opsworks_stack":             {Tok: awsResource(opsworksMod, "Stack")},
@@ -2199,6 +2239,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_rds_global_cluster":           {Tok: awsResource(rdsMod, "GlobalCluster")},
 			"aws_rds_cluster_role_association": {Tok: awsResource(rdsMod, "ClusterRoleAssociation")},
+			"aws_rds_cluster_activity_stream":  {Tok: awsResource(rdsMod, "ClusterActivityStream")},
 			"aws_db_cluster_snapshot":          {Tok: awsResource(rdsMod, "ClusterSnapshot")},
 			"aws_db_event_subscription":        {Tok: awsResource(rdsMod, "EventSubscription")},
 			"aws_db_instance": {
@@ -2265,10 +2306,11 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_db_proxy":                      {Tok: awsResource(rdsMod, "Proxy")},
-			"aws_db_proxy_default_target_group": {Tok: awsResource(rdsMod, "ProxyDefaultTargetGroup")},
-			"aws_db_proxy_target":               {Tok: awsResource(rdsMod, "ProxyTarget")},
-			"aws_db_proxy_endpoint":             {Tok: awsResource(rdsMod, "ProxyEndpoint")},
+			"aws_db_proxy":                                  {Tok: awsResource(rdsMod, "Proxy")},
+			"aws_db_proxy_default_target_group":             {Tok: awsResource(rdsMod, "ProxyDefaultTargetGroup")},
+			"aws_db_proxy_target":                           {Tok: awsResource(rdsMod, "ProxyTarget")},
+			"aws_db_proxy_endpoint":                         {Tok: awsResource(rdsMod, "ProxyEndpoint")},
+			"aws_db_instance_automated_backups_replication": {Tok: awsResource(rdsMod, "InstanceAutomatedBackupsReplication")},
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_scheduled_action":   {Tok: awsResource(redshiftMod, "ScheduledAction")},
@@ -2347,6 +2389,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(route53Mod, "ResolverFirewallRuleGroupAssociation"),
 			},
 			"aws_route53_resolver_firewall_config": {Tok: awsResource(route53Mod, "ResolverFirewallConfig")},
+			"aws_route53_traffic_policy":           {Tok: awsResource(route53Mod, "TrafficPolicy")},
+			"aws_route53_traffic_policy_instance":  {Tok: awsResource(route53Mod, "TrafficPolicyInstance")},
 			// Rout53 Recovery Control
 			"aws_route53recoverycontrolconfig_cluster":         {Tok: awsResource(route53RecoveryControlMod, "Cluster")},
 			"aws_route53recoverycontrolconfig_control_panel":   {Tok: awsResource(route53RecoveryControlMod, "ControlPanel")},
@@ -2469,6 +2513,119 @@ func Provider() tfbridge.ProviderInfo {
 					"bucket": tfbridge.AutoNameTransform("bucket", 63, func(name string) string {
 						return strings.ToLower(name)
 					}),
+					"logging": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "loggings",
+					},
+					"versioning": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "versionings",
+					},
+					"website": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "websites",
+					},
+					"server_side_encryption_configuration": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "serverSideEncryptionConfigurations",
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"rule": {
+									MaxItemsOne: tfbridge.False(),
+									Name:        "rules",
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"apply_server_side_encryption_by_default": {
+												Name:        "applyServerSideEncryptionByDefaults",
+												MaxItemsOne: tfbridge.False(),
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+					"lifecycle_rule": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"expiration": {
+									MaxItemsOne: tfbridge.False(),
+									Name:        "expirations",
+								},
+								"noncurrent_version_expiration": {
+									MaxItemsOne: tfbridge.False(),
+									Name:        "noncurrentVersionExpirations",
+								},
+							},
+						},
+					},
+					"object_lock_configuration": {
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"rule": {
+									Name:        "rules",
+									MaxItemsOne: tfbridge.False(),
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"default_retention": {
+												Name:        "defaultRetentions",
+												MaxItemsOne: tfbridge.False(),
+											},
+										},
+									},
+								},
+							},
+						},
+					},
+					"replication_configuration": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "replicationConfigurations",
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"rules": {
+									Elem: &tfbridge.SchemaInfo{
+										Fields: map[string]*tfbridge.SchemaInfo{
+											"filter": {
+												MaxItemsOne: tfbridge.False(),
+												Name:        "filters",
+											},
+											"source_selection_criteria": {
+												MaxItemsOne: tfbridge.False(),
+												Name:        "sourceSelectionCriterias",
+												Elem: &tfbridge.SchemaInfo{
+													Fields: map[string]*tfbridge.SchemaInfo{
+														"sse_kms_encrypted_objects": {
+															Name:        "sseKmsEncryptedObjects",
+															MaxItemsOne: tfbridge.False(),
+														},
+													},
+												},
+											},
+											"destination": {
+												MaxItemsOne: tfbridge.False(),
+												Name:        "destinations",
+												Elem: &tfbridge.SchemaInfo{
+													Fields: map[string]*tfbridge.SchemaInfo{
+														"metrics": {
+															MaxItemsOne: tfbridge.False(),
+														},
+														"replication_time": {
+															MaxItemsOne: tfbridge.False(),
+															Name:        "replicationTimes",
+														},
+														"access_control_translation": {
+															MaxItemsOne: tfbridge.False(),
+															Name:        "accessControlTranslations",
+														},
+													},
+												},
+											},
+										},
+									},
+								},
+							},
+						},
+					},
 				},
 				Aliases: []tfbridge.AliasInfo{
 					{
@@ -2810,6 +2967,7 @@ func Provider() tfbridge.ProviderInfo {
 			// MSKConnect
 			"aws_mskconnect_custom_plugin":        {Tok: awsResource(mskConnectMod, "CustomPlugin")},
 			"aws_mskconnect_worker_configuration": {Tok: awsResource(mskConnectMod, "WorkerConfiguration")},
+			"aws_mskconnect_connector":            {Tok: awsResource(mskConnectMod, "Connector")},
 			// Datapipeline
 			"aws_datapipeline_pipeline": {Tok: awsResource(datapipelineMod, "Pipeline")},
 			// Quicksight
@@ -2824,6 +2982,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_fms_policy":        {Tok: awsResource(fmsMod, "Policy")},
 			// QLDB
 			"aws_qldb_ledger": {Tok: awsResource(qldbMod, "Ledger")},
+			"aws_qldb_stream": {Tok: awsResource(qldbMod, "Stream")},
 			// Workspaces
 			"aws_workspaces_ip_group":  {Tok: awsResource(workspacesMod, "IpGroup")},
 			"aws_workspaces_directory": {Tok: awsResource(workspacesMod, "Directory")},
@@ -4141,6 +4300,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_log_groups":       {Tok: awsDataSource(cloudwatchMod, "getLogGroups")},
 			"aws_cloudwatch_event_source":     {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
 			"aws_cloudwatch_event_connection": {Tok: awsDataSource(cloudwatchMod, "getEventConnection")},
+			"aws_cloudwatch_event_bus":        {Tok: awsDataSource(cloudwatchMod, "getEventBus")},
 			// CodeCommit
 			"aws_codecommit_repository":             {Tok: awsDataSource(codecommitMod, "getRepository")},
 			"aws_codecommit_approval_rule_template": {Tok: awsDataSource(codecommitMod, "getApprovalRuleTemplate")},
@@ -4213,6 +4373,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_nat_gateway":                         {Tok: awsDataSource(ec2Mod, "getNatGateway")},
+			"aws_nat_gateways":                        {Tok: awsDataSource(ec2Mod, "getNatGateways")},
 			"aws_network_acls":                        {Tok: awsDataSource(ec2Mod, "getNetworkAcls")},
 			"aws_network_interface":                   {Tok: awsDataSource(ec2Mod, "getNetworkInterface")},
 			"aws_network_interfaces":                  {Tok: awsDataSource(ec2Mod, "getNetworkInterfaces")},
@@ -4325,11 +4486,12 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_eks_cluster_auth": {Tok: awsDataSource(eksMod, "getClusterAuth")},
-			"aws_eks_addon":        {Tok: awsDataSource(eksMod, "getAddon")},
-			"aws_eks_clusters":     {Tok: awsDataSource(eksMod, "getClusters")},
-			"aws_eks_node_group":   {Tok: awsDataSource(eksMod, "getNodeGroup")},
-			"aws_eks_node_groups":  {Tok: awsDataSource(eksMod, "getNodeGroups")},
+			"aws_eks_cluster_auth":  {Tok: awsDataSource(eksMod, "getClusterAuth")},
+			"aws_eks_addon":         {Tok: awsDataSource(eksMod, "getAddon")},
+			"aws_eks_addon_version": {Tok: awsDataSource(eksMod, "getAddonVersion")},
+			"aws_eks_clusters":      {Tok: awsDataSource(eksMod, "getClusters")},
+			"aws_eks_node_group":    {Tok: awsDataSource(eksMod, "getNodeGroup")},
+			"aws_eks_node_groups":   {Tok: awsDataSource(eksMod, "getNodeGroups")},
 			// Elastic Beanstalk
 			"aws_elastic_beanstalk_solution_stack": {Tok: awsDataSource(elasticbeanstalkMod, "getSolutionStack")},
 			"aws_elastic_beanstalk_hosted_zone":    {Tok: awsDataSource(elasticbeanstalkMod, "getHostedZone")},
@@ -4367,10 +4529,18 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_lambda_function_url":        {Tok: awsDataSource(lambdaMod, "getFunctionUrl")},
 			"aws_lambda_invocation":          {Tok: awsDataSource(lambdaMod, "getInvocation")},
 			"aws_lambda_layer_version":       {Tok: awsDataSource(lambdaMod, "getLayerVersion")},
 			"aws_lambda_alias":               {Tok: awsDataSource(lambdaMod, "getAlias")},
 			"aws_lambda_code_signing_config": {Tok: awsDataSource(lambdaMod, "getCodeSigningConfig")},
+			// MemoryDB
+			"aws_memorydb_acl":             {Tok: awsDataSource(memoryDbMod, "getAcl")},
+			"aws_memorydb_cluster":         {Tok: awsDataSource(memoryDbMod, "getCluster")},
+			"aws_memorydb_parameter_group": {Tok: awsDataSource(memoryDbMod, "getParameterGroup")},
+			"aws_memorydb_snapshot":        {Tok: awsDataSource(memoryDbMod, "getSnapshot")},
+			"aws_memorydb_subnet_group":    {Tok: awsDataSource(memoryDbMod, "getSubnetGroup")},
+			"aws_memorydb_user":            {Tok: awsDataSource(memoryDbMod, "getUser")},
 			// MQ
 			"aws_mq_broker": {
 				Tok: awsDataSource(mqMod, "getBroker"),
@@ -4407,6 +4577,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_roles":                   {Tok: awsDataSource(iamMod, "getRoles")},
 			"aws_iam_user_ssh_key":            {Tok: awsDataSource(iamMod, "getUserSshKey")},
 			"aws_iam_openid_connect_provider": {Tok: awsDataSource(iamMod, "getOpenidConnectProvider")},
+			"aws_iam_saml_provider":           {Tok: awsDataSource(iamMod, "getSamlProvider")},
 			// IdentityStore
 			"aws_identitystore_group": {Tok: awsDataSource(identityStoreMod, "getGroup")},
 			"aws_identitystore_user":  {Tok: awsDataSource(identityStoreMod, "getUser")},
@@ -4443,11 +4614,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_service_account":   {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
 			"aws_redshift_orderable_cluster": {Tok: awsDataSource(redshiftMod, "getOrderableCluster")},
 			// Route53
-			"aws_route53_zone":              {Tok: awsDataSource(route53Mod, "getZone")},
-			"aws_route53_delegation_set":    {Tok: awsDataSource(route53Mod, "getDelegationSet")},
-			"aws_route53_resolver_rule":     {Tok: awsDataSource(route53Mod, "getResolverRule")},
-			"aws_route53_resolver_rules":    {Tok: awsDataSource(route53Mod, "getResolverRules")},
-			"aws_route53_resolver_endpoint": {Tok: awsDataSource(route53Mod, "getResolverEndpoint")},
+			"aws_route53_zone":                    {Tok: awsDataSource(route53Mod, "getZone")},
+			"aws_route53_delegation_set":          {Tok: awsDataSource(route53Mod, "getDelegationSet")},
+			"aws_route53_resolver_rule":           {Tok: awsDataSource(route53Mod, "getResolverRule")},
+			"aws_route53_resolver_rules":          {Tok: awsDataSource(route53Mod, "getResolverRules")},
+			"aws_route53_resolver_endpoint":       {Tok: awsDataSource(route53Mod, "getResolverEndpoint")},
+			"aws_route53_traffic_policy_document": {Tok: awsDataSource(route53Mod, "getTrafficPolicyDocument")},
 			// S3
 			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
@@ -4463,11 +4635,12 @@ func Provider() tfbridge.ProviderInfo {
 			// SQS
 			"aws_sqs_queue": {Tok: awsDataSource(sqsMod, "getQueue")},
 			// SSM
-			"aws_ssm_document":           {Tok: awsDataSource(ssmMod, "getDocument")},
-			"aws_ssm_parameter":          {Tok: awsDataSource(ssmMod, "getParameter")},
-			"aws_ssm_patch_baseline":     {Tok: awsDataSource(ssmMod, "getPatchBaseline")},
-			"aws_ssm_parameters_by_path": {Tok: awsDataSource(ssmMod, "getParametersByPath")},
-			"aws_ssm_instances":          {Tok: awsDataSource(ssmMod, "getInstances")},
+			"aws_ssm_document":            {Tok: awsDataSource(ssmMod, "getDocument")},
+			"aws_ssm_parameter":           {Tok: awsDataSource(ssmMod, "getParameter")},
+			"aws_ssm_patch_baseline":      {Tok: awsDataSource(ssmMod, "getPatchBaseline")},
+			"aws_ssm_parameters_by_path":  {Tok: awsDataSource(ssmMod, "getParametersByPath")},
+			"aws_ssm_instances":           {Tok: awsDataSource(ssmMod, "getInstances")},
+			"aws_ssm_maintenance_windows": {Tok: awsDataSource(ssmMod, "getMaintenanceWindows")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
 			// Transfer
@@ -4489,6 +4662,7 @@ func Provider() tfbridge.ProviderInfo {
 			// MSK Connect
 			"aws_mskconnect_custom_plugin":        {Tok: awsDataSource(mskConnectMod, "getCustomPlugin")},
 			"aws_mskconnect_worker_configuration": {Tok: awsDataSource(mskConnectMod, "getWorkerConfiguration")},
+			"aws_mskconnect_connector":            {Tok: awsDataSource(mskConnectMod, "getConnector")},
 			// WAF
 			"aws_waf_rule":            {Tok: awsDataSource(wafMod, "getRule")},
 			"aws_waf_web_acl":         {Tok: awsDataSource(wafMod, "getWebAcl")},
@@ -4550,6 +4724,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_links":           {Tok: awsDataSource(networkManagerMod, "getLinks")},
 			"aws_networkmanager_site":            {Tok: awsDataSource(networkManagerMod, "getSite")},
 			"aws_networkmanager_sites":           {Tok: awsDataSource(networkManagerMod, "getSites")},
+			// OpenSearch
+			"aws_opensearch_domain": {Tok: awsDataSource(opensearchMod, "getDomain")},
 			// Outposts
 			"aws_outposts_outpost":                 {Tok: awsDataSource(outpostsMod, "getOutpost")},
 			"aws_outposts_outposts":                {Tok: awsDataSource(outpostsMod, "getOutposts")},
@@ -4584,6 +4760,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_imagebuilder_infrastructure_configurations": {Tok: awsDataSource(imageBuilderMod, "getInfrastructureConfigurations")},
 			"aws_imagebuilder_container_recipe":              {Tok: awsDataSource(imageBuilderMod, "getContainerRecipe")},
 			"aws_imagebuilder_container_recipes":             {Tok: awsDataSource(imageBuilderMod, "getContainerRecipes")},
+			"aws_imagebuilder_image_pipelines":               {Tok: awsDataSource(imageBuilderMod, "getImagePipelines")},
 
 			//ses
 			"aws_ses_active_receipt_rule_set": {Tok: awsDataSource(sesMod, "getActiveReceiptRuleSet")},

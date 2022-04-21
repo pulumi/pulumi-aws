@@ -49,7 +49,7 @@ import (
 // 					Protocol:  pulumi.String("-1"),
 // 					RuleNo:    pulumi.Int(100),
 // 					Action:    pulumi.String("allow"),
-// 					CidrBlock: mainvpc.CidrBlock,
+// 					CidrBlock: pulumi.String("0.0.0.0/0"),
 // 					FromPort:  pulumi.Int(0),
 // 					ToPort:    pulumi.Int(0),
 // 				},

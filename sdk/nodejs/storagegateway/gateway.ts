@@ -203,6 +203,10 @@ export class Gateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostEnvironment!: pulumi.Output<string>;
     /**
+     * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+     */
+    public readonly maintenanceStartTime!: pulumi.Output<outputs.storagegateway.GatewayMaintenanceStartTime>;
+    /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     public readonly mediumChangerType!: pulumi.Output<string | undefined>;
@@ -263,6 +267,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayType"] = state ? state.gatewayType : undefined;
             resourceInputs["gatewayVpcEndpoint"] = state ? state.gatewayVpcEndpoint : undefined;
             resourceInputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
+            resourceInputs["maintenanceStartTime"] = state ? state.maintenanceStartTime : undefined;
             resourceInputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
             resourceInputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = state ? state.smbFileShareVisibility : undefined;
@@ -288,6 +293,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["gatewayTimezone"] = args ? args.gatewayTimezone : undefined;
             resourceInputs["gatewayType"] = args ? args.gatewayType : undefined;
             resourceInputs["gatewayVpcEndpoint"] = args ? args.gatewayVpcEndpoint : undefined;
+            resourceInputs["maintenanceStartTime"] = args ? args.maintenanceStartTime : undefined;
             resourceInputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
             resourceInputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
             resourceInputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
@@ -373,6 +379,10 @@ export interface GatewayState {
      */
     hostEnvironment?: pulumi.Input<string>;
     /**
+     * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+     */
+    maintenanceStartTime?: pulumi.Input<inputs.storagegateway.GatewayMaintenanceStartTime>;
+    /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */
     mediumChangerType?: pulumi.Input<string>;
@@ -446,6 +456,10 @@ export interface GatewayArgs {
      * VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
      */
     gatewayVpcEndpoint?: pulumi.Input<string>;
+    /**
+     * The gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is the time in your gateway's time zone. More details below.
+     */
+    maintenanceStartTime?: pulumi.Input<inputs.storagegateway.GatewayMaintenanceStartTime>;
     /**
      * Type of medium changer to use for tape gateway. This provider cannot detect drift of this argument. Valid values: `STK-L700`, `AWS-Gateway-VTL`, `IBM-03584L32-0402`.
      */

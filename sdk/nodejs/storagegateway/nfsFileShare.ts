@@ -67,6 +67,10 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly auditDestinationArn!: pulumi.Output<string | undefined>;
     /**
+     * The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
+     */
+    public readonly bucketRegion!: pulumi.Output<string | undefined>;
+    /**
      * Refresh cache information. see Cache Attributes for more details.
      */
     public readonly cacheAttributes!: pulumi.Output<outputs.storagegateway.NfsFileShareCacheAttributes | undefined>;
@@ -146,6 +150,10 @@ export class NfsFileShare extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The DNS name of the VPC endpoint for S3 PrivateLink.
+     */
+    public readonly vpcEndpointDnsName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a NfsFileShare resource with the given unique name, arguments, and options.
@@ -162,6 +170,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             const state = argsOrState as NfsFileShareState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
+            resourceInputs["bucketRegion"] = state ? state.bucketRegion : undefined;
             resourceInputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
             resourceInputs["clientLists"] = state ? state.clientLists : undefined;
             resourceInputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
@@ -182,6 +191,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             resourceInputs["squash"] = state ? state.squash : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcEndpointDnsName"] = state ? state.vpcEndpointDnsName : undefined;
         } else {
             const args = argsOrState as NfsFileShareArgs | undefined;
             if ((!args || args.clientLists === undefined) && !opts.urn) {
@@ -197,6 +207,7 @@ export class NfsFileShare extends pulumi.CustomResource {
                 throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
+            resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
             resourceInputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
             resourceInputs["clientLists"] = args ? args.clientLists : undefined;
             resourceInputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
@@ -214,6 +225,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["squash"] = args ? args.squash : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcEndpointDnsName"] = args ? args.vpcEndpointDnsName : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fileshareId"] = undefined /*out*/;
             resourceInputs["path"] = undefined /*out*/;
@@ -236,6 +248,10 @@ export interface NfsFileShareState {
      * The Amazon Resource Name (ARN) of the storage used for audit logs.
      */
     auditDestinationArn?: pulumi.Input<string>;
+    /**
+     * The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
+     */
+    bucketRegion?: pulumi.Input<string>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
@@ -316,6 +332,10 @@ export interface NfsFileShareState {
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The DNS name of the VPC endpoint for S3 PrivateLink.
+     */
+    vpcEndpointDnsName?: pulumi.Input<string>;
 }
 
 /**
@@ -326,6 +346,10 @@ export interface NfsFileShareArgs {
      * The Amazon Resource Name (ARN) of the storage used for audit logs.
      */
     auditDestinationArn?: pulumi.Input<string>;
+    /**
+     * The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
+     */
+    bucketRegion?: pulumi.Input<string>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
@@ -394,4 +418,8 @@ export interface NfsFileShareArgs {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The DNS name of the VPC endpoint for S3 PrivateLink.
+     */
+    vpcEndpointDnsName?: pulumi.Input<string>;
 }

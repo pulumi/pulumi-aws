@@ -19,6 +19,9 @@ import * as utilities from "../utilities";
  *         ruleName: "tf_example_backup_rule",
  *         targetVaultName: aws_backup_vault.test.name,
  *         schedule: "cron(0 12 * * ? *)",
+ *         lifecycle: {
+ *             deleteAfter: 14,
+ *         },
  *     }],
  *     advancedBackupSettings: [{
  *         backupOptions: {

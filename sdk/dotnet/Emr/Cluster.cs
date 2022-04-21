@@ -706,13 +706,13 @@ namespace Pulumi.Aws.Emr
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
-        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
+        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
         /// </summary>
         [Output("additionalInfo")]
         public Output<string?> AdditionalInfo { get; private set; } = null!;
 
         /// <summary>
-        /// List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
+        /// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         /// </summary>
         [Output("applications")]
         public Output<ImmutableArray<string>> Applications { get; private set; } = null!;
@@ -938,7 +938,7 @@ namespace Pulumi.Aws.Emr
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
+        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
         /// </summary>
         [Input("additionalInfo")]
         public Input<string>? AdditionalInfo { get; set; }
@@ -947,7 +947,7 @@ namespace Pulumi.Aws.Emr
         private InputList<string>? _applications;
 
         /// <summary>
-        /// List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
+        /// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         /// </summary>
         public InputList<string> Applications
         {
@@ -1137,7 +1137,7 @@ namespace Pulumi.Aws.Emr
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
+        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
         /// </summary>
         [Input("additionalInfo")]
         public Input<string>? AdditionalInfo { get; set; }
@@ -1146,7 +1146,7 @@ namespace Pulumi.Aws.Emr
         private InputList<string>? _applications;
 
         /// <summary>
-        /// List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
+        /// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
         /// </summary>
         public InputList<string> Applications
         {

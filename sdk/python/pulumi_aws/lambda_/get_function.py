@@ -21,7 +21,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, ephemeral_storages=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -40,6 +40,9 @@ class GetFunctionResult:
         if environment and not isinstance(environment, dict):
             raise TypeError("Expected argument 'environment' to be a dict")
         pulumi.set(__self__, "environment", environment)
+        if ephemeral_storages and not isinstance(ephemeral_storages, list):
+            raise TypeError("Expected argument 'ephemeral_storages' to be a list")
+        pulumi.set(__self__, "ephemeral_storages", ephemeral_storages)
         if file_system_configs and not isinstance(file_system_configs, list):
             raise TypeError("Expected argument 'file_system_configs' to be a list")
         pulumi.set(__self__, "file_system_configs", file_system_configs)
@@ -160,6 +163,14 @@ class GetFunctionResult:
         The Lambda environment's configuration settings.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="ephemeralStorages")
+    def ephemeral_storages(self) -> Sequence['outputs.GetFunctionEphemeralStorageResult']:
+        """
+        The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+        """
+        return pulumi.get(self, "ephemeral_storages")
 
     @property
     @pulumi.getter(name="fileSystemConfigs")
@@ -357,6 +368,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             dead_letter_config=self.dead_letter_config,
             description=self.description,
             environment=self.environment,
+            ephemeral_storages=self.ephemeral_storages,
             file_system_configs=self.file_system_configs,
             function_name=self.function_name,
             handler=self.handler,
@@ -422,6 +434,7 @@ def get_function(function_name: Optional[str] = None,
         dead_letter_config=__ret__.dead_letter_config,
         description=__ret__.description,
         environment=__ret__.environment,
+        ephemeral_storages=__ret__.ephemeral_storages,
         file_system_configs=__ret__.file_system_configs,
         function_name=__ret__.function_name,
         handler=__ret__.handler,
