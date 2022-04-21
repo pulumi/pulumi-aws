@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 import {Bucket} from "./index";
 
 /**
+ * Provides an S3 object resource.
+ *
  * ## Example Usage
  * ### Encrypting with KMS Key
  *
@@ -144,8 +146,6 @@ export class BucketObject extends pulumi.CustomResource {
     public readonly acl!: pulumi.Output<string | undefined>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-     *
-     * @deprecated Use the aws_s3_object resource instead
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -190,8 +190,6 @@ export class BucketObject extends pulumi.CustomResource {
     public readonly forceDestroy!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the object once it is in the bucket.
-     *
-     * @deprecated Use the aws_s3_object resource instead
      */
     public readonly key!: pulumi.Output<string>;
     /**
@@ -333,8 +331,6 @@ export interface BucketObjectState {
     acl?: pulumi.Input<string>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-     *
-     * @deprecated Use the aws_s3_object resource instead
      */
     bucket?: pulumi.Input<string | Bucket>;
     /**
@@ -379,8 +375,6 @@ export interface BucketObjectState {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the object once it is in the bucket.
-     *
-     * @deprecated Use the aws_s3_object resource instead
      */
     key?: pulumi.Input<string>;
     /**
@@ -447,8 +441,6 @@ export interface BucketObjectArgs {
     acl?: pulumi.Input<string>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
-     *
-     * @deprecated Use the aws_s3_object resource instead
      */
     bucket: pulumi.Input<string | Bucket>;
     /**
@@ -493,8 +485,6 @@ export interface BucketObjectArgs {
     forceDestroy?: pulumi.Input<boolean>;
     /**
      * Name of the object once it is in the bucket.
-     *
-     * @deprecated Use the aws_s3_object resource instead
      */
     key?: pulumi.Input<string>;
     /**

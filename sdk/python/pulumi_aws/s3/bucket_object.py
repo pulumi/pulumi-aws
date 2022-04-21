@@ -64,9 +64,6 @@ class BucketObjectArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] website_redirect: Target URL for [website redirect](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-page-redirect.html).
         """
-        if bucket is not None:
-            warnings.warn("""Use the aws_s3_object resource instead""", DeprecationWarning)
-            pulumi.log.warn("""bucket is deprecated: Use the aws_s3_object resource instead""")
         pulumi.set(__self__, "bucket", bucket)
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
@@ -90,9 +87,6 @@ class BucketObjectArgs:
             pulumi.set(__self__, "etag", etag)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
-        if key is not None:
-            warnings.warn("""Use the aws_s3_object resource instead""", DeprecationWarning)
-            pulumi.log.warn("""key is deprecated: Use the aws_s3_object resource instead""")
         if key is not None:
             pulumi.set(__self__, "key", key)
         if kms_key_id is not None:
@@ -468,9 +462,6 @@ class _BucketObjectState:
         if acl is not None:
             pulumi.set(__self__, "acl", acl)
         if bucket is not None:
-            warnings.warn("""Use the aws_s3_object resource instead""", DeprecationWarning)
-            pulumi.log.warn("""bucket is deprecated: Use the aws_s3_object resource instead""")
-        if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if bucket_key_enabled is not None:
             pulumi.set(__self__, "bucket_key_enabled", bucket_key_enabled)
@@ -492,9 +483,6 @@ class _BucketObjectState:
             pulumi.set(__self__, "etag", etag)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
-        if key is not None:
-            warnings.warn("""Use the aws_s3_object resource instead""", DeprecationWarning)
-            pulumi.log.warn("""key is deprecated: Use the aws_s3_object resource instead""")
         if key is not None:
             pulumi.set(__self__, "key", key)
         if kms_key_id is not None:
@@ -868,6 +856,8 @@ class BucketObject(pulumi.CustomResource):
                  website_redirect: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        Provides an S3 object resource.
+
         ## Example Usage
         ### Encrypting with KMS Key
 
@@ -994,6 +984,8 @@ class BucketObject(pulumi.CustomResource):
                  args: BucketObjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an S3 object resource.
+
         ## Example Usage
         ### Encrypting with KMS Key
 
@@ -1140,9 +1132,6 @@ class BucketObject(pulumi.CustomResource):
             __props__.__dict__["acl"] = acl
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
-            if bucket is not None and not opts.urn:
-                warnings.warn("""Use the aws_s3_object resource instead""", DeprecationWarning)
-                pulumi.log.warn("""bucket is deprecated: Use the aws_s3_object resource instead""")
             __props__.__dict__["bucket"] = bucket
             __props__.__dict__["bucket_key_enabled"] = bucket_key_enabled
             __props__.__dict__["cache_control"] = cache_control
@@ -1154,9 +1143,6 @@ class BucketObject(pulumi.CustomResource):
             __props__.__dict__["content_type"] = content_type
             __props__.__dict__["etag"] = etag
             __props__.__dict__["force_destroy"] = force_destroy
-            if key is not None and not opts.urn:
-                warnings.warn("""Use the aws_s3_object resource instead""", DeprecationWarning)
-                pulumi.log.warn("""key is deprecated: Use the aws_s3_object resource instead""")
             __props__.__dict__["key"] = key
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["metadata"] = metadata
