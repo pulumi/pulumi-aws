@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
+    /// Provides an S3 object resource.
+    /// 
     /// ## Example Usage
     /// ### Encrypting with KMS Key
     /// 
