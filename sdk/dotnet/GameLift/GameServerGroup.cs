@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift
 {
     /// <summary>
-    /// Provides an Gamelift Game Server Group resource.
+    /// Provides an GameLift Game Server Group resource.
     /// 
     /// ## Example Usage
     /// 
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// }
     /// ```
-    /// ### Example IAM Role for Gamelift Game Server Group
+    /// ### Example IAM Role for GameLift Game Server Group
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Gamelift Game Server Group can be imported using the `name`, e.g.
+    /// GameLift Game Server Group can be imported using the `name`, e.g.
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.GameLift
     public partial class GameServerGroup : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the Gamelift Game Server Group.
+        /// The ARN of the GameLift Game Server Group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.GameLift
     public sealed class GameServerGroupState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the Gamelift Game Server Group.
+        /// The ARN of the GameLift Game Server Group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -17,6 +17,7 @@ export * from "./eventPermission";
 export * from "./eventRule";
 export * from "./eventRuleMixins";
 export * from "./eventTarget";
+export * from "./getEventBus";
 export * from "./getEventConnection";
 export * from "./getEventSource";
 export * from "./getLogGroup";

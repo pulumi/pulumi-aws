@@ -25,6 +25,8 @@ type VpcIpam struct {
 
 	// Amazon Resource Name (ARN) of IPAM
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	Cascade pulumi.BoolPtrOutput `pulumi:"cascade"`
 	// A description for the IPAM.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
@@ -76,6 +78,8 @@ func GetVpcIpam(ctx *pulumi.Context,
 type vpcIpamState struct {
 	// Amazon Resource Name (ARN) of IPAM
 	Arn *string `pulumi:"arn"`
+	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	Cascade *bool `pulumi:"cascade"`
 	// A description for the IPAM.
 	Description *string `pulumi:"description"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
@@ -96,6 +100,8 @@ type vpcIpamState struct {
 type VpcIpamState struct {
 	// Amazon Resource Name (ARN) of IPAM
 	Arn pulumi.StringPtrInput
+	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	Cascade pulumi.BoolPtrInput
 	// A description for the IPAM.
 	Description pulumi.StringPtrInput
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
@@ -118,6 +124,8 @@ func (VpcIpamState) ElementType() reflect.Type {
 }
 
 type vpcIpamArgs struct {
+	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	Cascade *bool `pulumi:"cascade"`
 	// A description for the IPAM.
 	Description *string `pulumi:"description"`
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.
@@ -128,6 +136,8 @@ type vpcIpamArgs struct {
 
 // The set of arguments for constructing a VpcIpam resource.
 type VpcIpamArgs struct {
+	// Enables you to quickly delete an IPAM, private scopes, pools in private scopes, and any allocations in the pools in private scopes.
+	Cascade pulumi.BoolPtrInput
 	// A description for the IPAM.
 	Description pulumi.StringPtrInput
 	// Determines which locales can be chosen when you create pools. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. You **must** set your provider block region as an operating_region.

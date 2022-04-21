@@ -14,19 +14,19 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2Grant
     {
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// List of permissions given to the grantee.
+        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         /// </summary>
         public readonly ImmutableArray<string> Permissions;
         /// <summary>
-        /// Type of grantee.
+        /// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
         /// </summary>
-        public readonly string? Type;
+        public readonly string Type;
         /// <summary>
-        /// URI of the grantee group.
+        /// Uri address to grant for. Used only when `type` is `Group`.
         /// </summary>
         public readonly string? Uri;
 
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.S3.Outputs
 
             ImmutableArray<string> permissions,
 
-            string? type,
+            string type,
 
             string? uri)
         {

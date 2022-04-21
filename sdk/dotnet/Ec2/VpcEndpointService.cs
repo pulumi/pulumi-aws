@@ -95,13 +95,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The Availability Zones in which the service is available.
+        /// A set of Availability Zones in which the service is available.
         /// </summary>
         [Output("availabilityZones")]
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// The DNS names for the service.
+        /// A set of DNS names for the service.
         /// </summary>
         [Output("baseEndpointDnsNames")]
         public Output<ImmutableArray<string>> BaseEndpointDnsNames { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _availabilityZones;
 
         /// <summary>
-        /// The Availability Zones in which the service is available.
+        /// A set of Availability Zones in which the service is available.
         /// </summary>
         public InputList<string> AvailabilityZones
         {
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _baseEndpointDnsNames;
 
         /// <summary>
-        /// The DNS names for the service.
+        /// A set of DNS names for the service.
         /// </summary>
         public InputList<string> BaseEndpointDnsNames
         {

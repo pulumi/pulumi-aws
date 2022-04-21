@@ -13,25 +13,26 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2WebsiteGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the error document for the website.
+        /// An absolute path to the document to return in case of a 4XX error.
         /// </summary>
         [Input("errorDocument")]
         public Input<string>? ErrorDocument { get; set; }
 
         /// <summary>
-        /// The name of the index document for the website.
+        /// Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
         /// </summary>
         [Input("indexDocument")]
         public Input<string>? IndexDocument { get; set; }
 
         /// <summary>
-        /// The redirect behavior for every request to this bucket's website endpoint.
+        /// A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
         /// </summary>
         [Input("redirectAllRequestsTo")]
         public Input<string>? RedirectAllRequestsTo { get; set; }
 
         /// <summary>
-        /// (Optional) The rules that define when a redirect is applied and the redirect behavior.
+        /// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        /// describing redirect behavior and when redirects are applied.
         /// </summary>
         [Input("routingRules")]
         public Input<string>? RoutingRules { get; set; }

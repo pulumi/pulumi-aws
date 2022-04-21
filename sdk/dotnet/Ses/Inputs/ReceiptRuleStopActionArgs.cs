@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ses.Inputs
         public Input<int> Position { get; set; } = null!;
 
         /// <summary>
-        /// The scope to apply
+        /// The scope to apply. The only acceptable value is `RuleSet`.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;

@@ -13,7 +13,7 @@ namespace Pulumi.Aws.GameLift.Inputs
     public sealed class AliasRoutingStrategyGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Gamelift Fleet to point the alias to.
+        /// ID of the GameLift Fleet to point the alias to.
         /// </summary>
         [Input("fleetId")]
         public Input<string>? FleetId { get; set; }

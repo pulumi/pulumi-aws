@@ -3095,6 +3095,112 @@ func (o GetInstancesFilterArrayOutput) Index(i pulumi.IntInput) GetInstancesFilt
 	}).(GetInstancesFilterOutput)
 }
 
+type GetMaintenanceWindowsFilter struct {
+	// The name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetMaintenanceWindowsFilterInput is an input type that accepts GetMaintenanceWindowsFilterArgs and GetMaintenanceWindowsFilterOutput values.
+// You can construct a concrete instance of `GetMaintenanceWindowsFilterInput` via:
+//
+//          GetMaintenanceWindowsFilterArgs{...}
+type GetMaintenanceWindowsFilterInput interface {
+	pulumi.Input
+
+	ToGetMaintenanceWindowsFilterOutput() GetMaintenanceWindowsFilterOutput
+	ToGetMaintenanceWindowsFilterOutputWithContext(context.Context) GetMaintenanceWindowsFilterOutput
+}
+
+type GetMaintenanceWindowsFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetMaintenanceWindowsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMaintenanceWindowsFilter)(nil)).Elem()
+}
+
+func (i GetMaintenanceWindowsFilterArgs) ToGetMaintenanceWindowsFilterOutput() GetMaintenanceWindowsFilterOutput {
+	return i.ToGetMaintenanceWindowsFilterOutputWithContext(context.Background())
+}
+
+func (i GetMaintenanceWindowsFilterArgs) ToGetMaintenanceWindowsFilterOutputWithContext(ctx context.Context) GetMaintenanceWindowsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMaintenanceWindowsFilterOutput)
+}
+
+// GetMaintenanceWindowsFilterArrayInput is an input type that accepts GetMaintenanceWindowsFilterArray and GetMaintenanceWindowsFilterArrayOutput values.
+// You can construct a concrete instance of `GetMaintenanceWindowsFilterArrayInput` via:
+//
+//          GetMaintenanceWindowsFilterArray{ GetMaintenanceWindowsFilterArgs{...} }
+type GetMaintenanceWindowsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetMaintenanceWindowsFilterArrayOutput() GetMaintenanceWindowsFilterArrayOutput
+	ToGetMaintenanceWindowsFilterArrayOutputWithContext(context.Context) GetMaintenanceWindowsFilterArrayOutput
+}
+
+type GetMaintenanceWindowsFilterArray []GetMaintenanceWindowsFilterInput
+
+func (GetMaintenanceWindowsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMaintenanceWindowsFilter)(nil)).Elem()
+}
+
+func (i GetMaintenanceWindowsFilterArray) ToGetMaintenanceWindowsFilterArrayOutput() GetMaintenanceWindowsFilterArrayOutput {
+	return i.ToGetMaintenanceWindowsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetMaintenanceWindowsFilterArray) ToGetMaintenanceWindowsFilterArrayOutputWithContext(ctx context.Context) GetMaintenanceWindowsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMaintenanceWindowsFilterArrayOutput)
+}
+
+type GetMaintenanceWindowsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetMaintenanceWindowsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMaintenanceWindowsFilter)(nil)).Elem()
+}
+
+func (o GetMaintenanceWindowsFilterOutput) ToGetMaintenanceWindowsFilterOutput() GetMaintenanceWindowsFilterOutput {
+	return o
+}
+
+func (o GetMaintenanceWindowsFilterOutput) ToGetMaintenanceWindowsFilterOutputWithContext(ctx context.Context) GetMaintenanceWindowsFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
+func (o GetMaintenanceWindowsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMaintenanceWindowsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetMaintenanceWindowsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetMaintenanceWindowsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetMaintenanceWindowsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMaintenanceWindowsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMaintenanceWindowsFilter)(nil)).Elem()
+}
+
+func (o GetMaintenanceWindowsFilterArrayOutput) ToGetMaintenanceWindowsFilterArrayOutput() GetMaintenanceWindowsFilterArrayOutput {
+	return o
+}
+
+func (o GetMaintenanceWindowsFilterArrayOutput) ToGetMaintenanceWindowsFilterArrayOutputWithContext(ctx context.Context) GetMaintenanceWindowsFilterArrayOutput {
+	return o
+}
+
+func (o GetMaintenanceWindowsFilterArrayOutput) Index(i pulumi.IntInput) GetMaintenanceWindowsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMaintenanceWindowsFilter {
+		return vs[0].([]GetMaintenanceWindowsFilter)[vs[1].(int)]
+	}).(GetMaintenanceWindowsFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationInput)(nil)).Elem(), AssociationOutputLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationPtrInput)(nil)).Elem(), AssociationOutputLocationArgs{})
@@ -3138,6 +3244,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationPtrInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterInput)(nil)).Elem(), GetInstancesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterArrayInput)(nil)).Elem(), GetInstancesFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMaintenanceWindowsFilterInput)(nil)).Elem(), GetMaintenanceWindowsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMaintenanceWindowsFilterArrayInput)(nil)).Elem(), GetMaintenanceWindowsFilterArray{})
 	pulumi.RegisterOutputType(AssociationOutputLocationOutput{})
 	pulumi.RegisterOutputType(AssociationOutputLocationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationTargetOutput{})
@@ -3180,4 +3288,6 @@ func init() {
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationPtrOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetMaintenanceWindowsFilterOutput{})
+	pulumi.RegisterOutputType(GetMaintenanceWindowsFilterArrayOutput{})
 }

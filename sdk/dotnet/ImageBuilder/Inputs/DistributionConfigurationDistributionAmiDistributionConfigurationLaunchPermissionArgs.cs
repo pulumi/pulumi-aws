@@ -12,6 +12,30 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
 
     public sealed class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs : Pulumi.ResourceArgs
     {
+        [Input("organizationArns")]
+        private InputList<string>? _organizationArns;
+
+        /// <summary>
+        /// Set of AWS Organization ARNs to assign.
+        /// </summary>
+        public InputList<string> OrganizationArns
+        {
+            get => _organizationArns ?? (_organizationArns = new InputList<string>());
+            set => _organizationArns = value;
+        }
+
+        [Input("organizationalUnitArns")]
+        private InputList<string>? _organizationalUnitArns;
+
+        /// <summary>
+        /// Set of AWS Organizational Unit ARNs to assign.
+        /// </summary>
+        public InputList<string> OrganizationalUnitArns
+        {
+            get => _organizationalUnitArns ?? (_organizationalUnitArns = new InputList<string>());
+            set => _organizationalUnitArns = value;
+        }
+
         [Input("userGroups")]
         private InputList<string>? _userGroups;
 

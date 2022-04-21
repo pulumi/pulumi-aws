@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Gamelift Game Server Group resource.
+// Provides an GameLift Game Server Group resource.
 //
 // ## Example Usage
 //
@@ -108,7 +108,7 @@ import (
 // 	})
 // }
 // ```
-// ### Example IAM Role for Gamelift Game Server Group
+// ### Example IAM Role for GameLift Game Server Group
 //
 // ```go
 // package main
@@ -147,7 +147,7 @@ import (
 //
 // ## Import
 //
-// Gamelift Game Server Group can be imported using the `name`, e.g.
+// GameLift Game Server Group can be imported using the `name`, e.g.
 //
 // ```sh
 //  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
@@ -155,7 +155,7 @@ import (
 type GameServerGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the Gamelift Game Server Group.
+	// The ARN of the GameLift Game Server Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the created EC2 Auto Scaling group.
 	AutoScalingGroupArn pulumi.StringOutput                       `pulumi:"autoScalingGroupArn"`
@@ -238,7 +238,7 @@ func GetGameServerGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GameServerGroup resources.
 type gameServerGroupState struct {
-	// The ARN of the Gamelift Game Server Group.
+	// The ARN of the GameLift Game Server Group.
 	Arn *string `pulumi:"arn"`
 	// The ARN of the created EC2 Auto Scaling group.
 	AutoScalingGroupArn *string                           `pulumi:"autoScalingGroupArn"`
@@ -275,7 +275,7 @@ type gameServerGroupState struct {
 }
 
 type GameServerGroupState struct {
-	// The ARN of the Gamelift Game Server Group.
+	// The ARN of the GameLift Game Server Group.
 	Arn pulumi.StringPtrInput
 	// The ARN of the created EC2 Auto Scaling group.
 	AutoScalingGroupArn pulumi.StringPtrInput

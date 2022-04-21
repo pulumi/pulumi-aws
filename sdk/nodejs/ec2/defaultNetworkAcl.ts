@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *         protocol: -1,
  *         ruleNo: 100,
  *         action: "allow",
- *         cidrBlock: mainvpc.cidrBlock,
+ *         cidrBlock: "0.0.0.0/0",
  *         fromPort: 0,
  *         toPort: 0,
  *     }],

@@ -1324,7 +1324,7 @@ func (o ReceiptRuleSnsActionArrayOutput) Index(i pulumi.IntInput) ReceiptRuleSns
 type ReceiptRuleStopAction struct {
 	// The position of the action in the receipt rule
 	Position int `pulumi:"position"`
-	// The scope to apply
+	// The scope to apply. The only acceptable value is `RuleSet`.
 	Scope string `pulumi:"scope"`
 	// The ARN of an SNS topic to notify
 	TopicArn *string `pulumi:"topicArn"`
@@ -1344,7 +1344,7 @@ type ReceiptRuleStopActionInput interface {
 type ReceiptRuleStopActionArgs struct {
 	// The position of the action in the receipt rule
 	Position pulumi.IntInput `pulumi:"position"`
-	// The scope to apply
+	// The scope to apply. The only acceptable value is `RuleSet`.
 	Scope pulumi.StringInput `pulumi:"scope"`
 	// The ARN of an SNS topic to notify
 	TopicArn pulumi.StringPtrInput `pulumi:"topicArn"`
@@ -1406,7 +1406,7 @@ func (o ReceiptRuleStopActionOutput) Position() pulumi.IntOutput {
 	return o.ApplyT(func(v ReceiptRuleStopAction) int { return v.Position }).(pulumi.IntOutput)
 }
 
-// The scope to apply
+// The scope to apply. The only acceptable value is `RuleSet`.
 func (o ReceiptRuleStopActionOutput) Scope() pulumi.StringOutput {
 	return o.ApplyT(func(v ReceiptRuleStopAction) string { return v.Scope }).(pulumi.StringOutput)
 }

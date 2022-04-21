@@ -1491,12 +1491,14 @@ func (o RuleScopePtrOutput) TagValue() pulumi.StringPtrOutput {
 }
 
 type RuleSource struct {
-	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
+	// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+	CustomPolicyDetails *RuleSourceCustomPolicyDetails `pulumi:"customPolicyDetails"`
+	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
 	Owner string `pulumi:"owner"`
-	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
 	SourceDetails []RuleSourceSourceDetail `pulumi:"sourceDetails"`
 	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
-	SourceIdentifier string `pulumi:"sourceIdentifier"`
+	SourceIdentifier *string `pulumi:"sourceIdentifier"`
 }
 
 // RuleSourceInput is an input type that accepts RuleSourceArgs and RuleSourceOutput values.
@@ -1511,12 +1513,14 @@ type RuleSourceInput interface {
 }
 
 type RuleSourceArgs struct {
-	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
+	// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+	CustomPolicyDetails RuleSourceCustomPolicyDetailsPtrInput `pulumi:"customPolicyDetails"`
+	// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
 	Owner pulumi.StringInput `pulumi:"owner"`
-	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
 	SourceDetails RuleSourceSourceDetailArrayInput `pulumi:"sourceDetails"`
 	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
-	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
+	SourceIdentifier pulumi.StringPtrInput `pulumi:"sourceIdentifier"`
 }
 
 func (RuleSourceArgs) ElementType() reflect.Type {
@@ -1596,19 +1600,24 @@ func (o RuleSourceOutput) ToRuleSourcePtrOutputWithContext(ctx context.Context) 
 	}).(RuleSourcePtrOutput)
 }
 
-// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
+// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+func (o RuleSourceOutput) CustomPolicyDetails() RuleSourceCustomPolicyDetailsPtrOutput {
+	return o.ApplyT(func(v RuleSource) *RuleSourceCustomPolicyDetails { return v.CustomPolicyDetails }).(RuleSourceCustomPolicyDetailsPtrOutput)
+}
+
+// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
 func (o RuleSourceOutput) Owner() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSource) string { return v.Owner }).(pulumi.StringOutput)
 }
 
-// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
 func (o RuleSourceOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 	return o.ApplyT(func(v RuleSource) []RuleSourceSourceDetail { return v.SourceDetails }).(RuleSourceSourceDetailArrayOutput)
 }
 
 // For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
-func (o RuleSourceOutput) SourceIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v RuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+func (o RuleSourceOutput) SourceIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RuleSource) *string { return v.SourceIdentifier }).(pulumi.StringPtrOutput)
 }
 
 type RuleSourcePtrOutput struct{ *pulumi.OutputState }
@@ -1635,7 +1644,17 @@ func (o RuleSourcePtrOutput) Elem() RuleSourceOutput {
 	}).(RuleSourceOutput)
 }
 
-// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
+// Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+func (o RuleSourcePtrOutput) CustomPolicyDetails() RuleSourceCustomPolicyDetailsPtrOutput {
+	return o.ApplyT(func(v *RuleSource) *RuleSourceCustomPolicyDetails {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPolicyDetails
+	}).(RuleSourceCustomPolicyDetailsPtrOutput)
+}
+
+// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
 func (o RuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSource) *string {
 		if v == nil {
@@ -1645,7 +1664,7 @@ func (o RuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
 func (o RuleSourcePtrOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 	return o.ApplyT(func(v *RuleSource) []RuleSourceSourceDetail {
 		if v == nil {
@@ -1661,16 +1680,191 @@ func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.SourceIdentifier
+		return v.SourceIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type RuleSourceCustomPolicyDetails struct {
+	// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+	EnableDebugLogDelivery *bool `pulumi:"enableDebugLogDelivery"`
+	// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+	PolicyRuntime string `pulumi:"policyRuntime"`
+	// The policy definition containing the logic for your Config Custom Policy rule.
+	PolicyText string `pulumi:"policyText"`
+}
+
+// RuleSourceCustomPolicyDetailsInput is an input type that accepts RuleSourceCustomPolicyDetailsArgs and RuleSourceCustomPolicyDetailsOutput values.
+// You can construct a concrete instance of `RuleSourceCustomPolicyDetailsInput` via:
+//
+//          RuleSourceCustomPolicyDetailsArgs{...}
+type RuleSourceCustomPolicyDetailsInput interface {
+	pulumi.Input
+
+	ToRuleSourceCustomPolicyDetailsOutput() RuleSourceCustomPolicyDetailsOutput
+	ToRuleSourceCustomPolicyDetailsOutputWithContext(context.Context) RuleSourceCustomPolicyDetailsOutput
+}
+
+type RuleSourceCustomPolicyDetailsArgs struct {
+	// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+	EnableDebugLogDelivery pulumi.BoolPtrInput `pulumi:"enableDebugLogDelivery"`
+	// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+	PolicyRuntime pulumi.StringInput `pulumi:"policyRuntime"`
+	// The policy definition containing the logic for your Config Custom Policy rule.
+	PolicyText pulumi.StringInput `pulumi:"policyText"`
+}
+
+func (RuleSourceCustomPolicyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSourceCustomPolicyDetails)(nil)).Elem()
+}
+
+func (i RuleSourceCustomPolicyDetailsArgs) ToRuleSourceCustomPolicyDetailsOutput() RuleSourceCustomPolicyDetailsOutput {
+	return i.ToRuleSourceCustomPolicyDetailsOutputWithContext(context.Background())
+}
+
+func (i RuleSourceCustomPolicyDetailsArgs) ToRuleSourceCustomPolicyDetailsOutputWithContext(ctx context.Context) RuleSourceCustomPolicyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSourceCustomPolicyDetailsOutput)
+}
+
+func (i RuleSourceCustomPolicyDetailsArgs) ToRuleSourceCustomPolicyDetailsPtrOutput() RuleSourceCustomPolicyDetailsPtrOutput {
+	return i.ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i RuleSourceCustomPolicyDetailsArgs) ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) RuleSourceCustomPolicyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSourceCustomPolicyDetailsOutput).ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(ctx)
+}
+
+// RuleSourceCustomPolicyDetailsPtrInput is an input type that accepts RuleSourceCustomPolicyDetailsArgs, RuleSourceCustomPolicyDetailsPtr and RuleSourceCustomPolicyDetailsPtrOutput values.
+// You can construct a concrete instance of `RuleSourceCustomPolicyDetailsPtrInput` via:
+//
+//          RuleSourceCustomPolicyDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type RuleSourceCustomPolicyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToRuleSourceCustomPolicyDetailsPtrOutput() RuleSourceCustomPolicyDetailsPtrOutput
+	ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(context.Context) RuleSourceCustomPolicyDetailsPtrOutput
+}
+
+type ruleSourceCustomPolicyDetailsPtrType RuleSourceCustomPolicyDetailsArgs
+
+func RuleSourceCustomPolicyDetailsPtr(v *RuleSourceCustomPolicyDetailsArgs) RuleSourceCustomPolicyDetailsPtrInput {
+	return (*ruleSourceCustomPolicyDetailsPtrType)(v)
+}
+
+func (*ruleSourceCustomPolicyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSourceCustomPolicyDetails)(nil)).Elem()
+}
+
+func (i *ruleSourceCustomPolicyDetailsPtrType) ToRuleSourceCustomPolicyDetailsPtrOutput() RuleSourceCustomPolicyDetailsPtrOutput {
+	return i.ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *ruleSourceCustomPolicyDetailsPtrType) ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) RuleSourceCustomPolicyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuleSourceCustomPolicyDetailsPtrOutput)
+}
+
+type RuleSourceCustomPolicyDetailsOutput struct{ *pulumi.OutputState }
+
+func (RuleSourceCustomPolicyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuleSourceCustomPolicyDetails)(nil)).Elem()
+}
+
+func (o RuleSourceCustomPolicyDetailsOutput) ToRuleSourceCustomPolicyDetailsOutput() RuleSourceCustomPolicyDetailsOutput {
+	return o
+}
+
+func (o RuleSourceCustomPolicyDetailsOutput) ToRuleSourceCustomPolicyDetailsOutputWithContext(ctx context.Context) RuleSourceCustomPolicyDetailsOutput {
+	return o
+}
+
+func (o RuleSourceCustomPolicyDetailsOutput) ToRuleSourceCustomPolicyDetailsPtrOutput() RuleSourceCustomPolicyDetailsPtrOutput {
+	return o.ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o RuleSourceCustomPolicyDetailsOutput) ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) RuleSourceCustomPolicyDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSourceCustomPolicyDetails) *RuleSourceCustomPolicyDetails {
+		return &v
+	}).(RuleSourceCustomPolicyDetailsPtrOutput)
+}
+
+// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+func (o RuleSourceCustomPolicyDetailsOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RuleSourceCustomPolicyDetails) *bool { return v.EnableDebugLogDelivery }).(pulumi.BoolPtrOutput)
+}
+
+// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+func (o RuleSourceCustomPolicyDetailsOutput) PolicyRuntime() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSourceCustomPolicyDetails) string { return v.PolicyRuntime }).(pulumi.StringOutput)
+}
+
+// The policy definition containing the logic for your Config Custom Policy rule.
+func (o RuleSourceCustomPolicyDetailsOutput) PolicyText() pulumi.StringOutput {
+	return o.ApplyT(func(v RuleSourceCustomPolicyDetails) string { return v.PolicyText }).(pulumi.StringOutput)
+}
+
+type RuleSourceCustomPolicyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (RuleSourceCustomPolicyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuleSourceCustomPolicyDetails)(nil)).Elem()
+}
+
+func (o RuleSourceCustomPolicyDetailsPtrOutput) ToRuleSourceCustomPolicyDetailsPtrOutput() RuleSourceCustomPolicyDetailsPtrOutput {
+	return o
+}
+
+func (o RuleSourceCustomPolicyDetailsPtrOutput) ToRuleSourceCustomPolicyDetailsPtrOutputWithContext(ctx context.Context) RuleSourceCustomPolicyDetailsPtrOutput {
+	return o
+}
+
+func (o RuleSourceCustomPolicyDetailsPtrOutput) Elem() RuleSourceCustomPolicyDetailsOutput {
+	return o.ApplyT(func(v *RuleSourceCustomPolicyDetails) RuleSourceCustomPolicyDetails {
+		if v != nil {
+			return *v
+		}
+		var ret RuleSourceCustomPolicyDetails
+		return ret
+	}).(RuleSourceCustomPolicyDetailsOutput)
+}
+
+// The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+func (o RuleSourceCustomPolicyDetailsPtrOutput) EnableDebugLogDelivery() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RuleSourceCustomPolicyDetails) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableDebugLogDelivery
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+func (o RuleSourceCustomPolicyDetailsPtrOutput) PolicyRuntime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSourceCustomPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyRuntime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The policy definition containing the logic for your Config Custom Policy rule.
+func (o RuleSourceCustomPolicyDetailsPtrOutput) PolicyText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuleSourceCustomPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PolicyText
 	}).(pulumi.StringPtrOutput)
 }
 
 type RuleSourceSourceDetail struct {
-	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
 	EventSource *string `pulumi:"eventSource"`
-	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
-	// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+	// The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
 	MessageType *string `pulumi:"messageType"`
 }
 
@@ -1686,11 +1880,11 @@ type RuleSourceSourceDetailInput interface {
 }
 
 type RuleSourceSourceDetailArgs struct {
-	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+	// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
 	EventSource pulumi.StringPtrInput `pulumi:"eventSource"`
-	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency pulumi.StringPtrInput `pulumi:"maximumExecutionFrequency"`
-	// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+	// The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
 	MessageType pulumi.StringPtrInput `pulumi:"messageType"`
 }
 
@@ -1745,17 +1939,17 @@ func (o RuleSourceSourceDetailOutput) ToRuleSourceSourceDetailOutputWithContext(
 	return o
 }
 
-// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+// The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
 func (o RuleSourceSourceDetailOutput) EventSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSourceSourceDetail) *string { return v.EventSource }).(pulumi.StringPtrOutput)
 }
 
-// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 func (o RuleSourceSourceDetailOutput) MaximumExecutionFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSourceSourceDetail) *string { return v.MaximumExecutionFrequency }).(pulumi.StringPtrOutput)
 }
 
-// The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+// The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
 func (o RuleSourceSourceDetailOutput) MessageType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSourceSourceDetail) *string { return v.MessageType }).(pulumi.StringPtrOutput)
 }
@@ -1803,6 +1997,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleScopePtrInput)(nil)).Elem(), RuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceInput)(nil)).Elem(), RuleSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourcePtrInput)(nil)).Elem(), RuleSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceCustomPolicyDetailsInput)(nil)).Elem(), RuleSourceCustomPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceCustomPolicyDetailsPtrInput)(nil)).Elem(), RuleSourceCustomPolicyDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceSourceDetailInput)(nil)).Elem(), RuleSourceSourceDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceSourceDetailArrayInput)(nil)).Elem(), RuleSourceSourceDetailArray{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceOutput{})
@@ -1827,6 +2023,8 @@ func init() {
 	pulumi.RegisterOutputType(RuleScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleSourceOutput{})
 	pulumi.RegisterOutputType(RuleSourcePtrOutput{})
+	pulumi.RegisterOutputType(RuleSourceCustomPolicyDetailsOutput{})
+	pulumi.RegisterOutputType(RuleSourceCustomPolicyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(RuleSourceSourceDetailOutput{})
 	pulumi.RegisterOutputType(RuleSourceSourceDetailArrayOutput{})
 }

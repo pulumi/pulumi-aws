@@ -63,6 +63,8 @@ type Environment struct {
 	RequirementsS3ObjectVersion pulumi.StringOutput `pulumi:"requirementsS3ObjectVersion"`
 	// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	RequirementsS3Path pulumi.StringPtrOutput `pulumi:"requirementsS3Path"`
+	// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+	Schedulers pulumi.IntOutput `pulumi:"schedulers"`
 	// The Service Role ARN of the Amazon MWAA Environment
 	ServiceRoleArn pulumi.StringOutput `pulumi:"serviceRoleArn"`
 	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
@@ -158,6 +160,8 @@ type environmentState struct {
 	RequirementsS3ObjectVersion *string `pulumi:"requirementsS3ObjectVersion"`
 	// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	RequirementsS3Path *string `pulumi:"requirementsS3Path"`
+	// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+	Schedulers *int `pulumi:"schedulers"`
 	// The Service Role ARN of the Amazon MWAA Environment
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
@@ -213,6 +217,8 @@ type EnvironmentState struct {
 	RequirementsS3ObjectVersion pulumi.StringPtrInput
 	// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	RequirementsS3Path pulumi.StringPtrInput
+	// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+	Schedulers pulumi.IntPtrInput
 	// The Service Role ARN of the Amazon MWAA Environment
 	ServiceRoleArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
@@ -266,6 +272,8 @@ type environmentArgs struct {
 	RequirementsS3ObjectVersion *string `pulumi:"requirementsS3ObjectVersion"`
 	// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	RequirementsS3Path *string `pulumi:"requirementsS3Path"`
+	// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+	Schedulers *int `pulumi:"schedulers"`
 	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 	SourceBucketArn string `pulumi:"sourceBucketArn"`
 	// A map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -308,6 +316,8 @@ type EnvironmentArgs struct {
 	RequirementsS3ObjectVersion pulumi.StringPtrInput
 	// The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirementsS3ObjectVersion is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
 	RequirementsS3Path pulumi.StringPtrInput
+	// The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
+	Schedulers pulumi.IntPtrInput
 	// The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
 	SourceBucketArn pulumi.StringInput
 	// A map of resource tags to associate with the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

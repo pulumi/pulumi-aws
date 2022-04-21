@@ -24,36 +24,37 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
- * const bucketPolicy = new aws.s3.BucketPolicy("bucketPolicy", {
- *     bucket: bucketV2.id,
- *     policy: pulumi.all([bucketV2.id, bucketV2.id, current]).apply(([bucketV2Id, bucketV2Id1, current]) => `  {
- *       "Version": "2012-10-17",
- *       "Statement": [
- *           {
- *               "Sid": "AWSCloudTrailAclCheck",
- *               "Effect": "Allow",
- *               "Principal": {
- *                 "Service": "cloudtrail.amazonaws.com"
- *               },
- *               "Action": "s3:GetBucketAcl",
- *               "Resource": "arn:aws:s3:::${bucketV2Id}"
- *           },
- *           {
- *               "Sid": "AWSCloudTrailWrite",
- *               "Effect": "Allow",
- *               "Principal": {
- *                 "Service": "cloudtrail.amazonaws.com"
- *               },
- *               "Action": "s3:PutObject",
- *               "Resource": "arn:aws:s3:::${bucketV2Id1}/prefix/AWSLogs/${current.accountId}/*",
- *               "Condition": {
- *                   "StringEquals": {
- *                       "s3:x-amz-acl": "bucket-owner-full-control"
- *                   }
- *               }
- *           }
- *       ]
- *   }
+ * const fooBucketV2 = new aws.s3.BucketV2("fooBucketV2", {forceDestroy: true});
+ * const fooBucketPolicy = new aws.s3.BucketPolicy("fooBucketPolicy", {
+ *     bucket: fooBucketV2.id,
+ *     policy: pulumi.all([fooBucketV2.arn, fooBucketV2.arn, current]).apply(([fooBucketV2Arn, fooBucketV2Arn1, current]) => `{
+ *     "Version": "2012-10-17",
+ *     "Statement": [
+ *         {
+ *             "Sid": "AWSCloudTrailAclCheck",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *               "Service": "cloudtrail.amazonaws.com"
+ *             },
+ *             "Action": "s3:GetBucketAcl",
+ *             "Resource": "${fooBucketV2Arn}"
+ *         },
+ *         {
+ *             "Sid": "AWSCloudTrailWrite",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *               "Service": "cloudtrail.amazonaws.com"
+ *             },
+ *             "Action": "s3:PutObject",
+ *             "Resource": "${fooBucketV2Arn1}/prefix/AWSLogs/${current.accountId}/*",
+ *             "Condition": {
+ *                 "StringEquals": {
+ *                     "s3:x-amz-acl": "bucket-owner-full-control"
+ *                 }
+ *             }
+ *         }
+ *     ]
+ * }
  * `),
  * });
  * const foobar = new aws.cloudtrail.Trail("foobar", {

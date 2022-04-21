@@ -113,6 +113,10 @@ type VpnConnection struct {
 
 	// Amazon Resource Name (ARN) of the VPN Connection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ARN of the core network.
+	CoreNetworkArn pulumi.StringOutput `pulumi:"coreNetworkArn"`
+	// The ARN of the core network attachment.
+	CoreNetworkAttachmentArn pulumi.StringOutput `pulumi:"coreNetworkAttachmentArn"`
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
 	CustomerGatewayConfiguration pulumi.StringOutput `pulumi:"customerGatewayConfiguration"`
 	// The ID of the customer gateway.
@@ -278,6 +282,10 @@ func GetVpnConnection(ctx *pulumi.Context,
 type vpnConnectionState struct {
 	// Amazon Resource Name (ARN) of the VPN Connection.
 	Arn *string `pulumi:"arn"`
+	// The ARN of the core network.
+	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
+	// The ARN of the core network attachment.
+	CoreNetworkAttachmentArn *string `pulumi:"coreNetworkAttachmentArn"`
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
 	CustomerGatewayConfiguration *string `pulumi:"customerGatewayConfiguration"`
 	// The ID of the customer gateway.
@@ -409,6 +417,10 @@ type vpnConnectionState struct {
 type VpnConnectionState struct {
 	// Amazon Resource Name (ARN) of the VPN Connection.
 	Arn pulumi.StringPtrInput
+	// The ARN of the core network.
+	CoreNetworkArn pulumi.StringPtrInput
+	// The ARN of the core network attachment.
+	CoreNetworkAttachmentArn pulumi.StringPtrInput
 	// The configuration information for the VPN connection's customer gateway (in the native XML format).
 	CustomerGatewayConfiguration pulumi.StringPtrInput
 	// The ID of the customer gateway.

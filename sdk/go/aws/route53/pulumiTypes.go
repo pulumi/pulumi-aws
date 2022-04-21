@@ -955,6 +955,1239 @@ func (o GetResolverEndpointFilterArrayOutput) Index(i pulumi.IntInput) GetResolv
 	}).(GetResolverEndpointFilterOutput)
 }
 
+type GetTrafficPolicyDocumentEndpoint struct {
+	// ID of a rule you want to assign.
+	Id string `pulumi:"id"`
+	// Region code for the AWS Region that you created the resource in.
+	Region *string `pulumi:"region"`
+	// Type of the rule.
+	Type *string `pulumi:"type"`
+	// Value of the `type`.
+	Value *string `pulumi:"value"`
+}
+
+// GetTrafficPolicyDocumentEndpointInput is an input type that accepts GetTrafficPolicyDocumentEndpointArgs and GetTrafficPolicyDocumentEndpointOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentEndpointInput` via:
+//
+//          GetTrafficPolicyDocumentEndpointArgs{...}
+type GetTrafficPolicyDocumentEndpointInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentEndpointOutput() GetTrafficPolicyDocumentEndpointOutput
+	ToGetTrafficPolicyDocumentEndpointOutputWithContext(context.Context) GetTrafficPolicyDocumentEndpointOutput
+}
+
+type GetTrafficPolicyDocumentEndpointArgs struct {
+	// ID of a rule you want to assign.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Region code for the AWS Region that you created the resource in.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// Type of the rule.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+	// Value of the `type`.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GetTrafficPolicyDocumentEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentEndpoint)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentEndpointArgs) ToGetTrafficPolicyDocumentEndpointOutput() GetTrafficPolicyDocumentEndpointOutput {
+	return i.ToGetTrafficPolicyDocumentEndpointOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentEndpointArgs) ToGetTrafficPolicyDocumentEndpointOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentEndpointOutput)
+}
+
+// GetTrafficPolicyDocumentEndpointArrayInput is an input type that accepts GetTrafficPolicyDocumentEndpointArray and GetTrafficPolicyDocumentEndpointArrayOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentEndpointArrayInput` via:
+//
+//          GetTrafficPolicyDocumentEndpointArray{ GetTrafficPolicyDocumentEndpointArgs{...} }
+type GetTrafficPolicyDocumentEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentEndpointArrayOutput() GetTrafficPolicyDocumentEndpointArrayOutput
+	ToGetTrafficPolicyDocumentEndpointArrayOutputWithContext(context.Context) GetTrafficPolicyDocumentEndpointArrayOutput
+}
+
+type GetTrafficPolicyDocumentEndpointArray []GetTrafficPolicyDocumentEndpointInput
+
+func (GetTrafficPolicyDocumentEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentEndpoint)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentEndpointArray) ToGetTrafficPolicyDocumentEndpointArrayOutput() GetTrafficPolicyDocumentEndpointArrayOutput {
+	return i.ToGetTrafficPolicyDocumentEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentEndpointArray) ToGetTrafficPolicyDocumentEndpointArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentEndpointArrayOutput)
+}
+
+type GetTrafficPolicyDocumentEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentEndpoint)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentEndpointOutput) ToGetTrafficPolicyDocumentEndpointOutput() GetTrafficPolicyDocumentEndpointOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentEndpointOutput) ToGetTrafficPolicyDocumentEndpointOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentEndpointOutput {
+	return o
+}
+
+// ID of a rule you want to assign.
+func (o GetTrafficPolicyDocumentEndpointOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Region code for the AWS Region that you created the resource in.
+func (o GetTrafficPolicyDocumentEndpointOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// Type of the rule.
+func (o GetTrafficPolicyDocumentEndpointOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// Value of the `type`.
+func (o GetTrafficPolicyDocumentEndpointOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentEndpoint) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentEndpoint)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentEndpointArrayOutput) ToGetTrafficPolicyDocumentEndpointArrayOutput() GetTrafficPolicyDocumentEndpointArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentEndpointArrayOutput) ToGetTrafficPolicyDocumentEndpointArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentEndpointArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentEndpointArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficPolicyDocumentEndpoint {
+		return vs[0].([]GetTrafficPolicyDocumentEndpoint)[vs[1].(int)]
+	}).(GetTrafficPolicyDocumentEndpointOutput)
+}
+
+type GetTrafficPolicyDocumentRule struct {
+	// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+	GeoProximityLocations []GetTrafficPolicyDocumentRuleGeoProximityLocation `pulumi:"geoProximityLocations"`
+	// ID of a rule you want to assign.
+	Id string `pulumi:"id"`
+	// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+	Items []GetTrafficPolicyDocumentRuleItem `pulumi:"items"`
+	// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+	Locations []GetTrafficPolicyDocumentRuleLocation `pulumi:"locations"`
+	// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+	Primary *GetTrafficPolicyDocumentRulePrimary `pulumi:"primary"`
+	// Region code for the AWS Region that you created the resource in.
+	Regions []GetTrafficPolicyDocumentRuleRegion `pulumi:"regions"`
+	// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+	Secondary *GetTrafficPolicyDocumentRuleSecondary `pulumi:"secondary"`
+	// Type of the rule.
+	Type *string `pulumi:"type"`
+}
+
+// GetTrafficPolicyDocumentRuleInput is an input type that accepts GetTrafficPolicyDocumentRuleArgs and GetTrafficPolicyDocumentRuleOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleInput` via:
+//
+//          GetTrafficPolicyDocumentRuleArgs{...}
+type GetTrafficPolicyDocumentRuleInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleOutput() GetTrafficPolicyDocumentRuleOutput
+	ToGetTrafficPolicyDocumentRuleOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleOutput
+}
+
+type GetTrafficPolicyDocumentRuleArgs struct {
+	// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+	GeoProximityLocations GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput `pulumi:"geoProximityLocations"`
+	// ID of a rule you want to assign.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+	Items GetTrafficPolicyDocumentRuleItemArrayInput `pulumi:"items"`
+	// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+	Locations GetTrafficPolicyDocumentRuleLocationArrayInput `pulumi:"locations"`
+	// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+	Primary GetTrafficPolicyDocumentRulePrimaryPtrInput `pulumi:"primary"`
+	// Region code for the AWS Region that you created the resource in.
+	Regions GetTrafficPolicyDocumentRuleRegionArrayInput `pulumi:"regions"`
+	// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+	Secondary GetTrafficPolicyDocumentRuleSecondaryPtrInput `pulumi:"secondary"`
+	// Type of the rule.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (GetTrafficPolicyDocumentRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRule)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleArgs) ToGetTrafficPolicyDocumentRuleOutput() GetTrafficPolicyDocumentRuleOutput {
+	return i.ToGetTrafficPolicyDocumentRuleOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleArgs) ToGetTrafficPolicyDocumentRuleOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleOutput)
+}
+
+// GetTrafficPolicyDocumentRuleArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleArray and GetTrafficPolicyDocumentRuleArrayOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleArrayInput` via:
+//
+//          GetTrafficPolicyDocumentRuleArray{ GetTrafficPolicyDocumentRuleArgs{...} }
+type GetTrafficPolicyDocumentRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleArrayOutput() GetTrafficPolicyDocumentRuleArrayOutput
+	ToGetTrafficPolicyDocumentRuleArrayOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleArrayOutput
+}
+
+type GetTrafficPolicyDocumentRuleArray []GetTrafficPolicyDocumentRuleInput
+
+func (GetTrafficPolicyDocumentRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRule)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleArray) ToGetTrafficPolicyDocumentRuleArrayOutput() GetTrafficPolicyDocumentRuleArrayOutput {
+	return i.ToGetTrafficPolicyDocumentRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleArray) ToGetTrafficPolicyDocumentRuleArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleArrayOutput)
+}
+
+type GetTrafficPolicyDocumentRuleOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRule)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleOutput) ToGetTrafficPolicyDocumentRuleOutput() GetTrafficPolicyDocumentRuleOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleOutput) ToGetTrafficPolicyDocumentRuleOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleOutput {
+	return o
+}
+
+// Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+func (o GetTrafficPolicyDocumentRuleOutput) GeoProximityLocations() GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleGeoProximityLocation {
+		return v.GeoProximityLocations
+	}).(GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput)
+}
+
+// ID of a rule you want to assign.
+func (o GetTrafficPolicyDocumentRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+func (o GetTrafficPolicyDocumentRuleOutput) Items() GetTrafficPolicyDocumentRuleItemArrayOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleItem { return v.Items }).(GetTrafficPolicyDocumentRuleItemArrayOutput)
+}
+
+// Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+func (o GetTrafficPolicyDocumentRuleOutput) Locations() GetTrafficPolicyDocumentRuleLocationArrayOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleLocation { return v.Locations }).(GetTrafficPolicyDocumentRuleLocationArrayOutput)
+}
+
+// Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+func (o GetTrafficPolicyDocumentRuleOutput) Primary() GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) *GetTrafficPolicyDocumentRulePrimary { return v.Primary }).(GetTrafficPolicyDocumentRulePrimaryPtrOutput)
+}
+
+// Region code for the AWS Region that you created the resource in.
+func (o GetTrafficPolicyDocumentRuleOutput) Regions() GetTrafficPolicyDocumentRuleRegionArrayOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) []GetTrafficPolicyDocumentRuleRegion { return v.Regions }).(GetTrafficPolicyDocumentRuleRegionArrayOutput)
+}
+
+// Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+func (o GetTrafficPolicyDocumentRuleOutput) Secondary() GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) *GetTrafficPolicyDocumentRuleSecondary { return v.Secondary }).(GetTrafficPolicyDocumentRuleSecondaryPtrOutput)
+}
+
+// Type of the rule.
+func (o GetTrafficPolicyDocumentRuleOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRule) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRule)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleArrayOutput) ToGetTrafficPolicyDocumentRuleArrayOutput() GetTrafficPolicyDocumentRuleArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleArrayOutput) ToGetTrafficPolicyDocumentRuleArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficPolicyDocumentRule {
+		return vs[0].([]GetTrafficPolicyDocumentRule)[vs[1].(int)]
+	}).(GetTrafficPolicyDocumentRuleOutput)
+}
+
+type GetTrafficPolicyDocumentRuleGeoProximityLocation struct {
+	// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+	Bias *string `pulumi:"bias"`
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+	Latitude *string `pulumi:"latitude"`
+	// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+	Longitude *string `pulumi:"longitude"`
+	// Region code for the AWS Region that you created the resource in.
+	Region *string `pulumi:"region"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
+}
+
+// GetTrafficPolicyDocumentRuleGeoProximityLocationInput is an input type that accepts GetTrafficPolicyDocumentRuleGeoProximityLocationArgs and GetTrafficPolicyDocumentRuleGeoProximityLocationOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleGeoProximityLocationInput` via:
+//
+//          GetTrafficPolicyDocumentRuleGeoProximityLocationArgs{...}
+type GetTrafficPolicyDocumentRuleGeoProximityLocationInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutput() GetTrafficPolicyDocumentRuleGeoProximityLocationOutput
+	ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleGeoProximityLocationOutput
+}
+
+type GetTrafficPolicyDocumentRuleGeoProximityLocationArgs struct {
+	// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+	Bias pulumi.StringPtrInput `pulumi:"bias"`
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+	Latitude pulumi.StringPtrInput `pulumi:"latitude"`
+	// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+	Longitude pulumi.StringPtrInput `pulumi:"longitude"`
+	// Region code for the AWS Region that you created the resource in.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
+}
+
+func (GetTrafficPolicyDocumentRuleGeoProximityLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleGeoProximityLocation)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArgs) ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutput() GetTrafficPolicyDocumentRuleGeoProximityLocationOutput {
+	return i.ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArgs) ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleGeoProximityLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleGeoProximityLocationOutput)
+}
+
+// GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleGeoProximityLocationArray and GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput` via:
+//
+//          GetTrafficPolicyDocumentRuleGeoProximityLocationArray{ GetTrafficPolicyDocumentRuleGeoProximityLocationArgs{...} }
+type GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput() GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput
+	ToGetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput
+}
+
+type GetTrafficPolicyDocumentRuleGeoProximityLocationArray []GetTrafficPolicyDocumentRuleGeoProximityLocationInput
+
+func (GetTrafficPolicyDocumentRuleGeoProximityLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRuleGeoProximityLocation)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArray) ToGetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput() GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput {
+	return i.ToGetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleGeoProximityLocationArray) ToGetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput)
+}
+
+type GetTrafficPolicyDocumentRuleGeoProximityLocationOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleGeoProximityLocation)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutput() GetTrafficPolicyDocumentRuleGeoProximityLocationOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) ToGetTrafficPolicyDocumentRuleGeoProximityLocationOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleGeoProximityLocationOutput {
+	return o
+}
+
+// Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Bias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Bias }).(pulumi.StringPtrOutput)
+}
+
+// References to an endpoint.
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) EndpointReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
+}
+
+// If you want to associate a health check with the endpoint or rule.
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
+}
+
+// Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Latitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Latitude }).(pulumi.StringPtrOutput)
+}
+
+// Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Longitude() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Longitude }).(pulumi.StringPtrOutput)
+}
+
+// Region code for the AWS Region that you created the resource in.
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// References to a rule.
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationOutput) RuleReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleGeoProximityLocation) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRuleGeoProximityLocation)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput) ToGetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput() GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput) ToGetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleGeoProximityLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficPolicyDocumentRuleGeoProximityLocation {
+		return vs[0].([]GetTrafficPolicyDocumentRuleGeoProximityLocation)[vs[1].(int)]
+	}).(GetTrafficPolicyDocumentRuleGeoProximityLocationOutput)
+}
+
+type GetTrafficPolicyDocumentRuleItem struct {
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+}
+
+// GetTrafficPolicyDocumentRuleItemInput is an input type that accepts GetTrafficPolicyDocumentRuleItemArgs and GetTrafficPolicyDocumentRuleItemOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleItemInput` via:
+//
+//          GetTrafficPolicyDocumentRuleItemArgs{...}
+type GetTrafficPolicyDocumentRuleItemInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleItemOutput() GetTrafficPolicyDocumentRuleItemOutput
+	ToGetTrafficPolicyDocumentRuleItemOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleItemOutput
+}
+
+type GetTrafficPolicyDocumentRuleItemArgs struct {
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+}
+
+func (GetTrafficPolicyDocumentRuleItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleItem)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleItemArgs) ToGetTrafficPolicyDocumentRuleItemOutput() GetTrafficPolicyDocumentRuleItemOutput {
+	return i.ToGetTrafficPolicyDocumentRuleItemOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleItemArgs) ToGetTrafficPolicyDocumentRuleItemOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleItemOutput)
+}
+
+// GetTrafficPolicyDocumentRuleItemArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleItemArray and GetTrafficPolicyDocumentRuleItemArrayOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleItemArrayInput` via:
+//
+//          GetTrafficPolicyDocumentRuleItemArray{ GetTrafficPolicyDocumentRuleItemArgs{...} }
+type GetTrafficPolicyDocumentRuleItemArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleItemArrayOutput() GetTrafficPolicyDocumentRuleItemArrayOutput
+	ToGetTrafficPolicyDocumentRuleItemArrayOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleItemArrayOutput
+}
+
+type GetTrafficPolicyDocumentRuleItemArray []GetTrafficPolicyDocumentRuleItemInput
+
+func (GetTrafficPolicyDocumentRuleItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRuleItem)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleItemArray) ToGetTrafficPolicyDocumentRuleItemArrayOutput() GetTrafficPolicyDocumentRuleItemArrayOutput {
+	return i.ToGetTrafficPolicyDocumentRuleItemArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleItemArray) ToGetTrafficPolicyDocumentRuleItemArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleItemArrayOutput)
+}
+
+type GetTrafficPolicyDocumentRuleItemOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleItem)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleItemOutput) ToGetTrafficPolicyDocumentRuleItemOutput() GetTrafficPolicyDocumentRuleItemOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleItemOutput) ToGetTrafficPolicyDocumentRuleItemOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleItemOutput {
+	return o
+}
+
+// References to an endpoint.
+func (o GetTrafficPolicyDocumentRuleItemOutput) EndpointReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleItem) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
+}
+
+// If you want to associate a health check with the endpoint or rule.
+func (o GetTrafficPolicyDocumentRuleItemOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleItem) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRuleItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRuleItem)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleItemArrayOutput) ToGetTrafficPolicyDocumentRuleItemArrayOutput() GetTrafficPolicyDocumentRuleItemArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleItemArrayOutput) ToGetTrafficPolicyDocumentRuleItemArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleItemArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleItemArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficPolicyDocumentRuleItem {
+		return vs[0].([]GetTrafficPolicyDocumentRuleItem)[vs[1].(int)]
+	}).(GetTrafficPolicyDocumentRuleItemOutput)
+}
+
+type GetTrafficPolicyDocumentRuleLocation struct {
+	// Value of a continent.
+	Continent *string `pulumi:"continent"`
+	// Value of a country.
+	Country *string `pulumi:"country"`
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// Indicates whether this set of values represents the default location.
+	IsDefault *bool `pulumi:"isDefault"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
+	// Value of a subdivision.
+	Subdivision *string `pulumi:"subdivision"`
+}
+
+// GetTrafficPolicyDocumentRuleLocationInput is an input type that accepts GetTrafficPolicyDocumentRuleLocationArgs and GetTrafficPolicyDocumentRuleLocationOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleLocationInput` via:
+//
+//          GetTrafficPolicyDocumentRuleLocationArgs{...}
+type GetTrafficPolicyDocumentRuleLocationInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleLocationOutput() GetTrafficPolicyDocumentRuleLocationOutput
+	ToGetTrafficPolicyDocumentRuleLocationOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleLocationOutput
+}
+
+type GetTrafficPolicyDocumentRuleLocationArgs struct {
+	// Value of a continent.
+	Continent pulumi.StringPtrInput `pulumi:"continent"`
+	// Value of a country.
+	Country pulumi.StringPtrInput `pulumi:"country"`
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// Indicates whether this set of values represents the default location.
+	IsDefault pulumi.BoolPtrInput `pulumi:"isDefault"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
+	// Value of a subdivision.
+	Subdivision pulumi.StringPtrInput `pulumi:"subdivision"`
+}
+
+func (GetTrafficPolicyDocumentRuleLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleLocation)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleLocationArgs) ToGetTrafficPolicyDocumentRuleLocationOutput() GetTrafficPolicyDocumentRuleLocationOutput {
+	return i.ToGetTrafficPolicyDocumentRuleLocationOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleLocationArgs) ToGetTrafficPolicyDocumentRuleLocationOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleLocationOutput)
+}
+
+// GetTrafficPolicyDocumentRuleLocationArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleLocationArray and GetTrafficPolicyDocumentRuleLocationArrayOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleLocationArrayInput` via:
+//
+//          GetTrafficPolicyDocumentRuleLocationArray{ GetTrafficPolicyDocumentRuleLocationArgs{...} }
+type GetTrafficPolicyDocumentRuleLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleLocationArrayOutput() GetTrafficPolicyDocumentRuleLocationArrayOutput
+	ToGetTrafficPolicyDocumentRuleLocationArrayOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleLocationArrayOutput
+}
+
+type GetTrafficPolicyDocumentRuleLocationArray []GetTrafficPolicyDocumentRuleLocationInput
+
+func (GetTrafficPolicyDocumentRuleLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRuleLocation)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleLocationArray) ToGetTrafficPolicyDocumentRuleLocationArrayOutput() GetTrafficPolicyDocumentRuleLocationArrayOutput {
+	return i.ToGetTrafficPolicyDocumentRuleLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleLocationArray) ToGetTrafficPolicyDocumentRuleLocationArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleLocationArrayOutput)
+}
+
+type GetTrafficPolicyDocumentRuleLocationOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleLocation)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleLocationOutput) ToGetTrafficPolicyDocumentRuleLocationOutput() GetTrafficPolicyDocumentRuleLocationOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleLocationOutput) ToGetTrafficPolicyDocumentRuleLocationOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleLocationOutput {
+	return o
+}
+
+// Value of a continent.
+func (o GetTrafficPolicyDocumentRuleLocationOutput) Continent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.Continent }).(pulumi.StringPtrOutput)
+}
+
+// Value of a country.
+func (o GetTrafficPolicyDocumentRuleLocationOutput) Country() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.Country }).(pulumi.StringPtrOutput)
+}
+
+// References to an endpoint.
+func (o GetTrafficPolicyDocumentRuleLocationOutput) EndpointReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+func (o GetTrafficPolicyDocumentRuleLocationOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
+}
+
+// If you want to associate a health check with the endpoint or rule.
+func (o GetTrafficPolicyDocumentRuleLocationOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether this set of values represents the default location.
+func (o GetTrafficPolicyDocumentRuleLocationOutput) IsDefault() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *bool { return v.IsDefault }).(pulumi.BoolPtrOutput)
+}
+
+// References to a rule.
+func (o GetTrafficPolicyDocumentRuleLocationOutput) RuleReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
+}
+
+// Value of a subdivision.
+func (o GetTrafficPolicyDocumentRuleLocationOutput) Subdivision() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleLocation) *string { return v.Subdivision }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRuleLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRuleLocation)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleLocationArrayOutput) ToGetTrafficPolicyDocumentRuleLocationArrayOutput() GetTrafficPolicyDocumentRuleLocationArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleLocationArrayOutput) ToGetTrafficPolicyDocumentRuleLocationArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleLocationArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleLocationArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficPolicyDocumentRuleLocation {
+		return vs[0].([]GetTrafficPolicyDocumentRuleLocation)[vs[1].(int)]
+	}).(GetTrafficPolicyDocumentRuleLocationOutput)
+}
+
+type GetTrafficPolicyDocumentRulePrimary struct {
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
+}
+
+// GetTrafficPolicyDocumentRulePrimaryInput is an input type that accepts GetTrafficPolicyDocumentRulePrimaryArgs and GetTrafficPolicyDocumentRulePrimaryOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRulePrimaryInput` via:
+//
+//          GetTrafficPolicyDocumentRulePrimaryArgs{...}
+type GetTrafficPolicyDocumentRulePrimaryInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRulePrimaryOutput() GetTrafficPolicyDocumentRulePrimaryOutput
+	ToGetTrafficPolicyDocumentRulePrimaryOutputWithContext(context.Context) GetTrafficPolicyDocumentRulePrimaryOutput
+}
+
+type GetTrafficPolicyDocumentRulePrimaryArgs struct {
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
+}
+
+func (GetTrafficPolicyDocumentRulePrimaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRulePrimary)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRulePrimaryArgs) ToGetTrafficPolicyDocumentRulePrimaryOutput() GetTrafficPolicyDocumentRulePrimaryOutput {
+	return i.ToGetTrafficPolicyDocumentRulePrimaryOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRulePrimaryArgs) ToGetTrafficPolicyDocumentRulePrimaryOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRulePrimaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRulePrimaryOutput)
+}
+
+func (i GetTrafficPolicyDocumentRulePrimaryArgs) ToGetTrafficPolicyDocumentRulePrimaryPtrOutput() GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return i.ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRulePrimaryArgs) ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRulePrimaryOutput).ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(ctx)
+}
+
+// GetTrafficPolicyDocumentRulePrimaryPtrInput is an input type that accepts GetTrafficPolicyDocumentRulePrimaryArgs, GetTrafficPolicyDocumentRulePrimaryPtr and GetTrafficPolicyDocumentRulePrimaryPtrOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRulePrimaryPtrInput` via:
+//
+//          GetTrafficPolicyDocumentRulePrimaryArgs{...}
+//
+//  or:
+//
+//          nil
+type GetTrafficPolicyDocumentRulePrimaryPtrInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRulePrimaryPtrOutput() GetTrafficPolicyDocumentRulePrimaryPtrOutput
+	ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(context.Context) GetTrafficPolicyDocumentRulePrimaryPtrOutput
+}
+
+type getTrafficPolicyDocumentRulePrimaryPtrType GetTrafficPolicyDocumentRulePrimaryArgs
+
+func GetTrafficPolicyDocumentRulePrimaryPtr(v *GetTrafficPolicyDocumentRulePrimaryArgs) GetTrafficPolicyDocumentRulePrimaryPtrInput {
+	return (*getTrafficPolicyDocumentRulePrimaryPtrType)(v)
+}
+
+func (*getTrafficPolicyDocumentRulePrimaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTrafficPolicyDocumentRulePrimary)(nil)).Elem()
+}
+
+func (i *getTrafficPolicyDocumentRulePrimaryPtrType) ToGetTrafficPolicyDocumentRulePrimaryPtrOutput() GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return i.ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(context.Background())
+}
+
+func (i *getTrafficPolicyDocumentRulePrimaryPtrType) ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRulePrimaryPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRulePrimaryOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRulePrimaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRulePrimary)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRulePrimaryOutput) ToGetTrafficPolicyDocumentRulePrimaryOutput() GetTrafficPolicyDocumentRulePrimaryOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRulePrimaryOutput) ToGetTrafficPolicyDocumentRulePrimaryOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRulePrimaryOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRulePrimaryOutput) ToGetTrafficPolicyDocumentRulePrimaryPtrOutput() GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return o.ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(context.Background())
+}
+
+func (o GetTrafficPolicyDocumentRulePrimaryOutput) ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTrafficPolicyDocumentRulePrimary) *GetTrafficPolicyDocumentRulePrimary {
+		return &v
+	}).(GetTrafficPolicyDocumentRulePrimaryPtrOutput)
+}
+
+// References to an endpoint.
+func (o GetTrafficPolicyDocumentRulePrimaryOutput) EndpointReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRulePrimary) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+func (o GetTrafficPolicyDocumentRulePrimaryOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRulePrimary) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
+}
+
+// If you want to associate a health check with the endpoint or rule.
+func (o GetTrafficPolicyDocumentRulePrimaryOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRulePrimary) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
+}
+
+// References to a rule.
+func (o GetTrafficPolicyDocumentRulePrimaryOutput) RuleReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRulePrimary) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRulePrimaryPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRulePrimaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTrafficPolicyDocumentRulePrimary)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) ToGetTrafficPolicyDocumentRulePrimaryPtrOutput() GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) ToGetTrafficPolicyDocumentRulePrimaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRulePrimaryPtrOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) Elem() GetTrafficPolicyDocumentRulePrimaryOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) GetTrafficPolicyDocumentRulePrimary {
+		if v != nil {
+			return *v
+		}
+		var ret GetTrafficPolicyDocumentRulePrimary
+		return ret
+	}).(GetTrafficPolicyDocumentRulePrimaryOutput)
+}
+
+// References to an endpoint.
+func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) EndpointReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluateTargetHealth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If you want to associate a health check with the endpoint or rule.
+func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheck
+	}).(pulumi.StringPtrOutput)
+}
+
+// References to a rule.
+func (o GetTrafficPolicyDocumentRulePrimaryPtrOutput) RuleReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRulePrimary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuleReference
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRuleRegion struct {
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// Region code for the AWS Region that you created the resource in.
+	Region *string `pulumi:"region"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
+}
+
+// GetTrafficPolicyDocumentRuleRegionInput is an input type that accepts GetTrafficPolicyDocumentRuleRegionArgs and GetTrafficPolicyDocumentRuleRegionOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleRegionInput` via:
+//
+//          GetTrafficPolicyDocumentRuleRegionArgs{...}
+type GetTrafficPolicyDocumentRuleRegionInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleRegionOutput() GetTrafficPolicyDocumentRuleRegionOutput
+	ToGetTrafficPolicyDocumentRuleRegionOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleRegionOutput
+}
+
+type GetTrafficPolicyDocumentRuleRegionArgs struct {
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// Region code for the AWS Region that you created the resource in.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
+}
+
+func (GetTrafficPolicyDocumentRuleRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleRegion)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleRegionArgs) ToGetTrafficPolicyDocumentRuleRegionOutput() GetTrafficPolicyDocumentRuleRegionOutput {
+	return i.ToGetTrafficPolicyDocumentRuleRegionOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleRegionArgs) ToGetTrafficPolicyDocumentRuleRegionOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleRegionOutput)
+}
+
+// GetTrafficPolicyDocumentRuleRegionArrayInput is an input type that accepts GetTrafficPolicyDocumentRuleRegionArray and GetTrafficPolicyDocumentRuleRegionArrayOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleRegionArrayInput` via:
+//
+//          GetTrafficPolicyDocumentRuleRegionArray{ GetTrafficPolicyDocumentRuleRegionArgs{...} }
+type GetTrafficPolicyDocumentRuleRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleRegionArrayOutput() GetTrafficPolicyDocumentRuleRegionArrayOutput
+	ToGetTrafficPolicyDocumentRuleRegionArrayOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleRegionArrayOutput
+}
+
+type GetTrafficPolicyDocumentRuleRegionArray []GetTrafficPolicyDocumentRuleRegionInput
+
+func (GetTrafficPolicyDocumentRuleRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRuleRegion)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleRegionArray) ToGetTrafficPolicyDocumentRuleRegionArrayOutput() GetTrafficPolicyDocumentRuleRegionArrayOutput {
+	return i.ToGetTrafficPolicyDocumentRuleRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleRegionArray) ToGetTrafficPolicyDocumentRuleRegionArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleRegionArrayOutput)
+}
+
+type GetTrafficPolicyDocumentRuleRegionOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleRegion)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleRegionOutput) ToGetTrafficPolicyDocumentRuleRegionOutput() GetTrafficPolicyDocumentRuleRegionOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleRegionOutput) ToGetTrafficPolicyDocumentRuleRegionOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleRegionOutput {
+	return o
+}
+
+// References to an endpoint.
+func (o GetTrafficPolicyDocumentRuleRegionOutput) EndpointReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+func (o GetTrafficPolicyDocumentRuleRegionOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
+}
+
+// If you want to associate a health check with the endpoint or rule.
+func (o GetTrafficPolicyDocumentRuleRegionOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
+}
+
+// Region code for the AWS Region that you created the resource in.
+func (o GetTrafficPolicyDocumentRuleRegionOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+// References to a rule.
+func (o GetTrafficPolicyDocumentRuleRegionOutput) RuleReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleRegion) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRuleRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTrafficPolicyDocumentRuleRegion)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleRegionArrayOutput) ToGetTrafficPolicyDocumentRuleRegionArrayOutput() GetTrafficPolicyDocumentRuleRegionArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleRegionArrayOutput) ToGetTrafficPolicyDocumentRuleRegionArrayOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleRegionArrayOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleRegionArrayOutput) Index(i pulumi.IntInput) GetTrafficPolicyDocumentRuleRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTrafficPolicyDocumentRuleRegion {
+		return vs[0].([]GetTrafficPolicyDocumentRuleRegion)[vs[1].(int)]
+	}).(GetTrafficPolicyDocumentRuleRegionOutput)
+}
+
+type GetTrafficPolicyDocumentRuleSecondary struct {
+	// References to an endpoint.
+	EndpointReference *string `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth *bool `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck *string `pulumi:"healthCheck"`
+	// References to a rule.
+	RuleReference *string `pulumi:"ruleReference"`
+}
+
+// GetTrafficPolicyDocumentRuleSecondaryInput is an input type that accepts GetTrafficPolicyDocumentRuleSecondaryArgs and GetTrafficPolicyDocumentRuleSecondaryOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleSecondaryInput` via:
+//
+//          GetTrafficPolicyDocumentRuleSecondaryArgs{...}
+type GetTrafficPolicyDocumentRuleSecondaryInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleSecondaryOutput() GetTrafficPolicyDocumentRuleSecondaryOutput
+	ToGetTrafficPolicyDocumentRuleSecondaryOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleSecondaryOutput
+}
+
+type GetTrafficPolicyDocumentRuleSecondaryArgs struct {
+	// References to an endpoint.
+	EndpointReference pulumi.StringPtrInput `pulumi:"endpointReference"`
+	// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+	EvaluateTargetHealth pulumi.BoolPtrInput `pulumi:"evaluateTargetHealth"`
+	// If you want to associate a health check with the endpoint or rule.
+	HealthCheck pulumi.StringPtrInput `pulumi:"healthCheck"`
+	// References to a rule.
+	RuleReference pulumi.StringPtrInput `pulumi:"ruleReference"`
+}
+
+func (GetTrafficPolicyDocumentRuleSecondaryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondary)(nil)).Elem()
+}
+
+func (i GetTrafficPolicyDocumentRuleSecondaryArgs) ToGetTrafficPolicyDocumentRuleSecondaryOutput() GetTrafficPolicyDocumentRuleSecondaryOutput {
+	return i.ToGetTrafficPolicyDocumentRuleSecondaryOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleSecondaryArgs) ToGetTrafficPolicyDocumentRuleSecondaryOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleSecondaryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleSecondaryOutput)
+}
+
+func (i GetTrafficPolicyDocumentRuleSecondaryArgs) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutput() GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return i.ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(context.Background())
+}
+
+func (i GetTrafficPolicyDocumentRuleSecondaryArgs) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleSecondaryOutput).ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(ctx)
+}
+
+// GetTrafficPolicyDocumentRuleSecondaryPtrInput is an input type that accepts GetTrafficPolicyDocumentRuleSecondaryArgs, GetTrafficPolicyDocumentRuleSecondaryPtr and GetTrafficPolicyDocumentRuleSecondaryPtrOutput values.
+// You can construct a concrete instance of `GetTrafficPolicyDocumentRuleSecondaryPtrInput` via:
+//
+//          GetTrafficPolicyDocumentRuleSecondaryArgs{...}
+//
+//  or:
+//
+//          nil
+type GetTrafficPolicyDocumentRuleSecondaryPtrInput interface {
+	pulumi.Input
+
+	ToGetTrafficPolicyDocumentRuleSecondaryPtrOutput() GetTrafficPolicyDocumentRuleSecondaryPtrOutput
+	ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(context.Context) GetTrafficPolicyDocumentRuleSecondaryPtrOutput
+}
+
+type getTrafficPolicyDocumentRuleSecondaryPtrType GetTrafficPolicyDocumentRuleSecondaryArgs
+
+func GetTrafficPolicyDocumentRuleSecondaryPtr(v *GetTrafficPolicyDocumentRuleSecondaryArgs) GetTrafficPolicyDocumentRuleSecondaryPtrInput {
+	return (*getTrafficPolicyDocumentRuleSecondaryPtrType)(v)
+}
+
+func (*getTrafficPolicyDocumentRuleSecondaryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTrafficPolicyDocumentRuleSecondary)(nil)).Elem()
+}
+
+func (i *getTrafficPolicyDocumentRuleSecondaryPtrType) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutput() GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return i.ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(context.Background())
+}
+
+func (i *getTrafficPolicyDocumentRuleSecondaryPtrType) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTrafficPolicyDocumentRuleSecondaryPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRuleSecondaryOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleSecondaryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondary)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleSecondaryOutput) ToGetTrafficPolicyDocumentRuleSecondaryOutput() GetTrafficPolicyDocumentRuleSecondaryOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleSecondaryOutput) ToGetTrafficPolicyDocumentRuleSecondaryOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleSecondaryOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleSecondaryOutput) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutput() GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return o.ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(context.Background())
+}
+
+func (o GetTrafficPolicyDocumentRuleSecondaryOutput) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetTrafficPolicyDocumentRuleSecondary) *GetTrafficPolicyDocumentRuleSecondary {
+		return &v
+	}).(GetTrafficPolicyDocumentRuleSecondaryPtrOutput)
+}
+
+// References to an endpoint.
+func (o GetTrafficPolicyDocumentRuleSecondaryOutput) EndpointReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleSecondary) *string { return v.EndpointReference }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+func (o GetTrafficPolicyDocumentRuleSecondaryOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleSecondary) *bool { return v.EvaluateTargetHealth }).(pulumi.BoolPtrOutput)
+}
+
+// If you want to associate a health check with the endpoint or rule.
+func (o GetTrafficPolicyDocumentRuleSecondaryOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleSecondary) *string { return v.HealthCheck }).(pulumi.StringPtrOutput)
+}
+
+// References to a rule.
+func (o GetTrafficPolicyDocumentRuleSecondaryOutput) RuleReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTrafficPolicyDocumentRuleSecondary) *string { return v.RuleReference }).(pulumi.StringPtrOutput)
+}
+
+type GetTrafficPolicyDocumentRuleSecondaryPtrOutput struct{ *pulumi.OutputState }
+
+func (GetTrafficPolicyDocumentRuleSecondaryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetTrafficPolicyDocumentRuleSecondary)(nil)).Elem()
+}
+
+func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutput() GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) ToGetTrafficPolicyDocumentRuleSecondaryPtrOutputWithContext(ctx context.Context) GetTrafficPolicyDocumentRuleSecondaryPtrOutput {
+	return o
+}
+
+func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) Elem() GetTrafficPolicyDocumentRuleSecondaryOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) GetTrafficPolicyDocumentRuleSecondary {
+		if v != nil {
+			return *v
+		}
+		var ret GetTrafficPolicyDocumentRuleSecondary
+		return ret
+	}).(GetTrafficPolicyDocumentRuleSecondaryOutput)
+}
+
+// References to an endpoint.
+func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) EndpointReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) EvaluateTargetHealth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EvaluateTargetHealth
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If you want to associate a health check with the endpoint or rule.
+func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) HealthCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HealthCheck
+	}).(pulumi.StringPtrOutput)
+}
+
+// References to a rule.
+func (o GetTrafficPolicyDocumentRuleSecondaryPtrOutput) RuleReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetTrafficPolicyDocumentRuleSecondary) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RuleReference
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasInput)(nil)).Elem(), RecordAliasArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecordAliasArrayInput)(nil)).Elem(), RecordAliasArray{})
@@ -974,6 +2207,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ZoneVpcArrayInput)(nil)).Elem(), ZoneVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterInput)(nil)).Elem(), GetResolverEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResolverEndpointFilterArrayInput)(nil)).Elem(), GetResolverEndpointFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentEndpointInput)(nil)).Elem(), GetTrafficPolicyDocumentEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentEndpointArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleGeoProximityLocationInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleGeoProximityLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleGeoProximityLocationArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleGeoProximityLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleItemInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleItemArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleLocationInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleLocationArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRulePrimaryInput)(nil)).Elem(), GetTrafficPolicyDocumentRulePrimaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRulePrimaryPtrInput)(nil)).Elem(), GetTrafficPolicyDocumentRulePrimaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleRegionInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleRegionArrayInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondaryInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleSecondaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTrafficPolicyDocumentRuleSecondaryPtrInput)(nil)).Elem(), GetTrafficPolicyDocumentRuleSecondaryArgs{})
 	pulumi.RegisterOutputType(RecordAliasOutput{})
 	pulumi.RegisterOutputType(RecordAliasArrayOutput{})
 	pulumi.RegisterOutputType(RecordFailoverRoutingPolicyOutput{})
@@ -992,4 +2241,20 @@ func init() {
 	pulumi.RegisterOutputType(ZoneVpcArrayOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterOutput{})
 	pulumi.RegisterOutputType(GetResolverEndpointFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentEndpointOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleGeoProximityLocationOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleGeoProximityLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleItemOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleItemArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleLocationOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRulePrimaryOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRulePrimaryPtrOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleRegionOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleSecondaryOutput{})
+	pulumi.RegisterOutputType(GetTrafficPolicyDocumentRuleSecondaryPtrOutput{})
 }

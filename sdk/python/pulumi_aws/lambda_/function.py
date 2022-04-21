@@ -23,6 +23,7 @@ class FunctionArgs:
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['FunctionEnvironmentArgs']] = None,
+                 ephemeral_storage: Optional[pulumi.Input['FunctionEphemeralStorageArgs']] = None,
                  file_system_config: Optional[pulumi.Input['FunctionFileSystemConfigArgs']] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['FunctionImageConfigArgs']] = None,
@@ -52,6 +53,7 @@ class FunctionArgs:
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block. Detailed below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
         :param pulumi.Input['FunctionEnvironmentArgs'] environment: Configuration block. Detailed below.
+        :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         :param pulumi.Input['FunctionFileSystemConfigArgs'] file_system_config: Configuration block. Detailed below.
         :param pulumi.Input[str] handler: Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Configuration block. Detailed below.
@@ -86,6 +88,8 @@ class FunctionArgs:
             pulumi.set(__self__, "description", description)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if file_system_config is not None:
             pulumi.set(__self__, "file_system_config", file_system_config)
         if handler is not None:
@@ -210,6 +214,18 @@ class FunctionArgs:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input['FunctionEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input['FunctionEphemeralStorageArgs']]:
+        """
+        The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input['FunctionEphemeralStorageArgs']]):
+        pulumi.set(self, "ephemeral_storage", value)
 
     @property
     @pulumi.getter(name="fileSystemConfig")
@@ -462,6 +478,7 @@ class _FunctionState:
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input['FunctionEnvironmentArgs']] = None,
+                 ephemeral_storage: Optional[pulumi.Input['FunctionEphemeralStorageArgs']] = None,
                  file_system_config: Optional[pulumi.Input['FunctionFileSystemConfigArgs']] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input['FunctionImageConfigArgs']] = None,
@@ -500,6 +517,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block. Detailed below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
         :param pulumi.Input['FunctionEnvironmentArgs'] environment: Configuration block. Detailed below.
+        :param pulumi.Input['FunctionEphemeralStorageArgs'] ephemeral_storage: The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         :param pulumi.Input['FunctionFileSystemConfigArgs'] file_system_config: Configuration block. Detailed below.
         :param pulumi.Input[str] handler: Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Configuration block. Detailed below.
@@ -545,6 +563,8 @@ class _FunctionState:
             pulumi.set(__self__, "description", description)
         if environment is not None:
             pulumi.set(__self__, "environment", environment)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if file_system_config is not None:
             pulumi.set(__self__, "file_system_config", file_system_config)
         if handler is not None:
@@ -687,6 +707,18 @@ class _FunctionState:
     @environment.setter
     def environment(self, value: Optional[pulumi.Input['FunctionEnvironmentArgs']]):
         pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input['FunctionEphemeralStorageArgs']]:
+        """
+        The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        """
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input['FunctionEphemeralStorageArgs']]):
+        pulumi.set(self, "ephemeral_storage", value)
 
     @property
     @pulumi.getter(name="fileSystemConfig")
@@ -1049,6 +1081,7 @@ class Function(pulumi.CustomResource):
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']]] = None,
                  file_system_config: Optional[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']]] = None,
@@ -1123,6 +1156,37 @@ class Function(pulumi.CustomResource):
         example_layer_version = aws.lambda_.LayerVersion("exampleLayerVersion")
         # ... other configuration ...
         example_function = aws.lambda_.Function("exampleFunction", layers=[example_layer_version.arn])
+        ```
+        ### Lambda Ephemeral Storage
+
+        Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs14.x",
+            ephemeral_storage=aws.lambda..FunctionEphemeralStorageArgs(
+                size=10240,
+            ))
         ```
         ### Lambda File Systems
 
@@ -1262,6 +1326,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Configuration block. Detailed below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
         :param pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']] environment: Configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']] ephemeral_storage: The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         :param pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']] file_system_config: Configuration block. Detailed below.
         :param pulumi.Input[str] handler: Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: Configuration block. Detailed below.
@@ -1342,6 +1407,37 @@ class Function(pulumi.CustomResource):
         example_layer_version = aws.lambda_.LayerVersion("exampleLayerVersion")
         # ... other configuration ...
         example_function = aws.lambda_.Function("exampleFunction", layers=[example_layer_version.arn])
+        ```
+        ### Lambda Ephemeral Storage
+
+        Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs14.x",
+            ephemeral_storage=aws.lambda..FunctionEphemeralStorageArgs(
+                size=10240,
+            ))
         ```
         ### Lambda File Systems
 
@@ -1494,6 +1590,7 @@ class Function(pulumi.CustomResource):
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']]] = None,
+                 ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']]] = None,
                  file_system_config: Optional[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
                  image_config: Optional[pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']]] = None,
@@ -1533,6 +1630,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["dead_letter_config"] = dead_letter_config
             __props__.__dict__["description"] = description
             __props__.__dict__["environment"] = environment
+            __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["file_system_config"] = file_system_config
             __props__.__dict__["handler"] = handler
             __props__.__dict__["image_config"] = image_config
@@ -1582,6 +1680,7 @@ class Function(pulumi.CustomResource):
             dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             environment: Optional[pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']]] = None,
+            ephemeral_storage: Optional[pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']]] = None,
             file_system_config: Optional[pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']]] = None,
             handler: Optional[pulumi.Input[str]] = None,
             image_config: Optional[pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']]] = None,
@@ -1625,6 +1724,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Configuration block. Detailed below.
         :param pulumi.Input[str] description: Description of what your Lambda Function does.
         :param pulumi.Input[pulumi.InputType['FunctionEnvironmentArgs']] environment: Configuration block. Detailed below.
+        :param pulumi.Input[pulumi.InputType['FunctionEphemeralStorageArgs']] ephemeral_storage: The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
         :param pulumi.Input[pulumi.InputType['FunctionFileSystemConfigArgs']] file_system_config: Configuration block. Detailed below.
         :param pulumi.Input[str] handler: Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
         :param pulumi.Input[pulumi.InputType['FunctionImageConfigArgs']] image_config: Configuration block. Detailed below.
@@ -1667,6 +1767,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["dead_letter_config"] = dead_letter_config
         __props__.__dict__["description"] = description
         __props__.__dict__["environment"] = environment
+        __props__.__dict__["ephemeral_storage"] = ephemeral_storage
         __props__.__dict__["file_system_config"] = file_system_config
         __props__.__dict__["handler"] = handler
         __props__.__dict__["image_config"] = image_config
@@ -1753,6 +1854,14 @@ class Function(pulumi.CustomResource):
         Configuration block. Detailed below.
         """
         return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> pulumi.Output['outputs.FunctionEphemeralStorage']:
+        """
+        The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        """
+        return pulumi.get(self, "ephemeral_storage")
 
     @property
     @pulumi.getter(name="fileSystemConfig")

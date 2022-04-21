@@ -70,6 +70,8 @@ type LookupClusterResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+	LogDeliveryConfigurations []GetClusterLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed.
 	MaintenanceWindow string `pulumi:"maintenanceWindow"`
@@ -181,6 +183,11 @@ func (o LookupClusterResultOutput) EngineVersion() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+func (o LookupClusterResultOutput) LogDeliveryConfigurations() GetClusterLogDeliveryConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterLogDeliveryConfiguration { return v.LogDeliveryConfigurations }).(GetClusterLogDeliveryConfigurationArrayOutput)
 }
 
 // Specifies the weekly time range for when maintenance

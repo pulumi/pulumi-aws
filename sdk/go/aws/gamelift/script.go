@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an Gamelift Script resource.
+// Provides an GameLift Script resource.
 //
 // ## Example Usage
 //
@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// Gamelift Scripts can be imported using the ID, e.g.,
+// GameLift Scripts can be imported using the ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:gamelift/script:Script example <script-id>
@@ -49,7 +49,7 @@ import (
 type Script struct {
 	pulumi.CustomResourceState
 
-	// Gamelift Script ARN.
+	// GameLift Script ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the script
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -94,7 +94,7 @@ func GetScript(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Script resources.
 type scriptState struct {
-	// Gamelift Script ARN.
+	// GameLift Script ARN.
 	Arn *string `pulumi:"arn"`
 	// Name of the script
 	Name *string `pulumi:"name"`
@@ -111,7 +111,7 @@ type scriptState struct {
 }
 
 type ScriptState struct {
-	// Gamelift Script ARN.
+	// GameLift Script ARN.
 	Arn pulumi.StringPtrInput
 	// Name of the script
 	Name pulumi.StringPtrInput

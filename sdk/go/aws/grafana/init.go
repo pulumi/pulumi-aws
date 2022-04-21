@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:grafana/licenseAssociation:LicenseAssociation":
 		r = &LicenseAssociation{}
+	case "aws:grafana/roleAssociation:RoleAssociation":
+		r = &RoleAssociation{}
 	case "aws:grafana/workspace:Workspace":
 		r = &Workspace{}
 	case "aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"grafana/licenseAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"grafana/roleAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

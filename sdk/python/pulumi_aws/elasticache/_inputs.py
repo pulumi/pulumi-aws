@@ -10,8 +10,10 @@ from .. import _utilities
 
 __all__ = [
     'ClusterCacheNodeArgs',
+    'ClusterLogDeliveryConfigurationArgs',
     'ParameterGroupParameterArgs',
     'ReplicationGroupClusterModeArgs',
+    'ReplicationGroupLogDeliveryConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -75,6 +77,73 @@ class ClusterCacheNodeArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class ClusterLogDeliveryConfigurationArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[str],
+                 destination_type: pulumi.Input[str],
+                 log_format: pulumi.Input[str],
+                 log_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        :param pulumi.Input[str] destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        :param pulumi.Input[str] log_format: Valid values are `json` or `text`
+        :param pulumi.Input[str] log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        """
+        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> pulumi.Input[str]:
+        """
+        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        """
+        return pulumi.get(self, "destination_type")
+
+    @destination_type.setter
+    def destination_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_type", value)
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> pulumi.Input[str]:
+        """
+        Valid values are `json` or `text`
+        """
+        return pulumi.get(self, "log_format")
+
+    @log_format.setter
+    def log_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_format", value)
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> pulumi.Input[str]:
+        """
+        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_type", value)
 
 
 @pulumi.input_type
@@ -157,5 +226,72 @@ class ReplicationGroupClusterModeArgs:
     @replicas_per_node_group.setter
     def replicas_per_node_group(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "replicas_per_node_group", value)
+
+
+@pulumi.input_type
+class ReplicationGroupLogDeliveryConfigurationArgs:
+    def __init__(__self__, *,
+                 destination: pulumi.Input[str],
+                 destination_type: pulumi.Input[str],
+                 log_format: pulumi.Input[str],
+                 log_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        :param pulumi.Input[str] destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        :param pulumi.Input[str] log_format: Valid values are `json` or `text`
+        :param pulumi.Input[str] log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[str]:
+        """
+        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> pulumi.Input[str]:
+        """
+        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        """
+        return pulumi.get(self, "destination_type")
+
+    @destination_type.setter
+    def destination_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_type", value)
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> pulumi.Input[str]:
+        """
+        Valid values are `json` or `text`
+        """
+        return pulumi.get(self, "log_format")
+
+    @log_format.setter
+    def log_format(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_format", value)
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> pulumi.Input[str]:
+        """
+        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
+        return pulumi.get(self, "log_type")
+
+    @log_type.setter
+    def log_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "log_type", value)
 
 

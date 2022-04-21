@@ -53,7 +53,7 @@ type Addon struct {
 	pulumi.CustomResourceState
 
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName pulumi.StringOutput `pulumi:"addonName"`
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -66,6 +66,8 @@ type Addon struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+	Preserve pulumi.BoolPtrOutput `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
 	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -77,7 +79,7 @@ type Addon struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrOutput `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -119,7 +121,7 @@ func GetAddon(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Addon resources.
 type addonState struct {
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName *string `pulumi:"addonName"`
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -132,6 +134,8 @@ type addonState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt *string `pulumi:"modifiedAt"`
+	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+	Preserve *bool `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
 	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -143,7 +147,7 @@ type addonState struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// (Optional) Key-value map of resource tags, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -151,7 +155,7 @@ type addonState struct {
 
 type AddonState struct {
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName pulumi.StringPtrInput
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
@@ -164,6 +168,8 @@ type AddonState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was updated.
 	ModifiedAt pulumi.StringPtrInput
+	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+	Preserve pulumi.BoolPtrInput
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
 	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -175,7 +181,7 @@ type AddonState struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// (Optional) Key-value map of resource tags, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -187,13 +193,15 @@ func (AddonState) ElementType() reflect.Type {
 
 type addonArgs struct {
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName string `pulumi:"addonName"`
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion *string `pulumi:"addonVersion"`
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName string `pulumi:"clusterName"`
+	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+	Preserve *bool `pulumi:"preserve"`
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
 	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -205,20 +213,22 @@ type addonArgs struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn *string `pulumi:"serviceAccountRoleArn"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Addon resource.
 type AddonArgs struct {
 	// Name of the EKS add-on. The name must match one of
-	// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+	// the names returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonName pulumi.StringInput
 	// The version of the EKS add-on. The version must
 	// match one of the versions returned by [describe-addon-versions](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-versions.html).
 	AddonVersion pulumi.StringPtrInput
 	// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
 	ClusterName pulumi.StringInput
+	// Indicates if you want to preserve the created resources when deleting the EKS add-on.
+	Preserve pulumi.BoolPtrInput
 	// Define how to resolve parameter value conflicts
 	// when migrating an existing add-on to an Amazon EKS add-on or when applying
 	// version updates to the add-on. Valid values are `NONE` and `OVERWRITE`.
@@ -230,7 +240,7 @@ type AddonArgs struct {
 	// IAM role. For more information, see [Amazon EKS node IAM role](https://docs.aws.amazon.com/eks/latest/userguide/create-node-role.html)
 	// in the Amazon EKS User Guide.
 	ServiceAccountRoleArn pulumi.StringPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

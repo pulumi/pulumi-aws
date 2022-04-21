@@ -157,6 +157,10 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterLogDeliveryConfigurationResult> LogDeliveryConfigurations;
+        /// <summary>
         /// Specifies the weekly time range for when maintenance
         /// on the cache cluster is performed.
         /// </summary>
@@ -234,6 +238,8 @@ namespace Pulumi.Aws.ElastiCache
 
             string id,
 
+            ImmutableArray<Outputs.GetClusterLogDeliveryConfigurationResult> logDeliveryConfigurations,
+
             string maintenanceWindow,
 
             string nodeType,
@@ -269,6 +275,7 @@ namespace Pulumi.Aws.ElastiCache
             Engine = engine;
             EngineVersion = engineVersion;
             Id = id;
+            LogDeliveryConfigurations = logDeliveryConfigurations;
             MaintenanceWindow = maintenanceWindow;
             NodeType = nodeType;
             NotificationTopicArn = notificationTopicArn;

@@ -13,13 +13,10 @@ namespace Pulumi.Aws.S3.Outputs
     [OutputType]
     public sealed class BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation
     {
-        /// <summary>
-        /// The override value for the owner on replicated objects.
-        /// </summary>
-        public readonly string? Owner;
+        public readonly string Owner;
 
         [OutputConstructor]
-        private BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(string? owner)
+        private BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation(string owner)
         {
             Owner = owner;
         }

@@ -21,6 +21,7 @@ class ClusterEndpointArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ClusterEndpoint resource.
+        :param pulumi.Input[str] cluster_endpoint_identifier: The identifier of the endpoint.
         :param pulumi.Input[str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
@@ -40,6 +41,9 @@ class ClusterEndpointArgs:
     @property
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the endpoint.
+        """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
     @cluster_endpoint_identifier.setter
@@ -122,6 +126,7 @@ class _ClusterEndpointState:
         """
         Input properties used for looking up and filtering ClusterEndpoint resources.
         :param pulumi.Input[str] arn: The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        :param pulumi.Input[str] cluster_endpoint_identifier: The identifier of the endpoint.
         :param pulumi.Input[str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
         :param pulumi.Input[str] endpoint: The DNS address of the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
@@ -164,6 +169,9 @@ class _ClusterEndpointState:
     @property
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the endpoint.
+        """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
     @cluster_endpoint_identifier.setter
@@ -292,6 +300,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cluster_endpoint_identifier: The identifier of the endpoint.
         :param pulumi.Input[str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_members: List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty.
@@ -402,6 +411,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        :param pulumi.Input[str] cluster_endpoint_identifier: The identifier of the endpoint.
         :param pulumi.Input[str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
         :param pulumi.Input[str] endpoint: The DNS address of the endpoint.
         :param pulumi.Input[str] endpoint_type: The type of the endpoint. One of: `READER`, `WRITER`, `ANY`.
@@ -436,6 +446,9 @@ class ClusterEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clusterEndpointIdentifier")
     def cluster_endpoint_identifier(self) -> pulumi.Output[str]:
+        """
+        The identifier of the endpoint.
+        """
         return pulumi.get(self, "cluster_endpoint_identifier")
 
     @property

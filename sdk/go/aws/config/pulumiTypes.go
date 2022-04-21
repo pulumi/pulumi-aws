@@ -209,6 +209,7 @@ type Endpoints struct {
 	Cloudtrail                      *string `pulumi:"cloudtrail"`
 	Cloudwatch                      *string `pulumi:"cloudwatch"`
 	Cloudwatchevents                *string `pulumi:"cloudwatchevents"`
+	Cloudwatchevidently             *string `pulumi:"cloudwatchevidently"`
 	Cloudwatchlogs                  *string `pulumi:"cloudwatchlogs"`
 	Cloudwatchrum                   *string `pulumi:"cloudwatchrum"`
 	Codeartifact                    *string `pulumi:"codeartifact"`
@@ -372,6 +373,8 @@ type Endpoints struct {
 	Networkfirewall                 *string `pulumi:"networkfirewall"`
 	Networkmanager                  *string `pulumi:"networkmanager"`
 	Nimblestudio                    *string `pulumi:"nimblestudio"`
+	Opensearch                      *string `pulumi:"opensearch"`
+	Opensearchservice               *string `pulumi:"opensearchservice"`
 	Opsworks                        *string `pulumi:"opsworks"`
 	Opsworkscm                      *string `pulumi:"opsworkscm"`
 	Organizations                   *string `pulumi:"organizations"`
@@ -529,6 +532,7 @@ type EndpointsArgs struct {
 	Cloudtrail                      pulumi.StringPtrInput `pulumi:"cloudtrail"`
 	Cloudwatch                      pulumi.StringPtrInput `pulumi:"cloudwatch"`
 	Cloudwatchevents                pulumi.StringPtrInput `pulumi:"cloudwatchevents"`
+	Cloudwatchevidently             pulumi.StringPtrInput `pulumi:"cloudwatchevidently"`
 	Cloudwatchlogs                  pulumi.StringPtrInput `pulumi:"cloudwatchlogs"`
 	Cloudwatchrum                   pulumi.StringPtrInput `pulumi:"cloudwatchrum"`
 	Codeartifact                    pulumi.StringPtrInput `pulumi:"codeartifact"`
@@ -692,6 +696,8 @@ type EndpointsArgs struct {
 	Networkfirewall                 pulumi.StringPtrInput `pulumi:"networkfirewall"`
 	Networkmanager                  pulumi.StringPtrInput `pulumi:"networkmanager"`
 	Nimblestudio                    pulumi.StringPtrInput `pulumi:"nimblestudio"`
+	Opensearch                      pulumi.StringPtrInput `pulumi:"opensearch"`
+	Opensearchservice               pulumi.StringPtrInput `pulumi:"opensearchservice"`
 	Opsworks                        pulumi.StringPtrInput `pulumi:"opsworks"`
 	Opsworkscm                      pulumi.StringPtrInput `pulumi:"opsworkscm"`
 	Organizations                   pulumi.StringPtrInput `pulumi:"organizations"`
@@ -1033,6 +1039,10 @@ func (o EndpointsOutput) Cloudwatch() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Cloudwatchevents() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchevents }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Cloudwatchevidently() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchevidently }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Cloudwatchlogs() pulumi.StringPtrOutput {
@@ -1685,6 +1695,14 @@ func (o EndpointsOutput) Networkmanager() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Nimblestudio() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Nimblestudio }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Opensearch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Opensearch }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Opensearchservice() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Opensearchservice }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Opsworks() pulumi.StringPtrOutput {

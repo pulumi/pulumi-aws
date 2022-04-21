@@ -90,6 +90,46 @@ import (
 // 	})
 // }
 // ```
+// ### Lambda Ephemeral Storage
+//
+// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		iamForLambda, err := iam.NewRole(ctx, "iamForLambda", &iam.RoleArgs{
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewFunction(ctx, "testLambda", &lambda.FunctionArgs{
+// 			Code:    pulumi.NewFileArchive("lambda_function_payload.zip"),
+// 			Role:    iamForLambda.Arn,
+// 			Handler: pulumi.String("index.test"),
+// 			Runtime: pulumi.String("nodejs14.x"),
+// 			EphemeralStorage: &lambda.FunctionEphemeralStorageArgs{
+// 				Size: pulumi.Int(10240),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Lambda File Systems
 //
 // Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
@@ -291,6 +331,8 @@ type Function struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Configuration block. Detailed below.
 	Environment FunctionEnvironmentPtrOutput `pulumi:"environment"`
+	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+	EphemeralStorage FunctionEphemeralStorageOutput `pulumi:"ephemeralStorage"`
 	// Configuration block. Detailed below.
 	FileSystemConfig FunctionFileSystemConfigPtrOutput `pulumi:"fileSystemConfig"`
 	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -398,6 +440,8 @@ type functionState struct {
 	Description *string `pulumi:"description"`
 	// Configuration block. Detailed below.
 	Environment *FunctionEnvironment `pulumi:"environment"`
+	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// Configuration block. Detailed below.
 	FileSystemConfig *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
 	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -474,6 +518,8 @@ type FunctionState struct {
 	Description pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Environment FunctionEnvironmentPtrInput
+	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+	EphemeralStorage FunctionEphemeralStoragePtrInput
 	// Configuration block. Detailed below.
 	FileSystemConfig FunctionFileSystemConfigPtrInput
 	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -552,6 +598,8 @@ type functionArgs struct {
 	Description *string `pulumi:"description"`
 	// Configuration block. Detailed below.
 	Environment *FunctionEnvironment `pulumi:"environment"`
+	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+	EphemeralStorage *FunctionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// Configuration block. Detailed below.
 	FileSystemConfig *FunctionFileSystemConfig `pulumi:"fileSystemConfig"`
 	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.
@@ -610,6 +658,8 @@ type FunctionArgs struct {
 	Description pulumi.StringPtrInput
 	// Configuration block. Detailed below.
 	Environment FunctionEnvironmentPtrInput
+	// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+	EphemeralStorage FunctionEphemeralStoragePtrInput
 	// Configuration block. Detailed below.
 	FileSystemConfig FunctionFileSystemConfigPtrInput
 	// Function [entrypoint](https://docs.aws.amazon.com/lambda/latest/dg/walkthrough-custom-events-create-test-function.html) in your code.

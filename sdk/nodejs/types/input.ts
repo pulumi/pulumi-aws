@@ -221,6 +221,7 @@ export interface ProviderEndpoint {
     cloudtrail?: pulumi.Input<string>;
     cloudwatch?: pulumi.Input<string>;
     cloudwatchevents?: pulumi.Input<string>;
+    cloudwatchevidently?: pulumi.Input<string>;
     cloudwatchlogs?: pulumi.Input<string>;
     cloudwatchrum?: pulumi.Input<string>;
     codeartifact?: pulumi.Input<string>;
@@ -384,6 +385,8 @@ export interface ProviderEndpoint {
     networkfirewall?: pulumi.Input<string>;
     networkmanager?: pulumi.Input<string>;
     nimblestudio?: pulumi.Input<string>;
+    opensearch?: pulumi.Input<string>;
+    opensearchservice?: pulumi.Input<string>;
     opsworks?: pulumi.Input<string>;
     opsworkscm?: pulumi.Input<string>;
     organizations?: pulumi.Input<string>;
@@ -1429,6 +1432,21 @@ export namespace apigateway {
          * For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
          */
         format: pulumi.Input<string>;
+    }
+
+    export interface StageCanarySettings {
+        /**
+         * The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+         */
+        percentTraffic?: pulumi.Input<number>;
+        /**
+         * A map of overridden stage `variables` (including new variables) for the canary deployment.
+         */
+        stageVariableOverrides?: pulumi.Input<{[key: string]: any}>;
+        /**
+         * Whether the canary deployment uses the stage cache. Defaults to false.
+         */
+        useStageCache?: pulumi.Input<boolean>;
     }
 
     export interface UsagePlanApiStage {
@@ -4937,7 +4955,7 @@ export namespace athena {
          */
         enforceWorkgroupConfiguration?: pulumi.Input<boolean>;
         /**
-         * Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+         * Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
          */
         engineVersion?: pulumi.Input<inputs.athena.WorkgroupConfigurationEngineVersion>;
         /**
@@ -4949,7 +4967,7 @@ export namespace athena {
          */
         requesterPaysEnabled?: pulumi.Input<boolean>;
         /**
-         * Configuration block with result settings. Documented below.
+         * Configuration block with result settings. See Result Configuration below.
          */
         resultConfiguration?: pulumi.Input<inputs.athena.WorkgroupConfigurationResultConfiguration>;
     }
@@ -4967,13 +4985,28 @@ export namespace athena {
 
     export interface WorkgroupConfigurationResultConfiguration {
         /**
-         * Configuration block with encryption settings. Documented below.
+         * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+         */
+        aclConfiguration?: pulumi.Input<inputs.athena.WorkgroupConfigurationResultConfigurationAclConfiguration>;
+        /**
+         * Configuration block with encryption settings. See Encryption Configuration below.
          */
         encryptionConfiguration?: pulumi.Input<inputs.athena.WorkgroupConfigurationResultConfigurationEncryptionConfiguration>;
+        /**
+         * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+         */
+        expectedBucketOwner?: pulumi.Input<string>;
         /**
          * The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
          */
         outputLocation?: pulumi.Input<string>;
+    }
+
+    export interface WorkgroupConfigurationResultConfigurationAclConfiguration {
+        /**
+         * The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+         */
+        s3AclOption: pulumi.Input<string>;
     }
 
     export interface WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
@@ -5185,6 +5218,10 @@ export namespace autoscaling {
 
     export interface GroupWarmPool {
         /**
+         * Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+         */
+        instanceReusePolicy?: pulumi.Input<inputs.autoscaling.GroupWarmPoolInstanceReusePolicy>;
+        /**
          * Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
          */
         maxGroupPreparedCapacity?: pulumi.Input<number>;
@@ -5193,9 +5230,16 @@ export namespace autoscaling {
          */
         minSize?: pulumi.Input<number>;
         /**
-         * Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+         * Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
          */
         poolState?: pulumi.Input<string>;
+    }
+
+    export interface GroupWarmPoolInstanceReusePolicy {
+        /**
+         * Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+         */
+        reuseOnScaleIn?: pulumi.Input<boolean>;
     }
 
     export interface PolicyPredictiveScalingConfiguration {
@@ -6037,7 +6081,7 @@ export namespace batch {
          */
         ec2KeyPair?: pulumi.Input<string>;
         /**
-         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
+         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
          */
         imageId?: pulumi.Input<string>;
         /**
@@ -6464,30 +6508,49 @@ export namespace cfg {
 
     export interface RuleSource {
         /**
-         * Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `aws.lambda.Permission` resource.
+         * Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+         */
+        customPolicyDetails?: pulumi.Input<inputs.cfg.RuleSourceCustomPolicyDetails>;
+        /**
+         * Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`aws.lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
          */
         owner: pulumi.Input<string>;
         /**
-         * Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+         * Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
          */
         sourceDetails?: pulumi.Input<pulumi.Input<inputs.cfg.RuleSourceSourceDetail>[]>;
         /**
          * For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
          */
-        sourceIdentifier: pulumi.Input<string>;
+        sourceIdentifier?: pulumi.Input<string>;
+    }
+
+    export interface RuleSourceCustomPolicyDetails {
+        /**
+         * The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+         */
+        enableDebugLogDelivery?: pulumi.Input<boolean>;
+        /**
+         * The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+         */
+        policyRuntime: pulumi.Input<string>;
+        /**
+         * The policy definition containing the logic for your Config Custom Policy rule.
+         */
+        policyText: pulumi.Input<string>;
     }
 
     export interface RuleSourceSourceDetail {
         /**
-         * The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+         * The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
          */
         eventSource?: pulumi.Input<string>;
         /**
-         * The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+         * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
          */
         maximumExecutionFrequency?: pulumi.Input<string>;
         /**
-         * The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+         * The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
          */
         messageType?: pulumi.Input<string>;
     }
@@ -6565,6 +6628,42 @@ export namespace cloudformation {
 
     export interface StackSetInstanceDeploymentTargets {
         organizationalUnitIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface StackSetInstanceOperationPreferences {
+        failureToleranceCount?: pulumi.Input<number>;
+        failureTolerancePercentage?: pulumi.Input<number>;
+        maxConcurrentCount?: pulumi.Input<number>;
+        maxConcurrentPercentage?: pulumi.Input<number>;
+        regionConcurrencyType?: pulumi.Input<string>;
+        regionOrders?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface StackSetOperationPreferences {
+        /**
+         * The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+         */
+        failureToleranceCount?: pulumi.Input<number>;
+        /**
+         * The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+         */
+        failureTolerancePercentage?: pulumi.Input<number>;
+        /**
+         * The maximum number of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentCount?: pulumi.Input<number>;
+        /**
+         * The maximum percentage of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentPercentage?: pulumi.Input<number>;
+        /**
+         * The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+         */
+        regionConcurrencyType?: pulumi.Input<string>;
+        /**
+         * The order of the Regions in where you want to perform the stack operation.
+         */
+        regionOrders?: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -10070,6 +10169,27 @@ export namespace datasync {
         subnetArn: pulumi.Input<string>;
     }
 
+    export interface FsxOpenZfsFileSystemProtocol {
+        /**
+         * Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+         */
+        nfs: pulumi.Input<inputs.datasync.FsxOpenZfsFileSystemProtocolNfs>;
+    }
+
+    export interface FsxOpenZfsFileSystemProtocolNfs {
+        /**
+         * Represents the mount options that are available for DataSync to access an NFS location. See below.
+         */
+        mountOptions: pulumi.Input<inputs.datasync.FsxOpenZfsFileSystemProtocolNfsMountOptions>;
+    }
+
+    export interface FsxOpenZfsFileSystemProtocolNfsMountOptions {
+        /**
+         * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+         */
+        version?: pulumi.Input<string>;
+    }
+
     export interface LocationHdfsNameNode {
         /**
          * The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
@@ -10298,17 +10418,122 @@ export namespace directoryservice {
 export namespace dlm {
     export interface LifecyclePolicyPolicyDetails {
         /**
-         * A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+         * The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
          */
-        resourceTypes: pulumi.Input<pulumi.Input<string>[]>;
+        action?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsAction>;
+        /**
+         * The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
+         */
+        eventSource?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsEventSource>;
+        /**
+         * Information about the event. See the `parameters` configuration block.
+         */
+        parameters?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsParameters>;
+        /**
+         * The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+         */
+        policyType?: pulumi.Input<string>;
+        /**
+         * The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+         */
+        resourceLocations?: pulumi.Input<string>;
+        /**
+         * A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
+         */
+        resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * See the `schedule` configuration block.
          */
-        schedules: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsSchedule>[]>;
+        schedules?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsSchedule>[]>;
         /**
          * A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
          */
-        targetTags: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        targetTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsAction {
+        /**
+         * The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
+         */
+        crossRegionCopies: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopy>[]>;
+        /**
+         * A name for the schedule.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
+        /**
+         * The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
+         */
+        encryptionConfiguration: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration>;
+        /**
+         * The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+         */
+        retainRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule>;
+        /**
+         * The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+         */
+        target: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+         */
+        cmkArn?: pulumi.Input<string>;
+        /**
+         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+         */
+        encrypted?: pulumi.Input<boolean>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval: pulumi.Input<number>;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsEventSource {
+        /**
+         * Information about the event. See the `parameters` configuration block.
+         */
+        parameters: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsEventSourceParameters>;
+        /**
+         * The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsEventSourceParameters {
+        /**
+         * The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+         */
+        descriptionRegex: pulumi.Input<string>;
+        /**
+         * The type of event. Currently, only `shareSnapshot` events are supported.
+         */
+        eventType: pulumi.Input<string>;
+        /**
+         * The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+         */
+        snapshotOwners: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsParameters {
+        /**
+         * Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+         */
+        excludeBootVolume?: pulumi.Input<boolean>;
+        /**
+         * Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+         */
+        noReboot?: pulumi.Input<boolean>;
     }
 
     export interface LifecyclePolicyPolicyDetailsSchedule {
@@ -10325,6 +10550,14 @@ export namespace dlm {
          */
         crossRegionCopyRules?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule>[]>;
         /**
+         * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+         */
+        deprecateRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleDeprecateRule>;
+        /**
+         * See the `fastRestoreRule` block. Max of 1 per schedule.
+         */
+        fastRestoreRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleFastRestoreRule>;
+        /**
          * A name for the schedule.
          */
         name: pulumi.Input<string>;
@@ -10333,20 +10566,36 @@ export namespace dlm {
          */
         retainRule: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule>;
         /**
+         * See the `shareRule` block. Max of 1 per schedule.
+         */
+        shareRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleShareRule>;
+        /**
          * A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
          */
         tagsToAdd?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
+         */
+        variableTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
         /**
+         * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+         */
+        cronExpression?: pulumi.Input<string>;
+        /**
          * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
          */
-        interval: pulumi.Input<number>;
+        interval?: pulumi.Input<number>;
         /**
          * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
          */
         intervalUnit?: pulumi.Input<string>;
+        /**
+         * Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+         */
+        location?: pulumi.Input<string>;
         /**
          * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
          */
@@ -10402,11 +10651,62 @@ export namespace dlm {
         intervalUnit: pulumi.Input<string>;
     }
 
+    export interface LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
+        /**
+         * How many snapshots to keep. Must be an integer between `1` and `1000`.
+         */
+        count?: pulumi.Input<number>;
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval?: pulumi.Input<number>;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit?: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+        /**
+         * The Availability Zones in which to enable fast snapshot restore.
+         */
+        availabilityZones: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * How many snapshots to keep. Must be an integer between `1` and `1000`.
+         */
+        count?: pulumi.Input<number>;
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval?: pulumi.Input<number>;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit?: pulumi.Input<string>;
+    }
+
     export interface LifecyclePolicyPolicyDetailsScheduleRetainRule {
         /**
-         * How many snapshots to keep. Must be an integer between 1 and 1000.
+         * How many snapshots to keep. Must be an integer between `1` and `1000`.
          */
-        count: pulumi.Input<number>;
+        count?: pulumi.Input<number>;
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval?: pulumi.Input<number>;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit?: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleShareRule {
+        /**
+         * The IDs of the AWS accounts with which to share the snapshots.
+         */
+        targetAccounts: pulumi.Input<pulumi.Input<string>[]>;
+        unshareInterval?: pulumi.Input<number>;
+        unshareIntervalUnit?: pulumi.Input<string>;
     }
 }
 
@@ -11248,6 +11548,10 @@ export namespace ec2 {
          */
         cidrBlock?: pulumi.Input<string>;
         /**
+         * The Amazon Resource Name (ARN) of a core network.
+         */
+        coreNetworkArn?: pulumi.Input<string>;
+        /**
          * The ID of a managed prefix list destination of the route.
          */
         destinationPrefixListId?: pulumi.Input<string>;
@@ -11510,27 +11814,14 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetAmiIdsFilterArgs {
-        name: pulumi.Input<string>;
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetAmiIdsFilter {
         name: string;
         values: string[];
     }
 
-    export interface GetCoipPoolFilter {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given field.
-         * A COIP Pool will be selected if any one of the given values matches.
-         */
-        values: string[];
+    export interface GetAmiIdsFilterArgs {
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetCoipPoolFilterArgs {
@@ -11546,17 +11837,17 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetCoipPoolsFilterArgs {
+    export interface GetCoipPoolFilter {
         /**
          * The name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
          * Set of values that are accepted for the given field.
          * A COIP Pool will be selected if any one of the given values matches.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetCoipPoolsFilter {
@@ -11572,14 +11863,27 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetCustomerGatewayFilter {
-        name: string;
-        values: string[];
+    export interface GetCoipPoolsFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A COIP Pool will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetCustomerGatewayFilterArgs {
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetCustomerGatewayFilter {
+        name: string;
+        values: string[];
     }
 
     export interface GetDedicatedHostFilter {
@@ -11604,18 +11908,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetEipsFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetEipsFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -11628,14 +11920,26 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetElasticIpFilterArgs {
+    export interface GetEipsFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+         */
         name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field. An Elastic IP will be selected if any one of the given values matches.
+         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetElasticIpFilter {
         name: string;
         values: string[];
+    }
+
+    export interface GetElasticIpFilterArgs {
+        name: pulumi.Input<string>;
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetInstanceFilter {
@@ -11700,16 +12004,16 @@ export namespace ec2 {
         name?: string;
     }
 
-    export interface GetInstanceTypeInstanceDisk {
-        count?: number;
-        size?: number;
-        type?: string;
-    }
-
     export interface GetInstanceTypeInstanceDiskArgs {
         count?: pulumi.Input<number>;
         size?: pulumi.Input<number>;
         type?: pulumi.Input<string>;
+    }
+
+    export interface GetInstanceTypeInstanceDisk {
+        count?: number;
+        size?: number;
+        type?: string;
     }
 
     export interface GetInstanceTypeOfferingFilter {
@@ -11756,17 +12060,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetInstanceTypesFilterArgs {
-        /**
-         * Name of the filter.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * List of one or more values for the filter.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetInstanceTypesFilter {
         /**
          * Name of the filter.
@@ -11776,6 +12069,17 @@ export namespace ec2 {
          * List of one or more values for the filter.
          */
         values: string[];
+    }
+
+    export interface GetInstanceTypesFilterArgs {
+        /**
+         * Name of the filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetInstancesFilter {
@@ -11814,17 +12118,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetKeyPairFilterArgs {
-        /**
-         * The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetKeyPairFilter {
         /**
          * The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
@@ -11834,6 +12127,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetKeyPairFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetLaunchTemplateFilterArgs {
@@ -11858,19 +12162,6 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetLocalGatewayFilter {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given field.
-         * A Local Gateway will be selected if any one of the given values matches.
-         */
-        values: string[];
-    }
-
     export interface GetLocalGatewayFilterArgs {
         /**
          * The name of the field to filter by, as defined by
@@ -11884,17 +12175,17 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetLocalGatewayRouteTableFilterArgs {
+    export interface GetLocalGatewayFilter {
         /**
          * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
          * Set of values that are accepted for the given field.
-         * A local gateway route table will be selected if any one of the given values matches.
+         * A Local Gateway will be selected if any one of the given values matches.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetLocalGatewayRouteTableFilter {
@@ -11910,7 +12201,7 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetLocalGatewayRouteTablesFilterArgs {
+    export interface GetLocalGatewayRouteTableFilterArgs {
         /**
          * The name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
@@ -11918,7 +12209,7 @@ export namespace ec2 {
         name: pulumi.Input<string>;
         /**
          * Set of values that are accepted for the given field.
-         * A Local Gateway Route Table will be selected if any one of the given values matches.
+         * A local gateway route table will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -11934,6 +12225,19 @@ export namespace ec2 {
          * A Local Gateway Route Table will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetLocalGatewayRouteTablesFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Local Gateway Route Table will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetLocalGatewayVirtualInterfaceFilterArgs {
@@ -11958,17 +12262,6 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetLocalGatewayVirtualInterfaceGroupFilterArgs {
-        /**
-         * Name of the filter.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * List of one or more values for the filter.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetLocalGatewayVirtualInterfaceGroupFilter {
         /**
          * Name of the filter.
@@ -11978,6 +12271,17 @@ export namespace ec2 {
          * List of one or more values for the filter.
          */
         values: string[];
+    }
+
+    export interface GetLocalGatewayVirtualInterfaceGroupFilterArgs {
+        /**
+         * Name of the filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetLocalGatewayVirtualInterfaceGroupsFilter {
@@ -12002,19 +12306,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetLocalGatewaysFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         * A Local Gateway will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetLocalGatewaysFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -12028,13 +12319,15 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetManagedPrefixListFilterArgs {
+    export interface GetLocalGatewaysFilterArgs {
         /**
-         * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
          */
         name: pulumi.Input<string>;
         /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         * Set of values that are accepted for the given field.
+         * A Local Gateway will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -12048,6 +12341,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetManagedPrefixListFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetNatGatewayFilter {
@@ -12076,15 +12380,28 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetNetworkAclsFilterArgs {
+    export interface GetNatGatewaysFilter {
         /**
          * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Nat Gateway will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetNatGatewaysFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
          */
         name: pulumi.Input<string>;
         /**
          * Set of values that are accepted for the given field.
-         * A VPC will be selected if any one of the given values matches.
+         * A Nat Gateway will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -12102,9 +12419,17 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetNetworkInterfaceFilter {
-        name: string;
-        values: string[];
+    export interface GetNetworkAclsFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A VPC will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetNetworkInterfaceFilterArgs {
@@ -12112,15 +12437,8 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetNetworkInterfacesFilter {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
-         */
+    export interface GetNetworkInterfaceFilter {
         name: string;
-        /**
-         * Set of values that are accepted for the given field.
-         */
         values: string[];
     }
 
@@ -12134,6 +12452,18 @@ export namespace ec2 {
          * Set of values that are accepted for the given field.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetNetworkInterfacesFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         */
+        values: string[];
     }
 
     export interface GetPrefixListFilter {
@@ -12158,17 +12488,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetRouteTableFilterArgs {
-        /**
-         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetRouteTableFilter {
         /**
          * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
@@ -12178,6 +12497,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetRouteTableFilterArgs {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetRouteTablesFilter {
@@ -12206,19 +12536,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSecurityGroupFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         * A Security Group will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetSecurityGroupFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -12230,6 +12547,19 @@ export namespace ec2 {
          * A Security Group will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetSecurityGroupFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Security Group will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetSecurityGroupsFilter {
@@ -12264,17 +12594,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSubnetFilter {
-        /**
-         * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
-         */
-        values: string[];
-    }
-
     export interface GetSubnetFilterArgs {
         /**
          * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
@@ -12284,6 +12603,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetSubnetFilter {
+        /**
+         * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
+         */
+        values: string[];
     }
 
     export interface GetSubnetIdsFilter {
@@ -12314,20 +12644,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSubnetsFilter {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-         * For example, if matching against tag `Name`, use:
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given field.
-         * Subnet IDs will be selected if any one of the given values match.
-         */
-        values: string[];
-    }
-
     export interface GetSubnetsFilterArgs {
         /**
          * The name of the field to filter by, as defined by
@@ -12340,6 +12656,20 @@ export namespace ec2 {
          * Subnet IDs will be selected if any one of the given values match.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetSubnetsFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         * For example, if matching against tag `Name`, use:
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * Subnet IDs will be selected if any one of the given values match.
+         */
+        values: string[];
     }
 
     export interface GetTransitGatewayRouteTablesFilter {
@@ -12368,17 +12698,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcDhcpOptionsFilter {
-        /**
-         * The name of the field to filter.
-         */
-        name: string;
-        /**
-         * Set of values for filtering.
-         */
-        values: string[];
-    }
-
     export interface GetVpcDhcpOptionsFilterArgs {
         /**
          * The name of the field to filter.
@@ -12390,15 +12709,13 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcEndpointFilter {
+    export interface GetVpcDhcpOptionsFilter {
         /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+         * The name of the field to filter.
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC Endpoint will be selected if any one of the given values matches.
+         * Set of values for filtering.
          */
         values: string[];
     }
@@ -12414,6 +12731,19 @@ export namespace ec2 {
          * A VPC Endpoint will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetVpcEndpointFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A VPC Endpoint will be selected if any one of the given values matches.
+         */
+        values: string[];
     }
 
     export interface GetVpcEndpointServiceFilter {
@@ -12464,27 +12794,14 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcIamPoolFilter {
-        name: string;
-        values: string[];
-    }
-
     export interface GetVpcIamPoolFilterArgs {
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcPeeringConnectionFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         * A VPC Peering Connection will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+    export interface GetVpcIamPoolFilter {
+        name: string;
+        values: string[];
     }
 
     export interface GetVpcPeeringConnectionFilter {
@@ -12498,6 +12815,19 @@ export namespace ec2 {
          * A VPC Peering Connection will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetVpcPeeringConnectionFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A VPC Peering Connection will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcPeeringConnectionsFilter {
@@ -12526,19 +12856,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcsFilter {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given field.
-         * A VPC will be selected if any one of the given values matches.
-         */
-        values: string[];
-    }
-
     export interface GetVpcsFilterArgs {
         /**
          * The name of the field to filter by, as defined by
@@ -12552,17 +12869,17 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpnGatewayFilterArgs {
+    export interface GetVpcsFilter {
         /**
          * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
          * Set of values that are accepted for the given field.
-         * A VPN Gateway will be selected if any one of the given values matches.
+         * A VPC will be selected if any one of the given values matches.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetVpnGatewayFilter {
@@ -12576,6 +12893,19 @@ export namespace ec2 {
          * A VPN Gateway will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetVpnGatewayFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A VPN Gateway will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface InstanceCapacityReservationSpecification {
@@ -13313,6 +13643,10 @@ export namespace ec2 {
          */
         cidrBlock?: pulumi.Input<string>;
         /**
+         * The Amazon Resource Name (ARN) of a core network.
+         */
+        coreNetworkArn?: pulumi.Input<string>;
+        /**
          * The ID of a managed prefix list destination of the route.
          */
         destinationPrefixListId?: pulumi.Input<string>;
@@ -13940,6 +14274,7 @@ export namespace ec2 {
          */
         statusMessage?: pulumi.Input<string>;
     }
+
 }
 
 export namespace ec2clientvpn {
@@ -15142,6 +15477,25 @@ export namespace elasticache {
         port?: pulumi.Input<number>;
     }
 
+    export interface ClusterLogDeliveryConfiguration {
+        /**
+         * Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+         */
+        destination: pulumi.Input<string>;
+        /**
+         * For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+         */
+        destinationType: pulumi.Input<string>;
+        /**
+         * Valid values are `json` or `text`
+         */
+        logFormat: pulumi.Input<string>;
+        /**
+         * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+         */
+        logType: pulumi.Input<string>;
+    }
+
     export interface ParameterGroupParameter {
         /**
          * The name of the ElastiCache parameter.
@@ -15167,6 +15521,26 @@ export namespace elasticache {
          */
         replicasPerNodeGroup?: pulumi.Input<number>;
     }
+
+    export interface ReplicationGroupLogDeliveryConfiguration {
+        /**
+         * Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+         */
+        destination: pulumi.Input<string>;
+        /**
+         * For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+         */
+        destinationType: pulumi.Input<string>;
+        /**
+         * Valid values are `json` or `text`
+         */
+        logFormat: pulumi.Input<string>;
+        /**
+         * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+         */
+        logType: pulumi.Input<string>;
+    }
+
 }
 
 export namespace elasticbeanstalk {
@@ -15940,6 +16314,10 @@ export namespace elasticsearch {
 
     export interface DomainClusterConfig {
         /**
+         * Configuration block containing cold storage configuration. Detailed below.
+         */
+        coldStorageOptions?: pulumi.Input<inputs.elasticsearch.DomainClusterConfigColdStorageOptions>;
+        /**
          * Number of dedicated main nodes in the cluster.
          */
         dedicatedMasterCount?: pulumi.Input<number>;
@@ -15979,6 +16357,13 @@ export namespace elasticsearch {
          * Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
          */
         zoneAwarenessEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainClusterConfigColdStorageOptions {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
     }
 
     export interface DomainClusterConfigZoneAwarenessConfig {
@@ -16105,7 +16490,7 @@ export namespace elasticsearch {
          */
         sessionTimeoutMinutes?: pulumi.Input<number>;
         /**
-         * Element of the SAML assertion to use for username. Default is NameID.
+         * Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
          */
         subjectKey?: pulumi.Input<string>;
     }
@@ -17468,7 +17853,7 @@ export namespace fsx {
 export namespace gamelift {
     export interface AliasRoutingStrategy {
         /**
-         * ID of the Gamelift Fleet to point the alias to.
+         * ID of the GameLift Fleet to point the alias to.
          */
         fleetId?: pulumi.Input<string>;
         /**
@@ -19034,6 +19419,14 @@ export namespace imagebuilder {
 
     export interface DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
         /**
+         * Set of AWS Organization ARNs to assign.
+         */
+        organizationArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Set of AWS Organizational Unit ARNs to assign.
+         */
+        organizationalUnitArns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
          */
         userGroups?: pulumi.Input<pulumi.Input<string>[]>;
@@ -19070,6 +19463,10 @@ export namespace imagebuilder {
     }
 
     export interface DistributionConfigurationDistributionLaunchTemplateConfiguration {
+        /**
+         * The account ID that this configuration applies to.
+         */
+        accountId?: pulumi.Input<string>;
         /**
          * Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
          */
@@ -19146,9 +19543,20 @@ export namespace imagebuilder {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetImageRecipesFilter {
+    export interface GetImagePipelinesFilterArgs {
         /**
-         * The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+         * The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetImagePipelinesFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
          */
         name: string;
         /**
@@ -19168,15 +19576,15 @@ export namespace imagebuilder {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetInfrastructureConfigurationsFilterArgs {
+    export interface GetImageRecipesFilter {
         /**
-         * The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+         * The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetInfrastructureConfigurationsFilter {
@@ -19188,6 +19596,17 @@ export namespace imagebuilder {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetInfrastructureConfigurationsFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ImageImageTestsConfiguration {
@@ -19353,9 +19772,104 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
+
 }
 
 export namespace iot {
+    export interface IndexingConfigurationThingGroupIndexingConfiguration {
+        /**
+         * A list of thing group fields to index. This list cannot contain any managed fields. See below.
+         */
+        customFields?: pulumi.Input<pulumi.Input<inputs.iot.IndexingConfigurationThingGroupIndexingConfigurationCustomField>[]>;
+        /**
+         * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+         */
+        managedFields?: pulumi.Input<pulumi.Input<inputs.iot.IndexingConfigurationThingGroupIndexingConfigurationManagedField>[]>;
+        /**
+         * Thing group indexing mode. Valid values: `OFF`, `ON`.
+         */
+        thingGroupIndexingMode: pulumi.Input<string>;
+    }
+
+    export interface IndexingConfigurationThingGroupIndexingConfigurationCustomField {
+        /**
+         * The name of the field.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface IndexingConfigurationThingGroupIndexingConfigurationManagedField {
+        /**
+         * The name of the field.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface IndexingConfigurationThingIndexingConfiguration {
+        /**
+         * Contains custom field names and their data type. See below.
+         */
+        customFields?: pulumi.Input<pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfigurationCustomField>[]>;
+        /**
+         * Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+         */
+        deviceDefenderIndexingMode?: pulumi.Input<string>;
+        /**
+         * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+         */
+        managedFields?: pulumi.Input<pulumi.Input<inputs.iot.IndexingConfigurationThingIndexingConfigurationManagedField>[]>;
+        /**
+         * [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+         */
+        namedShadowIndexingMode?: pulumi.Input<string>;
+        /**
+         * Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+         */
+        thingConnectivityIndexingMode?: pulumi.Input<string>;
+        /**
+         * Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+         */
+        thingIndexingMode: pulumi.Input<string>;
+    }
+
+    export interface IndexingConfigurationThingIndexingConfigurationCustomField {
+        /**
+         * The name of the field.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface IndexingConfigurationThingIndexingConfigurationManagedField {
+        /**
+         * The name of the field.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface ProvisioningTemplatePreProvisioningHook {
+        /**
+         * The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+         */
+        payloadVersion?: pulumi.Input<string>;
+        targetArn: pulumi.Input<string>;
+    }
+
     export interface ThingGroupMetadata {
         creationDate?: pulumi.Input<string>;
         /**
@@ -22150,6 +22664,13 @@ export namespace lambda {
         variables?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
+    export interface FunctionEphemeralStorage {
+        /**
+         * The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+         */
+        size?: pulumi.Input<number>;
+    }
+
     export interface FunctionEventInvokeConfigDestinationConfig {
         /**
          * Configuration block with destination configuration for failed asynchronous invocations. See below for details.
@@ -22206,6 +22727,33 @@ export namespace lambda {
          * Whether to to sample and trace a subset of incoming requests with AWS X-Ray. Valid values are `PassThrough` and `Active`. If `PassThrough`, Lambda will only trace the request from an upstream service if it contains a tracing header with "sampled=1". If `Active`, Lambda will respect any tracing header it receives from an upstream service. If no tracing header is received, Lambda will call X-Ray for a tracing decision.
          */
         mode: pulumi.Input<string>;
+    }
+
+    export interface FunctionUrlCors {
+        /**
+         * Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+         */
+        allowCredentials?: pulumi.Input<boolean>;
+        /**
+         * The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+         */
+        allowHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+         */
+        allowMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+         */
+        allowOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The HTTP headers in your function response that you want to expose to origins that call the function URL.
+         */
+        exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+         */
+        maxAge?: pulumi.Input<number>;
     }
 
     export interface FunctionVpcConfig {
@@ -23632,6 +24180,7 @@ export namespace memorydb {
          */
         type: pulumi.Input<string>;
     }
+
 }
 
 export namespace mq {
@@ -23928,6 +24477,196 @@ export namespace msk {
 }
 
 export namespace mskconnect {
+    export interface ConnectorCapacity {
+        /**
+         * Information about the auto scaling parameters for the connector. See below.
+         */
+        autoscaling?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscaling>;
+        /**
+         * Details about a fixed capacity allocated to a connector. See below.
+         */
+        provisionedCapacity?: pulumi.Input<inputs.mskconnect.ConnectorCapacityProvisionedCapacity>;
+    }
+
+    export interface ConnectorCapacityAutoscaling {
+        /**
+         * The maximum number of workers allocated to the connector.
+         */
+        maxWorkerCount: pulumi.Input<number>;
+        /**
+         * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+         */
+        mcuCount?: pulumi.Input<number>;
+        /**
+         * The minimum number of workers allocated to the connector.
+         */
+        minWorkerCount: pulumi.Input<number>;
+        /**
+         * The scale-in policy for the connector. See below.
+         */
+        scaleInPolicy?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscalingScaleInPolicy>;
+        /**
+         * The scale-out policy for the connector. See below.
+         */
+        scaleOutPolicy?: pulumi.Input<inputs.mskconnect.ConnectorCapacityAutoscalingScaleOutPolicy>;
+    }
+
+    export interface ConnectorCapacityAutoscalingScaleInPolicy {
+        /**
+         * The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+         */
+        cpuUtilizationPercentage?: pulumi.Input<number>;
+    }
+
+    export interface ConnectorCapacityAutoscalingScaleOutPolicy {
+        /**
+         * The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+         */
+        cpuUtilizationPercentage?: pulumi.Input<number>;
+    }
+
+    export interface ConnectorCapacityProvisionedCapacity {
+        /**
+         * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+         */
+        mcuCount?: pulumi.Input<number>;
+        /**
+         * The number of workers that are allocated to the connector.
+         */
+        workerCount: pulumi.Input<number>;
+    }
+
+    export interface ConnectorKafkaCluster {
+        /**
+         * The Apache Kafka cluster to which the connector is connected.
+         */
+        apacheKafkaCluster: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterApacheKafkaCluster>;
+    }
+
+    export interface ConnectorKafkaClusterApacheKafkaCluster {
+        /**
+         * The bootstrap servers of the cluster.
+         */
+        bootstrapServers: pulumi.Input<string>;
+        /**
+         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         */
+        vpc: pulumi.Input<inputs.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpc>;
+    }
+
+    export interface ConnectorKafkaClusterApacheKafkaClusterVpc {
+        /**
+         * The security groups for the connector.
+         */
+        securityGroups: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The subnets for the connector.
+         */
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ConnectorKafkaClusterClientAuthentication {
+        /**
+         * The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+         */
+        authenticationType?: pulumi.Input<string>;
+    }
+
+    export interface ConnectorKafkaClusterEncryptionInTransit {
+        /**
+         * The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+         */
+        encryptionType?: pulumi.Input<string>;
+    }
+
+    export interface ConnectorLogDelivery {
+        /**
+         * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+         */
+        workerLogDelivery: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDelivery>;
+    }
+
+    export interface ConnectorLogDeliveryWorkerLogDelivery {
+        /**
+         * Details about delivering logs to Amazon CloudWatch Logs. See below.
+         */
+        cloudwatchLogs?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs>;
+        /**
+         * Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+         */
+        firehose?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryFirehose>;
+        /**
+         * Details about delivering logs to Amazon S3. See below.
+         */
+        s3?: pulumi.Input<inputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryS3>;
+    }
+
+    export interface ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
+        /**
+         * Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The name of the CloudWatch log group that is the destination for log delivery.
+         */
+        logGroup?: pulumi.Input<string>;
+    }
+
+    export interface ConnectorLogDeliveryWorkerLogDeliveryFirehose {
+        /**
+         * The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+         */
+        deliveryStream?: pulumi.Input<string>;
+        /**
+         * Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface ConnectorLogDeliveryWorkerLogDeliveryS3 {
+        /**
+         * The name of the S3 bucket that is the destination for log delivery.
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * The S3 prefix that is the destination for log delivery.
+         */
+        prefix?: pulumi.Input<string>;
+    }
+
+    export interface ConnectorPlugin {
+        /**
+         * Details about a custom plugin. See below.
+         */
+        customPlugin: pulumi.Input<inputs.mskconnect.ConnectorPluginCustomPlugin>;
+    }
+
+    export interface ConnectorPluginCustomPlugin {
+        /**
+         * The Amazon Resource Name (ARN) of the worker configuration.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The revision of the worker configuration.
+         */
+        revision: pulumi.Input<number>;
+    }
+
+    export interface ConnectorWorkerConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the worker configuration.
+         */
+        arn: pulumi.Input<string>;
+        /**
+         * The revision of the worker configuration.
+         */
+        revision: pulumi.Input<number>;
+    }
+
     export interface CustomPluginLocation {
         /**
          * Information of the plugin file stored in Amazon S3. See below.
@@ -24604,6 +25343,283 @@ export namespace networkmanager {
          */
         longitude?: pulumi.Input<string>;
     }
+}
+
+export namespace opensearch {
+    export interface DomainAdvancedSecurityOptions {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Whether the internal user database is enabled. Default is `false`.
+         */
+        internalUserDatabaseEnabled?: pulumi.Input<boolean>;
+        /**
+         * Configuration block for the main user. Detailed below.
+         */
+        masterUserOptions?: pulumi.Input<inputs.opensearch.DomainAdvancedSecurityOptionsMasterUserOptions>;
+    }
+
+    export interface DomainAdvancedSecurityOptionsMasterUserOptions {
+        /**
+         * ARN for the main user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`.
+         */
+        masterUserArn?: pulumi.Input<string>;
+        /**
+         * Main user's username, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         */
+        masterUserName?: pulumi.Input<string>;
+        /**
+         * Main user's password, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         */
+        masterUserPassword?: pulumi.Input<string>;
+    }
+
+    export interface DomainAutoTuneOptions {
+        /**
+         * Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+         */
+        desiredState: pulumi.Input<string>;
+        /**
+         * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+         */
+        maintenanceSchedules?: pulumi.Input<pulumi.Input<inputs.opensearch.DomainAutoTuneOptionsMaintenanceSchedule>[]>;
+        /**
+         * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+         */
+        rollbackOnDisable?: pulumi.Input<string>;
+    }
+
+    export interface DomainAutoTuneOptionsMaintenanceSchedule {
+        /**
+         * A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+         */
+        cronExpressionForRecurrence: pulumi.Input<string>;
+        /**
+         * Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+         */
+        duration: pulumi.Input<inputs.opensearch.DomainAutoTuneOptionsMaintenanceScheduleDuration>;
+        /**
+         * Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        startAt: pulumi.Input<string>;
+    }
+
+    export interface DomainAutoTuneOptionsMaintenanceScheduleDuration {
+        /**
+         * Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * An integer specifying the value of the duration of an Auto-Tune maintenance window.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface DomainClusterConfig {
+        /**
+         * Number of dedicated main nodes in the cluster.
+         */
+        dedicatedMasterCount?: pulumi.Input<number>;
+        /**
+         * Whether dedicated main nodes are enabled for the cluster.
+         */
+        dedicatedMasterEnabled?: pulumi.Input<boolean>;
+        /**
+         * Instance type of the dedicated main nodes in the cluster.
+         */
+        dedicatedMasterType?: pulumi.Input<string>;
+        /**
+         * Number of instances in the cluster.
+         */
+        instanceCount?: pulumi.Input<number>;
+        /**
+         * Instance type of data nodes in the cluster.
+         */
+        instanceType?: pulumi.Input<string>;
+        /**
+         * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+         */
+        warmCount?: pulumi.Input<number>;
+        /**
+         * Whether to enable warm storage.
+         */
+        warmEnabled?: pulumi.Input<boolean>;
+        /**
+         * Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+         */
+        warmType?: pulumi.Input<string>;
+        /**
+         * Configuration block containing zone awareness settings. Detailed below.
+         */
+        zoneAwarenessConfig?: pulumi.Input<inputs.opensearch.DomainClusterConfigZoneAwarenessConfig>;
+        /**
+         * Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+         */
+        zoneAwarenessEnabled?: pulumi.Input<boolean>;
+    }
+
+    export interface DomainClusterConfigZoneAwarenessConfig {
+        /**
+         * Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
+         */
+        availabilityZoneCount?: pulumi.Input<number>;
+    }
+
+    export interface DomainCognitoOptions {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * ID of the Cognito Identity Pool to use.
+         */
+        identityPoolId: pulumi.Input<string>;
+        /**
+         * ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * ID of the Cognito User Pool to use.
+         */
+        userPoolId: pulumi.Input<string>;
+    }
+
+    export interface DomainDomainEndpointOptions {
+        /**
+         * Fully qualified domain for your custom endpoint.
+         */
+        customEndpoint?: pulumi.Input<string>;
+        /**
+         * ACM certificate ARN for your custom endpoint.
+         */
+        customEndpointCertificateArn?: pulumi.Input<string>;
+        /**
+         * Whether to enable custom endpoint for the OpenSearch domain.
+         */
+        customEndpointEnabled?: pulumi.Input<boolean>;
+        /**
+         * Whether or not to require HTTPS. Defaults to `true`.
+         */
+        enforceHttps?: pulumi.Input<boolean>;
+        tlsSecurityPolicy?: pulumi.Input<string>;
+    }
+
+    export interface DomainEbsOptions {
+        /**
+         * Whether EBS volumes are attached to data nodes in the domain.
+         */
+        ebsEnabled: pulumi.Input<boolean>;
+        /**
+         * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * Size of EBS volumes attached to data nodes (in GiB).
+         */
+        volumeSize?: pulumi.Input<number>;
+        /**
+         * Type of EBS volumes attached to data nodes.
+         */
+        volumeType?: pulumi.Input<string>;
+    }
+
+    export interface DomainEncryptAtRest {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * KMS key id to encrypt the OpenSearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface DomainLogPublishingOption {
+        /**
+         * ARN of the Cloudwatch log group to which log needs to be published.
+         */
+        cloudwatchLogGroupArn: pulumi.Input<string>;
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
+         */
+        logType: pulumi.Input<string>;
+    }
+
+    export interface DomainNodeToNodeEncryption {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled: pulumi.Input<boolean>;
+    }
+
+    export interface DomainSamlOptionsSamlOptions {
+        /**
+         * Whether SAML authentication is enabled.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Information from your identity provider.
+         */
+        idp?: pulumi.Input<inputs.opensearch.DomainSamlOptionsSamlOptionsIdp>;
+        /**
+         * This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+         */
+        masterBackendRole?: pulumi.Input<string>;
+        /**
+         * This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+         */
+        masterUserName?: pulumi.Input<string>;
+        /**
+         * Element of the SAML assertion to use for backend roles. Default is roles.
+         */
+        rolesKey?: pulumi.Input<string>;
+        /**
+         * Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+         */
+        sessionTimeoutMinutes?: pulumi.Input<number>;
+        /**
+         * Element of the SAML assertion to use for username. Default is NameID.
+         */
+        subjectKey?: pulumi.Input<string>;
+    }
+
+    export interface DomainSamlOptionsSamlOptionsIdp {
+        /**
+         * Unique Entity ID of the application in SAML Identity Provider.
+         */
+        entityId: pulumi.Input<string>;
+        /**
+         * Metadata of the SAML application in xml format.
+         */
+        metadataContent: pulumi.Input<string>;
+    }
+
+    export interface DomainSnapshotOptions {
+        /**
+         * Hour during which the service takes an automated daily snapshot of the indices in the domain.
+         */
+        automatedSnapshotStartHour: pulumi.Input<number>;
+    }
+
+    export interface DomainVpcOptions {
+        availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of VPC Subnet IDs for the OpenSearch domain endpoints to be created in.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+        vpcId?: pulumi.Input<string>;
+    }
+
 }
 
 export namespace opsworks {
@@ -25433,6 +26449,19 @@ export namespace pricing {
          * The product attribute value that you want to filter on.
          */
         value: pulumi.Input<string>;
+    }
+}
+
+export namespace qldb {
+    export interface StreamKinesisConfiguration {
+        /**
+         * Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+         */
+        aggregationEnabled?: pulumi.Input<boolean>;
+        /**
+         * The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+         */
+        streamArn: pulumi.Input<string>;
     }
 }
 
@@ -26280,6 +27309,398 @@ export namespace route53 {
     export interface GetResolverEndpointFilter {
         name: string;
         values: string[];
+    }
+
+    export interface GetTrafficPolicyDocumentEndpoint {
+        /**
+         * ID of a rule you want to assign.
+         */
+        id: string;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: string;
+        /**
+         * Type of the rule.
+         */
+        type?: string;
+        /**
+         * Value of the `type`.
+         */
+        value?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentEndpointArgs {
+        /**
+         * ID of a rule you want to assign.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * Type of the rule.
+         */
+        type?: pulumi.Input<string>;
+        /**
+         * Value of the `type`.
+         */
+        value?: pulumi.Input<string>;
+    }
+
+    export interface GetTrafficPolicyDocumentRule {
+        /**
+         * Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+         */
+        geoProximityLocations?: inputs.route53.GetTrafficPolicyDocumentRuleGeoProximityLocation[];
+        /**
+         * ID of a rule you want to assign.
+         */
+        id: string;
+        /**
+         * Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+         */
+        items?: inputs.route53.GetTrafficPolicyDocumentRuleItem[];
+        /**
+         * Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+         */
+        locations?: inputs.route53.GetTrafficPolicyDocumentRuleLocation[];
+        /**
+         * Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+         */
+        primary?: inputs.route53.GetTrafficPolicyDocumentRulePrimary;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        regions?: inputs.route53.GetTrafficPolicyDocumentRuleRegion[];
+        /**
+         * Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+         */
+        secondary?: inputs.route53.GetTrafficPolicyDocumentRuleSecondary;
+        /**
+         * Type of the rule.
+         */
+        type?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleArgs {
+        /**
+         * Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+         */
+        geoProximityLocations?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRuleGeoProximityLocationArgs>[]>;
+        /**
+         * ID of a rule you want to assign.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+         */
+        items?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRuleItemArgs>[]>;
+        /**
+         * Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+         */
+        locations?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRuleLocationArgs>[]>;
+        /**
+         * Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+         */
+        primary?: pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRulePrimaryArgs>;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        regions?: pulumi.Input<pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRuleRegionArgs>[]>;
+        /**
+         * Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+         */
+        secondary?: pulumi.Input<inputs.route53.GetTrafficPolicyDocumentRuleSecondaryArgs>;
+        /**
+         * Type of the rule.
+         */
+        type?: pulumi.Input<string>;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleGeoProximityLocationArgs {
+        /**
+         * Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+         */
+        bias?: pulumi.Input<string>;
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: pulumi.Input<boolean>;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: pulumi.Input<string>;
+        /**
+         * Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+         */
+        latitude?: pulumi.Input<string>;
+        /**
+         * Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+         */
+        longitude?: pulumi.Input<string>;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: pulumi.Input<string>;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleGeoProximityLocation {
+        /**
+         * Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+         */
+        bias?: string;
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+         */
+        latitude?: string;
+        /**
+         * Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+         */
+        longitude?: string;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: string;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleItem {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleItemArgs {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: pulumi.Input<string>;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: pulumi.Input<string>;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleLocation {
+        /**
+         * Value of a continent.
+         */
+        continent?: string;
+        /**
+         * Value of a country.
+         */
+        country?: string;
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * Indicates whether this set of values represents the default location.
+         */
+        isDefault?: boolean;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+        /**
+         * Value of a subdivision.
+         */
+        subdivision?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleLocationArgs {
+        /**
+         * Value of a continent.
+         */
+        continent?: pulumi.Input<string>;
+        /**
+         * Value of a country.
+         */
+        country?: pulumi.Input<string>;
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: pulumi.Input<boolean>;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: pulumi.Input<string>;
+        /**
+         * Indicates whether this set of values represents the default location.
+         */
+        isDefault?: pulumi.Input<boolean>;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: pulumi.Input<string>;
+        /**
+         * Value of a subdivision.
+         */
+        subdivision?: pulumi.Input<string>;
+    }
+
+    export interface GetTrafficPolicyDocumentRulePrimary {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRulePrimaryArgs {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: pulumi.Input<boolean>;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: pulumi.Input<string>;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: pulumi.Input<string>;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleRegionArgs {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: pulumi.Input<boolean>;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: pulumi.Input<string>;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: pulumi.Input<string>;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: pulumi.Input<string>;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleRegion {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: string;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleSecondary {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleSecondaryArgs {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: pulumi.Input<string>;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: pulumi.Input<boolean>;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: pulumi.Input<string>;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: pulumi.Input<string>;
     }
 
     export interface RecordAlias {
@@ -27704,197 +29125,140 @@ export namespace s3 {
 
     export interface BucketV2CorsRule {
         /**
-         * Set of headers that are specified in the Access-Control-Request-Headers header.
-         *
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * List of headers allowed.
          */
         allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Set of HTTP methods that the origin is allowed to execute.
-         *
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
          */
-        allowedMethods?: pulumi.Input<pulumi.Input<string>[]>;
+        allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Set of origins customers are able to access the bucket from.
-         *
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * One or more origins you want customers to be able to access the bucket from.
          */
-        allowedOrigins?: pulumi.Input<pulumi.Input<string>[]>;
+        allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Set of headers in the response that customers are able to access from their applications.
-         * * `maxAgeSeconds` The time in seconds that browser can cache the response for a preflight request.
-         *
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
          */
         exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * Specifies time in seconds that browser can cache the response for a preflight request.
          */
         maxAgeSeconds?: pulumi.Input<number>;
     }
 
     export interface BucketV2Grant {
         /**
-         * Unique identifier for the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_acl resource instead
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
          */
         id?: pulumi.Input<string>;
         /**
-         * List of permissions given to the grantee.
-         *
-         * @deprecated Use the aws_s3_bucket_acl resource instead
+         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
          */
-        permissions?: pulumi.Input<pulumi.Input<string>[]>;
+        permissions: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Type of grantee.
-         *
-         * @deprecated Use the aws_s3_bucket_acl resource instead
+         * Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
          */
-        type?: pulumi.Input<string>;
+        type: pulumi.Input<string>;
         /**
-         * URI of the grantee group.
-         *
-         * @deprecated Use the aws_s3_bucket_acl resource instead
+         * Uri address to grant for. Used only when `type` is `Group`.
          */
         uri?: pulumi.Input<string>;
     }
 
     export interface BucketV2LifecycleRule {
         /**
-         * Number of days after initiating a multipart upload when the multipart upload must be completed.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
          */
         abortIncompleteMultipartUploadDays?: pulumi.Input<number>;
         /**
-         * Whether versioning is enabled.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies lifecycle rule status.
          */
-        enabled?: pulumi.Input<boolean>;
+        enabled: pulumi.Input<boolean>;
         /**
-         * The expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies a period in the object's expire. See Expiration below for details.
          */
         expirations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2LifecycleRuleExpiration>[]>;
         /**
-         * Unique identifier for the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
         id?: pulumi.Input<string>;
         /**
-         * When noncurrent object versions expire.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
          */
         noncurrentVersionExpirations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2LifecycleRuleNoncurrentVersionExpiration>[]>;
         /**
-         * When noncurrent object versions transition.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
          */
         noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2LifecycleRuleNoncurrentVersionTransition>[]>;
         /**
-         * Object keyname prefix identifying one or more objects to which the rule applies
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Object key prefix identifying one or more objects to which the rule applies.
          */
         prefix?: pulumi.Input<string>;
         /**
-         * A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies object tags key and value.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Specifies when an Amazon S3 object transitions to a specified storage class.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies a period in the object's transitions. See Transition below for details.
          */
         transitions?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2LifecycleRuleTransition>[]>;
     }
 
     export interface BucketV2LifecycleRuleExpiration {
         /**
-         * The date after which you want the corresponding action to take effect.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the date after which you want the corresponding action to take effect.
          */
         date?: pulumi.Input<string>;
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days after object creation when the specific rule action takes effect.
          */
         days?: pulumi.Input<number>;
         /**
-         * Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
          */
         expiredObjectDeleteMarker?: pulumi.Input<boolean>;
     }
 
     export interface BucketV2LifecycleRuleNoncurrentVersionExpiration {
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days noncurrent object versions expire.
          */
         days?: pulumi.Input<number>;
     }
 
     export interface BucketV2LifecycleRuleNoncurrentVersionTransition {
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days noncurrent object versions transition.
          */
         days?: pulumi.Input<number>;
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
-        storageClass?: pulumi.Input<string>;
+        storageClass: pulumi.Input<string>;
     }
 
     export interface BucketV2LifecycleRuleTransition {
         /**
-         * The date after which you want the corresponding action to take effect.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the date after which you want the corresponding action to take effect.
          */
         date?: pulumi.Input<string>;
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days after object creation when the specific rule action takes effect.
          */
         days?: pulumi.Input<number>;
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
-        storageClass?: pulumi.Input<string>;
+        storageClass: pulumi.Input<string>;
     }
 
     export interface BucketV2Logging {
         /**
-         * The name of the bucket that receives the log objects.
-         *
-         * @deprecated Use the aws_s3_bucket_logging resource instead
+         * The name of the bucket that will receive the log objects.
          */
-        targetBucket?: pulumi.Input<string>;
+        targetBucket: pulumi.Input<string>;
         /**
-         * The prefix for all log object keys/
-         *
-         * @deprecated Use the aws_s3_bucket_logging resource instead
+         * To specify a key prefix for log objects.
          */
         targetPrefix?: pulumi.Input<string>;
     }
@@ -27907,7 +29271,7 @@ export namespace s3 {
          */
         objectLockEnabled?: pulumi.Input<string>;
         /**
-         * (required) Information about a particular server-side encryption configuration rule.
+         * The Object Lock rule in place for this bucket (documented below).
          *
          * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
          */
@@ -27916,294 +29280,213 @@ export namespace s3 {
 
     export interface BucketV2ObjectLockConfigurationRule {
         /**
-         * The default retention period applied to new objects placed in this bucket.
-         *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * The default retention period that you want to apply to new objects placed in this bucket (documented below).
          */
-        defaultRetentions?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ObjectLockConfigurationRuleDefaultRetention>[]>;
+        defaultRetentions: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ObjectLockConfigurationRuleDefaultRetention>[]>;
     }
 
     export interface BucketV2ObjectLockConfigurationRuleDefaultRetention {
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * The number of days that you want to specify for the default retention period.
          */
         days?: pulumi.Input<number>;
         /**
-         * The default Object Lock retention mode applied to new objects placed in this bucket.
-         *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
          */
-        mode?: pulumi.Input<string>;
+        mode: pulumi.Input<string>;
         /**
-         * The number of years specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * The number of years that you want to specify for the default retention period.
          */
         years?: pulumi.Input<number>;
     }
 
     export interface BucketV2ReplicationConfiguration {
         /**
-         * The ARN of the IAM role for Amazon S3 assumed when replicating the objects.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
          */
-        role?: pulumi.Input<string>;
+        role: pulumi.Input<string>;
         /**
-         * The rules managing the replication.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Specifies the rules managing the replication (documented below).
          */
-        rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRule>[]>;
+        rules: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRule>[]>;
     }
 
     export interface BucketV2ReplicationConfigurationRule {
         /**
-         * Whether delete markers are replicated.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
          */
         deleteMarkerReplicationStatus?: pulumi.Input<string>;
         /**
-         * The destination for the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Specifies the destination for the rule (documented below).
          */
-        destinations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestination>[]>;
+        destinations: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestination>[]>;
         /**
-         * Filter that identifies subset of objects to which the replication rule applies.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Filter that identifies subset of objects to which the replication rule applies (documented below).
          */
         filters?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleFilter>[]>;
         /**
-         * Unique identifier for the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
         id?: pulumi.Input<string>;
         /**
-         * Object keyname prefix identifying one or more objects to which the rule applies
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
          */
         prefix?: pulumi.Input<string>;
         /**
-         * The priority associated with the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          */
         priority?: pulumi.Input<number>;
         /**
-         * The special object selection criteria.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Specifies special object selection criteria (documented below).
          */
         sourceSelectionCriterias?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria>[]>;
         /**
-         * The status of the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          */
-        status?: pulumi.Input<string>;
+        status: pulumi.Input<string>;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestination {
         /**
-         * The overrides to use for object owners on replication.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
          */
         accessControlTranslations?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation>[]>;
         /**
-         * The Account ID to use for overriding the object owner on replication.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
          */
         accountId?: pulumi.Input<string>;
         /**
-         * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
          */
-        bucket?: pulumi.Input<string>;
+        bucket: pulumi.Input<string>;
         /**
-         * Replication metrics.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Enables replication metrics (required for S3 RTC) (documented below).
          */
         metrics?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationMetric>[]>;
         /**
-         * Destination KMS encryption key ARN for SSE-KMS replication.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
+         * `sseKmsEncryptedObjects` source selection criteria.
          */
         replicaKmsKeyId?: pulumi.Input<string>;
         /**
-         * S3 Replication Time Control (S3 RTC).
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Enables S3 Replication Time Control (S3 RTC) (documented below).
          */
         replicationTimes?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTime>[]>;
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          */
         storageClass?: pulumi.Input<string>;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation {
-        /**
-         * The override value for the owner on replicated objects.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
-         */
-        owner?: pulumi.Input<string>;
+        owner: pulumi.Input<string>;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestinationMetric {
         /**
-         * Threshold within which objects are to be replicated.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Threshold within which objects are to be replicated. The only valid value is `15`.
          */
         minutes?: pulumi.Input<number>;
         /**
-         * The status of the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The status of replication metrics. Either `Enabled` or `Disabled`.
          */
         status?: pulumi.Input<string>;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestinationReplicationTime {
         /**
-         * Threshold within which objects are to be replicated.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Threshold within which objects are to be replicated. The only valid value is `15`.
          */
         minutes?: pulumi.Input<number>;
         /**
-         * The status of the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The status of RTC. Either `Enabled` or `Disabled`.
          */
         status?: pulumi.Input<string>;
     }
 
     export interface BucketV2ReplicationConfigurationRuleFilter {
         /**
-         * Object keyname prefix identifying one or more objects to which the rule applies
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
          */
         prefix?: pulumi.Input<string>;
         /**
-         * A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * A map of tags that identifies subset of objects to which the rule applies.
+         * The rule applies only to objects having all the tags in its tagset.
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
 
     export interface BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
         /**
-         * Matched SSE-KMS encrypted objects.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
+         * in `destination` must be specified as well.
          */
         sseKmsEncryptedObjects?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject>[]>;
     }
 
     export interface BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
         /**
-         * Whether versioning is enabled.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Boolean which indicates if this criteria is enabled.
          */
-        enabled?: pulumi.Input<boolean>;
+        enabled: pulumi.Input<boolean>;
     }
 
     export interface BucketV2ServerSideEncryptionConfiguration {
         /**
-         * (required) Information about a particular server-side encryption configuration rule.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * A single object for server-side encryption by default configuration. (documented below)
          */
-        rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfigurationRule>[]>;
+        rules: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfigurationRule>[]>;
     }
 
     export interface BucketV2ServerSideEncryptionConfigurationRule {
         /**
-         * The default server-side encryption applied to new objects in the bucket.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * A single object for setting server-side encryption by default. (documented below)
          */
-        applyServerSideEncryptionByDefaults?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault>[]>;
+        applyServerSideEncryptionByDefaults: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault>[]>;
         /**
-         * (Optional) Whether an [Amazon S3 Bucket Key](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) is used for SSE-KMS.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
          */
         bucketKeyEnabled?: pulumi.Input<boolean>;
     }
 
     export interface BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
         /**
-         * (optional) The AWS KMS master key ID used for the SSE-KMS encryption.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
          */
         kmsMasterKeyId?: pulumi.Input<string>;
         /**
-         * (required) The server-side encryption algorithm used.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
          */
-        sseAlgorithm?: pulumi.Input<string>;
+        sseAlgorithm: pulumi.Input<string>;
     }
 
     export interface BucketV2Versioning {
         /**
-         * Whether versioning is enabled.
-         *
-         * @deprecated Use the aws_s3_bucket_versioning resource instead
+         * Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
          */
         enabled?: pulumi.Input<boolean>;
         /**
-         * Whether MFA delete is enabled.
-         *
-         * @deprecated Use the aws_s3_bucket_versioning resource instead
+         * Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
          */
         mfaDelete?: pulumi.Input<boolean>;
     }
 
     export interface BucketV2Website {
         /**
-         * The name of the error document for the website.
-         *
-         * @deprecated Use the aws_s3_bucket_website_configuration resource
+         * An absolute path to the document to return in case of a 4XX error.
          */
         errorDocument?: pulumi.Input<string>;
         /**
-         * The name of the index document for the website.
-         *
-         * @deprecated Use the aws_s3_bucket_website_configuration resource
+         * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
          */
         indexDocument?: pulumi.Input<string>;
         /**
-         * The redirect behavior for every request to this bucket's website endpoint.
-         *
-         * @deprecated Use the aws_s3_bucket_website_configuration resource
+         * A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
          */
         redirectAllRequestsTo?: pulumi.Input<string>;
         /**
-         * (Optional) The rules that define when a redirect is applied and the redirect behavior.
-         *
-         * @deprecated Use the aws_s3_bucket_website_configuration resource
+         * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * describing redirect behavior and when redirects are applied.
          */
         routingRules?: pulumi.Input<string>;
     }
@@ -31428,7 +32711,7 @@ export namespace ses {
          */
         position: pulumi.Input<number>;
         /**
-         * The scope to apply
+         * The scope to apply. The only acceptable value is `RuleSet`.
          */
         scope: pulumi.Input<string>;
         /**
@@ -31610,6 +32893,17 @@ export namespace ssm {
         type?: pulumi.Input<string>;
     }
 
+    export interface GetInstancesFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
     export interface GetInstancesFilterArgs {
         /**
          * The name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
@@ -31621,15 +32915,26 @@ export namespace ssm {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetInstancesFilter {
+    export interface GetMaintenanceWindowsFilter {
         /**
-         * The name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
+         * The name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
          */
         name: string;
         /**
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetMaintenanceWindowsFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface MaintenanceWindowTargetTarget {
@@ -31866,6 +33171,7 @@ export namespace ssm {
          */
         syncFormat?: pulumi.Input<string>;
     }
+
 }
 
 export namespace storagegateway {
@@ -31883,6 +33189,25 @@ export namespace storagegateway {
          * The Internet Protocol version 4 (IPv4) address of the interface.
          */
         ipv4Address?: pulumi.Input<string>;
+    }
+
+    export interface GatewayMaintenanceStartTime {
+        /**
+         * The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+         */
+        dayOfMonth?: pulumi.Input<string>;
+        /**
+         * The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+         */
+        dayOfWeek?: pulumi.Input<string>;
+        /**
+         * The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+         */
+        hourOfDay: pulumi.Input<number>;
+        /**
+         * The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+         */
+        minuteOfHour?: pulumi.Input<number>;
     }
 
     export interface GatewaySmbActiveDirectorySettings {
@@ -75837,5 +77162,18 @@ export namespace workspaces {
          * The size of the user storage.
          */
         userVolumeSizeGib?: pulumi.Input<number>;
+    }
+}
+
+export namespace xray {
+    export interface GroupInsightsConfiguration {
+        /**
+         * Specifies whether insights are enabled.
+         */
+        insightsEnabled: pulumi.Input<boolean>;
+        /**
+         * Specifies whether insight notifications are enabled.
+         */
+        notificationsEnabled?: pulumi.Input<boolean>;
     }
 }

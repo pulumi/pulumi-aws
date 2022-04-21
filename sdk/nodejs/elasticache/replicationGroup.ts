@@ -94,6 +94,36 @@ import * as utilities from "../utilities";
  *     replicasPerNodeGroup: 1,
  * });
  * ```
+ * ### Redis Log Delivery configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.elasticache.ReplicationGroup("test", {
+ *     replicationGroupDescription: "test description",
+ *     nodeType: "cache.t3.small",
+ *     port: 6379,
+ *     applyImmediately: true,
+ *     autoMinorVersionUpgrade: false,
+ *     maintenanceWindow: "tue:06:30-tue:07:30",
+ *     snapshotWindow: "01:00-02:00",
+ *     logDeliveryConfigurations: [
+ *         {
+ *             destination: aws_cloudwatch_log_group.example.name,
+ *             destinationType: "cloudwatch-logs",
+ *             logFormat: "text",
+ *             logType: "slow-log",
+ *         },
+ *         {
+ *             destination: aws_kinesis_firehose_delivery_stream.example.name,
+ *             destinationType: "kinesis-firehose",
+ *             logFormat: "json",
+ *             logType: "engine-log",
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
  *
@@ -183,7 +213,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly authToken!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
+     * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+     * Defaults to `true`.
      */
     public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
     /**
@@ -221,7 +253,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -240,6 +272,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
     public readonly kmsKeyId!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+     */
+    public readonly logDeliveryConfigurations!: pulumi.Output<outputs.elasticache.ReplicationGroupLogDeliveryConfiguration[] | undefined>;
     /**
      * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      */
@@ -378,6 +414,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
             resourceInputs["globalReplicationGroupId"] = state ? state.globalReplicationGroupId : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["logDeliveryConfigurations"] = state ? state.logDeliveryConfigurations : undefined;
             resourceInputs["maintenanceWindow"] = state ? state.maintenanceWindow : undefined;
             resourceInputs["memberClusters"] = state ? state.memberClusters : undefined;
             resourceInputs["multiAzEnabled"] = state ? state.multiAzEnabled : undefined;
@@ -421,6 +458,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             resourceInputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
             resourceInputs["globalReplicationGroupId"] = args ? args.globalReplicationGroupId : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["logDeliveryConfigurations"] = args ? args.logDeliveryConfigurations : undefined;
             resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
             resourceInputs["multiAzEnabled"] = args ? args.multiAzEnabled : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
@@ -479,7 +517,9 @@ export interface ReplicationGroupState {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
+     * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+     * Defaults to `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
@@ -517,7 +557,7 @@ export interface ReplicationGroupState {
      */
     engine?: pulumi.Input<string>;
     /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -536,6 +576,10 @@ export interface ReplicationGroupState {
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+     */
+    logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupLogDeliveryConfiguration>[]>;
     /**
      * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      */
@@ -661,7 +705,9 @@ export interface ReplicationGroupArgs {
      */
     authToken?: pulumi.Input<string>;
     /**
-     * Specifies whether a minor engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window. This parameter is currently not supported by the AWS API. Defaults to `true`.
+     * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+     * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+     * Defaults to `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
@@ -691,7 +737,7 @@ export interface ReplicationGroupArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -706,6 +752,10 @@ export interface ReplicationGroupArgs {
      * The ARN of the key that you wish to use if encrypting at rest. If not supplied, uses service managed encryption. Can be specified only if `atRestEncryptionEnabled = true`.
      */
     kmsKeyId?: pulumi.Input<string>;
+    /**
+     * Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See Log Delivery Configuration below for more details.
+     */
+    logDeliveryConfigurations?: pulumi.Input<pulumi.Input<inputs.elasticache.ReplicationGroupLogDeliveryConfiguration>[]>;
     /**
      * Specifies the weekly time range for when maintenance on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`
      */

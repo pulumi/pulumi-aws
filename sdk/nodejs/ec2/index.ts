@@ -53,6 +53,7 @@ export * from "./getLocalGatewayVirtualInterfaceGroups";
 export * from "./getLocalGateways";
 export * from "./getManagedPrefixList";
 export * from "./getNatGateway";
+export * from "./getNatGateways";
 export * from "./getNetworkAcls";
 export * from "./getNetworkInterface";
 export * from "./getNetworkInterfaces";

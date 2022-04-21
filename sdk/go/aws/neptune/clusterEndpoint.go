@@ -49,7 +49,8 @@ type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
 	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-	Arn                       pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The identifier of the endpoint.
 	ClusterEndpointIdentifier pulumi.StringOutput `pulumi:"clusterEndpointIdentifier"`
 	// The DB cluster identifier of the DB cluster associated with the endpoint.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
@@ -106,7 +107,8 @@ func GetClusterEndpoint(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ClusterEndpoint resources.
 type clusterEndpointState struct {
 	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-	Arn                       *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The identifier of the endpoint.
 	ClusterEndpointIdentifier *string `pulumi:"clusterEndpointIdentifier"`
 	// The DB cluster identifier of the DB cluster associated with the endpoint.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
@@ -126,7 +128,8 @@ type clusterEndpointState struct {
 
 type ClusterEndpointState struct {
 	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
-	Arn                       pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// The identifier of the endpoint.
 	ClusterEndpointIdentifier pulumi.StringPtrInput
 	// The DB cluster identifier of the DB cluster associated with the endpoint.
 	ClusterIdentifier pulumi.StringPtrInput
@@ -149,6 +152,7 @@ func (ClusterEndpointState) ElementType() reflect.Type {
 }
 
 type clusterEndpointArgs struct {
+	// The identifier of the endpoint.
 	ClusterEndpointIdentifier string `pulumi:"clusterEndpointIdentifier"`
 	// The DB cluster identifier of the DB cluster associated with the endpoint.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
@@ -164,6 +168,7 @@ type clusterEndpointArgs struct {
 
 // The set of arguments for constructing a ClusterEndpoint resource.
 type ClusterEndpointArgs struct {
+	// The identifier of the endpoint.
 	ClusterEndpointIdentifier pulumi.StringInput
 	// The DB cluster identifier of the DB cluster associated with the endpoint.
 	ClusterIdentifier pulumi.StringInput

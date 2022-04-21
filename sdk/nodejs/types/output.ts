@@ -1158,6 +1158,21 @@ export namespace apigateway {
         format: string;
     }
 
+    export interface StageCanarySettings {
+        /**
+         * The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+         */
+        percentTraffic?: number;
+        /**
+         * A map of overridden stage `variables` (including new variables) for the canary deployment.
+         */
+        stageVariableOverrides?: {[key: string]: any};
+        /**
+         * Whether the canary deployment uses the stage cache. Defaults to false.
+         */
+        useStageCache?: boolean;
+    }
+
     export interface UsagePlanApiStage {
         /**
          * API Id of the associated API stage in a usage plan.
@@ -4849,7 +4864,7 @@ export namespace athena {
          */
         enforceWorkgroupConfiguration?: boolean;
         /**
-         * Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+         * Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
          */
         engineVersion?: outputs.athena.WorkgroupConfigurationEngineVersion;
         /**
@@ -4861,7 +4876,7 @@ export namespace athena {
          */
         requesterPaysEnabled?: boolean;
         /**
-         * Configuration block with result settings. Documented below.
+         * Configuration block with result settings. See Result Configuration below.
          */
         resultConfiguration?: outputs.athena.WorkgroupConfigurationResultConfiguration;
     }
@@ -4879,13 +4894,28 @@ export namespace athena {
 
     export interface WorkgroupConfigurationResultConfiguration {
         /**
-         * Configuration block with encryption settings. Documented below.
+         * Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+         */
+        aclConfiguration?: outputs.athena.WorkgroupConfigurationResultConfigurationAclConfiguration;
+        /**
+         * Configuration block with encryption settings. See Encryption Configuration below.
          */
         encryptionConfiguration?: outputs.athena.WorkgroupConfigurationResultConfigurationEncryptionConfiguration;
+        /**
+         * The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+         */
+        expectedBucketOwner?: string;
         /**
          * The location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
          */
         outputLocation?: string;
+    }
+
+    export interface WorkgroupConfigurationResultConfigurationAclConfiguration {
+        /**
+         * The Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+         */
+        s3AclOption: string;
     }
 
     export interface WorkgroupConfigurationResultConfigurationEncryptionConfiguration {
@@ -5099,6 +5129,10 @@ export namespace autoscaling {
 
     export interface GroupWarmPool {
         /**
+         * Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+         */
+        instanceReusePolicy?: outputs.autoscaling.GroupWarmPoolInstanceReusePolicy;
+        /**
          * Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
          */
         maxGroupPreparedCapacity?: number;
@@ -5107,9 +5141,16 @@ export namespace autoscaling {
          */
         minSize?: number;
         /**
-         * Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+         * Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
          */
         poolState?: string;
+    }
+
+    export interface GroupWarmPoolInstanceReusePolicy {
+        /**
+         * Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+         */
+        reuseOnScaleIn?: boolean;
     }
 
     export interface PolicyPredictiveScalingConfiguration {
@@ -6023,7 +6064,7 @@ export namespace batch {
          */
         ec2KeyPair?: string;
         /**
-         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
+         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
          */
         imageId?: string;
         /**
@@ -6480,30 +6521,49 @@ export namespace cfg {
 
     export interface RuleSource {
         /**
-         * Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `aws.lambda.Permission` resource.
+         * Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+         */
+        customPolicyDetails?: outputs.cfg.RuleSourceCustomPolicyDetails;
+        /**
+         * Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the [`aws.lambda.Permission` resource](https://www.terraform.io/docs/providers/aws/r/lambda_permission.html).
          */
         owner: string;
         /**
-         * Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
+         * Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
          */
         sourceDetails?: outputs.cfg.RuleSourceSourceDetail[];
         /**
          * For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
          */
-        sourceIdentifier: string;
+        sourceIdentifier?: string;
+    }
+
+    export interface RuleSourceCustomPolicyDetails {
+        /**
+         * The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+         */
+        enableDebugLogDelivery?: boolean;
+        /**
+         * The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+         */
+        policyRuntime: string;
+        /**
+         * The policy definition containing the logic for your Config Custom Policy rule.
+         */
+        policyText: string;
     }
 
     export interface RuleSourceSourceDetail {
         /**
-         * The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWS resources. This defaults to `aws.config` and is the only valid value.
+         * The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
          */
         eventSource?: string;
         /**
-         * The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+         * The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
          */
         maximumExecutionFrequency?: string;
         /**
-         * The type of notification that triggers AWS Config to run an evaluation for a rule. You can specify the following notification types:
+         * The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
          */
         messageType?: string;
     }
@@ -6594,6 +6654,42 @@ export namespace cloudformation {
 
     export interface StackSetInstanceDeploymentTargets {
         organizationalUnitIds?: string[];
+    }
+
+    export interface StackSetInstanceOperationPreferences {
+        failureToleranceCount?: number;
+        failureTolerancePercentage?: number;
+        maxConcurrentCount?: number;
+        maxConcurrentPercentage?: number;
+        regionConcurrencyType?: string;
+        regionOrders?: string[];
+    }
+
+    export interface StackSetOperationPreferences {
+        /**
+         * The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+         */
+        failureToleranceCount?: number;
+        /**
+         * The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+         */
+        failureTolerancePercentage?: number;
+        /**
+         * The maximum number of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentCount?: number;
+        /**
+         * The maximum percentage of accounts in which to perform this operation at one time.
+         */
+        maxConcurrentPercentage?: number;
+        /**
+         * The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+         */
+        regionConcurrencyType?: string;
+        /**
+         * The order of the Regions in where you want to perform the stack operation.
+         */
+        regionOrders?: string[];
     }
 
 }
@@ -10118,6 +10214,7 @@ export namespace config {
         cloudtrail?: string;
         cloudwatch?: string;
         cloudwatchevents?: string;
+        cloudwatchevidently?: string;
         cloudwatchlogs?: string;
         cloudwatchrum?: string;
         codeartifact?: string;
@@ -10281,6 +10378,8 @@ export namespace config {
         networkfirewall?: string;
         networkmanager?: string;
         nimblestudio?: string;
+        opensearch?: string;
+        opensearchservice?: string;
         opsworks?: string;
         opsworkscm?: string;
         organizations?: string;
@@ -10908,6 +11007,27 @@ export namespace datasync {
         subnetArn: string;
     }
 
+    export interface FsxOpenZfsFileSystemProtocol {
+        /**
+         * Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+         */
+        nfs: outputs.datasync.FsxOpenZfsFileSystemProtocolNfs;
+    }
+
+    export interface FsxOpenZfsFileSystemProtocolNfs {
+        /**
+         * Represents the mount options that are available for DataSync to access an NFS location. See below.
+         */
+        mountOptions: outputs.datasync.FsxOpenZfsFileSystemProtocolNfsMountOptions;
+    }
+
+    export interface FsxOpenZfsFileSystemProtocolNfsMountOptions {
+        /**
+         * The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+         */
+        version?: string;
+    }
+
     export interface LocationHdfsNameNode {
         /**
          * The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
@@ -11175,17 +11295,122 @@ export namespace directoryservice {
 export namespace dlm {
     export interface LifecyclePolicyPolicyDetails {
         /**
-         * A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
+         * The actions to be performed when the event-based policy is triggered. You can specify only one action per policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `action` configuration block.
          */
-        resourceTypes: string[];
+        action?: outputs.dlm.LifecyclePolicyPolicyDetailsAction;
+        /**
+         * The event that triggers the event-based policy. This parameter is required for event-based policies only. If you are creating a snapshot or AMI policy, omit this parameter. See the `eventSource` configuration block.
+         */
+        eventSource?: outputs.dlm.LifecyclePolicyPolicyDetailsEventSource;
+        /**
+         * Information about the event. See the `parameters` configuration block.
+         */
+        parameters?: outputs.dlm.LifecyclePolicyPolicyDetailsParameters;
+        /**
+         * The valid target resource types and actions a policy can manage. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account. Default value is `EBS_SNAPSHOT_MANAGEMENT`.
+         */
+        policyType?: string;
+        /**
+         * The location of the resources to backup. If the source resources are located in an AWS Region, specify `CLOUD`. If the source resources are located on an Outpost in your account, specify `OUTPOST`. If you specify `OUTPOST`, Amazon Data Lifecycle Manager backs up all resources of the specified type with matching target tags across all of the Outposts in your account. Valid values are `CLOUD` and `OUTPOST`.
+         */
+        resourceLocations: string;
+        /**
+         * A list of resource types that should be targeted by the lifecycle policy. Valid values are `VOLUME` and `INSTANCE`.
+         */
+        resourceTypes?: string[];
         /**
          * See the `schedule` configuration block.
          */
-        schedules: outputs.dlm.LifecyclePolicyPolicyDetailsSchedule[];
+        schedules?: outputs.dlm.LifecyclePolicyPolicyDetailsSchedule[];
         /**
          * A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
          */
-        targetTags: {[key: string]: string};
+        targetTags?: {[key: string]: string};
+    }
+
+    export interface LifecyclePolicyPolicyDetailsAction {
+        /**
+         * The rule for copying shared snapshots across Regions. See the `crossRegionCopy` configuration block.
+         */
+        crossRegionCopies: outputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopy[];
+        /**
+         * A name for the schedule.
+         */
+        name: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopy {
+        /**
+         * The encryption settings for the copied snapshot. See the `encryptionConfiguration` block. Max of 1 per action.
+         */
+        encryptionConfiguration: outputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration;
+        /**
+         * The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+         */
+        retainRule?: outputs.dlm.LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule;
+        /**
+         * The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+         */
+        target: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopyEncryptionConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+         */
+        cmkArn?: string;
+        /**
+         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+         */
+        encrypted?: boolean;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsActionCrossRegionCopyRetainRule {
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval: number;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsEventSource {
+        /**
+         * Information about the event. See the `parameters` configuration block.
+         */
+        parameters: outputs.dlm.LifecyclePolicyPolicyDetailsEventSourceParameters;
+        /**
+         * The source of the event. Currently only managed CloudWatch Events rules are supported. Valid values are `MANAGED_CWE`.
+         */
+        type: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsEventSourceParameters {
+        /**
+         * The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+         */
+        descriptionRegex: string;
+        /**
+         * The type of event. Currently, only `shareSnapshot` events are supported.
+         */
+        eventType: string;
+        /**
+         * The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+         */
+        snapshotOwners: string[];
+    }
+
+    export interface LifecyclePolicyPolicyDetailsParameters {
+        /**
+         * Indicates whether to exclude the root volume from snapshots created using CreateSnapshots. The default is `false`.
+         */
+        excludeBootVolume?: boolean;
+        /**
+         * Applies to AMI lifecycle policies only. Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs. The default is `true` (instances are not rebooted).
+         */
+        noReboot?: boolean;
     }
 
     export interface LifecyclePolicyPolicyDetailsSchedule {
@@ -11202,6 +11427,14 @@ export namespace dlm {
          */
         crossRegionCopyRules?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule[];
         /**
+         * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+         */
+        deprecateRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleDeprecateRule;
+        /**
+         * See the `fastRestoreRule` block. Max of 1 per schedule.
+         */
+        fastRestoreRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleFastRestoreRule;
+        /**
          * A name for the schedule.
          */
         name: string;
@@ -11210,20 +11443,36 @@ export namespace dlm {
          */
         retainRule: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule;
         /**
+         * See the `shareRule` block. Max of 1 per schedule.
+         */
+        shareRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleShareRule;
+        /**
          * A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
          */
         tagsToAdd?: {[key: string]: string};
+        /**
+         * A map of tag keys and variable values, where the values are determined when the policy is executed. Only `$(instance-id)` or `$(timestamp)` are valid values. Can only be used when `resourceTypes` is `INSTANCE`.
+         */
+        variableTags?: {[key: string]: string};
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
         /**
+         * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+         */
+        cronExpression?: string;
+        /**
          * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
          */
-        interval: number;
+        interval?: number;
         /**
          * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
          */
-        intervalUnit?: string;
+        intervalUnit: string;
+        /**
+         * Specifies the destination for snapshots created by the policy. To create snapshots in the same Region as the source resource, specify `CLOUD`. To create snapshots on the same Outpost as the source resource, specify `OUTPOST_LOCAL`. If you omit this parameter, `CLOUD` is used by default. If the policy targets resources in an AWS Region, then you must create snapshots in the same Region as the source resource. If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost as the source resource, or in the Region of that Outpost. Valid values are `CLOUD` and `OUTPOST_LOCAL`.
+         */
+        location: string;
         /**
          * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
          */
@@ -11279,11 +11528,62 @@ export namespace dlm {
         intervalUnit: string;
     }
 
+    export interface LifecyclePolicyPolicyDetailsScheduleDeprecateRule {
+        /**
+         * How many snapshots to keep. Must be an integer between `1` and `1000`.
+         */
+        count?: number;
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval?: number;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit?: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleFastRestoreRule {
+        /**
+         * The Availability Zones in which to enable fast snapshot restore.
+         */
+        availabilityZones: string[];
+        /**
+         * How many snapshots to keep. Must be an integer between `1` and `1000`.
+         */
+        count?: number;
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval?: number;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit?: string;
+    }
+
     export interface LifecyclePolicyPolicyDetailsScheduleRetainRule {
         /**
-         * How many snapshots to keep. Must be an integer between 1 and 1000.
+         * How many snapshots to keep. Must be an integer between `1` and `1000`.
          */
-        count: number;
+        count?: number;
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval?: number;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit?: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleShareRule {
+        /**
+         * The IDs of the AWS accounts with which to share the snapshots.
+         */
+        targetAccounts: string[];
+        unshareInterval?: number;
+        unshareIntervalUnit?: string;
     }
 
 }
@@ -12138,6 +12438,10 @@ export namespace ec2 {
          * The CIDR block of the route.
          */
         cidrBlock?: string;
+        /**
+         * The Amazon Resource Name (ARN) of a core network.
+         */
+        coreNetworkArn?: string;
         /**
          * The ID of a managed prefix list destination of the route.
          */
@@ -13068,6 +13372,19 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetNatGatewaysFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Nat Gateway will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
     export interface GetNetworkAclsFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -13190,6 +13507,10 @@ export namespace ec2 {
          * CIDR block of the route.
          */
         cidrBlock: string;
+        /**
+         * ARN of the core network.
+         */
+        coreNetworkArn: string;
         /**
          * The ID of a managed prefix list destination of the route.
          */
@@ -14211,6 +14532,10 @@ export namespace ec2 {
          */
         cidrBlock?: string;
         /**
+         * The Amazon Resource Name (ARN) of a core network.
+         */
+        coreNetworkArn?: string;
+        /**
          * The ID of a managed prefix list destination of the route.
          */
         destinationPrefixListId?: string;
@@ -14838,6 +15163,7 @@ export namespace ec2 {
          */
         statusMessage: string;
     }
+
 }
 
 export namespace ec2clientvpn {
@@ -16165,6 +16491,25 @@ export namespace elasticache {
         port: number;
     }
 
+    export interface ClusterLogDeliveryConfiguration {
+        /**
+         * Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+         */
+        destination: string;
+        /**
+         * For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+         */
+        destinationType: string;
+        /**
+         * Valid values are `json` or `text`
+         */
+        logFormat: string;
+        /**
+         * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+         */
+        logType: string;
+    }
+
     export interface GetClusterCacheNode {
         address: string;
         /**
@@ -16177,6 +16522,20 @@ export namespace elasticache {
          * accept connections.
          */
         port: number;
+    }
+
+    export interface GetClusterLogDeliveryConfiguration {
+        destination: string;
+        destinationType: string;
+        logFormat: string;
+        logType: string;
+    }
+
+    export interface GetReplicationGroupLogDeliveryConfiguration {
+        destination: string;
+        destinationType: string;
+        logFormat: string;
+        logType: string;
     }
 
     export interface ParameterGroupParameter {
@@ -16205,6 +16564,24 @@ export namespace elasticache {
         replicasPerNodeGroup: number;
     }
 
+    export interface ReplicationGroupLogDeliveryConfiguration {
+        /**
+         * Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+         */
+        destination: string;
+        /**
+         * For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+         */
+        destinationType: string;
+        /**
+         * Valid values are `json` or `text`
+         */
+        logFormat: string;
+        /**
+         * Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+         */
+        logType: string;
+    }
 }
 
 export namespace elasticbeanstalk {
@@ -17125,6 +17502,10 @@ export namespace elasticsearch {
 
     export interface DomainClusterConfig {
         /**
+         * Configuration block containing cold storage configuration. Detailed below.
+         */
+        coldStorageOptions: outputs.elasticsearch.DomainClusterConfigColdStorageOptions;
+        /**
          * Number of dedicated main nodes in the cluster.
          */
         dedicatedMasterCount?: number;
@@ -17164,6 +17545,13 @@ export namespace elasticsearch {
          * Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
          */
         zoneAwarenessEnabled?: boolean;
+    }
+
+    export interface DomainClusterConfigColdStorageOptions {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled: boolean;
     }
 
     export interface DomainClusterConfigZoneAwarenessConfig {
@@ -17290,7 +17678,7 @@ export namespace elasticsearch {
          */
         sessionTimeoutMinutes?: number;
         /**
-         * Element of the SAML assertion to use for username. Default is NameID.
+         * Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
          */
         subjectKey?: string;
     }
@@ -17380,6 +17768,10 @@ export namespace elasticsearch {
 
     export interface GetDomainClusterConfig {
         /**
+         * Configuration block containing cold storage configuration.
+         */
+        coldStorageOptions: outputs.elasticsearch.GetDomainClusterConfigColdStorageOption[];
+        /**
          * Number of dedicated master nodes in the cluster.
          */
         dedicatedMasterCount: number;
@@ -17406,7 +17798,7 @@ export namespace elasticsearch {
         /**
          * Indicates warm storage is enabled.
          */
-        warmEnabled?: boolean;
+        warmEnabled: boolean;
         /**
          * The instance type for the Elasticsearch cluster's warm nodes.
          */
@@ -17419,6 +17811,13 @@ export namespace elasticsearch {
          * Indicates whether zone awareness is enabled.
          */
         zoneAwarenessEnabled: boolean;
+    }
+
+    export interface GetDomainClusterConfigColdStorageOption {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
     }
 
     export interface GetDomainClusterConfigZoneAwarenessConfig {
@@ -18867,7 +19266,7 @@ export namespace fsx {
 export namespace gamelift {
     export interface AliasRoutingStrategy {
         /**
-         * ID of the Gamelift Fleet to point the alias to.
+         * ID of the GameLift Fleet to point the alias to.
          */
         fleetId?: string;
         /**
@@ -20362,6 +20761,14 @@ export namespace imagebuilder {
 
     export interface DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
         /**
+         * Set of AWS Organization ARNs to assign.
+         */
+        organizationArns?: string[];
+        /**
+         * Set of AWS Organizational Unit ARNs to assign.
+         */
+        organizationalUnitArns?: string[];
+        /**
          * Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
          */
         userGroups?: string[];
@@ -20398,6 +20805,10 @@ export namespace imagebuilder {
     }
 
     export interface DistributionConfigurationDistributionLaunchTemplateConfiguration {
+        /**
+         * The account ID that this configuration applies to.
+         */
+        accountId?: string;
         /**
          * Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
          */
@@ -20576,6 +20987,14 @@ export namespace imagebuilder {
 
     export interface GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission {
         /**
+         * Set of AWS Organization ARNs.
+         */
+        organizationArns: string[];
+        /**
+         * Set of AWS Organizational Unit ARNs.
+         */
+        organizationalUnitArns: string[];
+        /**
          * Set of EC2 launch permission user groups.
          */
         userGroups: string[];
@@ -20612,6 +21031,10 @@ export namespace imagebuilder {
     }
 
     export interface GetDistributionConfigurationDistributionLaunchTemplateConfiguration {
+        /**
+         * The account ID that this configuration applies to.
+         */
+        accountId: string;
         /**
          * Indicates whether the specified Amazon EC2 launch template is set as the default launch template.
          */
@@ -20694,6 +21117,17 @@ export namespace imagebuilder {
          * Cron expression of how often the pipeline start condition is evaluated.
          */
         scheduleExpression: string;
+    }
+
+    export interface GetImagePipelinesFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
     }
 
     export interface GetImageRecipeBlockDeviceMapping {
@@ -20971,10 +21405,103 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: string;
     }
-
 }
 
 export namespace iot {
+    export interface IndexingConfigurationThingGroupIndexingConfiguration {
+        /**
+         * A list of thing group fields to index. This list cannot contain any managed fields. See below.
+         */
+        customFields?: outputs.iot.IndexingConfigurationThingGroupIndexingConfigurationCustomField[];
+        /**
+         * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+         */
+        managedFields: outputs.iot.IndexingConfigurationThingGroupIndexingConfigurationManagedField[];
+        /**
+         * Thing group indexing mode. Valid values: `OFF`, `ON`.
+         */
+        thingGroupIndexingMode: string;
+    }
+
+    export interface IndexingConfigurationThingGroupIndexingConfigurationCustomField {
+        /**
+         * The name of the field.
+         */
+        name?: string;
+        /**
+         * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+         */
+        type?: string;
+    }
+
+    export interface IndexingConfigurationThingGroupIndexingConfigurationManagedField {
+        /**
+         * The name of the field.
+         */
+        name?: string;
+        /**
+         * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+         */
+        type?: string;
+    }
+
+    export interface IndexingConfigurationThingIndexingConfiguration {
+        /**
+         * Contains custom field names and their data type. See below.
+         */
+        customFields?: outputs.iot.IndexingConfigurationThingIndexingConfigurationCustomField[];
+        /**
+         * Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+         */
+        deviceDefenderIndexingMode?: string;
+        /**
+         * Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+         */
+        managedFields: outputs.iot.IndexingConfigurationThingIndexingConfigurationManagedField[];
+        /**
+         * [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+         */
+        namedShadowIndexingMode?: string;
+        /**
+         * Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+         */
+        thingConnectivityIndexingMode?: string;
+        /**
+         * Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+         */
+        thingIndexingMode: string;
+    }
+
+    export interface IndexingConfigurationThingIndexingConfigurationCustomField {
+        /**
+         * The name of the field.
+         */
+        name?: string;
+        /**
+         * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+         */
+        type?: string;
+    }
+
+    export interface IndexingConfigurationThingIndexingConfigurationManagedField {
+        /**
+         * The name of the field.
+         */
+        name?: string;
+        /**
+         * The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+         */
+        type?: string;
+    }
+
+    export interface ProvisioningTemplatePreProvisioningHook {
+        /**
+         * The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+         */
+        payloadVersion?: string;
+        targetArn: string;
+    }
+
     export interface ThingGroupMetadata {
         creationDate: string;
         /**
@@ -23720,6 +24247,13 @@ export namespace lambda {
         variables?: {[key: string]: string};
     }
 
+    export interface FunctionEphemeralStorage {
+        /**
+         * The size of the Lambda function Ephemeral storage(`/tmp`) represented in MB. The minimum supported `ephemeralStorage` value defaults to `512`MB and the maximum supported value is `10240`MB.
+         */
+        size: number;
+    }
+
     export interface FunctionEventInvokeConfigDestinationConfig {
         /**
          * Configuration block with destination configuration for failed asynchronous invocations. See below for details.
@@ -23778,6 +24312,33 @@ export namespace lambda {
         mode: string;
     }
 
+    export interface FunctionUrlCors {
+        /**
+         * Whether to allow cookies or other credentials in requests to the function URL. The default is `false`.
+         */
+        allowCredentials?: boolean;
+        /**
+         * The HTTP headers that origins can include in requests to the function URL. For example: `["date", "keep-alive", "x-custom-header"]`.
+         */
+        allowHeaders?: string[];
+        /**
+         * The HTTP methods that are allowed when calling the function URL. For example: `["GET", "POST", "DELETE"]`, or the wildcard character (`["*"]`).
+         */
+        allowMethods?: string[];
+        /**
+         * The origins that can access the function URL. You can list any number of specific origins (or the wildcard character (`"*"`)), separated by a comma. For example: `["https://www.example.com", "http://localhost:60905"]`.
+         */
+        allowOrigins?: string[];
+        /**
+         * The HTTP headers in your function response that you want to expose to origins that call the function URL.
+         */
+        exposeHeaders?: string[];
+        /**
+         * The maximum amount of time, in seconds, that web browsers can cache results of a preflight request. By default, this is set to `0`, which means that the browser doesn't cache results. The maximum value is `86400`.
+         */
+        maxAge?: number;
+    }
+
     export interface FunctionVpcConfig {
         /**
          * List of security group IDs associated with the Lambda function.
@@ -23812,6 +24373,10 @@ export namespace lambda {
         variables: {[key: string]: string};
     }
 
+    export interface GetFunctionEphemeralStorage {
+        size: number;
+    }
+
     export interface GetFunctionFileSystemConfig {
         /**
          * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
@@ -23822,6 +24387,15 @@ export namespace lambda {
 
     export interface GetFunctionTracingConfig {
         mode: string;
+    }
+
+    export interface GetFunctionUrlCor {
+        allowCredentials: boolean;
+        allowHeaders: string[];
+        allowMethods: string[];
+        allowOrigins: string[];
+        exposeHeaders: string[];
+        maxAge: number;
     }
 
     export interface GetFunctionVpcConfig {
@@ -25279,6 +25853,140 @@ export namespace memorydb {
         port: number;
     }
 
+    export interface GetClusterClusterEndpoint {
+        /**
+         * DNS hostname of the node.
+         */
+        address: string;
+        /**
+         * Port number that this node is listening on.
+         */
+        port: number;
+    }
+
+    export interface GetClusterShard {
+        /**
+         * Name of the cluster.
+         */
+        name: string;
+        /**
+         * Set of nodes in this shard.
+         */
+        nodes: outputs.memorydb.GetClusterShardNode[];
+        /**
+         * Number of individual nodes in this shard.
+         */
+        numNodes: number;
+        /**
+         * Keyspace for this shard. Example: `0-16383`.
+         */
+        slots: string;
+    }
+
+    export interface GetClusterShardNode {
+        /**
+         * The Availability Zone in which the node resides.
+         */
+        availabilityZone: string;
+        /**
+         * The date and time when the node was created. Example: `2022-01-01T21:00:00Z`.
+         */
+        createTime: string;
+        endpoints: outputs.memorydb.GetClusterShardNodeEndpoint[];
+        /**
+         * Name of the cluster.
+         */
+        name: string;
+    }
+
+    export interface GetClusterShardNodeEndpoint {
+        /**
+         * DNS hostname of the node.
+         */
+        address: string;
+        /**
+         * Port number that this node is listening on.
+         */
+        port: number;
+    }
+
+    export interface GetParameterGroupParameter {
+        /**
+         * Name of the parameter group.
+         */
+        name: string;
+        /**
+         * Value of the parameter.
+         */
+        value: string;
+    }
+
+    export interface GetSnapshotClusterConfiguration {
+        /**
+         * Description for the cluster.
+         */
+        description: string;
+        /**
+         * Version number of the Redis engine used by the cluster.
+         */
+        engineVersion: string;
+        /**
+         * The weekly time range during which maintenance on the cluster is performed.
+         */
+        maintenanceWindow: string;
+        /**
+         * Name of the snapshot.
+         */
+        name: string;
+        /**
+         * Compute and memory capacity of the nodes in the cluster.
+         */
+        nodeType: string;
+        /**
+         * Number of shards in the cluster.
+         */
+        numShards: number;
+        /**
+         * Name of the parameter group associated with the cluster.
+         */
+        parameterGroupName: string;
+        /**
+         * Port number on which the cluster accepts connections.
+         */
+        port: number;
+        /**
+         * Number of days for which MemoryDB retains automatic snapshots before deleting them.
+         */
+        snapshotRetentionLimit: number;
+        /**
+         * The daily time range (in UTC) during which MemoryDB begins taking a daily snapshot of the shard.
+         */
+        snapshotWindow: string;
+        /**
+         * Name of the subnet group used by the cluster.
+         */
+        subnetGroupName: string;
+        /**
+         * ARN of the SNS topic to which cluster notifications are sent.
+         */
+        topicArn: string;
+        /**
+         * The VPC in which the cluster exists.
+         */
+        vpcId: string;
+    }
+
+    export interface GetUserAuthenticationMode {
+        /**
+         * The number of passwords belonging to the user.
+         */
+        passwordCount: number;
+        /**
+         * Indicates whether the user requires a password to authenticate.
+         */
+        type: string;
+    }
+
     export interface ParameterGroupParameter {
         /**
          * The name of the parameter.
@@ -25359,7 +26067,6 @@ export namespace memorydb {
          */
         type: string;
     }
-
 }
 
 export namespace mq {
@@ -25730,6 +26437,196 @@ export namespace msk {
 }
 
 export namespace mskconnect {
+    export interface ConnectorCapacity {
+        /**
+         * Information about the auto scaling parameters for the connector. See below.
+         */
+        autoscaling?: outputs.mskconnect.ConnectorCapacityAutoscaling;
+        /**
+         * Details about a fixed capacity allocated to a connector. See below.
+         */
+        provisionedCapacity?: outputs.mskconnect.ConnectorCapacityProvisionedCapacity;
+    }
+
+    export interface ConnectorCapacityAutoscaling {
+        /**
+         * The maximum number of workers allocated to the connector.
+         */
+        maxWorkerCount: number;
+        /**
+         * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+         */
+        mcuCount?: number;
+        /**
+         * The minimum number of workers allocated to the connector.
+         */
+        minWorkerCount: number;
+        /**
+         * The scale-in policy for the connector. See below.
+         */
+        scaleInPolicy: outputs.mskconnect.ConnectorCapacityAutoscalingScaleInPolicy;
+        /**
+         * The scale-out policy for the connector. See below.
+         */
+        scaleOutPolicy: outputs.mskconnect.ConnectorCapacityAutoscalingScaleOutPolicy;
+    }
+
+    export interface ConnectorCapacityAutoscalingScaleInPolicy {
+        /**
+         * The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+         */
+        cpuUtilizationPercentage: number;
+    }
+
+    export interface ConnectorCapacityAutoscalingScaleOutPolicy {
+        /**
+         * The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+         */
+        cpuUtilizationPercentage: number;
+    }
+
+    export interface ConnectorCapacityProvisionedCapacity {
+        /**
+         * The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+         */
+        mcuCount?: number;
+        /**
+         * The number of workers that are allocated to the connector.
+         */
+        workerCount: number;
+    }
+
+    export interface ConnectorKafkaCluster {
+        /**
+         * The Apache Kafka cluster to which the connector is connected.
+         */
+        apacheKafkaCluster: outputs.mskconnect.ConnectorKafkaClusterApacheKafkaCluster;
+    }
+
+    export interface ConnectorKafkaClusterApacheKafkaCluster {
+        /**
+         * The bootstrap servers of the cluster.
+         */
+        bootstrapServers: string;
+        /**
+         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         */
+        vpc: outputs.mskconnect.ConnectorKafkaClusterApacheKafkaClusterVpc;
+    }
+
+    export interface ConnectorKafkaClusterApacheKafkaClusterVpc {
+        /**
+         * The security groups for the connector.
+         */
+        securityGroups: string[];
+        /**
+         * The subnets for the connector.
+         */
+        subnets: string[];
+    }
+
+    export interface ConnectorKafkaClusterClientAuthentication {
+        /**
+         * The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+         */
+        authenticationType?: string;
+    }
+
+    export interface ConnectorKafkaClusterEncryptionInTransit {
+        /**
+         * The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+         */
+        encryptionType?: string;
+    }
+
+    export interface ConnectorLogDelivery {
+        /**
+         * The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See below.
+         */
+        workerLogDelivery: outputs.mskconnect.ConnectorLogDeliveryWorkerLogDelivery;
+    }
+
+    export interface ConnectorLogDeliveryWorkerLogDelivery {
+        /**
+         * Details about delivering logs to Amazon CloudWatch Logs. See below.
+         */
+        cloudwatchLogs?: outputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs;
+        /**
+         * Details about delivering logs to Amazon Kinesis Data Firehose. See below.
+         */
+        firehose?: outputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryFirehose;
+        /**
+         * Details about delivering logs to Amazon S3. See below.
+         */
+        s3?: outputs.mskconnect.ConnectorLogDeliveryWorkerLogDeliveryS3;
+    }
+
+    export interface ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogs {
+        /**
+         * Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         */
+        enabled: boolean;
+        /**
+         * The name of the CloudWatch log group that is the destination for log delivery.
+         */
+        logGroup?: string;
+    }
+
+    export interface ConnectorLogDeliveryWorkerLogDeliveryFirehose {
+        /**
+         * The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+         */
+        deliveryStream?: string;
+        /**
+         * Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         */
+        enabled: boolean;
+    }
+
+    export interface ConnectorLogDeliveryWorkerLogDeliveryS3 {
+        /**
+         * The name of the S3 bucket that is the destination for log delivery.
+         */
+        bucket?: string;
+        /**
+         * Specifies whether connector logs get sent to the specified Amazon S3 destination.
+         */
+        enabled: boolean;
+        /**
+         * The S3 prefix that is the destination for log delivery.
+         */
+        prefix?: string;
+    }
+
+    export interface ConnectorPlugin {
+        /**
+         * Details about a custom plugin. See below.
+         */
+        customPlugin: outputs.mskconnect.ConnectorPluginCustomPlugin;
+    }
+
+    export interface ConnectorPluginCustomPlugin {
+        /**
+         * The Amazon Resource Name (ARN) of the worker configuration.
+         */
+        arn: string;
+        /**
+         * The revision of the worker configuration.
+         */
+        revision: number;
+    }
+
+    export interface ConnectorWorkerConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the worker configuration.
+         */
+        arn: string;
+        /**
+         * The revision of the worker configuration.
+         */
+        revision: number;
+    }
+
     export interface CustomPluginLocation {
         /**
          * Information of the plugin file stored in Amazon S3. See below.
@@ -26461,6 +27358,482 @@ export namespace networkmanager {
          * Longitude of the location.
          */
         longitude?: string;
+    }
+
+}
+
+export namespace opensearch {
+    export interface DomainAdvancedSecurityOptions {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled: boolean;
+        /**
+         * Whether the internal user database is enabled. Default is `false`.
+         */
+        internalUserDatabaseEnabled?: boolean;
+        /**
+         * Configuration block for the main user. Detailed below.
+         */
+        masterUserOptions?: outputs.opensearch.DomainAdvancedSecurityOptionsMasterUserOptions;
+    }
+
+    export interface DomainAdvancedSecurityOptionsMasterUserOptions {
+        /**
+         * ARN for the main user. Only specify if `internalUserDatabaseEnabled` is not set or set to `false`.
+         */
+        masterUserArn?: string;
+        /**
+         * Main user's username, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         */
+        masterUserName?: string;
+        /**
+         * Main user's password, which is stored in the Amazon OpenSearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
+         */
+        masterUserPassword?: string;
+    }
+
+    export interface DomainAutoTuneOptions {
+        /**
+         * Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+         */
+        desiredState: string;
+        /**
+         * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+         */
+        maintenanceSchedules: outputs.opensearch.DomainAutoTuneOptionsMaintenanceSchedule[];
+        /**
+         * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+         */
+        rollbackOnDisable: string;
+    }
+
+    export interface DomainAutoTuneOptionsMaintenanceSchedule {
+        /**
+         * A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+         */
+        cronExpressionForRecurrence: string;
+        /**
+         * Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+         */
+        duration: outputs.opensearch.DomainAutoTuneOptionsMaintenanceScheduleDuration;
+        /**
+         * Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        startAt: string;
+    }
+
+    export interface DomainAutoTuneOptionsMaintenanceScheduleDuration {
+        /**
+         * Unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+         */
+        unit: string;
+        /**
+         * An integer specifying the value of the duration of an Auto-Tune maintenance window.
+         */
+        value: number;
+    }
+
+    export interface DomainClusterConfig {
+        /**
+         * Number of dedicated main nodes in the cluster.
+         */
+        dedicatedMasterCount?: number;
+        /**
+         * Whether dedicated main nodes are enabled for the cluster.
+         */
+        dedicatedMasterEnabled?: boolean;
+        /**
+         * Instance type of the dedicated main nodes in the cluster.
+         */
+        dedicatedMasterType?: string;
+        /**
+         * Number of instances in the cluster.
+         */
+        instanceCount?: number;
+        /**
+         * Instance type of data nodes in the cluster.
+         */
+        instanceType?: string;
+        /**
+         * Number of warm nodes in the cluster. Valid values are between `2` and `150`. `warmCount` can be only and must be set when `warmEnabled` is set to `true`.
+         */
+        warmCount?: number;
+        /**
+         * Whether to enable warm storage.
+         */
+        warmEnabled?: boolean;
+        /**
+         * Instance type for the OpenSearch cluster's warm nodes. Valid values are `ultrawarm1.medium.search`, `ultrawarm1.large.search` and `ultrawarm1.xlarge.search`. `warmType` can be only and must be set when `warmEnabled` is set to `true`.
+         */
+        warmType?: string;
+        /**
+         * Configuration block containing zone awareness settings. Detailed below.
+         */
+        zoneAwarenessConfig?: outputs.opensearch.DomainClusterConfigZoneAwarenessConfig;
+        /**
+         * Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availabilityZoneCount` within the `zoneAwarenessConfig` must be set to `3`.
+         */
+        zoneAwarenessEnabled?: boolean;
+    }
+
+    export interface DomainClusterConfigZoneAwarenessConfig {
+        /**
+         * Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
+         */
+        availabilityZoneCount?: number;
+    }
+
+    export interface DomainCognitoOptions {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled?: boolean;
+        /**
+         * ID of the Cognito Identity Pool to use.
+         */
+        identityPoolId: string;
+        /**
+         * ARN of the IAM role that has the AmazonOpenSearchServiceCognitoAccess policy attached.
+         */
+        roleArn: string;
+        /**
+         * ID of the Cognito User Pool to use.
+         */
+        userPoolId: string;
+    }
+
+    export interface DomainDomainEndpointOptions {
+        /**
+         * Fully qualified domain for your custom endpoint.
+         */
+        customEndpoint?: string;
+        /**
+         * ACM certificate ARN for your custom endpoint.
+         */
+        customEndpointCertificateArn?: string;
+        /**
+         * Whether to enable custom endpoint for the OpenSearch domain.
+         */
+        customEndpointEnabled?: boolean;
+        /**
+         * Whether or not to require HTTPS. Defaults to `true`.
+         */
+        enforceHttps?: boolean;
+        tlsSecurityPolicy: string;
+    }
+
+    export interface DomainEbsOptions {
+        /**
+         * Whether EBS volumes are attached to data nodes in the domain.
+         */
+        ebsEnabled: boolean;
+        /**
+         * Baseline input/output (I/O) performance of EBS volumes attached to data nodes. Applicable only for the Provisioned IOPS EBS volume type.
+         */
+        iops?: number;
+        /**
+         * Size of EBS volumes attached to data nodes (in GiB).
+         */
+        volumeSize?: number;
+        /**
+         * Type of EBS volumes attached to data nodes.
+         */
+        volumeType: string;
+    }
+
+    export interface DomainEncryptAtRest {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled: boolean;
+        /**
+         * KMS key id to encrypt the OpenSearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+         */
+        kmsKeyId: string;
+    }
+
+    export interface DomainLogPublishingOption {
+        /**
+         * ARN of the Cloudwatch log group to which log needs to be published.
+         */
+        cloudwatchLogGroupArn: string;
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled?: boolean;
+        /**
+         * Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
+         */
+        logType: string;
+    }
+
+    export interface DomainNodeToNodeEncryption {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         */
+        enabled: boolean;
+    }
+
+    export interface DomainSamlOptionsSamlOptions {
+        /**
+         * Whether SAML authentication is enabled.
+         */
+        enabled?: boolean;
+        /**
+         * Information from your identity provider.
+         */
+        idp?: outputs.opensearch.DomainSamlOptionsSamlOptionsIdp;
+        /**
+         * This backend role from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+         */
+        masterBackendRole?: string;
+        /**
+         * This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
+         */
+        masterUserName?: string;
+        /**
+         * Element of the SAML assertion to use for backend roles. Default is roles.
+         */
+        rolesKey?: string;
+        /**
+         * Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
+         */
+        sessionTimeoutMinutes?: number;
+        /**
+         * Element of the SAML assertion to use for username. Default is NameID.
+         */
+        subjectKey?: string;
+    }
+
+    export interface DomainSamlOptionsSamlOptionsIdp {
+        /**
+         * Unique Entity ID of the application in SAML Identity Provider.
+         */
+        entityId: string;
+        /**
+         * Metadata of the SAML application in xml format.
+         */
+        metadataContent: string;
+    }
+
+    export interface DomainSnapshotOptions {
+        /**
+         * Hour during which the service takes an automated daily snapshot of the indices in the domain.
+         */
+        automatedSnapshotStartHour: number;
+    }
+
+    export interface DomainVpcOptions {
+        availabilityZones: string[];
+        /**
+         * List of VPC Security Group IDs to be applied to the OpenSearch domain endpoints. If omitted, the default Security Group for the VPC will be used.
+         */
+        securityGroupIds?: string[];
+        /**
+         * List of VPC Subnet IDs for the OpenSearch domain endpoints to be created in.
+         */
+        subnetIds?: string[];
+        vpcId: string;
+    }
+
+    export interface GetDomainAdvancedSecurityOption {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Whether the internal user database is enabled.
+         */
+        internalUserDatabaseEnabled: boolean;
+    }
+
+    export interface GetDomainAutoTuneOption {
+        /**
+         * Auto-Tune desired state for the domain.
+         */
+        desiredState: string;
+        /**
+         * A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
+         */
+        maintenanceSchedules: outputs.opensearch.GetDomainAutoTuneOptionMaintenanceSchedule[];
+        /**
+         * Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+         */
+        rollbackOnDisable: string;
+    }
+
+    export interface GetDomainAutoTuneOptionMaintenanceSchedule {
+        /**
+         * A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+         */
+        cronExpressionForRecurrence: string;
+        /**
+         * Configuration block for the duration of the Auto-Tune maintenance window.
+         */
+        durations: outputs.opensearch.GetDomainAutoTuneOptionMaintenanceScheduleDuration[];
+        /**
+         * Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        startAt: string;
+    }
+
+    export interface GetDomainAutoTuneOptionMaintenanceScheduleDuration {
+        /**
+         * Unit of time specifying the duration of an Auto-Tune maintenance window.
+         */
+        unit: string;
+        /**
+         * An integer specifying the value of the duration of an Auto-Tune maintenance window.
+         */
+        value: number;
+    }
+
+    export interface GetDomainClusterConfig {
+        /**
+         * Number of dedicated master nodes in the cluster.
+         */
+        dedicatedMasterCount: number;
+        /**
+         * Indicates whether dedicated master nodes are enabled for the cluster.
+         */
+        dedicatedMasterEnabled: boolean;
+        /**
+         * Instance type of the dedicated master nodes in the cluster.
+         */
+        dedicatedMasterType: string;
+        /**
+         * Number of instances in the cluster.
+         */
+        instanceCount: number;
+        /**
+         * Instance type of data nodes in the cluster.
+         */
+        instanceType: string;
+        /**
+         * Number of warm nodes in the cluster.
+         */
+        warmCount: number;
+        /**
+         * Indicates warm storage is enabled.
+         */
+        warmEnabled?: boolean;
+        /**
+         * Instance type for the OpenSearch cluster's warm nodes.
+         */
+        warmType: string;
+        /**
+         * Configuration block containing zone awareness settings.
+         */
+        zoneAwarenessConfigs: outputs.opensearch.GetDomainClusterConfigZoneAwarenessConfig[];
+        /**
+         * Indicates whether zone awareness is enabled.
+         */
+        zoneAwarenessEnabled: boolean;
+    }
+
+    export interface GetDomainClusterConfigZoneAwarenessConfig {
+        /**
+         * Number of availability zones used.
+         */
+        availabilityZoneCount: number;
+    }
+
+    export interface GetDomainCognitoOption {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Cognito Identity pool used by the domain.
+         */
+        identityPoolId: string;
+        /**
+         * IAM Role with the AmazonOpenSearchServiceCognitoAccess policy attached.
+         */
+        roleArn: string;
+        /**
+         * Cognito User pool used by the domain.
+         */
+        userPoolId: string;
+    }
+
+    export interface GetDomainEbsOption {
+        /**
+         * Whether EBS volumes are attached to data nodes in the domain.
+         */
+        ebsEnabled: boolean;
+        /**
+         * Baseline input/output (I/O) performance of EBS volumes attached to data nodes.
+         */
+        iops: number;
+        /**
+         * Size of EBS volumes attached to data nodes (in GB).
+         */
+        volumeSize: number;
+        /**
+         * Type of EBS volumes attached to data nodes.
+         */
+        volumeType: string;
+    }
+
+    export interface GetDomainEncryptionAtRest {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+        /**
+         * KMS key id used to encrypt data at rest.
+         */
+        kmsKeyId: string;
+    }
+
+    export interface GetDomainLogPublishingOption {
+        /**
+         * CloudWatch Log Group where the logs are published.
+         */
+        cloudwatchLogGroupArn: string;
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+        /**
+         * Type of OpenSearch log being published.
+         */
+        logType: string;
+    }
+
+    export interface GetDomainNodeToNodeEncryption {
+        /**
+         * Whether node to node encryption is enabled.
+         */
+        enabled: boolean;
+    }
+
+    export interface GetDomainSnapshotOption {
+        /**
+         * Hour during which the service takes an automated daily snapshot of the indices in the domain.
+         */
+        automatedSnapshotStartHour: number;
+    }
+
+    export interface GetDomainVpcOption {
+        /**
+         * Availability zones used by the domain.
+         */
+        availabilityZones: string[];
+        /**
+         * Security groups used by the domain.
+         */
+        securityGroupIds: string[];
+        /**
+         * Subnets used by the domain.
+         */
+        subnetIds: string[];
+        /**
+         * VPC used by the domain.
+         */
+        vpcId: string;
     }
 
 }
@@ -27419,6 +28792,20 @@ export namespace pricing {
 
 }
 
+export namespace qldb {
+    export interface StreamKinesisConfiguration {
+        /**
+         * Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+         */
+        aggregationEnabled?: boolean;
+        /**
+         * The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+         */
+        streamArn: string;
+    }
+
+}
+
 export namespace quicksight {
     export interface DataSourceCredentials {
         /**
@@ -28275,6 +29662,202 @@ export namespace route53 {
     export interface GetResolverEndpointFilter {
         name: string;
         values: string[];
+    }
+
+    export interface GetTrafficPolicyDocumentEndpoint {
+        /**
+         * ID of a rule you want to assign.
+         */
+        id: string;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: string;
+        /**
+         * Type of the rule.
+         */
+        type?: string;
+        /**
+         * Value of the `type`.
+         */
+        value?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRule {
+        /**
+         * Configuration block for when you add a geoproximity rule, you configure Amazon Route 53 to route traffic to your resources based on the geographic location of your resources. Only valid for `geoproximity` type. See below
+         */
+        geoProximityLocations?: outputs.route53.GetTrafficPolicyDocumentRuleGeoProximityLocation[];
+        /**
+         * ID of a rule you want to assign.
+         */
+        id: string;
+        /**
+         * Configuration block for when you add a multivalue answer rule, you configure your traffic policy to route traffic approximately randomly to your healthy resources.  Only valid for `multivalue` type. See below
+         */
+        items?: outputs.route53.GetTrafficPolicyDocumentRuleItem[];
+        /**
+         * Configuration block for when you add a geolocation rule, you configure your traffic policy to route your traffic based on the geographic location of your users.  Only valid for `geo` type. See below
+         */
+        locations?: outputs.route53.GetTrafficPolicyDocumentRuleLocation[];
+        /**
+         * Configuration block for the settings for the rule or endpoint that you want to route traffic to whenever the corresponding resources are available. Only valid for `failover` type. See below
+         */
+        primary?: outputs.route53.GetTrafficPolicyDocumentRulePrimary;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        regions?: outputs.route53.GetTrafficPolicyDocumentRuleRegion[];
+        /**
+         * Configuration block for the rule or endpoint that you want to route traffic to whenever the primary resources are not available. Only valid for `failover` type. See below
+         */
+        secondary?: outputs.route53.GetTrafficPolicyDocumentRuleSecondary;
+        /**
+         * Type of the rule.
+         */
+        type?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleGeoProximityLocation {
+        /**
+         * Specify a value for `bias` if you want to route more traffic to an endpoint from nearby endpoints (positive values) or route less traffic to an endpoint (negative values).
+         */
+        bias?: string;
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * Represents the location south (negative) or north (positive) of the equator. Valid values are -90 degrees to 90 degrees.
+         */
+        latitude?: string;
+        /**
+         * Represents the location west (negative) or east (positive) of the prime meridian. Valid values are -180 degrees to 180 degrees.
+         */
+        longitude?: string;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: string;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleItem {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleLocation {
+        /**
+         * Value of a continent.
+         */
+        continent?: string;
+        /**
+         * Value of a country.
+         */
+        country?: string;
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * Indicates whether this set of values represents the default location.
+         */
+        isDefault?: boolean;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+        /**
+         * Value of a subdivision.
+         */
+        subdivision?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRulePrimary {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleRegion {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * Region code for the AWS Region that you created the resource in.
+         */
+        region?: string;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
+    }
+
+    export interface GetTrafficPolicyDocumentRuleSecondary {
+        /**
+         * References to an endpoint.
+         */
+        endpointReference?: string;
+        /**
+         * Indicates whether you want Amazon Route 53 to evaluate the health of the endpoint and route traffic only to healthy endpoints.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * If you want to associate a health check with the endpoint or rule.
+         */
+        healthCheck?: string;
+        /**
+         * References to a rule.
+         */
+        ruleReference?: string;
     }
 
     export interface RecordAlias {
@@ -29703,199 +31286,142 @@ export namespace s3 {
 
     export interface BucketV2CorsRule {
         /**
-         * Set of headers that are specified in the Access-Control-Request-Headers header.
-         *
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * List of headers allowed.
          */
-        allowedHeaders: string[];
+        allowedHeaders?: string[];
         /**
-         * Set of HTTP methods that the origin is allowed to execute.
-         *
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
          */
         allowedMethods: string[];
         /**
-         * Set of origins customers are able to access the bucket from.
-         *
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * One or more origins you want customers to be able to access the bucket from.
          */
         allowedOrigins: string[];
         /**
-         * Set of headers in the response that customers are able to access from their applications.
-         * * `maxAgeSeconds` The time in seconds that browser can cache the response for a preflight request.
-         *
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
          */
-        exposeHeaders: string[];
+        exposeHeaders?: string[];
         /**
-         * @deprecated Use the aws_s3_bucket_cors_configuration resource instead
+         * Specifies time in seconds that browser can cache the response for a preflight request.
          */
-        maxAgeSeconds: number;
+        maxAgeSeconds?: number;
     }
 
     export interface BucketV2Grant {
         /**
-         * Unique identifier for the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_acl resource instead
+         * Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
          */
-        id: string;
+        id?: string;
         /**
-         * List of permissions given to the grantee.
-         *
-         * @deprecated Use the aws_s3_bucket_acl resource instead
+         * List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
          */
         permissions: string[];
         /**
-         * Type of grantee.
-         *
-         * @deprecated Use the aws_s3_bucket_acl resource instead
+         * Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
          */
         type: string;
         /**
-         * URI of the grantee group.
-         *
-         * @deprecated Use the aws_s3_bucket_acl resource instead
+         * Uri address to grant for. Used only when `type` is `Group`.
          */
-        uri: string;
+        uri?: string;
     }
 
     export interface BucketV2LifecycleRule {
         /**
-         * Number of days after initiating a multipart upload when the multipart upload must be completed.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
          */
-        abortIncompleteMultipartUploadDays: number;
+        abortIncompleteMultipartUploadDays?: number;
         /**
-         * Whether versioning is enabled.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies lifecycle rule status.
          */
         enabled: boolean;
         /**
-         * The expiration for the lifecycle of the object in the form of date, days and, whether the object has a delete marker.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies a period in the object's expire. See Expiration below for details.
          */
-        expirations: outputs.s3.BucketV2LifecycleRuleExpiration[];
+        expirations?: outputs.s3.BucketV2LifecycleRuleExpiration[];
         /**
-         * Unique identifier for the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
         id: string;
         /**
-         * When noncurrent object versions expire.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies when noncurrent object versions expire. See Noncurrent Version Expiration below for details.
          */
-        noncurrentVersionExpirations: outputs.s3.BucketV2LifecycleRuleNoncurrentVersionExpiration[];
+        noncurrentVersionExpirations?: outputs.s3.BucketV2LifecycleRuleNoncurrentVersionExpiration[];
         /**
-         * When noncurrent object versions transition.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies when noncurrent object versions transitions. See Noncurrent Version Transition below for details.
          */
-        noncurrentVersionTransitions: outputs.s3.BucketV2LifecycleRuleNoncurrentVersionTransition[];
+        noncurrentVersionTransitions?: outputs.s3.BucketV2LifecycleRuleNoncurrentVersionTransition[];
         /**
-         * Object keyname prefix identifying one or more objects to which the rule applies
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Object key prefix identifying one or more objects to which the rule applies.
          */
-        prefix: string;
+        prefix?: string;
         /**
-         * A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies object tags key and value.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
         /**
-         * Specifies when an Amazon S3 object transitions to a specified storage class.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies a period in the object's transitions. See Transition below for details.
          */
-        transitions: outputs.s3.BucketV2LifecycleRuleTransition[];
+        transitions?: outputs.s3.BucketV2LifecycleRuleTransition[];
     }
 
     export interface BucketV2LifecycleRuleExpiration {
         /**
-         * The date after which you want the corresponding action to take effect.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the date after which you want the corresponding action to take effect.
          */
-        date: string;
+        date?: string;
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days after object creation when the specific rule action takes effect.
          */
-        days: number;
+        days?: number;
         /**
-         * Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * On a versioned bucket (versioning-enabled or versioning-suspended bucket), you can add this element in the lifecycle configuration to direct Amazon S3 to delete expired object delete markers. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.
          */
-        expiredObjectDeleteMarker: boolean;
+        expiredObjectDeleteMarker?: boolean;
     }
 
     export interface BucketV2LifecycleRuleNoncurrentVersionExpiration {
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days noncurrent object versions expire.
          */
-        days: number;
+        days?: number;
     }
 
     export interface BucketV2LifecycleRuleNoncurrentVersionTransition {
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days noncurrent object versions transition.
          */
-        days: number;
+        days?: number;
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
         storageClass: string;
     }
 
     export interface BucketV2LifecycleRuleTransition {
         /**
-         * The date after which you want the corresponding action to take effect.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the date after which you want the corresponding action to take effect.
          */
-        date: string;
+        date?: string;
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the number of days after object creation when the specific rule action takes effect.
          */
-        days: number;
+        days?: number;
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
-         *
-         * @deprecated Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
         storageClass: string;
     }
 
     export interface BucketV2Logging {
         /**
-         * The name of the bucket that receives the log objects.
-         *
-         * @deprecated Use the aws_s3_bucket_logging resource instead
+         * The name of the bucket that will receive the log objects.
          */
         targetBucket: string;
         /**
-         * The prefix for all log object keys/
-         *
-         * @deprecated Use the aws_s3_bucket_logging resource instead
+         * To specify a key prefix for log objects.
          */
-        targetPrefix: string;
+        targetPrefix?: string;
     }
 
     export interface BucketV2ObjectLockConfiguration {
@@ -29906,305 +31432,224 @@ export namespace s3 {
          */
         objectLockEnabled?: string;
         /**
-         * (required) Information about a particular server-side encryption configuration rule.
+         * The Object Lock rule in place for this bucket (documented below).
          *
          * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
          */
-        rules: outputs.s3.BucketV2ObjectLockConfigurationRule[];
+        rules?: outputs.s3.BucketV2ObjectLockConfigurationRule[];
     }
 
     export interface BucketV2ObjectLockConfigurationRule {
         /**
-         * The default retention period applied to new objects placed in this bucket.
-         *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * The default retention period that you want to apply to new objects placed in this bucket (documented below).
          */
         defaultRetentions: outputs.s3.BucketV2ObjectLockConfigurationRuleDefaultRetention[];
     }
 
     export interface BucketV2ObjectLockConfigurationRuleDefaultRetention {
         /**
-         * The number of days specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * The number of days that you want to specify for the default retention period.
          */
-        days: number;
+        days?: number;
         /**
-         * The default Object Lock retention mode applied to new objects placed in this bucket.
-         *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * The default Object Lock retention mode you want to apply to new objects placed in this bucket. Valid values are `GOVERNANCE` and `COMPLIANCE`.
          */
         mode: string;
         /**
-         * The number of years specified for the default retention period.
-         *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * The number of years that you want to specify for the default retention period.
          */
-        years: number;
+        years?: number;
     }
 
     export interface BucketV2ReplicationConfiguration {
         /**
-         * The ARN of the IAM role for Amazon S3 assumed when replicating the objects.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
          */
         role: string;
         /**
-         * The rules managing the replication.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Specifies the rules managing the replication (documented below).
          */
         rules: outputs.s3.BucketV2ReplicationConfigurationRule[];
     }
 
     export interface BucketV2ReplicationConfigurationRule {
         /**
-         * Whether delete markers are replicated.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Whether delete markers are replicated. The only valid value is `Enabled`. To disable, omit this argument. This argument is only valid with V2 replication configurations (i.e., when `filter` is used).
          */
-        deleteMarkerReplicationStatus: string;
+        deleteMarkerReplicationStatus?: string;
         /**
-         * The destination for the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Specifies the destination for the rule (documented below).
          */
         destinations: outputs.s3.BucketV2ReplicationConfigurationRuleDestination[];
         /**
-         * Filter that identifies subset of objects to which the replication rule applies.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Filter that identifies subset of objects to which the replication rule applies (documented below).
          */
-        filters: outputs.s3.BucketV2ReplicationConfigurationRuleFilter[];
+        filters?: outputs.s3.BucketV2ReplicationConfigurationRuleFilter[];
         /**
-         * Unique identifier for the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
          */
-        id: string;
+        id?: string;
         /**
-         * Object keyname prefix identifying one or more objects to which the rule applies
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Object keyname prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
          */
-        prefix: string;
+        prefix?: string;
         /**
-         * The priority associated with the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
          */
-        priority: number;
+        priority?: number;
         /**
-         * The special object selection criteria.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Specifies special object selection criteria (documented below).
          */
-        sourceSelectionCriterias: outputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria[];
+        sourceSelectionCriterias?: outputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteria[];
         /**
-         * The status of the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The status of the rule. Either `Enabled` or `Disabled`. The rule is ignored if status is not Enabled.
          */
         status: string;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestination {
         /**
-         * The overrides to use for object owners on replication.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Specifies the overrides to use for object owners on replication. Must be used in conjunction with `accountId` owner override configuration.
          */
-        accessControlTranslations: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation[];
+        accessControlTranslations?: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation[];
         /**
-         * The Account ID to use for overriding the object owner on replication.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `accessControlTranslation` override configuration.
          */
-        accountId: string;
+        accountId?: string;
         /**
-         * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
          */
         bucket: string;
         /**
-         * Replication metrics.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Enables replication metrics (required for S3 RTC) (documented below).
          */
-        metrics: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationMetric[];
+        metrics?: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationMetric[];
         /**
-         * Destination KMS encryption key ARN for SSE-KMS replication.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
+         * `sseKmsEncryptedObjects` source selection criteria.
          */
-        replicaKmsKeyId: string;
+        replicaKmsKeyId?: string;
         /**
-         * S3 Replication Time Control (S3 RTC).
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Enables S3 Replication Time Control (S3 RTC) (documented below).
          */
-        replicationTimes: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTime[];
+        replicationTimes?: outputs.s3.BucketV2ReplicationConfigurationRuleDestinationReplicationTime[];
         /**
-         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          */
-        storageClass: string;
+        storageClass?: string;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestinationAccessControlTranslation {
-        /**
-         * The override value for the owner on replicated objects.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
-         */
         owner: string;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestinationMetric {
         /**
-         * Threshold within which objects are to be replicated.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Threshold within which objects are to be replicated. The only valid value is `15`.
          */
-        minutes: number;
+        minutes?: number;
         /**
-         * The status of the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The status of replication metrics. Either `Enabled` or `Disabled`.
          */
-        status: string;
+        status?: string;
     }
 
     export interface BucketV2ReplicationConfigurationRuleDestinationReplicationTime {
         /**
-         * Threshold within which objects are to be replicated.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Threshold within which objects are to be replicated. The only valid value is `15`.
          */
-        minutes: number;
+        minutes?: number;
         /**
-         * The status of the rule.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * The status of RTC. Either `Enabled` or `Disabled`.
          */
-        status: string;
+        status?: string;
     }
 
     export interface BucketV2ReplicationConfigurationRuleFilter {
         /**
-         * Object keyname prefix identifying one or more objects to which the rule applies
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Object keyname prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
          */
-        prefix: string;
+        prefix?: string;
         /**
-         * A map of tags to assign to the bucket. If configured with a provider [`defaultTags` configuration blockpresent, tags with matching keys will overwrite those defined at the provider-level.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * A map of tags that identifies subset of objects to which the rule applies.
+         * The rule applies only to objects having all the tags in its tagset.
          */
-        tags: {[key: string]: string};
+        tags?: {[key: string]: string};
     }
 
     export interface BucketV2ReplicationConfigurationRuleSourceSelectionCriteria {
         /**
-         * Matched SSE-KMS encrypted objects.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Match SSE-KMS encrypted objects (documented below). If specified, `replicaKmsKeyId`
+         * in `destination` must be specified as well.
          */
-        sseKmsEncryptedObjects: outputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject[];
+        sseKmsEncryptedObjects?: outputs.s3.BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject[];
     }
 
     export interface BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
         /**
-         * Whether versioning is enabled.
-         *
-         * @deprecated Use the aws_s3_bucket_replication_configuration resource instead
+         * Boolean which indicates if this criteria is enabled.
          */
         enabled: boolean;
     }
 
     export interface BucketV2ServerSideEncryptionConfiguration {
         /**
-         * (required) Information about a particular server-side encryption configuration rule.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * A single object for server-side encryption by default configuration. (documented below)
          */
         rules: outputs.s3.BucketV2ServerSideEncryptionConfigurationRule[];
     }
 
     export interface BucketV2ServerSideEncryptionConfigurationRule {
         /**
-         * The default server-side encryption applied to new objects in the bucket.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * A single object for setting server-side encryption by default. (documented below)
          */
         applyServerSideEncryptionByDefaults: outputs.s3.BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault[];
         /**
-         * (Optional) Whether an [Amazon S3 Bucket Key](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) is used for SSE-KMS.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
          */
-        bucketKeyEnabled: boolean;
+        bucketKeyEnabled?: boolean;
     }
 
     export interface BucketV2ServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefault {
         /**
-         * (optional) The AWS KMS master key ID used for the SSE-KMS encryption.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * The AWS KMS master key ID used for the SSE-KMS encryption. This can only be used when you set the value of `sseAlgorithm` as `aws:kms`. The default `aws/s3` AWS KMS master key is used if this element is absent while the `sseAlgorithm` is `aws:kms`.
          */
-        kmsMasterKeyId: string;
+        kmsMasterKeyId?: string;
         /**
-         * (required) The server-side encryption algorithm used.
-         *
-         * @deprecated Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * The server-side encryption algorithm to use. Valid values are `AES256` and `aws:kms`
          */
         sseAlgorithm: string;
     }
 
     export interface BucketV2Versioning {
         /**
-         * Whether versioning is enabled.
-         *
-         * @deprecated Use the aws_s3_bucket_versioning resource instead
+         * Enable versioning. Once you version-enable a bucket, it can never return to an unversioned state. You can, however, suspend versioning on that bucket.
          */
-        enabled: boolean;
+        enabled?: boolean;
         /**
-         * Whether MFA delete is enabled.
-         *
-         * @deprecated Use the aws_s3_bucket_versioning resource instead
+         * Enable MFA delete for either `Change the versioning state of your bucket` or `Permanently delete an object version`. Default is `false`. This cannot be used to toggle this setting but is available to allow managed buckets to reflect the state in AWS
          */
-        mfaDelete: boolean;
+        mfaDelete?: boolean;
     }
 
     export interface BucketV2Website {
         /**
-         * The name of the error document for the website.
-         *
-         * @deprecated Use the aws_s3_bucket_website_configuration resource
+         * An absolute path to the document to return in case of a 4XX error.
          */
-        errorDocument: string;
+        errorDocument?: string;
         /**
-         * The name of the index document for the website.
-         *
-         * @deprecated Use the aws_s3_bucket_website_configuration resource
+         * Amazon S3 returns this index document when requests are made to the root domain or any of the subfolders.
          */
-        indexDocument: string;
+        indexDocument?: string;
         /**
-         * The redirect behavior for every request to this bucket's website endpoint.
-         *
-         * @deprecated Use the aws_s3_bucket_website_configuration resource
+         * A hostname to redirect all website requests for this bucket to. Hostname can optionally be prefixed with a protocol (`http://` or `https://`) to use when redirecting requests. The default is the protocol that is used in the original request.
          */
-        redirectAllRequestsTo: string;
+        redirectAllRequestsTo?: string;
         /**
-         * (Optional) The rules that define when a redirect is applied and the redirect behavior.
-         *
-         * @deprecated Use the aws_s3_bucket_website_configuration resource
+         * A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+         * describing redirect behavior and when redirects are applied.
          */
-        routingRules: string;
+        routingRules?: string;
     }
 
     export interface BucketVersioning {
@@ -33493,7 +34938,7 @@ export namespace ses {
          */
         position: number;
         /**
-         * The scope to apply
+         * The scope to apply. The only acceptable value is `RuleSet`.
          */
         scope: string;
         /**
@@ -33715,6 +35160,17 @@ export namespace ssm {
     export interface GetInstancesFilter {
         /**
          * The name of the filter field. Valid values can be found in the [SSM InstanceInformationStringFilter API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_InstanceInformationStringFilter.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
+    }
+
+    export interface GetMaintenanceWindowsFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [SSM DescribeMaintenanceWindows API Reference](https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeMaintenanceWindows.html#API_DescribeMaintenanceWindows_RequestSyntax).
          */
         name: string;
         /**
@@ -33957,6 +35413,7 @@ export namespace ssm {
          */
         syncFormat?: string;
     }
+
 }
 
 export namespace storagegateway {
@@ -33974,6 +35431,25 @@ export namespace storagegateway {
          * The Internet Protocol version 4 (IPv4) address of the interface.
          */
         ipv4Address: string;
+    }
+
+    export interface GatewayMaintenanceStartTime {
+        /**
+         * The day of the month component of the maintenance start time represented as an ordinal number from 1 to 28, where 1 represents the first day of the month and 28 represents the last day of the month.
+         */
+        dayOfMonth?: string;
+        /**
+         * The day of the week component of the maintenance start time week represented as an ordinal number from 0 to 6, where 0 represents Sunday and 6 Saturday.
+         */
+        dayOfWeek?: string;
+        /**
+         * The hour component of the maintenance start time represented as _hh_, where _hh_ is the hour (00 to 23). The hour of the day is in the time zone of the gateway.
+         */
+        hourOfDay: number;
+        /**
+         * The minute component of the maintenance start time represented as _mm_, where _mm_ is the minute (00 to 59). The minute of the hour is in the time zone of the gateway.
+         */
+        minuteOfHour?: number;
     }
 
     export interface GatewaySmbActiveDirectorySettings {
@@ -78068,6 +79544,20 @@ export namespace workspaces {
          * The size of the user storage.
          */
         userVolumeSizeGib?: number;
+    }
+
+}
+
+export namespace xray {
+    export interface GroupInsightsConfiguration {
+        /**
+         * Specifies whether insights are enabled.
+         */
+        insightsEnabled: boolean;
+        /**
+         * Specifies whether insight notifications are enabled.
+         */
+        notificationsEnabled: boolean;
     }
 
 }

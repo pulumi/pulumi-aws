@@ -277,9 +277,11 @@ type Permission struct {
 	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.StringOutput `pulumi:"function"`
-	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId pulumi.StringPtrOutput `pulumi:"principalOrgId"`
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrOutput `pulumi:"sourceAccount"`
@@ -339,9 +341,11 @@ type permissionState struct {
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function interface{} `pulumi:"function"`
-	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal *string `pulumi:"principal"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId *string `pulumi:"principalOrgId"`
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount *string `pulumi:"sourceAccount"`
@@ -364,9 +368,11 @@ type PermissionState struct {
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.Input
-	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringPtrInput
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId pulumi.StringPtrInput
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrInput
@@ -393,9 +399,11 @@ type permissionArgs struct {
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function interface{} `pulumi:"function"`
-	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal string `pulumi:"principal"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId *string `pulumi:"principalOrgId"`
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount *string `pulumi:"sourceAccount"`
@@ -419,9 +427,11 @@ type PermissionArgs struct {
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.Input
-	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringInput
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// The identifier for your organization in AWS Organizations. Use this to grant permissions to all the AWS accounts under this organization.
+	PrincipalOrgId pulumi.StringPtrInput
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN e.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrInput

@@ -10,9 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Adds launch permission to Amazon Machine Image (AMI) from another AWS account.
+    /// Adds a launch permission to an Amazon Machine Image (AMI).
     /// 
     /// ## Example Usage
+    /// ### AWS Account ID
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -31,10 +32,49 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// ### Public Access
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ec2.AmiLaunchPermission("example", new Aws.Ec2.AmiLaunchPermissionArgs
+    ///         {
+    ///             Group = "all",
+    ///             ImageId = "ami-12345678",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Organization Access
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var current = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
+    ///         var example = new Aws.Ec2.AmiLaunchPermission("example", new Aws.Ec2.AmiLaunchPermissionArgs
+    ///         {
+    ///             ImageId = "ami-12345678",
+    ///             OrganizationArn = current.Apply(current =&gt; current.Arn),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// AWS AMI Launch Permission can be imported using the `ACCOUNT-ID/IMAGE-ID`, e.g.,
+    /// AMI Launch Permissions can be imported using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
@@ -44,16 +84,34 @@ namespace Pulumi.Aws.Ec2
     public partial class AmiLaunchPermission : Pulumi.CustomResource
     {
         /// <summary>
-        /// An AWS Account ID to add launch permissions.
+        /// The AWS account ID for the launch permission.
         /// </summary>
         [Output("accountId")]
-        public Output<string> AccountId { get; private set; } = null!;
+        public Output<string?> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// A region-unique name for the AMI.
+        /// The name of the group for the launch permission. Valid values: `"all"`.
+        /// </summary>
+        [Output("group")]
+        public Output<string?> Group { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the AMI.
         /// </summary>
         [Output("imageId")]
         public Output<string> ImageId { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of an organization for the launch permission.
+        /// </summary>
+        [Output("organizationArn")]
+        public Output<string?> OrganizationArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The ARN of an organizational unit for the launch permission.
+        /// </summary>
+        [Output("organizationalUnitArn")]
+        public Output<string?> OrganizationalUnitArn { get; private set; } = null!;
 
 
         /// <summary>
@@ -102,16 +160,34 @@ namespace Pulumi.Aws.Ec2
     public sealed class AmiLaunchPermissionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Account ID to add launch permissions.
+        /// The AWS account ID for the launch permission.
         /// </summary>
-        [Input("accountId", required: true)]
-        public Input<string> AccountId { get; set; } = null!;
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// A region-unique name for the AMI.
+        /// The name of the group for the launch permission. Valid values: `"all"`.
+        /// </summary>
+        [Input("group")]
+        public Input<string>? Group { get; set; }
+
+        /// <summary>
+        /// The ID of the AMI.
         /// </summary>
         [Input("imageId", required: true)]
         public Input<string> ImageId { get; set; } = null!;
+
+        /// <summary>
+        /// The ARN of an organization for the launch permission.
+        /// </summary>
+        [Input("organizationArn")]
+        public Input<string>? OrganizationArn { get; set; }
+
+        /// <summary>
+        /// The ARN of an organizational unit for the launch permission.
+        /// </summary>
+        [Input("organizationalUnitArn")]
+        public Input<string>? OrganizationalUnitArn { get; set; }
 
         public AmiLaunchPermissionArgs()
         {
@@ -121,16 +197,34 @@ namespace Pulumi.Aws.Ec2
     public sealed class AmiLaunchPermissionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Account ID to add launch permissions.
+        /// The AWS account ID for the launch permission.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// A region-unique name for the AMI.
+        /// The name of the group for the launch permission. Valid values: `"all"`.
+        /// </summary>
+        [Input("group")]
+        public Input<string>? Group { get; set; }
+
+        /// <summary>
+        /// The ID of the AMI.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
+
+        /// <summary>
+        /// The ARN of an organization for the launch permission.
+        /// </summary>
+        [Input("organizationArn")]
+        public Input<string>? OrganizationArn { get; set; }
+
+        /// <summary>
+        /// The ARN of an organizational unit for the launch permission.
+        /// </summary>
+        [Input("organizationalUnitArn")]
+        public Input<string>? OrganizationalUnitArn { get; set; }
 
         public AmiLaunchPermissionState()
         {

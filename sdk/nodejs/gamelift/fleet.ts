@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Gamelift Fleet resource.
+ * Provides a GameLift Fleet resource.
  *
  * ## Example Usage
  *
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Gamelift Fleets can be imported using the ID, e.g.,
+ * GameLift Fleets can be imported using the ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
@@ -72,7 +72,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly buildArn!: pulumi.Output<string>;
     /**
-     * ID of the Gamelift Build to be deployed on the fleet.
+     * ID of the GameLift Build to be deployed on the fleet.
      */
     public readonly buildId!: pulumi.Output<string | undefined>;
     /**
@@ -114,7 +114,6 @@ export class Fleet extends pulumi.CustomResource {
     public readonly newGameSessionProtectionPolicy!: pulumi.Output<string | undefined>;
     /**
      * Operating system of the fleet's computing resources.
-     * <<<<<<< HEAD
      */
     public /*out*/ readonly operatingSystem!: pulumi.Output<string>;
     /**
@@ -130,7 +129,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public /*out*/ readonly scriptArn!: pulumi.Output<string>;
     /**
-     * ID of the Gamelift Script to be deployed on the fleet.
+     * ID of the GameLift Script to be deployed on the fleet.
      */
     public readonly scriptId!: pulumi.Output<string | undefined>;
     /**
@@ -138,8 +137,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     * >>>>>>> v4.1.0
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -220,7 +218,7 @@ export interface FleetState {
      */
     buildArn?: pulumi.Input<string>;
     /**
-     * ID of the Gamelift Build to be deployed on the fleet.
+     * ID of the GameLift Build to be deployed on the fleet.
      */
     buildId?: pulumi.Input<string>;
     /**
@@ -262,7 +260,6 @@ export interface FleetState {
     newGameSessionProtectionPolicy?: pulumi.Input<string>;
     /**
      * Operating system of the fleet's computing resources.
-     * <<<<<<< HEAD
      */
     operatingSystem?: pulumi.Input<string>;
     /**
@@ -278,7 +275,7 @@ export interface FleetState {
      */
     scriptArn?: pulumi.Input<string>;
     /**
-     * ID of the Gamelift Script to be deployed on the fleet.
+     * ID of the GameLift Script to be deployed on the fleet.
      */
     scriptId?: pulumi.Input<string>;
     /**
@@ -286,8 +283,7 @@ export interface FleetState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     * >>>>>>> v4.1.0
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -297,7 +293,7 @@ export interface FleetState {
  */
 export interface FleetArgs {
     /**
-     * ID of the Gamelift Build to be deployed on the fleet.
+     * ID of the GameLift Build to be deployed on the fleet.
      */
     buildId?: pulumi.Input<string>;
     /**
@@ -345,7 +341,7 @@ export interface FleetArgs {
      */
     runtimeConfiguration?: pulumi.Input<inputs.gamelift.FleetRuntimeConfiguration>;
     /**
-     * ID of the Gamelift Script to be deployed on the fleet.
+     * ID of the GameLift Script to be deployed on the fleet.
      */
     scriptId?: pulumi.Input<string>;
     /**

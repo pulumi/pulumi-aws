@@ -15,6 +15,7 @@ class RouteArgs:
     def __init__(__self__, *,
                  route_table_id: pulumi.Input[str],
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
+                 core_network_arn: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -31,6 +32,7 @@ class RouteArgs:
         The set of arguments for constructing a Route resource.
         :param pulumi.Input[str] route_table_id: The ID of the routing table.
         :param pulumi.Input[str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
@@ -47,6 +49,8 @@ class RouteArgs:
         pulumi.set(__self__, "route_table_id", route_table_id)
         if carrier_gateway_id is not None:
             pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
+        if core_network_arn is not None:
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
         if destination_cidr_block is not None:
             pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         if destination_ipv6_cidr_block is not None:
@@ -98,6 +102,18 @@ class RouteArgs:
     @carrier_gateway_id.setter
     def carrier_gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "carrier_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        return pulumi.get(self, "core_network_arn")
+
+    @core_network_arn.setter
+    def core_network_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "core_network_arn", value)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -248,6 +264,7 @@ class RouteArgs:
 class _RouteState:
     def __init__(__self__, *,
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
+                 core_network_arn: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -267,6 +284,7 @@ class _RouteState:
         """
         Input properties used for looking up and filtering Route resources.
         :param pulumi.Input[str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
@@ -286,6 +304,8 @@ class _RouteState:
         """
         if carrier_gateway_id is not None:
             pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
+        if core_network_arn is not None:
+            pulumi.set(__self__, "core_network_arn", core_network_arn)
         if destination_cidr_block is not None:
             pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
         if destination_ipv6_cidr_block is not None:
@@ -333,6 +353,18 @@ class _RouteState:
     @carrier_gateway_id.setter
     def carrier_gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "carrier_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        return pulumi.get(self, "core_network_arn")
+
+    @core_network_arn.setter
+    def core_network_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "core_network_arn", value)
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -533,6 +565,7 @@ class Route(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
+                 core_network_arn: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -599,6 +632,7 @@ class Route(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
@@ -684,6 +718,7 @@ class Route(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  carrier_gateway_id: Optional[pulumi.Input[str]] = None,
+                 core_network_arn: Optional[pulumi.Input[str]] = None,
                  destination_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
                  destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -710,6 +745,7 @@ class Route(pulumi.CustomResource):
             __props__ = RouteArgs.__new__(RouteArgs)
 
             __props__.__dict__["carrier_gateway_id"] = carrier_gateway_id
+            __props__.__dict__["core_network_arn"] = core_network_arn
             __props__.__dict__["destination_cidr_block"] = destination_cidr_block
             __props__.__dict__["destination_ipv6_cidr_block"] = destination_ipv6_cidr_block
             __props__.__dict__["destination_prefix_list_id"] = destination_prefix_list_id
@@ -742,6 +778,7 @@ class Route(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             carrier_gateway_id: Optional[pulumi.Input[str]] = None,
+            core_network_arn: Optional[pulumi.Input[str]] = None,
             destination_cidr_block: Optional[pulumi.Input[str]] = None,
             destination_ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
             destination_prefix_list_id: Optional[pulumi.Input[str]] = None,
@@ -766,6 +803,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] carrier_gateway_id: Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
+        :param pulumi.Input[str] core_network_arn: The Amazon Resource Name (ARN) of a core network.
         :param pulumi.Input[str] destination_cidr_block: The destination CIDR block.
         :param pulumi.Input[str] destination_ipv6_cidr_block: The destination IPv6 CIDR block.
         :param pulumi.Input[str] destination_prefix_list_id: The ID of a managed prefix list destination.
@@ -788,6 +826,7 @@ class Route(pulumi.CustomResource):
         __props__ = _RouteState.__new__(_RouteState)
 
         __props__.__dict__["carrier_gateway_id"] = carrier_gateway_id
+        __props__.__dict__["core_network_arn"] = core_network_arn
         __props__.__dict__["destination_cidr_block"] = destination_cidr_block
         __props__.__dict__["destination_ipv6_cidr_block"] = destination_ipv6_cidr_block
         __props__.__dict__["destination_prefix_list_id"] = destination_prefix_list_id
@@ -813,6 +852,14 @@ class Route(pulumi.CustomResource):
         Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
         """
         return pulumi.get(self, "carrier_gateway_id")
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of a core network.
+        """
+        return pulumi.get(self, "core_network_arn")
 
     @property
     @pulumi.getter(name="destinationCidrBlock")

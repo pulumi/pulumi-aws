@@ -20,9 +20,8 @@ class TableItemArgs:
         """
         The set of arguments for constructing a TableItem resource.
         :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item
-        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute.
-               Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-        :param pulumi.Input[str] table_name: The name of the table to contain the item.
+        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        :param pulumi.Input[str] table_name: Name of the table to contain the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         """
         pulumi.set(__self__, "hash_key", hash_key)
@@ -47,8 +46,7 @@ class TableItemArgs:
     @pulumi.getter
     def item(self) -> pulumi.Input[str]:
         """
-        JSON representation of a map of attribute name/value pairs, one for each attribute.
-        Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         """
         return pulumi.get(self, "item")
 
@@ -60,7 +58,7 @@ class TableItemArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
         """
-        The name of the table to contain the item.
+        Name of the table to contain the item.
         """
         return pulumi.get(self, "table_name")
 
@@ -91,10 +89,9 @@ class _TableItemState:
         """
         Input properties used for looking up and filtering TableItem resources.
         :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item
-        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute.
-               Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-        :param pulumi.Input[str] table_name: The name of the table to contain the item.
+        :param pulumi.Input[str] table_name: Name of the table to contain the item.
         """
         if hash_key is not None:
             pulumi.set(__self__, "hash_key", hash_key)
@@ -121,8 +118,7 @@ class _TableItemState:
     @pulumi.getter
     def item(self) -> Optional[pulumi.Input[str]]:
         """
-        JSON representation of a map of attribute name/value pairs, one for each attribute.
-        Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         """
         return pulumi.get(self, "item")
 
@@ -146,7 +142,7 @@ class _TableItemState:
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the table to contain the item.
+        Name of the table to contain the item.
         """
         return pulumi.get(self, "table_name")
 
@@ -205,10 +201,9 @@ class TableItem(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item
-        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute.
-               Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-        :param pulumi.Input[str] table_name: The name of the table to contain the item.
+        :param pulumi.Input[str] table_name: Name of the table to contain the item.
         """
         ...
     @overload
@@ -316,10 +311,9 @@ class TableItem(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hash_key: Hash key to use for lookups and identification of the item
-        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute.
-               Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        :param pulumi.Input[str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
-        :param pulumi.Input[str] table_name: The name of the table to contain the item.
+        :param pulumi.Input[str] table_name: Name of the table to contain the item.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -343,8 +337,7 @@ class TableItem(pulumi.CustomResource):
     @pulumi.getter
     def item(self) -> pulumi.Output[str]:
         """
-        JSON representation of a map of attribute name/value pairs, one for each attribute.
-        Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
+        JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         """
         return pulumi.get(self, "item")
 
@@ -360,7 +353,7 @@ class TableItem(pulumi.CustomResource):
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[str]:
         """
-        The name of the table to contain the item.
+        Name of the table to contain the item.
         """
         return pulumi.get(self, "table_name")
 

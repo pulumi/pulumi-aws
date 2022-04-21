@@ -114,6 +114,41 @@ import (
 // 	})
 // }
 // ```
+// ### Custom Policies
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cfg"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cfg.NewRule(ctx, "example", &cfg.RuleArgs{
+// 			Source: &cfg.RuleSourceArgs{
+// 				Owner: pulumi.String("CUSTOM_POLICY"),
+// 				SourceDetails: cfg.RuleSourceSourceDetailArray{
+// 					&cfg.RuleSourceSourceDetailArgs{
+// 						MessageType: pulumi.String("ConfigurationItemChangeNotification"),
+// 					},
+// 				},
+// 				CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
+// 					PolicyRuntime: pulumi.String("guard-2.x.x"),
+// 					PolicyText: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "	  rule tableisactive when\n", "		  resourceType == \"AWS::DynamoDB::Table\" {\n", "		  configuration.tableStatus == ['ACTIVE']\n", "	  }\n", "	  \n", "	  rule checkcompliance when\n", "		  resourceType == \"AWS::DynamoDB::Table\"\n", "		  tableisactive {\n", "			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \"ENABLED\"\n", "	  }\n")),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -131,17 +166,17 @@ type Rule struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters pulumi.StringPtrOutput `pulumi:"inputParameters"`
-	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency pulumi.StringPtrOutput `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ID of the config rule
 	RuleId pulumi.StringOutput `pulumi:"ruleId"`
-	// Scope defines which resources can trigger an evaluation for the rule as documented below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
 	Scope RuleScopePtrOutput `pulumi:"scope"`
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
 	Source RuleSourceOutput `pulumi:"source"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -185,17 +220,17 @@ type ruleState struct {
 	Description *string `pulumi:"description"`
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters *string `pulumi:"inputParameters"`
-	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
 	// The ID of the config rule
 	RuleId *string `pulumi:"ruleId"`
-	// Scope defines which resources can trigger an evaluation for the rule as documented below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
 	Scope *RuleScope `pulumi:"scope"`
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
 	Source *RuleSource `pulumi:"source"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -208,17 +243,17 @@ type RuleState struct {
 	Description pulumi.StringPtrInput
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters pulumi.StringPtrInput
-	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
 	// The ID of the config rule
 	RuleId pulumi.StringPtrInput
-	// Scope defines which resources can trigger an evaluation for the rule as documented below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
 	Scope RuleScopePtrInput
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
 	Source RuleSourcePtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -233,15 +268,15 @@ type ruleArgs struct {
 	Description *string `pulumi:"description"`
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters *string `pulumi:"inputParameters"`
-	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency *string `pulumi:"maximumExecutionFrequency"`
 	// The name of the rule
 	Name *string `pulumi:"name"`
-	// Scope defines which resources can trigger an evaluation for the rule as documented below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
 	Scope *RuleScope `pulumi:"scope"`
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
 	Source RuleSource `pulumi:"source"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -251,15 +286,15 @@ type RuleArgs struct {
 	Description pulumi.StringPtrInput
 	// A string in JSON format that is passed to the AWS Config rule Lambda function.
 	InputParameters pulumi.StringPtrInput
-	// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
+	// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `messageType` to be `ScheduledNotification`.
 	MaximumExecutionFrequency pulumi.StringPtrInput
 	// The name of the rule
 	Name pulumi.StringPtrInput
-	// Scope defines which resources can trigger an evaluation for the rule as documented below.
+	// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
 	Scope RuleScopePtrInput
-	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+	// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
 	Source RuleSourceInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

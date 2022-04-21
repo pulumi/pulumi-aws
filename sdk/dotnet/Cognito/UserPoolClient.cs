@@ -132,6 +132,46 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// }
     /// ```
+    /// ### Create a user pool client with Cognito as the identity provider
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pool = new Aws.Cognito.UserPool("pool", new Aws.Cognito.UserPoolArgs
+    ///         {
+    ///         });
+    ///         var userpoolClient = new Aws.Cognito.UserPoolClient("userpoolClient", new Aws.Cognito.UserPoolClientArgs
+    ///         {
+    ///             UserPoolId = pool.Id,
+    ///             CallbackUrls = 
+    ///             {
+    ///                 "https://example.com",
+    ///             },
+    ///             AllowedOauthFlowsUserPoolClient = true,
+    ///             AllowedOauthFlows = 
+    ///             {
+    ///                 "code",
+    ///                 "implicit",
+    ///             },
+    ///             AllowedOauthScopes = 
+    ///             {
+    ///                 "email",
+    ///                 "openid",
+    ///             },
+    ///             SupportedIdentityProviders = 
+    ///             {
+    ///                 "COGNITO",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

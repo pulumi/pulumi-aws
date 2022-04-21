@@ -17,6 +17,7 @@ __all__ = [
     'MethodSettingsSettingsArgs',
     'RestApiEndpointConfigurationArgs',
     'StageAccessLogSettingsArgs',
+    'StageCanarySettingsArgs',
     'UsagePlanApiStageArgs',
     'UsagePlanApiStageThrottleArgs',
     'UsagePlanQuotaSettingsArgs',
@@ -473,6 +474,61 @@ class StageAccessLogSettingsArgs:
     @format.setter
     def format(self, value: pulumi.Input[str]):
         pulumi.set(self, "format", value)
+
+
+@pulumi.input_type
+class StageCanarySettingsArgs:
+    def __init__(__self__, *,
+                 percent_traffic: Optional[pulumi.Input[float]] = None,
+                 stage_variable_overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 use_stage_cache: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[float] percent_traffic: The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        :param pulumi.Input[Mapping[str, Any]] stage_variable_overrides: A map of overridden stage `variables` (including new variables) for the canary deployment.
+        :param pulumi.Input[bool] use_stage_cache: Whether the canary deployment uses the stage cache. Defaults to false.
+        """
+        if percent_traffic is not None:
+            pulumi.set(__self__, "percent_traffic", percent_traffic)
+        if stage_variable_overrides is not None:
+            pulumi.set(__self__, "stage_variable_overrides", stage_variable_overrides)
+        if use_stage_cache is not None:
+            pulumi.set(__self__, "use_stage_cache", use_stage_cache)
+
+    @property
+    @pulumi.getter(name="percentTraffic")
+    def percent_traffic(self) -> Optional[pulumi.Input[float]]:
+        """
+        The percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+        """
+        return pulumi.get(self, "percent_traffic")
+
+    @percent_traffic.setter
+    def percent_traffic(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "percent_traffic", value)
+
+    @property
+    @pulumi.getter(name="stageVariableOverrides")
+    def stage_variable_overrides(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
+        """
+        A map of overridden stage `variables` (including new variables) for the canary deployment.
+        """
+        return pulumi.get(self, "stage_variable_overrides")
+
+    @stage_variable_overrides.setter
+    def stage_variable_overrides(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "stage_variable_overrides", value)
+
+    @property
+    @pulumi.getter(name="useStageCache")
+    def use_stage_cache(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the canary deployment uses the stage cache. Defaults to false.
+        """
+        return pulumi.get(self, "use_stage_cache")
+
+    @use_stage_cache.setter
+    def use_stage_cache(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_stage_cache", value)
 
 
 @pulumi.input_type

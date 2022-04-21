@@ -63,6 +63,8 @@ type LookupReplicationGroupResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+	LogDeliveryConfigurations []GetReplicationGroupLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// The identifiers of all the nodes that are part of this replication group.
 	MemberClusters []string `pulumi:"memberClusters"`
 	// Specifies whether Multi-AZ Support is enabled for the replication group.
@@ -158,6 +160,13 @@ func (o LookupReplicationGroupResultOutput) Description() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupReplicationGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log) delivery settings.
+func (o LookupReplicationGroupResultOutput) LogDeliveryConfigurations() GetReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupReplicationGroupResult) []GetReplicationGroupLogDeliveryConfiguration {
+		return v.LogDeliveryConfigurations
+	}).(GetReplicationGroupLogDeliveryConfigurationArrayOutput)
 }
 
 // The identifiers of all the nodes that are part of this replication group.

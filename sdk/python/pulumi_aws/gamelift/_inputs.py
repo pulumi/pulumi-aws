@@ -32,7 +32,7 @@ class AliasRoutingStrategyArgs:
                  message: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] type: Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
-        :param pulumi.Input[str] fleet_id: ID of the Gamelift Fleet to point the alias to.
+        :param pulumi.Input[str] fleet_id: ID of the GameLift Fleet to point the alias to.
         :param pulumi.Input[str] message: Message text to be used with the `TERMINAL` routing strategy.
         """
         pulumi.set(__self__, "type", type)
@@ -57,7 +57,7 @@ class AliasRoutingStrategyArgs:
     @pulumi.getter(name="fleetId")
     def fleet_id(self) -> Optional[pulumi.Input[str]]:
         """
-        ID of the Gamelift Fleet to point the alias to.
+        ID of the GameLift Fleet to point the alias to.
         """
         return pulumi.get(self, "fleet_id")
 

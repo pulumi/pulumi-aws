@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ses.Outputs
         /// </summary>
         public readonly int Position;
         /// <summary>
-        /// The scope to apply
+        /// The scope to apply. The only acceptable value is `RuleSet`.
         /// </summary>
         public readonly string Scope;
         /// <summary>

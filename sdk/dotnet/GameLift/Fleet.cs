@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift
 {
     /// <summary>
-    /// Provides a Gamelift Fleet resource.
+    /// Provides a GameLift Fleet resource.
     /// 
     /// ## Example Usage
     /// 
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Gamelift Fleets can be imported using the ID, e.g.,
+    /// GameLift Fleets can be imported using the ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/fleet:Fleet example &lt;fleet-id&gt;
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.GameLift
         public Output<string> BuildArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Gamelift Build to be deployed on the fleet.
+        /// ID of the GameLift Build to be deployed on the fleet.
         /// </summary>
         [Output("buildId")]
         public Output<string?> BuildId { get; private set; } = null!;
@@ -132,7 +132,6 @@ namespace Pulumi.Aws.GameLift
 
         /// <summary>
         /// Operating system of the fleet's computing resources.
-        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Output("operatingSystem")]
         public Output<string> OperatingSystem { get; private set; } = null!;
@@ -156,7 +155,7 @@ namespace Pulumi.Aws.GameLift
         public Output<string> ScriptArn { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the Gamelift Script to be deployed on the fleet.
+        /// ID of the GameLift Script to be deployed on the fleet.
         /// </summary>
         [Output("scriptId")]
         public Output<string?> ScriptId { get; private set; } = null!;
@@ -168,8 +167,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.1.0
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -221,7 +219,7 @@ namespace Pulumi.Aws.GameLift
     public sealed class FleetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ID of the Gamelift Build to be deployed on the fleet.
+        /// ID of the GameLift Build to be deployed on the fleet.
         /// </summary>
         [Input("buildId")]
         public Input<string>? BuildId { get; set; }
@@ -305,7 +303,7 @@ namespace Pulumi.Aws.GameLift
         public Input<Inputs.FleetRuntimeConfigurationArgs>? RuntimeConfiguration { get; set; }
 
         /// <summary>
-        /// ID of the Gamelift Script to be deployed on the fleet.
+        /// ID of the GameLift Script to be deployed on the fleet.
         /// </summary>
         [Input("scriptId")]
         public Input<string>? ScriptId { get; set; }
@@ -342,7 +340,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? BuildArn { get; set; }
 
         /// <summary>
-        /// ID of the Gamelift Build to be deployed on the fleet.
+        /// ID of the GameLift Build to be deployed on the fleet.
         /// </summary>
         [Input("buildId")]
         public Input<string>? BuildId { get; set; }
@@ -423,7 +421,6 @@ namespace Pulumi.Aws.GameLift
 
         /// <summary>
         /// Operating system of the fleet's computing resources.
-        /// &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
         /// </summary>
         [Input("operatingSystem")]
         public Input<string>? OperatingSystem { get; set; }
@@ -447,7 +444,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? ScriptArn { get; set; }
 
         /// <summary>
-        /// ID of the Gamelift Script to be deployed on the fleet.
+        /// ID of the GameLift Script to be deployed on the fleet.
         /// </summary>
         [Input("scriptId")]
         public Input<string>? ScriptId { get; set; }
@@ -468,8 +465,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// &gt;&gt;&gt;&gt;&gt;&gt;&gt; v4.1.0
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

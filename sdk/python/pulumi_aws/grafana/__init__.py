@@ -7,5 +7,6 @@ import typing
 # Export this package's modules as members:
 from .get_workspace import *
 from .license_association import *
+from .role_association import *
 from .workspace import *
 from .workspace_saml_configuration import *

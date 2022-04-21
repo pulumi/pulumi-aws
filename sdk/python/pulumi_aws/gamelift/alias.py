@@ -198,7 +198,7 @@ class Alias(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Gamelift Alias resource.
+        Provides a GameLift Alias resource.
 
         ## Example Usage
 
@@ -216,7 +216,7 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Aliases can be imported using the ID, e.g.,
+        GameLift Aliases can be imported using the ID, e.g.,
 
         ```sh
          $ pulumi import aws:gamelift/alias:Alias example <alias-id>
@@ -236,7 +236,7 @@ class Alias(pulumi.CustomResource):
                  args: AliasArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Gamelift Alias resource.
+        Provides a GameLift Alias resource.
 
         ## Example Usage
 
@@ -254,7 +254,7 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        Gamelift Aliases can be imported using the ID, e.g.,
+        GameLift Aliases can be imported using the ID, e.g.,
 
         ```sh
          $ pulumi import aws:gamelift/alias:Alias example <alias-id>

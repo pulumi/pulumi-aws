@@ -28,6 +28,10 @@ import (
 // 		_, err := xray.NewGroup(ctx, "example", &xray.GroupArgs{
 // 			FilterExpression: pulumi.String("responsetime > 5"),
 // 			GroupName:        pulumi.String("example"),
+// 			InsightsConfiguration: &xray.GroupInsightsConfigurationArgs{
+// 				InsightsEnabled:      pulumi.Bool(true),
+// 				NotificationsEnabled: pulumi.Bool(true),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -53,6 +57,8 @@ type Group struct {
 	FilterExpression pulumi.StringOutput `pulumi:"filterExpression"`
 	// The name of the group.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
+	// Configuration options for enabling insights.
+	InsightsConfiguration GroupInsightsConfigurationOutput `pulumi:"insightsConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -100,6 +106,8 @@ type groupState struct {
 	FilterExpression *string `pulumi:"filterExpression"`
 	// The name of the group.
 	GroupName *string `pulumi:"groupName"`
+	// Configuration options for enabling insights.
+	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -113,6 +121,8 @@ type GroupState struct {
 	FilterExpression pulumi.StringPtrInput
 	// The name of the group.
 	GroupName pulumi.StringPtrInput
+	// Configuration options for enabling insights.
+	InsightsConfiguration GroupInsightsConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -128,6 +138,8 @@ type groupArgs struct {
 	FilterExpression string `pulumi:"filterExpression"`
 	// The name of the group.
 	GroupName string `pulumi:"groupName"`
+	// Configuration options for enabling insights.
+	InsightsConfiguration *GroupInsightsConfiguration `pulumi:"insightsConfiguration"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -138,6 +150,8 @@ type GroupArgs struct {
 	FilterExpression pulumi.StringInput
 	// The name of the group.
 	GroupName pulumi.StringInput
+	// Configuration options for enabling insights.
+	InsightsConfiguration GroupInsightsConfigurationPtrInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }

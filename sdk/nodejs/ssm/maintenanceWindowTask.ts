@@ -136,6 +136,14 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the maintenance window task.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+     */
+    public readonly cutoffBehavior!: pulumi.Output<string | undefined>;
+    /**
      * The description of the maintenance window task.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -179,6 +187,10 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      * The Id of the maintenance window to register the task with.
      */
     public readonly windowId!: pulumi.Output<string>;
+    /**
+     * The ID of the maintenance window task.
+     */
+    public /*out*/ readonly windowTaskId!: pulumi.Output<string>;
 
     /**
      * Create a MaintenanceWindowTask resource with the given unique name, arguments, and options.
@@ -193,6 +205,8 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceWindowTaskState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cutoffBehavior"] = state ? state.cutoffBehavior : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
             resourceInputs["maxErrors"] = state ? state.maxErrors : undefined;
@@ -204,14 +218,9 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             resourceInputs["taskInvocationParameters"] = state ? state.taskInvocationParameters : undefined;
             resourceInputs["taskType"] = state ? state.taskType : undefined;
             resourceInputs["windowId"] = state ? state.windowId : undefined;
+            resourceInputs["windowTaskId"] = state ? state.windowTaskId : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowTaskArgs | undefined;
-            if ((!args || args.maxConcurrency === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'maxConcurrency'");
-            }
-            if ((!args || args.maxErrors === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'maxErrors'");
-            }
             if ((!args || args.taskArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskArn'");
             }
@@ -221,6 +230,7 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             if ((!args || args.windowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowId'");
             }
+            resourceInputs["cutoffBehavior"] = args ? args.cutoffBehavior : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
             resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
@@ -232,6 +242,8 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             resourceInputs["taskInvocationParameters"] = args ? args.taskInvocationParameters : undefined;
             resourceInputs["taskType"] = args ? args.taskType : undefined;
             resourceInputs["windowId"] = args ? args.windowId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["windowTaskId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MaintenanceWindowTask.__pulumiType, name, resourceInputs, opts);
@@ -242,6 +254,14 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
  * Input properties used for looking up and filtering MaintenanceWindowTask resources.
  */
 export interface MaintenanceWindowTaskState {
+    /**
+     * The ARN of the maintenance window task.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+     */
+    cutoffBehavior?: pulumi.Input<string>;
     /**
      * The description of the maintenance window task.
      */
@@ -286,6 +306,10 @@ export interface MaintenanceWindowTaskState {
      * The Id of the maintenance window to register the task with.
      */
     windowId?: pulumi.Input<string>;
+    /**
+     * The ID of the maintenance window task.
+     */
+    windowTaskId?: pulumi.Input<string>;
 }
 
 /**
@@ -293,17 +317,21 @@ export interface MaintenanceWindowTaskState {
  */
 export interface MaintenanceWindowTaskArgs {
     /**
+     * Indicates whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached. Valid values are `CONTINUE_TASK` and `CANCEL_TASK`.
+     */
+    cutoffBehavior?: pulumi.Input<string>;
+    /**
      * The description of the maintenance window task.
      */
     description?: pulumi.Input<string>;
     /**
      * The maximum number of targets this task can be run for in parallel.
      */
-    maxConcurrency: pulumi.Input<string>;
+    maxConcurrency?: pulumi.Input<string>;
     /**
      * The maximum number of errors allowed before this task stops being scheduled.
      */
-    maxErrors: pulumi.Input<string>;
+    maxErrors?: pulumi.Input<string>;
     /**
      * The name of the maintenance window task.
      */

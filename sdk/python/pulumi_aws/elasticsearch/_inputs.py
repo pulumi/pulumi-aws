@@ -15,6 +15,7 @@ __all__ = [
     'DomainAutoTuneOptionsMaintenanceScheduleArgs',
     'DomainAutoTuneOptionsMaintenanceScheduleDurationArgs',
     'DomainClusterConfigArgs',
+    'DomainClusterConfigColdStorageOptionsArgs',
     'DomainClusterConfigZoneAwarenessConfigArgs',
     'DomainCognitoOptionsArgs',
     'DomainDomainEndpointOptionsArgs',
@@ -283,6 +284,7 @@ class DomainAutoTuneOptionsMaintenanceScheduleDurationArgs:
 @pulumi.input_type
 class DomainClusterConfigArgs:
     def __init__(__self__, *,
+                 cold_storage_options: Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArgs']] = None,
                  dedicated_master_count: Optional[pulumi.Input[int]] = None,
                  dedicated_master_enabled: Optional[pulumi.Input[bool]] = None,
                  dedicated_master_type: Optional[pulumi.Input[str]] = None,
@@ -294,6 +296,7 @@ class DomainClusterConfigArgs:
                  zone_awareness_config: Optional[pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs']] = None,
                  zone_awareness_enabled: Optional[pulumi.Input[bool]] = None):
         """
+        :param pulumi.Input['DomainClusterConfigColdStorageOptionsArgs'] cold_storage_options: Configuration block containing cold storage configuration. Detailed below.
         :param pulumi.Input[int] dedicated_master_count: Number of dedicated main nodes in the cluster.
         :param pulumi.Input[bool] dedicated_master_enabled: Whether dedicated main nodes are enabled for the cluster.
         :param pulumi.Input[str] dedicated_master_type: Instance type of the dedicated main nodes in the cluster.
@@ -305,6 +308,8 @@ class DomainClusterConfigArgs:
         :param pulumi.Input['DomainClusterConfigZoneAwarenessConfigArgs'] zone_awareness_config: Configuration block containing zone awareness settings. Detailed below.
         :param pulumi.Input[bool] zone_awareness_enabled: Whether zone awareness is enabled, set to `true` for multi-az deployment. To enable awareness with three Availability Zones, the `availability_zone_count` within the `zone_awareness_config` must be set to `3`.
         """
+        if cold_storage_options is not None:
+            pulumi.set(__self__, "cold_storage_options", cold_storage_options)
         if dedicated_master_count is not None:
             pulumi.set(__self__, "dedicated_master_count", dedicated_master_count)
         if dedicated_master_enabled is not None:
@@ -325,6 +330,18 @@ class DomainClusterConfigArgs:
             pulumi.set(__self__, "zone_awareness_config", zone_awareness_config)
         if zone_awareness_enabled is not None:
             pulumi.set(__self__, "zone_awareness_enabled", zone_awareness_enabled)
+
+    @property
+    @pulumi.getter(name="coldStorageOptions")
+    def cold_storage_options(self) -> Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArgs']]:
+        """
+        Configuration block containing cold storage configuration. Detailed below.
+        """
+        return pulumi.get(self, "cold_storage_options")
+
+    @cold_storage_options.setter
+    def cold_storage_options(self, value: Optional[pulumi.Input['DomainClusterConfigColdStorageOptionsArgs']]):
+        pulumi.set(self, "cold_storage_options", value)
 
     @property
     @pulumi.getter(name="dedicatedMasterCount")
@@ -445,6 +462,29 @@ class DomainClusterConfigArgs:
     @zone_awareness_enabled.setter
     def zone_awareness_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "zone_awareness_enabled", value)
+
+
+@pulumi.input_type
+class DomainClusterConfigColdStorageOptionsArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 @pulumi.input_type
@@ -821,7 +861,7 @@ class DomainSamlOptionsSamlOptionsArgs:
         :param pulumi.Input[str] master_user_name: This username from the SAML IdP receives full permissions to the cluster, equivalent to a new master user.
         :param pulumi.Input[str] roles_key: Element of the SAML assertion to use for backend roles. Default is roles.
         :param pulumi.Input[int] session_timeout_minutes: Duration of a session in minutes after a user logs in. Default is 60. Maximum value is 1,440.
-        :param pulumi.Input[str] subject_key: Element of the SAML assertion to use for username. Default is NameID.
+        :param pulumi.Input[str] subject_key: Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -914,7 +954,7 @@ class DomainSamlOptionsSamlOptionsArgs:
     @pulumi.getter(name="subjectKey")
     def subject_key(self) -> Optional[pulumi.Input[str]]:
         """
-        Element of the SAML assertion to use for username. Default is NameID.
+        Custom SAML attribute to use for user names. Default is an empty string - `""`. This will cause Elasticsearch to use the `NameID` element of the `Subject`, which is the default location for name identifiers in the SAML specification.
         """
         return pulumi.get(self, "subject_key")
 

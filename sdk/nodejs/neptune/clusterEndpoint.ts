@@ -60,6 +60,9 @@ export class ClusterEndpoint extends pulumi.CustomResource {
      * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The identifier of the endpoint.
+     */
     public readonly clusterEndpointIdentifier!: pulumi.Output<string>;
     /**
      * The DB cluster identifier of the DB cluster associated with the endpoint.
@@ -146,6 +149,9 @@ export interface ClusterEndpointState {
      * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The identifier of the endpoint.
+     */
     clusterEndpointIdentifier?: pulumi.Input<string>;
     /**
      * The DB cluster identifier of the DB cluster associated with the endpoint.
@@ -181,6 +187,9 @@ export interface ClusterEndpointState {
  * The set of arguments for constructing a ClusterEndpoint resource.
  */
 export interface ClusterEndpointArgs {
+    /**
+     * The identifier of the endpoint.
+     */
     clusterEndpointIdentifier: pulumi.Input<string>;
     /**
      * The DB cluster identifier of the DB cluster associated with the endpoint.

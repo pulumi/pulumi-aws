@@ -74,6 +74,8 @@ type LookupClusterResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 	ZookeeperConnectString string `pulumi:"zookeeperConnectString"`
+	// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+	ZookeeperConnectStringTls string `pulumi:"zookeeperConnectStringTls"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
@@ -164,6 +166,11 @@ func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 // A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
 func (o LookupClusterResultOutput) ZookeeperConnectString() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ZookeeperConnectString }).(pulumi.StringOutput)
+}
+
+// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphabetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+func (o LookupClusterResultOutput) ZookeeperConnectStringTls() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.ZookeeperConnectStringTls }).(pulumi.StringOutput)
 }
 
 func init() {

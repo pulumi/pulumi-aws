@@ -8,8 +8,11 @@ import typing
 from .authorizer import *
 from .certificate import *
 from .get_endpoint import *
+from .indexing_configuration import *
+from .logging_options import *
 from .policy import *
 from .policy_attachment import *
+from .provisioning_template import *
 from .role_alias import *
 from .thing import *
 from .thing_group import *

@@ -71,12 +71,9 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     /**
-     * The name for the key pair.
+     * The key pair name.
      */
     public readonly keyName!: pulumi.Output<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
-     */
     public readonly keyNamePrefix!: pulumi.Output<string>;
     /**
      * The key pair ID.
@@ -148,12 +145,9 @@ export interface KeyPairState {
      */
     fingerprint?: pulumi.Input<string>;
     /**
-     * The name for the key pair.
+     * The key pair name.
      */
     keyName?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
-     */
     keyNamePrefix?: pulumi.Input<string>;
     /**
      * The key pair ID.
@@ -178,12 +172,9 @@ export interface KeyPairState {
  */
 export interface KeyPairArgs {
     /**
-     * The name for the key pair.
+     * The key pair name.
      */
     keyName?: pulumi.Input<string>;
-    /**
-     * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
-     */
     keyNamePrefix?: pulumi.Input<string>;
     /**
      * The public key material.

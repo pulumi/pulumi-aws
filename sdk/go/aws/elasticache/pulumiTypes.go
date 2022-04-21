@@ -128,6 +128,130 @@ func (o ClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) ClusterCacheNodeOu
 	}).(ClusterCacheNodeOutput)
 }
 
+type ClusterLogDeliveryConfiguration struct {
+	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+	Destination string `pulumi:"destination"`
+	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	DestinationType string `pulumi:"destinationType"`
+	// Valid values are `json` or `text`
+	LogFormat string `pulumi:"logFormat"`
+	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+	LogType string `pulumi:"logType"`
+}
+
+// ClusterLogDeliveryConfigurationInput is an input type that accepts ClusterLogDeliveryConfigurationArgs and ClusterLogDeliveryConfigurationOutput values.
+// You can construct a concrete instance of `ClusterLogDeliveryConfigurationInput` via:
+//
+//          ClusterLogDeliveryConfigurationArgs{...}
+type ClusterLogDeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterLogDeliveryConfigurationOutput() ClusterLogDeliveryConfigurationOutput
+	ToClusterLogDeliveryConfigurationOutputWithContext(context.Context) ClusterLogDeliveryConfigurationOutput
+}
+
+type ClusterLogDeliveryConfigurationArgs struct {
+	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	DestinationType pulumi.StringInput `pulumi:"destinationType"`
+	// Valid values are `json` or `text`
+	LogFormat pulumi.StringInput `pulumi:"logFormat"`
+	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+	LogType pulumi.StringInput `pulumi:"logType"`
+}
+
+func (ClusterLogDeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i ClusterLogDeliveryConfigurationArgs) ToClusterLogDeliveryConfigurationOutput() ClusterLogDeliveryConfigurationOutput {
+	return i.ToClusterLogDeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterLogDeliveryConfigurationArgs) ToClusterLogDeliveryConfigurationOutputWithContext(ctx context.Context) ClusterLogDeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLogDeliveryConfigurationOutput)
+}
+
+// ClusterLogDeliveryConfigurationArrayInput is an input type that accepts ClusterLogDeliveryConfigurationArray and ClusterLogDeliveryConfigurationArrayOutput values.
+// You can construct a concrete instance of `ClusterLogDeliveryConfigurationArrayInput` via:
+//
+//          ClusterLogDeliveryConfigurationArray{ ClusterLogDeliveryConfigurationArgs{...} }
+type ClusterLogDeliveryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToClusterLogDeliveryConfigurationArrayOutput() ClusterLogDeliveryConfigurationArrayOutput
+	ToClusterLogDeliveryConfigurationArrayOutputWithContext(context.Context) ClusterLogDeliveryConfigurationArrayOutput
+}
+
+type ClusterLogDeliveryConfigurationArray []ClusterLogDeliveryConfigurationInput
+
+func (ClusterLogDeliveryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i ClusterLogDeliveryConfigurationArray) ToClusterLogDeliveryConfigurationArrayOutput() ClusterLogDeliveryConfigurationArrayOutput {
+	return i.ToClusterLogDeliveryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ClusterLogDeliveryConfigurationArray) ToClusterLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) ClusterLogDeliveryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterLogDeliveryConfigurationArrayOutput)
+}
+
+type ClusterLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterLogDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o ClusterLogDeliveryConfigurationOutput) ToClusterLogDeliveryConfigurationOutput() ClusterLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o ClusterLogDeliveryConfigurationOutput) ToClusterLogDeliveryConfigurationOutputWithContext(ctx context.Context) ClusterLogDeliveryConfigurationOutput {
+	return o
+}
+
+// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+func (o ClusterLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+func (o ClusterLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
+}
+
+// Valid values are `json` or `text`
+func (o ClusterLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
+}
+
+// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+func (o ClusterLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
+}
+
+type ClusterLogDeliveryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ClusterLogDeliveryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o ClusterLogDeliveryConfigurationArrayOutput) ToClusterLogDeliveryConfigurationArrayOutput() ClusterLogDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o ClusterLogDeliveryConfigurationArrayOutput) ToClusterLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) ClusterLogDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o ClusterLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) ClusterLogDeliveryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ClusterLogDeliveryConfiguration {
+		return vs[0].([]ClusterLogDeliveryConfiguration)[vs[1].(int)]
+	}).(ClusterLogDeliveryConfigurationOutput)
+}
+
 type ParameterGroupParameter struct {
 	// The name of the ElastiCache parameter.
 	Name string `pulumi:"name"`
@@ -406,6 +530,130 @@ func (o ReplicationGroupClusterModePtrOutput) ReplicasPerNodeGroup() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+type ReplicationGroupLogDeliveryConfiguration struct {
+	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+	Destination string `pulumi:"destination"`
+	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	DestinationType string `pulumi:"destinationType"`
+	// Valid values are `json` or `text`
+	LogFormat string `pulumi:"logFormat"`
+	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+	LogType string `pulumi:"logType"`
+}
+
+// ReplicationGroupLogDeliveryConfigurationInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationArgs and ReplicationGroupLogDeliveryConfigurationOutput values.
+// You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationInput` via:
+//
+//          ReplicationGroupLogDeliveryConfigurationArgs{...}
+type ReplicationGroupLogDeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToReplicationGroupLogDeliveryConfigurationOutput() ReplicationGroupLogDeliveryConfigurationOutput
+	ToReplicationGroupLogDeliveryConfigurationOutputWithContext(context.Context) ReplicationGroupLogDeliveryConfigurationOutput
+}
+
+type ReplicationGroupLogDeliveryConfigurationArgs struct {
+	// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+	Destination pulumi.StringInput `pulumi:"destination"`
+	// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+	DestinationType pulumi.StringInput `pulumi:"destinationType"`
+	// Valid values are `json` or `text`
+	LogFormat pulumi.StringInput `pulumi:"logFormat"`
+	// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+	LogType pulumi.StringInput `pulumi:"logType"`
+}
+
+func (ReplicationGroupLogDeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationArgs) ToReplicationGroupLogDeliveryConfigurationOutput() ReplicationGroupLogDeliveryConfigurationOutput {
+	return i.ToReplicationGroupLogDeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationArgs) ToReplicationGroupLogDeliveryConfigurationOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationOutput)
+}
+
+// ReplicationGroupLogDeliveryConfigurationArrayInput is an input type that accepts ReplicationGroupLogDeliveryConfigurationArray and ReplicationGroupLogDeliveryConfigurationArrayOutput values.
+// You can construct a concrete instance of `ReplicationGroupLogDeliveryConfigurationArrayInput` via:
+//
+//          ReplicationGroupLogDeliveryConfigurationArray{ ReplicationGroupLogDeliveryConfigurationArgs{...} }
+type ReplicationGroupLogDeliveryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToReplicationGroupLogDeliveryConfigurationArrayOutput() ReplicationGroupLogDeliveryConfigurationArrayOutput
+	ToReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(context.Context) ReplicationGroupLogDeliveryConfigurationArrayOutput
+}
+
+type ReplicationGroupLogDeliveryConfigurationArray []ReplicationGroupLogDeliveryConfigurationInput
+
+func (ReplicationGroupLogDeliveryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationArray) ToReplicationGroupLogDeliveryConfigurationArrayOutput() ReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return i.ToReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ReplicationGroupLogDeliveryConfigurationArray) ToReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationGroupLogDeliveryConfigurationArrayOutput)
+}
+
+type ReplicationGroupLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupLogDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationGroupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationOutput) ToReplicationGroupLogDeliveryConfigurationOutput() ReplicationGroupLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationOutput) ToReplicationGroupLogDeliveryConfigurationOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationOutput {
+	return o
+}
+
+// Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+func (o ReplicationGroupLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+// For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+func (o ReplicationGroupLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
+}
+
+// Valid values are `json` or `text`
+func (o ReplicationGroupLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
+}
+
+// Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+func (o ReplicationGroupLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationGroupLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
+}
+
+type ReplicationGroupLogDeliveryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationGroupLogDeliveryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationGroupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) ToReplicationGroupLogDeliveryConfigurationArrayOutput() ReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) ToReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) ReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o ReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationGroupLogDeliveryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationGroupLogDeliveryConfiguration {
+		return vs[0].([]ReplicationGroupLogDeliveryConfiguration)[vs[1].(int)]
+	}).(ReplicationGroupLogDeliveryConfigurationOutput)
+}
+
 type GetClusterCacheNode struct {
 	Address string `pulumi:"address"`
 	// The Availability Zone for the cache cluster.
@@ -527,21 +775,261 @@ func (o GetClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) GetClusterCache
 	}).(GetClusterCacheNodeOutput)
 }
 
+type GetClusterLogDeliveryConfiguration struct {
+	Destination     string `pulumi:"destination"`
+	DestinationType string `pulumi:"destinationType"`
+	LogFormat       string `pulumi:"logFormat"`
+	LogType         string `pulumi:"logType"`
+}
+
+// GetClusterLogDeliveryConfigurationInput is an input type that accepts GetClusterLogDeliveryConfigurationArgs and GetClusterLogDeliveryConfigurationOutput values.
+// You can construct a concrete instance of `GetClusterLogDeliveryConfigurationInput` via:
+//
+//          GetClusterLogDeliveryConfigurationArgs{...}
+type GetClusterLogDeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToGetClusterLogDeliveryConfigurationOutput() GetClusterLogDeliveryConfigurationOutput
+	ToGetClusterLogDeliveryConfigurationOutputWithContext(context.Context) GetClusterLogDeliveryConfigurationOutput
+}
+
+type GetClusterLogDeliveryConfigurationArgs struct {
+	Destination     pulumi.StringInput `pulumi:"destination"`
+	DestinationType pulumi.StringInput `pulumi:"destinationType"`
+	LogFormat       pulumi.StringInput `pulumi:"logFormat"`
+	LogType         pulumi.StringInput `pulumi:"logType"`
+}
+
+func (GetClusterLogDeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i GetClusterLogDeliveryConfigurationArgs) ToGetClusterLogDeliveryConfigurationOutput() GetClusterLogDeliveryConfigurationOutput {
+	return i.ToGetClusterLogDeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetClusterLogDeliveryConfigurationArgs) ToGetClusterLogDeliveryConfigurationOutputWithContext(ctx context.Context) GetClusterLogDeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLogDeliveryConfigurationOutput)
+}
+
+// GetClusterLogDeliveryConfigurationArrayInput is an input type that accepts GetClusterLogDeliveryConfigurationArray and GetClusterLogDeliveryConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetClusterLogDeliveryConfigurationArrayInput` via:
+//
+//          GetClusterLogDeliveryConfigurationArray{ GetClusterLogDeliveryConfigurationArgs{...} }
+type GetClusterLogDeliveryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterLogDeliveryConfigurationArrayOutput() GetClusterLogDeliveryConfigurationArrayOutput
+	ToGetClusterLogDeliveryConfigurationArrayOutputWithContext(context.Context) GetClusterLogDeliveryConfigurationArrayOutput
+}
+
+type GetClusterLogDeliveryConfigurationArray []GetClusterLogDeliveryConfigurationInput
+
+func (GetClusterLogDeliveryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i GetClusterLogDeliveryConfigurationArray) ToGetClusterLogDeliveryConfigurationArrayOutput() GetClusterLogDeliveryConfigurationArrayOutput {
+	return i.ToGetClusterLogDeliveryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterLogDeliveryConfigurationArray) ToGetClusterLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) GetClusterLogDeliveryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterLogDeliveryConfigurationArrayOutput)
+}
+
+type GetClusterLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetClusterLogDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o GetClusterLogDeliveryConfigurationOutput) ToGetClusterLogDeliveryConfigurationOutput() GetClusterLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o GetClusterLogDeliveryConfigurationOutput) ToGetClusterLogDeliveryConfigurationOutputWithContext(ctx context.Context) GetClusterLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o GetClusterLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o GetClusterLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
+}
+
+func (o GetClusterLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
+}
+
+func (o GetClusterLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
+}
+
+type GetClusterLogDeliveryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterLogDeliveryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o GetClusterLogDeliveryConfigurationArrayOutput) ToGetClusterLogDeliveryConfigurationArrayOutput() GetClusterLogDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o GetClusterLogDeliveryConfigurationArrayOutput) ToGetClusterLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) GetClusterLogDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o GetClusterLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) GetClusterLogDeliveryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterLogDeliveryConfiguration {
+		return vs[0].([]GetClusterLogDeliveryConfiguration)[vs[1].(int)]
+	}).(GetClusterLogDeliveryConfigurationOutput)
+}
+
+type GetReplicationGroupLogDeliveryConfiguration struct {
+	Destination     string `pulumi:"destination"`
+	DestinationType string `pulumi:"destinationType"`
+	LogFormat       string `pulumi:"logFormat"`
+	LogType         string `pulumi:"logType"`
+}
+
+// GetReplicationGroupLogDeliveryConfigurationInput is an input type that accepts GetReplicationGroupLogDeliveryConfigurationArgs and GetReplicationGroupLogDeliveryConfigurationOutput values.
+// You can construct a concrete instance of `GetReplicationGroupLogDeliveryConfigurationInput` via:
+//
+//          GetReplicationGroupLogDeliveryConfigurationArgs{...}
+type GetReplicationGroupLogDeliveryConfigurationInput interface {
+	pulumi.Input
+
+	ToGetReplicationGroupLogDeliveryConfigurationOutput() GetReplicationGroupLogDeliveryConfigurationOutput
+	ToGetReplicationGroupLogDeliveryConfigurationOutputWithContext(context.Context) GetReplicationGroupLogDeliveryConfigurationOutput
+}
+
+type GetReplicationGroupLogDeliveryConfigurationArgs struct {
+	Destination     pulumi.StringInput `pulumi:"destination"`
+	DestinationType pulumi.StringInput `pulumi:"destinationType"`
+	LogFormat       pulumi.StringInput `pulumi:"logFormat"`
+	LogType         pulumi.StringInput `pulumi:"logType"`
+}
+
+func (GetReplicationGroupLogDeliveryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationGroupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i GetReplicationGroupLogDeliveryConfigurationArgs) ToGetReplicationGroupLogDeliveryConfigurationOutput() GetReplicationGroupLogDeliveryConfigurationOutput {
+	return i.ToGetReplicationGroupLogDeliveryConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetReplicationGroupLogDeliveryConfigurationArgs) ToGetReplicationGroupLogDeliveryConfigurationOutputWithContext(ctx context.Context) GetReplicationGroupLogDeliveryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationGroupLogDeliveryConfigurationOutput)
+}
+
+// GetReplicationGroupLogDeliveryConfigurationArrayInput is an input type that accepts GetReplicationGroupLogDeliveryConfigurationArray and GetReplicationGroupLogDeliveryConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetReplicationGroupLogDeliveryConfigurationArrayInput` via:
+//
+//          GetReplicationGroupLogDeliveryConfigurationArray{ GetReplicationGroupLogDeliveryConfigurationArgs{...} }
+type GetReplicationGroupLogDeliveryConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetReplicationGroupLogDeliveryConfigurationArrayOutput() GetReplicationGroupLogDeliveryConfigurationArrayOutput
+	ToGetReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(context.Context) GetReplicationGroupLogDeliveryConfigurationArrayOutput
+}
+
+type GetReplicationGroupLogDeliveryConfigurationArray []GetReplicationGroupLogDeliveryConfigurationInput
+
+func (GetReplicationGroupLogDeliveryConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationGroupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (i GetReplicationGroupLogDeliveryConfigurationArray) ToGetReplicationGroupLogDeliveryConfigurationArrayOutput() GetReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return i.ToGetReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetReplicationGroupLogDeliveryConfigurationArray) ToGetReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) GetReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReplicationGroupLogDeliveryConfigurationArrayOutput)
+}
+
+type GetReplicationGroupLogDeliveryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationGroupLogDeliveryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReplicationGroupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) ToGetReplicationGroupLogDeliveryConfigurationOutput() GetReplicationGroupLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) ToGetReplicationGroupLogDeliveryConfigurationOutputWithContext(ctx context.Context) GetReplicationGroupLogDeliveryConfigurationOutput {
+	return o
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) DestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) string { return v.DestinationType }).(pulumi.StringOutput)
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) LogFormat() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) string { return v.LogFormat }).(pulumi.StringOutput)
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationOutput) LogType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetReplicationGroupLogDeliveryConfiguration) string { return v.LogType }).(pulumi.StringOutput)
+}
+
+type GetReplicationGroupLogDeliveryConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetReplicationGroupLogDeliveryConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetReplicationGroupLogDeliveryConfiguration)(nil)).Elem()
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) ToGetReplicationGroupLogDeliveryConfigurationArrayOutput() GetReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) ToGetReplicationGroupLogDeliveryConfigurationArrayOutputWithContext(ctx context.Context) GetReplicationGroupLogDeliveryConfigurationArrayOutput {
+	return o
+}
+
+func (o GetReplicationGroupLogDeliveryConfigurationArrayOutput) Index(i pulumi.IntInput) GetReplicationGroupLogDeliveryConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetReplicationGroupLogDeliveryConfiguration {
+		return vs[0].([]GetReplicationGroupLogDeliveryConfiguration)[vs[1].(int)]
+	}).(GetReplicationGroupLogDeliveryConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeInput)(nil)).Elem(), ClusterCacheNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeArrayInput)(nil)).Elem(), ClusterCacheNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLogDeliveryConfigurationInput)(nil)).Elem(), ClusterLogDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLogDeliveryConfigurationArrayInput)(nil)).Elem(), ClusterLogDeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModeInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModePtrInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), ReplicationGroupLogDeliveryConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeInput)(nil)).Elem(), GetClusterCacheNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeArrayInput)(nil)).Elem(), GetClusterCacheNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLogDeliveryConfigurationInput)(nil)).Elem(), GetClusterLogDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterLogDeliveryConfigurationArrayInput)(nil)).Elem(), GetClusterLogDeliveryConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationGroupLogDeliveryConfigurationInput)(nil)).Elem(), GetReplicationGroupLogDeliveryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReplicationGroupLogDeliveryConfigurationArrayInput)(nil)).Elem(), GetReplicationGroupLogDeliveryConfigurationArray{})
 	pulumi.RegisterOutputType(ClusterCacheNodeOutput{})
 	pulumi.RegisterOutputType(ClusterCacheNodeArrayOutput{})
+	pulumi.RegisterOutputType(ClusterLogDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterLogDeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupClusterModeOutput{})
 	pulumi.RegisterOutputType(ReplicationGroupClusterModePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(ReplicationGroupLogDeliveryConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterCacheNodeOutput{})
 	pulumi.RegisterOutputType(GetClusterCacheNodeArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterLogDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(GetClusterLogDeliveryConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetReplicationGroupLogDeliveryConfigurationOutput{})
+	pulumi.RegisterOutputType(GetReplicationGroupLogDeliveryConfigurationArrayOutput{})
 }

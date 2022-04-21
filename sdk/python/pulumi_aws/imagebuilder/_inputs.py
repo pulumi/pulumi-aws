@@ -36,6 +36,7 @@ __all__ = [
     'GetComponentsFilterArgs',
     'GetContainerRecipesFilterArgs',
     'GetDistributionConfigurationsFilterArgs',
+    'GetImagePipelinesFilterArgs',
     'GetImageRecipesFilterArgs',
     'GetInfrastructureConfigurationsFilterArgs',
 ]
@@ -573,16 +574,48 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationArgs:
 @pulumi.input_type
 class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs:
     def __init__(__self__, *,
+                 organization_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 organizational_unit_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  user_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organization_arns: Set of AWS Organization ARNs to assign.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] organizational_unit_arns: Set of AWS Organizational Unit ARNs to assign.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_groups: Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] user_ids: Set of AWS Account identifiers to assign.
         """
+        if organization_arns is not None:
+            pulumi.set(__self__, "organization_arns", organization_arns)
+        if organizational_unit_arns is not None:
+            pulumi.set(__self__, "organizational_unit_arns", organizational_unit_arns)
         if user_groups is not None:
             pulumi.set(__self__, "user_groups", user_groups)
         if user_ids is not None:
             pulumi.set(__self__, "user_ids", user_ids)
+
+    @property
+    @pulumi.getter(name="organizationArns")
+    def organization_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of AWS Organization ARNs to assign.
+        """
+        return pulumi.get(self, "organization_arns")
+
+    @organization_arns.setter
+    def organization_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "organization_arns", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnitArns")
+    def organizational_unit_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of AWS Organizational Unit ARNs to assign.
+        """
+        return pulumi.get(self, "organizational_unit_arns")
+
+    @organizational_unit_arns.setter
+    def organizational_unit_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "organizational_unit_arns", value)
 
     @property
     @pulumi.getter(name="userGroups")
@@ -704,12 +737,16 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationTar
 class DistributionConfigurationDistributionLaunchTemplateConfigurationArgs:
     def __init__(__self__, *,
                  launch_template_id: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  default: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] launch_template_id: The ID of the Amazon EC2 launch template to use.
+        :param pulumi.Input[str] account_id: The account ID that this configuration applies to.
         :param pulumi.Input[bool] default: Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
         """
         pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if default is not None:
             pulumi.set(__self__, "default", default)
 
@@ -724,6 +761,18 @@ class DistributionConfigurationDistributionLaunchTemplateConfigurationArgs:
     @launch_template_id.setter
     def launch_template_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "launch_template_id", value)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The account ID that this configuration applies to.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter
@@ -1418,6 +1467,43 @@ class GetDistributionConfigurationsFilterArgs:
     def name(self) -> str:
         """
         The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class GetImagePipelinesFilterArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+        :param Sequence[str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
         """
         return pulumi.get(self, "name")
 

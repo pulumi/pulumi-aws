@@ -13,10 +13,10 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether versioning is enabled.
+        /// Boolean which indicates if this criteria is enabled.
         /// </summary>
-        [Input("enabled")]
-        public Input<bool>? Enabled { get; set; }
+        [Input("enabled", required: true)]
+        public Input<bool> Enabled { get; set; } = null!;
 
         public BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectGetArgs()
         {

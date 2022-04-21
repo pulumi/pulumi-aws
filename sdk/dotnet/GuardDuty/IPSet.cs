@@ -34,7 +34,6 @@ namespace Pulumi.Aws.GuardDuty
     ///         // ... other configuration
     ///         var myIPSet = new Aws.S3.BucketObjectv2("myIPSet", new Aws.S3.BucketObjectv2Args
     ///         {
-    ///             Acl = "public-read",
     ///             Content = @"10.0.0.0/8
     /// ",
     ///             Bucket = bucket.Id,

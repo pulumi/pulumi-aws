@@ -20,10 +20,13 @@ class GetRouteResult:
     """
     A collection of values returned by getRoute.
     """
-    def __init__(__self__, carrier_gateway_id=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, destination_prefix_list_id=None, egress_only_gateway_id=None, gateway_id=None, id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
+    def __init__(__self__, carrier_gateway_id=None, core_network_arn=None, destination_cidr_block=None, destination_ipv6_cidr_block=None, destination_prefix_list_id=None, egress_only_gateway_id=None, gateway_id=None, id=None, instance_id=None, local_gateway_id=None, nat_gateway_id=None, network_interface_id=None, route_table_id=None, transit_gateway_id=None, vpc_peering_connection_id=None):
         if carrier_gateway_id and not isinstance(carrier_gateway_id, str):
             raise TypeError("Expected argument 'carrier_gateway_id' to be a str")
         pulumi.set(__self__, "carrier_gateway_id", carrier_gateway_id)
+        if core_network_arn and not isinstance(core_network_arn, str):
+            raise TypeError("Expected argument 'core_network_arn' to be a str")
+        pulumi.set(__self__, "core_network_arn", core_network_arn)
         if destination_cidr_block and not isinstance(destination_cidr_block, str):
             raise TypeError("Expected argument 'destination_cidr_block' to be a str")
         pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
@@ -68,6 +71,11 @@ class GetRouteResult:
     @pulumi.getter(name="carrierGatewayId")
     def carrier_gateway_id(self) -> str:
         return pulumi.get(self, "carrier_gateway_id")
+
+    @property
+    @pulumi.getter(name="coreNetworkArn")
+    def core_network_arn(self) -> str:
+        return pulumi.get(self, "core_network_arn")
 
     @property
     @pulumi.getter(name="destinationCidrBlock")
@@ -145,6 +153,7 @@ class AwaitableGetRouteResult(GetRouteResult):
             yield self
         return GetRouteResult(
             carrier_gateway_id=self.carrier_gateway_id,
+            core_network_arn=self.core_network_arn,
             destination_cidr_block=self.destination_cidr_block,
             destination_ipv6_cidr_block=self.destination_ipv6_cidr_block,
             destination_prefix_list_id=self.destination_prefix_list_id,
@@ -161,6 +170,7 @@ class AwaitableGetRouteResult(GetRouteResult):
 
 
 def get_route(carrier_gateway_id: Optional[str] = None,
+              core_network_arn: Optional[str] = None,
               destination_cidr_block: Optional[str] = None,
               destination_ipv6_cidr_block: Optional[str] = None,
               destination_prefix_list_id: Optional[str] = None,
@@ -197,6 +207,7 @@ def get_route(carrier_gateway_id: Optional[str] = None,
 
 
     :param str carrier_gateway_id: EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+    :param str core_network_arn: Core network ARN of the Route belonging to the Route Table.
     :param str destination_cidr_block: CIDR block of the Route belonging to the Route Table.
     :param str destination_ipv6_cidr_block: IPv6 CIDR block of the Route belonging to the Route Table.
     :param str destination_prefix_list_id: The ID of a managed prefix list destination of the Route belonging to the Route Table.
@@ -212,6 +223,7 @@ def get_route(carrier_gateway_id: Optional[str] = None,
     """
     __args__ = dict()
     __args__['carrierGatewayId'] = carrier_gateway_id
+    __args__['coreNetworkArn'] = core_network_arn
     __args__['destinationCidrBlock'] = destination_cidr_block
     __args__['destinationIpv6CidrBlock'] = destination_ipv6_cidr_block
     __args__['destinationPrefixListId'] = destination_prefix_list_id
@@ -232,6 +244,7 @@ def get_route(carrier_gateway_id: Optional[str] = None,
 
     return AwaitableGetRouteResult(
         carrier_gateway_id=__ret__.carrier_gateway_id,
+        core_network_arn=__ret__.core_network_arn,
         destination_cidr_block=__ret__.destination_cidr_block,
         destination_ipv6_cidr_block=__ret__.destination_ipv6_cidr_block,
         destination_prefix_list_id=__ret__.destination_prefix_list_id,
@@ -249,6 +262,7 @@ def get_route(carrier_gateway_id: Optional[str] = None,
 
 @_utilities.lift_output_func(get_route)
 def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     core_network_arn: Optional[pulumi.Input[Optional[str]]] = None,
                      destination_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
                      destination_ipv6_cidr_block: Optional[pulumi.Input[Optional[str]]] = None,
                      destination_prefix_list_id: Optional[pulumi.Input[Optional[str]]] = None,
@@ -285,6 +299,7 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
 
 
     :param str carrier_gateway_id: EC2 Carrier Gateway ID of the Route belonging to the Route Table.
+    :param str core_network_arn: Core network ARN of the Route belonging to the Route Table.
     :param str destination_cidr_block: CIDR block of the Route belonging to the Route Table.
     :param str destination_ipv6_cidr_block: IPv6 CIDR block of the Route belonging to the Route Table.
     :param str destination_prefix_list_id: The ID of a managed prefix list destination of the Route belonging to the Route Table.

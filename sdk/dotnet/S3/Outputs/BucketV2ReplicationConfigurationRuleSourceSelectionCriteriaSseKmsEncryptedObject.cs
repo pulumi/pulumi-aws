@@ -14,12 +14,12 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject
     {
         /// <summary>
-        /// Whether versioning is enabled.
+        /// Boolean which indicates if this criteria is enabled.
         /// </summary>
-        public readonly bool? Enabled;
+        public readonly bool Enabled;
 
         [OutputConstructor]
-        private BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject(bool? enabled)
+        private BucketV2ReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject(bool enabled)
         {
             Enabled = enabled;
         }

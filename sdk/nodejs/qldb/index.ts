@@ -7,9 +7,11 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getLedger";
 export * from "./ledger";
+export * from "./stream";
 
 // Import resources to register:
 import { Ledger } from "./ledger";
+import { Stream } from "./stream";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,9 +19,12 @@ const _module = {
         switch (type) {
             case "aws:qldb/ledger:Ledger":
                 return new Ledger(name, <any>undefined, { urn })
+            case "aws:qldb/stream:Stream":
+                return new Stream(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "qldb/ledger", _module)
+pulumi.runtime.registerResourceModule("aws", "qldb/stream", _module)

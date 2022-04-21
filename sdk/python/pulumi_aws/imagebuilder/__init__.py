@@ -16,6 +16,7 @@ from .get_distribution_configuration import *
 from .get_distribution_configurations import *
 from .get_image import *
 from .get_image_pipeline import *
+from .get_image_pipelines import *
 from .get_image_recipe import *
 from .get_image_recipes import *
 from .get_infrastructure_configuration import *

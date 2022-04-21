@@ -93,6 +93,14 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ARN of the core network.
+     */
+    public /*out*/ readonly coreNetworkArn!: pulumi.Output<string>;
+    /**
+     * The ARN of the core network attachment.
+     */
+    public /*out*/ readonly coreNetworkAttachmentArn!: pulumi.Output<string>;
+    /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */
     public /*out*/ readonly customerGatewayConfiguration!: pulumi.Output<string>;
@@ -359,6 +367,8 @@ export class VpnConnection extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as VpnConnectionState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
+            resourceInputs["coreNetworkAttachmentArn"] = state ? state.coreNetworkAttachmentArn : undefined;
             resourceInputs["customerGatewayConfiguration"] = state ? state.customerGatewayConfiguration : undefined;
             resourceInputs["customerGatewayId"] = state ? state.customerGatewayId : undefined;
             resourceInputs["enableAcceleration"] = state ? state.enableAcceleration : undefined;
@@ -479,6 +489,8 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vpnGatewayId"] = args ? args.vpnGatewayId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["coreNetworkArn"] = undefined /*out*/;
+            resourceInputs["coreNetworkAttachmentArn"] = undefined /*out*/;
             resourceInputs["customerGatewayConfiguration"] = undefined /*out*/;
             resourceInputs["routes"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -508,6 +520,14 @@ export interface VpnConnectionState {
      * Amazon Resource Name (ARN) of the VPN Connection.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The ARN of the core network.
+     */
+    coreNetworkArn?: pulumi.Input<string>;
+    /**
+     * The ARN of the core network attachment.
+     */
+    coreNetworkAttachmentArn?: pulumi.Input<string>;
     /**
      * The configuration information for the VPN connection's customer gateway (in the native XML format).
      */

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Gamelift Game Session Queue resource.
+ * Provides an GameLift Game Session Queue resource.
  *
  * ## Example Usage
  *
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Gamelift Game Session Queues can be imported by their `name`, e.g.,
+ * GameLift Game Session Queues can be imported by their `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example

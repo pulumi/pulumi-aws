@@ -63,6 +63,12 @@ namespace Pulumi.Aws.Iot
         public Output<string> AuthorizerFunctionArn { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+        /// </summary>
+        [Output("enableCachingForHttp")]
+        public Output<bool?> EnableCachingForHttp { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the authorizer.
         /// </summary>
         [Output("name")]
@@ -145,6 +151,12 @@ namespace Pulumi.Aws.Iot
         public Input<string> AuthorizerFunctionArn { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+        /// </summary>
+        [Input("enableCachingForHttp")]
+        public Input<bool>? EnableCachingForHttp { get; set; }
+
+        /// <summary>
         /// The name of the authorizer.
         /// </summary>
         [Input("name")]
@@ -198,6 +210,12 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Input("authorizerFunctionArn")]
         public Input<string>? AuthorizerFunctionArn { get; set; }
+
+        /// <summary>
+        /// Specifies whether the HTTP caching is enabled or not. Default: `false`.
+        /// </summary>
+        [Input("enableCachingForHttp")]
+        public Input<bool>? EnableCachingForHttp { get; set; }
 
         /// <summary>
         /// The name of the authorizer.

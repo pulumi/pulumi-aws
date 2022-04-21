@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift
 {
     /// <summary>
-    /// Provides an Gamelift Build resource.
+    /// Provides an GameLift Build resource.
     /// 
     /// ## Example Usage
     /// 
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Gamelift Builds can be imported using the ID, e.g.,
+    /// GameLift Builds can be imported using the ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/build:Build example &lt;build-id&gt;
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.GameLift
     public partial class Build : Pulumi.CustomResource
     {
         /// <summary>
-        /// Gamelift Build ARN.
+        /// GameLift Build ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.GameLift
     public sealed class BuildState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gamelift Build ARN.
+        /// GameLift Build ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.GameLift
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

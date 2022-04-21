@@ -108,6 +108,46 @@ import (
 // 	})
 // }
 // ```
+// ### Redis Log Delivery configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := elasticache.NewCluster(ctx, "test", &elasticache.ClusterArgs{
+// 			Engine:           pulumi.String("redis"),
+// 			NodeType:         pulumi.String("cache.t3.micro"),
+// 			NumCacheNodes:    pulumi.Int(1),
+// 			Port:             pulumi.Int(6379),
+// 			ApplyImmediately: pulumi.Bool(true),
+// 			LogDeliveryConfigurations: elasticache.ClusterLogDeliveryConfigurationArray{
+// 				&elasticache.ClusterLogDeliveryConfigurationArgs{
+// 					Destination:     pulumi.Any(aws_cloudwatch_log_group.Example.Name),
+// 					DestinationType: pulumi.String("cloudwatch-logs"),
+// 					LogFormat:       pulumi.String("text"),
+// 					LogType:         pulumi.String("slow-log"),
+// 				},
+// 				&elasticache.ClusterLogDeliveryConfigurationArgs{
+// 					Destination:     pulumi.Any(aws_kinesis_firehose_delivery_stream.Example.Name),
+// 					DestinationType: pulumi.String("kinesis-firehose"),
+// 					LogFormat:       pulumi.String("json"),
+// 					LogType:         pulumi.String("engine-log"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -123,6 +163,10 @@ type Cluster struct {
 	ApplyImmediately pulumi.BoolOutput `pulumi:"applyImmediately"`
 	// The ARN of the created ElastiCache Cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.StringPtrOutput `pulumi:"autoMinorVersionUpgrade"`
 	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
@@ -138,13 +182,16 @@ type Cluster struct {
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used.
+	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The running version of the cache engine.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations ClusterLogDeliveryConfigurationArrayOutput `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -215,6 +262,10 @@ type clusterState struct {
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
 	// The ARN of the created ElastiCache Cluster.
 	Arn *string `pulumi:"arn"`
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade *string `pulumi:"autoMinorVersionUpgrade"`
 	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
@@ -230,13 +281,16 @@ type clusterState struct {
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used.
+	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The running version of the cache engine.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations []ClusterLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -279,6 +333,10 @@ type ClusterState struct {
 	ApplyImmediately pulumi.BoolPtrInput
 	// The ARN of the created ElastiCache Cluster.
 	Arn pulumi.StringPtrInput
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.StringPtrInput
 	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone pulumi.StringPtrInput
 	// Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
@@ -294,13 +352,16 @@ type ClusterState struct {
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used.
+	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// The running version of the cache engine.
 	EngineVersionActual pulumi.StringPtrInput
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations ClusterLogDeliveryConfigurationArrayInput
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -345,6 +406,10 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade *string `pulumi:"autoMinorVersionUpgrade"`
 	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
@@ -354,11 +419,14 @@ type clusterArgs struct {
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used.
+	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations []ClusterLogDeliveryConfiguration `pulumi:"logDeliveryConfigurations"`
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.
@@ -399,6 +467,10 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`. See [Amazon ElastiCache Documentation for more information.](https://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheCluster.html).
 	ApplyImmediately pulumi.BoolPtrInput
+	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
+	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
+	// Defaults to `true`.
+	AutoMinorVersionUpgrade pulumi.StringPtrInput
 	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
 	AvailabilityZone pulumi.StringPtrInput
 	// Whether the nodes in this Memcached node group are created in a single Availability Zone or created across multiple Availability Zones in the cluster's region. Valid values for this parameter are `single-az` or `cross-az`, default is `single-az`. If you want to choose `cross-az`, `numCacheNodes` must be greater than `1`.
@@ -408,11 +480,14 @@ type ClusterArgs struct {
 	// Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used.
+	// If not set, defaults to the latest version.
 	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
+	// Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
+	LogDeliveryConfigurations ClusterLogDeliveryConfigurationArrayInput
 	// Specifies the weekly time range for when maintenance
 	// on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
 	// The minimum maintenance window is a 60 minute period. Example: `sun:05:00-sun:09:00`.

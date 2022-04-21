@@ -1239,6 +1239,8 @@ func (o DefaultNetworkAclIngressArrayOutput) Index(i pulumi.IntInput) DefaultNet
 type DefaultRouteTableRoute struct {
 	// The CIDR block of the route.
 	CidrBlock *string `pulumi:"cidrBlock"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
@@ -1275,6 +1277,8 @@ type DefaultRouteTableRouteInput interface {
 type DefaultRouteTableRouteArgs struct {
 	// The CIDR block of the route.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn pulumi.StringPtrInput `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
@@ -1351,6 +1355,11 @@ func (o DefaultRouteTableRouteOutput) ToDefaultRouteTableRouteOutputWithContext(
 // The CIDR block of the route.
 func (o DefaultRouteTableRouteOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a core network.
+func (o DefaultRouteTableRouteOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DefaultRouteTableRoute) *string { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a managed prefix list destination of the route.
@@ -9798,6 +9807,8 @@ type RouteTableRoute struct {
 	CarrierGatewayId *string `pulumi:"carrierGatewayId"`
 	// The CIDR block of the route.
 	CidrBlock *string `pulumi:"cidrBlock"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn *string `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId *string `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
@@ -9840,6 +9851,8 @@ type RouteTableRouteArgs struct {
 	CarrierGatewayId pulumi.StringPtrInput `pulumi:"carrierGatewayId"`
 	// The CIDR block of the route.
 	CidrBlock pulumi.StringPtrInput `pulumi:"cidrBlock"`
+	// The Amazon Resource Name (ARN) of a core network.
+	CoreNetworkArn pulumi.StringPtrInput `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId pulumi.StringPtrInput `pulumi:"destinationPrefixListId"`
 	// Identifier of a VPC Egress Only Internet Gateway.
@@ -9925,6 +9938,11 @@ func (o RouteTableRouteOutput) CarrierGatewayId() pulumi.StringPtrOutput {
 // The CIDR block of the route.
 func (o RouteTableRouteOutput) CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RouteTableRoute) *string { return v.CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of a core network.
+func (o RouteTableRouteOutput) CoreNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RouteTableRoute) *string { return v.CoreNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of a managed prefix list destination of the route.
@@ -22079,6 +22097,118 @@ func (o GetNatGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetNatGatewayFi
 	}).(GetNatGatewayFilterOutput)
 }
 
+type GetNatGatewaysFilter struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Nat Gateway will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetNatGatewaysFilterInput is an input type that accepts GetNatGatewaysFilterArgs and GetNatGatewaysFilterOutput values.
+// You can construct a concrete instance of `GetNatGatewaysFilterInput` via:
+//
+//          GetNatGatewaysFilterArgs{...}
+type GetNatGatewaysFilterInput interface {
+	pulumi.Input
+
+	ToGetNatGatewaysFilterOutput() GetNatGatewaysFilterOutput
+	ToGetNatGatewaysFilterOutputWithContext(context.Context) GetNatGatewaysFilterOutput
+}
+
+type GetNatGatewaysFilterArgs struct {
+	// The name of the field to filter by, as defined by
+	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field.
+	// A Nat Gateway will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetNatGatewaysFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatGatewaysFilter)(nil)).Elem()
+}
+
+func (i GetNatGatewaysFilterArgs) ToGetNatGatewaysFilterOutput() GetNatGatewaysFilterOutput {
+	return i.ToGetNatGatewaysFilterOutputWithContext(context.Background())
+}
+
+func (i GetNatGatewaysFilterArgs) ToGetNatGatewaysFilterOutputWithContext(ctx context.Context) GetNatGatewaysFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatGatewaysFilterOutput)
+}
+
+// GetNatGatewaysFilterArrayInput is an input type that accepts GetNatGatewaysFilterArray and GetNatGatewaysFilterArrayOutput values.
+// You can construct a concrete instance of `GetNatGatewaysFilterArrayInput` via:
+//
+//          GetNatGatewaysFilterArray{ GetNatGatewaysFilterArgs{...} }
+type GetNatGatewaysFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetNatGatewaysFilterArrayOutput() GetNatGatewaysFilterArrayOutput
+	ToGetNatGatewaysFilterArrayOutputWithContext(context.Context) GetNatGatewaysFilterArrayOutput
+}
+
+type GetNatGatewaysFilterArray []GetNatGatewaysFilterInput
+
+func (GetNatGatewaysFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatGatewaysFilter)(nil)).Elem()
+}
+
+func (i GetNatGatewaysFilterArray) ToGetNatGatewaysFilterArrayOutput() GetNatGatewaysFilterArrayOutput {
+	return i.ToGetNatGatewaysFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetNatGatewaysFilterArray) ToGetNatGatewaysFilterArrayOutputWithContext(ctx context.Context) GetNatGatewaysFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNatGatewaysFilterArrayOutput)
+}
+
+type GetNatGatewaysFilterOutput struct{ *pulumi.OutputState }
+
+func (GetNatGatewaysFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNatGatewaysFilter)(nil)).Elem()
+}
+
+func (o GetNatGatewaysFilterOutput) ToGetNatGatewaysFilterOutput() GetNatGatewaysFilterOutput {
+	return o
+}
+
+func (o GetNatGatewaysFilterOutput) ToGetNatGatewaysFilterOutputWithContext(ctx context.Context) GetNatGatewaysFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by
+// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+func (o GetNatGatewaysFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNatGatewaysFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field.
+// A Nat Gateway will be selected if any one of the given values matches.
+func (o GetNatGatewaysFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNatGatewaysFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetNatGatewaysFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNatGatewaysFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNatGatewaysFilter)(nil)).Elem()
+}
+
+func (o GetNatGatewaysFilterArrayOutput) ToGetNatGatewaysFilterArrayOutput() GetNatGatewaysFilterArrayOutput {
+	return o
+}
+
+func (o GetNatGatewaysFilterArrayOutput) ToGetNatGatewaysFilterArrayOutputWithContext(ctx context.Context) GetNatGatewaysFilterArrayOutput {
+	return o
+}
+
+func (o GetNatGatewaysFilterArrayOutput) Index(i pulumi.IntInput) GetNatGatewaysFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNatGatewaysFilter {
+		return vs[0].([]GetNatGatewaysFilter)[vs[1].(int)]
+	}).(GetNatGatewaysFilterOutput)
+}
+
 type GetNetworkAclsFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkAcls.html).
@@ -23013,6 +23143,8 @@ type GetRouteTableRoute struct {
 	CarrierGatewayId string `pulumi:"carrierGatewayId"`
 	// CIDR block of the route.
 	CidrBlock string `pulumi:"cidrBlock"`
+	// ARN of the core network.
+	CoreNetworkArn string `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId string `pulumi:"destinationPrefixListId"`
 	// ID of the Egress Only Internet Gateway.
@@ -23053,6 +23185,8 @@ type GetRouteTableRouteArgs struct {
 	CarrierGatewayId pulumi.StringInput `pulumi:"carrierGatewayId"`
 	// CIDR block of the route.
 	CidrBlock pulumi.StringInput `pulumi:"cidrBlock"`
+	// ARN of the core network.
+	CoreNetworkArn pulumi.StringInput `pulumi:"coreNetworkArn"`
 	// The ID of a managed prefix list destination of the route.
 	DestinationPrefixListId pulumi.StringInput `pulumi:"destinationPrefixListId"`
 	// ID of the Egress Only Internet Gateway.
@@ -23136,6 +23270,11 @@ func (o GetRouteTableRouteOutput) CarrierGatewayId() pulumi.StringOutput {
 // CIDR block of the route.
 func (o GetRouteTableRouteOutput) CidrBlock() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRouteTableRoute) string { return v.CidrBlock }).(pulumi.StringOutput)
+}
+
+// ARN of the core network.
+func (o GetRouteTableRouteOutput) CoreNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRouteTableRoute) string { return v.CoreNetworkArn }).(pulumi.StringOutput)
 }
 
 // The ID of a managed prefix list destination of the route.
@@ -25807,6 +25946,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetManagedPrefixListFilterArrayInput)(nil)).Elem(), GetManagedPrefixListFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayFilterInput)(nil)).Elem(), GetNatGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewayFilterArrayInput)(nil)).Elem(), GetNatGatewayFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewaysFilterInput)(nil)).Elem(), GetNatGatewaysFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNatGatewaysFilterArrayInput)(nil)).Elem(), GetNatGatewaysFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclsFilterInput)(nil)).Elem(), GetNetworkAclsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkAclsFilterArrayInput)(nil)).Elem(), GetNetworkAclsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkInterfaceAssociationInput)(nil)).Elem(), GetNetworkInterfaceAssociationArgs{})
@@ -26180,6 +26321,8 @@ func init() {
 	pulumi.RegisterOutputType(GetManagedPrefixListFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetNatGatewayFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetNatGatewaysFilterOutput{})
+	pulumi.RegisterOutputType(GetNatGatewaysFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkAclsFilterOutput{})
 	pulumi.RegisterOutputType(GetNetworkAclsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkInterfaceAssociationOutput{})

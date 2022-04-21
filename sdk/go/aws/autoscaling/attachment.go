@@ -57,7 +57,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := autoscaling.NewAttachment(ctx, "asgAttachmentBar", &autoscaling.AttachmentArgs{
 // 			AutoscalingGroupName: pulumi.Any(aws_autoscaling_group.Asg.Id),
-// 			AlbTargetGroupArn:    pulumi.Any(aws_lb_target_group.Test.Arn),
+// 			LbTargetGroupArn:     pulumi.Any(aws_lb_target_group.Test.Arn),
 // 		})
 // 		if err != nil {
 // 			return err

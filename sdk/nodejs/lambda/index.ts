@@ -10,9 +10,11 @@ export * from "./codeSigningConfig";
 export * from "./eventSourceMapping";
 export * from "./function";
 export * from "./functionEventInvokeConfig";
+export * from "./functionUrl";
 export * from "./getAlias";
 export * from "./getCodeSigningConfig";
 export * from "./getFunction";
+export * from "./getFunctionUrl";
 export * from "./getInvocation";
 export * from "./getLayerVersion";
 export * from "./invocation";
@@ -32,6 +34,7 @@ import { CodeSigningConfig } from "./codeSigningConfig";
 import { EventSourceMapping } from "./eventSourceMapping";
 import { Function } from "./function";
 import { FunctionEventInvokeConfig } from "./functionEventInvokeConfig";
+import { FunctionUrl } from "./functionUrl";
 import { Invocation } from "./invocation";
 import { LayerVersion } from "./layerVersion";
 import { LayerVersionPermission } from "./layerVersionPermission";
@@ -52,6 +55,8 @@ const _module = {
                 return new Function(name, <any>undefined, { urn })
             case "aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig":
                 return new FunctionEventInvokeConfig(name, <any>undefined, { urn })
+            case "aws:lambda/functionUrl:FunctionUrl":
+                return new FunctionUrl(name, <any>undefined, { urn })
             case "aws:lambda/invocation:Invocation":
                 return new Invocation(name, <any>undefined, { urn })
             case "aws:lambda/layerVersion:LayerVersion":
@@ -72,6 +77,7 @@ pulumi.runtime.registerResourceModule("aws", "lambda/codeSigningConfig", _module
 pulumi.runtime.registerResourceModule("aws", "lambda/eventSourceMapping", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/function", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/functionEventInvokeConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/functionUrl", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/invocation", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersionPermission", _module)

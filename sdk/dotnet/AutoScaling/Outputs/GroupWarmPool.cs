@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupWarmPool
     {
         /// <summary>
+        /// Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        /// </summary>
+        public readonly Outputs.GroupWarmPoolInstanceReusePolicy? InstanceReusePolicy;
+        /// <summary>
         /// Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
         /// </summary>
         public readonly int? MaxGroupPreparedCapacity;
@@ -22,18 +26,21 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// </summary>
         public readonly int? MinSize;
         /// <summary>
-        /// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+        /// Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
         /// </summary>
         public readonly string? PoolState;
 
         [OutputConstructor]
         private GroupWarmPool(
+            Outputs.GroupWarmPoolInstanceReusePolicy? instanceReusePolicy,
+
             int? maxGroupPreparedCapacity,
 
             int? minSize,
 
             string? poolState)
         {
+            InstanceReusePolicy = instanceReusePolicy;
             MaxGroupPreparedCapacity = maxGroupPreparedCapacity;
             MinSize = minSize;
             PoolState = poolState;

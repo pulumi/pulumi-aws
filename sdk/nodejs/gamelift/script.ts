@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Gamelift Script resource.
+ * Provides an GameLift Script resource.
  *
  * ## Example Usage
  *
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Gamelift Scripts can be imported using the ID, e.g.,
+ * GameLift Scripts can be imported using the ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:gamelift/script:Script example <script-id>
@@ -58,7 +58,7 @@ export class Script extends pulumi.CustomResource {
     }
 
     /**
-     * Gamelift Script ARN.
+     * GameLift Script ARN.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -126,7 +126,7 @@ export class Script extends pulumi.CustomResource {
  */
 export interface ScriptState {
     /**
-     * Gamelift Script ARN.
+     * GameLift Script ARN.
      */
     arn?: pulumi.Input<string>;
     /**

@@ -162,7 +162,7 @@ import (
 type Stage struct {
 	pulumi.CustomResourceState
 
-	// Enables access logs for the API stage. Detailed below.
+	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings StageAccessLogSettingsPtrOutput `pulumi:"accessLogSettings"`
 	// Amazon Resource Name (ARN)
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -170,11 +170,13 @@ type Stage struct {
 	CacheClusterEnabled pulumi.BoolPtrOutput `pulumi:"cacheClusterEnabled"`
 	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrOutput `pulumi:"cacheClusterSize"`
+	// Configuration settings of a canary deployment. See Canary Settings below.
+	CanarySettings StageCanarySettingsPtrOutput `pulumi:"canarySettings"`
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrOutput `pulumi:"clientCertificateId"`
 	// The ID of the deployment that the stage points to
 	Deployment pulumi.StringOutput `pulumi:"deployment"`
-	// The description of the stage
+	// The description of the stage.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrOutput `pulumi:"documentationVersion"`
@@ -239,7 +241,7 @@ func GetStage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stage resources.
 type stageState struct {
-	// Enables access logs for the API stage. Detailed below.
+	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
 	// Amazon Resource Name (ARN)
 	Arn *string `pulumi:"arn"`
@@ -247,11 +249,13 @@ type stageState struct {
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
 	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
+	// Configuration settings of a canary deployment. See Canary Settings below.
+	CanarySettings *StageCanarySettings `pulumi:"canarySettings"`
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The ID of the deployment that the stage points to
 	Deployment interface{} `pulumi:"deployment"`
-	// The description of the stage
+	// The description of the stage.
 	Description *string `pulumi:"description"`
 	// The version of the associated API documentation
 	DocumentationVersion *string `pulumi:"documentationVersion"`
@@ -279,7 +283,7 @@ type stageState struct {
 }
 
 type StageState struct {
-	// Enables access logs for the API stage. Detailed below.
+	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings StageAccessLogSettingsPtrInput
 	// Amazon Resource Name (ARN)
 	Arn pulumi.StringPtrInput
@@ -287,11 +291,13 @@ type StageState struct {
 	CacheClusterEnabled pulumi.BoolPtrInput
 	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrInput
+	// Configuration settings of a canary deployment. See Canary Settings below.
+	CanarySettings StageCanarySettingsPtrInput
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
 	// The ID of the deployment that the stage points to
 	Deployment pulumi.Input
-	// The description of the stage
+	// The description of the stage.
 	Description pulumi.StringPtrInput
 	// The version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrInput
@@ -323,17 +329,19 @@ func (StageState) ElementType() reflect.Type {
 }
 
 type stageArgs struct {
-	// Enables access logs for the API stage. Detailed below.
+	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings *StageAccessLogSettings `pulumi:"accessLogSettings"`
 	// Specifies whether a cache cluster is enabled for the stage
 	CacheClusterEnabled *bool `pulumi:"cacheClusterEnabled"`
 	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize *string `pulumi:"cacheClusterSize"`
+	// Configuration settings of a canary deployment. See Canary Settings below.
+	CanarySettings *StageCanarySettings `pulumi:"canarySettings"`
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId *string `pulumi:"clientCertificateId"`
 	// The ID of the deployment that the stage points to
 	Deployment interface{} `pulumi:"deployment"`
-	// The description of the stage
+	// The description of the stage.
 	Description *string `pulumi:"description"`
 	// The version of the associated API documentation
 	DocumentationVersion *string `pulumi:"documentationVersion"`
@@ -351,17 +359,19 @@ type stageArgs struct {
 
 // The set of arguments for constructing a Stage resource.
 type StageArgs struct {
-	// Enables access logs for the API stage. Detailed below.
+	// Enables access logs for the API stage. See Access Log Settings below.
 	AccessLogSettings StageAccessLogSettingsPtrInput
 	// Specifies whether a cache cluster is enabled for the stage
 	CacheClusterEnabled pulumi.BoolPtrInput
 	// The size of the cache cluster for the stage, if enabled. Allowed values include `0.5`, `1.6`, `6.1`, `13.5`, `28.4`, `58.2`, `118` and `237`.
 	CacheClusterSize pulumi.StringPtrInput
+	// Configuration settings of a canary deployment. See Canary Settings below.
+	CanarySettings StageCanarySettingsPtrInput
 	// The identifier of a client certificate for the stage.
 	ClientCertificateId pulumi.StringPtrInput
 	// The ID of the deployment that the stage points to
 	Deployment pulumi.Input
-	// The description of the stage
+	// The description of the stage.
 	Description pulumi.StringPtrInput
 	// The version of the associated API documentation
 	DocumentationVersion pulumi.StringPtrInput

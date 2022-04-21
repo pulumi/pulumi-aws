@@ -22,6 +22,7 @@ class StackSetArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  permission_model: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -36,6 +37,7 @@ class StackSetArgs:
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+        :param pulumi.Input['StackSetOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         :param pulumi.Input[str] permission_model: Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -56,6 +58,8 @@ class StackSetArgs:
             pulumi.set(__self__, "execution_role_name", execution_role_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if operation_preferences is not None:
+            pulumi.set(__self__, "operation_preferences", operation_preferences)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if permission_model is not None:
@@ -152,6 +156,18 @@ class StackSetArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="operationPreferences")
+    def operation_preferences(self) -> Optional[pulumi.Input['StackSetOperationPreferencesArgs']]:
+        """
+        Preferences for how AWS CloudFormation performs a stack set update.
+        """
+        return pulumi.get(self, "operation_preferences")
+
+    @operation_preferences.setter
+    def operation_preferences(self, value: Optional[pulumi.Input['StackSetOperationPreferencesArgs']]):
+        pulumi.set(self, "operation_preferences", value)
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -223,6 +239,7 @@ class _StackSetState:
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 operation_preferences: Optional[pulumi.Input['StackSetOperationPreferencesArgs']] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  permission_model: Optional[pulumi.Input[str]] = None,
                  stack_set_id: Optional[pulumi.Input[str]] = None,
@@ -240,6 +257,7 @@ class _StackSetState:
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+        :param pulumi.Input['StackSetOperationPreferencesArgs'] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         :param pulumi.Input[str] permission_model: Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         :param pulumi.Input[str] stack_set_id: Unique identifier of the StackSet.
@@ -264,6 +282,8 @@ class _StackSetState:
             pulumi.set(__self__, "execution_role_name", execution_role_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if operation_preferences is not None:
+            pulumi.set(__self__, "operation_preferences", operation_preferences)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
         if permission_model is not None:
@@ -376,6 +396,18 @@ class _StackSetState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="operationPreferences")
+    def operation_preferences(self) -> Optional[pulumi.Input['StackSetOperationPreferencesArgs']]:
+        """
+        Preferences for how AWS CloudFormation performs a stack set update.
+        """
+        return pulumi.get(self, "operation_preferences")
+
+    @operation_preferences.setter
+    def operation_preferences(self, value: Optional[pulumi.Input['StackSetOperationPreferencesArgs']]):
+        pulumi.set(self, "operation_preferences", value)
+
+    @property
     @pulumi.getter
     def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -472,6 +504,7 @@ class StackSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  permission_model: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -553,6 +586,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+        :param pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         :param pulumi.Input[str] permission_model: Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags to associate with this StackSet and the Stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the Stacks. A maximum number of 50 tags can be specified. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -653,6 +687,7 @@ class StackSet(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  execution_role_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  permission_model: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -677,6 +712,7 @@ class StackSet(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["execution_role_name"] = execution_role_name
             __props__.__dict__["name"] = name
+            __props__.__dict__["operation_preferences"] = operation_preferences
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["permission_model"] = permission_model
             __props__.__dict__["tags"] = tags
@@ -703,6 +739,7 @@ class StackSet(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             execution_role_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            operation_preferences: Optional[pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']]] = None,
             parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             permission_model: Optional[pulumi.Input[str]] = None,
             stack_set_id: Optional[pulumi.Input[str]] = None,
@@ -725,6 +762,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the StackSet.
         :param pulumi.Input[str] execution_role_name: Name of the IAM Role in all target accounts for StackSet operations. Defaults to `AWSCloudFormationStackSetExecutionRole` when using the `SELF_MANAGED` permission model. This should not be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[str] name: Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
+        :param pulumi.Input[pulumi.InputType['StackSetOperationPreferencesArgs']] operation_preferences: Preferences for how AWS CloudFormation performs a stack set update.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         :param pulumi.Input[str] permission_model: Describes how the IAM roles required for your StackSet are created. Valid values: `SELF_MANAGED` (default), `SERVICE_MANAGED`.
         :param pulumi.Input[str] stack_set_id: Unique identifier of the StackSet.
@@ -745,6 +783,7 @@ class StackSet(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["execution_role_name"] = execution_role_name
         __props__.__dict__["name"] = name
+        __props__.__dict__["operation_preferences"] = operation_preferences
         __props__.__dict__["parameters"] = parameters
         __props__.__dict__["permission_model"] = permission_model
         __props__.__dict__["stack_set_id"] = stack_set_id
@@ -817,6 +856,14 @@ class StackSet(pulumi.CustomResource):
         Name of the StackSet. The name must be unique in the region where you create your StackSet. The name can contain only alphanumeric characters (case-sensitive) and hyphens. It must start with an alphabetic character and cannot be longer than 128 characters.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operationPreferences")
+    def operation_preferences(self) -> pulumi.Output[Optional['outputs.StackSetOperationPreferences']]:
+        """
+        Preferences for how AWS CloudFormation performs a stack set update.
+        """
+        return pulumi.get(self, "operation_preferences")
 
     @property
     @pulumi.getter

@@ -14,22 +14,24 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketV2CorsRule
     {
         /// <summary>
-        /// Set of headers that are specified in the Access-Control-Request-Headers header.
+        /// List of headers allowed.
         /// </summary>
         public readonly ImmutableArray<string> AllowedHeaders;
         /// <summary>
-        /// Set of HTTP methods that the origin is allowed to execute.
+        /// One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
         /// </summary>
         public readonly ImmutableArray<string> AllowedMethods;
         /// <summary>
-        /// Set of origins customers are able to access the bucket from.
+        /// One or more origins you want customers to be able to access the bucket from.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOrigins;
         /// <summary>
-        /// Set of headers in the response that customers are able to access from their applications.
-        /// * `max_age_seconds` The time in seconds that browser can cache the response for a preflight request.
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
         /// </summary>
         public readonly ImmutableArray<string> ExposeHeaders;
+        /// <summary>
+        /// Specifies time in seconds that browser can cache the response for a preflight request.
+        /// </summary>
         public readonly int? MaxAgeSeconds;
 
         [OutputConstructor]

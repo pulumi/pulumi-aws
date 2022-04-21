@@ -26,6 +26,7 @@ export function getLedger(args: GetLedgerArgs, opts?: pulumi.InvokeOptions): Pro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:qldb/getLedger:getLedger", {
         "name": args.name,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -37,6 +38,7 @@ export interface GetLedgerArgs {
      * The friendly name of the ledger to match.
      */
     name: string;
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -49,8 +51,10 @@ export interface GetLedgerResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly kmsKey: string;
     readonly name: string;
     readonly permissionsMode: string;
+    readonly tags: {[key: string]: string};
 }
 
 export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
@@ -65,4 +69,5 @@ export interface GetLedgerOutputArgs {
      * The friendly name of the ledger to match.
      */
     name: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

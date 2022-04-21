@@ -295,13 +295,17 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly tenancy!: pulumi.Output<string>;
     /**
-     * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
+     * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
      */
     public readonly userData!: pulumi.Output<string>;
     /**
-     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
      */
     public readonly userDataBase64!: pulumi.Output<string>;
+    /**
+     * When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+     */
+    public readonly userDataReplaceOnChange!: pulumi.Output<boolean | undefined>;
     /**
      * A map of tags to assign, at instance-creation time, to root and EBS volumes.
      */
@@ -370,6 +374,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tenancy"] = state ? state.tenancy : undefined;
             resourceInputs["userData"] = state ? state.userData : undefined;
             resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
+            resourceInputs["userDataReplaceOnChange"] = state ? state.userDataReplaceOnChange : undefined;
             resourceInputs["volumeTags"] = state ? state.volumeTags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
@@ -411,6 +416,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["tenancy"] = args ? args.tenancy : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
             resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
+            resourceInputs["userDataReplaceOnChange"] = args ? args.userDataReplaceOnChange : undefined;
             resourceInputs["volumeTags"] = args ? args.volumeTags : undefined;
             resourceInputs["vpcSecurityGroupIds"] = args ? args.vpcSecurityGroupIds : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -612,13 +618,17 @@ export interface InstanceState {
      */
     tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
     /**
-     * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
+     * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
      */
     userData?: pulumi.Input<string>;
     /**
-     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
      */
     userDataBase64?: pulumi.Input<string>;
+    /**
+     * When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+     */
+    userDataReplaceOnChange?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign, at instance-creation time, to root and EBS volumes.
      */
@@ -777,13 +787,17 @@ export interface InstanceArgs {
      */
     tenancy?: pulumi.Input<string | enums.ec2.Tenancy>;
     /**
-     * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance.
+     * User data to provide when launching the instance. Do not pass gzip-compressed data via this argument; see `userDataBase64` instead. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
      */
     userData?: pulumi.Input<string>;
     /**
-     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance.
+     * Can be used instead of `userData` to pass base64-encoded binary data directly. Use this instead of `userData` whenever the value is not a valid UTF-8 string. For example, gzip-encoded user data must be base64-encoded and passed via this argument to avoid corruption. Updates to this field will trigger a stop/start of the EC2 instance by default. If the `userDataReplaceOnChange` is set then updates to this field will trigger a destroy and recreate.
      */
     userDataBase64?: pulumi.Input<string>;
+    /**
+     * When used in combination with `userData` or `userDataBase64` will trigger a destroy and recreate when set to `true`. Defaults to `false` if not set.
+     */
+    userDataReplaceOnChange?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign, at instance-creation time, to root and EBS volumes.
      */

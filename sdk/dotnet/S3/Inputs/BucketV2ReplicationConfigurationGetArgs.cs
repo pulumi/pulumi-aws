@@ -13,18 +13,17 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2ReplicationConfigurationGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the IAM role for Amazon S3 assumed when replicating the objects.
+        /// The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
         /// </summary>
-        [Input("role")]
-        public Input<string>? Role { get; set; }
+        [Input("role", required: true)]
+        public Input<string> Role { get; set; } = null!;
 
-        [Input("rules")]
+        [Input("rules", required: true)]
         private InputList<Inputs.BucketV2ReplicationConfigurationRuleGetArgs>? _rules;
 
         /// <summary>
-        /// The rules managing the replication.
+        /// Specifies the rules managing the replication (documented below).
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_replication_configuration resource instead")]
         public InputList<Inputs.BucketV2ReplicationConfigurationRuleGetArgs> Rules
         {
             get => _rules ?? (_rules = new InputList<Inputs.BucketV2ReplicationConfigurationRuleGetArgs>());

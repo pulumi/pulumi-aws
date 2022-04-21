@@ -10,6 +10,9 @@ from .. import _utilities
 
 __all__ = [
     'EfsLocationEc2ConfigArgs',
+    'FsxOpenZfsFileSystemProtocolArgs',
+    'FsxOpenZfsFileSystemProtocolNfsArgs',
+    'FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs',
     'LocationHdfsNameNodeArgs',
     'LocationHdfsQopConfigurationArgs',
     'LocationSmbMountOptionsArgs',
@@ -56,6 +59,73 @@ class EfsLocationEc2ConfigArgs:
     @subnet_arn.setter
     def subnet_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "subnet_arn", value)
+
+
+@pulumi.input_type
+class FsxOpenZfsFileSystemProtocolArgs:
+    def __init__(__self__, *,
+                 nfs: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs']):
+        """
+        :param pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs'] nfs: Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+        """
+        pulumi.set(__self__, "nfs", nfs)
+
+    @property
+    @pulumi.getter
+    def nfs(self) -> pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs']:
+        """
+        Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+        """
+        return pulumi.get(self, "nfs")
+
+    @nfs.setter
+    def nfs(self, value: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsArgs']):
+        pulumi.set(self, "nfs", value)
+
+
+@pulumi.input_type
+class FsxOpenZfsFileSystemProtocolNfsArgs:
+    def __init__(__self__, *,
+                 mount_options: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs']):
+        """
+        :param pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs'] mount_options: Represents the mount options that are available for DataSync to access an NFS location. See below.
+        """
+        pulumi.set(__self__, "mount_options", mount_options)
+
+    @property
+    @pulumi.getter(name="mountOptions")
+    def mount_options(self) -> pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs']:
+        """
+        Represents the mount options that are available for DataSync to access an NFS location. See below.
+        """
+        return pulumi.get(self, "mount_options")
+
+    @mount_options.setter
+    def mount_options(self, value: pulumi.Input['FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs']):
+        pulumi.set(self, "mount_options", value)
+
+
+@pulumi.input_type
+class FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs:
+    def __init__(__self__, *,
+                 version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] version: The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        """
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version", value)
 
 
 @pulumi.input_type

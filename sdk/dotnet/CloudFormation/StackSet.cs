@@ -172,6 +172,12 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set update.
+        /// </summary>
+        [Output("operationPreferences")]
+        public Output<Outputs.StackSetOperationPreferences?> OperationPreferences { get; private set; } = null!;
+
+        /// <summary>
         /// Key-value map of input parameters for the StackSet template. All template parameters, including those with a `Default`, must be configured or ignored with `lifecycle` configuration block `ignore_changes` argument. All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
         /// </summary>
         [Output("parameters")]
@@ -307,6 +313,12 @@ namespace Pulumi.Aws.CloudFormation
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set update.
+        /// </summary>
+        [Input("operationPreferences")]
+        public Input<Inputs.StackSetOperationPreferencesArgs>? OperationPreferences { get; set; }
+
         [Input("parameters")]
         private InputMap<string>? _parameters;
 
@@ -409,6 +421,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set update.
+        /// </summary>
+        [Input("operationPreferences")]
+        public Input<Inputs.StackSetOperationPreferencesGetArgs>? OperationPreferences { get; set; }
 
         [Input("parameters")]
         private InputMap<string>? _parameters;

@@ -91,6 +91,50 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
+    /// ### Lambda Ephemeral Storage
+    /// 
+    /// Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambda_function_payload.zip"),
+    ///             Role = iamForLambda.Arn,
+    ///             Handler = "index.test",
+    ///             Runtime = "nodejs14.x",
+    ///             EphemeralStorage = new Aws.Lambda.Inputs.FunctionEphemeralStorageArgs
+    ///             {
+    ///                 Size = 10240,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Lambda File Systems
     /// 
     /// Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
@@ -336,6 +380,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("environment")]
         public Output<Outputs.FunctionEnvironment?> Environment { get; private set; } = null!;
+
+        /// <summary>
+        /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        /// </summary>
+        [Output("ephemeralStorage")]
+        public Output<Outputs.FunctionEphemeralStorage> EphemeralStorage { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block. Detailed below.
@@ -601,6 +651,12 @@ namespace Pulumi.Aws.Lambda
         public Input<Inputs.FunctionEnvironmentArgs>? Environment { get; set; }
 
         /// <summary>
+        /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        /// </summary>
+        [Input("ephemeralStorage")]
+        public Input<Inputs.FunctionEphemeralStorageArgs>? EphemeralStorage { get; set; }
+
+        /// <summary>
         /// Configuration block. Detailed below.
         /// </summary>
         [Input("fileSystemConfig")]
@@ -792,6 +848,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("environment")]
         public Input<Inputs.FunctionEnvironmentGetArgs>? Environment { get; set; }
+
+        /// <summary>
+        /// The amount of Ephemeral storage(`/tmp`) to allocate for the Lambda Function in MB. This parameter is used to expand the total amount of Ephemeral storage available, beyond the default amount of `512`MB. Detailed below.
+        /// </summary>
+        [Input("ephemeralStorage")]
+        public Input<Inputs.FunctionEphemeralStorageGetArgs>? EphemeralStorage { get; set; }
 
         /// <summary>
         /// Configuration block. Detailed below.

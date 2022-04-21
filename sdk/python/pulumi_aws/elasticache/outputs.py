@@ -10,9 +10,13 @@ from .. import _utilities
 
 __all__ = [
     'ClusterCacheNode',
+    'ClusterLogDeliveryConfiguration',
     'ParameterGroupParameter',
     'ReplicationGroupClusterMode',
+    'ReplicationGroupLogDeliveryConfiguration',
     'GetClusterCacheNodeResult',
+    'GetClusterLogDeliveryConfigurationResult',
+    'GetReplicationGroupLogDeliveryConfigurationResult',
 ]
 
 @pulumi.output_type
@@ -77,6 +81,78 @@ class ClusterCacheNode(dict):
         The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class ClusterLogDeliveryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationType":
+            suggest = "destination_type"
+        elif key == "logFormat":
+            suggest = "log_format"
+        elif key == "logType":
+            suggest = "log_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterLogDeliveryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterLogDeliveryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterLogDeliveryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: str,
+                 destination_type: str,
+                 log_format: str,
+                 log_type: str):
+        """
+        :param str destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        :param str destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        :param str log_format: Valid values are `json` or `text`
+        :param str log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> str:
+        """
+        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        """
+        return pulumi.get(self, "destination_type")
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> str:
+        """
+        Valid values are `json` or `text`
+        """
+        return pulumi.get(self, "log_format")
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> str:
+        """
+        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
+        return pulumi.get(self, "log_type")
 
 
 @pulumi.output_type
@@ -159,6 +235,78 @@ class ReplicationGroupClusterMode(dict):
 
 
 @pulumi.output_type
+class ReplicationGroupLogDeliveryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationType":
+            suggest = "destination_type"
+        elif key == "logFormat":
+            suggest = "log_format"
+        elif key == "logType":
+            suggest = "log_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReplicationGroupLogDeliveryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReplicationGroupLogDeliveryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReplicationGroupLogDeliveryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: str,
+                 destination_type: str,
+                 log_format: str,
+                 log_type: str):
+        """
+        :param str destination: Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        :param str destination_type: For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        :param str log_format: Valid values are `json` or `text`
+        :param str log_type: Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> str:
+        """
+        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+        """
+        return pulumi.get(self, "destination_type")
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> str:
+        """
+        Valid values are `json` or `text`
+        """
+        return pulumi.get(self, "log_format")
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> str:
+        """
+        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+        """
+        return pulumi.get(self, "log_type")
+
+
+@pulumi.output_type
 class GetClusterCacheNodeResult(dict):
     def __init__(__self__, *,
                  address: str,
@@ -201,5 +349,71 @@ class GetClusterCacheNodeResult(dict):
         accept connections.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class GetClusterLogDeliveryConfigurationResult(dict):
+    def __init__(__self__, *,
+                 destination: str,
+                 destination_type: str,
+                 log_format: str,
+                 log_type: str):
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> str:
+        return pulumi.get(self, "destination_type")
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> str:
+        return pulumi.get(self, "log_format")
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> str:
+        return pulumi.get(self, "log_type")
+
+
+@pulumi.output_type
+class GetReplicationGroupLogDeliveryConfigurationResult(dict):
+    def __init__(__self__, *,
+                 destination: str,
+                 destination_type: str,
+                 log_format: str,
+                 log_type: str):
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "destination_type", destination_type)
+        pulumi.set(__self__, "log_format", log_format)
+        pulumi.set(__self__, "log_type", log_type)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="destinationType")
+    def destination_type(self) -> str:
+        return pulumi.get(self, "destination_type")
+
+    @property
+    @pulumi.getter(name="logFormat")
+    def log_format(self) -> str:
+        return pulumi.get(self, "log_format")
+
+    @property
+    @pulumi.getter(name="logType")
+    def log_type(self) -> str:
+        return pulumi.get(self, "log_type")
 
 

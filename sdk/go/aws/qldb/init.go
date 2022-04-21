@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:qldb/ledger:Ledger":
 		r = &Ledger{}
+	case "aws:qldb/stream:Stream":
+		r = &Stream{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"qldb/ledger",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"qldb/stream",
 		&module{version},
 	)
 }

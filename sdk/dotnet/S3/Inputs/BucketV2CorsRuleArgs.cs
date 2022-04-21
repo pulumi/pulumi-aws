@@ -16,35 +16,32 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<string>? _allowedHeaders;
 
         /// <summary>
-        /// Set of headers that are specified in the Access-Control-Request-Headers header.
+        /// List of headers allowed.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_cors_configuration resource instead")]
         public InputList<string> AllowedHeaders
         {
             get => _allowedHeaders ?? (_allowedHeaders = new InputList<string>());
             set => _allowedHeaders = value;
         }
 
-        [Input("allowedMethods")]
+        [Input("allowedMethods", required: true)]
         private InputList<string>? _allowedMethods;
 
         /// <summary>
-        /// Set of HTTP methods that the origin is allowed to execute.
+        /// One or more HTTP methods that you allow the origin to execute. Can be `GET`, `PUT`, `POST`, `DELETE` or `HEAD`.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_cors_configuration resource instead")]
         public InputList<string> AllowedMethods
         {
             get => _allowedMethods ?? (_allowedMethods = new InputList<string>());
             set => _allowedMethods = value;
         }
 
-        [Input("allowedOrigins")]
+        [Input("allowedOrigins", required: true)]
         private InputList<string>? _allowedOrigins;
 
         /// <summary>
-        /// Set of origins customers are able to access the bucket from.
+        /// One or more origins you want customers to be able to access the bucket from.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_cors_configuration resource instead")]
         public InputList<string> AllowedOrigins
         {
             get => _allowedOrigins ?? (_allowedOrigins = new InputList<string>());
@@ -55,16 +52,17 @@ namespace Pulumi.Aws.S3.Inputs
         private InputList<string>? _exposeHeaders;
 
         /// <summary>
-        /// Set of headers in the response that customers are able to access from their applications.
-        /// * `max_age_seconds` The time in seconds that browser can cache the response for a preflight request.
+        /// One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript `XMLHttpRequest` object).
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_cors_configuration resource instead")]
         public InputList<string> ExposeHeaders
         {
             get => _exposeHeaders ?? (_exposeHeaders = new InputList<string>());
             set => _exposeHeaders = value;
         }
 
+        /// <summary>
+        /// Specifies time in seconds that browser can cache the response for a preflight request.
+        /// </summary>
         [Input("maxAgeSeconds")]
         public Input<int>? MaxAgeSeconds { get; set; }
 

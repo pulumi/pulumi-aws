@@ -15,6 +15,8 @@ namespace Pulumi.Aws.S3
         /// The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)
         /// for the effective account in which this provider is working.  
         /// 
+        /// &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}

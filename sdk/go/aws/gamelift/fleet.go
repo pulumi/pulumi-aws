@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Gamelift Fleet resource.
+// Provides a GameLift Fleet resource.
 //
 // ## Example Usage
 //
@@ -48,7 +48,7 @@ import (
 //
 // ## Import
 //
-// Gamelift Fleets can be imported using the ID, e.g.,
+// GameLift Fleets can be imported using the ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
@@ -60,7 +60,7 @@ type Fleet struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Build ARN.
 	BuildArn pulumi.StringOutput `pulumi:"buildArn"`
-	// ID of the Gamelift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet.
 	BuildId pulumi.StringPtrOutput `pulumi:"buildId"`
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration FleetCertificateConfigurationOutput `pulumi:"certificateConfiguration"`
@@ -82,7 +82,6 @@ type Fleet struct {
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrOutput `pulumi:"newGameSessionProtectionPolicy"`
 	// Operating system of the fleet's computing resources.
-	// <<<<<<< HEAD
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrOutput `pulumi:"resourceCreationLimitPolicy"`
@@ -90,12 +89,11 @@ type Fleet struct {
 	RuntimeConfiguration FleetRuntimeConfigurationPtrOutput `pulumi:"runtimeConfiguration"`
 	// Script ARN.
 	ScriptArn pulumi.StringOutput `pulumi:"scriptArn"`
-	// ID of the Gamelift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet.
 	ScriptId pulumi.StringPtrOutput `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	// > > > > > > > v4.1.0
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -135,7 +133,7 @@ type fleetState struct {
 	Arn *string `pulumi:"arn"`
 	// Build ARN.
 	BuildArn *string `pulumi:"buildArn"`
-	// ID of the Gamelift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet.
 	BuildId *string `pulumi:"buildId"`
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration *FleetCertificateConfiguration `pulumi:"certificateConfiguration"`
@@ -157,7 +155,6 @@ type fleetState struct {
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy *string `pulumi:"newGameSessionProtectionPolicy"`
 	// Operating system of the fleet's computing resources.
-	// <<<<<<< HEAD
 	OperatingSystem *string `pulumi:"operatingSystem"`
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
@@ -165,12 +162,11 @@ type fleetState struct {
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
 	// Script ARN.
 	ScriptArn *string `pulumi:"scriptArn"`
-	// ID of the Gamelift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet.
 	ScriptId *string `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	// > > > > > > > v4.1.0
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -179,7 +175,7 @@ type FleetState struct {
 	Arn pulumi.StringPtrInput
 	// Build ARN.
 	BuildArn pulumi.StringPtrInput
-	// ID of the Gamelift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet.
 	BuildId pulumi.StringPtrInput
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration FleetCertificateConfigurationPtrInput
@@ -201,7 +197,6 @@ type FleetState struct {
 	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrInput
 	// Operating system of the fleet's computing resources.
-	// <<<<<<< HEAD
 	OperatingSystem pulumi.StringPtrInput
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
@@ -209,12 +204,11 @@ type FleetState struct {
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
 	// Script ARN.
 	ScriptArn pulumi.StringPtrInput
-	// ID of the Gamelift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet.
 	ScriptId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	// > > > > > > > v4.1.0
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -223,7 +217,7 @@ func (FleetState) ElementType() reflect.Type {
 }
 
 type fleetArgs struct {
-	// ID of the Gamelift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet.
 	BuildId *string `pulumi:"buildId"`
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration *FleetCertificateConfiguration `pulumi:"certificateConfiguration"`
@@ -247,7 +241,7 @@ type fleetArgs struct {
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration *FleetRuntimeConfiguration `pulumi:"runtimeConfiguration"`
-	// ID of the Gamelift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet.
 	ScriptId *string `pulumi:"scriptId"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -255,7 +249,7 @@ type fleetArgs struct {
 
 // The set of arguments for constructing a Fleet resource.
 type FleetArgs struct {
-	// ID of the Gamelift Build to be deployed on the fleet.
+	// ID of the GameLift Build to be deployed on the fleet.
 	BuildId pulumi.StringPtrInput
 	// Prompts GameLift to generate a TLS/SSL certificate for the fleet. See certificate_configuration.
 	CertificateConfiguration FleetCertificateConfigurationPtrInput
@@ -279,7 +273,7 @@ type FleetArgs struct {
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput
 	// Instructions for launching server processes on each instance in the fleet. See below.
 	RuntimeConfiguration FleetRuntimeConfigurationPtrInput
-	// ID of the Gamelift Script to be deployed on the fleet.
+	// ID of the GameLift Script to be deployed on the fleet.
 	ScriptId pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput

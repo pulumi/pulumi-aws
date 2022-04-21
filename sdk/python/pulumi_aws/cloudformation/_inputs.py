@@ -12,6 +12,8 @@ __all__ = [
     'CloudFormationTypeLoggingConfigArgs',
     'StackSetAutoDeploymentArgs',
     'StackSetInstanceDeploymentTargetsArgs',
+    'StackSetInstanceOperationPreferencesArgs',
+    'StackSetOperationPreferencesArgs',
 ]
 
 @pulumi.input_type
@@ -105,5 +107,185 @@ class StackSetInstanceDeploymentTargetsArgs:
     @organizational_unit_ids.setter
     def organizational_unit_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "organizational_unit_ids", value)
+
+
+@pulumi.input_type
+class StackSetInstanceOperationPreferencesArgs:
+    def __init__(__self__, *,
+                 failure_tolerance_count: Optional[pulumi.Input[int]] = None,
+                 failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
+                 max_concurrent_count: Optional[pulumi.Input[int]] = None,
+                 max_concurrent_percentage: Optional[pulumi.Input[int]] = None,
+                 region_concurrency_type: Optional[pulumi.Input[str]] = None,
+                 region_orders: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if failure_tolerance_count is not None:
+            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
+        if failure_tolerance_percentage is not None:
+            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
+        if max_concurrent_count is not None:
+            pulumi.set(__self__, "max_concurrent_count", max_concurrent_count)
+        if max_concurrent_percentage is not None:
+            pulumi.set(__self__, "max_concurrent_percentage", max_concurrent_percentage)
+        if region_concurrency_type is not None:
+            pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
+        if region_orders is not None:
+            pulumi.set(__self__, "region_orders", region_orders)
+
+    @property
+    @pulumi.getter(name="failureToleranceCount")
+    def failure_tolerance_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "failure_tolerance_count")
+
+    @failure_tolerance_count.setter
+    def failure_tolerance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_tolerance_count", value)
+
+    @property
+    @pulumi.getter(name="failureTolerancePercentage")
+    def failure_tolerance_percentage(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "failure_tolerance_percentage")
+
+    @failure_tolerance_percentage.setter
+    def failure_tolerance_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_tolerance_percentage", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentCount")
+    def max_concurrent_count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_concurrent_count")
+
+    @max_concurrent_count.setter
+    def max_concurrent_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_count", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentPercentage")
+    def max_concurrent_percentage(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "max_concurrent_percentage")
+
+    @max_concurrent_percentage.setter
+    def max_concurrent_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_percentage", value)
+
+    @property
+    @pulumi.getter(name="regionConcurrencyType")
+    def region_concurrency_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "region_concurrency_type")
+
+    @region_concurrency_type.setter
+    def region_concurrency_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region_concurrency_type", value)
+
+    @property
+    @pulumi.getter(name="regionOrders")
+    def region_orders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "region_orders")
+
+    @region_orders.setter
+    def region_orders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "region_orders", value)
+
+
+@pulumi.input_type
+class StackSetOperationPreferencesArgs:
+    def __init__(__self__, *,
+                 failure_tolerance_count: Optional[pulumi.Input[int]] = None,
+                 failure_tolerance_percentage: Optional[pulumi.Input[int]] = None,
+                 max_concurrent_count: Optional[pulumi.Input[int]] = None,
+                 max_concurrent_percentage: Optional[pulumi.Input[int]] = None,
+                 region_concurrency_type: Optional[pulumi.Input[str]] = None,
+                 region_orders: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[int] failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+        :param pulumi.Input[int] failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+        :param pulumi.Input[int] max_concurrent_count: The maximum number of accounts in which to perform this operation at one time.
+        :param pulumi.Input[int] max_concurrent_percentage: The maximum percentage of accounts in which to perform this operation at one time.
+        :param pulumi.Input[str] region_concurrency_type: The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] region_orders: The order of the Regions in where you want to perform the stack operation.
+        """
+        if failure_tolerance_count is not None:
+            pulumi.set(__self__, "failure_tolerance_count", failure_tolerance_count)
+        if failure_tolerance_percentage is not None:
+            pulumi.set(__self__, "failure_tolerance_percentage", failure_tolerance_percentage)
+        if max_concurrent_count is not None:
+            pulumi.set(__self__, "max_concurrent_count", max_concurrent_count)
+        if max_concurrent_percentage is not None:
+            pulumi.set(__self__, "max_concurrent_percentage", max_concurrent_percentage)
+        if region_concurrency_type is not None:
+            pulumi.set(__self__, "region_concurrency_type", region_concurrency_type)
+        if region_orders is not None:
+            pulumi.set(__self__, "region_orders", region_orders)
+
+    @property
+    @pulumi.getter(name="failureToleranceCount")
+    def failure_tolerance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+        """
+        return pulumi.get(self, "failure_tolerance_count")
+
+    @failure_tolerance_count.setter
+    def failure_tolerance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_tolerance_count", value)
+
+    @property
+    @pulumi.getter(name="failureTolerancePercentage")
+    def failure_tolerance_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+        """
+        return pulumi.get(self, "failure_tolerance_percentage")
+
+    @failure_tolerance_percentage.setter
+    def failure_tolerance_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "failure_tolerance_percentage", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentCount")
+    def max_concurrent_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum number of accounts in which to perform this operation at one time.
+        """
+        return pulumi.get(self, "max_concurrent_count")
+
+    @max_concurrent_count.setter
+    def max_concurrent_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_count", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentPercentage")
+    def max_concurrent_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum percentage of accounts in which to perform this operation at one time.
+        """
+        return pulumi.get(self, "max_concurrent_percentage")
+
+    @max_concurrent_percentage.setter
+    def max_concurrent_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_percentage", value)
+
+    @property
+    @pulumi.getter(name="regionConcurrencyType")
+    def region_concurrency_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+        """
+        return pulumi.get(self, "region_concurrency_type")
+
+    @region_concurrency_type.setter
+    def region_concurrency_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region_concurrency_type", value)
+
+    @property
+    @pulumi.getter(name="regionOrders")
+    def region_orders(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The order of the Regions in where you want to perform the stack operation.
+        """
+        return pulumi.get(self, "region_orders")
+
+    @region_orders.setter
+    def region_orders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "region_orders", value)
 
 

@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:dynamodb/contributorInsights:ContributorInsights":
+		r = &ContributorInsights{}
 	case "aws:dynamodb/globalTable:GlobalTable":
 		r = &GlobalTable{}
 	case "aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination":
@@ -44,6 +46,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dynamodb/contributorInsights",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dynamodb/globalTable",

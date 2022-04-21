@@ -69,6 +69,8 @@ type LookupFunctionResult struct {
 	Description string `pulumi:"description"`
 	// The Lambda environment's configuration settings.
 	Environment GetFunctionEnvironment `pulumi:"environment"`
+	// The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+	EphemeralStorages []GetFunctionEphemeralStorage `pulumi:"ephemeralStorages"`
 	// The connection settings for an Amazon EFS file system.
 	FileSystemConfigs []GetFunctionFileSystemConfig `pulumi:"fileSystemConfigs"`
 	FunctionName      string                        `pulumi:"functionName"`
@@ -181,6 +183,11 @@ func (o LookupFunctionResultOutput) Description() pulumi.StringOutput {
 // The Lambda environment's configuration settings.
 func (o LookupFunctionResultOutput) Environment() GetFunctionEnvironmentOutput {
 	return o.ApplyT(func(v LookupFunctionResult) GetFunctionEnvironment { return v.Environment }).(GetFunctionEnvironmentOutput)
+}
+
+// The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+func (o LookupFunctionResultOutput) EphemeralStorages() GetFunctionEphemeralStorageArrayOutput {
+	return o.ApplyT(func(v LookupFunctionResult) []GetFunctionEphemeralStorage { return v.EphemeralStorages }).(GetFunctionEphemeralStorageArrayOutput)
 }
 
 // The connection settings for an Amazon EFS file system.

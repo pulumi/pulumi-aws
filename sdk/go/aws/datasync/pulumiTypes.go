@@ -166,6 +166,419 @@ func (o EfsLocationEc2ConfigPtrOutput) SubnetArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type FsxOpenZfsFileSystemProtocol struct {
+	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+	Nfs FsxOpenZfsFileSystemProtocolNfs `pulumi:"nfs"`
+}
+
+// FsxOpenZfsFileSystemProtocolInput is an input type that accepts FsxOpenZfsFileSystemProtocolArgs and FsxOpenZfsFileSystemProtocolOutput values.
+// You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolInput` via:
+//
+//          FsxOpenZfsFileSystemProtocolArgs{...}
+type FsxOpenZfsFileSystemProtocolInput interface {
+	pulumi.Input
+
+	ToFsxOpenZfsFileSystemProtocolOutput() FsxOpenZfsFileSystemProtocolOutput
+	ToFsxOpenZfsFileSystemProtocolOutputWithContext(context.Context) FsxOpenZfsFileSystemProtocolOutput
+}
+
+type FsxOpenZfsFileSystemProtocolArgs struct {
+	// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+	Nfs FsxOpenZfsFileSystemProtocolNfsInput `pulumi:"nfs"`
+}
+
+func (FsxOpenZfsFileSystemProtocolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FsxOpenZfsFileSystemProtocol)(nil)).Elem()
+}
+
+func (i FsxOpenZfsFileSystemProtocolArgs) ToFsxOpenZfsFileSystemProtocolOutput() FsxOpenZfsFileSystemProtocolOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolOutputWithContext(context.Background())
+}
+
+func (i FsxOpenZfsFileSystemProtocolArgs) ToFsxOpenZfsFileSystemProtocolOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolOutput)
+}
+
+func (i FsxOpenZfsFileSystemProtocolArgs) ToFsxOpenZfsFileSystemProtocolPtrOutput() FsxOpenZfsFileSystemProtocolPtrOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(context.Background())
+}
+
+func (i FsxOpenZfsFileSystemProtocolArgs) ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolOutput).ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(ctx)
+}
+
+// FsxOpenZfsFileSystemProtocolPtrInput is an input type that accepts FsxOpenZfsFileSystemProtocolArgs, FsxOpenZfsFileSystemProtocolPtr and FsxOpenZfsFileSystemProtocolPtrOutput values.
+// You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolPtrInput` via:
+//
+//          FsxOpenZfsFileSystemProtocolArgs{...}
+//
+//  or:
+//
+//          nil
+type FsxOpenZfsFileSystemProtocolPtrInput interface {
+	pulumi.Input
+
+	ToFsxOpenZfsFileSystemProtocolPtrOutput() FsxOpenZfsFileSystemProtocolPtrOutput
+	ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(context.Context) FsxOpenZfsFileSystemProtocolPtrOutput
+}
+
+type fsxOpenZfsFileSystemProtocolPtrType FsxOpenZfsFileSystemProtocolArgs
+
+func FsxOpenZfsFileSystemProtocolPtr(v *FsxOpenZfsFileSystemProtocolArgs) FsxOpenZfsFileSystemProtocolPtrInput {
+	return (*fsxOpenZfsFileSystemProtocolPtrType)(v)
+}
+
+func (*fsxOpenZfsFileSystemProtocolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FsxOpenZfsFileSystemProtocol)(nil)).Elem()
+}
+
+func (i *fsxOpenZfsFileSystemProtocolPtrType) ToFsxOpenZfsFileSystemProtocolPtrOutput() FsxOpenZfsFileSystemProtocolPtrOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(context.Background())
+}
+
+func (i *fsxOpenZfsFileSystemProtocolPtrType) ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolPtrOutput)
+}
+
+type FsxOpenZfsFileSystemProtocolOutput struct{ *pulumi.OutputState }
+
+func (FsxOpenZfsFileSystemProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FsxOpenZfsFileSystemProtocol)(nil)).Elem()
+}
+
+func (o FsxOpenZfsFileSystemProtocolOutput) ToFsxOpenZfsFileSystemProtocolOutput() FsxOpenZfsFileSystemProtocolOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolOutput) ToFsxOpenZfsFileSystemProtocolOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolOutput) ToFsxOpenZfsFileSystemProtocolPtrOutput() FsxOpenZfsFileSystemProtocolPtrOutput {
+	return o.ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o FsxOpenZfsFileSystemProtocolOutput) ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FsxOpenZfsFileSystemProtocol) *FsxOpenZfsFileSystemProtocol {
+		return &v
+	}).(FsxOpenZfsFileSystemProtocolPtrOutput)
+}
+
+// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+func (o FsxOpenZfsFileSystemProtocolOutput) Nfs() FsxOpenZfsFileSystemProtocolNfsOutput {
+	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocol) FsxOpenZfsFileSystemProtocolNfs { return v.Nfs }).(FsxOpenZfsFileSystemProtocolNfsOutput)
+}
+
+type FsxOpenZfsFileSystemProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (FsxOpenZfsFileSystemProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FsxOpenZfsFileSystemProtocol)(nil)).Elem()
+}
+
+func (o FsxOpenZfsFileSystemProtocolPtrOutput) ToFsxOpenZfsFileSystemProtocolPtrOutput() FsxOpenZfsFileSystemProtocolPtrOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolPtrOutput) ToFsxOpenZfsFileSystemProtocolPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolPtrOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolPtrOutput) Elem() FsxOpenZfsFileSystemProtocolOutput {
+	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocol) FsxOpenZfsFileSystemProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret FsxOpenZfsFileSystemProtocol
+		return ret
+	}).(FsxOpenZfsFileSystemProtocolOutput)
+}
+
+// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system. See below.
+func (o FsxOpenZfsFileSystemProtocolPtrOutput) Nfs() FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocol) *FsxOpenZfsFileSystemProtocolNfs {
+		if v == nil {
+			return nil
+		}
+		return &v.Nfs
+	}).(FsxOpenZfsFileSystemProtocolNfsPtrOutput)
+}
+
+type FsxOpenZfsFileSystemProtocolNfs struct {
+	// Represents the mount options that are available for DataSync to access an NFS location. See below.
+	MountOptions FsxOpenZfsFileSystemProtocolNfsMountOptions `pulumi:"mountOptions"`
+}
+
+// FsxOpenZfsFileSystemProtocolNfsInput is an input type that accepts FsxOpenZfsFileSystemProtocolNfsArgs and FsxOpenZfsFileSystemProtocolNfsOutput values.
+// You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolNfsInput` via:
+//
+//          FsxOpenZfsFileSystemProtocolNfsArgs{...}
+type FsxOpenZfsFileSystemProtocolNfsInput interface {
+	pulumi.Input
+
+	ToFsxOpenZfsFileSystemProtocolNfsOutput() FsxOpenZfsFileSystemProtocolNfsOutput
+	ToFsxOpenZfsFileSystemProtocolNfsOutputWithContext(context.Context) FsxOpenZfsFileSystemProtocolNfsOutput
+}
+
+type FsxOpenZfsFileSystemProtocolNfsArgs struct {
+	// Represents the mount options that are available for DataSync to access an NFS location. See below.
+	MountOptions FsxOpenZfsFileSystemProtocolNfsMountOptionsInput `pulumi:"mountOptions"`
+}
+
+func (FsxOpenZfsFileSystemProtocolNfsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfs)(nil)).Elem()
+}
+
+func (i FsxOpenZfsFileSystemProtocolNfsArgs) ToFsxOpenZfsFileSystemProtocolNfsOutput() FsxOpenZfsFileSystemProtocolNfsOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolNfsOutputWithContext(context.Background())
+}
+
+func (i FsxOpenZfsFileSystemProtocolNfsArgs) ToFsxOpenZfsFileSystemProtocolNfsOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsOutput)
+}
+
+func (i FsxOpenZfsFileSystemProtocolNfsArgs) ToFsxOpenZfsFileSystemProtocolNfsPtrOutput() FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(context.Background())
+}
+
+func (i FsxOpenZfsFileSystemProtocolNfsArgs) ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsOutput).ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(ctx)
+}
+
+// FsxOpenZfsFileSystemProtocolNfsPtrInput is an input type that accepts FsxOpenZfsFileSystemProtocolNfsArgs, FsxOpenZfsFileSystemProtocolNfsPtr and FsxOpenZfsFileSystemProtocolNfsPtrOutput values.
+// You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolNfsPtrInput` via:
+//
+//          FsxOpenZfsFileSystemProtocolNfsArgs{...}
+//
+//  or:
+//
+//          nil
+type FsxOpenZfsFileSystemProtocolNfsPtrInput interface {
+	pulumi.Input
+
+	ToFsxOpenZfsFileSystemProtocolNfsPtrOutput() FsxOpenZfsFileSystemProtocolNfsPtrOutput
+	ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(context.Context) FsxOpenZfsFileSystemProtocolNfsPtrOutput
+}
+
+type fsxOpenZfsFileSystemProtocolNfsPtrType FsxOpenZfsFileSystemProtocolNfsArgs
+
+func FsxOpenZfsFileSystemProtocolNfsPtr(v *FsxOpenZfsFileSystemProtocolNfsArgs) FsxOpenZfsFileSystemProtocolNfsPtrInput {
+	return (*fsxOpenZfsFileSystemProtocolNfsPtrType)(v)
+}
+
+func (*fsxOpenZfsFileSystemProtocolNfsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FsxOpenZfsFileSystemProtocolNfs)(nil)).Elem()
+}
+
+func (i *fsxOpenZfsFileSystemProtocolNfsPtrType) ToFsxOpenZfsFileSystemProtocolNfsPtrOutput() FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(context.Background())
+}
+
+func (i *fsxOpenZfsFileSystemProtocolNfsPtrType) ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsPtrOutput)
+}
+
+type FsxOpenZfsFileSystemProtocolNfsOutput struct{ *pulumi.OutputState }
+
+func (FsxOpenZfsFileSystemProtocolNfsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfs)(nil)).Elem()
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsOutput) ToFsxOpenZfsFileSystemProtocolNfsOutput() FsxOpenZfsFileSystemProtocolNfsOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsOutput) ToFsxOpenZfsFileSystemProtocolNfsOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsOutput) ToFsxOpenZfsFileSystemProtocolNfsPtrOutput() FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return o.ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(context.Background())
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsOutput) ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FsxOpenZfsFileSystemProtocolNfs) *FsxOpenZfsFileSystemProtocolNfs {
+		return &v
+	}).(FsxOpenZfsFileSystemProtocolNfsPtrOutput)
+}
+
+// Represents the mount options that are available for DataSync to access an NFS location. See below.
+func (o FsxOpenZfsFileSystemProtocolNfsOutput) MountOptions() FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
+	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocolNfs) FsxOpenZfsFileSystemProtocolNfsMountOptions {
+		return v.MountOptions
+	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput)
+}
+
+type FsxOpenZfsFileSystemProtocolNfsPtrOutput struct{ *pulumi.OutputState }
+
+func (FsxOpenZfsFileSystemProtocolNfsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FsxOpenZfsFileSystemProtocolNfs)(nil)).Elem()
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) ToFsxOpenZfsFileSystemProtocolNfsPtrOutput() FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) ToFsxOpenZfsFileSystemProtocolNfsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsPtrOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) Elem() FsxOpenZfsFileSystemProtocolNfsOutput {
+	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocolNfs) FsxOpenZfsFileSystemProtocolNfs {
+		if v != nil {
+			return *v
+		}
+		var ret FsxOpenZfsFileSystemProtocolNfs
+		return ret
+	}).(FsxOpenZfsFileSystemProtocolNfsOutput)
+}
+
+// Represents the mount options that are available for DataSync to access an NFS location. See below.
+func (o FsxOpenZfsFileSystemProtocolNfsPtrOutput) MountOptions() FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocolNfs) *FsxOpenZfsFileSystemProtocolNfsMountOptions {
+		if v == nil {
+			return nil
+		}
+		return &v.MountOptions
+	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput)
+}
+
+type FsxOpenZfsFileSystemProtocolNfsMountOptions struct {
+	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+	Version *string `pulumi:"version"`
+}
+
+// FsxOpenZfsFileSystemProtocolNfsMountOptionsInput is an input type that accepts FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs and FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput values.
+// You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolNfsMountOptionsInput` via:
+//
+//          FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{...}
+type FsxOpenZfsFileSystemProtocolNfsMountOptionsInput interface {
+	pulumi.Input
+
+	ToFsxOpenZfsFileSystemProtocolNfsMountOptionsOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput
+	ToFsxOpenZfsFileSystemProtocolNfsMountOptionsOutputWithContext(context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput
+}
+
+type FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs struct {
+	// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsMountOptions)(nil)).Elem()
+}
+
+func (i FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolNfsMountOptionsOutputWithContext(context.Background())
+}
+
+func (i FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput)
+}
+
+func (i FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput).ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx)
+}
+
+// FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput is an input type that accepts FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs, FsxOpenZfsFileSystemProtocolNfsMountOptionsPtr and FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput values.
+// You can construct a concrete instance of `FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput` via:
+//
+//          FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput
+	ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput
+}
+
+type fsxOpenZfsFileSystemProtocolNfsMountOptionsPtrType FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs
+
+func FsxOpenZfsFileSystemProtocolNfsMountOptionsPtr(v *FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs) FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput {
+	return (*fsxOpenZfsFileSystemProtocolNfsMountOptionsPtrType)(v)
+}
+
+func (*fsxOpenZfsFileSystemProtocolNfsMountOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FsxOpenZfsFileSystemProtocolNfsMountOptions)(nil)).Elem()
+}
+
+func (i *fsxOpenZfsFileSystemProtocolNfsMountOptionsPtrType) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return i.ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *fsxOpenZfsFileSystemProtocolNfsMountOptionsPtrType) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput)
+}
+
+type FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput struct{ *pulumi.OutputState }
+
+func (FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsMountOptions)(nil)).Elem()
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o.ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FsxOpenZfsFileSystemProtocolNfsMountOptions) *FsxOpenZfsFileSystemProtocolNfsMountOptions {
+		return &v
+	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput)
+}
+
+// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FsxOpenZfsFileSystemProtocolNfsMountOptions) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FsxOpenZfsFileSystemProtocolNfsMountOptions)(nil)).Elem()
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput() FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) ToFsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutputWithContext(ctx context.Context) FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput {
+	return o
+}
+
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Elem() FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput {
+	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocolNfsMountOptions) FsxOpenZfsFileSystemProtocolNfsMountOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FsxOpenZfsFileSystemProtocolNfsMountOptions
+		return ret
+	}).(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput)
+}
+
+// The specific NFS version that you want DataSync to use for mounting your NFS share. Valid values: `AUTOMATIC`, `NFS3`, `NFS4_0` and `NFS4_1`. Default: `AUTOMATIC`
+func (o FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FsxOpenZfsFileSystemProtocolNfsMountOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
 type LocationHdfsNameNode struct {
 	// The hostname of the NameNode in the HDFS cluster. This value is the IP address or Domain Name Service (DNS) name of the NameNode. An agent that's installed on-premises uses this hostname to communicate with the NameNode in the network.
 	Hostname string `pulumi:"hostname"`
@@ -1637,6 +2050,12 @@ func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationEc2ConfigInput)(nil)).Elem(), EfsLocationEc2ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationEc2ConfigPtrInput)(nil)).Elem(), EfsLocationEc2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolPtrInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolNfsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsPtrInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolNfsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsMountOptionsInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrInput)(nil)).Elem(), FsxOpenZfsFileSystemProtocolNfsMountOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsNameNodeInput)(nil)).Elem(), LocationHdfsNameNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsNameNodeArrayInput)(nil)).Elem(), LocationHdfsNameNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationHdfsQopConfigurationInput)(nil)).Elem(), LocationHdfsQopConfigurationArgs{})
@@ -1657,6 +2076,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigOutput{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigPtrOutput{})
+	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolOutput{})
+	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolPtrOutput{})
+	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolNfsOutput{})
+	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolNfsPtrOutput{})
+	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolNfsMountOptionsOutput{})
+	pulumi.RegisterOutputType(FsxOpenZfsFileSystemProtocolNfsMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LocationHdfsNameNodeOutput{})
 	pulumi.RegisterOutputType(LocationHdfsNameNodeArrayOutput{})
 	pulumi.RegisterOutputType(LocationHdfsQopConfigurationOutput{})

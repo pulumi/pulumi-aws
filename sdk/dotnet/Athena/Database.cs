@@ -34,6 +34,30 @@ namespace Pulumi.Aws.Athena
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Athena Databases can be imported using their name, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:athena/database:Database example example
+    /// ```
+    /// 
+    ///  Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+    /// 
+    ///  name
+    /// 
+    ///  = "database_name"
+    /// 
+    ///  bucket = aws_s3_bucket.example.bucket
+    /// 
+    /// # There is no API for reading bucket
+    /// 
+    ///  lifecycle {
+    /// 
+    ///  ignore_changes = [bucket]
+    /// 
+    ///  } }
     /// </summary>
     [AwsResourceType("aws:athena/database:Database")]
     public partial class Database : Pulumi.CustomResource
@@ -79,6 +103,12 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// A key-value map of custom metadata properties for the database definition.
+        /// </summary>
+        [Output("properties")]
+        public Output<ImmutableDictionary<string, string>?> Properties { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,6 +198,18 @@ namespace Pulumi.Aws.Athena
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A key-value map of custom metadata properties for the database definition.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
+
         public DatabaseArgs()
         {
         }
@@ -216,6 +258,18 @@ namespace Pulumi.Aws.Athena
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("properties")]
+        private InputMap<string>? _properties;
+
+        /// <summary>
+        /// A key-value map of custom metadata properties for the database definition.
+        /// </summary>
+        public InputMap<string> Properties
+        {
+            get => _properties ?? (_properties = new InputMap<string>());
+            set => _properties = value;
+        }
 
         public DatabaseState()
         {

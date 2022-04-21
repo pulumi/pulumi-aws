@@ -13,18 +13,17 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketV2GrantGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Unique identifier for the rule.
+        /// Canonical user id to grant for. Used only when `type` is `CanonicalUser`.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
-        [Input("permissions")]
+        [Input("permissions", required: true)]
         private InputList<string>? _permissions;
 
         /// <summary>
-        /// List of permissions given to the grantee.
+        /// List of permissions to apply for grantee. Valid values are `READ`, `WRITE`, `READ_ACP`, `WRITE_ACP`, `FULL_CONTROL`.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_acl resource instead")]
         public InputList<string> Permissions
         {
             get => _permissions ?? (_permissions = new InputList<string>());
@@ -32,13 +31,13 @@ namespace Pulumi.Aws.S3.Inputs
         }
 
         /// <summary>
-        /// Type of grantee.
+        /// Type of grantee to apply for. Valid values are `CanonicalUser` and `Group`. `AmazonCustomerByEmail` is not supported.
         /// </summary>
-        [Input("type")]
-        public Input<string>? Type { get; set; }
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// URI of the grantee group.
+        /// Uri address to grant for. Used only when `type` is `Group`.
         /// </summary>
         [Input("uri")]
         public Input<string>? Uri { get; set; }

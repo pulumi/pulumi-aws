@@ -133,10 +133,16 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
-    /// CloudFormation StackSet Instances can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.,
+    /// CloudFormation StackSet Instances that target an AWS Account ID can be imported using the StackSet name, target AWS account ID, and target AWS region separated by commas (`,`) e.g.
     /// 
     /// ```sh
     ///  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,123456789012,us-east-1
+    /// ```
+    /// 
+    ///  CloudFormation StackSet Instances that target AWS Organizational Units can be imported using the StackSet name, a slash (`/`) separated list of organizational unit IDs, and target AWS region separated by commas (`,`) e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:cloudformation/stackSetInstance:StackSetInstance example example,ou-sdas-123123123/ou-sdas-789789789,us-east-1
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stackSetInstance:StackSetInstance")]
@@ -159,6 +165,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Output("deploymentTargets")]
         public Output<Outputs.StackSetInstanceDeploymentTargets?> DeploymentTargets { get; private set; } = null!;
+
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
+        [Output("operationPreferences")]
+        public Output<Outputs.StackSetInstanceOperationPreferences?> OperationPreferences { get; private set; } = null!;
 
         /// <summary>
         /// The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
@@ -260,6 +272,12 @@ namespace Pulumi.Aws.CloudFormation
         [Input("deploymentTargets")]
         public Input<Inputs.StackSetInstanceDeploymentTargetsArgs>? DeploymentTargets { get; set; }
 
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
+        [Input("operationPreferences")]
+        public Input<Inputs.StackSetInstanceOperationPreferencesArgs>? OperationPreferences { get; set; }
+
         [Input("parameterOverrides")]
         private InputMap<string>? _parameterOverrides;
 
@@ -314,6 +332,12 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("deploymentTargets")]
         public Input<Inputs.StackSetInstanceDeploymentTargetsGetArgs>? DeploymentTargets { get; set; }
+
+        /// <summary>
+        /// Preferences for how AWS CloudFormation performs a stack set operation.
+        /// </summary>
+        [Input("operationPreferences")]
+        public Input<Inputs.StackSetInstanceOperationPreferencesGetArgs>? OperationPreferences { get; set; }
 
         /// <summary>
         /// The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.

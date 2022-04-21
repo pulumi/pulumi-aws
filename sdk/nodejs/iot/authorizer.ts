@@ -70,6 +70,10 @@ export class Authorizer extends pulumi.CustomResource {
      */
     public readonly authorizerFunctionArn!: pulumi.Output<string>;
     /**
+     * Specifies whether the HTTP caching is enabled or not. Default: `false`.
+     */
+    public readonly enableCachingForHttp!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the authorizer.
      */
     public readonly name!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class Authorizer extends pulumi.CustomResource {
             const state = argsOrState as AuthorizerState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["authorizerFunctionArn"] = state ? state.authorizerFunctionArn : undefined;
+            resourceInputs["enableCachingForHttp"] = state ? state.enableCachingForHttp : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["signingDisabled"] = state ? state.signingDisabled : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -116,6 +121,7 @@ export class Authorizer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'authorizerFunctionArn'");
             }
             resourceInputs["authorizerFunctionArn"] = args ? args.authorizerFunctionArn : undefined;
+            resourceInputs["enableCachingForHttp"] = args ? args.enableCachingForHttp : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["signingDisabled"] = args ? args.signingDisabled : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
@@ -140,6 +146,10 @@ export interface AuthorizerState {
      * The ARN of the authorizer's Lambda function.
      */
     authorizerFunctionArn?: pulumi.Input<string>;
+    /**
+     * Specifies whether the HTTP caching is enabled or not. Default: `false`.
+     */
+    enableCachingForHttp?: pulumi.Input<boolean>;
     /**
      * The name of the authorizer.
      */
@@ -170,6 +180,10 @@ export interface AuthorizerArgs {
      * The ARN of the authorizer's Lambda function.
      */
     authorizerFunctionArn: pulumi.Input<string>;
+    /**
+     * Specifies whether the HTTP caching is enabled or not. Default: `false`.
+     */
+    enableCachingForHttp?: pulumi.Input<boolean>;
     /**
      * The name of the authorizer.
      */

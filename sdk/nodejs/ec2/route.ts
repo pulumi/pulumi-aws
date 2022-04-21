@@ -90,6 +90,10 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly carrierGatewayId!: pulumi.Output<string | undefined>;
     /**
+     * The Amazon Resource Name (ARN) of a core network.
+     */
+    public readonly coreNetworkArn!: pulumi.Output<string | undefined>;
+    /**
      * The destination CIDR block.
      */
     public readonly destinationCidrBlock!: pulumi.Output<string | undefined>;
@@ -170,6 +174,7 @@ export class Route extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
             resourceInputs["carrierGatewayId"] = state ? state.carrierGatewayId : undefined;
+            resourceInputs["coreNetworkArn"] = state ? state.coreNetworkArn : undefined;
             resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
             resourceInputs["destinationIpv6CidrBlock"] = state ? state.destinationIpv6CidrBlock : undefined;
             resourceInputs["destinationPrefixListId"] = state ? state.destinationPrefixListId : undefined;
@@ -192,6 +197,7 @@ export class Route extends pulumi.CustomResource {
                 throw new Error("Missing required property 'routeTableId'");
             }
             resourceInputs["carrierGatewayId"] = args ? args.carrierGatewayId : undefined;
+            resourceInputs["coreNetworkArn"] = args ? args.coreNetworkArn : undefined;
             resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
             resourceInputs["destinationIpv6CidrBlock"] = args ? args.destinationIpv6CidrBlock : undefined;
             resourceInputs["destinationPrefixListId"] = args ? args.destinationPrefixListId : undefined;
@@ -222,6 +228,10 @@ export interface RouteState {
      * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
      */
     carrierGatewayId?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a core network.
+     */
+    coreNetworkArn?: pulumi.Input<string>;
     /**
      * The destination CIDR block.
      */
@@ -298,6 +308,10 @@ export interface RouteArgs {
      * Identifier of a carrier gateway. This attribute can only be used when the VPC contains a subnet which is associated with a Wavelength Zone.
      */
     carrierGatewayId?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of a core network.
+     */
+    coreNetworkArn?: pulumi.Input<string>;
     /**
      * The destination CIDR block.
      */

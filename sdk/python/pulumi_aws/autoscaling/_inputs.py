@@ -22,6 +22,7 @@ __all__ = [
     'GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs',
     'GroupTagArgs',
     'GroupWarmPoolArgs',
+    'GroupWarmPoolInstanceReusePolicyArgs',
     'PolicyPredictiveScalingConfigurationArgs',
     'PolicyPredictiveScalingConfigurationMetricSpecificationArgs',
     'PolicyPredictiveScalingConfigurationMetricSpecificationCustomizedCapacityMetricSpecificationArgs',
@@ -725,20 +726,36 @@ class GroupTagArgs:
 @pulumi.input_type
 class GroupWarmPoolArgs:
     def __init__(__self__, *,
+                 instance_reuse_policy: Optional[pulumi.Input['GroupWarmPoolInstanceReusePolicyArgs']] = None,
                  max_group_prepared_capacity: Optional[pulumi.Input[int]] = None,
                  min_size: Optional[pulumi.Input[int]] = None,
                  pool_state: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input['GroupWarmPoolInstanceReusePolicyArgs'] instance_reuse_policy: Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
         :param pulumi.Input[int] max_group_prepared_capacity: Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except Terminated for the Auto Scaling group.
         :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
-        :param pulumi.Input[str] pool_state: Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+        :param pulumi.Input[str] pool_state: Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
         """
+        if instance_reuse_policy is not None:
+            pulumi.set(__self__, "instance_reuse_policy", instance_reuse_policy)
         if max_group_prepared_capacity is not None:
             pulumi.set(__self__, "max_group_prepared_capacity", max_group_prepared_capacity)
         if min_size is not None:
             pulumi.set(__self__, "min_size", min_size)
         if pool_state is not None:
             pulumi.set(__self__, "pool_state", pool_state)
+
+    @property
+    @pulumi.getter(name="instanceReusePolicy")
+    def instance_reuse_policy(self) -> Optional[pulumi.Input['GroupWarmPoolInstanceReusePolicyArgs']]:
+        """
+        Indicates whether instances in the Auto Scaling group can be returned to the warm pool on scale in. The default is to terminate instances in the Auto Scaling group when the group scales in.
+        """
+        return pulumi.get(self, "instance_reuse_policy")
+
+    @instance_reuse_policy.setter
+    def instance_reuse_policy(self, value: Optional[pulumi.Input['GroupWarmPoolInstanceReusePolicyArgs']]):
+        pulumi.set(self, "instance_reuse_policy", value)
 
     @property
     @pulumi.getter(name="maxGroupPreparedCapacity")
@@ -768,13 +785,36 @@ class GroupWarmPoolArgs:
     @pulumi.getter(name="poolState")
     def pool_state(self) -> Optional[pulumi.Input[str]]:
         """
-        Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default) or Running.
+        Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: Stopped (default), Running or Hibernated.
         """
         return pulumi.get(self, "pool_state")
 
     @pool_state.setter
     def pool_state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "pool_state", value)
+
+
+@pulumi.input_type
+class GroupWarmPoolInstanceReusePolicyArgs:
+    def __init__(__self__, *,
+                 reuse_on_scale_in: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] reuse_on_scale_in: Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+        """
+        if reuse_on_scale_in is not None:
+            pulumi.set(__self__, "reuse_on_scale_in", reuse_on_scale_in)
+
+    @property
+    @pulumi.getter(name="reuseOnScaleIn")
+    def reuse_on_scale_in(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether instances in the Auto Scaling group can be returned to the warm pool on scale in.
+        """
+        return pulumi.get(self, "reuse_on_scale_in")
+
+    @reuse_on_scale_in.setter
+    def reuse_on_scale_in(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "reuse_on_scale_in", value)
 
 
 @pulumi.input_type

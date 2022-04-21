@@ -93,9 +93,11 @@ class GroupArgs:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_group: The name of the placement group into which you'll launch your instances, if any.
-        :param pulumi.Input[bool] protect_from_scale_in: Allows setting instance protection. The
-               Auto Scaling Group will not select instances with this setting for termination
-               during scale in events.
+        :param pulumi.Input[bool] protect_from_scale_in: Indicates whether newly launched instances
+               are automatically protected from termination by Amazon EC2 Auto Scaling when
+               scaling in. For more information about preventing instances from terminating
+               on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+               in the Amazon EC2 Auto Scaling User Guide.
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -483,9 +485,11 @@ class GroupArgs:
     @pulumi.getter(name="protectFromScaleIn")
     def protect_from_scale_in(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allows setting instance protection. The
-        Auto Scaling Group will not select instances with this setting for termination
-        during scale in events.
+        Indicates whether newly launched instances
+        are automatically protected from termination by Amazon EC2 Auto Scaling when
+        scaling in. For more information about preventing instances from terminating
+        on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+        in the Amazon EC2 Auto Scaling User Guide.
         """
         return pulumi.get(self, "protect_from_scale_in")
 
@@ -706,9 +710,11 @@ class _GroupState:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_group: The name of the placement group into which you'll launch your instances, if any.
-        :param pulumi.Input[bool] protect_from_scale_in: Allows setting instance protection. The
-               Auto Scaling Group will not select instances with this setting for termination
-               during scale in events.
+        :param pulumi.Input[bool] protect_from_scale_in: Indicates whether newly launched instances
+               are automatically protected from termination by Amazon EC2 Auto Scaling when
+               scaling in. For more information about preventing instances from terminating
+               on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+               in the Amazon EC2 Auto Scaling User Guide.
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -1112,9 +1118,11 @@ class _GroupState:
     @pulumi.getter(name="protectFromScaleIn")
     def protect_from_scale_in(self) -> Optional[pulumi.Input[bool]]:
         """
-        Allows setting instance protection. The
-        Auto Scaling Group will not select instances with this setting for termination
-        during scale in events.
+        Indicates whether newly launched instances
+        are automatically protected from termination by Amazon EC2 Auto Scaling when
+        scaling in. For more information about preventing instances from terminating
+        on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+        in the Amazon EC2 Auto Scaling User Guide.
         """
         return pulumi.get(self, "protect_from_scale_in")
 
@@ -1484,9 +1492,12 @@ class Group(pulumi.CustomResource):
             max_size=5,
             min_size=1,
             warm_pool=aws.autoscaling.GroupWarmPoolArgs(
-                pool_state="Stopped",
+                pool_state="Hibernated",
                 min_size=1,
                 max_group_prepared_capacity=10,
+                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
+                    reuse_on_scale_in=True,
+                ),
             ))
         ```
         ## Waiting for Capacity
@@ -1602,9 +1613,11 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_group: The name of the placement group into which you'll launch your instances, if any.
-        :param pulumi.Input[bool] protect_from_scale_in: Allows setting instance protection. The
-               Auto Scaling Group will not select instances with this setting for termination
-               during scale in events.
+        :param pulumi.Input[bool] protect_from_scale_in: Indicates whether newly launched instances
+               are automatically protected from termination by Amazon EC2 Auto Scaling when
+               scaling in. For more information about preventing instances from terminating
+               on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+               in the Amazon EC2 Auto Scaling User Guide.
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -1823,9 +1836,12 @@ class Group(pulumi.CustomResource):
             max_size=5,
             min_size=1,
             warm_pool=aws.autoscaling.GroupWarmPoolArgs(
-                pool_state="Stopped",
+                pool_state="Hibernated",
                 min_size=1,
                 max_group_prepared_capacity=10,
+                instance_reuse_policy=aws.autoscaling.GroupWarmPoolInstanceReusePolicyArgs(
+                    reuse_on_scale_in=True,
+                ),
             ))
         ```
         ## Waiting for Capacity
@@ -2095,9 +2111,11 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified
                prefix. Conflicts with `name`.
         :param pulumi.Input[str] placement_group: The name of the placement group into which you'll launch your instances, if any.
-        :param pulumi.Input[bool] protect_from_scale_in: Allows setting instance protection. The
-               Auto Scaling Group will not select instances with this setting for termination
-               during scale in events.
+        :param pulumi.Input[bool] protect_from_scale_in: Indicates whether newly launched instances
+               are automatically protected from termination by Amazon EC2 Auto Scaling when
+               scaling in. For more information about preventing instances from terminating
+               on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+               in the Amazon EC2 Auto Scaling User Guide.
         :param pulumi.Input[str] service_linked_role_arn: The ARN of the service-linked role that the ASG will use to call other AWS services
         :param pulumi.Input[Sequence[pulumi.Input[str]]] suspended_processes: A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
                Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
@@ -2372,9 +2390,11 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="protectFromScaleIn")
     def protect_from_scale_in(self) -> pulumi.Output[Optional[bool]]:
         """
-        Allows setting instance protection. The
-        Auto Scaling Group will not select instances with this setting for termination
-        during scale in events.
+        Indicates whether newly launched instances
+        are automatically protected from termination by Amazon EC2 Auto Scaling when
+        scaling in. For more information about preventing instances from terminating
+        on scale in, see [Using instance scale-in protection](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html)
+        in the Amazon EC2 Auto Scaling User Guide.
         """
         return pulumi.get(self, "protect_from_scale_in")
 

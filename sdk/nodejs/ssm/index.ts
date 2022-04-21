@@ -10,6 +10,7 @@ export * from "./association";
 export * from "./document";
 export * from "./getDocument";
 export * from "./getInstances";
+export * from "./getMaintenanceWindows";
 export * from "./getParameter";
 export * from "./getParametersByPath";
 export * from "./getPatchBaseline";

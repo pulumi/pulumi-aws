@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides an Gamelift Game Server Group resource.
+ * Provides an GameLift Game Server Group resource.
  *
  * ## Example Usage
  *
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *     dependsOn: [aws_iam_role_policy_attachment.example],
  * });
  * ```
- * ### Example IAM Role for Gamelift Game Server Group
+ * ### Example IAM Role for GameLift Game Server Group
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -110,7 +110,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Gamelift Game Server Group can be imported using the `name`, e.g.
+ * GameLift Game Server Group can be imported using the `name`, e.g.
  *
  * ```sh
  *  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
@@ -145,7 +145,7 @@ export class GameServerGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the Gamelift Game Server Group.
+     * The ARN of the GameLift Game Server Group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -271,7 +271,7 @@ export class GameServerGroup extends pulumi.CustomResource {
  */
 export interface GameServerGroupState {
     /**
-     * The ARN of the Gamelift Game Server Group.
+     * The ARN of the GameLift Game Server Group.
      */
     arn?: pulumi.Input<string>;
     /**

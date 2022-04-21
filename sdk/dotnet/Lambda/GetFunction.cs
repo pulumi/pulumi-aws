@@ -158,6 +158,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly Outputs.GetFunctionEnvironmentResult Environment;
         /// <summary>
+        /// The amount of Ephemeral storage(`/tmp`) allocated for the Lambda Function.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetFunctionEphemeralStorageResult> EphemeralStorages;
+        /// <summary>
         /// The connection settings for an Amazon EFS file system.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetFunctionFileSystemConfigResult> FileSystemConfigs;
@@ -259,6 +263,8 @@ namespace Pulumi.Aws.Lambda
 
             Outputs.GetFunctionEnvironmentResult environment,
 
+            ImmutableArray<Outputs.GetFunctionEphemeralStorageResult> ephemeralStorages,
+
             ImmutableArray<Outputs.GetFunctionFileSystemConfigResult> fileSystemConfigs,
 
             string functionName,
@@ -313,6 +319,7 @@ namespace Pulumi.Aws.Lambda
             DeadLetterConfig = deadLetterConfig;
             Description = description;
             Environment = environment;
+            EphemeralStorages = ephemeralStorages;
             FileSystemConfigs = fileSystemConfigs;
             FunctionName = functionName;
             Handler = handler;

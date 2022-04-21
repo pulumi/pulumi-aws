@@ -21,7 +21,8 @@ class DatabaseArgs:
                  encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Database resource.
         :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -31,6 +32,7 @@ class DatabaseArgs:
         :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A key-value map of custom metadata properties for the database definition.
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -46,6 +48,8 @@ class DatabaseArgs:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="aclConfiguration")
@@ -130,6 +134,18 @@ class DatabaseArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value map of custom metadata properties for the database definition.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
 
 
 @pulumi.input_type
@@ -141,7 +157,8 @@ class _DatabaseState:
                  encryption_configuration: Optional[pulumi.Input['DatabaseEncryptionConfigurationArgs']] = None,
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Database resources.
         :param pulumi.Input['DatabaseAclConfigurationArgs'] acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -151,6 +168,7 @@ class _DatabaseState:
         :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A key-value map of custom metadata properties for the database definition.
         """
         if acl_configuration is not None:
             pulumi.set(__self__, "acl_configuration", acl_configuration)
@@ -166,6 +184,8 @@ class _DatabaseState:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter(name="aclConfiguration")
@@ -250,6 +270,18 @@ class _DatabaseState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value map of custom metadata properties for the database definition.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
 
 
 class Database(pulumi.CustomResource):
@@ -264,6 +296,7 @@ class Database(pulumi.CustomResource):
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an Athena database.
@@ -280,6 +313,30 @@ class Database(pulumi.CustomResource):
             bucket=example_bucket_v2.bucket)
         ```
 
+        ## Import
+
+        Athena Databases can be imported using their name, e.g.,
+
+        ```sh
+         $ pulumi import aws:athena/database:Database example example
+        ```
+
+         Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+
+         name
+
+         = "database_name"
+
+         bucket = aws_s3_bucket.example.bucket
+
+        # There is no API for reading bucket
+
+         lifecycle {
+
+         ignore_changes = [bucket]
+
+         } }
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseAclConfigurationArgs']] acl_configuration: Indicates that an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
@@ -289,6 +346,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A key-value map of custom metadata properties for the database definition.
         """
         ...
     @overload
@@ -310,6 +368,30 @@ class Database(pulumi.CustomResource):
             name="database_name",
             bucket=example_bucket_v2.bucket)
         ```
+
+        ## Import
+
+        Athena Databases can be imported using their name, e.g.,
+
+        ```sh
+         $ pulumi import aws:athena/database:Database example example
+        ```
+
+         Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_athena_database" "example" {
+
+         name
+
+         = "database_name"
+
+         bucket = aws_s3_bucket.example.bucket
+
+        # There is no API for reading bucket
+
+         lifecycle {
+
+         ignore_changes = [bucket]
+
+         } }
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -333,6 +415,7 @@ class Database(pulumi.CustomResource):
                  expected_bucket_owner: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -352,6 +435,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
             __props__.__dict__["force_destroy"] = force_destroy
             __props__.__dict__["name"] = name
+            __props__.__dict__["properties"] = properties
         super(Database, __self__).__init__(
             'aws:athena/database:Database',
             resource_name,
@@ -368,7 +452,8 @@ class Database(pulumi.CustomResource):
             encryption_configuration: Optional[pulumi.Input[pulumi.InputType['DatabaseEncryptionConfigurationArgs']]] = None,
             expected_bucket_owner: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'Database':
+            name: Optional[pulumi.Input[str]] = None,
+            properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Database':
         """
         Get an existing Database resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -383,6 +468,7 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] expected_bucket_owner: The AWS account ID that you expect to be the owner of the Amazon S3 bucket.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all tables should be deleted from the database so that the database can be destroyed without error. The tables are *not* recoverable.
         :param pulumi.Input[str] name: Name of the database to create.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: A key-value map of custom metadata properties for the database definition.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -395,6 +481,7 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["expected_bucket_owner"] = expected_bucket_owner
         __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["name"] = name
+        __props__.__dict__["properties"] = properties
         return Database(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -452,4 +539,12 @@ class Database(pulumi.CustomResource):
         Name of the database to create.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A key-value map of custom metadata properties for the database definition.
+        """
+        return pulumi.get(self, "properties")
 

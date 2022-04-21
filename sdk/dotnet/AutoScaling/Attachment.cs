@@ -53,7 +53,7 @@ namespace Pulumi.Aws.AutoScaling
     ///         var asgAttachmentBar = new Aws.AutoScaling.Attachment("asgAttachmentBar", new Aws.AutoScaling.AttachmentArgs
     ///         {
     ///             AutoscalingGroupName = aws_autoscaling_group.Asg.Id,
-    ///             AlbTargetGroupArn = aws_lb_target_group.Test.Arn,
+    ///             LbTargetGroupArn = aws_lb_target_group.Test.Arn,
     ///         });
     ///     }
     /// 

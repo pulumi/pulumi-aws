@@ -20,6 +20,7 @@ class NfsFileShareArgs:
                  location_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
+                 bucket_region: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -32,7 +33,8 @@ class NfsFileShareArgs:
                  read_only: Optional[pulumi.Input[bool]] = None,
                  requester_pays: Optional[pulumi.Input[bool]] = None,
                  squash: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NfsFileShare resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -40,6 +42,7 @@ class NfsFileShareArgs:
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
+        :param pulumi.Input[str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         :param pulumi.Input['NfsFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -53,6 +56,7 @@ class NfsFileShareArgs:
         :param pulumi.Input[bool] requester_pays: Boolean who pays the cost of the request and the data download from the Amazon S3 bucket. Set this value to `true` if you want the requester to pay instead of the bucket owner. Defaults to `false`.
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 PrivateLink.
         """
         pulumi.set(__self__, "client_lists", client_lists)
         pulumi.set(__self__, "gateway_arn", gateway_arn)
@@ -60,6 +64,8 @@ class NfsFileShareArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         if audit_destination_arn is not None:
             pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
         if cache_attributes is not None:
             pulumi.set(__self__, "cache_attributes", cache_attributes)
         if default_storage_class is not None:
@@ -86,6 +92,8 @@ class NfsFileShareArgs:
             pulumi.set(__self__, "squash", squash)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vpc_endpoint_dns_name is not None:
+            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
 
     @property
     @pulumi.getter(name="clientLists")
@@ -146,6 +154,18 @@ class NfsFileShareArgs:
     @audit_destination_arn.setter
     def audit_destination_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "audit_destination_arn", value)
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @bucket_region.setter
+    def bucket_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_region", value)
 
     @property
     @pulumi.getter(name="cacheAttributes")
@@ -303,12 +323,25 @@ class NfsFileShareArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="vpcEndpointDnsName")
+    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name of the VPC endpoint for S3 PrivateLink.
+        """
+        return pulumi.get(self, "vpc_endpoint_dns_name")
+
+    @vpc_endpoint_dns_name.setter
+    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_dns_name", value)
+
 
 @pulumi.input_type
 class _NfsFileShareState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
+                 bucket_region: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -328,11 +361,13 @@ class _NfsFileShareState:
                  role_arn: Optional[pulumi.Input[str]] = None,
                  squash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering NfsFileShare resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the NFS File Share.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
+        :param pulumi.Input[str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         :param pulumi.Input['NfsFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
@@ -353,11 +388,14 @@ class _NfsFileShareState:
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 PrivateLink.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if audit_destination_arn is not None:
             pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
+        if bucket_region is not None:
+            pulumi.set(__self__, "bucket_region", bucket_region)
         if cache_attributes is not None:
             pulumi.set(__self__, "cache_attributes", cache_attributes)
         if client_lists is not None:
@@ -398,6 +436,8 @@ class _NfsFileShareState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if vpc_endpoint_dns_name is not None:
+            pulumi.set(__self__, "vpc_endpoint_dns_name", vpc_endpoint_dns_name)
 
     @property
     @pulumi.getter
@@ -422,6 +462,18 @@ class _NfsFileShareState:
     @audit_destination_arn.setter
     def audit_destination_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "audit_destination_arn", value)
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        """
+        return pulumi.get(self, "bucket_region")
+
+    @bucket_region.setter
+    def bucket_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_region", value)
 
     @property
     @pulumi.getter(name="cacheAttributes")
@@ -663,6 +715,18 @@ class _NfsFileShareState:
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
 
+    @property
+    @pulumi.getter(name="vpcEndpointDnsName")
+    def vpc_endpoint_dns_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS name of the VPC endpoint for S3 PrivateLink.
+        """
+        return pulumi.get(self, "vpc_endpoint_dns_name")
+
+    @vpc_endpoint_dns_name.setter
+    def vpc_endpoint_dns_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpc_endpoint_dns_name", value)
+
 
 class NfsFileShare(pulumi.CustomResource):
     @overload
@@ -670,6 +734,7 @@ class NfsFileShare(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
+                 bucket_region: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -687,6 +752,7 @@ class NfsFileShare(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  squash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages an AWS Storage Gateway NFS File Share.
@@ -715,6 +781,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
+        :param pulumi.Input[str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
@@ -732,6 +799,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 PrivateLink.
         """
         ...
     @overload
@@ -779,6 +847,7 @@ class NfsFileShare(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audit_destination_arn: Optional[pulumi.Input[str]] = None,
+                 bucket_region: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -796,6 +865,7 @@ class NfsFileShare(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  squash: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -809,6 +879,7 @@ class NfsFileShare(pulumi.CustomResource):
             __props__ = NfsFileShareArgs.__new__(NfsFileShareArgs)
 
             __props__.__dict__["audit_destination_arn"] = audit_destination_arn
+            __props__.__dict__["bucket_region"] = bucket_region
             __props__.__dict__["cache_attributes"] = cache_attributes
             if client_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'client_lists'")
@@ -834,6 +905,7 @@ class NfsFileShare(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["squash"] = squash
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_endpoint_dns_name"] = vpc_endpoint_dns_name
             __props__.__dict__["arn"] = None
             __props__.__dict__["fileshare_id"] = None
             __props__.__dict__["path"] = None
@@ -850,6 +922,7 @@ class NfsFileShare(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             audit_destination_arn: Optional[pulumi.Input[str]] = None,
+            bucket_region: Optional[pulumi.Input[str]] = None,
             cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
             client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -869,7 +942,8 @@ class NfsFileShare(pulumi.CustomResource):
             role_arn: Optional[pulumi.Input[str]] = None,
             squash: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'NfsFileShare':
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            vpc_endpoint_dns_name: Optional[pulumi.Input[str]] = None) -> 'NfsFileShare':
         """
         Get an existing NfsFileShare resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -879,6 +953,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the NFS File Share.
         :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
+        :param pulumi.Input[str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
@@ -899,6 +974,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] squash: Maps a user to anonymous user. Defaults to `RootSquash`. Valid values: `RootSquash` (only root is mapped to anonymous user), `NoSquash` (no one is mapped to anonymous user), `AllSquash` (everyone is mapped to anonymous user)
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[str] vpc_endpoint_dns_name: The DNS name of the VPC endpoint for S3 PrivateLink.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -906,6 +982,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["audit_destination_arn"] = audit_destination_arn
+        __props__.__dict__["bucket_region"] = bucket_region
         __props__.__dict__["cache_attributes"] = cache_attributes
         __props__.__dict__["client_lists"] = client_lists
         __props__.__dict__["default_storage_class"] = default_storage_class
@@ -926,6 +1003,7 @@ class NfsFileShare(pulumi.CustomResource):
         __props__.__dict__["squash"] = squash
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["vpc_endpoint_dns_name"] = vpc_endpoint_dns_name
         return NfsFileShare(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -943,6 +1021,14 @@ class NfsFileShare(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the storage used for audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
+
+    @property
+    @pulumi.getter(name="bucketRegion")
+    def bucket_region(self) -> pulumi.Output[Optional[str]]:
+        """
+        The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
+        """
+        return pulumi.get(self, "bucket_region")
 
     @property
     @pulumi.getter(name="cacheAttributes")
@@ -1103,4 +1189,12 @@ class NfsFileShare(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider .
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="vpcEndpointDnsName")
+    def vpc_endpoint_dns_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The DNS name of the VPC endpoint for S3 PrivateLink.
+        """
+        return pulumi.get(self, "vpc_endpoint_dns_name")
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.GameLift
 {
     /// <summary>
-    /// Provides an Gamelift Script resource.
+    /// Provides an GameLift Script resource.
     /// 
     /// ## Example Usage
     /// 
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Gamelift Scripts can be imported using the ID, e.g.,
+    /// GameLift Scripts can be imported using the ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.GameLift
     public partial class Script : Pulumi.CustomResource
     {
         /// <summary>
-        /// Gamelift Script ARN.
+        /// GameLift Script ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.GameLift
     public sealed class ScriptState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gamelift Script ARN.
+        /// GameLift Script ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

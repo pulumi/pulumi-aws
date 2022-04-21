@@ -128,6 +128,49 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// }
     /// ```
+    /// ### Custom Policies
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Cfg.Rule("example", new Aws.Cfg.RuleArgs
+    ///         {
+    ///             Source = new Aws.Cfg.Inputs.RuleSourceArgs
+    ///             {
+    ///                 Owner = "CUSTOM_POLICY",
+    ///                 SourceDetails = 
+    ///                 {
+    ///                     new Aws.Cfg.Inputs.RuleSourceSourceDetailArgs
+    ///                     {
+    ///                         MessageType = "ConfigurationItemChangeNotification",
+    ///                     },
+    ///                 },
+    ///                 CustomPolicyDetails = new Aws.Cfg.Inputs.RuleSourceCustomPolicyDetailsArgs
+    ///                 {
+    ///                     PolicyRuntime = "guard-2.x.x",
+    ///                     PolicyText = @"	  rule tableisactive when
+    /// 		  resourceType == ""AWS::DynamoDB::Table"" {
+    /// 		  configuration.tableStatus == ['ACTIVE']
+    /// 	  }
+    /// 	  
+    /// 	  rule checkcompliance when
+    /// 		  resourceType == ""AWS::DynamoDB::Table""
+    /// 		  tableisactive {
+    /// 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == ""ENABLED""
+    /// 	  }
+    /// ",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -159,7 +202,7 @@ namespace Pulumi.Aws.Cfg
         public Output<string?> InputParameters { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         /// </summary>
         [Output("maximumExecutionFrequency")]
         public Output<string?> MaximumExecutionFrequency { get; private set; } = null!;
@@ -177,19 +220,19 @@ namespace Pulumi.Aws.Cfg
         public Output<string> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule as documented below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         /// </summary>
         [Output("scope")]
         public Output<Outputs.RuleScope?> Scope { get; private set; } = null!;
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         /// </summary>
         [Output("source")]
         public Output<Outputs.RuleSource> Source { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -259,7 +302,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? InputParameters { get; set; }
 
         /// <summary>
-        /// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }
@@ -271,13 +314,13 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule as documented below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.RuleScopeArgs>? Scope { get; set; }
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.RuleSourceArgs> Source { get; set; } = null!;
@@ -286,7 +329,7 @@ namespace Pulumi.Aws.Cfg
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -320,7 +363,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? InputParameters { get; set; }
 
         /// <summary>
-        /// The frequency that you want AWS Config to run evaluations for a rule that is triggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+        /// The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
         /// </summary>
         [Input("maximumExecutionFrequency")]
         public Input<string>? MaximumExecutionFrequency { get; set; }
@@ -338,13 +381,13 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? RuleId { get; set; }
 
         /// <summary>
-        /// Scope defines which resources can trigger an evaluation for the rule as documented below.
+        /// Scope defines which resources can trigger an evaluation for the rule. See Source Below.
         /// </summary>
         [Input("scope")]
         public Input<Inputs.RuleScopeGetArgs>? Scope { get; set; }
 
         /// <summary>
-        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources as documented below.
+        /// Source specifies the rule owner, the rule identifier, and the notifications that cause the function to evaluate your AWS resources. See Scope Below.
         /// </summary>
         [Input("source")]
         public Input<Inputs.RuleSourceGetArgs>? Source { get; set; }
@@ -353,7 +396,7 @@ namespace Pulumi.Aws.Cfg
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

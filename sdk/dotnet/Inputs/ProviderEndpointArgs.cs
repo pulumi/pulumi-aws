@@ -159,6 +159,9 @@ namespace Pulumi.Aws.Inputs
         [Input("cloudwatchevents")]
         public Input<string>? Cloudwatchevents { get; set; }
 
+        [Input("cloudwatchevidently")]
+        public Input<string>? Cloudwatchevidently { get; set; }
+
         [Input("cloudwatchlogs")]
         public Input<string>? Cloudwatchlogs { get; set; }
 
@@ -647,6 +650,12 @@ namespace Pulumi.Aws.Inputs
 
         [Input("nimblestudio")]
         public Input<string>? Nimblestudio { get; set; }
+
+        [Input("opensearch")]
+        public Input<string>? Opensearch { get; set; }
+
+        [Input("opensearchservice")]
+        public Input<string>? Opensearchservice { get; set; }
 
         [Input("opsworks")]
         public Input<string>? Opsworks { get; set; }
