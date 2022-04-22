@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     zoneId: selected.then(selected => selected.zoneId),
  *     name: selected.then(selected => `www.${selected.name}`),
  *     type: "A",
- *     ttl: "300",
+ *     ttl: 300,
  *     records: ["10.0.0.1"],
  * });
  * ```

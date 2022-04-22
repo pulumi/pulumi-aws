@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *         exampleD.id,
  *     ],
  *     tags: {
- *         Example: true,
+ *         Example: "true",
  *     },
  *     selfServicePermissions: {
  *         changeComputeType: true,

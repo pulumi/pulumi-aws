@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  *     backupRetentionPeriod: 5,
  *     preferredBackupWindow: "07:00-09:00",
  *     skipFinalSnapshot: true,
- *     iamDatabaseAuthenticationEnabled: "true",
- *     applyImmediately: "true",
+ *     iamDatabaseAuthenticationEnabled: true,
+ *     applyImmediately: true,
  * });
  * const example = new aws.neptune.ClusterInstance("example", {
  *     clusterIdentifier: defaultCluster.id,
  *     engine: "neptune",
  *     instanceClass: "db.r4.large",
- *     applyImmediately: "true",
+ *     applyImmediately: true,
  * });
  * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
  * const defaultEventSubscription = new aws.neptune.EventSubscription("defaultEventSubscription", {

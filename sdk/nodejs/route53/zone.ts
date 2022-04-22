@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *     zoneId: main.zoneId,
  *     name: "dev.example.com",
  *     type: "NS",
- *     ttl: "30",
+ *     ttl: 30,
  *     records: dev.nameServers,
  * });
  * ```

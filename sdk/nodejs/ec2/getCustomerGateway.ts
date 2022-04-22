@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const main = new aws.ec2.VpnGateway("main", {
  *     vpcId: aws_vpc.main.id,
- *     amazonSideAsn: 7224,
+ *     amazonSideAsn: "7224",
  * });
  * const transit = new aws.ec2.VpnConnection("transit", {
  *     vpnGatewayId: main.id,

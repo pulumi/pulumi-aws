@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     zoneId: "ABCDEFGHIJ123",
  *     name: "_amazonses.example.com",
  *     type: "TXT",
- *     ttl: "600",
+ *     ttl: 600,
  *     records: [example.verificationToken],
  * });
  * ```

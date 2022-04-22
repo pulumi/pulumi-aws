@@ -95,7 +95,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleProject = new aws.codebuild.Project("exampleProject", {
  *     description: "test_codebuild_project",
- *     buildTimeout: "5",
+ *     buildTimeout: 5,
  *     serviceRole: exampleRole.arn,
  *     artifacts: {
  *         type: "NO_ARTIFACTS",
@@ -157,8 +157,8 @@ import * as utilities from "../utilities";
  * });
  * const project_with_cache = new aws.codebuild.Project("project-with-cache", {
  *     description: "test_codebuild_project_cache",
- *     buildTimeout: "5",
- *     queuedTimeout: "5",
+ *     buildTimeout: 5,
+ *     queuedTimeout: 5,
  *     serviceRole: exampleRole.arn,
  *     artifacts: {
  *         type: "NO_ARTIFACTS",

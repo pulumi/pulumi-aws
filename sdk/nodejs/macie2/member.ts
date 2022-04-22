@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     email: "EMAIL",
  *     invite: true,
  *     invitationMessage: "Message of the invitation",
- *     invitationDisableEmailNotification: true,
+ *     invitationDisableEmailNotification: "true",
  * }, {
  *     dependsOn: [exampleAccount],
  * });

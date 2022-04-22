@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * const _default = new aws.ec2.DefaultSecurityGroup("default", {
  *     vpcId: mainvpc.id,
  *     ingress: [{
- *         protocol: -1,
+ *         protocol: "-1",
  *         self: true,
  *         fromPort: 0,
  *         toPort: 0,
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * const _default = new aws.ec2.DefaultSecurityGroup("default", {
  *     vpcId: mainvpc.id,
  *     ingress: [{
- *         protocol: -1,
+ *         protocol: "-1",
  *         self: true,
  *         fromPort: 0,
  *         toPort: 0,

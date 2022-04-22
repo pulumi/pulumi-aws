@@ -5,36 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * **Using certs on file:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const testCert = new aws.iam.SigningCertificate("testCert", {
- *     username: "some_test_cert",
- *     certificateBody: fs.readFileSync("self-ca-cert.pem"),
- * });
- * ```
- *
- * **Example with cert in-line:**
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testCertAlt = new aws.iam.SigningCertificate("test_cert_alt", {
- *     certificateBody: `-----BEGIN CERTIFICATE-----
- * [......] # cert contents
- * -----END CERTIFICATE-----
- * `,
- *     username: "some_test_cert",
- * });
- * ```
- *
  * ## Import
  *
  * IAM Signing Certificates can be imported using the `id`, e.g.,
