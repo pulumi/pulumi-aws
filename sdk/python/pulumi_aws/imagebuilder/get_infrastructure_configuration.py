@@ -21,7 +21,7 @@ class GetInfrastructureConfigurationResult:
     """
     A collection of values returned by getInfrastructureConfiguration.
     """
-    def __init__(__self__, arn=None, date_created=None, date_updated=None, description=None, id=None, instance_profile_name=None, instance_types=None, key_pair=None, loggings=None, name=None, resource_tags=None, security_group_ids=None, sns_topic_arn=None, subnet_id=None, tags=None, terminate_instance_on_failure=None):
+    def __init__(__self__, arn=None, date_created=None, date_updated=None, description=None, id=None, instance_metadata_options=None, instance_profile_name=None, instance_types=None, key_pair=None, loggings=None, name=None, resource_tags=None, security_group_ids=None, sns_topic_arn=None, subnet_id=None, tags=None, terminate_instance_on_failure=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -37,6 +37,9 @@ class GetInfrastructureConfigurationResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if instance_metadata_options and not isinstance(instance_metadata_options, list):
+            raise TypeError("Expected argument 'instance_metadata_options' to be a list")
+        pulumi.set(__self__, "instance_metadata_options", instance_metadata_options)
         if instance_profile_name and not isinstance(instance_profile_name, str):
             raise TypeError("Expected argument 'instance_profile_name' to be a str")
         pulumi.set(__self__, "instance_profile_name", instance_profile_name)
@@ -104,6 +107,14 @@ class GetInfrastructureConfigurationResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="instanceMetadataOptions")
+    def instance_metadata_options(self) -> Sequence['outputs.GetInfrastructureConfigurationInstanceMetadataOptionResult']:
+        """
+        Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
+        """
+        return pulumi.get(self, "instance_metadata_options")
 
     @property
     @pulumi.getter(name="instanceProfileName")
@@ -205,6 +216,7 @@ class AwaitableGetInfrastructureConfigurationResult(GetInfrastructureConfigurati
             date_updated=self.date_updated,
             description=self.description,
             id=self.id,
+            instance_metadata_options=self.instance_metadata_options,
             instance_profile_name=self.instance_profile_name,
             instance_types=self.instance_types,
             key_pair=self.key_pair,
@@ -255,6 +267,7 @@ def get_infrastructure_configuration(arn: Optional[str] = None,
         date_updated=__ret__.date_updated,
         description=__ret__.description,
         id=__ret__.id,
+        instance_metadata_options=__ret__.instance_metadata_options,
         instance_profile_name=__ret__.instance_profile_name,
         instance_types=__ret__.instance_types,
         key_pair=__ret__.key_pair,

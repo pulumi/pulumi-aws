@@ -8160,6 +8160,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "transfer/workflow",
+  "fqn": "pulumi_aws.transfer",
+  "classes": {
+   "aws:transfer/workflow:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "waf/byteMatchSet",
   "fqn": "pulumi_aws.waf",
   "classes": {

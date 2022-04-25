@@ -91,6 +91,10 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+     */
+    public readonly instanceMetadataOptions!: pulumi.Output<outputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions | undefined>;
+    /**
      * Name of IAM Instance Profile.
      */
     public readonly instanceProfileName!: pulumi.Output<string>;
@@ -156,6 +160,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
             resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
             resourceInputs["dateUpdated"] = state ? state.dateUpdated : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["instanceMetadataOptions"] = state ? state.instanceMetadataOptions : undefined;
             resourceInputs["instanceProfileName"] = state ? state.instanceProfileName : undefined;
             resourceInputs["instanceTypes"] = state ? state.instanceTypes : undefined;
             resourceInputs["keyPair"] = state ? state.keyPair : undefined;
@@ -174,6 +179,7 @@ export class InfrastructureConfiguration extends pulumi.CustomResource {
                 throw new Error("Missing required property 'instanceProfileName'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["instanceMetadataOptions"] = args ? args.instanceMetadataOptions : undefined;
             resourceInputs["instanceProfileName"] = args ? args.instanceProfileName : undefined;
             resourceInputs["instanceTypes"] = args ? args.instanceTypes : undefined;
             resourceInputs["keyPair"] = args ? args.keyPair : undefined;
@@ -215,6 +221,10 @@ export interface InfrastructureConfigurationState {
      * Description for the configuration.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+     */
+    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions>;
     /**
      * Name of IAM Instance Profile.
      */
@@ -273,6 +283,10 @@ export interface InfrastructureConfigurationArgs {
      * Description for the configuration.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+     */
+    instanceMetadataOptions?: pulumi.Input<inputs.imagebuilder.InfrastructureConfigurationInstanceMetadataOptions>;
     /**
      * Name of IAM Instance Profile.
      */

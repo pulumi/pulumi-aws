@@ -33,6 +33,7 @@ export * from "./cannedAcl";
 export * from "./getBucket";
 export * from "./getBucketObject";
 export * from "./getBucketObjects";
+export * from "./getBucketPolicy";
 export * from "./getCanonicalUserId";
 export * from "./getObject";
 export * from "./getObjects";

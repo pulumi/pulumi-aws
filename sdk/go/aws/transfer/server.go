@@ -233,6 +233,8 @@ type Server struct {
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrOutput `pulumi:"url"`
+	// Specifies the workflow details. See Workflow Details below.
+	WorkflowDetails ServerWorkflowDetailsPtrOutput `pulumi:"workflowDetails"`
 }
 
 // NewServer registers a new resource with the given unique name, arguments, and options.
@@ -309,6 +311,8 @@ type serverState struct {
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
+	// Specifies the workflow details. See Workflow Details below.
+	WorkflowDetails *ServerWorkflowDetails `pulumi:"workflowDetails"`
 }
 
 type ServerState struct {
@@ -357,6 +361,8 @@ type ServerState struct {
 	TagsAll pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
+	// Specifies the workflow details. See Workflow Details below.
+	WorkflowDetails ServerWorkflowDetailsPtrInput
 }
 
 func (ServerState) ElementType() reflect.Type {
@@ -401,6 +407,8 @@ type serverArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
+	// Specifies the workflow details. See Workflow Details below.
+	WorkflowDetails *ServerWorkflowDetails `pulumi:"workflowDetails"`
 }
 
 // The set of arguments for constructing a Server resource.
@@ -442,6 +450,8 @@ type ServerArgs struct {
 	Tags pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
+	// Specifies the workflow details. See Workflow Details below.
+	WorkflowDetails ServerWorkflowDetailsPtrInput
 }
 
 func (ServerArgs) ElementType() reflect.Type {

@@ -659,6 +659,7 @@ class Trail(pulumi.CustomResource):
                 }}
             ]
         }}
+        }}
         \"\"\"))
         foobar = aws.cloudtrail.Trail("foobar",
             s3_bucket_name=bucket_v2.id,
@@ -964,6 +965,7 @@ class Trail(pulumi.CustomResource):
                     }}
                 }}
             ]
+        }}
         }}
         \"\"\"))
         foobar = aws.cloudtrail.Trail("foobar",

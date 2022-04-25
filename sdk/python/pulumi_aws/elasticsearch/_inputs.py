@@ -36,7 +36,7 @@ class DomainAdvancedSecurityOptionsArgs:
                  internal_user_database_enabled: Optional[pulumi.Input[bool]] = None,
                  master_user_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs']] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         :param pulumi.Input[bool] internal_user_database_enabled: Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
         :param pulumi.Input['DomainAdvancedSecurityOptionsMasterUserOptionsArgs'] master_user_options: Configuration block for the main user. Detailed below.
         """
@@ -50,7 +50,7 @@ class DomainAdvancedSecurityOptionsArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         return pulumi.get(self, "enabled")
 
@@ -469,7 +469,7 @@ class DomainClusterConfigColdStorageOptionsArgs:
     def __init__(__self__, *,
                  enabled: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -478,7 +478,7 @@ class DomainClusterConfigColdStorageOptionsArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         return pulumi.get(self, "enabled")
 
@@ -521,7 +521,7 @@ class DomainCognitoOptionsArgs:
         :param pulumi.Input[str] identity_pool_id: ID of the Cognito Identity Pool to use.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that has the AmazonESCognitoAccess policy attached.
         :param pulumi.Input[str] user_pool_id: ID of the Cognito User Pool to use.
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         pulumi.set(__self__, "identity_pool_id", identity_pool_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -569,7 +569,7 @@ class DomainCognitoOptionsArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         return pulumi.get(self, "enabled")
 
@@ -737,8 +737,7 @@ class DomainEncryptAtRestArgs:
                  enabled: pulumi.Input[bool],
                  kms_key_id: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
-        :param pulumi.Input[str] kms_key_id: KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         pulumi.set(__self__, "enabled", enabled)
         if kms_key_id is not None:
@@ -748,7 +747,7 @@ class DomainEncryptAtRestArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         return pulumi.get(self, "enabled")
 
@@ -759,9 +758,6 @@ class DomainEncryptAtRestArgs:
     @property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
-        """
         return pulumi.get(self, "kms_key_id")
 
     @kms_key_id.setter
@@ -778,7 +774,7 @@ class DomainLogPublishingOptionArgs:
         """
         :param pulumi.Input[str] cloudwatch_log_group_arn: ARN of the Cloudwatch log group to which log needs to be published.
         :param pulumi.Input[str] log_type: Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         pulumi.set(__self__, "cloudwatch_log_group_arn", cloudwatch_log_group_arn)
         pulumi.set(__self__, "log_type", log_type)
@@ -813,7 +809,7 @@ class DomainLogPublishingOptionArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         return pulumi.get(self, "enabled")
 
@@ -827,7 +823,7 @@ class DomainNodeToNodeEncryptionArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
-        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        :param pulumi.Input[bool] enabled: Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -835,7 +831,7 @@ class DomainNodeToNodeEncryptionArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         """
         return pulumi.get(self, "enabled")
 

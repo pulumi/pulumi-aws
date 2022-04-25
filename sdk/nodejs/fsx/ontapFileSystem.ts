@@ -90,7 +90,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly dailyAutomaticBackupStartTime!: pulumi.Output<string>;
     /**
-     * - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      */
     public readonly deploymentType!: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     public readonly storageType!: pulumi.Output<string | undefined>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
      */
     public readonly subnetIds!: pulumi.Output<string[]>;
     /**
@@ -266,7 +266,7 @@ export interface OntapFileSystemState {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      */
     deploymentType?: pulumi.Input<string>;
     /**
@@ -322,7 +322,7 @@ export interface OntapFileSystemState {
      */
     storageType?: pulumi.Input<string>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -360,7 +360,7 @@ export interface OntapFileSystemArgs {
      */
     dailyAutomaticBackupStartTime?: pulumi.Input<string>;
     /**
-     * - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+     * - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
      */
     deploymentType: pulumi.Input<string>;
     /**
@@ -400,7 +400,7 @@ export interface OntapFileSystemArgs {
      */
     storageType?: pulumi.Input<string>;
     /**
-     * A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+     * A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
      */
     subnetIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

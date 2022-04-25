@@ -404,6 +404,47 @@ namespace Pulumi.Aws.Emr
     ///                 { "name", "emr_test" },
     ///             },
     ///         });
+    ///         var allowAccess = new Aws.Ec2.SecurityGroup("allowAccess", new Aws.Ec2.SecurityGroupArgs
+    ///         {
+    ///             Description = "Allow inbound traffic",
+    ///             VpcId = mainVpc.Id,
+    ///             Ingress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         mainVpc.CidrBlock,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Egress = 
+    ///             {
+    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
+    ///                 {
+    ///                     FromPort = 0,
+    ///                     ToPort = 0,
+    ///                     Protocol = "-1",
+    ///                     CidrBlocks = 
+    ///                     {
+    ///                         "0.0.0.0/0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "name", "emr_test" },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 mainSubnet,
+    ///             },
+    ///         });
     ///         // IAM role for EMR Service
     ///         var iamEmrServiceRole = new Aws.Iam.Role("iamEmrServiceRole", new Aws.Iam.RoleArgs
     ///         {
@@ -454,8 +495,8 @@ namespace Pulumi.Aws.Emr
     ///             Ec2Attributes = new Aws.Emr.Inputs.ClusterEc2AttributesArgs
     ///             {
     ///                 SubnetId = mainSubnet.Id,
-    ///                 EmrManagedMasterSecurityGroup = aws_security_group.Allow_all.Id,
-    ///                 EmrManagedSlaveSecurityGroup = aws_security_group.Allow_all.Id,
+    ///                 EmrManagedMasterSecurityGroup = allowAccess.Id,
+    ///                 EmrManagedSlaveSecurityGroup = allowAccess.Id,
     ///                 InstanceProfile = emrProfile.Arn,
     ///             },
     ///             MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
@@ -515,44 +556,6 @@ namespace Pulumi.Aws.Emr
     ///   ]
     /// ",
     ///             ServiceRole = iamEmrServiceRole.Arn,
-    ///         });
-    ///         var allowAccess = new Aws.Ec2.SecurityGroup("allowAccess", new Aws.Ec2.SecurityGroupArgs
-    ///         {
-    ///             Description = "Allow inbound traffic",
-    ///             VpcId = mainVpc.Id,
-    ///             Ingress = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.SecurityGroupIngressArgs
-    ///                 {
-    ///                     FromPort = 0,
-    ///                     ToPort = 0,
-    ///                     Protocol = "-1",
-    ///                     CidrBlocks = mainVpc.CidrBlock,
-    ///                 },
-    ///             },
-    ///             Egress = 
-    ///             {
-    ///                 new Aws.Ec2.Inputs.SecurityGroupEgressArgs
-    ///                 {
-    ///                     FromPort = 0,
-    ///                     ToPort = 0,
-    ///                     Protocol = "-1",
-    ///                     CidrBlocks = 
-    ///                     {
-    ///                         "0.0.0.0/0",
-    ///                     },
-    ///                 },
-    ///             },
-    ///             Tags = 
-    ///             {
-    ///                 { "name", "emr_test" },
-    ///             },
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 mainSubnet,
-    ///             },
     ///         });
     ///         var gw = new Aws.Ec2.InternetGateway("gw", new Aws.Ec2.InternetGatewayArgs
     ///         {
@@ -705,9 +708,6 @@ namespace Pulumi.Aws.Emr
     [AwsResourceType("aws:emr/cluster:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {
-        /// <summary>
-        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
-        /// </summary>
         [Output("additionalInfo")]
         public Output<string?> AdditionalInfo { get; private set; } = null!;
 
@@ -937,9 +937,6 @@ namespace Pulumi.Aws.Emr
 
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
-        /// </summary>
         [Input("additionalInfo")]
         public Input<string>? AdditionalInfo { get; set; }
 
@@ -1136,9 +1133,6 @@ namespace Pulumi.Aws.Emr
 
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
-        /// </summary>
         [Input("additionalInfo")]
         public Input<string>? AdditionalInfo { get; set; }
 

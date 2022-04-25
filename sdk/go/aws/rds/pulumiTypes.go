@@ -1665,6 +1665,8 @@ type ProxyAuth struct {
 	IamAuth *string `pulumi:"iamAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
+	// The name of the database user to which the proxy connects.
+	Username *string `pulumi:"username"`
 }
 
 // ProxyAuthInput is an input type that accepts ProxyAuthArgs and ProxyAuthOutput values.
@@ -1687,6 +1689,8 @@ type ProxyAuthArgs struct {
 	IamAuth pulumi.StringPtrInput `pulumi:"iamAuth"`
 	// The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+	// The name of the database user to which the proxy connects.
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ProxyAuthArgs) ElementType() reflect.Type {
@@ -1758,6 +1762,11 @@ func (o ProxyAuthOutput) IamAuth() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 func (o ProxyAuthOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the database user to which the proxy connects.
+func (o ProxyAuthOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProxyAuth) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ProxyAuthArrayOutput struct{ *pulumi.OutputState }
@@ -2125,6 +2134,7 @@ type GetProxyAuth struct {
 	Description string `pulumi:"description"`
 	IamAuth     string `pulumi:"iamAuth"`
 	SecretArn   string `pulumi:"secretArn"`
+	Username    string `pulumi:"username"`
 }
 
 // GetProxyAuthInput is an input type that accepts GetProxyAuthArgs and GetProxyAuthOutput values.
@@ -2143,6 +2153,7 @@ type GetProxyAuthArgs struct {
 	Description pulumi.StringInput `pulumi:"description"`
 	IamAuth     pulumi.StringInput `pulumi:"iamAuth"`
 	SecretArn   pulumi.StringInput `pulumi:"secretArn"`
+	Username    pulumi.StringInput `pulumi:"username"`
 }
 
 func (GetProxyAuthArgs) ElementType() reflect.Type {
@@ -2210,6 +2221,10 @@ func (o GetProxyAuthOutput) IamAuth() pulumi.StringOutput {
 
 func (o GetProxyAuthOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProxyAuth) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+func (o GetProxyAuthOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProxyAuth) string { return v.Username }).(pulumi.StringOutput)
 }
 
 type GetProxyAuthArrayOutput struct{ *pulumi.OutputState }

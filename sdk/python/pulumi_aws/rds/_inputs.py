@@ -735,12 +735,14 @@ class ProxyAuthArgs:
                  auth_scheme: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  iam_auth: Optional[pulumi.Input[str]] = None,
-                 secret_arn: Optional[pulumi.Input[str]] = None):
+                 secret_arn: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
         :param pulumi.Input[str] description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
         :param pulumi.Input[str] iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
         :param pulumi.Input[str] secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        :param pulumi.Input[str] username: The name of the database user to which the proxy connects.
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
@@ -750,6 +752,8 @@ class ProxyAuthArgs:
             pulumi.set(__self__, "iam_auth", iam_auth)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="authScheme")
@@ -798,6 +802,18 @@ class ProxyAuthArgs:
     @secret_arn.setter
     def secret_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the database user to which the proxy connects.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

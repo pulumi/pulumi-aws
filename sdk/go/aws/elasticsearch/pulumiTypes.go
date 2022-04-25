@@ -11,7 +11,7 @@ import (
 )
 
 type DomainAdvancedSecurityOptions struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
 	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
@@ -31,7 +31,7 @@ type DomainAdvancedSecurityOptionsInput interface {
 }
 
 type DomainAdvancedSecurityOptionsArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled. If not set, defaults to `false` by the AWS API.
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
@@ -116,7 +116,7 @@ func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrO
 	}).(DomainAdvancedSecurityOptionsPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainAdvancedSecurityOptionsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -157,7 +157,7 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) Elem() DomainAdvancedSecurityOpt
 	}).(DomainAdvancedSecurityOptionsOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainAdvancedSecurityOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *bool {
 		if v == nil {
@@ -1045,7 +1045,7 @@ func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutpu
 }
 
 type DomainClusterConfigColdStorageOptions struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1061,7 +1061,7 @@ type DomainClusterConfigColdStorageOptionsInput interface {
 }
 
 type DomainClusterConfigColdStorageOptionsArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1142,7 +1142,7 @@ func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdSt
 	}).(DomainClusterConfigColdStorageOptionsPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainClusterConfigColdStorageOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfigColdStorageOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1171,7 +1171,7 @@ func (o DomainClusterConfigColdStorageOptionsPtrOutput) Elem() DomainClusterConf
 	}).(DomainClusterConfigColdStorageOptionsOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainClusterConfigColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainClusterConfigColdStorageOptions) *bool {
 		if v == nil {
@@ -1319,7 +1319,7 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) AvailabilityZoneCount()
 }
 
 type DomainCognitoOptions struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled *bool `pulumi:"enabled"`
 	// ID of the Cognito Identity Pool to use.
 	IdentityPoolId string `pulumi:"identityPoolId"`
@@ -1341,7 +1341,7 @@ type DomainCognitoOptionsInput interface {
 }
 
 type DomainCognitoOptionsArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// ID of the Cognito Identity Pool to use.
 	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
@@ -1428,7 +1428,7 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(c
 	}).(DomainCognitoOptionsPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainCognitoOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1472,7 +1472,7 @@ func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
 	}).(DomainCognitoOptionsOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainCognitoOptions) *bool {
 		if v == nil {
@@ -1916,9 +1916,8 @@ func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 type DomainEncryptAtRest struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
-	Enabled bool `pulumi:"enabled"`
-	// KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
+	Enabled  bool    `pulumi:"enabled"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -1934,9 +1933,8 @@ type DomainEncryptAtRestInput interface {
 }
 
 type DomainEncryptAtRestArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
+	Enabled  pulumi.BoolInput      `pulumi:"enabled"`
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -2017,12 +2015,11 @@ func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestPtrOutputWithContext(ctx
 	}).(DomainEncryptAtRestPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainEncryptAtRestOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
 func (o DomainEncryptAtRestOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEncryptAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -2051,7 +2048,7 @@ func (o DomainEncryptAtRestPtrOutput) Elem() DomainEncryptAtRestOutput {
 	}).(DomainEncryptAtRestOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEncryptAtRest) *bool {
 		if v == nil {
@@ -2061,7 +2058,6 @@ func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
 func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEncryptAtRest) *string {
 		if v == nil {
@@ -2074,7 +2070,7 @@ func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 type DomainLogPublishingOption struct {
 	// ARN of the Cloudwatch log group to which log needs to be published.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled *bool `pulumi:"enabled"`
 	// Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
 	LogType string `pulumi:"logType"`
@@ -2094,7 +2090,7 @@ type DomainLogPublishingOptionInput interface {
 type DomainLogPublishingOptionArgs struct {
 	// ARN of the Cloudwatch log group to which log needs to be published.
 	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Type of Elasticsearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
 	LogType pulumi.StringInput `pulumi:"logType"`
@@ -2156,7 +2152,7 @@ func (o DomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringOu
 	return o.ApplyT(func(v DomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainLogPublishingOptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2187,7 +2183,7 @@ func (o DomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) DomainLog
 }
 
 type DomainNodeToNodeEncryption struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2203,7 +2199,7 @@ type DomainNodeToNodeEncryptionInput interface {
 }
 
 type DomainNodeToNodeEncryptionArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -2284,7 +2280,7 @@ func (o DomainNodeToNodeEncryptionOutput) ToDomainNodeToNodeEncryptionPtrOutputW
 	}).(DomainNodeToNodeEncryptionPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2313,7 +2309,7 @@ func (o DomainNodeToNodeEncryptionPtrOutput) Elem() DomainNodeToNodeEncryptionOu
 	}).(DomainNodeToNodeEncryptionOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
 func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainNodeToNodeEncryption) *bool {
 		if v == nil {

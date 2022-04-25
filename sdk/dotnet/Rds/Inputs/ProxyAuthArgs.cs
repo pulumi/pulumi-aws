@@ -36,6 +36,12 @@ namespace Pulumi.Aws.Rds.Inputs
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }
 
+        /// <summary>
+        /// The name of the database user to which the proxy connects.
+        /// </summary>
+        [Input("username")]
+        public Input<string>? Username { get; set; }
+
         public ProxyAuthArgs()
         {
         }

@@ -63,6 +63,8 @@ type LookupInfrastructureConfigurationResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
+	InstanceMetadataOptions []GetInfrastructureConfigurationInstanceMetadataOption `pulumi:"instanceMetadataOptions"`
 	// Name of the IAM Instance Profile associated with the configuration.
 	InstanceProfileName string `pulumi:"instanceProfileName"`
 	// Set of EC2 Instance Types associated with the configuration.
@@ -146,6 +148,13 @@ func (o LookupInfrastructureConfigurationResultOutput) Description() pulumi.Stri
 // The provider-assigned unique ID for this managed resource.
 func (o LookupInfrastructureConfigurationResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
+func (o LookupInfrastructureConfigurationResultOutput) InstanceMetadataOptions() GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput {
+	return o.ApplyT(func(v LookupInfrastructureConfigurationResult) []GetInfrastructureConfigurationInstanceMetadataOption {
+		return v.InstanceMetadataOptions
+	}).(GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput)
 }
 
 // Name of the IAM Instance Profile associated with the configuration.

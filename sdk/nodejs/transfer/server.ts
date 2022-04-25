@@ -217,6 +217,10 @@ export class Server extends pulumi.CustomResource {
      * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     public readonly url!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the workflow details. See Workflow Details below.
+     */
+    public readonly workflowDetails!: pulumi.Output<outputs.transfer.ServerWorkflowDetails | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -252,6 +256,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["workflowDetails"] = state ? state.workflowDetails : undefined;
         } else {
             const args = argsOrState as ServerArgs | undefined;
             resourceInputs["certificate"] = args ? args.certificate : undefined;
@@ -271,6 +276,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["workflowDetails"] = args ? args.workflowDetails : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["hostKeyFingerprint"] = undefined /*out*/;
@@ -372,6 +378,10 @@ export interface ServerState {
      * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     url?: pulumi.Input<string>;
+    /**
+     * Specifies the workflow details. See Workflow Details below.
+     */
+    workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetails>;
 }
 
 /**
@@ -449,4 +459,8 @@ export interface ServerArgs {
      * - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
      */
     url?: pulumi.Input<string>;
+    /**
+     * Specifies the workflow details. See Workflow Details below.
+     */
+    workflowDetails?: pulumi.Input<inputs.transfer.ServerWorkflowDetails>;
 }

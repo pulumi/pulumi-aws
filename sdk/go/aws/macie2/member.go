@@ -34,7 +34,7 @@ import (
 // 			Email:                              pulumi.String("EMAIL"),
 // 			Invite:                             pulumi.Bool(true),
 // 			InvitationMessage:                  pulumi.String("Message of the invitation"),
-// 			InvitationDisableEmailNotification: pulumi.String("true"),
+// 			InvitationDisableEmailNotification: pulumi.Bool(true),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			exampleAccount,
 // 		}))
@@ -65,7 +65,7 @@ type Member struct {
 	// The email address for the account.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-	InvitationDisableEmailNotification pulumi.StringPtrOutput `pulumi:"invitationDisableEmailNotification"`
+	InvitationDisableEmailNotification pulumi.BoolPtrOutput `pulumi:"invitationDisableEmailNotification"`
 	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
 	InvitationMessage pulumi.StringPtrOutput `pulumi:"invitationMessage"`
 	// Send an invitation to a member
@@ -128,7 +128,7 @@ type memberState struct {
 	// The email address for the account.
 	Email *string `pulumi:"email"`
 	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-	InvitationDisableEmailNotification *string `pulumi:"invitationDisableEmailNotification"`
+	InvitationDisableEmailNotification *bool `pulumi:"invitationDisableEmailNotification"`
 	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
 	InvitationMessage *string `pulumi:"invitationMessage"`
 	// Send an invitation to a member
@@ -157,7 +157,7 @@ type MemberState struct {
 	// The email address for the account.
 	Email pulumi.StringPtrInput
 	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-	InvitationDisableEmailNotification pulumi.StringPtrInput
+	InvitationDisableEmailNotification pulumi.BoolPtrInput
 	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
 	InvitationMessage pulumi.StringPtrInput
 	// Send an invitation to a member
@@ -186,7 +186,7 @@ type memberArgs struct {
 	// The email address for the account.
 	Email string `pulumi:"email"`
 	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-	InvitationDisableEmailNotification *string `pulumi:"invitationDisableEmailNotification"`
+	InvitationDisableEmailNotification *bool `pulumi:"invitationDisableEmailNotification"`
 	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
 	InvitationMessage *string `pulumi:"invitationMessage"`
 	// Send an invitation to a member
@@ -204,7 +204,7 @@ type MemberArgs struct {
 	// The email address for the account.
 	Email pulumi.StringInput
 	// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
-	InvitationDisableEmailNotification pulumi.StringPtrInput
+	InvitationDisableEmailNotification pulumi.BoolPtrInput
 	// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
 	InvitationMessage pulumi.StringPtrInput
 	// Send an invitation to a member

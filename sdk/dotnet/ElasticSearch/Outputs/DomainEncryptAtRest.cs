@@ -14,12 +14,9 @@ namespace Pulumi.Aws.ElasticSearch.Outputs
     public sealed class DomainEncryptAtRest
     {
         /// <summary>
-        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`.
+        /// Whether to enable node-to-node encryption. If the `node_to_node_encryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearch_version` of `6.0` or greater.
         /// </summary>
         public readonly bool Enabled;
-        /// <summary>
-        /// KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
-        /// </summary>
         public readonly string? KmsKeyId;
 
         [OutputConstructor]

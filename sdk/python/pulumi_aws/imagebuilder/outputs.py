@@ -32,6 +32,7 @@ __all__ = [
     'ImageRecipeComponent',
     'ImageRecipeComponentParameter',
     'ImageRecipeSystemsManagerAgent',
+    'InfrastructureConfigurationInstanceMetadataOptions',
     'InfrastructureConfigurationLogging',
     'InfrastructureConfigurationLoggingS3Logs',
     'GetComponentsFilterResult',
@@ -60,6 +61,7 @@ __all__ = [
     'GetImageRecipeComponentResult',
     'GetImageRecipeComponentParameterResult',
     'GetImageRecipesFilterResult',
+    'GetInfrastructureConfigurationInstanceMetadataOptionResult',
     'GetInfrastructureConfigurationLoggingResult',
     'GetInfrastructureConfigurationLoggingS3LogResult',
     'GetInfrastructureConfigurationsFilterResult',
@@ -1432,6 +1434,56 @@ class ImageRecipeSystemsManagerAgent(dict):
 
 
 @pulumi.output_type
+class InfrastructureConfigurationInstanceMetadataOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "httpPutResponseHopLimit":
+            suggest = "http_put_response_hop_limit"
+        elif key == "httpTokens":
+            suggest = "http_tokens"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InfrastructureConfigurationInstanceMetadataOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InfrastructureConfigurationInstanceMetadataOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InfrastructureConfigurationInstanceMetadataOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 http_put_response_hop_limit: Optional[int] = None,
+                 http_tokens: Optional[str] = None):
+        """
+        :param int http_put_response_hop_limit: The number of hops that an instance can traverse to reach its destonation.
+        :param str http_tokens: Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        """
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> Optional[int]:
+        """
+        The number of hops that an instance can traverse to reach its destonation.
+        """
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> Optional[str]:
+        """
+        Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        """
+        return pulumi.get(self, "http_tokens")
+
+
+@pulumi.output_type
 class InfrastructureConfigurationLogging(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2564,6 +2616,35 @@ class GetImageRecipesFilterResult(dict):
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetInfrastructureConfigurationInstanceMetadataOptionResult(dict):
+    def __init__(__self__, *,
+                 http_put_response_hop_limit: int,
+                 http_tokens: str):
+        """
+        :param int http_put_response_hop_limit: Number of hops that an instance can traverse to reach its destonation.
+        :param str http_tokens: Whether a signed token is required for instance metadata retrieval requests.
+        """
+        pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> int:
+        """
+        Number of hops that an instance can traverse to reach its destonation.
+        """
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> str:
+        """
+        Whether a signed token is required for instance metadata retrieval requests.
+        """
+        return pulumi.get(self, "http_tokens")
 
 
 @pulumi.output_type

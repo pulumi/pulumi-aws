@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> DailyAutomaticBackupStartTime { get; private set; } = null!;
 
         /// <summary>
-        /// - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+        /// - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
         /// </summary>
         [Output("deploymentType")]
         public Output<string> DeploymentType { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> StorageType { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
         /// </summary>
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+        /// - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
         /// </summary>
         [Input("deploymentType", required: true)]
         public Input<string> DeploymentType { get; set; } = null!;
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
         /// </summary>
         public InputList<string> SubnetIds
         {
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DailyAutomaticBackupStartTime { get; set; }
 
         /// <summary>
-        /// - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+        /// - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
         /// </summary>
         [Input("deploymentType")]
         public Input<string>? DeploymentType { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Fsx
         private InputList<string>? _subnetIds;
 
         /// <summary>
-        /// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+        /// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
         /// </summary>
         public InputList<string> SubnetIds
         {

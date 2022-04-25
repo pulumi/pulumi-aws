@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly bool? IncludeTransactionDetails;
         /// <summary>
-        /// Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        /// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         /// </summary>
         public readonly string? MessageFormat;
         /// <summary>

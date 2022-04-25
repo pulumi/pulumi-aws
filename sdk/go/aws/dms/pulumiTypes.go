@@ -217,7 +217,7 @@ type EndpointKafkaSettings struct {
 	IncludeTableAlterOperations *bool `pulumi:"includeTableAlterOperations"`
 	// Provides detailed transaction information from the source database. Default is `false`.
 	IncludeTransactionDetails *bool `pulumi:"includeTransactionDetails"`
-	// Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+	// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 	MessageFormat *string `pulumi:"messageFormat"`
 	// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
 	MessageMaxBytes *int `pulumi:"messageMaxBytes"`
@@ -267,7 +267,7 @@ type EndpointKafkaSettingsArgs struct {
 	IncludeTableAlterOperations pulumi.BoolPtrInput `pulumi:"includeTableAlterOperations"`
 	// Provides detailed transaction information from the source database. Default is `false`.
 	IncludeTransactionDetails pulumi.BoolPtrInput `pulumi:"includeTransactionDetails"`
-	// Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+	// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
 	// Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
 	MessageMaxBytes pulumi.IntPtrInput `pulumi:"messageMaxBytes"`
@@ -400,7 +400,7 @@ func (o EndpointKafkaSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrO
 	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 func (o EndpointKafkaSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
@@ -544,7 +544,7 @@ func (o EndpointKafkaSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolP
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 func (o EndpointKafkaSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
 		if v == nil {
@@ -675,7 +675,7 @@ type EndpointKinesisSettings struct {
 	IncludeTableAlterOperations *bool `pulumi:"includeTableAlterOperations"`
 	// Provides detailed transaction information from the source database. Default is `false`.
 	IncludeTransactionDetails *bool `pulumi:"includeTransactionDetails"`
-	// Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+	// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 	MessageFormat *string `pulumi:"messageFormat"`
 	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
 	PartitionIncludeSchemaTable *bool `pulumi:"partitionIncludeSchemaTable"`
@@ -707,7 +707,7 @@ type EndpointKinesisSettingsArgs struct {
 	IncludeTableAlterOperations pulumi.BoolPtrInput `pulumi:"includeTableAlterOperations"`
 	// Provides detailed transaction information from the source database. Default is `false`.
 	IncludeTransactionDetails pulumi.BoolPtrInput `pulumi:"includeTransactionDetails"`
-	// Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+	// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
 	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
 	PartitionIncludeSchemaTable pulumi.BoolPtrInput `pulumi:"partitionIncludeSchemaTable"`
@@ -819,7 +819,7 @@ func (o EndpointKinesisSettingsOutput) IncludeTransactionDetails() pulumi.BoolPt
 	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 func (o EndpointKinesisSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
 }
@@ -913,7 +913,7 @@ func (o EndpointKinesisSettingsPtrOutput) IncludeTransactionDetails() pulumi.Boo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
 func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
 		if v == nil {

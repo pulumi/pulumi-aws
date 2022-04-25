@@ -143,7 +143,7 @@ class EventBusPolicy(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="StringEquals",
                 variable="aws:PrincipalOrgID",
-                values=aws_organizations_organization["example"]["id"],
+                values=[aws_organizations_organization["example"]["id"]],
             )],
         )])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
@@ -187,7 +187,7 @@ class EventBusPolicy(pulumi.CustomResource):
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="aws:PrincipalOrgID",
-                    values=aws_organizations_organization["example"]["id"],
+                    values=[aws_organizations_organization["example"]["id"]],
                 )],
             ),
         ])
@@ -268,7 +268,7 @@ class EventBusPolicy(pulumi.CustomResource):
             conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                 test="StringEquals",
                 variable="aws:PrincipalOrgID",
-                values=aws_organizations_organization["example"]["id"],
+                values=[aws_organizations_organization["example"]["id"]],
             )],
         )])
         test_event_bus_policy = aws.cloudwatch.EventBusPolicy("testEventBusPolicy",
@@ -312,7 +312,7 @@ class EventBusPolicy(pulumi.CustomResource):
                 conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
                     test="StringEquals",
                     variable="aws:PrincipalOrgID",
-                    values=aws_organizations_organization["example"]["id"],
+                    values=[aws_organizations_organization["example"]["id"]],
                 )],
             ),
         ])

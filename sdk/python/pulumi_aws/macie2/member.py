@@ -15,7 +15,7 @@ class MemberArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[str],
                  email: pulumi.Input[str],
-                 invitation_disable_email_notification: Optional[pulumi.Input[str]] = None,
+                 invitation_disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  invitation_message: Optional[pulumi.Input[str]] = None,
                  invite: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -24,7 +24,7 @@ class MemberArgs:
         The set of arguments for constructing a Member resource.
         :param pulumi.Input[str] account_id: The AWS account ID for the account.
         :param pulumi.Input[str] email: The email address for the account.
-        :param pulumi.Input[str] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        :param pulumi.Input[bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         :param pulumi.Input[str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         :param pulumi.Input[bool] invite: Send an invitation to a member
         :param pulumi.Input[str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
@@ -69,14 +69,14 @@ class MemberArgs:
 
     @property
     @pulumi.getter(name="invitationDisableEmailNotification")
-    def invitation_disable_email_notification(self) -> Optional[pulumi.Input[str]]:
+    def invitation_disable_email_notification(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         """
         return pulumi.get(self, "invitation_disable_email_notification")
 
     @invitation_disable_email_notification.setter
-    def invitation_disable_email_notification(self, value: Optional[pulumi.Input[str]]):
+    def invitation_disable_email_notification(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "invitation_disable_email_notification", value)
 
     @property
@@ -135,7 +135,7 @@ class _MemberState:
                  administrator_account_id: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
-                 invitation_disable_email_notification: Optional[pulumi.Input[str]] = None,
+                 invitation_disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  invitation_message: Optional[pulumi.Input[str]] = None,
                  invite: Optional[pulumi.Input[bool]] = None,
                  invited_at: Optional[pulumi.Input[str]] = None,
@@ -151,7 +151,7 @@ class _MemberState:
         :param pulumi.Input[str] administrator_account_id: The AWS account ID for the administrator account.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the account.
         :param pulumi.Input[str] email: The email address for the account.
-        :param pulumi.Input[str] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        :param pulumi.Input[bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         :param pulumi.Input[str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         :param pulumi.Input[bool] invite: Send an invitation to a member
         :param pulumi.Input[str] invited_at: The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
@@ -239,14 +239,14 @@ class _MemberState:
 
     @property
     @pulumi.getter(name="invitationDisableEmailNotification")
-    def invitation_disable_email_notification(self) -> Optional[pulumi.Input[str]]:
+    def invitation_disable_email_notification(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         """
         return pulumi.get(self, "invitation_disable_email_notification")
 
     @invitation_disable_email_notification.setter
-    def invitation_disable_email_notification(self, value: Optional[pulumi.Input[str]]):
+    def invitation_disable_email_notification(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "invitation_disable_email_notification", value)
 
     @property
@@ -359,7 +359,7 @@ class Member(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
-                 invitation_disable_email_notification: Optional[pulumi.Input[str]] = None,
+                 invitation_disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  invitation_message: Optional[pulumi.Input[str]] = None,
                  invite: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -380,7 +380,7 @@ class Member(pulumi.CustomResource):
             email="EMAIL",
             invite=True,
             invitation_message="Message of the invitation",
-            invitation_disable_email_notification="true",
+            invitation_disable_email_notification=True,
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
 
@@ -396,7 +396,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_id: The AWS account ID for the account.
         :param pulumi.Input[str] email: The email address for the account.
-        :param pulumi.Input[str] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        :param pulumi.Input[bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         :param pulumi.Input[str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         :param pulumi.Input[bool] invite: Send an invitation to a member
         :param pulumi.Input[str] status: Specifies the status for the account. To enable Amazon Macie and start all Macie activities for the account, set this value to `ENABLED`. Valid values are `ENABLED` or `PAUSED`.
@@ -423,7 +423,7 @@ class Member(pulumi.CustomResource):
             email="EMAIL",
             invite=True,
             invitation_message="Message of the invitation",
-            invitation_disable_email_notification="true",
+            invitation_disable_email_notification=True,
             opts=pulumi.ResourceOptions(depends_on=[example_account]))
         ```
 
@@ -452,7 +452,7 @@ class Member(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
-                 invitation_disable_email_notification: Optional[pulumi.Input[str]] = None,
+                 invitation_disable_email_notification: Optional[pulumi.Input[bool]] = None,
                  invitation_message: Optional[pulumi.Input[str]] = None,
                  invite: Optional[pulumi.Input[bool]] = None,
                  status: Optional[pulumi.Input[str]] = None,
@@ -501,7 +501,7 @@ class Member(pulumi.CustomResource):
             administrator_account_id: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             email: Optional[pulumi.Input[str]] = None,
-            invitation_disable_email_notification: Optional[pulumi.Input[str]] = None,
+            invitation_disable_email_notification: Optional[pulumi.Input[bool]] = None,
             invitation_message: Optional[pulumi.Input[str]] = None,
             invite: Optional[pulumi.Input[bool]] = None,
             invited_at: Optional[pulumi.Input[str]] = None,
@@ -522,7 +522,7 @@ class Member(pulumi.CustomResource):
         :param pulumi.Input[str] administrator_account_id: The AWS account ID for the administrator account.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the account.
         :param pulumi.Input[str] email: The email address for the account.
-        :param pulumi.Input[str] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
+        :param pulumi.Input[bool] invitation_disable_email_notification: Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         :param pulumi.Input[str] invitation_message: A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
         :param pulumi.Input[bool] invite: Send an invitation to a member
         :param pulumi.Input[str] invited_at: The date and time, in UTC and extended RFC 3339 format, when an Amazon Macie membership invitation was last sent to the account. This value is null if a Macie invitation hasn't been sent to the account.
@@ -585,7 +585,7 @@ class Member(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="invitationDisableEmailNotification")
-    def invitation_disable_email_notification(self) -> pulumi.Output[Optional[str]]:
+    def invitation_disable_email_notification(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         """

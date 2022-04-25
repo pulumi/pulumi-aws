@@ -285,6 +285,27 @@ import * as utilities from "../utilities";
  *         name: "emr_test",
  *     },
  * });
+ * const allowAccess = new aws.ec2.SecurityGroup("allowAccess", {
+ *     description: "Allow inbound traffic",
+ *     vpcId: mainVpc.id,
+ *     ingress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: [mainVpc.cidrBlock],
+ *     }],
+ *     egress: [{
+ *         fromPort: 0,
+ *         toPort: 0,
+ *         protocol: "-1",
+ *         cidrBlocks: ["0.0.0.0/0"],
+ *     }],
+ *     tags: {
+ *         name: "emr_test",
+ *     },
+ * }, {
+ *     dependsOn: [mainSubnet],
+ * });
  * // IAM role for EMR Service
  * const iamEmrServiceRole = new aws.iam.Role("iamEmrServiceRole", {assumeRolePolicy: `{
  *   "Version": "2008-10-17",
@@ -321,8 +342,8 @@ import * as utilities from "../utilities";
  *     applications: ["Spark"],
  *     ec2Attributes: {
  *         subnetId: mainSubnet.id,
- *         emrManagedMasterSecurityGroup: aws_security_group.allow_all.id,
- *         emrManagedSlaveSecurityGroup: aws_security_group.allow_all.id,
+ *         emrManagedMasterSecurityGroup: allowAccess.id,
+ *         emrManagedSlaveSecurityGroup: allowAccess.id,
  *         instanceProfile: emrProfile.arn,
  *     },
  *     masterInstanceGroup: {
@@ -374,27 +395,6 @@ import * as utilities from "../utilities";
  *   ]
  * `,
  *     serviceRole: iamEmrServiceRole.arn,
- * });
- * const allowAccess = new aws.ec2.SecurityGroup("allowAccess", {
- *     description: "Allow inbound traffic",
- *     vpcId: mainVpc.id,
- *     ingress: [{
- *         fromPort: 0,
- *         toPort: 0,
- *         protocol: "-1",
- *         cidrBlocks: mainVpc.cidrBlock,
- *     }],
- *     egress: [{
- *         fromPort: 0,
- *         toPort: 0,
- *         protocol: "-1",
- *         cidrBlocks: ["0.0.0.0/0"],
- *     }],
- *     tags: {
- *         name: "emr_test",
- *     },
- * }, {
- *     dependsOn: [mainSubnet],
  * });
  * const gw = new aws.ec2.InternetGateway("gw", {vpcId: mainVpc.id});
  * const routeTable = new aws.ec2.RouteTable("routeTable", {
@@ -558,9 +558,6 @@ export class Cluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === Cluster.__pulumiType;
     }
 
-    /**
-     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
-     */
     public readonly additionalInfo!: pulumi.Output<string | undefined>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -776,9 +773,6 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
-    /**
-     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
-     */
     additionalInfo?: pulumi.Input<string>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
@@ -904,9 +898,6 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
-    /**
-     * JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
-     */
     additionalInfo?: pulumi.Input<string>;
     /**
      * A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).

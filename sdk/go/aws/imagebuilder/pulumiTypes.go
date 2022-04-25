@@ -3395,6 +3395,162 @@ func (o ImageRecipeSystemsManagerAgentPtrOutput) UninstallAfterBuild() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+type InfrastructureConfigurationInstanceMetadataOptions struct {
+	// The number of hops that an instance can traverse to reach its destonation.
+	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
+	// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+	HttpTokens *string `pulumi:"httpTokens"`
+}
+
+// InfrastructureConfigurationInstanceMetadataOptionsInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsArgs and InfrastructureConfigurationInstanceMetadataOptionsOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsInput` via:
+//
+//          InfrastructureConfigurationInstanceMetadataOptionsArgs{...}
+type InfrastructureConfigurationInstanceMetadataOptionsInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationInstanceMetadataOptionsOutput() InfrastructureConfigurationInstanceMetadataOptionsOutput
+	ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(context.Context) InfrastructureConfigurationInstanceMetadataOptionsOutput
+}
+
+type InfrastructureConfigurationInstanceMetadataOptionsArgs struct {
+	// The number of hops that an instance can traverse to reach its destonation.
+	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
+	// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+	HttpTokens pulumi.StringPtrInput `pulumi:"httpTokens"`
+}
+
+func (InfrastructureConfigurationInstanceMetadataOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptions)(nil)).Elem()
+}
+
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsOutput() InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return i.ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsOutput)
+}
+
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return i.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InfrastructureConfigurationInstanceMetadataOptionsArgs) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsOutput).ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx)
+}
+
+// InfrastructureConfigurationInstanceMetadataOptionsPtrInput is an input type that accepts InfrastructureConfigurationInstanceMetadataOptionsArgs, InfrastructureConfigurationInstanceMetadataOptionsPtr and InfrastructureConfigurationInstanceMetadataOptionsPtrOutput values.
+// You can construct a concrete instance of `InfrastructureConfigurationInstanceMetadataOptionsPtrInput` via:
+//
+//          InfrastructureConfigurationInstanceMetadataOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InfrastructureConfigurationInstanceMetadataOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput
+	ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput
+}
+
+type infrastructureConfigurationInstanceMetadataOptionsPtrType InfrastructureConfigurationInstanceMetadataOptionsArgs
+
+func InfrastructureConfigurationInstanceMetadataOptionsPtr(v *InfrastructureConfigurationInstanceMetadataOptionsArgs) InfrastructureConfigurationInstanceMetadataOptionsPtrInput {
+	return (*infrastructureConfigurationInstanceMetadataOptionsPtrType)(v)
+}
+
+func (*infrastructureConfigurationInstanceMetadataOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationInstanceMetadataOptions)(nil)).Elem()
+}
+
+func (i *infrastructureConfigurationInstanceMetadataOptionsPtrType) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return i.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *infrastructureConfigurationInstanceMetadataOptionsPtrType) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
+}
+
+type InfrastructureConfigurationInstanceMetadataOptionsOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationInstanceMetadataOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptions)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructureConfigurationInstanceMetadataOptionsOutput() InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructureConfigurationInstanceMetadataOptionsOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o.ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InfrastructureConfigurationInstanceMetadataOptions) *InfrastructureConfigurationInstanceMetadataOptions {
+		return &v
+	}).(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput)
+}
+
+// The number of hops that an instance can traverse to reach its destonation.
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationInstanceMetadataOptions) *int { return v.HttpPutResponseHopLimit }).(pulumi.IntPtrOutput)
+}
+
+// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+func (o InfrastructureConfigurationInstanceMetadataOptionsOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InfrastructureConfigurationInstanceMetadataOptions) *string { return v.HttpTokens }).(pulumi.StringPtrOutput)
+}
+
+type InfrastructureConfigurationInstanceMetadataOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InfrastructureConfigurationInstanceMetadataOptions)(nil)).Elem()
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutput() InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) ToInfrastructureConfigurationInstanceMetadataOptionsPtrOutputWithContext(ctx context.Context) InfrastructureConfigurationInstanceMetadataOptionsPtrOutput {
+	return o
+}
+
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) Elem() InfrastructureConfigurationInstanceMetadataOptionsOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptions) InfrastructureConfigurationInstanceMetadataOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InfrastructureConfigurationInstanceMetadataOptions
+		return ret
+	}).(InfrastructureConfigurationInstanceMetadataOptionsOutput)
+}
+
+// The number of hops that an instance can traverse to reach its destonation.
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpPutResponseHopLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HttpPutResponseHopLimit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+func (o InfrastructureConfigurationInstanceMetadataOptionsPtrOutput) HttpTokens() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InfrastructureConfigurationInstanceMetadataOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpTokens
+	}).(pulumi.StringPtrOutput)
+}
+
 type InfrastructureConfigurationLogging struct {
 	// Configuration block with S3 logging settings. Detailed below.
 	S3Logs InfrastructureConfigurationLoggingS3Logs `pulumi:"s3Logs"`
@@ -6725,6 +6881,112 @@ func (o GetImageRecipesFilterArrayOutput) Index(i pulumi.IntInput) GetImageRecip
 	}).(GetImageRecipesFilterOutput)
 }
 
+type GetInfrastructureConfigurationInstanceMetadataOption struct {
+	// Number of hops that an instance can traverse to reach its destonation.
+	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
+	// Whether a signed token is required for instance metadata retrieval requests.
+	HttpTokens string `pulumi:"httpTokens"`
+}
+
+// GetInfrastructureConfigurationInstanceMetadataOptionInput is an input type that accepts GetInfrastructureConfigurationInstanceMetadataOptionArgs and GetInfrastructureConfigurationInstanceMetadataOptionOutput values.
+// You can construct a concrete instance of `GetInfrastructureConfigurationInstanceMetadataOptionInput` via:
+//
+//          GetInfrastructureConfigurationInstanceMetadataOptionArgs{...}
+type GetInfrastructureConfigurationInstanceMetadataOptionInput interface {
+	pulumi.Input
+
+	ToGetInfrastructureConfigurationInstanceMetadataOptionOutput() GetInfrastructureConfigurationInstanceMetadataOptionOutput
+	ToGetInfrastructureConfigurationInstanceMetadataOptionOutputWithContext(context.Context) GetInfrastructureConfigurationInstanceMetadataOptionOutput
+}
+
+type GetInfrastructureConfigurationInstanceMetadataOptionArgs struct {
+	// Number of hops that an instance can traverse to reach its destonation.
+	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
+	// Whether a signed token is required for instance metadata retrieval requests.
+	HttpTokens pulumi.StringInput `pulumi:"httpTokens"`
+}
+
+func (GetInfrastructureConfigurationInstanceMetadataOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInfrastructureConfigurationInstanceMetadataOption)(nil)).Elem()
+}
+
+func (i GetInfrastructureConfigurationInstanceMetadataOptionArgs) ToGetInfrastructureConfigurationInstanceMetadataOptionOutput() GetInfrastructureConfigurationInstanceMetadataOptionOutput {
+	return i.ToGetInfrastructureConfigurationInstanceMetadataOptionOutputWithContext(context.Background())
+}
+
+func (i GetInfrastructureConfigurationInstanceMetadataOptionArgs) ToGetInfrastructureConfigurationInstanceMetadataOptionOutputWithContext(ctx context.Context) GetInfrastructureConfigurationInstanceMetadataOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationInstanceMetadataOptionOutput)
+}
+
+// GetInfrastructureConfigurationInstanceMetadataOptionArrayInput is an input type that accepts GetInfrastructureConfigurationInstanceMetadataOptionArray and GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput values.
+// You can construct a concrete instance of `GetInfrastructureConfigurationInstanceMetadataOptionArrayInput` via:
+//
+//          GetInfrastructureConfigurationInstanceMetadataOptionArray{ GetInfrastructureConfigurationInstanceMetadataOptionArgs{...} }
+type GetInfrastructureConfigurationInstanceMetadataOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutput() GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput
+	ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutputWithContext(context.Context) GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput
+}
+
+type GetInfrastructureConfigurationInstanceMetadataOptionArray []GetInfrastructureConfigurationInstanceMetadataOptionInput
+
+func (GetInfrastructureConfigurationInstanceMetadataOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInfrastructureConfigurationInstanceMetadataOption)(nil)).Elem()
+}
+
+func (i GetInfrastructureConfigurationInstanceMetadataOptionArray) ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutput() GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput {
+	return i.ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetInfrastructureConfigurationInstanceMetadataOptionArray) ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput)
+}
+
+type GetInfrastructureConfigurationInstanceMetadataOptionOutput struct{ *pulumi.OutputState }
+
+func (GetInfrastructureConfigurationInstanceMetadataOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInfrastructureConfigurationInstanceMetadataOption)(nil)).Elem()
+}
+
+func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) ToGetInfrastructureConfigurationInstanceMetadataOptionOutput() GetInfrastructureConfigurationInstanceMetadataOptionOutput {
+	return o
+}
+
+func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) ToGetInfrastructureConfigurationInstanceMetadataOptionOutputWithContext(ctx context.Context) GetInfrastructureConfigurationInstanceMetadataOptionOutput {
+	return o
+}
+
+// Number of hops that an instance can traverse to reach its destonation.
+func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) HttpPutResponseHopLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v GetInfrastructureConfigurationInstanceMetadataOption) int { return v.HttpPutResponseHopLimit }).(pulumi.IntOutput)
+}
+
+// Whether a signed token is required for instance metadata retrieval requests.
+func (o GetInfrastructureConfigurationInstanceMetadataOptionOutput) HttpTokens() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInfrastructureConfigurationInstanceMetadataOption) string { return v.HttpTokens }).(pulumi.StringOutput)
+}
+
+type GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInfrastructureConfigurationInstanceMetadataOption)(nil)).Elem()
+}
+
+func (o GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutput() GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput {
+	return o
+}
+
+func (o GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) ToGetInfrastructureConfigurationInstanceMetadataOptionArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput {
+	return o
+}
+
+func (o GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput) Index(i pulumi.IntInput) GetInfrastructureConfigurationInstanceMetadataOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInfrastructureConfigurationInstanceMetadataOption {
+		return vs[0].([]GetInfrastructureConfigurationInstanceMetadataOption)[vs[1].(int)]
+	}).(GetInfrastructureConfigurationInstanceMetadataOptionOutput)
+}
+
 type GetInfrastructureConfigurationLogging struct {
 	// Nested list of S3 logs settings.
 	S3Logs []GetInfrastructureConfigurationLoggingS3Log `pulumi:"s3Logs"`
@@ -7081,6 +7343,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeComponentParameterArrayInput)(nil)).Elem(), ImageRecipeComponentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeSystemsManagerAgentInput)(nil)).Elem(), ImageRecipeSystemsManagerAgentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeSystemsManagerAgentPtrInput)(nil)).Elem(), ImageRecipeSystemsManagerAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInstanceMetadataOptionsPtrInput)(nil)).Elem(), InfrastructureConfigurationInstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingS3LogsInput)(nil)).Elem(), InfrastructureConfigurationLoggingS3LogsArgs{})
@@ -7137,6 +7401,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeComponentParameterArrayInput)(nil)).Elem(), GetImageRecipeComponentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipesFilterInput)(nil)).Elem(), GetImageRecipesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipesFilterArrayInput)(nil)).Elem(), GetImageRecipesFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationInstanceMetadataOptionInput)(nil)).Elem(), GetInfrastructureConfigurationInstanceMetadataOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationInstanceMetadataOptionArrayInput)(nil)).Elem(), GetInfrastructureConfigurationInstanceMetadataOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingArrayInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingS3LogInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingS3LogArgs{})
@@ -7187,6 +7453,8 @@ func init() {
 	pulumi.RegisterOutputType(ImageRecipeComponentParameterArrayOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentOutput{})
 	pulumi.RegisterOutputType(ImageRecipeSystemsManagerAgentPtrOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsOutput{})
+	pulumi.RegisterOutputType(InfrastructureConfigurationInstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationLoggingS3LogsOutput{})
@@ -7243,6 +7511,8 @@ func init() {
 	pulumi.RegisterOutputType(GetImageRecipeComponentParameterArrayOutput{})
 	pulumi.RegisterOutputType(GetImageRecipesFilterOutput{})
 	pulumi.RegisterOutputType(GetImageRecipesFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetInfrastructureConfigurationInstanceMetadataOptionOutput{})
+	pulumi.RegisterOutputType(GetInfrastructureConfigurationInstanceMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingArrayOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingS3LogOutput{})

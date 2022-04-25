@@ -31,6 +31,7 @@ __all__ = [
     'ImageRecipeComponentArgs',
     'ImageRecipeComponentParameterArgs',
     'ImageRecipeSystemsManagerAgentArgs',
+    'InfrastructureConfigurationInstanceMetadataOptionsArgs',
     'InfrastructureConfigurationLoggingArgs',
     'InfrastructureConfigurationLoggingS3LogsArgs',
     'GetComponentsFilterArgs',
@@ -1314,6 +1315,45 @@ class ImageRecipeSystemsManagerAgentArgs:
     @uninstall_after_build.setter
     def uninstall_after_build(self, value: pulumi.Input[bool]):
         pulumi.set(self, "uninstall_after_build", value)
+
+
+@pulumi.input_type
+class InfrastructureConfigurationInstanceMetadataOptionsArgs:
+    def __init__(__self__, *,
+                 http_put_response_hop_limit: Optional[pulumi.Input[int]] = None,
+                 http_tokens: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] http_put_response_hop_limit: The number of hops that an instance can traverse to reach its destonation.
+        :param pulumi.Input[str] http_tokens: Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        """
+        if http_put_response_hop_limit is not None:
+            pulumi.set(__self__, "http_put_response_hop_limit", http_put_response_hop_limit)
+        if http_tokens is not None:
+            pulumi.set(__self__, "http_tokens", http_tokens)
+
+    @property
+    @pulumi.getter(name="httpPutResponseHopLimit")
+    def http_put_response_hop_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of hops that an instance can traverse to reach its destonation.
+        """
+        return pulumi.get(self, "http_put_response_hop_limit")
+
+    @http_put_response_hop_limit.setter
+    def http_put_response_hop_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "http_put_response_hop_limit", value)
+
+    @property
+    @pulumi.getter(name="httpTokens")
+    def http_tokens(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+        """
+        return pulumi.get(self, "http_tokens")
+
+    @http_tokens.setter
+    def http_tokens(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_tokens", value)
 
 
 @pulumi.input_type

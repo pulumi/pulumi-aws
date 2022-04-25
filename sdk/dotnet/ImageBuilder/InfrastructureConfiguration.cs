@@ -93,6 +93,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        /// </summary>
+        [Output("instanceMetadataOptions")]
+        public Output<Outputs.InfrastructureConfigurationInstanceMetadataOptions?> InstanceMetadataOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Name of IAM Instance Profile.
         /// </summary>
         [Output("instanceProfileName")]
@@ -217,6 +223,12 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        /// </summary>
+        [Input("instanceMetadataOptions")]
+        public Input<Inputs.InfrastructureConfigurationInstanceMetadataOptionsArgs>? InstanceMetadataOptions { get; set; }
+
+        /// <summary>
         /// Name of IAM Instance Profile.
         /// </summary>
         [Input("instanceProfileName", required: true)]
@@ -336,6 +348,12 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        /// </summary>
+        [Input("instanceMetadataOptions")]
+        public Input<Inputs.InfrastructureConfigurationInstanceMetadataOptionsGetArgs>? InstanceMetadataOptions { get; set; }
 
         /// <summary>
         /// Name of IAM Instance Profile.

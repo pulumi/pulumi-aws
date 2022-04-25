@@ -2055,12 +2055,16 @@ class InstanceCapacityReservationSpecificationArgs:
 @pulumi.input_type
 class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
     def __init__(__self__, *,
-                 capacity_reservation_id: Optional[pulumi.Input[str]] = None):
+                 capacity_reservation_id: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        :param pulumi.Input[str] capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
         """
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
 
     @property
     @pulumi.getter(name="capacityReservationId")
@@ -2073,6 +2077,18 @@ class InstanceCapacityReservationSpecificationCapacityReservationTargetArgs:
     @capacity_reservation_id.setter
     def capacity_reservation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_id", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+    @capacity_reservation_resource_group_arn.setter
+    def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
 
 @pulumi.input_type
@@ -2488,16 +2504,20 @@ class InstanceNetworkInterfaceArgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[int],
                  network_interface_id: pulumi.Input[str],
-                 delete_on_termination: Optional[pulumi.Input[bool]] = None):
+                 delete_on_termination: Optional[pulumi.Input[bool]] = None,
+                 network_card_index: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] device_index: Integer index of the network interface attachment. Limited by instance type.
         :param pulumi.Input[str] network_interface_id: ID of the network interface to attach.
         :param pulumi.Input[bool] delete_on_termination: Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+        :param pulumi.Input[int] network_card_index: Integer index of the network card. Limited by instance type. The default index is `0`.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
 
     @property
     @pulumi.getter(name="deviceIndex")
@@ -2534,6 +2554,18 @@ class InstanceNetworkInterfaceArgs:
     @delete_on_termination.setter
     def delete_on_termination(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_on_termination", value)
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[pulumi.Input[int]]:
+        """
+        Integer index of the network card. Limited by instance type. The default index is `0`.
+        """
+        return pulumi.get(self, "network_card_index")
+
+    @network_card_index.setter
+    def network_card_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "network_card_index", value)
 
 
 @pulumi.input_type
@@ -6103,12 +6135,16 @@ class SpotInstanceRequestCapacityReservationSpecificationArgs:
 @pulumi.input_type
 class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs:
     def __init__(__self__, *,
-                 capacity_reservation_id: Optional[pulumi.Input[str]] = None):
+                 capacity_reservation_id: Optional[pulumi.Input[str]] = None,
+                 capacity_reservation_resource_group_arn: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        :param pulumi.Input[str] capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
         """
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
 
     @property
     @pulumi.getter(name="capacityReservationId")
@@ -6121,6 +6157,18 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
     @capacity_reservation_id.setter
     def capacity_reservation_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "capacity_reservation_id", value)
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
+
+    @capacity_reservation_resource_group_arn.setter
+    def capacity_reservation_resource_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capacity_reservation_resource_group_arn", value)
 
 
 @pulumi.input_type
@@ -6532,16 +6580,20 @@ class SpotInstanceRequestNetworkInterfaceArgs:
     def __init__(__self__, *,
                  device_index: pulumi.Input[int],
                  network_interface_id: pulumi.Input[str],
-                 delete_on_termination: Optional[pulumi.Input[bool]] = None):
+                 delete_on_termination: Optional[pulumi.Input[bool]] = None,
+                 network_card_index: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] device_index: Integer index of the network interface attachment. Limited by instance type.
         :param pulumi.Input[str] network_interface_id: ID of the network interface to attach.
         :param pulumi.Input[bool] delete_on_termination: Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+        :param pulumi.Input[int] network_card_index: Integer index of the network card. Limited by instance type. The default index is `0`.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
 
     @property
     @pulumi.getter(name="deviceIndex")
@@ -6578,6 +6630,18 @@ class SpotInstanceRequestNetworkInterfaceArgs:
     @delete_on_termination.setter
     def delete_on_termination(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "delete_on_termination", value)
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[pulumi.Input[int]]:
+        """
+        Integer index of the network card. Limited by instance type. The default index is `0`.
+        """
+        return pulumi.get(self, "network_card_index")
+
+    @network_card_index.setter
+    def network_card_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "network_card_index", value)
 
 
 @pulumi.input_type

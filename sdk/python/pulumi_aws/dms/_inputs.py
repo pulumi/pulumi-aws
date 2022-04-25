@@ -113,7 +113,7 @@ class EndpointKafkaSettingsArgs:
         :param pulumi.Input[bool] include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
         :param pulumi.Input[bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
         :param pulumi.Input[bool] include_transaction_details: Provides detailed transaction information from the source database. Default is `false`.
-        :param pulumi.Input[str] message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        :param pulumi.Input[str] message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         :param pulumi.Input[int] message_max_bytes: Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
         :param pulumi.Input[bool] no_hex_prefix: Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
         :param pulumi.Input[bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
@@ -238,7 +238,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         """
         return pulumi.get(self, "message_format")
 
@@ -397,7 +397,7 @@ class EndpointKinesisSettingsArgs:
         :param pulumi.Input[bool] include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
         :param pulumi.Input[bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
         :param pulumi.Input[bool] include_transaction_details: Provides detailed transaction information from the source database. Default is `false`.
-        :param pulumi.Input[str] message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        :param pulumi.Input[str] message_format: Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         :param pulumi.Input[bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
         :param pulumi.Input[str] service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
         :param pulumi.Input[str] stream_arn: ARN of the Kinesis data stream.
@@ -485,7 +485,7 @@ class EndpointKinesisSettingsArgs:
     @pulumi.getter(name="messageFormat")
     def message_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         """
         return pulumi.get(self, "message_format")
 

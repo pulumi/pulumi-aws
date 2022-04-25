@@ -55,6 +55,7 @@ import * as utilities from "../utilities";
  *         }
  *     ]
  * }
+ * }
  * `),
  * });
  * const foobar = new aws.cloudtrail.Trail("foobar", {

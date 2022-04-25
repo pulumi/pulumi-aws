@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:PrincipalOrgID",
- *             values: aws_organizations_organization.example.id,
+ *             values: [aws_organizations_organization.example.id],
  *         }],
  *     }],
  * });
@@ -109,7 +109,7 @@ import * as utilities from "../utilities";
  *             conditions: [{
  *                 test: "StringEquals",
  *                 variable: "aws:PrincipalOrgID",
- *                 values: aws_organizations_organization.example.id,
+ *                 values: [aws_organizations_organization.example.id],
  *             }],
  *         },
  *     ],
