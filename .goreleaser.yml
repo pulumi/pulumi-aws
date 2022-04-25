@@ -1,6 +1,6 @@
 archives:
 - id: archive
-  name_template: '{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}'
+  name_template: "{{ .Binary }}-{{ .Tag }}-{{ .Os }}-{{ .Arch }}"
 before:
   hooks:
   - make tfgen
@@ -27,7 +27,8 @@ builds:
   ignore: []
   ldflags:
   - -X github.com/pulumi/pulumi-aws/provider/v5/pkg/version.Version={{.Tag}}
-  - -X github.com/terraform-providers/terraform-provider-aws/version.ProviderVersion={{.Tag}}
+  - -X
+    github.com/terraform-providers/terraform-provider-aws/version.ProviderVersion={{.Tag}}
   main: ./cmd/pulumi-resource-aws/
 changelog:
   filters:
@@ -42,4 +43,4 @@ changelog:
 release:
   disable: false
 snapshot:
-  name_template: '{{ .Tag }}-SNAPSHOT'
+  name_template: "{{ .Tag }}-SNAPSHOT"

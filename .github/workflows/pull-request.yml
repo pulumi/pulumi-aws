@@ -25,10 +25,10 @@ jobs:
       uses: thollander/actions-comment-pull-request@v1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        message: |
+        message: >
           PR is now waiting for a maintainer to run the acceptance tests.
+
           **Note for the maintainer:** To run the acceptance tests, please comment */run-acceptance-tests* on the PR
-    strategy: {}
 name: pull-request
-"on":
+on:
   pull_request_target: {}

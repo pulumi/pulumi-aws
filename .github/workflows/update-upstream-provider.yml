@@ -25,7 +25,8 @@ jobs:
     steps:
     - id: run-url
       name: Create URL to the run output
-      run: echo ::set-output name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+      run: echo ::set-output
+        name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: Checkout Repo
       uses: actions/checkout@v2
     - name: Unshallow clone for tags
@@ -54,18 +55,21 @@ jobs:
       with:
         python-version: ${{matrix.pythonversion}}
     - name: Get upstream provider sha
-      run: echo "UPSTREAM_PROVIDER_SHA=$(curl https://api.github.com/repos/${{ env.UPSTREAM_PROVIDER_ORG
-        }}/${{ env.UPSTREAM_PROVIDER_REPO }}/git/ref/tags/v${{ github.event.inputs.version
-        }} | jq .object.sha -r)" >> $GITHUB_ENV
+      run: echo "UPSTREAM_PROVIDER_SHA=$(curl https://api.github.com/repos/${{
+        env.UPSTREAM_PROVIDER_ORG }}/${{ env.UPSTREAM_PROVIDER_REPO
+        }}/git/ref/tags/v${{ github.event.inputs.version }} | jq .object.sha
+        -r)" >> $GITHUB_ENV
     - if: ${{ hashFiles('provider/shim/go.mod') != '' }}
       name: Update shim/go.mod
-      run: cd provider/shim && go mod edit -require github.com/${{ env.UPSTREAM_PROVIDER_ORG
-        }}/${{ env.UPSTREAM_PROVIDER_REPO }}${{ env.UPSTREAM_PROVIDER_MAJOR_VERSION
-        }}@${{ env.UPSTREAM_PROVIDER_SHA }} && go mod tidy
+      run: cd provider/shim && go mod edit -require github.com/${{
+        env.UPSTREAM_PROVIDER_ORG }}/${{ env.UPSTREAM_PROVIDER_REPO }}${{
+        env.UPSTREAM_PROVIDER_MAJOR_VERSION }}@${{ env.UPSTREAM_PROVIDER_SHA }}
+        && go mod tidy
     - name: Update go.mod
-      run: cd provider && go mod edit -require github.com/${{ env.UPSTREAM_PROVIDER_ORG
-        }}/${{ env.UPSTREAM_PROVIDER_REPO }}${{ env.UPSTREAM_PROVIDER_MAJOR_VERSION
-        }}@${{ env.UPSTREAM_PROVIDER_SHA }} && go mod tidy
+      run: cd provider && go mod edit -require github.com/${{
+        env.UPSTREAM_PROVIDER_ORG }}/${{ env.UPSTREAM_PROVIDER_REPO }}${{
+        env.UPSTREAM_PROVIDER_MAJOR_VERSION }}@${{ env.UPSTREAM_PROVIDER_SHA }}
+        && go mod tidy
     - run: make tfgen
     - run: make build_sdks
     - if: ${{ !github.event.inputs.linked_issue_number }}
@@ -74,16 +78,16 @@ jobs:
       with:
         author: pulumi-bot <bot@pulumi.com>
         base: master
-        body: This pull request was generated automatically by the update-upstream-provider
-          workflow in this repository.
+        body: This pull request was generated automatically by the
+          update-upstream-provider workflow in this repository.
         branch: pulumi-bot/v${{ github.event.inputs.version }}-${{ github.run_id}}
-        commit-message: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{ github.event.inputs.version
-          }}
+        commit-message: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{
+          github.event.inputs.version }}
         committer: pulumi-bot <bot@pulumi.com>
         labels: impact/no-changelog-required
         team-reviewers: platform-integrations
-        title: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{ github.event.inputs.version
-          }}
+        title: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{
+          github.event.inputs.version }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
     - if: ${{ github.event.inputs.linked_issue_number }}
       name: Create PR (with linked issue)
@@ -91,25 +95,28 @@ jobs:
       with:
         author: pulumi-bot <bot@pulumi.com>
         base: master
-        body: |-
+        body: >-
           Fixes #${{ github.event.inputs.linked_issue_number }}
+
 
           This pull request was generated automatically by the update-upstream-provider workflow in this repository.
         branch: pulumi-bot/v${{ github.event.inputs.version }}-${{ github.run_id}}
-        commit-message: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{ github.event.inputs.version
-          }}
+        commit-message: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{
+          github.event.inputs.version }}
         committer: pulumi-bot <bot@pulumi.com>
         labels: impact/no-changelog-required
         team-reviewers: platform-integrations
-        title: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{ github.event.inputs.version
-          }}
+        title: Update ${{ env.UPSTREAM_PROVIDER_REPO }} to v${{
+          github.event.inputs.version }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
     - if: ${{ failure() && github.event.inputs.linked_issue_number }}
       name: Comment on failed attempt
       uses: jungwinter/comment@v1
       with:
-        body: |-
-          Failed to automatically update upstream provider (probably beacuse of new resources or data sources, which must be mapped manually).
+        body: >-
+          Failed to automatically update upstream provider (probably beacuse of
+          new resources or data sources, which must be mapped manually).
+
 
           For more details, see: ${{ steps.run-url.outputs.run-url }}
         issue_number: ${{ github.event.inputs.linked_issue_number }}
@@ -127,7 +134,7 @@ jobs:
         pythonversion:
         - "3.7"
 name: Update upstream provider
-"on":
+on:
   workflow_dispatch:
     inputs:
       linked_issue_number:
@@ -136,7 +143,7 @@ name: Update upstream provider
         required: false
         type: string
       version:
-        description: The new version of the upstream provider. Do not include the
-          'v' prefix.
+        description: The new version of the upstream provider. Do not include the 'v'
+          prefix.
         required: true
         type: string

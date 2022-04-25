@@ -35,14 +35,15 @@ jobs:
       with:
         python-version: ${{matrix.pythonversion}}
     - name: Update pulumi-terraform-bridge
-      run: cd provider && go mod edit -require github.com/pulumi/pulumi-terraform-bridge/v3@v${{
+      run: cd provider && go mod edit -require
+        github.com/pulumi/pulumi-terraform-bridge/v3@v${{
         github.event.inputs.bridge_version }} && go mod tidy
     - name: Update Pulumi SDK (provider/go.mod)
       run: cd provider && go mod edit -require github.com/pulumi/pulumi/sdk/v3@v${{
         github.event.inputs.sdk_version }} && go mod tidy
     - name: Update Pulumi SDK (sdk/go.mod)
-      run: cd sdk && go mod edit -require github.com/pulumi/pulumi/sdk/v3@v${{ github.event.inputs.sdk_version
-        }} && go mod tidy
+      run: cd sdk && go mod edit -require github.com/pulumi/pulumi/sdk/v3@v${{
+        github.event.inputs.sdk_version }} && go mod tidy
     - run: make tfgen
     - run: make build_sdks
     - id: create-pr
@@ -51,11 +52,12 @@ jobs:
       with:
         author: pulumi-bot <bot@pulumi.com>
         base: master
-        body: This pull request was generated automatically by the update-bridge workflow
-          in this repository.
-        branch: pulumi-bot/bridge-v${{ github.event.inputs.bridge_version }}-${{ github.run_id}}
-        commit-message: Update pulumi-terraform-bridge to v${{ github.event.inputs.bridge_version
-          }}
+        body: This pull request was generated automatically by the update-bridge
+          workflow in this repository.
+        branch: pulumi-bot/bridge-v${{ github.event.inputs.bridge_version }}-${{
+          github.run_id}}
+        commit-message: Update pulumi-terraform-bridge to v${{
+          github.event.inputs.bridge_version }}
         committer: pulumi-bot <bot@pulumi.com>
         labels: impact/no-changelog-required
         team-reviewers: platform-integrations
@@ -82,16 +84,16 @@ jobs:
         pythonversion:
         - "3.7"
 name: Update pulumi-terraform-bridge
-"on":
+on:
   workflow_dispatch:
     inputs:
       bridge_version:
-        description: The version of pulumi/pulumi-terraform-bridge to update to. Do
-          not include the 'v' prefix. Must be major version 3.
+        description: The version of pulumi/pulumi-terraform-bridge to update to. Do not
+          include the 'v' prefix. Must be major version 3.
         required: true
         type: string
       sdk_version:
-        description: The version of pulumi/pulumi/sdk to update to. Do not include
-          the 'v' prefix. Must be major version 3.
+        description: The version of pulumi/pulumi/sdk to update to. Do not include the
+          'v' prefix. Must be major version 3.
         required: true
         type: string
