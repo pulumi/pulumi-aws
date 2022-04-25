@@ -4,8 +4,8 @@ env:
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
-  PR_COMMIT_SHA: ${{ github.event.client_payload.pull_request.head.sha }}
   PROVIDER: aws
+  PR_COMMIT_SHA: ${{ github.event.client_payload.pull_request.head.sha }}
   PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_API: https://api.pulumi-staging.io
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
@@ -16,8 +16,8 @@ env:
   TRAVIS_OS_NAME: linux
 jobs:
   build_sdk:
-    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name
-      == github.repository
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
     name: build_sdk
     needs: prerequisites
     runs-on: ubuntu-latest
@@ -62,8 +62,10 @@ jobs:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
     - name: Untar provider binaries
-      run: |-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
+      run: >-
+        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace}}/bin
+
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - name: Install plugins
       run: make install_plugins
@@ -74,8 +76,7 @@ jobs:
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
     - name: Compress SDK folder
-      run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }}
-        .
+      run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -111,20 +112,18 @@ jobs:
     steps:
     - id: run-url
       name: Create URL to the run output
-      run: echo ::set-output name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+      run: echo ::set-output
+        name=run-url::https://github.com/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     - name: Update with Result
       uses: peter-evans/create-or-update-comment@v1
       with:
-        body: 'Please view the PR build: ${{ steps.run-url.outputs.run-url }}'
-        issue-number: ${{ github.event.client_payload.github.payload.issue.number
-          }}
-        repository: ${{ github.event.client_payload.github.payload.repository.full_name
-          }}
+        body: "Please view the PR build: ${{ steps.run-url.outputs.run-url }}"
+        issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
+        repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
         token: ${{ secrets.PULUMI_BOT_TOKEN }}
-    strategy: {}
   prerequisites:
-    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name
-      == github.repository
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
     name: prerequisites
     runs-on: ubuntu-latest
     steps:
@@ -158,9 +157,11 @@ jobs:
       run: make provider
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
-      run: |-
+      run: >-
         echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
+
         schema-tools compare ${{ env.PROVIDER }} master --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> $GITHUB_ENV
+
         echo 'EOF' >> $GITHUB_ENV
     - if: github.event_name == 'pull_request'
       name: Comment on PR with Details of Schema Check
@@ -172,9 +173,9 @@ jobs:
 
           ${{ env.SCHEMA_CHANGES }}
     - name: Tar provider binaries
-      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace
-        }}/bin/ pulumi-resource-${{ env.PROVIDER }} pulumi-tfgen-${{ env.PROVIDER
-        }}
+      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace }}/bin/ pulumi-resource-${{ env.PROVIDER }}
+        pulumi-tfgen-${{ env.PROVIDER }}
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -199,8 +200,8 @@ jobs:
         pythonversion:
         - "3.7"
   test:
-    if: github.event_name == 'repository_dispatch' || github.event.pull_request.head.repo.full_name
-      == github.repository
+    if: github.event_name == 'repository_dispatch' ||
+      github.event.pull_request.head.repo.full_name == github.repository
     name: test
     needs: build_sdk
     runs-on: ubuntu-latest
@@ -245,8 +246,10 @@ jobs:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
     - name: Untar provider binaries
-      run: |-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
+      run: >-
+        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace}}/bin
+
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
@@ -279,8 +282,8 @@ jobs:
       with:
         repo: haveyoudebuggedit/gotestfmt
     - name: Run tests
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language
-        }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
+        matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -305,7 +308,7 @@ jobs:
         pythonversion:
         - "3.7"
 name: run-acceptance-tests
-"on":
+on:
   pull_request:
     branches:
     - master

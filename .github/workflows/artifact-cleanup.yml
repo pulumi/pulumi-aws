@@ -8,6 +8,6 @@ jobs:
         age: 1 month
         skip-tags: true
 name: cleanup
-"on":
+on:
   schedule:
   - cron: 0 1 * * *

@@ -57,8 +57,10 @@ jobs:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
     - name: Untar provider binaries
-      run: |-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
+      run: >-
+        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace}}/bin
+
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - name: Install plugins
       run: make install_plugins
@@ -69,8 +71,7 @@ jobs:
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
     - name: Compress SDK folder
-      run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }}
-        .
+      run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -144,9 +145,11 @@ jobs:
     - name: Summarize Provider Coverage Results
       run: cat ${{ env.COVERAGE_OUTPUT_DIR }}/shortSummary.txt
     - name: Upload coverage data to S3
-      run: |-
+      run: >-
         summaryName="${PROVIDER}_summary_`date +"%Y-%m-%d_%H-%M-%S"`.json"
+
         s3FullURI="s3://${{ secrets.S3_COVERAGE_BUCKET_NAME }}/summaries/${summaryName}"
+
         aws s3 cp ${{ env.COVERAGE_OUTPUT_DIR }}/summary.json ${s3FullURI} --acl bucket-owner-full-control
     strategy:
       fail-fast: true
@@ -185,9 +188,11 @@ jobs:
       run: make provider
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
-      run: |-
+      run: >-
         echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
+
         schema-tools compare ${{ env.PROVIDER }} master --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> $GITHUB_ENV
+
         echo 'EOF' >> $GITHUB_ENV
     - if: github.event_name == 'pull_request'
       name: Comment on PR with Details of Schema Check
@@ -199,9 +204,9 @@ jobs:
 
           ${{ env.SCHEMA_CHANGES }}
     - name: Tar provider binaries
-      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace
-        }}/bin/ pulumi-resource-${{ env.PROVIDER }} pulumi-tfgen-${{ env.PROVIDER
-        }}
+      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace }}/bin/ pulumi-resource-${{ env.PROVIDER }}
+        pulumi-tfgen-${{ env.PROVIDER }}
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -324,21 +329,24 @@ jobs:
         name: python-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
     - name: Uncompress python SDK
-      run: tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C ${{github.workspace}}/sdk/python
+      run: tar -zxf ${{github.workspace}}/sdk/python.tar.gz -C
+        ${{github.workspace}}/sdk/python
     - name: Download dotnet SDK
       uses: actions/download-artifact@v2
       with:
         name: dotnet-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
     - name: Uncompress dotnet SDK
-      run: tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C ${{github.workspace}}/sdk/dotnet
+      run: tar -zxf ${{github.workspace}}/sdk/dotnet.tar.gz -C
+        ${{github.workspace}}/sdk/dotnet
     - name: Download nodejs SDK
       uses: actions/download-artifact@v2
       with:
         name: nodejs-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/
     - name: Uncompress nodejs SDK
-      run: tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C ${{github.workspace}}/sdk/nodejs
+      run: tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C
+        ${{github.workspace}}/sdk/nodejs
     - run: python -m pip install pip twine
     - env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -405,8 +413,10 @@ jobs:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
     - name: Untar provider binaries
-      run: |-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
+      run: >-
+        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace}}/bin
+
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
@@ -439,8 +449,8 @@ jobs:
       with:
         repo: haveyoudebuggedit/gotestfmt
     - name: Run tests
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language
-        }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
+        matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -465,13 +475,13 @@ jobs:
         pythonversion:
         - "3.7"
 name: main
-"on":
+on:
   push:
     branches:
     - main
     paths-ignore:
-    - '**.md'
+    - "**.md"
     tags-ignore:
     - v*
     - sdk/*
-    - '**'
+    - "**"

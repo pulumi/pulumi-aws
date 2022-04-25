@@ -57,8 +57,10 @@ jobs:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
     - name: Untar provider binaries
-      run: |-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
+      run: >-
+        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace}}/bin
+
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - name: Install plugins
       run: make install_plugins
@@ -69,8 +71,7 @@ jobs:
     - name: Check worktree clean
       run: ./ci-scripts/ci/check-worktree-is-clean
     - name: Compress SDK folder
-      run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }}
-        .
+      run: tar -zcf sdk/${{ matrix.language }}.tar.gz -C sdk/${{ matrix.language }} .
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -131,9 +132,11 @@ jobs:
       run: make provider
     - if: github.event_name == 'pull_request'
       name: Check Schema is Valid
-      run: |-
+      run: >-
         echo 'SCHEMA_CHANGES<<EOF' >> $GITHUB_ENV
+
         schema-tools compare ${{ env.PROVIDER }} master --local-path=provider/cmd/pulumi-resource-${{ env.PROVIDER }}/schema.json >> $GITHUB_ENV
+
         echo 'EOF' >> $GITHUB_ENV
     - if: github.event_name == 'pull_request'
       name: Comment on PR with Details of Schema Check
@@ -145,9 +148,9 @@ jobs:
 
           ${{ env.SCHEMA_CHANGES }}
     - name: Tar provider binaries
-      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace
-        }}/bin/ pulumi-resource-${{ env.PROVIDER }} pulumi-tfgen-${{ env.PROVIDER
-        }}
+      run: tar -zcf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace }}/bin/ pulumi-resource-${{ env.PROVIDER }}
+        pulumi-tfgen-${{ env.PROVIDER }}
     - name: Upload artifacts
       uses: actions/upload-artifact@v2
       with:
@@ -214,8 +217,10 @@ jobs:
         name: ${{ env.PROVIDER }}-provider.tar.gz
         path: ${{ github.workspace }}/bin
     - name: Untar provider binaries
-      run: |-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{ github.workspace}}/bin
+      run: >-
+        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+        github.workspace}}/bin
+
         find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
     - run: dotnet nuget add source ${{ github.workspace }}/nuget
     - name: Download SDK
@@ -248,8 +253,8 @@ jobs:
       with:
         repo: haveyoudebuggedit/gotestfmt
     - name: Run tests
-      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language
-        }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      run: cd examples && go test -v -json -count=1 -cover -timeout 2h -tags=${{
+        matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -274,6 +279,6 @@ jobs:
         pythonversion:
         - "3.7"
 name: cron
-"on":
+on:
   schedule:
   - cron: 0 6 * * *
