@@ -164,6 +164,10 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInfrastructureConfigurationInstanceMetadataOptionResult> InstanceMetadataOptions;
+        /// <summary>
         /// Name of the IAM Instance Profile associated with the configuration.
         /// </summary>
         public readonly string InstanceProfileName;
@@ -220,6 +224,8 @@ namespace Pulumi.Aws.ImageBuilder
 
             string id,
 
+            ImmutableArray<Outputs.GetInfrastructureConfigurationInstanceMetadataOptionResult> instanceMetadataOptions,
+
             string instanceProfileName,
 
             ImmutableArray<string> instanceTypes,
@@ -247,6 +253,7 @@ namespace Pulumi.Aws.ImageBuilder
             DateUpdated = dateUpdated;
             Description = description;
             Id = id;
+            InstanceMetadataOptions = instanceMetadataOptions;
             InstanceProfileName = instanceProfileName;
             InstanceTypes = instanceTypes;
             KeyPair = keyPair;

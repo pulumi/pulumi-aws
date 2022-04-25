@@ -797,12 +797,14 @@ class ProxyAuth(dict):
                  auth_scheme: Optional[str] = None,
                  description: Optional[str] = None,
                  iam_auth: Optional[str] = None,
-                 secret_arn: Optional[str] = None):
+                 secret_arn: Optional[str] = None,
+                 username: Optional[str] = None):
         """
         :param str auth_scheme: The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
         :param str description: A user-specified description about the authentication used by a proxy to log in as a specific database user.
         :param str iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
         :param str secret_arn: The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        :param str username: The name of the database user to which the proxy connects.
         """
         if auth_scheme is not None:
             pulumi.set(__self__, "auth_scheme", auth_scheme)
@@ -812,6 +814,8 @@ class ProxyAuth(dict):
             pulumi.set(__self__, "iam_auth", iam_auth)
         if secret_arn is not None:
             pulumi.set(__self__, "secret_arn", secret_arn)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="authScheme")
@@ -844,6 +848,14 @@ class ProxyAuth(dict):
         The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         """
         return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The name of the database user to which the proxy connects.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type
@@ -1022,11 +1034,13 @@ class GetProxyAuthResult(dict):
                  auth_scheme: str,
                  description: str,
                  iam_auth: str,
-                 secret_arn: str):
+                 secret_arn: str,
+                 username: str):
         pulumi.set(__self__, "auth_scheme", auth_scheme)
         pulumi.set(__self__, "description", description)
         pulumi.set(__self__, "iam_auth", iam_auth)
         pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="authScheme")
@@ -1047,5 +1061,10 @@ class GetProxyAuthResult(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> str:
         return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        return pulumi.get(self, "username")
 
 

@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Macie2
     ///             Email = "EMAIL",
     ///             Invite = true,
     ///             InvitationMessage = "Message of the invitation",
-    ///             InvitationDisableEmailNotification = "true",
+    ///             InvitationDisableEmailNotification = true,
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Macie2
         /// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         /// </summary>
         [Output("invitationDisableEmailNotification")]
-        public Output<string?> InvitationDisableEmailNotification { get; private set; } = null!;
+        public Output<bool?> InvitationDisableEmailNotification { get; private set; } = null!;
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Macie2
         /// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         /// </summary>
         [Input("invitationDisableEmailNotification")]
-        public Input<string>? InvitationDisableEmailNotification { get; set; }
+        public Input<bool>? InvitationDisableEmailNotification { get; set; }
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Macie2
         /// Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
         /// </summary>
         [Input("invitationDisableEmailNotification")]
-        public Input<string>? InvitationDisableEmailNotification { get; set; }
+        public Input<bool>? InvitationDisableEmailNotification { get; set; }
 
         /// <summary>
         /// A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.

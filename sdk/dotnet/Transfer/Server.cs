@@ -299,6 +299,12 @@ namespace Pulumi.Aws.Transfer
         [Output("url")]
         public Output<string?> Url { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the workflow details. See Workflow Details below.
+        /// </summary>
+        [Output("workflowDetails")]
+        public Output<Outputs.ServerWorkflowDetails?> WorkflowDetails { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Server resource with the given unique name, arguments, and options.
@@ -462,6 +468,12 @@ namespace Pulumi.Aws.Transfer
         [Input("url")]
         public Input<string>? Url { get; set; }
 
+        /// <summary>
+        /// Specifies the workflow details. See Workflow Details below.
+        /// </summary>
+        [Input("workflowDetails")]
+        public Input<Inputs.ServerWorkflowDetailsArgs>? WorkflowDetails { get; set; }
+
         public ServerArgs()
         {
         }
@@ -615,6 +627,12 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }
+
+        /// <summary>
+        /// Specifies the workflow details. See Workflow Details below.
+        /// </summary>
+        [Input("workflowDetails")]
+        public Input<Inputs.ServerWorkflowDetailsGetArgs>? WorkflowDetails { get; set; }
 
         public ServerState()
         {

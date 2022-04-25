@@ -33,6 +33,7 @@ from .bucket_website_configuration_v2 import *
 from .get_bucket import *
 from .get_bucket_object import *
 from .get_bucket_objects import *
+from .get_bucket_policy import *
 from .get_canonical_user_id import *
 from .get_object import *
 from .get_objects import *

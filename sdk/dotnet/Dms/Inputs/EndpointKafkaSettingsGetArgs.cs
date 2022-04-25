@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<bool>? IncludeTransactionDetails { get; set; }
 
         /// <summary>
-        /// Output format for the records created. Default is `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        /// Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
         /// </summary>
         [Input("messageFormat")]
         public Input<string>? MessageFormat { get; set; }

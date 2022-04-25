@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int DeviceIndex;
         /// <summary>
+        /// Integer index of the network card. Limited by instance type. The default index is `0`.
+        /// </summary>
+        public readonly int? NetworkCardIndex;
+        /// <summary>
         /// ID of the network interface to attach.
         /// </summary>
         public readonly string NetworkInterfaceId;
@@ -32,10 +36,13 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int deviceIndex,
 
+            int? networkCardIndex,
+
             string networkInterfaceId)
         {
             DeleteOnTermination = deleteOnTermination;
             DeviceIndex = deviceIndex;
+            NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
         }
     }

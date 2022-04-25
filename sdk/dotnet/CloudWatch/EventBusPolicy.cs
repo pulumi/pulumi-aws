@@ -113,7 +113,10 @@ namespace Pulumi.Aws.CloudWatch
     ///                         {
     ///                             Test = "StringEquals",
     ///                             Variable = "aws:PrincipalOrgID",
-    ///                             Values = aws_organizations_organization.Example.Id,
+    ///                             Values = 
+    ///                             {
+    ///                                 aws_organizations_organization.Example.Id,
+    ///                             },
     ///                         },
     ///                     },
     ///                 },
@@ -199,7 +202,10 @@ namespace Pulumi.Aws.CloudWatch
     ///                         {
     ///                             Test = "StringEquals",
     ///                             Variable = "aws:PrincipalOrgID",
-    ///                             Values = aws_organizations_organization.Example.Id,
+    ///                             Values = 
+    ///                             {
+    ///                                 aws_organizations_organization.Example.Id,
+    ///                             },
     ///                         },
     ///                     },
     ///                 },

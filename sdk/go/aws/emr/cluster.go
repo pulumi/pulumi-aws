@@ -324,6 +324,38 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		allowAccess, err := ec2.NewSecurityGroup(ctx, "allowAccess", &ec2.SecurityGroupArgs{
+// 			Description: pulumi.String("Allow inbound traffic"),
+// 			VpcId:       mainVpc.ID(),
+// 			Ingress: ec2.SecurityGroupIngressArray{
+// 				&ec2.SecurityGroupIngressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					ToPort:   pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
+// 					CidrBlocks: pulumi.StringArray{
+// 						mainVpc.CidrBlock,
+// 					},
+// 				},
+// 			},
+// 			Egress: ec2.SecurityGroupEgressArray{
+// 				&ec2.SecurityGroupEgressArgs{
+// 					FromPort: pulumi.Int(0),
+// 					ToPort:   pulumi.Int(0),
+// 					Protocol: pulumi.String("-1"),
+// 					CidrBlocks: pulumi.StringArray{
+// 						pulumi.String("0.0.0.0/0"),
+// 					},
+// 				},
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"name": pulumi.String("emr_test"),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			mainSubnet,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
 // 		iamEmrServiceRole, err := iam.NewRole(ctx, "iamEmrServiceRole", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2008-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"elasticmapreduce.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
 // 		})
@@ -349,8 +381,8 @@ import (
 // 			},
 // 			Ec2Attributes: &emr.ClusterEc2AttributesArgs{
 // 				SubnetId:                      mainSubnet.ID(),
-// 				EmrManagedMasterSecurityGroup: pulumi.Any(aws_security_group.Allow_all.Id),
-// 				EmrManagedSlaveSecurityGroup:  pulumi.Any(aws_security_group.Allow_all.Id),
+// 				EmrManagedMasterSecurityGroup: allowAccess.ID(),
+// 				EmrManagedSlaveSecurityGroup:  allowAccess.ID(),
 // 				InstanceProfile:               emrProfile.Arn,
 // 			},
 // 			MasterInstanceGroup: &emr.ClusterMasterInstanceGroupArgs{
@@ -379,36 +411,6 @@ import (
 // 			ConfigurationsJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  [\n", "    {\n", "      \"Classification\": \"hadoop-env\",\n", "      \"Configurations\": [\n", "        {\n", "          \"Classification\": \"export\",\n", "          \"Properties\": {\n", "            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n", "          }\n", "        }\n", "      ],\n", "      \"Properties\": {}\n", "    },\n", "    {\n", "      \"Classification\": \"spark-env\",\n", "      \"Configurations\": [\n", "        {\n", "          \"Classification\": \"export\",\n", "          \"Properties\": {\n", "            \"JAVA_HOME\": \"/usr/lib/jvm/java-1.8.0\"\n", "          }\n", "        }\n", "      ],\n", "      \"Properties\": {}\n", "    }\n", "  ]\n")),
 // 			ServiceRole:        iamEmrServiceRole.Arn,
 // 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ec2.NewSecurityGroup(ctx, "allowAccess", &ec2.SecurityGroupArgs{
-// 			Description: pulumi.String("Allow inbound traffic"),
-// 			VpcId:       mainVpc.ID(),
-// 			Ingress: ec2.SecurityGroupIngressArray{
-// 				&ec2.SecurityGroupIngressArgs{
-// 					FromPort:   pulumi.Int(0),
-// 					ToPort:     pulumi.Int(0),
-// 					Protocol:   pulumi.String("-1"),
-// 					CidrBlocks: mainVpc.CidrBlock,
-// 				},
-// 			},
-// 			Egress: ec2.SecurityGroupEgressArray{
-// 				&ec2.SecurityGroupEgressArgs{
-// 					FromPort: pulumi.Int(0),
-// 					ToPort:   pulumi.Int(0),
-// 					Protocol: pulumi.String("-1"),
-// 					CidrBlocks: pulumi.StringArray{
-// 						pulumi.String("0.0.0.0/0"),
-// 					},
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"name": pulumi.String("emr_test"),
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			mainSubnet,
-// 		}))
 // 		if err != nil {
 // 			return err
 // 		}
@@ -476,7 +478,6 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
 	AdditionalInfo pulumi.StringPtrOutput `pulumi:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
@@ -575,7 +576,6 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
 	AdditionalInfo *string `pulumi:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications []string `pulumi:"applications"`
@@ -640,7 +640,6 @@ type clusterState struct {
 }
 
 type ClusterState struct {
-	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
 	AdditionalInfo pulumi.StringPtrInput
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayInput
@@ -709,7 +708,6 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
 	AdditionalInfo *string `pulumi:"additionalInfo"`
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications []string `pulumi:"applications"`
@@ -769,7 +767,6 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside of the provider.
 	AdditionalInfo pulumi.StringPtrInput
 	// A case-insensitive list of applications for Amazon EMR to install and configure when launching the cluster. For a list of applications available for each Amazon EMR release version, see the [Amazon EMR Release Guide](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html).
 	Applications pulumi.StringArrayInput

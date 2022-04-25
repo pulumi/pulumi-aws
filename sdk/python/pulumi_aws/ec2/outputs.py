@@ -2157,6 +2157,8 @@ class InstanceCapacityReservationSpecificationCapacityReservationTarget(dict):
         suggest = None
         if key == "capacityReservationId":
             suggest = "capacity_reservation_id"
+        elif key == "capacityReservationResourceGroupArn":
+            suggest = "capacity_reservation_resource_group_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InstanceCapacityReservationSpecificationCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
@@ -2170,12 +2172,16 @@ class InstanceCapacityReservationSpecificationCapacityReservationTarget(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 capacity_reservation_id: Optional[str] = None):
+                 capacity_reservation_id: Optional[str] = None,
+                 capacity_reservation_resource_group_arn: Optional[str] = None):
         """
         :param str capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        :param str capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
         """
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
 
     @property
     @pulumi.getter(name="capacityReservationId")
@@ -2184,6 +2190,14 @@ class InstanceCapacityReservationSpecificationCapacityReservationTarget(dict):
         The ID of the Capacity Reservation in which to run the instance.
         """
         return pulumi.get(self, "capacity_reservation_id")
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[str]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
 
 
 @pulumi.output_type
@@ -2603,6 +2617,8 @@ class InstanceNetworkInterface(dict):
             suggest = "network_interface_id"
         elif key == "deleteOnTermination":
             suggest = "delete_on_termination"
+        elif key == "networkCardIndex":
+            suggest = "network_card_index"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InstanceNetworkInterface. Access the value via the '{suggest}' property getter instead.")
@@ -2618,16 +2634,20 @@ class InstanceNetworkInterface(dict):
     def __init__(__self__, *,
                  device_index: int,
                  network_interface_id: str,
-                 delete_on_termination: Optional[bool] = None):
+                 delete_on_termination: Optional[bool] = None,
+                 network_card_index: Optional[int] = None):
         """
         :param int device_index: Integer index of the network interface attachment. Limited by instance type.
         :param str network_interface_id: ID of the network interface to attach.
         :param bool delete_on_termination: Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+        :param int network_card_index: Integer index of the network card. Limited by instance type. The default index is `0`.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
 
     @property
     @pulumi.getter(name="deviceIndex")
@@ -2652,6 +2672,14 @@ class InstanceNetworkInterface(dict):
         Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
         """
         return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[int]:
+        """
+        Integer index of the network card. Limited by instance type. The default index is `0`.
+        """
+        return pulumi.get(self, "network_card_index")
 
 
 @pulumi.output_type
@@ -6226,6 +6254,8 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
         suggest = None
         if key == "capacityReservationId":
             suggest = "capacity_reservation_id"
+        elif key == "capacityReservationResourceGroupArn":
+            suggest = "capacity_reservation_resource_group_arn"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget. Access the value via the '{suggest}' property getter instead.")
@@ -6239,12 +6269,16 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 capacity_reservation_id: Optional[str] = None):
+                 capacity_reservation_id: Optional[str] = None,
+                 capacity_reservation_resource_group_arn: Optional[str] = None):
         """
         :param str capacity_reservation_id: The ID of the Capacity Reservation in which to run the instance.
+        :param str capacity_reservation_resource_group_arn: The ARN of the Capacity Reservation resource group in which to run the instance.
         """
         if capacity_reservation_id is not None:
             pulumi.set(__self__, "capacity_reservation_id", capacity_reservation_id)
+        if capacity_reservation_resource_group_arn is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arn", capacity_reservation_resource_group_arn)
 
     @property
     @pulumi.getter(name="capacityReservationId")
@@ -6253,6 +6287,14 @@ class SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarg
         The ID of the Capacity Reservation in which to run the instance.
         """
         return pulumi.get(self, "capacity_reservation_id")
+
+    @property
+    @pulumi.getter(name="capacityReservationResourceGroupArn")
+    def capacity_reservation_resource_group_arn(self) -> Optional[str]:
+        """
+        The ARN of the Capacity Reservation resource group in which to run the instance.
+        """
+        return pulumi.get(self, "capacity_reservation_resource_group_arn")
 
 
 @pulumi.output_type
@@ -6668,6 +6710,8 @@ class SpotInstanceRequestNetworkInterface(dict):
             suggest = "network_interface_id"
         elif key == "deleteOnTermination":
             suggest = "delete_on_termination"
+        elif key == "networkCardIndex":
+            suggest = "network_card_index"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SpotInstanceRequestNetworkInterface. Access the value via the '{suggest}' property getter instead.")
@@ -6683,16 +6727,20 @@ class SpotInstanceRequestNetworkInterface(dict):
     def __init__(__self__, *,
                  device_index: int,
                  network_interface_id: str,
-                 delete_on_termination: Optional[bool] = None):
+                 delete_on_termination: Optional[bool] = None,
+                 network_card_index: Optional[int] = None):
         """
         :param int device_index: Integer index of the network interface attachment. Limited by instance type.
         :param str network_interface_id: ID of the network interface to attach.
         :param bool delete_on_termination: Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
+        :param int network_card_index: Integer index of the network card. Limited by instance type. The default index is `0`.
         """
         pulumi.set(__self__, "device_index", device_index)
         pulumi.set(__self__, "network_interface_id", network_interface_id)
         if delete_on_termination is not None:
             pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
 
     @property
     @pulumi.getter(name="deviceIndex")
@@ -6717,6 +6765,14 @@ class SpotInstanceRequestNetworkInterface(dict):
         Whether or not to delete the network interface on instance termination. Defaults to `false`. Currently, the only valid value is `false`, as this is only supported when creating new network interfaces when launching an instance.
         """
         return pulumi.get(self, "delete_on_termination")
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[int]:
+        """
+        Integer index of the network card. Limited by instance type. The default index is `0`.
+        """
+        return pulumi.get(self, "network_card_index")
 
 
 @pulumi.output_type

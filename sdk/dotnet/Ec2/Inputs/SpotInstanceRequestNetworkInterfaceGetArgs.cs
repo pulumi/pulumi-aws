@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<int> DeviceIndex { get; set; } = null!;
 
         /// <summary>
+        /// Integer index of the network card. Limited by instance type. The default index is `0`.
+        /// </summary>
+        [Input("networkCardIndex")]
+        public Input<int>? NetworkCardIndex { get; set; }
+
+        /// <summary>
         /// ID of the network interface to attach.
         /// </summary>
         [Input("networkInterfaceId", required: true)]

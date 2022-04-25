@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SshKey{}
 	case "aws:transfer/user:User":
 		r = &User{}
+	case "aws:transfer/workflow:Workflow":
+		r = &Workflow{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -60,6 +62,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"transfer/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"transfer/workflow",
 		&module{version},
 	)
 }

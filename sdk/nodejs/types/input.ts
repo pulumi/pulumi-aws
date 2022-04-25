@@ -6520,7 +6520,7 @@ export namespace cfg {
          */
         sourceDetails?: pulumi.Input<pulumi.Input<inputs.cfg.RuleSourceSourceDetail>[]>;
         /**
-         * For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
+         * For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `aws.lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
          */
         sourceIdentifier?: pulumi.Input<string>;
     }
@@ -10756,7 +10756,7 @@ export namespace dms {
          */
         includeTransactionDetails?: pulumi.Input<boolean>;
         /**
-         * Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+         * Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
          */
         messageFormat?: pulumi.Input<string>;
         /**
@@ -10827,7 +10827,7 @@ export namespace dms {
          */
         includeTransactionDetails?: pulumi.Input<boolean>;
         /**
-         * Output format for the records created. Default is `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
+         * Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
          */
         messageFormat?: pulumi.Input<string>;
         /**
@@ -12924,6 +12924,10 @@ export namespace ec2 {
          * The ID of the Capacity Reservation in which to run the instance.
          */
         capacityReservationId?: pulumi.Input<string>;
+        /**
+         * The ARN of the Capacity Reservation resource group in which to run the instance.
+         */
+        capacityReservationResourceGroupArn?: pulumi.Input<string>;
     }
 
     export interface InstanceCreditSpecification {
@@ -13045,6 +13049,10 @@ export namespace ec2 {
          * Integer index of the network interface attachment. Limited by instance type.
          */
         deviceIndex: pulumi.Input<number>;
+        /**
+         * Integer index of the network card. Limited by instance type. The default index is `0`.
+         */
+        networkCardIndex?: pulumi.Input<number>;
         /**
          * ID of the network interface to attach.
          */
@@ -13923,6 +13931,10 @@ export namespace ec2 {
          * The ID of the Capacity Reservation in which to run the instance.
          */
         capacityReservationId?: pulumi.Input<string>;
+        /**
+         * The ARN of the Capacity Reservation resource group in which to run the instance.
+         */
+        capacityReservationResourceGroupArn?: pulumi.Input<string>;
     }
 
     export interface SpotInstanceRequestCreditSpecification {
@@ -14041,6 +14053,10 @@ export namespace ec2 {
          * Integer index of the network interface attachment. Limited by instance type.
          */
         deviceIndex: pulumi.Input<number>;
+        /**
+         * Integer index of the network card. Limited by instance type. The default index is `0`.
+         */
+        networkCardIndex?: pulumi.Input<number>;
         /**
          * ID of the network interface to attach.
          */
@@ -16243,7 +16259,7 @@ export namespace elasticloadbalancingv2 {
 export namespace elasticsearch {
     export interface DomainAdvancedSecurityOptions {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -16361,7 +16377,7 @@ export namespace elasticsearch {
 
     export interface DomainClusterConfigColdStorageOptions {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
          */
         enabled?: pulumi.Input<boolean>;
     }
@@ -16375,7 +16391,7 @@ export namespace elasticsearch {
 
     export interface DomainCognitoOptions {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -16433,12 +16449,9 @@ export namespace elasticsearch {
 
     export interface DomainEncryptAtRest {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
          */
         enabled: pulumi.Input<boolean>;
-        /**
-         * KMS key id to encrypt the Elasticsearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
-         */
         kmsKeyId?: pulumi.Input<string>;
     }
 
@@ -16448,7 +16461,7 @@ export namespace elasticsearch {
          */
         cloudwatchLogGroupArn: pulumi.Input<string>;
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -16459,7 +16472,7 @@ export namespace elasticsearch {
 
     export interface DomainNodeToNodeEncryption {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `elasticsearchVersion` of `6.0` or greater.
          */
         enabled: pulumi.Input<boolean>;
     }
@@ -19477,17 +19490,6 @@ export namespace imagebuilder {
         launchTemplateId: pulumi.Input<string>;
     }
 
-    export interface GetComponentsFilter {
-        /**
-         * The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         */
-        values: string[];
-    }
-
     export interface GetComponentsFilterArgs {
         /**
          * The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
@@ -19497,6 +19499,17 @@ export namespace imagebuilder {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetComponentsFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
     }
 
     export interface GetContainerRecipesFilter {
@@ -19521,17 +19534,6 @@ export namespace imagebuilder {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetDistributionConfigurationsFilter {
-        /**
-         * The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         */
-        values: string[];
-    }
-
     export interface GetDistributionConfigurationsFilterArgs {
         /**
          * The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
@@ -19541,6 +19543,17 @@ export namespace imagebuilder {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetDistributionConfigurationsFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
     }
 
     export interface GetImagePipelinesFilterArgs {
@@ -19755,6 +19768,17 @@ export namespace imagebuilder {
         uninstallAfterBuild: pulumi.Input<boolean>;
     }
 
+    export interface InfrastructureConfigurationInstanceMetadataOptions {
+        /**
+         * The number of hops that an instance can traverse to reach its destonation.
+         */
+        httpPutResponseHopLimit?: pulumi.Input<number>;
+        /**
+         * Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+         */
+        httpTokens?: pulumi.Input<string>;
+    }
+
     export interface InfrastructureConfigurationLogging {
         /**
          * Configuration block with S3 logging settings. Detailed below.
@@ -19772,7 +19796,6 @@ export namespace imagebuilder {
          */
         s3KeyPrefix?: pulumi.Input<string>;
     }
-
 }
 
 export namespace iot {
@@ -25348,7 +25371,7 @@ export namespace networkmanager {
 export namespace opensearch {
     export interface DomainAdvancedSecurityOptions {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -25419,6 +25442,10 @@ export namespace opensearch {
 
     export interface DomainClusterConfig {
         /**
+         * Configuration block containing cold storage configuration. Detailed below.
+         */
+        coldStorageOptions?: pulumi.Input<inputs.opensearch.DomainClusterConfigColdStorageOptions>;
+        /**
          * Number of dedicated main nodes in the cluster.
          */
         dedicatedMasterCount?: pulumi.Input<number>;
@@ -25460,6 +25487,13 @@ export namespace opensearch {
         zoneAwarenessEnabled?: pulumi.Input<boolean>;
     }
 
+    export interface DomainClusterConfigColdStorageOptions {
+        /**
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+         */
+        enabled?: pulumi.Input<boolean>;
+    }
+
     export interface DomainClusterConfigZoneAwarenessConfig {
         /**
          * Number of Availability Zones for the domain to use with `zoneAwarenessEnabled`. Defaults to `2`. Valid values: `2` or `3`.
@@ -25469,7 +25503,7 @@ export namespace opensearch {
 
     export interface DomainCognitoOptions {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -25527,12 +25561,9 @@ export namespace opensearch {
 
     export interface DomainEncryptAtRest {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
          */
         enabled: pulumi.Input<boolean>;
-        /**
-         * KMS key id to encrypt the OpenSearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
-         */
         kmsKeyId?: pulumi.Input<string>;
     }
 
@@ -25542,7 +25573,7 @@ export namespace opensearch {
          */
         cloudwatchLogGroupArn: pulumi.Input<string>;
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
          */
         enabled?: pulumi.Input<boolean>;
         /**
@@ -25553,7 +25584,7 @@ export namespace opensearch {
 
     export interface DomainNodeToNodeEncryption {
         /**
-         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+         * Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
          */
         enabled: pulumi.Input<boolean>;
     }
@@ -27090,6 +27121,10 @@ export namespace rds {
          * The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
          */
         secretArn?: pulumi.Input<string>;
+        /**
+         * The name of the database user to which the proxy connects.
+         */
+        username?: pulumi.Input<string>;
     }
 
     export interface ProxyDefaultTargetGroupConnectionPoolConfig {
@@ -33462,6 +33497,24 @@ export namespace transfer {
         vpcId?: pulumi.Input<string>;
     }
 
+    export interface ServerWorkflowDetails {
+        /**
+         * A trigger that starts a workflow: the workflow begins to execute after a file is uploaded. See Workflow Detail below.
+         */
+        onUpload?: pulumi.Input<inputs.transfer.ServerWorkflowDetailsOnUpload>;
+    }
+
+    export interface ServerWorkflowDetailsOnUpload {
+        /**
+         * Includes the necessary permissions for S3, EFS, and Lambda operations that Transfer can assume, so that all workflow steps can operate on the required resources.
+         */
+        executionRole: pulumi.Input<string>;
+        /**
+         * A unique identifier for the workflow.
+         */
+        workflowId: pulumi.Input<string>;
+    }
+
     export interface UserHomeDirectoryMapping {
         /**
          * Represents an entry and a target.
@@ -33486,6 +33539,268 @@ export namespace transfer {
          * The POSIX user ID used for all EFS operations by this user.
          */
         uid: pulumi.Input<number>;
+    }
+
+    export interface WorkflowOnExceptionStep {
+        /**
+         * Details for a step that performs a file copy. See Copy Step Details below.
+         */
+        copyStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetails>;
+        /**
+         * Details for a step that invokes a lambda function.
+         */
+        customStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCustomStepDetails>;
+        /**
+         * Details for a step that deletes the file.
+         */
+        deleteStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepDeleteStepDetails>;
+        /**
+         * Details for a step that creates one or more tags.
+         */
+        tagStepDetails?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepTagStepDetails>;
+        /**
+         * One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WorkflowOnExceptionStepCopyStepDetails {
+        /**
+         * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+         */
+        destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation>;
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+         */
+        overwriteExisting?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+    }
+
+    export interface WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocation {
+        /**
+         * Specifies the details for the EFS file being copied.
+         */
+        efsFileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation>;
+        /**
+         * Specifies the details for the S3 file being copied.
+         */
+        s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation>;
+    }
+
+    export interface WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
+        /**
+         * The ID of the file system, assigned by Amazon EFS.
+         */
+        fileSystemId?: pulumi.Input<string>;
+        /**
+         * The pathname for the folder being used by a workflow.
+         */
+        path?: pulumi.Input<string>;
+    }
+
+    export interface WorkflowOnExceptionStepCopyStepDetailsDestinationFileLocationS3FileLocation {
+        /**
+         * Specifies the S3 bucket for the customer input file.
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key?: pulumi.Input<string>;
+    }
+
+    export interface WorkflowOnExceptionStepCustomStepDetails {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+        /**
+         * The ARN for the lambda function that is being called.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * Timeout, in seconds, for the step.
+         */
+        timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    export interface WorkflowOnExceptionStepDeleteStepDetails {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+    }
+
+    export interface WorkflowOnExceptionStepTagStepDetails {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+        /**
+         * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowOnExceptionStepTagStepDetailsTag>[]>;
+    }
+
+    export interface WorkflowOnExceptionStepTagStepDetailsTag {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value that corresponds to the key.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface WorkflowStep {
+        /**
+         * Details for a step that performs a file copy. See Copy Step Details below.
+         */
+        copyStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetails>;
+        /**
+         * Details for a step that invokes a lambda function.
+         */
+        customStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepCustomStepDetails>;
+        /**
+         * Details for a step that deletes the file.
+         */
+        deleteStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepDeleteStepDetails>;
+        /**
+         * Details for a step that creates one or more tags.
+         */
+        tagStepDetails?: pulumi.Input<inputs.transfer.WorkflowStepTagStepDetails>;
+        /**
+         * One of the following step types are supported. `COPY`, `CUSTOM`, `DELETE`, and `TAG`.
+         */
+        type: pulumi.Input<string>;
+    }
+
+    export interface WorkflowStepCopyStepDetails {
+        /**
+         * Specifies the location for the file being copied. Use ${Transfer:username} in this field to parametrize the destination prefix by username.
+         */
+        destinationFileLocation?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetailsDestinationFileLocation>;
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * A flag that indicates whether or not to overwrite an existing file of the same name. The default is `FALSE`. Valid values are `TRUE` and `FALSE`.
+         */
+        overwriteExisting?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+    }
+
+    export interface WorkflowStepCopyStepDetailsDestinationFileLocation {
+        /**
+         * Specifies the details for the EFS file being copied.
+         */
+        efsFileLocation?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation>;
+        /**
+         * Specifies the details for the S3 file being copied.
+         */
+        s3FileLocation?: pulumi.Input<inputs.transfer.WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation>;
+    }
+
+    export interface WorkflowStepCopyStepDetailsDestinationFileLocationEfsFileLocation {
+        /**
+         * The ID of the file system, assigned by Amazon EFS.
+         */
+        fileSystemId?: pulumi.Input<string>;
+        /**
+         * The pathname for the folder being used by a workflow.
+         */
+        path?: pulumi.Input<string>;
+    }
+
+    export interface WorkflowStepCopyStepDetailsDestinationFileLocationS3FileLocation {
+        /**
+         * Specifies the S3 bucket for the customer input file.
+         */
+        bucket?: pulumi.Input<string>;
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key?: pulumi.Input<string>;
+    }
+
+    export interface WorkflowStepCustomStepDetails {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+        /**
+         * The ARN for the lambda function that is being called.
+         */
+        target?: pulumi.Input<string>;
+        /**
+         * Timeout, in seconds, for the step.
+         */
+        timeoutSeconds?: pulumi.Input<number>;
+    }
+
+    export interface WorkflowStepDeleteStepDetails {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+    }
+
+    export interface WorkflowStepTagStepDetails {
+        /**
+         * The name of the step, used as an identifier.
+         */
+        name?: pulumi.Input<string>;
+        /**
+         * Specifies which file to use as input to the workflow step: either the output from the previous step, or the originally uploaded file for the workflow. Enter ${previous.file} to use the previous file as the input. In this case, this workflow step uses the output file from the previous workflow step as input. This is the default value. Enter ${original.file} to use the originally-uploaded file location as input for this step.
+         */
+        sourceFileLocation?: pulumi.Input<string>;
+        /**
+         * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
+         */
+        tags?: pulumi.Input<pulumi.Input<inputs.transfer.WorkflowStepTagStepDetailsTag>[]>;
+    }
+
+    export interface WorkflowStepTagStepDetailsTag {
+        /**
+         * The name assigned to the tag that you create.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * The value that corresponds to the key.
+         */
+        value: pulumi.Input<string>;
     }
 }
 

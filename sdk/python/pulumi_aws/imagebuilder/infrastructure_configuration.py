@@ -17,6 +17,7 @@ class InfrastructureConfigurationArgs:
     def __init__(__self__, *,
                  instance_profile_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_options: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['InfrastructureConfigurationLoggingArgs']] = None,
@@ -31,6 +32,7 @@ class InfrastructureConfigurationArgs:
         The set of arguments for constructing a InfrastructureConfiguration resource.
         :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
         :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs'] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
         :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
         :param pulumi.Input['InfrastructureConfigurationLoggingArgs'] logging: Configuration block with logging settings. Detailed below.
@@ -45,6 +47,8 @@ class InfrastructureConfigurationArgs:
         pulumi.set(__self__, "instance_profile_name", instance_profile_name)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if instance_metadata_options is not None:
+            pulumi.set(__self__, "instance_metadata_options", instance_metadata_options)
         if instance_types is not None:
             pulumi.set(__self__, "instance_types", instance_types)
         if key_pair is not None:
@@ -89,6 +93,18 @@ class InfrastructureConfigurationArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataOptions")
+    def instance_metadata_options(self) -> Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
+        """
+        Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        """
+        return pulumi.get(self, "instance_metadata_options")
+
+    @instance_metadata_options.setter
+    def instance_metadata_options(self, value: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]):
+        pulumi.set(self, "instance_metadata_options", value)
 
     @property
     @pulumi.getter(name="instanceTypes")
@@ -218,6 +234,7 @@ class _InfrastructureConfigurationState:
                  date_created: Optional[pulumi.Input[str]] = None,
                  date_updated: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_options: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']] = None,
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
@@ -236,6 +253,7 @@ class _InfrastructureConfigurationState:
         :param pulumi.Input[str] date_created: Date when the configuration was created.
         :param pulumi.Input[str] date_updated: Date when the configuration was updated.
         :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs'] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
         :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
@@ -257,6 +275,8 @@ class _InfrastructureConfigurationState:
             pulumi.set(__self__, "date_updated", date_updated)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if instance_metadata_options is not None:
+            pulumi.set(__self__, "instance_metadata_options", instance_metadata_options)
         if instance_profile_name is not None:
             pulumi.set(__self__, "instance_profile_name", instance_profile_name)
         if instance_types is not None:
@@ -329,6 +349,18 @@ class _InfrastructureConfigurationState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataOptions")
+    def instance_metadata_options(self) -> Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]:
+        """
+        Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        """
+        return pulumi.get(self, "instance_metadata_options")
+
+    @instance_metadata_options.setter
+    def instance_metadata_options(self, value: Optional[pulumi.Input['InfrastructureConfigurationInstanceMetadataOptionsArgs']]):
+        pulumi.set(self, "instance_metadata_options", value)
 
     @property
     @pulumi.getter(name="instanceProfileName")
@@ -481,6 +513,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_options: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']]] = None,
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
@@ -536,6 +569,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
         :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
@@ -610,6 +644,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_options: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']]] = None,
                  instance_profile_name: Optional[pulumi.Input[str]] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_pair: Optional[pulumi.Input[str]] = None,
@@ -634,6 +669,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             __props__ = InfrastructureConfigurationArgs.__new__(InfrastructureConfigurationArgs)
 
             __props__.__dict__["description"] = description
+            __props__.__dict__["instance_metadata_options"] = instance_metadata_options
             if instance_profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_profile_name'")
             __props__.__dict__["instance_profile_name"] = instance_profile_name
@@ -665,6 +701,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             date_created: Optional[pulumi.Input[str]] = None,
             date_updated: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            instance_metadata_options: Optional[pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']]] = None,
             instance_profile_name: Optional[pulumi.Input[str]] = None,
             instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key_pair: Optional[pulumi.Input[str]] = None,
@@ -688,6 +725,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] date_created: Date when the configuration was created.
         :param pulumi.Input[str] date_updated: Date when the configuration was updated.
         :param pulumi.Input[str] description: Description for the configuration.
+        :param pulumi.Input[pulumi.InputType['InfrastructureConfigurationInstanceMetadataOptionsArgs']] instance_metadata_options: Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
         :param pulumi.Input[str] instance_profile_name: Name of IAM Instance Profile.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: Set of EC2 Instance Types.
         :param pulumi.Input[str] key_pair: Name of EC2 Key Pair.
@@ -709,6 +747,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         __props__.__dict__["date_created"] = date_created
         __props__.__dict__["date_updated"] = date_updated
         __props__.__dict__["description"] = description
+        __props__.__dict__["instance_metadata_options"] = instance_metadata_options
         __props__.__dict__["instance_profile_name"] = instance_profile_name
         __props__.__dict__["instance_types"] = instance_types
         __props__.__dict__["key_pair"] = key_pair
@@ -754,6 +793,14 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         Description for the configuration.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="instanceMetadataOptions")
+    def instance_metadata_options(self) -> pulumi.Output[Optional['outputs.InfrastructureConfigurationInstanceMetadataOptions']]:
+        """
+        Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+        """
+        return pulumi.get(self, "instance_metadata_options")
 
     @property
     @pulumi.getter(name="instanceProfileName")

@@ -3382,6 +3382,8 @@ func (o InstanceCapacityReservationSpecificationPtrOutput) CapacityReservationTa
 type InstanceCapacityReservationSpecificationCapacityReservationTarget struct {
 	// The ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId *string `pulumi:"capacityReservationId"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
 }
 
 // InstanceCapacityReservationSpecificationCapacityReservationTargetInput is an input type that accepts InstanceCapacityReservationSpecificationCapacityReservationTargetArgs and InstanceCapacityReservationSpecificationCapacityReservationTargetOutput values.
@@ -3398,6 +3400,8 @@ type InstanceCapacityReservationSpecificationCapacityReservationTargetInput inte
 type InstanceCapacityReservationSpecificationCapacityReservationTargetArgs struct {
 	// The ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
 }
 
 func (InstanceCapacityReservationSpecificationCapacityReservationTargetArgs) ElementType() reflect.Type {
@@ -3484,6 +3488,13 @@ func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceCapacityReservationSpecificationCapacityReservationTarget) *string {
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
 
 func (InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
@@ -3515,6 +3526,16 @@ func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutp
 			return nil
 		}
 		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o InstanceCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceCapacityReservationSpecificationCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4468,6 +4489,8 @@ type InstanceNetworkInterface struct {
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// Integer index of the network interface attachment. Limited by instance type.
 	DeviceIndex int `pulumi:"deviceIndex"`
+	// Integer index of the network card. Limited by instance type. The default index is `0`.
+	NetworkCardIndex *int `pulumi:"networkCardIndex"`
 	// ID of the network interface to attach.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
@@ -4488,6 +4511,8 @@ type InstanceNetworkInterfaceArgs struct {
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// Integer index of the network interface attachment. Limited by instance type.
 	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
+	// Integer index of the network card. Limited by instance type. The default index is `0`.
+	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
 	// ID of the network interface to attach.
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
@@ -4551,6 +4576,11 @@ func (o InstanceNetworkInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutp
 // Integer index of the network interface attachment. Limited by instance type.
 func (o InstanceNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v InstanceNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
+}
+
+// Integer index of the network card. Limited by instance type. The default index is `0`.
+func (o InstanceNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v InstanceNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
 }
 
 // ID of the network interface to attach.
@@ -11727,6 +11757,8 @@ func (o SpotInstanceRequestCapacityReservationSpecificationPtrOutput) CapacityRe
 type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget struct {
 	// The ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId *string `pulumi:"capacityReservationId"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn *string `pulumi:"capacityReservationResourceGroupArn"`
 }
 
 // SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetInput is an input type that accepts SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs and SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput values.
@@ -11743,6 +11775,8 @@ type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarge
 type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs struct {
 	// The ID of the Capacity Reservation in which to run the instance.
 	CapacityReservationId pulumi.StringPtrInput `pulumi:"capacityReservationId"`
+	// The ARN of the Capacity Reservation resource group in which to run the instance.
+	CapacityReservationResourceGroupArn pulumi.StringPtrInput `pulumi:"capacityReservationResourceGroupArn"`
 }
 
 func (SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetArgs) ElementType() reflect.Type {
@@ -11829,6 +11863,13 @@ func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTa
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *string {
+		return v.CapacityReservationResourceGroupArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput struct{ *pulumi.OutputState }
 
 func (SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) ElementType() reflect.Type {
@@ -11860,6 +11901,16 @@ func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTa
 			return nil
 		}
 		return v.CapacityReservationId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Capacity Reservation resource group in which to run the instance.
+func (o SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTargetPtrOutput) CapacityReservationResourceGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCapacityReservationSpecificationCapacityReservationTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationResourceGroupArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12810,6 +12861,8 @@ type SpotInstanceRequestNetworkInterface struct {
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// Integer index of the network interface attachment. Limited by instance type.
 	DeviceIndex int `pulumi:"deviceIndex"`
+	// Integer index of the network card. Limited by instance type. The default index is `0`.
+	NetworkCardIndex *int `pulumi:"networkCardIndex"`
 	// ID of the network interface to attach.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 }
@@ -12830,6 +12883,8 @@ type SpotInstanceRequestNetworkInterfaceArgs struct {
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// Integer index of the network interface attachment. Limited by instance type.
 	DeviceIndex pulumi.IntInput `pulumi:"deviceIndex"`
+	// Integer index of the network card. Limited by instance type. The default index is `0`.
+	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
 	// ID of the network interface to attach.
 	NetworkInterfaceId pulumi.StringInput `pulumi:"networkInterfaceId"`
 }
@@ -12893,6 +12948,11 @@ func (o SpotInstanceRequestNetworkInterfaceOutput) DeleteOnTermination() pulumi.
 // Integer index of the network interface attachment. Limited by instance type.
 func (o SpotInstanceRequestNetworkInterfaceOutput) DeviceIndex() pulumi.IntOutput {
 	return o.ApplyT(func(v SpotInstanceRequestNetworkInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
+}
+
+// Integer index of the network card. Limited by instance type. The default index is `0`.
+func (o SpotInstanceRequestNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
 }
 
 // ID of the network interface to attach.

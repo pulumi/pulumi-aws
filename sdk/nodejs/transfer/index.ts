@@ -10,12 +10,14 @@ export * from "./getServer";
 export * from "./server";
 export * from "./sshKey";
 export * from "./user";
+export * from "./workflow";
 
 // Import resources to register:
 import { Access } from "./access";
 import { Server } from "./server";
 import { SshKey } from "./sshKey";
 import { User } from "./user";
+import { Workflow } from "./workflow";
 
 const _module = {
     version: utilities.getVersion(),
@@ -29,6 +31,8 @@ const _module = {
                 return new SshKey(name, <any>undefined, { urn })
             case "aws:transfer/user:User":
                 return new User(name, <any>undefined, { urn })
+            case "aws:transfer/workflow:Workflow":
+                return new Workflow(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -38,3 +42,4 @@ pulumi.runtime.registerResourceModule("aws", "transfer/access", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/server", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/sshKey", _module)
 pulumi.runtime.registerResourceModule("aws", "transfer/user", _module)
+pulumi.runtime.registerResourceModule("aws", "transfer/workflow", _module)

@@ -75,6 +75,8 @@ type InfrastructureConfiguration struct {
 	DateUpdated pulumi.StringOutput `pulumi:"dateUpdated"`
 	// Description for the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+	InstanceMetadataOptions InfrastructureConfigurationInstanceMetadataOptionsPtrOutput `pulumi:"instanceMetadataOptions"`
 	// Name of IAM Instance Profile.
 	InstanceProfileName pulumi.StringOutput `pulumi:"instanceProfileName"`
 	// Set of EC2 Instance Types.
@@ -141,6 +143,8 @@ type infrastructureConfigurationState struct {
 	DateUpdated *string `pulumi:"dateUpdated"`
 	// Description for the configuration.
 	Description *string `pulumi:"description"`
+	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+	InstanceMetadataOptions *InfrastructureConfigurationInstanceMetadataOptions `pulumi:"instanceMetadataOptions"`
 	// Name of IAM Instance Profile.
 	InstanceProfileName *string `pulumi:"instanceProfileName"`
 	// Set of EC2 Instance Types.
@@ -176,6 +180,8 @@ type InfrastructureConfigurationState struct {
 	DateUpdated pulumi.StringPtrInput
 	// Description for the configuration.
 	Description pulumi.StringPtrInput
+	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+	InstanceMetadataOptions InfrastructureConfigurationInstanceMetadataOptionsPtrInput
 	// Name of IAM Instance Profile.
 	InstanceProfileName pulumi.StringPtrInput
 	// Set of EC2 Instance Types.
@@ -209,6 +215,8 @@ func (InfrastructureConfigurationState) ElementType() reflect.Type {
 type infrastructureConfigurationArgs struct {
 	// Description for the configuration.
 	Description *string `pulumi:"description"`
+	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+	InstanceMetadataOptions *InfrastructureConfigurationInstanceMetadataOptions `pulumi:"instanceMetadataOptions"`
 	// Name of IAM Instance Profile.
 	InstanceProfileName string `pulumi:"instanceProfileName"`
 	// Set of EC2 Instance Types.
@@ -237,6 +245,8 @@ type infrastructureConfigurationArgs struct {
 type InfrastructureConfigurationArgs struct {
 	// Description for the configuration.
 	Description pulumi.StringPtrInput
+	// Configuration block with instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances. Detailed below.
+	InstanceMetadataOptions InfrastructureConfigurationInstanceMetadataOptionsPtrInput
 	// Name of IAM Instance Profile.
 	InstanceProfileName pulumi.StringInput
 	// Set of EC2 Instance Types.

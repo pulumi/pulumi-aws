@@ -1497,7 +1497,7 @@ type RuleSource struct {
 	Owner string `pulumi:"owner"`
 	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
 	SourceDetails []RuleSourceSourceDetail `pulumi:"sourceDetails"`
-	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
 	SourceIdentifier *string `pulumi:"sourceIdentifier"`
 }
 
@@ -1519,7 +1519,7 @@ type RuleSourceArgs struct {
 	Owner pulumi.StringInput `pulumi:"owner"`
 	// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
 	SourceDetails RuleSourceSourceDetailArrayInput `pulumi:"sourceDetails"`
-	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+	// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
 	SourceIdentifier pulumi.StringPtrInput `pulumi:"sourceIdentifier"`
 }
 
@@ -1615,7 +1615,7 @@ func (o RuleSourceOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 	return o.ApplyT(func(v RuleSource) []RuleSourceSourceDetail { return v.SourceDetails }).(RuleSourceSourceDetailArrayOutput)
 }
 
-// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
 func (o RuleSourceOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSource) *string { return v.SourceIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -1674,7 +1674,7 @@ func (o RuleSourcePtrOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 	}).(RuleSourceSourceDetailArrayOutput)
 }
 
-// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
 func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleSource) *string {
 		if v == nil {

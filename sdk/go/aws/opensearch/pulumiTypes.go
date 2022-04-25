@@ -11,7 +11,7 @@ import (
 )
 
 type DomainAdvancedSecurityOptions struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled bool `pulumi:"enabled"`
 	// Whether the internal user database is enabled. Default is `false`.
 	InternalUserDatabaseEnabled *bool `pulumi:"internalUserDatabaseEnabled"`
@@ -31,7 +31,7 @@ type DomainAdvancedSecurityOptionsInput interface {
 }
 
 type DomainAdvancedSecurityOptionsArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Whether the internal user database is enabled. Default is `false`.
 	InternalUserDatabaseEnabled pulumi.BoolPtrInput `pulumi:"internalUserDatabaseEnabled"`
@@ -116,7 +116,7 @@ func (o DomainAdvancedSecurityOptionsOutput) ToDomainAdvancedSecurityOptionsPtrO
 	}).(DomainAdvancedSecurityOptionsPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainAdvancedSecurityOptionsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainAdvancedSecurityOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -157,7 +157,7 @@ func (o DomainAdvancedSecurityOptionsPtrOutput) Elem() DomainAdvancedSecurityOpt
 	}).(DomainAdvancedSecurityOptionsOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainAdvancedSecurityOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAdvancedSecurityOptions) *bool {
 		if v == nil {
@@ -718,6 +718,8 @@ func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) Value() pulumi.I
 }
 
 type DomainClusterConfig struct {
+	// Configuration block containing cold storage configuration. Detailed below.
+	ColdStorageOptions *DomainClusterConfigColdStorageOptions `pulumi:"coldStorageOptions"`
 	// Number of dedicated main nodes in the cluster.
 	DedicatedMasterCount *int `pulumi:"dedicatedMasterCount"`
 	// Whether dedicated main nodes are enabled for the cluster.
@@ -752,6 +754,8 @@ type DomainClusterConfigInput interface {
 }
 
 type DomainClusterConfigArgs struct {
+	// Configuration block containing cold storage configuration. Detailed below.
+	ColdStorageOptions DomainClusterConfigColdStorageOptionsPtrInput `pulumi:"coldStorageOptions"`
 	// Number of dedicated main nodes in the cluster.
 	DedicatedMasterCount pulumi.IntPtrInput `pulumi:"dedicatedMasterCount"`
 	// Whether dedicated main nodes are enabled for the cluster.
@@ -851,6 +855,11 @@ func (o DomainClusterConfigOutput) ToDomainClusterConfigPtrOutputWithContext(ctx
 	}).(DomainClusterConfigPtrOutput)
 }
 
+// Configuration block containing cold storage configuration. Detailed below.
+func (o DomainClusterConfigOutput) ColdStorageOptions() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfig) *DomainClusterConfigColdStorageOptions { return v.ColdStorageOptions }).(DomainClusterConfigColdStorageOptionsPtrOutput)
+}
+
 // Number of dedicated main nodes in the cluster.
 func (o DomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.DedicatedMasterCount }).(pulumi.IntPtrOutput)
@@ -923,6 +932,16 @@ func (o DomainClusterConfigPtrOutput) Elem() DomainClusterConfigOutput {
 		var ret DomainClusterConfig
 		return ret
 	}).(DomainClusterConfigOutput)
+}
+
+// Configuration block containing cold storage configuration. Detailed below.
+func (o DomainClusterConfigPtrOutput) ColdStorageOptions() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) *DomainClusterConfigColdStorageOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ColdStorageOptions
+	}).(DomainClusterConfigColdStorageOptionsPtrOutput)
 }
 
 // Number of dedicated main nodes in the cluster.
@@ -1022,6 +1041,143 @@ func (o DomainClusterConfigPtrOutput) ZoneAwarenessEnabled() pulumi.BoolPtrOutpu
 			return nil
 		}
 		return v.ZoneAwarenessEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DomainClusterConfigColdStorageOptions struct {
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DomainClusterConfigColdStorageOptionsInput is an input type that accepts DomainClusterConfigColdStorageOptionsArgs and DomainClusterConfigColdStorageOptionsOutput values.
+// You can construct a concrete instance of `DomainClusterConfigColdStorageOptionsInput` via:
+//
+//          DomainClusterConfigColdStorageOptionsArgs{...}
+type DomainClusterConfigColdStorageOptionsInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigColdStorageOptionsOutput() DomainClusterConfigColdStorageOptionsOutput
+	ToDomainClusterConfigColdStorageOptionsOutputWithContext(context.Context) DomainClusterConfigColdStorageOptionsOutput
+}
+
+type DomainClusterConfigColdStorageOptionsArgs struct {
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DomainClusterConfigColdStorageOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainClusterConfigColdStorageOptions)(nil)).Elem()
+}
+
+func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsOutput() DomainClusterConfigColdStorageOptionsOutput {
+	return i.ToDomainClusterConfigColdStorageOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigColdStorageOptionsOutput)
+}
+
+func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return i.ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainClusterConfigColdStorageOptionsArgs) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigColdStorageOptionsOutput).ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainClusterConfigColdStorageOptionsPtrInput is an input type that accepts DomainClusterConfigColdStorageOptionsArgs, DomainClusterConfigColdStorageOptionsPtr and DomainClusterConfigColdStorageOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainClusterConfigColdStorageOptionsPtrInput` via:
+//
+//          DomainClusterConfigColdStorageOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainClusterConfigColdStorageOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput
+	ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Context) DomainClusterConfigColdStorageOptionsPtrOutput
+}
+
+type domainClusterConfigColdStorageOptionsPtrType DomainClusterConfigColdStorageOptionsArgs
+
+func DomainClusterConfigColdStorageOptionsPtr(v *DomainClusterConfigColdStorageOptionsArgs) DomainClusterConfigColdStorageOptionsPtrInput {
+	return (*domainClusterConfigColdStorageOptionsPtrType)(v)
+}
+
+func (*domainClusterConfigColdStorageOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainClusterConfigColdStorageOptions)(nil)).Elem()
+}
+
+func (i *domainClusterConfigColdStorageOptionsPtrType) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return i.ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainClusterConfigColdStorageOptionsPtrType) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainClusterConfigColdStorageOptionsPtrOutput)
+}
+
+type DomainClusterConfigColdStorageOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainClusterConfigColdStorageOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainClusterConfigColdStorageOptions)(nil)).Elem()
+}
+
+func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdStorageOptionsOutput() DomainClusterConfigColdStorageOptionsOutput {
+	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdStorageOptionsOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsOutput {
+	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o.ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainClusterConfigColdStorageOptionsOutput) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainClusterConfigColdStorageOptions) *DomainClusterConfigColdStorageOptions {
+		return &v
+	}).(DomainClusterConfigColdStorageOptionsPtrOutput)
+}
+
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+func (o DomainClusterConfigColdStorageOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainClusterConfigColdStorageOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainClusterConfigColdStorageOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainClusterConfigColdStorageOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainClusterConfigColdStorageOptions)(nil)).Elem()
+}
+
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) ToDomainClusterConfigColdStorageOptionsPtrOutput() DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) ToDomainClusterConfigColdStorageOptionsPtrOutputWithContext(ctx context.Context) DomainClusterConfigColdStorageOptionsPtrOutput {
+	return o
+}
+
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) Elem() DomainClusterConfigColdStorageOptionsOutput {
+	return o.ApplyT(func(v *DomainClusterConfigColdStorageOptions) DomainClusterConfigColdStorageOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainClusterConfigColdStorageOptions
+		return ret
+	}).(DomainClusterConfigColdStorageOptionsOutput)
+}
+
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+func (o DomainClusterConfigColdStorageOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainClusterConfigColdStorageOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
 }
 
@@ -1163,7 +1319,7 @@ func (o DomainClusterConfigZoneAwarenessConfigPtrOutput) AvailabilityZoneCount()
 }
 
 type DomainCognitoOptions struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled *bool `pulumi:"enabled"`
 	// ID of the Cognito Identity Pool to use.
 	IdentityPoolId string `pulumi:"identityPoolId"`
@@ -1185,7 +1341,7 @@ type DomainCognitoOptionsInput interface {
 }
 
 type DomainCognitoOptionsArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// ID of the Cognito Identity Pool to use.
 	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
@@ -1272,7 +1428,7 @@ func (o DomainCognitoOptionsOutput) ToDomainCognitoOptionsPtrOutputWithContext(c
 	}).(DomainCognitoOptionsPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainCognitoOptionsOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainCognitoOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1316,7 +1472,7 @@ func (o DomainCognitoOptionsPtrOutput) Elem() DomainCognitoOptionsOutput {
 	}).(DomainCognitoOptionsOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainCognitoOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainCognitoOptions) *bool {
 		if v == nil {
@@ -1760,9 +1916,8 @@ func (o DomainEbsOptionsPtrOutput) VolumeType() pulumi.StringPtrOutput {
 }
 
 type DomainEncryptAtRest struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
-	Enabled bool `pulumi:"enabled"`
-	// KMS key id to encrypt the OpenSearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	Enabled  bool    `pulumi:"enabled"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 }
 
@@ -1778,9 +1933,8 @@ type DomainEncryptAtRestInput interface {
 }
 
 type DomainEncryptAtRestArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// KMS key id to encrypt the OpenSearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
+	Enabled  pulumi.BoolInput      `pulumi:"enabled"`
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 }
 
@@ -1861,12 +2015,11 @@ func (o DomainEncryptAtRestOutput) ToDomainEncryptAtRestPtrOutputWithContext(ctx
 	}).(DomainEncryptAtRestPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainEncryptAtRestOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainEncryptAtRest) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// KMS key id to encrypt the OpenSearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
 func (o DomainEncryptAtRestOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEncryptAtRest) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -1895,7 +2048,7 @@ func (o DomainEncryptAtRestPtrOutput) Elem() DomainEncryptAtRestOutput {
 	}).(DomainEncryptAtRestOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainEncryptAtRest) *bool {
 		if v == nil {
@@ -1905,7 +2058,6 @@ func (o DomainEncryptAtRestPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
-// KMS key id to encrypt the OpenSearch domain with. If not specified then it defaults to using the `aws/es` service KMS key.
 func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEncryptAtRest) *string {
 		if v == nil {
@@ -1918,7 +2070,7 @@ func (o DomainEncryptAtRestPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 type DomainLogPublishingOption struct {
 	// ARN of the Cloudwatch log group to which log needs to be published.
 	CloudwatchLogGroupArn string `pulumi:"cloudwatchLogGroupArn"`
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled *bool `pulumi:"enabled"`
 	// Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
 	LogType string `pulumi:"logType"`
@@ -1938,7 +2090,7 @@ type DomainLogPublishingOptionInput interface {
 type DomainLogPublishingOptionArgs struct {
 	// ARN of the Cloudwatch log group to which log needs to be published.
 	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Type of OpenSearch log. Valid values: `INDEX_SLOW_LOGS`, `SEARCH_SLOW_LOGS`, `ES_APPLICATION_LOGS`, `AUDIT_LOGS`.
 	LogType pulumi.StringInput `pulumi:"logType"`
@@ -2000,7 +2152,7 @@ func (o DomainLogPublishingOptionOutput) CloudwatchLogGroupArn() pulumi.StringOu
 	return o.ApplyT(func(v DomainLogPublishingOption) string { return v.CloudwatchLogGroupArn }).(pulumi.StringOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainLogPublishingOptionOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainLogPublishingOption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -2031,7 +2183,7 @@ func (o DomainLogPublishingOptionArrayOutput) Index(i pulumi.IntInput) DomainLog
 }
 
 type DomainNodeToNodeEncryption struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2047,7 +2199,7 @@ type DomainNodeToNodeEncryptionInput interface {
 }
 
 type DomainNodeToNodeEncryptionArgs struct {
-	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+	// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -2128,7 +2280,7 @@ func (o DomainNodeToNodeEncryptionOutput) ToDomainNodeToNodeEncryptionPtrOutputW
 	}).(DomainNodeToNodeEncryptionPtrOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainNodeToNodeEncryptionOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v DomainNodeToNodeEncryption) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2157,7 +2309,7 @@ func (o DomainNodeToNodeEncryptionPtrOutput) Elem() DomainNodeToNodeEncryptionOu
 	}).(DomainNodeToNodeEncryptionOutput)
 }
 
-// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`.
+// Whether to enable node-to-node encryption. If the `nodeToNodeEncryption` block is not provided then this defaults to `false`. Enabling node-to-node encryption of a new domain requires an `engineVersion` of `OpenSearch_X.Y` or `Elasticsearch_6.0` or greater.
 func (o DomainNodeToNodeEncryptionPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainNodeToNodeEncryption) *bool {
 		if v == nil {
@@ -3344,6 +3496,8 @@ func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) Index(i p
 }
 
 type GetDomainClusterConfig struct {
+	// Configuration block containing cold storage configuration.
+	ColdStorageOptions []GetDomainClusterConfigColdStorageOption `pulumi:"coldStorageOptions"`
 	// Number of dedicated master nodes in the cluster.
 	DedicatedMasterCount int `pulumi:"dedicatedMasterCount"`
 	// Indicates whether dedicated master nodes are enabled for the cluster.
@@ -3378,6 +3532,8 @@ type GetDomainClusterConfigInput interface {
 }
 
 type GetDomainClusterConfigArgs struct {
+	// Configuration block containing cold storage configuration.
+	ColdStorageOptions GetDomainClusterConfigColdStorageOptionArrayInput `pulumi:"coldStorageOptions"`
 	// Number of dedicated master nodes in the cluster.
 	DedicatedMasterCount pulumi.IntInput `pulumi:"dedicatedMasterCount"`
 	// Indicates whether dedicated master nodes are enabled for the cluster.
@@ -3451,6 +3607,11 @@ func (o GetDomainClusterConfigOutput) ToGetDomainClusterConfigOutputWithContext(
 	return o
 }
 
+// Configuration block containing cold storage configuration.
+func (o GetDomainClusterConfigOutput) ColdStorageOptions() GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return o.ApplyT(func(v GetDomainClusterConfig) []GetDomainClusterConfigColdStorageOption { return v.ColdStorageOptions }).(GetDomainClusterConfigColdStorageOptionArrayOutput)
+}
+
 // Number of dedicated master nodes in the cluster.
 func (o GetDomainClusterConfigOutput) DedicatedMasterCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetDomainClusterConfig) int { return v.DedicatedMasterCount }).(pulumi.IntOutput)
@@ -3521,6 +3682,103 @@ func (o GetDomainClusterConfigArrayOutput) Index(i pulumi.IntInput) GetDomainClu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfig {
 		return vs[0].([]GetDomainClusterConfig)[vs[1].(int)]
 	}).(GetDomainClusterConfigOutput)
+}
+
+type GetDomainClusterConfigColdStorageOption struct {
+	// Whether node to node encryption is enabled.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// GetDomainClusterConfigColdStorageOptionInput is an input type that accepts GetDomainClusterConfigColdStorageOptionArgs and GetDomainClusterConfigColdStorageOptionOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigColdStorageOptionInput` via:
+//
+//          GetDomainClusterConfigColdStorageOptionArgs{...}
+type GetDomainClusterConfigColdStorageOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainClusterConfigColdStorageOptionOutput() GetDomainClusterConfigColdStorageOptionOutput
+	ToGetDomainClusterConfigColdStorageOptionOutputWithContext(context.Context) GetDomainClusterConfigColdStorageOptionOutput
+}
+
+type GetDomainClusterConfigColdStorageOptionArgs struct {
+	// Whether node to node encryption is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (GetDomainClusterConfigColdStorageOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainClusterConfigColdStorageOption)(nil)).Elem()
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArgs) ToGetDomainClusterConfigColdStorageOptionOutput() GetDomainClusterConfigColdStorageOptionOutput {
+	return i.ToGetDomainClusterConfigColdStorageOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArgs) ToGetDomainClusterConfigColdStorageOptionOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigColdStorageOptionOutput)
+}
+
+// GetDomainClusterConfigColdStorageOptionArrayInput is an input type that accepts GetDomainClusterConfigColdStorageOptionArray and GetDomainClusterConfigColdStorageOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainClusterConfigColdStorageOptionArrayInput` via:
+//
+//          GetDomainClusterConfigColdStorageOptionArray{ GetDomainClusterConfigColdStorageOptionArgs{...} }
+type GetDomainClusterConfigColdStorageOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainClusterConfigColdStorageOptionArrayOutput() GetDomainClusterConfigColdStorageOptionArrayOutput
+	ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(context.Context) GetDomainClusterConfigColdStorageOptionArrayOutput
+}
+
+type GetDomainClusterConfigColdStorageOptionArray []GetDomainClusterConfigColdStorageOptionInput
+
+func (GetDomainClusterConfigColdStorageOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainClusterConfigColdStorageOption)(nil)).Elem()
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArray) ToGetDomainClusterConfigColdStorageOptionArrayOutput() GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return i.ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainClusterConfigColdStorageOptionArray) ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigColdStorageOptionArrayOutput)
+}
+
+type GetDomainClusterConfigColdStorageOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainClusterConfigColdStorageOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainClusterConfigColdStorageOption)(nil)).Elem()
+}
+
+func (o GetDomainClusterConfigColdStorageOptionOutput) ToGetDomainClusterConfigColdStorageOptionOutput() GetDomainClusterConfigColdStorageOptionOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigColdStorageOptionOutput) ToGetDomainClusterConfigColdStorageOptionOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionOutput {
+	return o
+}
+
+// Whether node to node encryption is enabled.
+func (o GetDomainClusterConfigColdStorageOptionOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainClusterConfigColdStorageOption) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type GetDomainClusterConfigColdStorageOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainClusterConfigColdStorageOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainClusterConfigColdStorageOption)(nil)).Elem()
+}
+
+func (o GetDomainClusterConfigColdStorageOptionArrayOutput) ToGetDomainClusterConfigColdStorageOptionArrayOutput() GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigColdStorageOptionArrayOutput) ToGetDomainClusterConfigColdStorageOptionArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigColdStorageOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainClusterConfigColdStorageOptionArrayOutput) Index(i pulumi.IntInput) GetDomainClusterConfigColdStorageOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainClusterConfigColdStorageOption {
+		return vs[0].([]GetDomainClusterConfigColdStorageOption)[vs[1].(int)]
+	}).(GetDomainClusterConfigColdStorageOptionOutput)
 }
 
 type GetDomainClusterConfigZoneAwarenessConfig struct {
@@ -4419,6 +4677,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleDurationInput)(nil)).Elem(), DomainAutoTuneOptionsMaintenanceScheduleDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigPtrInput)(nil)).Elem(), DomainClusterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigColdStorageOptionsInput)(nil)).Elem(), DomainClusterConfigColdStorageOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigColdStorageOptionsPtrInput)(nil)).Elem(), DomainClusterConfigColdStorageOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), DomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfigPtrInput)(nil)).Elem(), DomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainCognitoOptionsInput)(nil)).Elem(), DomainCognitoOptionsArgs{})
@@ -4451,6 +4711,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleDurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigInput)(nil)).Elem(), GetDomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigColdStorageOptionInput)(nil)).Elem(), GetDomainClusterConfigColdStorageOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigColdStorageOptionArrayInput)(nil)).Elem(), GetDomainClusterConfigColdStorageOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainCognitoOptionInput)(nil)).Elem(), GetDomainCognitoOptionArgs{})
@@ -4478,6 +4740,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainAutoTuneOptionsMaintenanceScheduleDurationOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainClusterConfigColdStorageOptionsOutput{})
+	pulumi.RegisterOutputType(DomainClusterConfigColdStorageOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainCognitoOptionsOutput{})
@@ -4510,6 +4774,8 @@ func init() {
 	pulumi.RegisterOutputType(GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainClusterConfigColdStorageOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainClusterConfigColdStorageOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainCognitoOptionOutput{})

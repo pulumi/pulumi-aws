@@ -31,7 +31,8 @@ class ServerArgs:
                  protocols: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 url: Optional[pulumi.Input[str]] = None):
+                 url: Optional[pulumi.Input[str]] = None,
+                 workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[str] certificate: The Amazon Resource Name (ARN) of the AWS Certificate Manager (ACM) certificate. This is required when `protocols` is set to `FTPS`
@@ -54,6 +55,7 @@ class ServerArgs:
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
@@ -89,6 +91,8 @@ class ServerArgs:
             pulumi.set(__self__, "tags", tags)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if workflow_details is not None:
+            pulumi.set(__self__, "workflow_details", workflow_details)
 
     @property
     @pulumi.getter
@@ -297,6 +301,18 @@ class ServerArgs:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+    @property
+    @pulumi.getter(name="workflowDetails")
+    def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArgs']]:
+        """
+        Specifies the workflow details. See Workflow Details below.
+        """
+        return pulumi.get(self, "workflow_details")
+
+    @workflow_details.setter
+    def workflow_details(self, value: Optional[pulumi.Input['ServerWorkflowDetailsArgs']]):
+        pulumi.set(self, "workflow_details", value)
+
 
 @pulumi.input_type
 class _ServerState:
@@ -321,7 +337,8 @@ class _ServerState:
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 url: Optional[pulumi.Input[str]] = None):
+                 url: Optional[pulumi.Input[str]] = None,
+                 workflow_details: Optional[pulumi.Input['ServerWorkflowDetailsArgs']] = None):
         """
         Input properties used for looking up and filtering Server resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of Transfer Server
@@ -348,6 +365,7 @@ class _ServerState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        :param pulumi.Input['ServerWorkflowDetailsArgs'] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -391,6 +409,8 @@ class _ServerState:
             pulumi.set(__self__, "tags_all", tags_all)
         if url is not None:
             pulumi.set(__self__, "url", url)
+        if workflow_details is not None:
+            pulumi.set(__self__, "workflow_details", workflow_details)
 
     @property
     @pulumi.getter
@@ -647,6 +667,18 @@ class _ServerState:
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
 
+    @property
+    @pulumi.getter(name="workflowDetails")
+    def workflow_details(self) -> Optional[pulumi.Input['ServerWorkflowDetailsArgs']]:
+        """
+        Specifies the workflow details. See Workflow Details below.
+        """
+        return pulumi.get(self, "workflow_details")
+
+    @workflow_details.setter
+    def workflow_details(self, value: Optional[pulumi.Input['ServerWorkflowDetailsArgs']]):
+        pulumi.set(self, "workflow_details", value)
+
 
 class Server(pulumi.CustomResource):
     @overload
@@ -670,6 +702,7 @@ class Server(pulumi.CustomResource):
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
+                 workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None,
                  __props__=None):
         """
         Provides a AWS Transfer Server resource.
@@ -782,6 +815,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[str] security_policy_name: Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         ...
     @overload
@@ -910,6 +944,7 @@ class Server(pulumi.CustomResource):
                  security_policy_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  url: Optional[pulumi.Input[str]] = None,
+                 workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -939,6 +974,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["security_policy_name"] = security_policy_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["url"] = url
+            __props__.__dict__["workflow_details"] = workflow_details
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["host_key_fingerprint"] = None
@@ -973,7 +1009,8 @@ class Server(pulumi.CustomResource):
             security_policy_name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            url: Optional[pulumi.Input[str]] = None) -> 'Server':
+            url: Optional[pulumi.Input[str]] = None,
+            workflow_details: Optional[pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']]] = None) -> 'Server':
         """
         Get an existing Server resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -1005,6 +1042,7 @@ class Server(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] url: - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
+        :param pulumi.Input[pulumi.InputType['ServerWorkflowDetailsArgs']] workflow_details: Specifies the workflow details. See Workflow Details below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1031,6 +1069,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["url"] = url
+        __props__.__dict__["workflow_details"] = workflow_details
         return Server(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -1203,4 +1242,12 @@ class Server(pulumi.CustomResource):
         - URL of the service endpoint used to authenticate users with an `identity_provider_type` of `API_GATEWAY`.
         """
         return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="workflowDetails")
+    def workflow_details(self) -> pulumi.Output[Optional['outputs.ServerWorkflowDetails']]:
+        """
+        Specifies the workflow details. See Workflow Details below.
+        """
+        return pulumi.get(self, "workflow_details")
 

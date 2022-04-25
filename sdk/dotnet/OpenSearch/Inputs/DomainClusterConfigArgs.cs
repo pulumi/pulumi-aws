@@ -13,6 +13,12 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class DomainClusterConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration block containing cold storage configuration. Detailed below.
+        /// </summary>
+        [Input("coldStorageOptions")]
+        public Input<Inputs.DomainClusterConfigColdStorageOptionsArgs>? ColdStorageOptions { get; set; }
+
+        /// <summary>
         /// Number of dedicated main nodes in the cluster.
         /// </summary>
         [Input("dedicatedMasterCount")]

@@ -2898,10 +2898,11 @@ func Provider() tfbridge.ProviderInfo {
 			// Synthetics
 			"aws_synthetics_canary": {Tok: awsResource(syntheticsMod, "Canary")},
 			// Transfer Service
-			"aws_transfer_server":  {Tok: awsResource(transferMod, "Server")},
-			"aws_transfer_ssh_key": {Tok: awsResource(transferMod, "SshKey")},
-			"aws_transfer_user":    {Tok: awsResource(transferMod, "User")},
-			"aws_transfer_access":  {Tok: awsResource(transferMod, "Access")},
+			"aws_transfer_server":   {Tok: awsResource(transferMod, "Server")},
+			"aws_transfer_ssh_key":  {Tok: awsResource(transferMod, "SshKey")},
+			"aws_transfer_user":     {Tok: awsResource(transferMod, "User")},
+			"aws_transfer_access":   {Tok: awsResource(transferMod, "Access")},
+			"aws_transfer_workflow": {Tok: awsResource(transferMod, "Workflow")},
 			// TimestreamWrite
 			"aws_timestreamwrite_database": {Tok: awsResource(timestreamWriteMod, "Database")},
 			"aws_timestreamwrite_table":    {Tok: awsResource(timestreamWriteMod, "Table")},
@@ -4624,6 +4625,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket":         {Tok: awsDataSource(s3Mod, "getBucket")},
 			"aws_s3_bucket_object":  {Tok: awsDataSource(s3Mod, "getBucketObject")},
 			"aws_s3_bucket_objects": {Tok: awsDataSource(s3Mod, "getBucketObjects")},
+			"aws_s3_bucket_policy":  {Tok: awsDataSource(s3Mod, "getBucketPolicy")},
 			"aws_s3_object":         {Tok: awsDataSource(s3Mod, "getObject")},
 			"aws_s3_objects":        {Tok: awsDataSource(s3Mod, "getObjects")},
 			// Secrets Manager

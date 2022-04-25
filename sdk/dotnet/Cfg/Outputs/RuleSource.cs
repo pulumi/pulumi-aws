@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Cfg.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleSourceSourceDetail> SourceDetails;
         /// <summary>
-        /// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `aws.lambda.Function` resource.
+        /// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the [`arn` attribute of the `aws.lambda.Function` resource](https://www.terraform.io/docs/providers/aws/r/lambda_function.html#arn).
         /// </summary>
         public readonly string? SourceIdentifier;
 

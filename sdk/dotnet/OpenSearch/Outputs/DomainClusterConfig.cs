@@ -14,6 +14,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
     public sealed class DomainClusterConfig
     {
         /// <summary>
+        /// Configuration block containing cold storage configuration. Detailed below.
+        /// </summary>
+        public readonly Outputs.DomainClusterConfigColdStorageOptions? ColdStorageOptions;
+        /// <summary>
         /// Number of dedicated main nodes in the cluster.
         /// </summary>
         public readonly int? DedicatedMasterCount;
@@ -56,6 +60,8 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
         [OutputConstructor]
         private DomainClusterConfig(
+            Outputs.DomainClusterConfigColdStorageOptions? coldStorageOptions,
+
             int? dedicatedMasterCount,
 
             bool? dedicatedMasterEnabled,
@@ -76,6 +82,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             bool? zoneAwarenessEnabled)
         {
+            ColdStorageOptions = coldStorageOptions;
             DedicatedMasterCount = dedicatedMasterCount;
             DedicatedMasterEnabled = dedicatedMasterEnabled;
             DedicatedMasterType = dedicatedMasterType;

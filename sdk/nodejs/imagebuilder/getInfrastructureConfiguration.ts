@@ -69,6 +69,10 @@ export interface GetInfrastructureConfigurationResult {
      */
     readonly id: string;
     /**
+     * Nested list of instance metadata options for the HTTP requests that pipeline builds use to launch EC2 build and test instances.
+     */
+    readonly instanceMetadataOptions: outputs.imagebuilder.GetInfrastructureConfigurationInstanceMetadataOption[];
+    /**
      * Name of the IAM Instance Profile associated with the configuration.
      */
     readonly instanceProfileName: string;

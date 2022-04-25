@@ -74,7 +74,7 @@ type OntapFileSystem struct {
 	AutomaticBackupRetentionDays pulumi.IntPtrOutput `pulumi:"automaticBackupRetentionDays"`
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
-	// - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+	// - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringOutput `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationOutput `pulumi:"diskIopsConfiguration"`
@@ -102,7 +102,7 @@ type OntapFileSystem struct {
 	StorageCapacity pulumi.IntPtrOutput `pulumi:"storageCapacity"`
 	// - The filesystem storage type. defaults to `SSD`.
 	StorageType pulumi.StringPtrOutput `pulumi:"storageType"`
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+	// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -163,7 +163,7 @@ type ontapFileSystemState struct {
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
-	// - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+	// - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
 	DiskIopsConfiguration *OntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
@@ -191,7 +191,7 @@ type ontapFileSystemState struct {
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// - The filesystem storage type. defaults to `SSD`.
 	StorageType *string `pulumi:"storageType"`
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+	// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -212,7 +212,7 @@ type OntapFileSystemState struct {
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
-	// - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+	// - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrInput
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationPtrInput
@@ -240,7 +240,7 @@ type OntapFileSystemState struct {
 	StorageCapacity pulumi.IntPtrInput
 	// - The filesystem storage type. defaults to `SSD`.
 	StorageType pulumi.StringPtrInput
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+	// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -263,7 +263,7 @@ type ontapFileSystemArgs struct {
 	AutomaticBackupRetentionDays *int `pulumi:"automaticBackupRetentionDays"`
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
-	// - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+	// - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType string `pulumi:"deploymentType"`
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
 	DiskIopsConfiguration *OntapFileSystemDiskIopsConfiguration `pulumi:"diskIopsConfiguration"`
@@ -283,7 +283,7 @@ type ontapFileSystemArgs struct {
 	StorageCapacity *int `pulumi:"storageCapacity"`
 	// - The filesystem storage type. defaults to `SSD`.
 	StorageType *string `pulumi:"storageType"`
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+	// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -299,7 +299,7 @@ type OntapFileSystemArgs struct {
 	AutomaticBackupRetentionDays pulumi.IntPtrInput
 	// A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automaticBackupRetentionDays` to be set.
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
-	// - The filesystem deployment type. Only `MULTI_AZ_1` is supported.
+	// - The filesystem deployment type. Supports `MULTI_AZ_1` and `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringInput
 	// The SSD IOPS configuration for the Amazon FSx for NetApp ONTAP file system. See Disk Iops Configuration Below.
 	DiskIopsConfiguration OntapFileSystemDiskIopsConfigurationPtrInput
@@ -319,7 +319,7 @@ type OntapFileSystemArgs struct {
 	StorageCapacity pulumi.IntPtrInput
 	// - The filesystem storage type. defaults to `SSD`.
 	StorageType pulumi.StringPtrInput
-	// A list of IDs for the subnets that the file system will be accessible from. Exactly 2 subnets need to be provided.
+	// A list of IDs for the subnets that the file system will be accessible from. Upto 2 subnets can be provided.
 	SubnetIds pulumi.StringArrayInput
 	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput

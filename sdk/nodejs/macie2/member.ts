@@ -80,7 +80,7 @@ export class Member extends pulumi.CustomResource {
     /**
      * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      */
-    public readonly invitationDisableEmailNotification!: pulumi.Output<string | undefined>;
+    public readonly invitationDisableEmailNotification!: pulumi.Output<boolean | undefined>;
     /**
      * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      */
@@ -190,7 +190,7 @@ export interface MemberState {
     /**
      * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      */
-    invitationDisableEmailNotification?: pulumi.Input<string>;
+    invitationDisableEmailNotification?: pulumi.Input<boolean>;
     /**
      * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      */
@@ -238,7 +238,7 @@ export interface MemberArgs {
     /**
      * Specifies whether to send an email notification to the root user of each account that the invitation will be sent to. This notification is in addition to an alert that the root user receives in AWS Personal Health Dashboard. To send an email notification to the root user of each account, set this value to `true`.
      */
-    invitationDisableEmailNotification?: pulumi.Input<string>;
+    invitationDisableEmailNotification?: pulumi.Input<boolean>;
     /**
      * A custom message to include in the invitation. Amazon Macie adds this message to the standard content that it sends for an invitation.
      */
