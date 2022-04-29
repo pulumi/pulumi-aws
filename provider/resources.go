@@ -5025,7 +5025,7 @@ func Provider() tfbridge.ProviderInfo {
 		awsResource(lbMod, "TargetGroup"), legacyElbv2Mod, lbMod, &tfbridge.ResourceInfo{
 			Fields: map[string]*tfbridge.SchemaInfo{
 				// https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html
-				"name": tfbridge.AutoName("name", 63, "-"),
+				"name": tfbridge.AutoName("name", 32, "-"),
 				"deregistration_delay": {
 					Type: "integer",
 				},
