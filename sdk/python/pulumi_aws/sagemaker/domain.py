@@ -407,7 +407,7 @@ class Domain(pulumi.CustomResource):
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Sagemaker Domain resource.
+        Provides a SageMaker Domain resource.
 
         ## Example Usage
         ### Basic usage
@@ -472,7 +472,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Domains can be imported using the `id`, e.g.,
+        SageMaker Code Domains can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -497,7 +497,7 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Sagemaker Domain resource.
+        Provides a SageMaker Domain resource.
 
         ## Example Usage
         ### Basic usage
@@ -562,7 +562,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Domains can be imported using the `id`, e.g.,
+        SageMaker Code Domains can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8

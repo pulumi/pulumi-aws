@@ -38,6 +38,7 @@ __all__ = [
     'InstanceEnclaveOptions',
     'InstanceEphemeralBlockDevice',
     'InstanceLaunchTemplate',
+    'InstanceMaintenanceOptions',
     'InstanceMetadataOptions',
     'InstanceNetworkInterface',
     'InstanceRootBlockDevice',
@@ -59,6 +60,7 @@ __all__ = [
     'LaunchTemplateInstanceMarketOptions',
     'LaunchTemplateInstanceMarketOptionsSpotOptions',
     'LaunchTemplateLicenseSpecification',
+    'LaunchTemplateMaintenanceOptions',
     'LaunchTemplateMetadataOptions',
     'LaunchTemplateMonitoring',
     'LaunchTemplateNetworkInterface',
@@ -90,6 +92,7 @@ __all__ = [
     'SpotInstanceRequestEnclaveOptions',
     'SpotInstanceRequestEphemeralBlockDevice',
     'SpotInstanceRequestLaunchTemplate',
+    'SpotInstanceRequestMaintenanceOptions',
     'SpotInstanceRequestMetadataOptions',
     'SpotInstanceRequestNetworkInterface',
     'SpotInstanceRequestRootBlockDevice',
@@ -120,6 +123,7 @@ __all__ = [
     'GetInstanceEnclaveOptionResult',
     'GetInstanceEphemeralBlockDeviceResult',
     'GetInstanceFilterResult',
+    'GetInstanceMaintenanceOptionResult',
     'GetInstanceMetadataOptionResult',
     'GetInstanceRootBlockDeviceResult',
     'GetInstanceTypeFpgaResult',
@@ -152,6 +156,7 @@ __all__ = [
     'GetLaunchTemplateInstanceMarketOptionResult',
     'GetLaunchTemplateInstanceMarketOptionSpotOptionResult',
     'GetLaunchTemplateLicenseSpecificationResult',
+    'GetLaunchTemplateMaintenanceOptionResult',
     'GetLaunchTemplateMetadataOptionResult',
     'GetLaunchTemplateMonitoringResult',
     'GetLaunchTemplateNetworkInterfaceResult',
@@ -2529,6 +2534,42 @@ class InstanceLaunchTemplate(dict):
 
 
 @pulumi.output_type
+class InstanceMaintenanceOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRecovery":
+            suggest = "auto_recovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceMaintenanceOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceMaintenanceOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceMaintenanceOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_recovery: Optional[str] = None):
+        """
+        :param str auto_recovery: The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[str]:
+        """
+        The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+
+@pulumi.output_type
 class InstanceMetadataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3811,6 +3852,42 @@ class LaunchTemplateLicenseSpecification(dict):
         ARN of the license configuration.
         """
         return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
+class LaunchTemplateMaintenanceOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRecovery":
+            suggest = "auto_recovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateMaintenanceOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateMaintenanceOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateMaintenanceOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_recovery: Optional[str] = None):
+        """
+        :param str auto_recovery: Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[str]:
+        """
+        Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
 
 
 @pulumi.output_type
@@ -6622,6 +6699,42 @@ class SpotInstanceRequestLaunchTemplate(dict):
 
 
 @pulumi.output_type
+class SpotInstanceRequestMaintenanceOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoRecovery":
+            suggest = "auto_recovery"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpotInstanceRequestMaintenanceOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpotInstanceRequestMaintenanceOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpotInstanceRequestMaintenanceOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_recovery: Optional[str] = None):
+        """
+        :param str auto_recovery: The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[str]:
+        """
+        The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+
+@pulumi.output_type
 class SpotInstanceRequestMetadataOptions(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8138,6 +8251,24 @@ class GetInstanceFilterResult(dict):
 
 
 @pulumi.output_type
+class GetInstanceMaintenanceOptionResult(dict):
+    def __init__(__self__, *,
+                 auto_recovery: str):
+        """
+        :param str auto_recovery: The automatic recovery behavior of the instance.
+        """
+        pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> str:
+        """
+        The automatic recovery behavior of the instance.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+
+@pulumi.output_type
 class GetInstanceMetadataOptionResult(dict):
     def __init__(__self__, *,
                  http_endpoint: str,
@@ -9206,6 +9337,18 @@ class GetLaunchTemplateLicenseSpecificationResult(dict):
     @pulumi.getter(name="licenseConfigurationArn")
     def license_configuration_arn(self) -> str:
         return pulumi.get(self, "license_configuration_arn")
+
+
+@pulumi.output_type
+class GetLaunchTemplateMaintenanceOptionResult(dict):
+    def __init__(__self__, *,
+                 auto_recovery: str):
+        pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> str:
+        return pulumi.get(self, "auto_recovery")
 
 
 @pulumi.output_type

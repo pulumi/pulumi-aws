@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Workteam resource.
+ * Provides a SageMaker Workteam resource.
  *
  * ## Example Usage
  * ### Cognito Usage
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Workteams can be imported using the `workteam_name`, e.g.,
+ * SageMaker Workteams can be imported using the `workteam_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/workteam:Workteam example example

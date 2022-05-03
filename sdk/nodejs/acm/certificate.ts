@@ -36,6 +36,21 @@ import * as utilities from "../utilities";
  *     validationMethod: "DNS",
  * });
  * ```
+ * ### Custom Domain Validation Options
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const cert = new aws.acm.Certificate("cert", {
+ *     domainName: "testing.example.com",
+ *     validationMethod: "EMAIL",
+ *     validationOptions: [{
+ *         domainName: "testing.example.com",
+ *         validationDomain: "example.com",
+ *     }],
+ * });
+ * ```
  * ### Existing Certificate Body Import
  *
  * ```typescript
@@ -142,7 +157,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly certificateChain!: pulumi.Output<string | undefined>;
     /**
-     * A domain name for which the certificate should be issued
+     * A fully qualified domain name (FQDN) in the certificate.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -151,7 +166,6 @@ export class Certificate extends pulumi.CustomResource {
     public /*out*/ readonly domainValidationOptions!: pulumi.Output<outputs.acm.CertificateDomainValidationOption[]>;
     /**
      * Configuration block used to set certificate options. Detailed below.
-     * * Importing an existing certificate
      */
     public readonly options!: pulumi.Output<outputs.acm.CertificateOptions | undefined>;
     /**
@@ -182,6 +196,11 @@ export class Certificate extends pulumi.CustomResource {
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */
     public readonly validationMethod!: pulumi.Output<string>;
+    /**
+     * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+     * * Importing an existing certificate
+     */
+    public readonly validationOptions!: pulumi.Output<outputs.acm.CertificateValidationOption[] | undefined>;
 
     /**
      * Create a Certificate resource with the given unique name, arguments, and options.
@@ -210,6 +229,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["validationEmails"] = state ? state.validationEmails : undefined;
             resourceInputs["validationMethod"] = state ? state.validationMethod : undefined;
+            resourceInputs["validationOptions"] = state ? state.validationOptions : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
             resourceInputs["certificateAuthorityArn"] = args ? args.certificateAuthorityArn : undefined;
@@ -221,6 +241,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["subjectAlternativeNames"] = args ? args.subjectAlternativeNames : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["validationMethod"] = args ? args.validationMethod : undefined;
+            resourceInputs["validationOptions"] = args ? args.validationOptions : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["domainValidationOptions"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -254,7 +275,7 @@ export interface CertificateState {
      */
     certificateChain?: pulumi.Input<string>;
     /**
-     * A domain name for which the certificate should be issued
+     * A fully qualified domain name (FQDN) in the certificate.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -263,7 +284,6 @@ export interface CertificateState {
     domainValidationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateDomainValidationOption>[]>;
     /**
      * Configuration block used to set certificate options. Detailed below.
-     * * Importing an existing certificate
      */
     options?: pulumi.Input<inputs.acm.CertificateOptions>;
     /**
@@ -294,6 +314,11 @@ export interface CertificateState {
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */
     validationMethod?: pulumi.Input<string>;
+    /**
+     * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+     * * Importing an existing certificate
+     */
+    validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[]>;
 }
 
 /**
@@ -314,12 +339,11 @@ export interface CertificateArgs {
      */
     certificateChain?: pulumi.Input<string>;
     /**
-     * A domain name for which the certificate should be issued
+     * A fully qualified domain name (FQDN) in the certificate.
      */
     domainName?: pulumi.Input<string>;
     /**
      * Configuration block used to set certificate options. Detailed below.
-     * * Importing an existing certificate
      */
     options?: pulumi.Input<inputs.acm.CertificateOptions>;
     /**
@@ -338,4 +362,9 @@ export interface CertificateArgs {
      * Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
      */
     validationMethod?: pulumi.Input<string>;
+    /**
+     * Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+     * * Importing an existing certificate
+     */
+    validationOptions?: pulumi.Input<pulumi.Input<inputs.acm.CertificateValidationOption>[]>;
 }

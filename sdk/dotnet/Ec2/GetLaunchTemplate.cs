@@ -248,6 +248,7 @@ namespace Pulumi.Aws.Ec2
         public readonly string KeyName;
         public readonly int LatestVersion;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateLicenseSpecificationResult> LicenseSpecifications;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateMaintenanceOptionResult> MaintenanceOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> MetadataOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> Monitorings;
         public readonly string Name;
@@ -311,6 +312,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetLaunchTemplateLicenseSpecificationResult> licenseSpecifications,
 
+            ImmutableArray<Outputs.GetLaunchTemplateMaintenanceOptionResult> maintenanceOptions,
+
             ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> metadataOptions,
 
             ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> monitorings,
@@ -359,6 +362,7 @@ namespace Pulumi.Aws.Ec2
             KeyName = keyName;
             LatestVersion = latestVersion;
             LicenseSpecifications = licenseSpecifications;
+            MaintenanceOptions = maintenanceOptions;
             MetadataOptions = metadataOptions;
             Monitorings = monitorings;
             Name = name;

@@ -94,7 +94,7 @@ type LookupInstanceResult struct {
 	EbsBlockDevices []GetInstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// Whether the Instance is EBS optimized or not (Boolean).
 	EbsOptimized bool `pulumi:"ebsOptimized"`
-	// The enclave options of the Instance.
+	// The enclave options of the instance.
 	EnclaveOptions []GetInstanceEnclaveOption `pulumi:"enclaveOptions"`
 	// The ephemeral block device mappings of the Instance.
 	EphemeralBlockDevices []GetInstanceEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
@@ -117,6 +117,8 @@ type LookupInstanceResult struct {
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
 	// The key name of the Instance.
 	KeyName string `pulumi:"keyName"`
+	// The maintenance and recovery options for the instance.
+	MaintenanceOptions []GetInstanceMaintenanceOption `pulumi:"maintenanceOptions"`
 	// The metadata options of the Instance.
 	MetadataOptions []GetInstanceMetadataOption `pulumi:"metadataOptions"`
 	// Whether detailed monitoring is enabled or disabled for the Instance (Boolean).
@@ -257,7 +259,7 @@ func (o LookupInstanceResultOutput) EbsOptimized() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupInstanceResult) bool { return v.EbsOptimized }).(pulumi.BoolOutput)
 }
 
-// The enclave options of the Instance.
+// The enclave options of the instance.
 func (o LookupInstanceResultOutput) EnclaveOptions() GetInstanceEnclaveOptionArrayOutput {
 	return o.ApplyT(func(v LookupInstanceResult) []GetInstanceEnclaveOption { return v.EnclaveOptions }).(GetInstanceEnclaveOptionArrayOutput)
 }
@@ -320,6 +322,11 @@ func (o LookupInstanceResultOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 // The key name of the Instance.
 func (o LookupInstanceResultOutput) KeyName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.KeyName }).(pulumi.StringOutput)
+}
+
+// The maintenance and recovery options for the instance.
+func (o LookupInstanceResultOutput) MaintenanceOptions() GetInstanceMaintenanceOptionArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []GetInstanceMaintenanceOption { return v.MaintenanceOptions }).(GetInstanceMaintenanceOptionArrayOutput)
 }
 
 // The metadata options of the Instance.

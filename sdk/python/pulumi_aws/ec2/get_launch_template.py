@@ -22,7 +22,7 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerators=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, private_dns_name_options=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerators=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, maintenance_options=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, private_dns_name_options=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -95,6 +95,9 @@ class GetLaunchTemplateResult:
         if license_specifications and not isinstance(license_specifications, list):
             raise TypeError("Expected argument 'license_specifications' to be a list")
         pulumi.set(__self__, "license_specifications", license_specifications)
+        if maintenance_options and not isinstance(maintenance_options, list):
+            raise TypeError("Expected argument 'maintenance_options' to be a list")
+        pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options and not isinstance(metadata_options, list):
             raise TypeError("Expected argument 'metadata_options' to be a list")
         pulumi.set(__self__, "metadata_options", metadata_options)
@@ -256,6 +259,11 @@ class GetLaunchTemplateResult:
         return pulumi.get(self, "license_specifications")
 
     @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Sequence['outputs.GetLaunchTemplateMaintenanceOptionResult']:
+        return pulumi.get(self, "maintenance_options")
+
+    @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Sequence['outputs.GetLaunchTemplateMetadataOptionResult']:
         return pulumi.get(self, "metadata_options")
@@ -346,6 +354,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             key_name=self.key_name,
             latest_version=self.latest_version,
             license_specifications=self.license_specifications,
+            maintenance_options=self.maintenance_options,
             metadata_options=self.metadata_options,
             monitorings=self.monitorings,
             name=self.name,
@@ -430,6 +439,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
         key_name=__ret__.key_name,
         latest_version=__ret__.latest_version,
         license_specifications=__ret__.license_specifications,
+        maintenance_options=__ret__.maintenance_options,
         metadata_options=__ret__.metadata_options,
         monitorings=__ret__.monitorings,
         name=__ret__.name,

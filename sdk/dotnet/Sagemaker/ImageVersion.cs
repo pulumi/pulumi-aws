@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Image Version resource.
+    /// Provides a SageMaker Image Version resource.
     /// 
     /// ## Example Usage
     /// ### Basic usage
@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Image Versions can be imported using the `name`, e.g.,
+    /// SageMaker Image Versions can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo

@@ -116,24 +116,25 @@ class EncryptionConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_caller_identity()
         example_key = aws.kms.Key("exampleKey",
             description="Some Key",
             deletion_window_in_days=7,
-            policy=\"\"\"{
+            policy=f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "kms-tf-1",
           "Statement": [
-            {
+            {{
               "Sid": "Enable IAM User Permissions",
               "Effect": "Allow",
-              "Principal": {
-                "AWS": "*"
-              },
+              "Principal": {{
+                "AWS": "arn:aws:iam::{current.account_id}:root"
+              }},
               "Action": "kms:*",
               "Resource": "*"
-            }
+            }}
           ]
-        }
+        }}
         \"\"\")
         example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
             type="KMS",
@@ -178,24 +179,25 @@ class EncryptionConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
+        current = aws.get_caller_identity()
         example_key = aws.kms.Key("exampleKey",
             description="Some Key",
             deletion_window_in_days=7,
-            policy=\"\"\"{
+            policy=f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "kms-tf-1",
           "Statement": [
-            {
+            {{
               "Sid": "Enable IAM User Permissions",
               "Effect": "Allow",
-              "Principal": {
-                "AWS": "*"
-              },
+              "Principal": {{
+                "AWS": "arn:aws:iam::{current.account_id}:root"
+              }},
               "Action": "kms:*",
               "Resource": "*"
-            }
+            }}
           ]
-        }
+        }}
         \"\"\")
         example_encryption_config = aws.xray.EncryptionConfig("exampleEncryptionConfig",
             type="KMS",

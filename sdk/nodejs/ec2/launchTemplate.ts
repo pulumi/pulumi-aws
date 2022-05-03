@@ -213,6 +213,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly licenseSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateLicenseSpecification[] | undefined>;
     /**
+     * The maintenance options for the instance. See Maintenance Options below for more details.
+     */
+    public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.LaunchTemplateMaintenanceOptions | undefined>;
+    /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */
     public readonly metadataOptions!: pulumi.Output<outputs.ec2.LaunchTemplateMetadataOptions>;
@@ -307,6 +311,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["keyName"] = state ? state.keyName : undefined;
             resourceInputs["latestVersion"] = state ? state.latestVersion : undefined;
             resourceInputs["licenseSpecifications"] = state ? state.licenseSpecifications : undefined;
+            resourceInputs["maintenanceOptions"] = state ? state.maintenanceOptions : undefined;
             resourceInputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             resourceInputs["monitoring"] = state ? state.monitoring : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -344,6 +349,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["kernelId"] = args ? args.kernelId : undefined;
             resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["licenseSpecifications"] = args ? args.licenseSpecifications : undefined;
+            resourceInputs["maintenanceOptions"] = args ? args.maintenanceOptions : undefined;
             resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             resourceInputs["monitoring"] = args ? args.monitoring : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -466,6 +472,10 @@ export interface LaunchTemplateState {
      * A list of license specifications to associate with. See License Specification below for more details.
      */
     licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    /**
+     * The maintenance options for the instance. See Maintenance Options below for more details.
+     */
+    maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptions>;
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */
@@ -618,6 +628,10 @@ export interface LaunchTemplateArgs {
      * A list of license specifications to associate with. See License Specification below for more details.
      */
     licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    /**
+     * The maintenance options for the instance. See Maintenance Options below for more details.
+     */
+    maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptions>;
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */

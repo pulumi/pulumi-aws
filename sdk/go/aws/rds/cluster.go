@@ -291,6 +291,8 @@ type Cluster struct {
 	S3Import             ClusterS3ImportPtrOutput             `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration ClusterScalingConfigurationPtrOutput `pulumi:"scalingConfiguration"`
+	// Nested attribute with scaling properties. More details below.
+	Serverlessv2ScalingConfiguration ClusterServerlessv2ScalingConfigurationPtrOutput `pulumi:"serverlessv2ScalingConfiguration"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrOutput `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -424,6 +426,8 @@ type clusterState struct {
 	S3Import             *ClusterS3Import             `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration *ClusterScalingConfiguration `pulumi:"scalingConfiguration"`
+	// Nested attribute with scaling properties. More details below.
+	Serverlessv2ScalingConfiguration *ClusterServerlessv2ScalingConfiguration `pulumi:"serverlessv2ScalingConfiguration"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -529,6 +533,8 @@ type ClusterState struct {
 	S3Import             ClusterS3ImportPtrInput
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration ClusterScalingConfigurationPtrInput
+	// Nested attribute with scaling properties. More details below.
+	Serverlessv2ScalingConfiguration ClusterServerlessv2ScalingConfigurationPtrInput
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -625,6 +631,8 @@ type clusterArgs struct {
 	S3Import             *ClusterS3Import             `pulumi:"s3Import"`
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration *ClusterScalingConfiguration `pulumi:"scalingConfiguration"`
+	// Nested attribute with scaling properties. More details below.
+	Serverlessv2ScalingConfiguration *ClusterServerlessv2ScalingConfiguration `pulumi:"serverlessv2ScalingConfiguration"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -716,6 +724,8 @@ type ClusterArgs struct {
 	S3Import             ClusterS3ImportPtrInput
 	// Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 	ScalingConfiguration ClusterScalingConfigurationPtrInput
+	// Nested attribute with scaling properties. More details below.
+	Serverlessv2ScalingConfiguration ClusterServerlessv2ScalingConfigurationPtrInput
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput
 	// Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -1032,6 +1042,13 @@ func (o ClusterOutput) S3Import() ClusterS3ImportPtrOutput {
 // Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
 func (o ClusterOutput) ScalingConfiguration() ClusterScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterScalingConfigurationPtrOutput { return v.ScalingConfiguration }).(ClusterScalingConfigurationPtrOutput)
+}
+
+// Nested attribute with scaling properties. More details below.
+func (o ClusterOutput) Serverlessv2ScalingConfiguration() ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterServerlessv2ScalingConfigurationPtrOutput {
+		return v.Serverlessv2ScalingConfiguration
+	}).(ClusterServerlessv2ScalingConfigurationPtrOutput)
 }
 
 // Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.

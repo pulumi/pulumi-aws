@@ -18,6 +18,8 @@ allowedAccountIds: Optional[str]
 
 assumeRole: Optional[str]
 
+assumeRoleWithWebIdentity: Optional[str]
+
 customCaBundle: Optional[str]
 """
 File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
@@ -121,7 +123,7 @@ skipGetEc2Platforms: bool
 Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
 """
 
-skipMetadataApiCheck: bool
+skipMetadataApiCheck: str
 """
 Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
 """

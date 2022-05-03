@@ -77,6 +77,7 @@ const (
 	codepipelineMod             = "CodePipeline"             // Code Pipeline
 	codestarConnectionsMod      = "CodeStarConnections"      // CodeStar Connections
 	codestarNotificationsMod    = "CodeStarNotifications"    // CodeStar Notifications
+	costExplorerMod             = "CostExplorer"             // Cost Explorer
 	cognitoMod                  = "Cognito"                  // Cognito
 	connectMod                  = "Connect"                  // Connect
 	curMod                      = "Cur"                      // Cost and Usage Report
@@ -330,7 +331,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"skip_metadata_api_check": {
 				Default: &tfbridge.DefaultInfo{
-					Value: true,
+					Value: "",
 				},
 			},
 		},
@@ -615,6 +616,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_appautoscaling_target": {Tok: awsResource(appautoscalingMod, "Target")},
+
 			// Athena
 			"aws_athena_database": {
 				Tok: awsResource(athenaMod, "Database"),
@@ -628,8 +630,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_athena_named_query": {Tok: awsResource(athenaMod, "NamedQuery")},
-			"aws_athena_workgroup":   {Tok: awsResource(athenaMod, "Workgroup")},
+			"aws_athena_named_query":  {Tok: awsResource(athenaMod, "NamedQuery")},
+			"aws_athena_workgroup":    {Tok: awsResource(athenaMod, "Workgroup")},
+			"aws_athena_data_catalog": {Tok: awsResource(athenaMod, "DataCatalog")},
+
 			// Auto Scaling
 			"aws_autoscaling_attachment": {Tok: awsResource(autoscalingMod, "Attachment")},
 			"aws_autoscaling_group": {
@@ -948,6 +952,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_config_conformance_pack":              {Tok: awsResource(cfgMod, "ConformancePack")},
 			"aws_config_organization_conformance_pack": {Tok: awsResource(cfgMod, "OrganizationConformancePack")},
 
+			// Cost Explorer
+			"aws_ce_cost_category": {Tok: awsResource(costExplorerMod, "CostCategory")},
+
 			// Cost and Usage Report
 			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
 
@@ -1049,7 +1056,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_docdb_global_cluster": {Tok: awsResource(docdbMod, "GlobalCluster")},
+			"aws_docdb_global_cluster":     {Tok: awsResource(docdbMod, "GlobalCluster")},
+			"aws_docdb_event_subscription": {Tok: awsResource(docdbMod, "EventSubscription")},
+
 			// Direct Connect
 			"aws_dx_bgp_peer":                         {Tok: awsResource(dxMod, "BgpPeer")},
 			"aws_dx_connection":                       {Tok: awsResource(dxMod, "Connection")},
@@ -1479,15 +1488,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecr_pull_through_cache_rule": {Tok: awsResource(ecrMod, "PullThroughCacheRule")},
 			"aws_ecr_registry_scanning_configuration": {
 				Tok: awsResource(ecrMod, "RegistryScanningConfiguration"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"policy": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:      "string",
-							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-							Transform: tfbridge.TransformJSONDocument,
-						},
-					},
-				},
 			},
 			// ecr public
 			"aws_ecrpublic_repository":        {Tok: awsResource(ecrPublicMod, "Repository")},
@@ -4323,6 +4323,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_connect_quick_connect":               {Tok: awsDataSource(connectMod, "getQuickConnect")},
 			"aws_connect_queue":                       {Tok: awsDataSource(connectMod, "getQueue")},
 
+			// Cost Explorer
+			"aws_ce_cost_category": {Tok: awsDataSource(costExplorerMod, "getCostCategory")},
+			"aws_ce_tags":          {Tok: awsDataSource(costExplorerMod, "Tags")},
+
 			// Datapipeline
 			"aws_datapipeline_pipeline":            {Tok: awsDataSource(datapipelineMod, "getPipeline")},
 			"aws_datapipeline_pipeline_definition": {Tok: awsDataSource(datapipelineMod, "getPipelineDefinition")},
@@ -4549,6 +4553,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_memorydb_snapshot":        {Tok: awsDataSource(memoryDbMod, "getSnapshot")},
 			"aws_memorydb_subnet_group":    {Tok: awsDataSource(memoryDbMod, "getSubnetGroup")},
 			"aws_memorydb_user":            {Tok: awsDataSource(memoryDbMod, "getUser")},
+
 			// MQ
 			"aws_mq_broker": {
 				Tok: awsDataSource(mqMod, "getBroker"),
@@ -4571,6 +4576,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_mq_broker_instance_type_offerings": {Tok: awsDataSource(memoryDbMod, "getBrokerInstanceTypeOfferings")},
+
 			// IAM
 			"aws_iam_account_alias":           {Tok: awsDataSource(iamMod, "getAccountAlias")},
 			"aws_iam_group":                   {Tok: awsDataSource(iamMod, "getGroup")},
@@ -4707,9 +4714,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_log_delivery_canonical_user_id": {
 				Tok: awsDataSource(cloudfrontMod, "getLogDeliveryCanonicalUserId"),
 			},
-			"aws_cloudfront_response_headers_policy": {Tok: awsDataSource(cloudfrontMod, "getResponseHeadersPolicy")},
-			"aws_cloudfront_origin_access_identity":  {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentity")},
-			"aws_cloudfront_realtime_log_config":     {Tok: awsDataSource(cloudfrontMod, "getRealtimeLogConfig")},
+			"aws_cloudfront_response_headers_policy":  {Tok: awsDataSource(cloudfrontMod, "getResponseHeadersPolicy")},
+			"aws_cloudfront_origin_access_identity":   {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentity")},
+			"aws_cloudfront_realtime_log_config":      {Tok: awsDataSource(cloudfrontMod, "getRealtimeLogConfig")},
+			"aws_cloudfront_origin_access_identities": {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentities")},
 
 			// Backup
 			"aws_backup_plan":        {Tok: awsDataSource(backupMod, "getPlan")},

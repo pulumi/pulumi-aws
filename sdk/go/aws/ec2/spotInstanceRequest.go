@@ -119,6 +119,8 @@ type SpotInstanceRequest struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions SpotInstanceRequestMaintenanceOptionsOutput `pulumi:"maintenanceOptions"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions SpotInstanceRequestMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -280,6 +282,8 @@ type spotInstanceRequestState struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate *SpotInstanceRequestLaunchTemplate `pulumi:"launchTemplate"`
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions *SpotInstanceRequestMaintenanceOptions `pulumi:"maintenanceOptions"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *SpotInstanceRequestMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -413,6 +417,8 @@ type SpotInstanceRequestState struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrInput
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions SpotInstanceRequestMaintenanceOptionsPtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions SpotInstanceRequestMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -548,6 +554,8 @@ type spotInstanceRequestArgs struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate *SpotInstanceRequestLaunchTemplate `pulumi:"launchTemplate"`
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions *SpotInstanceRequestMaintenanceOptions `pulumi:"maintenanceOptions"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *SpotInstanceRequestMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -655,6 +663,8 @@ type SpotInstanceRequestArgs struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate SpotInstanceRequestLaunchTemplatePtrInput
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions SpotInstanceRequestMaintenanceOptionsPtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions SpotInstanceRequestMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -934,6 +944,11 @@ func (o SpotInstanceRequestOutput) LaunchGroup() pulumi.StringPtrOutput {
 // See Launch Template Specification below for more details.
 func (o SpotInstanceRequestOutput) LaunchTemplate() SpotInstanceRequestLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestLaunchTemplatePtrOutput { return v.LaunchTemplate }).(SpotInstanceRequestLaunchTemplatePtrOutput)
+}
+
+// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+func (o SpotInstanceRequestOutput) MaintenanceOptions() SpotInstanceRequestMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestMaintenanceOptionsOutput { return v.MaintenanceOptions }).(SpotInstanceRequestMaintenanceOptionsOutput)
 }
 
 // Customize the metadata options of the instance. See Metadata Options below for more details.

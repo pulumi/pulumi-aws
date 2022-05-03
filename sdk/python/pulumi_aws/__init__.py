@@ -113,6 +113,8 @@ if typing.TYPE_CHECKING:
     config = __config
     import pulumi_aws.connect as __connect
     connect = __connect
+    import pulumi_aws.costexplorer as __costexplorer
+    costexplorer = __costexplorer
     import pulumi_aws.cur as __cur
     cur = __cur
     import pulumi_aws.dataexchange as __dataexchange
@@ -384,6 +386,7 @@ else:
     cognito = _utilities.lazy_import('pulumi_aws.cognito')
     config = _utilities.lazy_import('pulumi_aws.config')
     connect = _utilities.lazy_import('pulumi_aws.connect')
+    costexplorer = _utilities.lazy_import('pulumi_aws.costexplorer')
     cur = _utilities.lazy_import('pulumi_aws.cur')
     dataexchange = _utilities.lazy_import('pulumi_aws.dataexchange')
     datapipeline = _utilities.lazy_import('pulumi_aws.datapipeline')
@@ -1292,6 +1295,14 @@ _utilities.register(
   "fqn": "pulumi_aws.appsync",
   "classes": {
    "aws:appsync/resolver:Resolver": "Resolver"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "athena/dataCatalog",
+  "fqn": "pulumi_aws.athena",
+  "classes": {
+   "aws:athena/dataCatalog:DataCatalog": "DataCatalog"
   }
  },
  {
@@ -2368,6 +2379,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "costexplorer/costCategory",
+  "fqn": "pulumi_aws.costexplorer",
+  "classes": {
+   "aws:costexplorer/costCategory:CostCategory": "CostCategory"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cur/reportDefinition",
   "fqn": "pulumi_aws.cur",
   "classes": {
@@ -2836,6 +2855,14 @@ _utilities.register(
   "fqn": "pulumi_aws.docdb",
   "classes": {
    "aws:docdb/clusterSnapshot:ClusterSnapshot": "ClusterSnapshot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "docdb/eventSubscription",
+  "fqn": "pulumi_aws.docdb",
+  "classes": {
+   "aws:docdb/eventSubscription:EventSubscription": "EventSubscription"
   }
  },
  {

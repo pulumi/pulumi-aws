@@ -1828,7 +1828,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
                  type: str,
                  parameters: Optional[Sequence['outputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter']] = None):
         """
-        :param str type: The type of processor. Valid Values: `Lambda`
+        :param str type: The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param Sequence['FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs'] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
@@ -1839,7 +1839,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of processor. Valid Values: `Lambda`
+        The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "type")
 
@@ -1877,7 +1877,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
                  parameter_name: str,
                  parameter_value: str):
         """
-        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
@@ -1887,7 +1887,7 @@ class FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationPro
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
         """
-        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "parameter_name")
 
@@ -3010,7 +3010,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
                  type: str,
                  parameters: Optional[Sequence['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter']] = None):
         """
-        :param str type: The type of processor. Valid Values: `Lambda`
+        :param str type: The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param Sequence['FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs'] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
@@ -3021,7 +3021,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of processor. Valid Values: `Lambda`
+        The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "type")
 
@@ -3059,7 +3059,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
                  parameter_name: str,
                  parameter_value: str):
         """
-        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
@@ -3069,7 +3069,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProces
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
         """
-        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "parameter_name")
 
@@ -3562,7 +3562,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
                  type: str,
                  parameters: Optional[Sequence['outputs.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter']] = None):
         """
-        :param str type: The type of processor. Valid Values: `Lambda`
+        :param str type: The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param Sequence['FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs'] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
@@ -3573,7 +3573,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of processor. Valid Values: `Lambda`
+        The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "type")
 
@@ -3611,7 +3611,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
                  parameter_name: str,
                  parameter_value: str):
         """
-        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
@@ -3621,7 +3621,7 @@ class FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProc
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
         """
-        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "parameter_name")
 
@@ -4041,7 +4041,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
                  type: str,
                  parameters: Optional[Sequence['outputs.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter']] = None):
         """
-        :param str type: The type of processor. Valid Values: `Lambda`
+        :param str type: The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param Sequence['FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs'] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
@@ -4052,7 +4052,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of processor. Valid Values: `Lambda`
+        The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "type")
 
@@ -4090,7 +4090,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
                  parameter_name: str,
                  parameter_value: str):
         """
-        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
@@ -4100,7 +4100,7 @@ class FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcesso
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
         """
-        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "parameter_name")
 
@@ -4826,7 +4826,7 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor(
                  type: str,
                  parameters: Optional[Sequence['outputs.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter']] = None):
         """
-        :param str type: The type of processor. Valid Values: `Lambda`
+        :param str type: The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param Sequence['FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs'] parameters: Array of processor parameters. More details are given below
         """
         pulumi.set(__self__, "type", type)
@@ -4837,7 +4837,7 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor(
     @pulumi.getter
     def type(self) -> str:
         """
-        The type of processor. Valid Values: `Lambda`
+        The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "type")
 
@@ -4875,7 +4875,7 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
                  parameter_name: str,
                  parameter_value: str):
         """
-        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        :param str parameter_name: Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         :param str parameter_value: Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         """
         pulumi.set(__self__, "parameter_name", parameter_name)
@@ -4885,7 +4885,7 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
     @pulumi.getter(name="parameterName")
     def parameter_name(self) -> str:
         """
-        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+        Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
         """
         return pulumi.get(self, "parameter_name")
 

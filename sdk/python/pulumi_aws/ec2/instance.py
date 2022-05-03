@@ -38,6 +38,7 @@ class InstanceArgs:
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['InstanceLaunchTemplateArgs']] = None,
+                 maintenance_options: Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['InstanceMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
@@ -81,6 +82,7 @@ class InstanceArgs:
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input['InstanceLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
                See Launch Template Specification below for more details.
+        :param pulumi.Input['InstanceMaintenanceOptionsArgs'] maintenance_options: The maintenance and recovery options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -144,6 +146,8 @@ class InstanceArgs:
             pulumi.set(__self__, "key_name", key_name)
         if launch_template is not None:
             pulumi.set(__self__, "launch_template", launch_template)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -450,6 +454,18 @@ class InstanceArgs:
         pulumi.set(self, "launch_template", value)
 
     @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']]:
+        """
+        The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
+
+    @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['InstanceMetadataOptionsArgs']]:
         """
@@ -693,6 +709,7 @@ class _InstanceState:
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['InstanceLaunchTemplateArgs']] = None,
+                 maintenance_options: Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['InstanceMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
@@ -745,6 +762,7 @@ class _InstanceState:
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input['InstanceLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
                See Launch Template Specification below for more details.
+        :param pulumi.Input['InstanceMaintenanceOptionsArgs'] maintenance_options: The maintenance and recovery options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['InstanceMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -819,6 +837,8 @@ class _InstanceState:
             pulumi.set(__self__, "key_name", key_name)
         if launch_template is not None:
             pulumi.set(__self__, "launch_template", launch_template)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -1163,6 +1183,18 @@ class _InstanceState:
         pulumi.set(self, "launch_template", value)
 
     @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']]:
+        """
+        The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['InstanceMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
+
+    @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['InstanceMetadataOptionsArgs']]:
         """
@@ -1490,6 +1522,7 @@ class Instance(pulumi.CustomResource):
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']]] = None,
+                 maintenance_options: Optional[pulumi.Input[pulumi.InputType['InstanceMaintenanceOptionsArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
@@ -1607,6 +1640,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
                See Launch Template Specification below for more details.
+        :param pulumi.Input[pulumi.InputType['InstanceMaintenanceOptionsArgs']] maintenance_options: The maintenance and recovery options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -1742,6 +1776,7 @@ class Instance(pulumi.CustomResource):
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']]] = None,
+                 maintenance_options: Optional[pulumi.Input[pulumi.InputType['InstanceMaintenanceOptionsArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
@@ -1794,6 +1829,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["ipv6_addresses"] = ipv6_addresses
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["launch_template"] = launch_template
+            __props__.__dict__["maintenance_options"] = maintenance_options
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
@@ -1858,6 +1894,7 @@ class Instance(pulumi.CustomResource):
             ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             launch_template: Optional[pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']]] = None,
+            maintenance_options: Optional[pulumi.Input[pulumi.InputType['InstanceMaintenanceOptionsArgs']]] = None,
             metadata_options: Optional[pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']]] = None,
             monitoring: Optional[pulumi.Input[bool]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
@@ -1915,6 +1952,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: Key name of the Key Pair to use for the instance; which can be managed using the `ec2.KeyPair` resource.
         :param pulumi.Input[pulumi.InputType['InstanceLaunchTemplateArgs']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
                See Launch Template Specification below for more details.
+        :param pulumi.Input[pulumi.InputType['InstanceMaintenanceOptionsArgs']] maintenance_options: The maintenance and recovery options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['InstanceMetadataOptionsArgs']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -1969,6 +2007,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["ipv6_addresses"] = ipv6_addresses
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["launch_template"] = launch_template
+        __props__.__dict__["maintenance_options"] = maintenance_options
         __props__.__dict__["metadata_options"] = metadata_options
         __props__.__dict__["monitoring"] = monitoring
         __props__.__dict__["network_interfaces"] = network_interfaces
@@ -2188,6 +2227,14 @@ class Instance(pulumi.CustomResource):
         See Launch Template Specification below for more details.
         """
         return pulumi.get(self, "launch_template")
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> pulumi.Output['outputs.InstanceMaintenanceOptions']:
+        """
+        The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
 
     @property
     @pulumi.getter(name="metadataOptions")

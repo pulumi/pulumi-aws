@@ -37,6 +37,14 @@ Object.defineProperty(exports, "assumeRole", {
     enumerable: true,
 });
 
+export declare const assumeRoleWithWebIdentity: outputs.config.AssumeRoleWithWebIdentity | undefined;
+Object.defineProperty(exports, "assumeRoleWithWebIdentity", {
+    get() {
+        return __config.getObject<outputs.config.AssumeRoleWithWebIdentity>("assumeRoleWithWebIdentity");
+    },
+    enumerable: true,
+});
+
 /**
  * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
  * variable. (Setting `ca_bundle` in the shared config file is not supported.)
@@ -263,10 +271,10 @@ Object.defineProperty(exports, "skipGetEc2Platforms", {
 /**
  * Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
  */
-export declare const skipMetadataApiCheck: boolean;
+export declare const skipMetadataApiCheck: string;
 Object.defineProperty(exports, "skipMetadataApiCheck", {
     get() {
-        return __config.getObject<boolean>("skipMetadataApiCheck") ?? true;
+        return __config.get("skipMetadataApiCheck") ?? "";
     },
     enumerable: true,
 });

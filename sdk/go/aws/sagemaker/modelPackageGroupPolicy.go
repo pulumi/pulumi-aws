@@ -11,13 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Sagemaker Model Package Group Policy resource.
+// Provides a SageMaker Model Package Group Policy resource.
 //
 // ## Example Usage
 //
 // ## Import
 //
-// Sagemaker Code Model Package Groups can be imported using the `name`, e.g.,
+// SageMaker Code Model Package Groups can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example

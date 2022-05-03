@@ -77,6 +77,12 @@ namespace Pulumi.Aws
         public Output<string?> SharedCredentialsFile { get; private set; } = null!;
 
         /// <summary>
+        /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+        /// </summary>
+        [Output("skipMetadataApiCheck")]
+        public Output<string?> SkipMetadataApiCheck { get; private set; } = null!;
+
+        /// <summary>
         /// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
         /// </summary>
         [Output("stsRegion")]
@@ -132,6 +138,9 @@ namespace Pulumi.Aws
 
         [Input("assumeRole", json: true)]
         public Input<Inputs.ProviderAssumeRoleArgs>? AssumeRole { get; set; }
+
+        [Input("assumeRoleWithWebIdentity", json: true)]
+        public Input<Inputs.ProviderAssumeRoleWithWebIdentityArgs>? AssumeRoleWithWebIdentity { get; set; }
 
         /// <summary>
         /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
@@ -281,8 +290,8 @@ namespace Pulumi.Aws
         /// <summary>
         /// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         /// </summary>
-        [Input("skipMetadataApiCheck", json: true)]
-        public Input<bool>? SkipMetadataApiCheck { get; set; }
+        [Input("skipMetadataApiCheck")]
+        public Input<string>? SkipMetadataApiCheck { get; set; }
 
         /// <summary>
         /// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
@@ -326,7 +335,7 @@ namespace Pulumi.Aws
             Region = Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");
             SkipCredentialsValidation = true;
             SkipGetEc2Platforms = true;
-            SkipMetadataApiCheck = true;
+            SkipMetadataApiCheck = "";
             SkipRegionValidation = true;
         }
     }

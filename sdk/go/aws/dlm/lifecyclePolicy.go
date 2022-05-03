@@ -89,6 +89,7 @@ import (
 // import (
 // 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/dlm"
 // 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -96,9 +97,13 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		dlmCrossRegionCopyCmk, err := kms.NewKey(ctx, "dlmCrossRegionCopyCmk", &kms.KeyArgs{
 // 			Description: pulumi.String("Example Alternate Region KMS Key"),
-// 			Policy:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Id\": \"dlm-cross-region-copy-cmk\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"Enable IAM User Permissions\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"*\"\n", "      },\n", "      \"Action\": \"kms:*\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Id\": \"dlm-cross-region-copy-cmk\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"Enable IAM User Permissions\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"arn:aws:iam::", current.AccountId, ":root\"\n", "      },\n", "      \"Action\": \"kms:*\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
 // 		}, pulumi.Provider(aws.Alternate))
 // 		if err != nil {
 // 			return err

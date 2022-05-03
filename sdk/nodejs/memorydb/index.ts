@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./acl";
 export * from "./cluster";
 export * from "./getAcl";
+export * from "./getBrokerInstanceTypeOfferings";
 export * from "./getCluster";
 export * from "./getParameterGroup";
 export * from "./getSnapshot";

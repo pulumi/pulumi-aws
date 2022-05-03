@@ -114,7 +114,7 @@ export interface GetInstanceResult {
      */
     readonly ebsOptimized: boolean;
     /**
-     * The enclave options of the Instance.
+     * The enclave options of the instance.
      */
     readonly enclaveOptions: outputs.ec2.GetInstanceEnclaveOption[];
     /**
@@ -154,6 +154,10 @@ export interface GetInstanceResult {
      * The key name of the Instance.
      */
     readonly keyName: string;
+    /**
+     * The maintenance and recovery options for the instance.
+     */
+    readonly maintenanceOptions: outputs.ec2.GetInstanceMaintenanceOption[];
     /**
      * The metadata options of the Instance.
      */

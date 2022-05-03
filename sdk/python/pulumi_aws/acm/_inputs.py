@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'CertificateDomainValidationOptionArgs',
     'CertificateOptionsArgs',
+    'CertificateValidationOptionArgs',
 ]
 
 @pulumi.input_type
@@ -21,7 +22,7 @@ class CertificateDomainValidationOptionArgs:
                  resource_record_type: Optional[pulumi.Input[str]] = None,
                  resource_record_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
+        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[str] resource_record_name: The name of the DNS record to create to validate the certificate
         :param pulumi.Input[str] resource_record_type: The type of DNS record to create
         :param pulumi.Input[str] resource_record_value: The value the DNS record needs to have
@@ -39,7 +40,7 @@ class CertificateDomainValidationOptionArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A domain name for which the certificate should be issued
+        A fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -105,5 +106,42 @@ class CertificateOptionsArgs:
     @certificate_transparency_logging_preference.setter
     def certificate_transparency_logging_preference(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_transparency_logging_preference", value)
+
+
+@pulumi.input_type
+class CertificateValidationOptionArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 validation_domain: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
+        :param pulumi.Input[str] validation_domain: The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "validation_domain", validation_domain)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        """
+        A fully qualified domain name (FQDN) in the certificate.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="validationDomain")
+    def validation_domain(self) -> pulumi.Input[str]:
+        """
+        The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+        """
+        return pulumi.get(self, "validation_domain")
+
+    @validation_domain.setter
+    def validation_domain(self, value: pulumi.Input[str]):
+        pulumi.set(self, "validation_domain", value)
 
 

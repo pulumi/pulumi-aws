@@ -507,6 +507,8 @@ type Cluster struct {
 	KeepJobFlowAliveWhenNoSteps pulumi.BoolOutput `pulumi:"keepJobFlowAliveWhenNoSteps"`
 	// Kerberos configuration for the cluster. See below.
 	KerberosAttributes ClusterKerberosAttributesPtrOutput `pulumi:"kerberosAttributes"`
+	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+	ListStepsStates pulumi.StringArrayOutput `pulumi:"listStepsStates"`
 	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId pulumi.StringPtrOutput `pulumi:"logEncryptionKmsKeyId"`
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
@@ -527,8 +529,6 @@ type Cluster struct {
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
-	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-	StepConcurrencyLevel pulumi.IntPtrOutput `pulumi:"stepConcurrencyLevel"`
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayOutput `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -605,6 +605,8 @@ type clusterState struct {
 	KeepJobFlowAliveWhenNoSteps *bool `pulumi:"keepJobFlowAliveWhenNoSteps"`
 	// Kerberos configuration for the cluster. See below.
 	KerberosAttributes *ClusterKerberosAttributes `pulumi:"kerberosAttributes"`
+	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+	ListStepsStates []string `pulumi:"listStepsStates"`
 	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId *string `pulumi:"logEncryptionKmsKeyId"`
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
@@ -625,8 +627,6 @@ type clusterState struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole *string `pulumi:"serviceRole"`
-	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-	StepConcurrencyLevel *int `pulumi:"stepConcurrencyLevel"`
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps []ClusterStep `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -669,6 +669,8 @@ type ClusterState struct {
 	KeepJobFlowAliveWhenNoSteps pulumi.BoolPtrInput
 	// Kerberos configuration for the cluster. See below.
 	KerberosAttributes ClusterKerberosAttributesPtrInput
+	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+	ListStepsStates pulumi.StringArrayInput
 	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId pulumi.StringPtrInput
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
@@ -689,8 +691,6 @@ type ClusterState struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole pulumi.StringPtrInput
-	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-	StepConcurrencyLevel pulumi.IntPtrInput
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayInput
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -735,6 +735,8 @@ type clusterArgs struct {
 	KeepJobFlowAliveWhenNoSteps *bool `pulumi:"keepJobFlowAliveWhenNoSteps"`
 	// Kerberos configuration for the cluster. See below.
 	KerberosAttributes *ClusterKerberosAttributes `pulumi:"kerberosAttributes"`
+	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+	ListStepsStates []string `pulumi:"listStepsStates"`
 	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId *string `pulumi:"logEncryptionKmsKeyId"`
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
@@ -753,8 +755,6 @@ type clusterArgs struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole string `pulumi:"serviceRole"`
-	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-	StepConcurrencyLevel *int `pulumi:"stepConcurrencyLevel"`
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps []ClusterStep `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -794,6 +794,8 @@ type ClusterArgs struct {
 	KeepJobFlowAliveWhenNoSteps pulumi.BoolPtrInput
 	// Kerberos configuration for the cluster. See below.
 	KerberosAttributes ClusterKerberosAttributesPtrInput
+	// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+	ListStepsStates pulumi.StringArrayInput
 	// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 	LogEncryptionKmsKeyId pulumi.StringPtrInput
 	// S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
@@ -812,8 +814,6 @@ type ClusterArgs struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole pulumi.StringInput
-	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-	StepConcurrencyLevel pulumi.IntPtrInput
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayInput
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -988,6 +988,11 @@ func (o ClusterOutput) KerberosAttributes() ClusterKerberosAttributesPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterKerberosAttributesPtrOutput { return v.KerberosAttributes }).(ClusterKerberosAttributesPtrOutput)
 }
 
+// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+func (o ClusterOutput) ListStepsStates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.ListStepsStates }).(pulumi.StringArrayOutput)
+}
+
 // AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
 func (o ClusterOutput) LogEncryptionKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.LogEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
@@ -1036,11 +1041,6 @@ func (o ClusterOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 // IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 func (o ClusterOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
-}
-
-// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-func (o ClusterOutput) StepConcurrencyLevel() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.StepConcurrencyLevel }).(pulumi.IntPtrOutput)
 }
 
 // List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.

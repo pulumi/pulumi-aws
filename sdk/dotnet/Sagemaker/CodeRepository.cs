@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Code Repository resource.
+    /// Provides a SageMaker Code Repository resource.
     /// 
     /// ## Example Usage
     /// ### Basic usage
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Code Repositories can be imported using the `name`, e.g.,
+    /// SageMaker Code Repositories can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo

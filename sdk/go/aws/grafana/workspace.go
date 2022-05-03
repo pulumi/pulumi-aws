@@ -107,6 +107,10 @@ type Workspace struct {
 	SamlConfigurationStatus pulumi.StringOutput    `pulumi:"samlConfigurationStatus"`
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName pulumi.StringPtrOutput `pulumi:"stackSetName"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewWorkspace registers a new resource with the given unique name, arguments, and options.
@@ -176,6 +180,10 @@ type workspaceState struct {
 	SamlConfigurationStatus *string `pulumi:"samlConfigurationStatus"`
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName *string `pulumi:"stackSetName"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type WorkspaceState struct {
@@ -208,6 +216,10 @@ type WorkspaceState struct {
 	SamlConfigurationStatus pulumi.StringPtrInput
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName pulumi.StringPtrInput
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (WorkspaceState) ElementType() reflect.Type {
@@ -237,6 +249,10 @@ type workspaceArgs struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName *string `pulumi:"stackSetName"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Workspace resource.
@@ -263,6 +279,10 @@ type WorkspaceArgs struct {
 	RoleArn pulumi.StringPtrInput
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName pulumi.StringPtrInput
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (WorkspaceArgs) ElementType() reflect.Type {
@@ -424,6 +444,16 @@ func (o WorkspaceOutput) SamlConfigurationStatus() pulumi.StringOutput {
 // The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 func (o WorkspaceOutput) StackSetName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.StackSetName }).(pulumi.StringPtrOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+func (o WorkspaceOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+func (o WorkspaceOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type WorkspaceArrayOutput struct{ *pulumi.OutputState }

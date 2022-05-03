@@ -40,6 +40,7 @@ class SpotInstanceRequestArgs:
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_group: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']] = None,
+                 maintenance_options: Optional[pulumi.Input['SpotInstanceRequestMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['SpotInstanceRequestMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]] = None,
@@ -94,6 +95,7 @@ class SpotInstanceRequestArgs:
                If left empty instances are launched and terminated individually.
         :param pulumi.Input['SpotInstanceRequestLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
                See Launch Template Specification below for more details.
+        :param pulumi.Input['SpotInstanceRequestMaintenanceOptionsArgs'] maintenance_options: The maintenance and recovery options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['SpotInstanceRequestMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -171,6 +173,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "launch_group", launch_group)
         if launch_template is not None:
             pulumi.set(__self__, "launch_template", launch_template)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -523,6 +527,18 @@ class SpotInstanceRequestArgs:
         pulumi.set(self, "launch_template", value)
 
     @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['SpotInstanceRequestMaintenanceOptionsArgs']]:
+        """
+        The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['SpotInstanceRequestMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
+
+    @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['SpotInstanceRequestMetadataOptionsArgs']]:
         """
@@ -832,6 +848,7 @@ class _SpotInstanceRequestState:
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_group: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']] = None,
+                 maintenance_options: Optional[pulumi.Input['SpotInstanceRequestMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['SpotInstanceRequestMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]] = None,
@@ -896,6 +913,7 @@ class _SpotInstanceRequestState:
                If left empty instances are launched and terminated individually.
         :param pulumi.Input['SpotInstanceRequestLaunchTemplateArgs'] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
                See Launch Template Specification below for more details.
+        :param pulumi.Input['SpotInstanceRequestMaintenanceOptionsArgs'] maintenance_options: The maintenance and recovery options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['SpotInstanceRequestMetadataOptionsArgs'] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -992,6 +1010,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "launch_group", launch_group)
         if launch_template is not None:
             pulumi.set(__self__, "launch_template", launch_template)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -1380,6 +1400,18 @@ class _SpotInstanceRequestState:
     @launch_template.setter
     def launch_template(self, value: Optional[pulumi.Input['SpotInstanceRequestLaunchTemplateArgs']]):
         pulumi.set(self, "launch_template", value)
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['SpotInstanceRequestMaintenanceOptionsArgs']]:
+        """
+        The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['SpotInstanceRequestMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -1808,6 +1840,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_group: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']]] = None,
+                 maintenance_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMaintenanceOptionsArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
@@ -1903,6 +1936,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                If left empty instances are launched and terminated individually.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
                See Launch Template Specification below for more details.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestMaintenanceOptionsArgs']] maintenance_options: The maintenance and recovery options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -2016,6 +2050,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  key_name: Optional[pulumi.Input[str]] = None,
                  launch_group: Optional[pulumi.Input[str]] = None,
                  launch_template: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']]] = None,
+                 maintenance_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMaintenanceOptionsArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
@@ -2076,6 +2111,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["launch_group"] = launch_group
             __props__.__dict__["launch_template"] = launch_template
+            __props__.__dict__["maintenance_options"] = maintenance_options
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
@@ -2148,6 +2184,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             key_name: Optional[pulumi.Input[str]] = None,
             launch_group: Optional[pulumi.Input[str]] = None,
             launch_template: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']]] = None,
+            maintenance_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMaintenanceOptionsArgs']]] = None,
             metadata_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']]] = None,
             monitoring: Optional[pulumi.Input[bool]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
@@ -2217,6 +2254,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                If left empty instances are launched and terminated individually.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestLaunchTemplateArgs']] launch_template: Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
                See Launch Template Specification below for more details.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestMaintenanceOptionsArgs']] maintenance_options: The maintenance and recovery options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestMetadataOptionsArgs']] metadata_options: Customize the metadata options of the instance. See Metadata Options below for more details.
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
@@ -2290,6 +2328,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["launch_group"] = launch_group
         __props__.__dict__["launch_template"] = launch_template
+        __props__.__dict__["maintenance_options"] = maintenance_options
         __props__.__dict__["metadata_options"] = metadata_options
         __props__.__dict__["monitoring"] = monitoring
         __props__.__dict__["network_interfaces"] = network_interfaces
@@ -2538,6 +2577,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         See Launch Template Specification below for more details.
         """
         return pulumi.get(self, "launch_template")
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> pulumi.Output['outputs.SpotInstanceRequestMaintenanceOptions']:
+        """
+        The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
 
     @property
     @pulumi.getter(name="metadataOptions")

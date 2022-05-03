@@ -4290,6 +4290,143 @@ func (o InstanceLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type InstanceMaintenanceOptions struct {
+	// The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery *string `pulumi:"autoRecovery"`
+}
+
+// InstanceMaintenanceOptionsInput is an input type that accepts InstanceMaintenanceOptionsArgs and InstanceMaintenanceOptionsOutput values.
+// You can construct a concrete instance of `InstanceMaintenanceOptionsInput` via:
+//
+//          InstanceMaintenanceOptionsArgs{...}
+type InstanceMaintenanceOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceMaintenanceOptionsOutput() InstanceMaintenanceOptionsOutput
+	ToInstanceMaintenanceOptionsOutputWithContext(context.Context) InstanceMaintenanceOptionsOutput
+}
+
+type InstanceMaintenanceOptionsArgs struct {
+	// The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
+}
+
+func (InstanceMaintenanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMaintenanceOptions)(nil)).Elem()
+}
+
+func (i InstanceMaintenanceOptionsArgs) ToInstanceMaintenanceOptionsOutput() InstanceMaintenanceOptionsOutput {
+	return i.ToInstanceMaintenanceOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceMaintenanceOptionsArgs) ToInstanceMaintenanceOptionsOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMaintenanceOptionsOutput)
+}
+
+func (i InstanceMaintenanceOptionsArgs) ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput {
+	return i.ToInstanceMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceMaintenanceOptionsArgs) ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMaintenanceOptionsOutput).ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceMaintenanceOptionsPtrInput is an input type that accepts InstanceMaintenanceOptionsArgs, InstanceMaintenanceOptionsPtr and InstanceMaintenanceOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceMaintenanceOptionsPtrInput` via:
+//
+//          InstanceMaintenanceOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceMaintenanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput
+	ToInstanceMaintenanceOptionsPtrOutputWithContext(context.Context) InstanceMaintenanceOptionsPtrOutput
+}
+
+type instanceMaintenanceOptionsPtrType InstanceMaintenanceOptionsArgs
+
+func InstanceMaintenanceOptionsPtr(v *InstanceMaintenanceOptionsArgs) InstanceMaintenanceOptionsPtrInput {
+	return (*instanceMaintenanceOptionsPtrType)(v)
+}
+
+func (*instanceMaintenanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMaintenanceOptions)(nil)).Elem()
+}
+
+func (i *instanceMaintenanceOptionsPtrType) ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput {
+	return i.ToInstanceMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceMaintenanceOptionsPtrType) ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMaintenanceOptionsPtrOutput)
+}
+
+type InstanceMaintenanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceMaintenanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMaintenanceOptions)(nil)).Elem()
+}
+
+func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsOutput() InstanceMaintenanceOptionsOutput {
+	return o
+}
+
+func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsOutput {
+	return o
+}
+
+func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput {
+	return o.ToInstanceMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceMaintenanceOptions) *InstanceMaintenanceOptions {
+		return &v
+	}).(InstanceMaintenanceOptionsPtrOutput)
+}
+
+// The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o InstanceMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
+}
+
+type InstanceMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMaintenanceOptions)(nil)).Elem()
+}
+
+func (o InstanceMaintenanceOptionsPtrOutput) ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceMaintenanceOptionsPtrOutput) ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceMaintenanceOptionsPtrOutput) Elem() InstanceMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *InstanceMaintenanceOptions) InstanceMaintenanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceMaintenanceOptions
+		return ret
+	}).(InstanceMaintenanceOptionsOutput)
+}
+
+// The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o InstanceMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceMaintenanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRecovery
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceMetadataOptions struct {
 	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
@@ -7712,6 +7849,143 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLicenseSpecification {
 		return vs[0].([]LaunchTemplateLicenseSpecification)[vs[1].(int)]
 	}).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+type LaunchTemplateMaintenanceOptions struct {
+	// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery *string `pulumi:"autoRecovery"`
+}
+
+// LaunchTemplateMaintenanceOptionsInput is an input type that accepts LaunchTemplateMaintenanceOptionsArgs and LaunchTemplateMaintenanceOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateMaintenanceOptionsInput` via:
+//
+//          LaunchTemplateMaintenanceOptionsArgs{...}
+type LaunchTemplateMaintenanceOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput
+	ToLaunchTemplateMaintenanceOptionsOutputWithContext(context.Context) LaunchTemplateMaintenanceOptionsOutput
+}
+
+type LaunchTemplateMaintenanceOptionsArgs struct {
+	// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
+}
+
+func (LaunchTemplateMaintenanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsOutput)
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsOutput).ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMaintenanceOptionsPtrInput is an input type that accepts LaunchTemplateMaintenanceOptionsArgs, LaunchTemplateMaintenanceOptionsPtr and LaunchTemplateMaintenanceOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMaintenanceOptionsPtrInput` via:
+//
+//          LaunchTemplateMaintenanceOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMaintenanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput
+	ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Context) LaunchTemplateMaintenanceOptionsPtrOutput
+}
+
+type launchTemplateMaintenanceOptionsPtrType LaunchTemplateMaintenanceOptionsArgs
+
+func LaunchTemplateMaintenanceOptionsPtr(v *LaunchTemplateMaintenanceOptionsArgs) LaunchTemplateMaintenanceOptionsPtrInput {
+	return (*launchTemplateMaintenanceOptionsPtrType)(v)
+}
+
+func (*launchTemplateMaintenanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateMaintenanceOptionsPtrType) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMaintenanceOptionsPtrType) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsPtrOutput)
+}
+
+type LaunchTemplateMaintenanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMaintenanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMaintenanceOptions) *LaunchTemplateMaintenanceOptions {
+		return &v
+	}).(LaunchTemplateMaintenanceOptionsPtrOutput)
+}
+
+// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o LaunchTemplateMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) Elem() LaunchTemplateMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) LaunchTemplateMaintenanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMaintenanceOptions
+		return ret
+	}).(LaunchTemplateMaintenanceOptionsOutput)
+}
+
+// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRecovery
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateMetadataOptions struct {
@@ -12662,6 +12936,143 @@ func (o SpotInstanceRequestLaunchTemplatePtrOutput) Version() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type SpotInstanceRequestMaintenanceOptions struct {
+	// The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery *string `pulumi:"autoRecovery"`
+}
+
+// SpotInstanceRequestMaintenanceOptionsInput is an input type that accepts SpotInstanceRequestMaintenanceOptionsArgs and SpotInstanceRequestMaintenanceOptionsOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestMaintenanceOptionsInput` via:
+//
+//          SpotInstanceRequestMaintenanceOptionsArgs{...}
+type SpotInstanceRequestMaintenanceOptionsInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestMaintenanceOptionsOutput() SpotInstanceRequestMaintenanceOptionsOutput
+	ToSpotInstanceRequestMaintenanceOptionsOutputWithContext(context.Context) SpotInstanceRequestMaintenanceOptionsOutput
+}
+
+type SpotInstanceRequestMaintenanceOptionsArgs struct {
+	// The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
+}
+
+func (SpotInstanceRequestMaintenanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestMaintenanceOptions)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestMaintenanceOptionsArgs) ToSpotInstanceRequestMaintenanceOptionsOutput() SpotInstanceRequestMaintenanceOptionsOutput {
+	return i.ToSpotInstanceRequestMaintenanceOptionsOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestMaintenanceOptionsArgs) ToSpotInstanceRequestMaintenanceOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMaintenanceOptionsOutput)
+}
+
+func (i SpotInstanceRequestMaintenanceOptionsArgs) ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return i.ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestMaintenanceOptionsArgs) ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMaintenanceOptionsOutput).ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx)
+}
+
+// SpotInstanceRequestMaintenanceOptionsPtrInput is an input type that accepts SpotInstanceRequestMaintenanceOptionsArgs, SpotInstanceRequestMaintenanceOptionsPtr and SpotInstanceRequestMaintenanceOptionsPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestMaintenanceOptionsPtrInput` via:
+//
+//          SpotInstanceRequestMaintenanceOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotInstanceRequestMaintenanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput
+	ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput
+}
+
+type spotInstanceRequestMaintenanceOptionsPtrType SpotInstanceRequestMaintenanceOptionsArgs
+
+func SpotInstanceRequestMaintenanceOptionsPtr(v *SpotInstanceRequestMaintenanceOptionsArgs) SpotInstanceRequestMaintenanceOptionsPtrInput {
+	return (*spotInstanceRequestMaintenanceOptionsPtrType)(v)
+}
+
+func (*spotInstanceRequestMaintenanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestMaintenanceOptions)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestMaintenanceOptionsPtrType) ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return i.ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestMaintenanceOptionsPtrType) ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMaintenanceOptionsPtrOutput)
+}
+
+type SpotInstanceRequestMaintenanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestMaintenanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestMaintenanceOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMaintenanceOptionsOutput() SpotInstanceRequestMaintenanceOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMaintenanceOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o.ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestMaintenanceOptions) *SpotInstanceRequestMaintenanceOptions {
+		return &v
+	}).(SpotInstanceRequestMaintenanceOptionsPtrOutput)
+}
+
+// The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o SpotInstanceRequestMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
+}
+
+type SpotInstanceRequestMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestMaintenanceOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) Elem() SpotInstanceRequestMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestMaintenanceOptions) SpotInstanceRequestMaintenanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestMaintenanceOptions
+		return ret
+	}).(SpotInstanceRequestMaintenanceOptionsOutput)
+}
+
+// The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestMaintenanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRecovery
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpotInstanceRequestMetadataOptions struct {
 	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
@@ -16753,6 +17164,103 @@ func (o GetInstanceFilterArrayOutput) Index(i pulumi.IntInput) GetInstanceFilter
 	}).(GetInstanceFilterOutput)
 }
 
+type GetInstanceMaintenanceOption struct {
+	// The automatic recovery behavior of the instance.
+	AutoRecovery string `pulumi:"autoRecovery"`
+}
+
+// GetInstanceMaintenanceOptionInput is an input type that accepts GetInstanceMaintenanceOptionArgs and GetInstanceMaintenanceOptionOutput values.
+// You can construct a concrete instance of `GetInstanceMaintenanceOptionInput` via:
+//
+//          GetInstanceMaintenanceOptionArgs{...}
+type GetInstanceMaintenanceOptionInput interface {
+	pulumi.Input
+
+	ToGetInstanceMaintenanceOptionOutput() GetInstanceMaintenanceOptionOutput
+	ToGetInstanceMaintenanceOptionOutputWithContext(context.Context) GetInstanceMaintenanceOptionOutput
+}
+
+type GetInstanceMaintenanceOptionArgs struct {
+	// The automatic recovery behavior of the instance.
+	AutoRecovery pulumi.StringInput `pulumi:"autoRecovery"`
+}
+
+func (GetInstanceMaintenanceOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceMaintenanceOption)(nil)).Elem()
+}
+
+func (i GetInstanceMaintenanceOptionArgs) ToGetInstanceMaintenanceOptionOutput() GetInstanceMaintenanceOptionOutput {
+	return i.ToGetInstanceMaintenanceOptionOutputWithContext(context.Background())
+}
+
+func (i GetInstanceMaintenanceOptionArgs) ToGetInstanceMaintenanceOptionOutputWithContext(ctx context.Context) GetInstanceMaintenanceOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMaintenanceOptionOutput)
+}
+
+// GetInstanceMaintenanceOptionArrayInput is an input type that accepts GetInstanceMaintenanceOptionArray and GetInstanceMaintenanceOptionArrayOutput values.
+// You can construct a concrete instance of `GetInstanceMaintenanceOptionArrayInput` via:
+//
+//          GetInstanceMaintenanceOptionArray{ GetInstanceMaintenanceOptionArgs{...} }
+type GetInstanceMaintenanceOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceMaintenanceOptionArrayOutput() GetInstanceMaintenanceOptionArrayOutput
+	ToGetInstanceMaintenanceOptionArrayOutputWithContext(context.Context) GetInstanceMaintenanceOptionArrayOutput
+}
+
+type GetInstanceMaintenanceOptionArray []GetInstanceMaintenanceOptionInput
+
+func (GetInstanceMaintenanceOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceMaintenanceOption)(nil)).Elem()
+}
+
+func (i GetInstanceMaintenanceOptionArray) ToGetInstanceMaintenanceOptionArrayOutput() GetInstanceMaintenanceOptionArrayOutput {
+	return i.ToGetInstanceMaintenanceOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceMaintenanceOptionArray) ToGetInstanceMaintenanceOptionArrayOutputWithContext(ctx context.Context) GetInstanceMaintenanceOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMaintenanceOptionArrayOutput)
+}
+
+type GetInstanceMaintenanceOptionOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceMaintenanceOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceMaintenanceOption)(nil)).Elem()
+}
+
+func (o GetInstanceMaintenanceOptionOutput) ToGetInstanceMaintenanceOptionOutput() GetInstanceMaintenanceOptionOutput {
+	return o
+}
+
+func (o GetInstanceMaintenanceOptionOutput) ToGetInstanceMaintenanceOptionOutputWithContext(ctx context.Context) GetInstanceMaintenanceOptionOutput {
+	return o
+}
+
+// The automatic recovery behavior of the instance.
+func (o GetInstanceMaintenanceOptionOutput) AutoRecovery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMaintenanceOption) string { return v.AutoRecovery }).(pulumi.StringOutput)
+}
+
+type GetInstanceMaintenanceOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceMaintenanceOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceMaintenanceOption)(nil)).Elem()
+}
+
+func (o GetInstanceMaintenanceOptionArrayOutput) ToGetInstanceMaintenanceOptionArrayOutput() GetInstanceMaintenanceOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceMaintenanceOptionArrayOutput) ToGetInstanceMaintenanceOptionArrayOutputWithContext(ctx context.Context) GetInstanceMaintenanceOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceMaintenanceOptionArrayOutput) Index(i pulumi.IntInput) GetInstanceMaintenanceOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceMaintenanceOption {
+		return vs[0].([]GetInstanceMaintenanceOption)[vs[1].(int)]
+	}).(GetInstanceMaintenanceOptionOutput)
+}
+
 type GetInstanceMetadataOption struct {
 	// The state of the metadata service: `enabled`, `disabled`.
 	HttpEndpoint string `pulumi:"httpEndpoint"`
@@ -20312,6 +20820,100 @@ func (o GetLaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateLicenseSpecification {
 		return vs[0].([]GetLaunchTemplateLicenseSpecification)[vs[1].(int)]
 	}).(GetLaunchTemplateLicenseSpecificationOutput)
+}
+
+type GetLaunchTemplateMaintenanceOption struct {
+	AutoRecovery string `pulumi:"autoRecovery"`
+}
+
+// GetLaunchTemplateMaintenanceOptionInput is an input type that accepts GetLaunchTemplateMaintenanceOptionArgs and GetLaunchTemplateMaintenanceOptionOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateMaintenanceOptionInput` via:
+//
+//          GetLaunchTemplateMaintenanceOptionArgs{...}
+type GetLaunchTemplateMaintenanceOptionInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateMaintenanceOptionOutput() GetLaunchTemplateMaintenanceOptionOutput
+	ToGetLaunchTemplateMaintenanceOptionOutputWithContext(context.Context) GetLaunchTemplateMaintenanceOptionOutput
+}
+
+type GetLaunchTemplateMaintenanceOptionArgs struct {
+	AutoRecovery pulumi.StringInput `pulumi:"autoRecovery"`
+}
+
+func (GetLaunchTemplateMaintenanceOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateMaintenanceOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateMaintenanceOptionArgs) ToGetLaunchTemplateMaintenanceOptionOutput() GetLaunchTemplateMaintenanceOptionOutput {
+	return i.ToGetLaunchTemplateMaintenanceOptionOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateMaintenanceOptionArgs) ToGetLaunchTemplateMaintenanceOptionOutputWithContext(ctx context.Context) GetLaunchTemplateMaintenanceOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateMaintenanceOptionOutput)
+}
+
+// GetLaunchTemplateMaintenanceOptionArrayInput is an input type that accepts GetLaunchTemplateMaintenanceOptionArray and GetLaunchTemplateMaintenanceOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateMaintenanceOptionArrayInput` via:
+//
+//          GetLaunchTemplateMaintenanceOptionArray{ GetLaunchTemplateMaintenanceOptionArgs{...} }
+type GetLaunchTemplateMaintenanceOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateMaintenanceOptionArrayOutput() GetLaunchTemplateMaintenanceOptionArrayOutput
+	ToGetLaunchTemplateMaintenanceOptionArrayOutputWithContext(context.Context) GetLaunchTemplateMaintenanceOptionArrayOutput
+}
+
+type GetLaunchTemplateMaintenanceOptionArray []GetLaunchTemplateMaintenanceOptionInput
+
+func (GetLaunchTemplateMaintenanceOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateMaintenanceOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateMaintenanceOptionArray) ToGetLaunchTemplateMaintenanceOptionArrayOutput() GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return i.ToGetLaunchTemplateMaintenanceOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateMaintenanceOptionArray) ToGetLaunchTemplateMaintenanceOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateMaintenanceOptionArrayOutput)
+}
+
+type GetLaunchTemplateMaintenanceOptionOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateMaintenanceOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateMaintenanceOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateMaintenanceOptionOutput) ToGetLaunchTemplateMaintenanceOptionOutput() GetLaunchTemplateMaintenanceOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMaintenanceOptionOutput) ToGetLaunchTemplateMaintenanceOptionOutputWithContext(ctx context.Context) GetLaunchTemplateMaintenanceOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMaintenanceOptionOutput) AutoRecovery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateMaintenanceOption) string { return v.AutoRecovery }).(pulumi.StringOutput)
+}
+
+type GetLaunchTemplateMaintenanceOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateMaintenanceOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateMaintenanceOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateMaintenanceOptionArrayOutput) ToGetLaunchTemplateMaintenanceOptionArrayOutput() GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMaintenanceOptionArrayOutput) ToGetLaunchTemplateMaintenanceOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMaintenanceOptionArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateMaintenanceOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateMaintenanceOption {
+		return vs[0].([]GetLaunchTemplateMaintenanceOption)[vs[1].(int)]
+	}).(GetLaunchTemplateMaintenanceOptionOutput)
 }
 
 type GetLaunchTemplateMetadataOption struct {
@@ -25747,6 +26349,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), InstanceEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplateInput)(nil)).Elem(), InstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplatePtrInput)(nil)).Elem(), InstanceLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMaintenanceOptionsInput)(nil)).Elem(), InstanceMaintenanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMaintenanceOptionsPtrInput)(nil)).Elem(), InstanceMaintenanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsInput)(nil)).Elem(), InstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsPtrInput)(nil)).Elem(), InstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceInput)(nil)).Elem(), InstanceNetworkInterfaceArgs{})
@@ -25789,6 +26393,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceMarketOptionsSpotOptionsPtrInput)(nil)).Elem(), LaunchTemplateInstanceMarketOptionsSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationArrayInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMaintenanceOptionsInput)(nil)).Elem(), LaunchTemplateMaintenanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMaintenanceOptionsPtrInput)(nil)).Elem(), LaunchTemplateMaintenanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMetadataOptionsInput)(nil)).Elem(), LaunchTemplateMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMetadataOptionsPtrInput)(nil)).Elem(), LaunchTemplateMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMonitoringInput)(nil)).Elem(), LaunchTemplateMonitoringArgs{})
@@ -25850,6 +26456,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestEphemeralBlockDeviceArrayInput)(nil)).Elem(), SpotInstanceRequestEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestLaunchTemplateInput)(nil)).Elem(), SpotInstanceRequestLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestLaunchTemplatePtrInput)(nil)).Elem(), SpotInstanceRequestLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMaintenanceOptionsInput)(nil)).Elem(), SpotInstanceRequestMaintenanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMaintenanceOptionsPtrInput)(nil)).Elem(), SpotInstanceRequestMaintenanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMetadataOptionsInput)(nil)).Elem(), SpotInstanceRequestMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMetadataOptionsPtrInput)(nil)).Elem(), SpotInstanceRequestMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestNetworkInterfaceInput)(nil)).Elem(), SpotInstanceRequestNetworkInterfaceArgs{})
@@ -25910,6 +26518,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), GetInstanceEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceFilterInput)(nil)).Elem(), GetInstanceFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceFilterArrayInput)(nil)).Elem(), GetInstanceFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMaintenanceOptionInput)(nil)).Elem(), GetInstanceMaintenanceOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMaintenanceOptionArrayInput)(nil)).Elem(), GetInstanceMaintenanceOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMetadataOptionInput)(nil)).Elem(), GetInstanceMetadataOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMetadataOptionArrayInput)(nil)).Elem(), GetInstanceMetadataOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceRootBlockDeviceInput)(nil)).Elem(), GetInstanceRootBlockDeviceArgs{})
@@ -25974,6 +26584,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceMarketOptionSpotOptionArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceMarketOptionSpotOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateLicenseSpecificationInput)(nil)).Elem(), GetLaunchTemplateLicenseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateLicenseSpecificationArrayInput)(nil)).Elem(), GetLaunchTemplateLicenseSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMaintenanceOptionInput)(nil)).Elem(), GetLaunchTemplateMaintenanceOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMaintenanceOptionArrayInput)(nil)).Elem(), GetLaunchTemplateMaintenanceOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMetadataOptionInput)(nil)).Elem(), GetLaunchTemplateMetadataOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMetadataOptionArrayInput)(nil)).Elem(), GetLaunchTemplateMetadataOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMonitoringInput)(nil)).Elem(), GetLaunchTemplateMonitoringArgs{})
@@ -26122,6 +26734,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(InstanceMaintenanceOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceMaintenanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
@@ -26164,6 +26778,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMaintenanceOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMaintenanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringOutput{})
@@ -26225,6 +26841,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestMaintenanceOptionsOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestMaintenanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestNetworkInterfaceOutput{})
@@ -26285,6 +26903,8 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceFilterOutput{})
 	pulumi.RegisterOutputType(GetInstanceFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceMaintenanceOptionOutput{})
+	pulumi.RegisterOutputType(GetInstanceMaintenanceOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceMetadataOptionOutput{})
 	pulumi.RegisterOutputType(GetInstanceMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceOutput{})
@@ -26349,6 +26969,8 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateMaintenanceOptionOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateMaintenanceOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateMetadataOptionOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateMonitoringOutput{})

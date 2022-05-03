@@ -4959,7 +4959,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor struct {
 	// Array of processor parameters. More details are given below
 	Parameters []FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -4977,7 +4977,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorArgs struct {
 	// Array of processor parameters. More details are given below
 	Parameters FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -5039,7 +5039,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	}).(FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `Lambda`
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -5067,7 +5067,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue string `pulumi:"parameterValue"`
@@ -5085,7 +5085,7 @@ type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProc
 }
 
 type FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
@@ -5142,7 +5142,7 @@ func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationP
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -8204,7 +8204,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrO
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor struct {
 	// Array of processor parameters. More details are given below
 	Parameters []FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -8222,7 +8222,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs struct {
 	// Array of processor parameters. More details are given below
 	Parameters FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -8284,7 +8284,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `Lambda`
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -8312,7 +8312,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue string `pulumi:"parameterValue"`
@@ -8330,7 +8330,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcess
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
@@ -8387,7 +8387,7 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProc
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -9582,7 +9582,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPt
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor struct {
 	// Array of processor parameters. More details are given below
 	Parameters []FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -9600,7 +9600,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorArgs struct {
 	// Array of processor parameters. More details are given below
 	Parameters FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -9662,7 +9662,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	}).(FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `Lambda`
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -9690,7 +9690,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue string `pulumi:"parameterValue"`
@@ -9708,7 +9708,7 @@ type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProce
 }
 
 type FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
@@ -9765,7 +9765,7 @@ func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationPr
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -10917,7 +10917,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationPtrOut
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor struct {
 	// Array of processor parameters. More details are given below
 	Parameters []FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -10935,7 +10935,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorArgs struct {
 	// Array of processor parameters. More details are given below
 	Parameters FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -10997,7 +10997,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	}).(FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `Lambda`
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -11025,7 +11025,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue string `pulumi:"parameterValue"`
@@ -11043,7 +11043,7 @@ type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessor
 }
 
 type FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
@@ -11100,7 +11100,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProces
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName
@@ -12881,7 +12881,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationPtrOutpu
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor struct {
 	// Array of processor parameters. More details are given below
 	Parameters []FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type string `pulumi:"type"`
 }
 
@@ -12899,7 +12899,7 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorIn
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs struct {
 	// Array of processor parameters. More details are given below
 	Parameters FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput `pulumi:"parameters"`
-	// The type of processor. Valid Values: `Lambda`
+	// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -12961,7 +12961,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	}).(FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayOutput)
 }
 
-// The type of processor. Valid Values: `Lambda`
+// The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor) string {
 		return v.Type
@@ -12989,7 +12989,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName string `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue string `pulumi:"parameterValue"`
@@ -13007,7 +13007,7 @@ type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorPa
 }
 
 type FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs struct {
-	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+	// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 	ParameterName pulumi.StringInput `pulumi:"parameterName"`
 	// Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
 	ParameterValue pulumi.StringInput `pulumi:"parameterValue"`
@@ -13064,7 +13064,7 @@ func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcesso
 	return o
 }
 
-// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+// Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
 func (o FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterOutput) ParameterName() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter) string {
 		return v.ParameterName

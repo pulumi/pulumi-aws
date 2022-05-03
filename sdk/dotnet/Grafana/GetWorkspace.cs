@@ -75,6 +75,18 @@ namespace Pulumi.Aws.Grafana
 
     public sealed class GetWorkspaceArgs : Pulumi.InvokeArgs
     {
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// The tags assigned to the resource
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The Grafana workspace ID.
         /// </summary>
@@ -88,6 +100,18 @@ namespace Pulumi.Aws.Grafana
 
     public sealed class GetWorkspaceInvokeArgs : Pulumi.InvokeArgs
     {
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags assigned to the resource
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The Grafana workspace ID.
         /// </summary>
@@ -176,6 +200,10 @@ namespace Pulumi.Aws.Grafana
         /// The status of the Grafana workspace.
         /// </summary>
         public readonly string Status;
+        /// <summary>
+        /// The tags assigned to the resource
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string WorkspaceId;
 
         [OutputConstructor]
@@ -218,6 +246,8 @@ namespace Pulumi.Aws.Grafana
 
             string status,
 
+            ImmutableDictionary<string, string> tags,
+
             string workspaceId)
         {
             AccountAccessType = accountAccessType;
@@ -239,6 +269,7 @@ namespace Pulumi.Aws.Grafana
             SamlConfigurationStatus = samlConfigurationStatus;
             StackSetName = stackSetName;
             Status = status;
+            Tags = tags;
             WorkspaceId = workspaceId;
         }
     }

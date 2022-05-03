@@ -283,6 +283,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.LaunchTemplateLicenseSpecification>> LicenseSpecifications { get; private set; } = null!;
 
         /// <summary>
+        /// The maintenance options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Output("maintenanceOptions")]
+        public Output<Outputs.LaunchTemplateMaintenanceOptions?> MaintenanceOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
         /// </summary>
         [Output("metadataOptions")]
@@ -563,6 +569,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// The maintenance options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Input("maintenanceOptions")]
+        public Input<Inputs.LaunchTemplateMaintenanceOptionsArgs>? MaintenanceOptions { get; set; }
+
+        /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
         /// </summary>
         [Input("metadataOptions")]
@@ -838,6 +850,12 @@ namespace Pulumi.Aws.Ec2
             get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationGetArgs>());
             set => _licenseSpecifications = value;
         }
+
+        /// <summary>
+        /// The maintenance options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Input("maintenanceOptions")]
+        public Input<Inputs.LaunchTemplateMaintenanceOptionsGetArgs>? MaintenanceOptions { get; set; }
 
         /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.

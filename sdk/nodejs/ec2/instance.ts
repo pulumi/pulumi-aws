@@ -213,6 +213,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly launchTemplate!: pulumi.Output<outputs.ec2.InstanceLaunchTemplate | undefined>;
     /**
+     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     */
+    public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.InstanceMaintenanceOptions>;
+    /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
     public readonly metadataOptions!: pulumi.Output<outputs.ec2.InstanceMetadataOptions>;
@@ -352,6 +356,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
             resourceInputs["keyName"] = state ? state.keyName : undefined;
             resourceInputs["launchTemplate"] = state ? state.launchTemplate : undefined;
+            resourceInputs["maintenanceOptions"] = state ? state.maintenanceOptions : undefined;
             resourceInputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             resourceInputs["monitoring"] = state ? state.monitoring : undefined;
             resourceInputs["networkInterfaces"] = state ? state.networkInterfaces : undefined;
@@ -401,6 +406,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
             resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["launchTemplate"] = args ? args.launchTemplate : undefined;
+            resourceInputs["maintenanceOptions"] = args ? args.maintenanceOptions : undefined;
             resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             resourceInputs["monitoring"] = args ? args.monitoring : undefined;
             resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
@@ -535,6 +541,10 @@ export interface InstanceState {
      * See Launch Template Specification below for more details.
      */
     launchTemplate?: pulumi.Input<inputs.ec2.InstanceLaunchTemplate>;
+    /**
+     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     */
+    maintenanceOptions?: pulumi.Input<inputs.ec2.InstanceMaintenanceOptions>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */
@@ -732,6 +742,10 @@ export interface InstanceArgs {
      * See Launch Template Specification below for more details.
      */
     launchTemplate?: pulumi.Input<inputs.ec2.InstanceLaunchTemplate>;
+    /**
+     * The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+     */
+    maintenanceOptions?: pulumi.Input<inputs.ec2.InstanceMaintenanceOptions>;
     /**
      * Customize the metadata options of the instance. See Metadata Options below for more details.
      */

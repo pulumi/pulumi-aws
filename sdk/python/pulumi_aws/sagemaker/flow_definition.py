@@ -294,7 +294,7 @@ class FlowDefinition(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Sagemaker Flow Definition resource.
+        Provides a SageMaker Flow Definition resource.
 
         ## Example Usage
         ### Basic Usage
@@ -387,7 +387,7 @@ class FlowDefinition(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
+        SageMaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
@@ -410,7 +410,7 @@ class FlowDefinition(pulumi.CustomResource):
                  args: FlowDefinitionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Sagemaker Flow Definition resource.
+        Provides a SageMaker Flow Definition resource.
 
         ## Example Usage
         ### Basic Usage
@@ -503,7 +503,7 @@ class FlowDefinition(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
+        SageMaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example

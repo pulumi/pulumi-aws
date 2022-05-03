@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .data_catalog import *
 from .database import *
 from .named_query import *
 from .workgroup import *

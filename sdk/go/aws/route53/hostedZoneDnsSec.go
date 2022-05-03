@@ -22,7 +22,9 @@ import (
 //
 // import (
 // 	"encoding/json"
+// 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
 // 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -30,6 +32,10 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		current, err := aws.GetCallerIdentity(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
 // 		tmpJSON0, err := json.Marshal(map[string]interface{}{
 // 			"Statement": []interface{}{
 // 				map[string]interface{}{
@@ -44,6 +50,14 @@ import (
 // 					},
 // 					"Sid":      "Allow Route 53 DNSSEC Service",
 // 					"Resource": "*",
+// 					"Condition": map[string]interface{}{
+// 						"StringEquals": map[string]interface{}{
+// 							"aws:SourceAccount": current.AccountId,
+// 						},
+// 						"ArnLike": map[string]interface{}{
+// 							"aws:SourceArn": "arn:aws:route53:::hostedzone/*",
+// 						},
+// 					},
 // 				},
 // 				map[string]interface{}{
 // 					"Action": "kms:CreateGrant",
@@ -63,10 +77,10 @@ import (
 // 					"Action": "kms:*",
 // 					"Effect": "Allow",
 // 					"Principal": map[string]interface{}{
-// 						"AWS": "*",
+// 						"AWS": fmt.Sprintf("%v%v%v", "arn:aws:iam::", current.AccountId, ":root"),
 // 					},
 // 					"Resource": "*",
-// 					"Sid":      "IAM User Permissions",
+// 					"Sid":      "Enable IAM User Permissions",
 // 				},
 // 			},
 // 			"Version": "2012-10-17",

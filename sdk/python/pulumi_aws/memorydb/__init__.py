@@ -8,6 +8,7 @@ import typing
 from .acl import *
 from .cluster import *
 from .get_acl import *
+from .get_broker_instance_type_offerings import *
 from .get_cluster import *
 from .get_parameter_group import *
 from .get_snapshot import *

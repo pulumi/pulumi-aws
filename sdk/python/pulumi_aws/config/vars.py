@@ -31,6 +31,10 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('assumeRole')
 
     @property
+    def assume_role_with_web_identity(self) -> Optional[str]:
+        return __config__.get('assumeRoleWithWebIdentity')
+
+    @property
     def custom_ca_bundle(self) -> Optional[str]:
         """
         File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
@@ -174,11 +178,11 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_bool('skipGetEc2Platforms') or True
 
     @property
-    def skip_metadata_api_check(self) -> bool:
+    def skip_metadata_api_check(self) -> str:
         """
         Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         """
-        return __config__.get_bool('skipMetadataApiCheck') or True
+        return __config__.get('skipMetadataApiCheck') or ''
 
     @property
     def skip_region_validation(self) -> bool:

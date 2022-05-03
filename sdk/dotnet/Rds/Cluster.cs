@@ -447,6 +447,12 @@ namespace Pulumi.Aws.Rds
         public Output<Outputs.ClusterScalingConfiguration?> ScalingConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Nested attribute with scaling properties. More details below.
+        /// </summary>
+        [Output("serverlessv2ScalingConfiguration")]
+        public Output<Outputs.ClusterServerlessv2ScalingConfiguration?> Serverlessv2ScalingConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         /// </summary>
         [Output("skipFinalSnapshot")]
@@ -782,6 +788,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.ClusterScalingConfigurationArgs>? ScalingConfiguration { get; set; }
+
+        /// <summary>
+        /// Nested attribute with scaling properties. More details below.
+        /// </summary>
+        [Input("serverlessv2ScalingConfiguration")]
+        public Input<Inputs.ClusterServerlessv2ScalingConfigurationArgs>? Serverlessv2ScalingConfiguration { get; set; }
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
@@ -1123,6 +1135,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("scalingConfiguration")]
         public Input<Inputs.ClusterScalingConfigurationGetArgs>? ScalingConfiguration { get; set; }
+
+        /// <summary>
+        /// Nested attribute with scaling properties. More details below.
+        /// </summary>
+        [Input("serverlessv2ScalingConfiguration")]
+        public Input<Inputs.ClusterServerlessv2ScalingConfigurationGetArgs>? Serverlessv2ScalingConfiguration { get; set; }
 
         /// <summary>
         /// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.

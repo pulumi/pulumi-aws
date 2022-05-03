@@ -111,6 +111,7 @@ type LookupLaunchTemplateResult struct {
 	KeyName                           string                                  `pulumi:"keyName"`
 	LatestVersion                     int                                     `pulumi:"latestVersion"`
 	LicenseSpecifications             []GetLaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                []GetLaunchTemplateMaintenanceOption    `pulumi:"maintenanceOptions"`
 	MetadataOptions                   []GetLaunchTemplateMetadataOption       `pulumi:"metadataOptions"`
 	Monitorings                       []GetLaunchTemplateMonitoring           `pulumi:"monitorings"`
 	Name                              string                                  `pulumi:"name"`
@@ -276,6 +277,10 @@ func (o LookupLaunchTemplateResultOutput) LicenseSpecifications() GetLaunchTempl
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateLicenseSpecification {
 		return v.LicenseSpecifications
 	}).(GetLaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+func (o LookupLaunchTemplateResultOutput) MaintenanceOptions() GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateMaintenanceOption { return v.MaintenanceOptions }).(GetLaunchTemplateMaintenanceOptionArrayOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) MetadataOptions() GetLaunchTemplateMetadataOptionArrayOutput {

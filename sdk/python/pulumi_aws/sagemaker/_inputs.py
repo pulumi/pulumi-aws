@@ -220,7 +220,7 @@ class AppResourceSpecArgs:
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
@@ -238,7 +238,7 @@ class AppResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -578,7 +578,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
@@ -596,7 +596,7 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -757,7 +757,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
@@ -775,7 +775,7 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 
@@ -906,7 +906,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
                  sagemaker_image_arn: Optional[pulumi.Input[str]] = None,
                  sagemaker_image_version_arn: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        :param pulumi.Input[str] instance_type: The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         :param pulumi.Input[str] lifecycle_config_arn: The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
         :param pulumi.Input[str] sagemaker_image_arn: The ARN of the SageMaker image that the image version belongs to.
         :param pulumi.Input[str] sagemaker_image_version_arn: The ARN of the image version created on the instance.
@@ -924,7 +924,7 @@ class DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+        The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
         """
         return pulumi.get(self, "instance_type")
 

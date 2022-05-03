@@ -9,6 +9,7 @@ from .cluster import *
 from .cluster_instance import *
 from .cluster_parameter_group import *
 from .cluster_snapshot import *
+from .event_subscription import *
 from .get_engine_version import *
 from .get_orderable_db_instance import *
 from .global_cluster import *

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Notebook Instance resource.
+    /// Provides a SageMaker Notebook Instance resource.
     /// 
     /// ## Example Usage
     /// ### Basic usage
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Notebook Instances can be imported using the `name`, e.g.,
+    /// SageMaker Notebook Instances can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance

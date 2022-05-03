@@ -282,6 +282,12 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.InstanceLaunchTemplate?> LaunchTemplate { get; private set; } = null!;
 
         /// <summary>
+        /// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Output("maintenanceOptions")]
+        public Output<Outputs.InstanceMaintenanceOptions> MaintenanceOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Customize the metadata options of the instance. See Metadata Options below for more details.
         /// </summary>
         [Output("metadataOptions")]
@@ -629,6 +635,12 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.InstanceLaunchTemplateArgs>? LaunchTemplate { get; set; }
 
         /// <summary>
+        /// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Input("maintenanceOptions")]
+        public Input<Inputs.InstanceMaintenanceOptionsArgs>? MaintenanceOptions { get; set; }
+
+        /// <summary>
         /// Customize the metadata options of the instance. See Metadata Options below for more details.
         /// </summary>
         [Input("metadataOptions")]
@@ -942,6 +954,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("launchTemplate")]
         public Input<Inputs.InstanceLaunchTemplateGetArgs>? LaunchTemplate { get; set; }
+
+        /// <summary>
+        /// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Input("maintenanceOptions")]
+        public Input<Inputs.InstanceMaintenanceOptionsGetArgs>? MaintenanceOptions { get; set; }
 
         /// <summary>
         /// Customize the metadata options of the instance. See Metadata Options below for more details.

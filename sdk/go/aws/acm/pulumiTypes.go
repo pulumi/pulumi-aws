@@ -11,7 +11,7 @@ import (
 )
 
 type CertificateDomainValidationOption struct {
-	// A domain name for which the certificate should be issued
+	// A fully qualified domain name (FQDN) in the certificate.
 	DomainName *string `pulumi:"domainName"`
 	// The name of the DNS record to create to validate the certificate
 	ResourceRecordName *string `pulumi:"resourceRecordName"`
@@ -33,7 +33,7 @@ type CertificateDomainValidationOptionInput interface {
 }
 
 type CertificateDomainValidationOptionArgs struct {
-	// A domain name for which the certificate should be issued
+	// A fully qualified domain name (FQDN) in the certificate.
 	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
 	// The name of the DNS record to create to validate the certificate
 	ResourceRecordName pulumi.StringPtrInput `pulumi:"resourceRecordName"`
@@ -94,7 +94,7 @@ func (o CertificateDomainValidationOptionOutput) ToCertificateDomainValidationOp
 	return o
 }
 
-// A domain name for which the certificate should be issued
+// A fully qualified domain name (FQDN) in the certificate.
 func (o CertificateDomainValidationOptionOutput) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CertificateDomainValidationOption) *string { return v.DomainName }).(pulumi.StringPtrOutput)
 }
@@ -271,13 +271,123 @@ func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type CertificateValidationOption struct {
+	// A fully qualified domain name (FQDN) in the certificate.
+	DomainName string `pulumi:"domainName"`
+	// The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+	ValidationDomain string `pulumi:"validationDomain"`
+}
+
+// CertificateValidationOptionInput is an input type that accepts CertificateValidationOptionArgs and CertificateValidationOptionOutput values.
+// You can construct a concrete instance of `CertificateValidationOptionInput` via:
+//
+//          CertificateValidationOptionArgs{...}
+type CertificateValidationOptionInput interface {
+	pulumi.Input
+
+	ToCertificateValidationOptionOutput() CertificateValidationOptionOutput
+	ToCertificateValidationOptionOutputWithContext(context.Context) CertificateValidationOptionOutput
+}
+
+type CertificateValidationOptionArgs struct {
+	// A fully qualified domain name (FQDN) in the certificate.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+	ValidationDomain pulumi.StringInput `pulumi:"validationDomain"`
+}
+
+func (CertificateValidationOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateValidationOption)(nil)).Elem()
+}
+
+func (i CertificateValidationOptionArgs) ToCertificateValidationOptionOutput() CertificateValidationOptionOutput {
+	return i.ToCertificateValidationOptionOutputWithContext(context.Background())
+}
+
+func (i CertificateValidationOptionArgs) ToCertificateValidationOptionOutputWithContext(ctx context.Context) CertificateValidationOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationOptionOutput)
+}
+
+// CertificateValidationOptionArrayInput is an input type that accepts CertificateValidationOptionArray and CertificateValidationOptionArrayOutput values.
+// You can construct a concrete instance of `CertificateValidationOptionArrayInput` via:
+//
+//          CertificateValidationOptionArray{ CertificateValidationOptionArgs{...} }
+type CertificateValidationOptionArrayInput interface {
+	pulumi.Input
+
+	ToCertificateValidationOptionArrayOutput() CertificateValidationOptionArrayOutput
+	ToCertificateValidationOptionArrayOutputWithContext(context.Context) CertificateValidationOptionArrayOutput
+}
+
+type CertificateValidationOptionArray []CertificateValidationOptionInput
+
+func (CertificateValidationOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateValidationOption)(nil)).Elem()
+}
+
+func (i CertificateValidationOptionArray) ToCertificateValidationOptionArrayOutput() CertificateValidationOptionArrayOutput {
+	return i.ToCertificateValidationOptionArrayOutputWithContext(context.Background())
+}
+
+func (i CertificateValidationOptionArray) ToCertificateValidationOptionArrayOutputWithContext(ctx context.Context) CertificateValidationOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateValidationOptionArrayOutput)
+}
+
+type CertificateValidationOptionOutput struct{ *pulumi.OutputState }
+
+func (CertificateValidationOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateValidationOption)(nil)).Elem()
+}
+
+func (o CertificateValidationOptionOutput) ToCertificateValidationOptionOutput() CertificateValidationOptionOutput {
+	return o
+}
+
+func (o CertificateValidationOptionOutput) ToCertificateValidationOptionOutputWithContext(ctx context.Context) CertificateValidationOptionOutput {
+	return o
+}
+
+// A fully qualified domain name (FQDN) in the certificate.
+func (o CertificateValidationOptionOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateValidationOption) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+// The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+func (o CertificateValidationOptionOutput) ValidationDomain() pulumi.StringOutput {
+	return o.ApplyT(func(v CertificateValidationOption) string { return v.ValidationDomain }).(pulumi.StringOutput)
+}
+
+type CertificateValidationOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (CertificateValidationOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CertificateValidationOption)(nil)).Elem()
+}
+
+func (o CertificateValidationOptionArrayOutput) ToCertificateValidationOptionArrayOutput() CertificateValidationOptionArrayOutput {
+	return o
+}
+
+func (o CertificateValidationOptionArrayOutput) ToCertificateValidationOptionArrayOutputWithContext(ctx context.Context) CertificateValidationOptionArrayOutput {
+	return o
+}
+
+func (o CertificateValidationOptionArrayOutput) Index(i pulumi.IntInput) CertificateValidationOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CertificateValidationOption {
+		return vs[0].([]CertificateValidationOption)[vs[1].(int)]
+	}).(CertificateValidationOptionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOptionsInput)(nil)).Elem(), CertificateOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOptionsPtrInput)(nil)).Elem(), CertificateOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateValidationOptionInput)(nil)).Elem(), CertificateValidationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateValidationOptionArrayInput)(nil)).Elem(), CertificateValidationOptionArray{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
 	pulumi.RegisterOutputType(CertificateOptionsOutput{})
 	pulumi.RegisterOutputType(CertificateOptionsPtrOutput{})
+	pulumi.RegisterOutputType(CertificateValidationOptionOutput{})
+	pulumi.RegisterOutputType(CertificateValidationOptionArrayOutput{})
 }

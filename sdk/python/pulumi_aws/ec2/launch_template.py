@@ -35,6 +35,7 @@ class LaunchTemplateArgs:
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+                 maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -78,6 +79,7 @@ class LaunchTemplateArgs:
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input['LaunchTemplateMaintenanceOptionsArgs'] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -134,6 +136,8 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "key_name", key_name)
         if license_specifications is not None:
             pulumi.set(__self__, "license_specifications", license_specifications)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -411,6 +415,18 @@ class LaunchTemplateArgs:
         pulumi.set(self, "license_specifications", value)
 
     @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]:
+        """
+        The maintenance options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
+
+    @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]:
         """
@@ -603,6 +619,7 @@ class _LaunchTemplateState:
                  key_name: Optional[pulumi.Input[str]] = None,
                  latest_version: Optional[pulumi.Input[int]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+                 maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -649,6 +666,7 @@ class _LaunchTemplateState:
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[int] latest_version: The latest version of the launch template.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input['LaunchTemplateMaintenanceOptionsArgs'] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -710,6 +728,8 @@ class _LaunchTemplateState:
             pulumi.set(__self__, "latest_version", latest_version)
         if license_specifications is not None:
             pulumi.set(__self__, "license_specifications", license_specifications)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -1013,6 +1033,18 @@ class _LaunchTemplateState:
         pulumi.set(self, "license_specifications", value)
 
     @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]:
+        """
+        The maintenance options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
+
+    @property
     @pulumi.getter(name="metadataOptions")
     def metadata_options(self) -> Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']]:
         """
@@ -1217,6 +1249,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]]] = None,
+                 maintenance_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1344,6 +1377,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -1484,6 +1518,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]]] = None,
+                 maintenance_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1530,6 +1565,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["license_specifications"] = license_specifications
+            __props__.__dict__["maintenance_options"] = maintenance_options
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["name"] = name
@@ -1579,6 +1615,7 @@ class LaunchTemplate(pulumi.CustomResource):
             key_name: Optional[pulumi.Input[str]] = None,
             latest_version: Optional[pulumi.Input[int]] = None,
             license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]]] = None,
+            maintenance_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']]] = None,
             metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']]] = None,
             monitoring: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1630,6 +1667,7 @@ class LaunchTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[int] latest_version: The latest version of the launch template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -1673,6 +1711,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["latest_version"] = latest_version
         __props__.__dict__["license_specifications"] = license_specifications
+        __props__.__dict__["maintenance_options"] = maintenance_options
         __props__.__dict__["metadata_options"] = metadata_options
         __props__.__dict__["monitoring"] = monitoring
         __props__.__dict__["name"] = name
@@ -1872,6 +1911,14 @@ class LaunchTemplate(pulumi.CustomResource):
         A list of license specifications to associate with. See License Specification below for more details.
         """
         return pulumi.get(self, "license_specifications")
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplateMaintenanceOptions']]:
+        """
+        The maintenance options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
 
     @property
     @pulumi.getter(name="metadataOptions")

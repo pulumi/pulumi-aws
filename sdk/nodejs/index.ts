@@ -75,6 +75,7 @@ import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as config from "./config";
 import * as connect from "./connect";
+import * as costexplorer from "./costexplorer";
 import * as cur from "./cur";
 import * as dataexchange from "./dataexchange";
 import * as datapipeline from "./datapipeline";
@@ -235,6 +236,7 @@ export {
     cognito,
     config,
     connect,
+    costexplorer,
     cur,
     dataexchange,
     datapipeline,

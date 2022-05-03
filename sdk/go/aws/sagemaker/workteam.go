@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Sagemaker Workteam resource.
+// Provides a SageMaker Workteam resource.
 //
 // ## Example Usage
 // ### Cognito Usage
@@ -83,7 +83,7 @@ import (
 //
 // ## Import
 //
-// Sagemaker Workteams can be imported using the `workteam_name`, e.g.,
+// SageMaker Workteams can be imported using the `workteam_name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/workteam:Workteam example example

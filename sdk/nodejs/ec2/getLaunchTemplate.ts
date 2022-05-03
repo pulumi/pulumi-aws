@@ -100,6 +100,7 @@ export interface GetLaunchTemplateResult {
     readonly keyName: string;
     readonly latestVersion: number;
     readonly licenseSpecifications: outputs.ec2.GetLaunchTemplateLicenseSpecification[];
+    readonly maintenanceOptions: outputs.ec2.GetLaunchTemplateMaintenanceOption[];
     readonly metadataOptions: outputs.ec2.GetLaunchTemplateMetadataOption[];
     readonly monitorings: outputs.ec2.GetLaunchTemplateMonitoring[];
     readonly name: string;

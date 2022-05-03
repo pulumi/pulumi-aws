@@ -311,24 +311,24 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ...other configuration...
+        current = aws.get_caller_identity()
         dlm_cross_region_copy_cmk = aws.kms.Key("dlmCrossRegionCopyCmk",
             description="Example Alternate Region KMS Key",
-            policy=\"\"\"{
+            policy=f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "dlm-cross-region-copy-cmk",
           "Statement": [
-            {
+            {{
               "Sid": "Enable IAM User Permissions",
               "Effect": "Allow",
-              "Principal": {
-                "AWS": "*"
-              },
+              "Principal": {{
+                "AWS": "arn:aws:iam::{current.account_id}:root"
+              }},
               "Action": "kms:*",
               "Resource": "*"
-            }
+            }}
           ]
-        }
+        }}
         \"\"\",
             opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         example = aws.dlm.LifecyclePolicy("example",
@@ -473,24 +473,24 @@ class LifecyclePolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        # ...other configuration...
+        current = aws.get_caller_identity()
         dlm_cross_region_copy_cmk = aws.kms.Key("dlmCrossRegionCopyCmk",
             description="Example Alternate Region KMS Key",
-            policy=\"\"\"{
+            policy=f\"\"\"{{
           "Version": "2012-10-17",
           "Id": "dlm-cross-region-copy-cmk",
           "Statement": [
-            {
+            {{
               "Sid": "Enable IAM User Permissions",
               "Effect": "Allow",
-              "Principal": {
-                "AWS": "*"
-              },
+              "Principal": {{
+                "AWS": "arn:aws:iam::{current.account_id}:root"
+              }},
               "Action": "kms:*",
               "Resource": "*"
-            }
+            }}
           ]
-        }
+        }}
         \"\"\",
             opts=pulumi.ResourceOptions(provider=aws["alternate"]))
         example = aws.dlm.LifecyclePolicy("example",

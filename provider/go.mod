@@ -7,8 +7,8 @@ require (
 	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.1
-	github.com/pulumi/pulumi/pkg/v3 v3.31.2-0.20220504080053-86c015b9e64a
-	github.com/pulumi/pulumi/sdk/v3 v3.31.1
+	github.com/pulumi/pulumi/pkg/v3 v3.32.1
+	github.com/pulumi/pulumi/sdk/v3 v3.32.1
 )
 
 require (
@@ -39,19 +39,19 @@ require (
 	github.com/apparentlymart/go-cidr v1.1.0 // indirect
 	github.com/apparentlymart/go-textseg/v13 v13.0.0 // indirect
 	github.com/armon/go-radix v1.0.0 // indirect
-	github.com/aws/aws-sdk-go v1.43.40 // indirect
-	github.com/aws/aws-sdk-go-v2 v1.16.2 // indirect
-	github.com/aws/aws-sdk-go-v2/config v1.15.0 // indirect
-	github.com/aws/aws-sdk-go-v2/credentials v1.10.0 // indirect
-	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.12.0 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/configsources v1.1.9 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.3 // indirect
-	github.com/aws/aws-sdk-go-v2/internal/ini v1.3.7 // indirect
-	github.com/aws/aws-sdk-go-v2/service/iam v1.18.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/route53domains v1.12.3 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sso v1.11.0 // indirect
-	github.com/aws/aws-sdk-go-v2/service/sts v1.16.0 // indirect
+	github.com/aws/aws-sdk-go v1.44.0 // indirect
+	github.com/aws/aws-sdk-go-v2 v1.16.3 // indirect
+	github.com/aws/aws-sdk-go-v2/config v1.15.4 // indirect
+	github.com/aws/aws-sdk-go-v2/credentials v1.12.0 // indirect
+	github.com/aws/aws-sdk-go-v2/feature/ec2/imds v1.12.4 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/configsources v1.1.10 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/endpoints/v2 v2.4.4 // indirect
+	github.com/aws/aws-sdk-go-v2/internal/ini v1.3.11 // indirect
+	github.com/aws/aws-sdk-go-v2/service/iam v1.18.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/internal/presigned-url v1.9.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/route53domains v1.12.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sso v1.11.4 // indirect
+	github.com/aws/aws-sdk-go-v2/service/sts v1.16.4 // indirect
 	github.com/aws/smithy-go v1.11.2 // indirect
 	github.com/beevik/etree v1.1.0 // indirect
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d // indirect
@@ -79,7 +79,7 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.3 // indirect
-	github.com/google/go-cmp v0.5.7 // indirect
+	github.com/google/go-cmp v0.5.8 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510 // indirect
 	github.com/google/uuid v1.2.0 // indirect
@@ -88,8 +88,8 @@ require (
 	github.com/gorilla/mux v1.7.4 // indirect
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20180507213350-8e809c8a8645 // indirect
 	github.com/hashicorp/aws-cloudformation-resource-schema-sdk-go v0.16.0 // indirect
-	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.15 // indirect
-	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.16 // indirect
+	github.com/hashicorp/aws-sdk-go-base/v2 v2.0.0-beta.16 // indirect
+	github.com/hashicorp/aws-sdk-go-base/v2/awsv1shim/v2 v2.0.0-beta.17 // indirect
 	github.com/hashicorp/awspolicyequivalence v1.5.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-checkpoint v0.5.0 // indirect
@@ -224,7 +224,9 @@ require (
 
 replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20211230170131-3a7c83bfab87
-	github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20220425115028-72c3a67ae4a7
+	github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20220428215519-67736f931eaa
 	github.com/hashicorp/terraform-provider-aws/shim => ./shim
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
+	// Temporary. Replace when pulumi-yaml > 0.3.0:
+	github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.32.1
 )

@@ -106,7 +106,7 @@ export interface GetRegionsFilter {
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
-         * A domain name for which the certificate should be issued
+         * A fully qualified domain name (FQDN) in the certificate.
          */
         domainName: string;
         /**
@@ -128,6 +128,17 @@ export namespace acm {
          * Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
          */
         certificateTransparencyLoggingPreference?: string;
+    }
+
+    export interface CertificateValidationOption {
+        /**
+         * A fully qualified domain name (FQDN) in the certificate.
+         */
+        domainName: string;
+        /**
+         * The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+         */
+        validationDomain: string;
     }
 
 }
@@ -10148,7 +10159,7 @@ export namespace config {
     export interface AssumeRole {
         duration?: string;
         /**
-         * @deprecated Use assume_role.0.duration instead
+         * @deprecated Use assume_role.duration instead
          */
         durationSeconds?: number;
         externalId?: string;
@@ -10158,6 +10169,16 @@ export namespace config {
         sessionName?: string;
         tags?: {[key: string]: string};
         transitiveTagKeys?: string[];
+    }
+
+    export interface AssumeRoleWithWebIdentity {
+        duration?: string;
+        policy?: string;
+        policyArns?: string[];
+        roleArn?: string;
+        sessionName?: string;
+        webIdentityToken?: string;
+        webIdentityTokenFile?: string;
     }
 
     export interface DefaultTags {
@@ -10174,10 +10195,13 @@ export namespace config {
         amp?: string;
         amplify?: string;
         amplifybackend?: string;
+        amplifyuibuilder?: string;
         apigateway?: string;
+        apigatewaymanagementapi?: string;
         apigatewayv2?: string;
         appautoscaling?: string;
         appconfig?: string;
+        appconfigdata?: string;
         appflow?: string;
         appintegrations?: string;
         appintegrationsservice?: string;
@@ -10197,10 +10221,16 @@ export namespace config {
         autoscaling?: string;
         autoscalingplans?: string;
         backup?: string;
+        backupgateway?: string;
         batch?: string;
+        billingconductor?: string;
         braket?: string;
         budgets?: string;
+        ce?: string;
         chime?: string;
+        chimesdkidentity?: string;
+        chimesdkmeetings?: string;
+        chimesdkmessaging?: string;
         cloud9?: string;
         cloudcontrol?: string;
         cloudcontrolapi?: string;
@@ -10233,30 +10263,39 @@ export namespace config {
         cognitosync?: string;
         comprehend?: string;
         comprehendmedical?: string;
+        computeoptimizer?: string;
         config?: string;
         configservice?: string;
         connect?: string;
         connectcontactlens?: string;
         connectparticipant?: string;
+        connectwisdomservice?: string;
         costandusagereportservice?: string;
         costexplorer?: string;
         cur?: string;
+        customerprofiles?: string;
         databasemigration?: string;
         databasemigrationservice?: string;
+        databrew?: string;
         dataexchange?: string;
         datapipeline?: string;
         datasync?: string;
         dax?: string;
+        deploy?: string;
         detective?: string;
         devicefarm?: string;
         devopsguru?: string;
         directconnect?: string;
+        directoryservice?: string;
+        discovery?: string;
         dlm?: string;
         dms?: string;
         docdb?: string;
+        drs?: string;
         ds?: string;
         dynamodb?: string;
         dynamodbstreams?: string;
+        ebs?: string;
         ec2?: string;
         ec2instanceconnect?: string;
         ecr?: string;
@@ -10267,6 +10306,8 @@ export namespace config {
         elasticache?: string;
         elasticbeanstalk?: string;
         elasticinference?: string;
+        elasticloadbalancing?: string;
+        elasticloadbalancingv2?: string;
         elasticsearch?: string;
         elasticsearchservice?: string;
         elastictranscoder?: string;
@@ -10277,6 +10318,7 @@ export namespace config {
         es?: string;
         eventbridge?: string;
         events?: string;
+        evidently?: string;
         finspace?: string;
         finspacedata?: string;
         firehose?: string;
@@ -10305,21 +10347,26 @@ export namespace config {
         identitystore?: string;
         imagebuilder?: string;
         inspector?: string;
+        inspector2?: string;
         iot?: string;
         iot1clickdevices?: string;
         iot1clickdevicesservice?: string;
         iot1clickprojects?: string;
         iotanalytics?: string;
+        iotdata?: string;
         iotdataplane?: string;
         iotdeviceadvisor?: string;
         iotevents?: string;
         ioteventsdata?: string;
         iotfleethub?: string;
+        iotjobsdata?: string;
         iotjobsdataplane?: string;
         iotsecuretunneling?: string;
         iotsitewise?: string;
         iotthingsgraph?: string;
+        iottwinmaker?: string;
         iotwireless?: string;
+        ivs?: string;
         kafka?: string;
         kafkaconnect?: string;
         kendra?: string;
@@ -10330,6 +10377,7 @@ export namespace config {
         kinesisvideo?: string;
         kinesisvideoarchivedmedia?: string;
         kinesisvideomedia?: string;
+        kinesisvideosignaling?: string;
         kinesisvideosignalingchannels?: string;
         kms?: string;
         lakeformation?: string;
@@ -10341,12 +10389,17 @@ export namespace config {
         lexruntime?: string;
         lexruntimeservice?: string;
         lexruntimev2?: string;
+        lexv2models?: string;
+        lexv2runtime?: string;
         licensemanager?: string;
         lightsail?: string;
         location?: string;
+        locationservice?: string;
+        logs?: string;
         lookoutequipment?: string;
         lookoutforvision?: string;
         lookoutmetrics?: string;
+        lookoutvision?: string;
         machinelearning?: string;
         macie?: string;
         macie2?: string;
@@ -10366,17 +10419,22 @@ export namespace config {
         mediastoredata?: string;
         mediatailor?: string;
         memorydb?: string;
+        meteringmarketplace?: string;
+        mgh?: string;
         mgn?: string;
         migrationhub?: string;
         migrationhubconfig?: string;
+        migrationhubrefactorspaces?: string;
+        migrationhubstrategy?: string;
+        migrationhubstrategyrecommendations?: string;
         mobile?: string;
-        mobileanalytics?: string;
         mq?: string;
         mturk?: string;
         mwaa?: string;
         neptune?: string;
         networkfirewall?: string;
         networkmanager?: string;
+        nimble?: string;
         nimblestudio?: string;
         opensearch?: string;
         opensearchservice?: string;
@@ -10384,6 +10442,7 @@ export namespace config {
         opsworkscm?: string;
         organizations?: string;
         outposts?: string;
+        panorama?: string;
         personalize?: string;
         personalizeevents?: string;
         personalizeruntime?: string;
@@ -10400,25 +10459,34 @@ export namespace config {
         qldbsession?: string;
         quicksight?: string;
         ram?: string;
+        rbin?: string;
         rds?: string;
         rdsdata?: string;
         rdsdataservice?: string;
+        recyclebin?: string;
         redshift?: string;
         redshiftdata?: string;
+        redshiftdataapiservice?: string;
         rekognition?: string;
+        resiliencehub?: string;
         resourcegroups?: string;
         resourcegroupstagging?: string;
         resourcegroupstaggingapi?: string;
         robomaker?: string;
         route53?: string;
         route53domains?: string;
+        route53recoverycluster?: string;
         route53recoverycontrolconfig?: string;
         route53recoveryreadiness?: string;
         route53resolver?: string;
+        rum?: string;
         s3?: string;
+        s3api?: string;
         s3control?: string;
         s3outposts?: string;
         sagemaker?: string;
+        sagemakera2iruntime?: string;
+        sagemakeredge?: string;
         sagemakeredgemanager?: string;
         sagemakerfeaturestoreruntime?: string;
         sagemakerruntime?: string;
@@ -10431,6 +10499,7 @@ export namespace config {
         serverlessapprepo?: string;
         serverlessrepo?: string;
         servicecatalog?: string;
+        servicecatalogappregistry?: string;
         servicediscovery?: string;
         servicequotas?: string;
         ses?: string;
@@ -10441,6 +10510,7 @@ export namespace config {
         simpledb?: string;
         sms?: string;
         snowball?: string;
+        snowdevicemanagement?: string;
         sns?: string;
         sqs?: string;
         ssm?: string;
@@ -10464,15 +10534,18 @@ export namespace config {
         transcribestreamingservice?: string;
         transfer?: string;
         translate?: string;
+        voiceid?: string;
         waf?: string;
         wafregional?: string;
         wafv2?: string;
         wellarchitected?: string;
+        wisdom?: string;
         workdocs?: string;
         worklink?: string;
         workmail?: string;
         workmailmessageflow?: string;
         workspaces?: string;
+        workspacesweb?: string;
         xray?: string;
     }
 
@@ -10868,6 +10941,883 @@ export namespace connect {
          */
         name: string;
     }
+}
+
+export namespace costexplorer {
+    export interface CostCategoryRule {
+        /**
+         * Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
+         */
+        inheritedValue?: outputs.costexplorer.CostCategoryRuleInheritedValue;
+        /**
+         * Configuration block for the `Expression` object used to categorize costs. See below.
+         */
+        rule?: outputs.costexplorer.CostCategoryRuleRule;
+        /**
+         * Parameter type.
+         */
+        type?: string;
+        /**
+         * Default value for the cost category.
+         */
+        value?: string;
+    }
+
+    export interface CostCategoryRuleInheritedValue {
+        /**
+         * Key to extract cost category values.
+         */
+        dimensionKey?: string;
+        /**
+         * Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
+         */
+        dimensionName?: string;
+    }
+
+    export interface CostCategoryRuleRule {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
+        ands?: outputs.costexplorer.CostCategoryRuleRuleAnd[];
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.CostCategoryRuleRuleCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.CostCategoryRuleRuleDimension;
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        not?: outputs.costexplorer.CostCategoryRuleRuleNot;
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        ors?: outputs.costexplorer.CostCategoryRuleRuleOr[];
+        tags?: outputs.costexplorer.CostCategoryRuleRuleTags;
+    }
+
+    export interface CostCategoryRuleRuleAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.CostCategoryRuleRuleAndCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.CostCategoryRuleRuleAndDimension;
+        tags?: outputs.costexplorer.CostCategoryRuleRuleAndTags;
+    }
+
+    export interface CostCategoryRuleRuleAndCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleAndDimension {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleAndTags {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleDimension {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.CostCategoryRuleRuleNotCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.CostCategoryRuleRuleNotDimension;
+        tags?: outputs.costexplorer.CostCategoryRuleRuleNotTags;
+    }
+
+    export interface CostCategoryRuleRuleNotCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleNotDimension {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleNotTags {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.CostCategoryRuleRuleOrCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.CostCategoryRuleRuleOrDimension;
+        tags?: outputs.costexplorer.CostCategoryRuleRuleOrTags;
+    }
+
+    export interface CostCategoryRuleRuleOrCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleOrDimension {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleOrTags {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleTags {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategorySplitChargeRule {
+        /**
+         * Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
+         */
+        method: string;
+        /**
+         * Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
+         */
+        parameters?: outputs.costexplorer.CostCategorySplitChargeRuleParameter[];
+        /**
+         * Cost Category value that you want to split.
+         */
+        source: string;
+        /**
+         * Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
+         */
+        targets: string[];
+    }
+
+    export interface CostCategorySplitChargeRuleParameter {
+        /**
+         * Parameter type.
+         */
+        type?: string;
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface GetCostCategoryRule {
+        /**
+         * Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
+         */
+        inheritedValues: outputs.costexplorer.GetCostCategoryRuleInheritedValue[];
+        /**
+         * Configuration block for the `Expression` object used to categorize costs. See below.
+         */
+        rules: outputs.costexplorer.GetCostCategoryRuleRule[];
+        /**
+         * Parameter type.
+         */
+        type: string;
+        /**
+         * Default value for the cost category.
+         */
+        value: string;
+    }
+
+    export interface GetCostCategoryRuleInheritedValue {
+        /**
+         * Key to extract cost category values.
+         */
+        dimensionKey: string;
+        /**
+         * Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
+         */
+        dimensionName: string;
+    }
+
+    export interface GetCostCategoryRuleRule {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
+        ands: outputs.costexplorer.GetCostCategoryRuleRuleAnd[];
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleCostCategory[];
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleDimension[];
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        nots: outputs.costexplorer.GetCostCategoryRuleRuleNot[];
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        ors: outputs.costexplorer.GetCostCategoryRuleRuleOr[];
+        tags: outputs.costexplorer.GetCostCategoryRuleRuleTag[];
+    }
+
+    export interface GetCostCategoryRuleRuleAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleAndCostCategory[];
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleAndDimension[];
+        tags: outputs.costexplorer.GetCostCategoryRuleRuleAndTag[];
+    }
+
+    export interface GetCostCategoryRuleRuleAndCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleAndDimension {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleAndTag {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleDimension {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleNotCostCategory[];
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleNotDimension[];
+        tags: outputs.costexplorer.GetCostCategoryRuleRuleNotTag[];
+    }
+
+    export interface GetCostCategoryRuleRuleNotCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleNotDimension {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleNotTag {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleOrCostCategory[];
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleOrDimension[];
+        tags: outputs.costexplorer.GetCostCategoryRuleRuleOrTag[];
+    }
+
+    export interface GetCostCategoryRuleRuleOrCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleOrDimension {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleOrTag {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleTag {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategorySplitChargeRule {
+        /**
+         * Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
+         */
+        method: string;
+        /**
+         * Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
+         */
+        parameters: outputs.costexplorer.GetCostCategorySplitChargeRuleParameter[];
+        /**
+         * Cost Category value that you want to split.
+         */
+        source: string;
+        /**
+         * Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
+         */
+        targets: string[];
+    }
+
+    export interface GetCostCategorySplitChargeRuleParameter {
+        /**
+         * Parameter type.
+         */
+        type: string;
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface TagsFilter {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
+        ands?: outputs.costexplorer.TagsFilterAnd[];
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.TagsFilterCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.TagsFilterDimension;
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        not?: outputs.costexplorer.TagsFilterNot;
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        ors?: outputs.costexplorer.TagsFilterOr[];
+        /**
+         * Tags that match your request.
+         */
+        tags?: outputs.costexplorer.TagsFilterTags;
+    }
+
+    export interface TagsFilterAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.TagsFilterAndCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.TagsFilterAndDimension;
+        /**
+         * Tags that match your request.
+         */
+        tags?: outputs.costexplorer.TagsFilterAndTags;
+    }
+
+    export interface TagsFilterAndCostCategory {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterAndDimension {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterAndTags {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterCostCategory {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterDimension {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.TagsFilterNotCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.TagsFilterNotDimension;
+        /**
+         * Tags that match your request.
+         */
+        tags?: outputs.costexplorer.TagsFilterNotTags;
+    }
+
+    export interface TagsFilterNotCostCategory {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterNotDimension {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterNotTags {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.TagsFilterOrCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.TagsFilterOrDimension;
+        /**
+         * Tags that match your request.
+         */
+        tags?: outputs.costexplorer.TagsFilterOrTags;
+    }
+
+    export interface TagsFilterOrCostCategory {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterOrDimension {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterOrTags {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsFilterTags {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface TagsSortBy {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
+         */
+        sortOrder?: string;
+    }
+
+    export interface TagsTimePeriod {
+        /**
+         * Beginning of the time period.
+         */
+        end: string;
+        /**
+         * End of the time period.
+         */
+        start: string;
+    }
+
 }
 
 export namespace datapipeline {
@@ -12857,6 +13807,13 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetInstanceMaintenanceOption {
+        /**
+         * The automatic recovery behavior of the instance.
+         */
+        autoRecovery: string;
+    }
+
     export interface GetInstanceMetadataOption {
         /**
          * The state of the metadata service: `enabled`, `disabled`.
@@ -13197,6 +14154,10 @@ export namespace ec2 {
 
     export interface GetLaunchTemplateLicenseSpecification {
         licenseConfigurationArn: string;
+    }
+
+    export interface GetLaunchTemplateMaintenanceOption {
+        autoRecovery: string;
     }
 
     export interface GetLaunchTemplateMetadataOption {
@@ -13910,6 +14871,13 @@ export namespace ec2 {
         version?: string;
     }
 
+    export interface InstanceMaintenanceOptions {
+        /**
+         * The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+         */
+        autoRecovery: string;
+    }
+
     export interface InstanceMetadataOptions {
         /**
          * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
@@ -14213,6 +15181,13 @@ export namespace ec2 {
          * ARN of the license configuration.
          */
         licenseConfigurationArn: string;
+    }
+
+    export interface LaunchTemplateMaintenanceOptions {
+        /**
+         * Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+         */
+        autoRecovery?: string;
     }
 
     export interface LaunchTemplateMetadataOptions {
@@ -14912,6 +15887,13 @@ export namespace ec2 {
          * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
          */
         version?: string;
+    }
+
+    export interface SpotInstanceRequestMaintenanceOptions {
+        /**
+         * The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+         */
+        autoRecovery: string;
     }
 
     export interface SpotInstanceRequestMetadataOptions {
@@ -22611,14 +23593,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -22921,14 +23903,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -23072,14 +24054,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -23204,14 +24186,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -23414,14 +24396,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -25887,6 +26869,40 @@ export namespace memorydb {
          * The port number on which each of the nodes accepts connections. Defaults to `6379`.
          */
         port: number;
+    }
+
+    export interface GetBrokerInstanceTypeOfferingsBrokerInstanceOption {
+        /**
+         * The list of available AZs. See Availability Zones. below
+         */
+        availabilityZones: outputs.memorydb.GetBrokerInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone[];
+        /**
+         * Filter response by engine type.
+         */
+        engineType: string;
+        /**
+         * Filter response by host instance type.
+         */
+        hostInstanceType: string;
+        /**
+         * Filter response by storage type.
+         */
+        storageType: string;
+        /**
+         * The list of supported deployment modes.
+         */
+        supportedDeploymentModes: string[];
+        /**
+         * The list of supported engine versions.
+         */
+        supportedEngineVersions: string[];
+    }
+
+    export interface GetBrokerInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone {
+        /**
+         * The name of the Availability Zone.
+         */
+        name: string;
     }
 
     export interface GetClusterClusterEndpoint {
@@ -29348,6 +30364,17 @@ export namespace rds {
         timeoutAction?: string;
     }
 
+    export interface ClusterServerlessv2ScalingConfiguration {
+        /**
+         * The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+         */
+        maxCapacity: number;
+        /**
+         * The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+         */
+        minCapacity: number;
+    }
+
     export interface GetProxyAuth {
         authScheme: string;
         description: string;
@@ -32131,7 +33158,7 @@ export namespace sagemaker {
 
     export interface AppResourceSpec {
         /**
-         * The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -32229,7 +33256,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
         /**
-         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -32278,7 +33305,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
         /**
-         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -32319,7 +33346,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
         /**
-         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**

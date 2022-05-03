@@ -261,7 +261,7 @@ class App(pulumi.CustomResource):
                  user_profile_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Sagemaker App resource.
+        Provides a SageMaker App resource.
 
         ## Example Usage
         ### Basic usage
@@ -279,7 +279,7 @@ class App(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Apps can be imported using the `id`, e.g.,
+        SageMaker Code Apps can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
@@ -301,7 +301,7 @@ class App(pulumi.CustomResource):
                  args: AppArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Sagemaker App resource.
+        Provides a SageMaker App resource.
 
         ## Example Usage
         ### Basic usage
@@ -319,7 +319,7 @@ class App(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Apps can be imported using the `id`, e.g.,
+        SageMaker Code Apps can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name

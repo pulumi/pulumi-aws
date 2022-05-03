@@ -18,6 +18,9 @@ func GetAllowedAccountIds(ctx *pulumi.Context) string {
 func GetAssumeRole(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:assumeRole")
 }
+func GetAssumeRoleWithWebIdentity(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:assumeRoleWithWebIdentity")
+}
 
 // File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
 // variable. (Setting `ca_bundle` in the shared config file is not supported.)
@@ -141,12 +144,12 @@ func GetSkipGetEc2Platforms(ctx *pulumi.Context) bool {
 }
 
 // Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
-func GetSkipMetadataApiCheck(ctx *pulumi.Context) bool {
-	v, err := config.TryBool(ctx, "aws:skipMetadataApiCheck")
+func GetSkipMetadataApiCheck(ctx *pulumi.Context) string {
+	v, err := config.Try(ctx, "aws:skipMetadataApiCheck")
 	if err == nil {
 		return v
 	}
-	return true
+	return ""
 }
 
 // Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are

@@ -41,6 +41,8 @@ type Provider struct {
 	//
 	// Deprecated: Use shared_credentials_files instead.
 	SharedCredentialsFile pulumi.StringPtrOutput `pulumi:"sharedCredentialsFile"`
+	// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+	SkipMetadataApiCheck pulumi.StringPtrOutput `pulumi:"skipMetadataApiCheck"`
 	// The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.
 	StsRegion pulumi.StringPtrOutput `pulumi:"stsRegion"`
 	// session token. A session token is only required if you are using temporary security credentials.
@@ -64,7 +66,7 @@ func NewProvider(ctx *pulumi.Context,
 		args.SkipGetEc2Platforms = pulumi.BoolPtr(true)
 	}
 	if isZero(args.SkipMetadataApiCheck) {
-		args.SkipMetadataApiCheck = pulumi.BoolPtr(true)
+		args.SkipMetadataApiCheck = pulumi.StringPtr("")
 	}
 	if isZero(args.SkipRegionValidation) {
 		args.SkipRegionValidation = pulumi.BoolPtr(true)
@@ -79,9 +81,10 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	AccessKey         *string             `pulumi:"accessKey"`
-	AllowedAccountIds []string            `pulumi:"allowedAccountIds"`
-	AssumeRole        *ProviderAssumeRole `pulumi:"assumeRole"`
+	AccessKey                 *string                            `pulumi:"accessKey"`
+	AllowedAccountIds         []string                           `pulumi:"allowedAccountIds"`
+	AssumeRole                *ProviderAssumeRole                `pulumi:"assumeRole"`
+	AssumeRoleWithWebIdentity *ProviderAssumeRoleWithWebIdentity `pulumi:"assumeRoleWithWebIdentity"`
 	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
 	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
 	CustomCaBundle *string `pulumi:"customCaBundle"`
@@ -134,7 +137,7 @@ type providerArgs struct {
 	// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
 	SkipGetEc2Platforms *bool `pulumi:"skipGetEc2Platforms"`
 	// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
-	SkipMetadataApiCheck *bool `pulumi:"skipMetadataApiCheck"`
+	SkipMetadataApiCheck *string `pulumi:"skipMetadataApiCheck"`
 	// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 	// not public (yet).
 	SkipRegionValidation *bool `pulumi:"skipRegionValidation"`
@@ -153,9 +156,10 @@ type providerArgs struct {
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	AccessKey         pulumi.StringPtrInput
-	AllowedAccountIds pulumi.StringArrayInput
-	AssumeRole        ProviderAssumeRolePtrInput
+	AccessKey                 pulumi.StringPtrInput
+	AllowedAccountIds         pulumi.StringArrayInput
+	AssumeRole                ProviderAssumeRolePtrInput
+	AssumeRoleWithWebIdentity ProviderAssumeRoleWithWebIdentityPtrInput
 	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
 	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
 	CustomCaBundle pulumi.StringPtrInput
@@ -208,7 +212,7 @@ type ProviderArgs struct {
 	// Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
 	SkipGetEc2Platforms pulumi.BoolPtrInput
 	// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
-	SkipMetadataApiCheck pulumi.BoolPtrInput
+	SkipMetadataApiCheck pulumi.StringPtrInput
 	// Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
 	// not public (yet).
 	SkipRegionValidation pulumi.BoolPtrInput
@@ -310,6 +314,11 @@ func (o ProviderOutput) SecretKey() pulumi.StringPtrOutput {
 // Deprecated: Use shared_credentials_files instead.
 func (o ProviderOutput) SharedCredentialsFile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SharedCredentialsFile }).(pulumi.StringPtrOutput)
+}
+
+// Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+func (o ProviderOutput) SkipMetadataApiCheck() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.SkipMetadataApiCheck }).(pulumi.StringPtrOutput)
 }
 
 // The region where AWS STS operations will take place. Examples are us-east-1 and us-west-2.

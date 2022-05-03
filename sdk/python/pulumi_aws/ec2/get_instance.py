@@ -22,7 +22,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         pulumi.set(__self__, "ami", ami)
@@ -89,6 +89,9 @@ class GetInstanceResult:
         if key_name and not isinstance(key_name, str):
             raise TypeError("Expected argument 'key_name' to be a str")
         pulumi.set(__self__, "key_name", key_name)
+        if maintenance_options and not isinstance(maintenance_options, list):
+            raise TypeError("Expected argument 'maintenance_options' to be a list")
+        pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options and not isinstance(metadata_options, list):
             raise TypeError("Expected argument 'metadata_options' to be a list")
         pulumi.set(__self__, "metadata_options", metadata_options)
@@ -218,7 +221,7 @@ class GetInstanceResult:
     @pulumi.getter(name="enclaveOptions")
     def enclave_options(self) -> Sequence['outputs.GetInstanceEnclaveOptionResult']:
         """
-        The enclave options of the Instance.
+        The enclave options of the instance.
         """
         return pulumi.get(self, "enclave_options")
 
@@ -310,6 +313,14 @@ class GetInstanceResult:
         The key name of the Instance.
         """
         return pulumi.get(self, "key_name")
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Sequence['outputs.GetInstanceMaintenanceOptionResult']:
+        """
+        The maintenance and recovery options for the instance.
+        """
+        return pulumi.get(self, "maintenance_options")
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -514,6 +525,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             instance_type=self.instance_type,
             ipv6_addresses=self.ipv6_addresses,
             key_name=self.key_name,
+            maintenance_options=self.maintenance_options,
             metadata_options=self.metadata_options,
             monitoring=self.monitoring,
             network_interface_id=self.network_interface_id,
@@ -614,6 +626,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
         instance_type=__ret__.instance_type,
         ipv6_addresses=__ret__.ipv6_addresses,
         key_name=__ret__.key_name,
+        maintenance_options=__ret__.maintenance_options,
         metadata_options=__ret__.metadata_options,
         monitoring=__ret__.monitoring,
         network_interface_id=__ret__.network_interface_id,

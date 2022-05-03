@@ -37,6 +37,7 @@ __all__ = [
     'InstanceEnclaveOptionsArgs',
     'InstanceEphemeralBlockDeviceArgs',
     'InstanceLaunchTemplateArgs',
+    'InstanceMaintenanceOptionsArgs',
     'InstanceMetadataOptionsArgs',
     'InstanceNetworkInterfaceArgs',
     'InstanceRootBlockDeviceArgs',
@@ -58,6 +59,7 @@ __all__ = [
     'LaunchTemplateInstanceMarketOptionsArgs',
     'LaunchTemplateInstanceMarketOptionsSpotOptionsArgs',
     'LaunchTemplateLicenseSpecificationArgs',
+    'LaunchTemplateMaintenanceOptionsArgs',
     'LaunchTemplateMetadataOptionsArgs',
     'LaunchTemplateMonitoringArgs',
     'LaunchTemplateNetworkInterfaceArgs',
@@ -89,6 +91,7 @@ __all__ = [
     'SpotInstanceRequestEnclaveOptionsArgs',
     'SpotInstanceRequestEphemeralBlockDeviceArgs',
     'SpotInstanceRequestLaunchTemplateArgs',
+    'SpotInstanceRequestMaintenanceOptionsArgs',
     'SpotInstanceRequestMetadataOptionsArgs',
     'SpotInstanceRequestNetworkInterfaceArgs',
     'SpotInstanceRequestRootBlockDeviceArgs',
@@ -2429,6 +2432,29 @@ class InstanceLaunchTemplateArgs:
 
 
 @pulumi.input_type
+class InstanceMaintenanceOptionsArgs:
+    def __init__(__self__, *,
+                 auto_recovery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auto_recovery: The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+    @auto_recovery.setter
+    def auto_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_recovery", value)
+
+
+@pulumi.input_type
 class InstanceMetadataOptionsArgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
@@ -3655,6 +3681,29 @@ class LaunchTemplateLicenseSpecificationArgs:
     @license_configuration_arn.setter
     def license_configuration_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "license_configuration_arn", value)
+
+
+@pulumi.input_type
+class LaunchTemplateMaintenanceOptionsArgs:
+    def __init__(__self__, *,
+                 auto_recovery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auto_recovery: Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+    @auto_recovery.setter
+    def auto_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_recovery", value)
 
 
 @pulumi.input_type
@@ -6502,6 +6551,29 @@ class SpotInstanceRequestLaunchTemplateArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class SpotInstanceRequestMaintenanceOptionsArgs:
+    def __init__(__self__, *,
+                 auto_recovery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auto_recovery: The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        The automatic recovery behavior of the Instance. Can be `"default"` or `"dedicated"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+    @auto_recovery.setter
+    def auto_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_recovery", value)
 
 
 @pulumi.input_type

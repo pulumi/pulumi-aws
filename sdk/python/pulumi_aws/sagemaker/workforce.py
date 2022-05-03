@@ -198,7 +198,7 @@ class Workforce(pulumi.CustomResource):
                  workforce_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides a Sagemaker Workforce resource.
+        Provides a SageMaker Workforce resource.
 
         ## Example Usage
         ### Cognito Usage
@@ -243,7 +243,7 @@ class Workforce(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Workforces can be imported using the `workforce_name`, e.g.,
+        SageMaker Workforces can be imported using the `workforce_name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/workforce:Workforce example example
@@ -263,7 +263,7 @@ class Workforce(pulumi.CustomResource):
                  args: WorkforceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Sagemaker Workforce resource.
+        Provides a SageMaker Workforce resource.
 
         ## Example Usage
         ### Cognito Usage
@@ -308,7 +308,7 @@ class Workforce(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Workforces can be imported using the `workforce_name`, e.g.,
+        SageMaker Workforces can be imported using the `workforce_name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/workforce:Workforce example example

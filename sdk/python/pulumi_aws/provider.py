@@ -17,6 +17,7 @@ class ProviderArgs:
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input['ProviderAssumeRoleArgs']] = None,
+                 assume_role_with_web_identity: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
@@ -37,7 +38,7 @@ class ProviderArgs:
                  shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
+                 skip_metadata_api_check: Optional[pulumi.Input[str]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  sts_region: Optional[pulumi.Input[str]] = None,
@@ -74,7 +75,7 @@ class ProviderArgs:
         :param pulumi.Input[bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
                available/implemented.
         :param pulumi.Input[bool] skip_get_ec2_platforms: Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-        :param pulumi.Input[bool] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+        :param pulumi.Input[str] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
                not public (yet).
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
@@ -89,6 +90,8 @@ class ProviderArgs:
             pulumi.set(__self__, "allowed_account_ids", allowed_account_ids)
         if assume_role is not None:
             pulumi.set(__self__, "assume_role", assume_role)
+        if assume_role_with_web_identity is not None:
+            pulumi.set(__self__, "assume_role_with_web_identity", assume_role_with_web_identity)
         if custom_ca_bundle is not None:
             pulumi.set(__self__, "custom_ca_bundle", custom_ca_bundle)
         if default_tags is not None:
@@ -142,7 +145,7 @@ class ProviderArgs:
         if skip_get_ec2_platforms is not None:
             pulumi.set(__self__, "skip_get_ec2_platforms", skip_get_ec2_platforms)
         if skip_metadata_api_check is None:
-            skip_metadata_api_check = True
+            skip_metadata_api_check = ''
         if skip_metadata_api_check is not None:
             pulumi.set(__self__, "skip_metadata_api_check", skip_metadata_api_check)
         if skip_region_validation is None:
@@ -189,6 +192,15 @@ class ProviderArgs:
     @assume_role.setter
     def assume_role(self, value: Optional[pulumi.Input['ProviderAssumeRoleArgs']]):
         pulumi.set(self, "assume_role", value)
+
+    @property
+    @pulumi.getter(name="assumeRoleWithWebIdentity")
+    def assume_role_with_web_identity(self) -> Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']]:
+        return pulumi.get(self, "assume_role_with_web_identity")
+
+    @assume_role_with_web_identity.setter
+    def assume_role_with_web_identity(self, value: Optional[pulumi.Input['ProviderAssumeRoleWithWebIdentityArgs']]):
+        pulumi.set(self, "assume_role_with_web_identity", value)
 
     @property
     @pulumi.getter(name="customCaBundle")
@@ -435,14 +447,14 @@ class ProviderArgs:
 
     @property
     @pulumi.getter(name="skipMetadataApiCheck")
-    def skip_metadata_api_check(self) -> Optional[pulumi.Input[bool]]:
+    def skip_metadata_api_check(self) -> Optional[pulumi.Input[str]]:
         """
         Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         """
         return pulumi.get(self, "skip_metadata_api_check")
 
     @skip_metadata_api_check.setter
-    def skip_metadata_api_check(self, value: Optional[pulumi.Input[bool]]):
+    def skip_metadata_api_check(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "skip_metadata_api_check", value)
 
     @property
@@ -527,6 +539,7 @@ class Provider(pulumi.ProviderResource):
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
+                 assume_role_with_web_identity: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleWithWebIdentityArgs']]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
@@ -547,7 +560,7 @@ class Provider(pulumi.ProviderResource):
                  shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
+                 skip_metadata_api_check: Optional[pulumi.Input[str]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  sts_region: Optional[pulumi.Input[str]] = None,
@@ -591,7 +604,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] skip_credentials_validation: Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
                available/implemented.
         :param pulumi.Input[bool] skip_get_ec2_platforms: Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.
-        :param pulumi.Input[bool] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+        :param pulumi.Input[str] skip_metadata_api_check: Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
         :param pulumi.Input[bool] skip_region_validation: Skip static validation of region name. Used by users of alternative AWS-like APIs or users w/ access to regions that are
                not public (yet).
         :param pulumi.Input[bool] skip_requesting_account_id: Skip requesting the account ID. Used for AWS API implementations that do not have IAM/STS API and/or metadata API.
@@ -630,6 +643,7 @@ class Provider(pulumi.ProviderResource):
                  access_key: Optional[pulumi.Input[str]] = None,
                  allowed_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  assume_role: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleArgs']]] = None,
+                 assume_role_with_web_identity: Optional[pulumi.Input[pulumi.InputType['ProviderAssumeRoleWithWebIdentityArgs']]] = None,
                  custom_ca_bundle: Optional[pulumi.Input[str]] = None,
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
                  ec2_metadata_service_endpoint: Optional[pulumi.Input[str]] = None,
@@ -650,7 +664,7 @@ class Provider(pulumi.ProviderResource):
                  shared_credentials_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  skip_credentials_validation: Optional[pulumi.Input[bool]] = None,
                  skip_get_ec2_platforms: Optional[pulumi.Input[bool]] = None,
-                 skip_metadata_api_check: Optional[pulumi.Input[bool]] = None,
+                 skip_metadata_api_check: Optional[pulumi.Input[str]] = None,
                  skip_region_validation: Optional[pulumi.Input[bool]] = None,
                  skip_requesting_account_id: Optional[pulumi.Input[bool]] = None,
                  sts_region: Optional[pulumi.Input[str]] = None,
@@ -672,6 +686,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["access_key"] = access_key
             __props__.__dict__["allowed_account_ids"] = pulumi.Output.from_input(allowed_account_ids).apply(pulumi.runtime.to_json) if allowed_account_ids is not None else None
             __props__.__dict__["assume_role"] = pulumi.Output.from_input(assume_role).apply(pulumi.runtime.to_json) if assume_role is not None else None
+            __props__.__dict__["assume_role_with_web_identity"] = pulumi.Output.from_input(assume_role_with_web_identity).apply(pulumi.runtime.to_json) if assume_role_with_web_identity is not None else None
             __props__.__dict__["custom_ca_bundle"] = custom_ca_bundle
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["ec2_metadata_service_endpoint"] = ec2_metadata_service_endpoint
@@ -705,8 +720,8 @@ class Provider(pulumi.ProviderResource):
                 skip_get_ec2_platforms = True
             __props__.__dict__["skip_get_ec2_platforms"] = pulumi.Output.from_input(skip_get_ec2_platforms).apply(pulumi.runtime.to_json) if skip_get_ec2_platforms is not None else None
             if skip_metadata_api_check is None:
-                skip_metadata_api_check = True
-            __props__.__dict__["skip_metadata_api_check"] = pulumi.Output.from_input(skip_metadata_api_check).apply(pulumi.runtime.to_json) if skip_metadata_api_check is not None else None
+                skip_metadata_api_check = ''
+            __props__.__dict__["skip_metadata_api_check"] = skip_metadata_api_check
             if skip_region_validation is None:
                 skip_region_validation = True
             __props__.__dict__["skip_region_validation"] = pulumi.Output.from_input(skip_region_validation).apply(pulumi.runtime.to_json) if skip_region_validation is not None else None
@@ -796,6 +811,14 @@ class Provider(pulumi.ProviderResource):
         The path to the shared credentials file. If not set, defaults to ~/.aws/credentials.
         """
         return pulumi.get(self, "shared_credentials_file")
+
+    @property
+    @pulumi.getter(name="skipMetadataApiCheck")
+    def skip_metadata_api_check(self) -> pulumi.Output[Optional[str]]:
+        """
+        Skip the AWS Metadata API check. Used for AWS API implementations that do not have a metadata api endpoint.
+        """
+        return pulumi.get(self, "skip_metadata_api_check")
 
     @property
     @pulumi.getter(name="stsRegion")

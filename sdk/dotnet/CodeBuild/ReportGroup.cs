@@ -22,26 +22,27 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     public MyStack()
     ///     {
+    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
     ///         {
     ///             Description = "my test kms key",
     ///             DeletionWindowInDays = 7,
-    ///             Policy = @"{
+    ///             Policy = current.Apply(current =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""kms-tf-1"",
     ///   ""Statement"": [
-    ///     {
+    ///     {{
     ///       ""Sid"": ""Enable IAM User Permissions"",
     ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""AWS"": ""*""
-    ///       },
+    ///       ""Principal"": {{
+    ///         ""AWS"": ""arn:aws:iam::{current.AccountId}:root""
+    ///       }},
     ///       ""Action"": ""kms:*"",
     ///       ""Resource"": ""*""
-    ///     }
+    ///     }}
     ///   ]
-    /// }
-    /// ",
+    /// }}
+    /// "),
     ///         });
     ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
     ///         {

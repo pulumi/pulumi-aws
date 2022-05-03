@@ -181,6 +181,8 @@ type LaunchTemplate struct {
 	LatestVersion pulumi.IntOutput `pulumi:"latestVersion"`
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayOutput `pulumi:"licenseSpecifications"`
+	// The maintenance options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrOutput `pulumi:"maintenanceOptions"`
 	// Customize the metadata options for the instance. See Metadata Options below for more details.
 	MetadataOptions LaunchTemplateMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
@@ -294,6 +296,8 @@ type launchTemplateState struct {
 	LatestVersion *int `pulumi:"latestVersion"`
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	// The maintenance options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions *LaunchTemplateMaintenanceOptions `pulumi:"maintenanceOptions"`
 	// Customize the metadata options for the instance. See Metadata Options below for more details.
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
@@ -379,6 +383,8 @@ type LaunchTemplateState struct {
 	LatestVersion pulumi.IntPtrInput
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput
+	// The maintenance options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrInput
 	// Customize the metadata options for the instance. See Metadata Options below for more details.
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
 	// The monitoring option for the instance. See Monitoring below for more details.
@@ -464,6 +470,8 @@ type launchTemplateArgs struct {
 	KeyName *string `pulumi:"keyName"`
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications []LaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	// The maintenance options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions *LaunchTemplateMaintenanceOptions `pulumi:"maintenanceOptions"`
 	// Customize the metadata options for the instance. See Metadata Options below for more details.
 	MetadataOptions *LaunchTemplateMetadataOptions `pulumi:"metadataOptions"`
 	// The monitoring option for the instance. See Monitoring below for more details.
@@ -544,6 +552,8 @@ type LaunchTemplateArgs struct {
 	KeyName pulumi.StringPtrInput
 	// A list of license specifications to associate with. See License Specification below for more details.
 	LicenseSpecifications LaunchTemplateLicenseSpecificationArrayInput
+	// The maintenance options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions LaunchTemplateMaintenanceOptionsPtrInput
 	// Customize the metadata options for the instance. See Metadata Options below for more details.
 	MetadataOptions LaunchTemplateMetadataOptionsPtrInput
 	// The monitoring option for the instance. See Monitoring below for more details.
@@ -783,6 +793,11 @@ func (o LaunchTemplateOutput) LatestVersion() pulumi.IntOutput {
 // A list of license specifications to associate with. See License Specification below for more details.
 func (o LaunchTemplateOutput) LicenseSpecifications() LaunchTemplateLicenseSpecificationArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateLicenseSpecificationArrayOutput { return v.LicenseSpecifications }).(LaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+// The maintenance options for the instance. See Maintenance Options below for more details.
+func (o LaunchTemplateOutput) MaintenanceOptions() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateMaintenanceOptionsPtrOutput { return v.MaintenanceOptions }).(LaunchTemplateMaintenanceOptionsPtrOutput)
 }
 
 // Customize the metadata options for the instance. See Metadata Options below for more details.

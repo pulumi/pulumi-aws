@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Human Task UI resource.
+ * Provides a SageMaker Human Task UI resource.
  *
  * ## Example Usage
  *
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
+ * SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Notebook Instance resource.
+ * Provides a SageMaker Notebook Instance resource.
  *
  * ## Example Usage
  * ### Basic usage
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Notebook Instances can be imported using the `name`, e.g.,
+ * SageMaker Notebook Instances can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
