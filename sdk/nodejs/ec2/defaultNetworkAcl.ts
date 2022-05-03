@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {
  *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  *     ingress: [{
- *         protocol: -1,
+ *         protocol: "-1",
  *         ruleNo: 100,
  *         action: "allow",
  *         cidrBlock: "0.0.0.0/0",
@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *         toPort: 0,
  *     }],
  *     egress: [{
- *         protocol: -1,
+ *         protocol: "-1",
  *         ruleNo: 100,
  *         action: "allow",
  *         cidrBlock: "0.0.0.0/0",
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {
  *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  *     ingress: [{
- *         protocol: -1,
+ *         protocol: "-1",
  *         ruleNo: 100,
  *         action: "allow",
  *         cidrBlock: aws_default_vpc.mainvpc.cidr_block,

@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         certificate: fs.readFileSync("./foobar.crt"),
  *     }],
  *     documentRoot: "public",
- *     autoBundleOnDeploy: true,
+ *     autoBundleOnDeploy: "true",
  *     railsEnv: "staging",
  * });
  * ```

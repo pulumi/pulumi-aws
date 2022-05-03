@@ -14,22 +14,6 @@ import * as utilities from "./utilities";
  *
  * const example = pulumi.output(aws.getDefaultTags());
  * ```
- * ### Dynamically Apply Default Tags to Auto Scaling Group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleDefaultTags = aws.getDefaultTags({});
- * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {dynamic: [{
- *     forEach: exampleDefaultTags.then(exampleDefaultTags => exampleDefaultTags.tags),
- *     content: [{
- *         key: tag.key,
- *         value: tag.value,
- *         propagateAtLaunch: true,
- *     }],
- * }]});
- * ```
  */
 export function getDefaultTags(args?: GetDefaultTagsArgs, opts?: pulumi.InvokeOptions): Promise<GetDefaultTagsResult> {
     args = args || {};

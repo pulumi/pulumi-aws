@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www.example.com",
  *     type: "A",
- *     ttl: "300",
+ *     ttl: 300,
  *     records: [aws_eip.lb.public_ip],
  * });
  * ```
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www",
  *     type: "CNAME",
- *     ttl: "5",
+ *     ttl: 5,
  *     weightedRoutingPolicies: [{
  *         weight: 10,
  *     }],
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.primary.zone_id,
  *     name: "www",
  *     type: "CNAME",
- *     ttl: "5",
+ *     ttl: 5,
  *     weightedRoutingPolicies: [{
  *         weight: 90,
  *     }],

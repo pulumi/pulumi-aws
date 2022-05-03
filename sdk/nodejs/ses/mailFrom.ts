@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.example.id,
  *     name: exampleMailFrom.mailFromDomain,
  *     type: "MX",
- *     ttl: "600",
+ *     ttl: 600,
  *     records: ["10 feedback-smtp.us-east-1.amazonses.com"],
  * });
  * // Change to the region in which `aws_ses_domain_identity.example` is created
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.example.id,
  *     name: exampleMailFrom.mailFromDomain,
  *     type: "TXT",
- *     ttl: "600",
+ *     ttl: 600,
  *     records: ["v=spf1 include:amazonses.com -all"],
  * });
  * ```

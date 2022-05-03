@@ -22,8 +22,8 @@ import * as utilities from "./utilities";
  * });
  * const fromEurope = new aws.ec2.SecurityGroup("fromEurope", {
  *     ingress: [{
- *         fromPort: "443",
- *         toPort: "443",
+ *         fromPort: 443,
+ *         toPort: 443,
  *         protocol: "tcp",
  *         cidrBlocks: europeanEc2.then(europeanEc2 => europeanEc2.cidrBlocks),
  *         ipv6CidrBlocks: europeanEc2.then(europeanEc2 => europeanEc2.ipv6CidrBlocks),

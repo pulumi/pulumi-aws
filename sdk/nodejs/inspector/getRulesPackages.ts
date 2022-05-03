@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * const assessmentAssessmentTarget = new aws.inspector.AssessmentTarget("assessmentAssessmentTarget", {resourceGroupArn: group.arn});
  * const assessmentAssessmentTemplate = new aws.inspector.AssessmentTemplate("assessmentAssessmentTemplate", {
  *     targetArn: assessmentAssessmentTarget.arn,
- *     duration: "60",
+ *     duration: 60,
  *     rulesPackageArns: rules.then(rules => rules.arns),
  * });
  * ```

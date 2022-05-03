@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
- *     maxConcurrency: 2,
- *     maxErrors: 1,
+ *     maxConcurrency: "2",
+ *     maxErrors: "1",
  *     priority: 1,
  *     taskArn: "AWS-RestartEC2Instance",
  *     taskType: "AUTOMATION",
@@ -44,8 +44,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
- *     maxConcurrency: 2,
- *     maxErrors: 1,
+ *     maxConcurrency: "2",
+ *     maxErrors: "1",
  *     priority: 1,
  *     taskArn: "AWS-RunShellScript",
  *     taskType: "RUN_COMMAND",
@@ -80,8 +80,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
- *     maxConcurrency: 2,
- *     maxErrors: 1,
+ *     maxConcurrency: "2",
+ *     maxErrors: "1",
  *     priority: 1,
  *     taskArn: aws_sfn_activity.example.id,
  *     taskType: "STEP_FUNCTIONS",

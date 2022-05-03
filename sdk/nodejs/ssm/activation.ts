@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * const foo = new aws.ssm.Activation("foo", {
  *     description: "Test",
  *     iamRole: testRole.id,
- *     registrationLimit: "5",
+ *     registrationLimit: 5,
  * }, {
  *     dependsOn: [testAttach],
  * });
