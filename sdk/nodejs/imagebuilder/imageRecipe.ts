@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     blockDeviceMappings: [{
  *         deviceName: "/dev/xvdb",
  *         ebs: {
- *             deleteOnTermination: true,
+ *             deleteOnTermination: "true",
  *             volumeSize: 100,
  *             volumeType: "gp2",
  *         },

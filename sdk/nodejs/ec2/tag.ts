@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
  * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
- *     bgpAsn: 65000,
+ *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });
