@@ -4455,7 +4455,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ebs_volume":                {Tok: awsDataSource(ebsMod, "getVolume")},
 			"aws_ebs_volumes":               {Tok: awsDataSource(ebsMod, "getEbsVolumes")},
 			// Elastic Container Registry
-			"aws_ecr_credentials":         {Tok: awsDataSource(ecrMod, "getCredentials")},
+			"aws_ecr_credentials": {
+				Tok: awsDataSource(ecrMod, "getCredentials"),
+				// aws_ecr_credentials is a custom data source implemented by Pulumi, thus it has no docs in the
+				// upstream provider. We set to a whitespace string so that the build will pass.
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
 			"aws_ecr_image":               {Tok: awsDataSource(ecrMod, "getImage")},
 			"aws_ecr_repository":          {Tok: awsDataSource(ecrMod, "getRepository")},
 			"aws_ecr_authorization_token": {Tok: awsDataSource(ecrMod, "getAuthorizationToken")},
