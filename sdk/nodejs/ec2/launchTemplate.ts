@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *         cpuCredits: "standard",
  *     },
  *     disableApiTermination: true,
- *     ebsOptimized: true,
+ *     ebsOptimized: "true",
  *     elasticGpuSpecifications: [{
  *         type: "test",
  *     }],
@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *         enabled: true,
  *     },
  *     networkInterfaces: [{
- *         associatePublicIpAddress: true,
+ *         associatePublicIpAddress: "true",
  *     }],
  *     placement: {
  *         availabilityZone: "us-west-2a",

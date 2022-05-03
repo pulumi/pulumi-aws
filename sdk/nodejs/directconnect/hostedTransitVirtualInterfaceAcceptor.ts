@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * // Accepter's credentials.
  * const accepterCallerIdentity = aws.getCallerIdentity({});
  * // Accepter's side of the VIF.
- * const example = new aws.directconnect.Gateway("example", {amazonSideAsn: 64512}, {
+ * const example = new aws.directconnect.Gateway("example", {amazonSideAsn: "64512"}, {
  *     provider: aws.accepter,
  * });
  * // Creator's side of the VIF

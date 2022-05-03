@@ -32,8 +32,8 @@ import * as utilities from "../utilities";
  *     port: 80,
  *     type: "HTTP",
  *     resourcePath: "/ready",
- *     failureThreshold: "3",
- *     requestInterval: "30",
+ *     failureThreshold: 3,
+ *     requestInterval: 30,
  *     tags: {
  *         Name: "tf-example-health-check",
  *     },
