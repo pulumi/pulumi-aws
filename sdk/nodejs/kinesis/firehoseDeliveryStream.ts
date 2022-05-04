@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *         roleArn: firehoseRole.arn,
  *         bucketArn: bucket.arn,
  *         processingConfiguration: {
- *             enabled: "true",
+ *             enabled: true,
  *             processors: [{
  *                 type: "Lambda",
  *                 parameters: [{
@@ -171,7 +171,7 @@ import * as utilities from "../utilities";
  *         indexName: "test",
  *         typeName: "test",
  *         processingConfiguration: {
- *             enabled: "true",
+ *             enabled: true,
  *             processors: [{
  *                 type: "Lambda",
  *                 parameters: [{

@@ -86,13 +86,13 @@ import * as utilities from "../utilities";
  *     },
  *     responseParameters: [
  *         {
- *             statusCode: 403,
+ *             statusCode: "403",
  *             mappings: {
  *                 "append:header.auth": `$context.authorizer.authorizerResponse`,
  *             },
  *         },
  *         {
- *             statusCode: 200,
+ *             statusCode: "200",
  *             mappings: {
  *                 "overwrite:statuscode": "204",
  *             },

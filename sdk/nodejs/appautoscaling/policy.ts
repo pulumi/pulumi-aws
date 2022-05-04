@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *         cooldown: 60,
  *         metricAggregationType: "Maximum",
  *         stepAdjustments: [{
- *             metricIntervalUpperBound: 0,
+ *             metricIntervalUpperBound: "0",
  *             scalingAdjustment: -1,
  *         }],
  *     },

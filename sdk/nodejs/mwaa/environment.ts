@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.mwaa.Environment("example", {
  *     airflowConfigurationOptions: {
- *         "core.default_task_retries": 16,
- *         "core.parallelism": 1,
+ *         "core.default_task_retries": "16",
+ *         "core.parallelism": "1",
  *     },
  *     dagS3Path: "dags/",
  *     executionRoleArn: aws_iam_role.example.arn,

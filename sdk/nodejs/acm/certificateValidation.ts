@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *         name: range.value.name,
  *         records: [range.value.record],
  *         ttl: 60,
- *         type: range.value.type,
+ *         type: aws.route53.recordtype.RecordType[range.value.type],
  *         zoneId: exampleZone.then(exampleZone => exampleZone.zoneId),
  *     }));
  * }

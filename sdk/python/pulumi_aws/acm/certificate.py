@@ -493,7 +493,7 @@ class Certificate(pulumi.CustomResource):
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
-                type=range["value"]["type"],
+                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
                 zone_id=aws_route53_zone["example"]["zone_id"]))
         ```
 
@@ -599,7 +599,7 @@ class Certificate(pulumi.CustomResource):
                 name=range["value"]["name"],
                 records=[range["value"]["record"]],
                 ttl=60,
-                type=range["value"]["type"],
+                type=aws.route53/recordtype.RecordType(range["value"]["type"]),
                 zone_id=aws_route53_zone["example"]["zone_id"]))
         ```
 

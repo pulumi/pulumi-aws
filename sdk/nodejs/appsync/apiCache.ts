@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppSync API Cache.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleApiCache = new aws.appsync.ApiCache("exampleApiCache", {
- *     apiId: exampleGraphQLApi.id,
- *     expires: "2018-05-03T04:00:00Z",
- * });
- * ```
- *
  * ## Import
  *
  * `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,

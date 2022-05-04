@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
  * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {vpcId: vpc.id});
  * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
- *     bgpAsn: 65000,
+ *     bgpAsn: "65000",
  *     ipAddress: "172.0.0.1",
  *     type: "ipsec.1",
  * });

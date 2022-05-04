@@ -47,10 +47,10 @@ import * as utilities from "../utilities";
  *     userPoolId: exampleUserPool.id,
  *     username: "example",
  *     attributes: {
- *         terraform: true,
+ *         terraform: "true",
  *         foo: "bar",
  *         email: "no-reply@hashicorp.com",
- *         email_verified: true,
+ *         email_verified: "true",
  *     },
  * });
  * ```

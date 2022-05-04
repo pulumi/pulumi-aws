@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * // Create a new replication task
  * const test = new aws.dms.ReplicationTask("test", {
- *     cdcStartTime: 1484346880,
+ *     cdcStartTime: "1484346880",
  *     migrationType: "full-load",
  *     replicationInstanceArn: aws_dms_replication_instance["test-dms-replication-instance-tf"].replication_instance_arn,
  *     replicationTaskId: "test-dms-replication-task-tf",

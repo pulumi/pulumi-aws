@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/RootCACertificate/V1`),
  *     validity: {
  *         type: "YEARS",
- *         value: 1,
+ *         value: "1",
  *     },
  * });
  * const exampleCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("exampleCertificateAuthorityCertificate", {
@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *     templateArn: current.then(current => `arn:${current.partition}:acm-pca:::template/SubordinateCACertificate_PathLen0/V1`),
  *     validity: {
  *         type: "YEARS",
- *         value: 1,
+ *         value: "1",
  *     },
  * });
  * const subordinateCertificateAuthorityCertificate = new aws.acmpca.CertificateAuthorityCertificate("subordinateCertificateAuthorityCertificate", {

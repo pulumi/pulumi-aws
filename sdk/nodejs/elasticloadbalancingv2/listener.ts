@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * // ...
  * const frontEndListener = new aws.lb.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: "443",
+ *     port: 443,
  *     protocol: "HTTPS",
  *     sslPolicy: "ELBSecurityPolicy-2016-08",
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * const frontEnd = new aws.lb.Listener("frontEnd", {
  *     loadBalancerArn: aws_lb.front_end.arn,
- *     port: "443",
+ *     port: 443,
  *     protocol: "TLS",
  *     certificateArn: "arn:aws:iam::187416307283:server-certificate/test_cert_rab3wuqwgja25ct3n4jdj2tzu4",
  *     alpnPolicy: "HTTP2Preferred",
@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * // ...
  * const frontEndListener = new aws.lb.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: "80",
+ *     port: 80,
  *     protocol: "HTTP",
  *     defaultActions: [{
  *         type: "redirect",
@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  * // ...
  * const frontEndListener = new aws.lb.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: "80",
+ *     port: 80,
  *     protocol: "HTTP",
  *     defaultActions: [{
  *         type: "fixed-response",
@@ -114,7 +114,7 @@ import * as utilities from "../utilities";
  * // ...
  * const frontEndListener = new aws.lb.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: "80",
+ *     port: 80,
  *     protocol: "HTTP",
  *     defaultActions: [
  *         {
@@ -144,7 +144,7 @@ import * as utilities from "../utilities";
  * // ...
  * const frontEndListener = new aws.lb.Listener("frontEndListener", {
  *     loadBalancerArn: frontEndLoadBalancer.arn,
- *     port: "80",
+ *     port: 80,
  *     protocol: "HTTP",
  *     defaultActions: [
  *         {
@@ -182,7 +182,7 @@ import * as utilities from "../utilities";
  *     protocol: "GENEVE",
  *     vpcId: aws_vpc.example.id,
  *     healthCheck: {
- *         port: 80,
+ *         port: "80",
  *         protocol: "HTTP",
  *     },
  * });

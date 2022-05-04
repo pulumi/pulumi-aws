@@ -68,8 +68,8 @@ import * as utilities from "../utilities";
  *             AppPorts: "8080",
  *             EgressIgnoredIPs: "169.254.170.2,169.254.169.254",
  *             IgnoredUID: "1337",
- *             ProxyEgressPort: 15001,
- *             ProxyIngressPort: 15000,
+ *             ProxyEgressPort: "15001",
+ *             ProxyIngressPort: "15000",
  *         },
  *     },
  * });
