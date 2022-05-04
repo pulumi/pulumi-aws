@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *         instanceType: "c4.large",
  *         instanceCount: 1,
  *         ebsConfigs: [{
- *             size: "40",
+ *             size: 40,
  *             type: "gp2",
  *             volumesPerInstance: 1,
  *         }],

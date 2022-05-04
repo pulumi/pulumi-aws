@@ -13,22 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const defaultAddonVersion = aws.eks.getAddonVersion({
- *     addonName: "vpc-cni",
- *     kubernetesVersion: aws_eks_cluster.example.version,
- * });
- * const latestAddonVersion = aws.eks.getAddonVersion({
- *     addonName: "vpc-cni",
- *     kubernetesVersion: aws_eks_cluster.example.version,
- *     mostRecent: true,
- * });
- * const vpcCni = new aws.eks.Addon("vpcCni", {
- *     clusterName: aws_eks_cluster.example.name,
- *     addonName: "vpc-cni",
- *     addonVersion: latestAddonVersion.then(latestAddonVersion => latestAddonVersion.version),
- * });
- * export const _default = defaultAddonVersion.then(defaultAddonVersion => defaultAddonVersion.version);
- * export const latest = latestAddonVersion.then(latestAddonVersion => latestAddonVersion.version);
+ * export = async () => {
+ *     const defaultAddonVersion = await aws.eks.getAddonVersion({
+ *         addonName: "vpc-cni",
+ *         kubernetesVersion: aws_eks_cluster.example.version,
+ *     });
+ *     const latestAddonVersion = await aws.eks.getAddonVersion({
+ *         addonName: "vpc-cni",
+ *         kubernetesVersion: aws_eks_cluster.example.version,
+ *         mostRecent: true,
+ *     });
+ *     const vpcCni = new aws.eks.Addon("vpcCni", {
+ *         clusterName: aws_eks_cluster.example.name,
+ *         addonName: "vpc-cni",
+ *         addonVersion: latestAddonVersion.version,
+ *     });
+ *     const _default = defaultAddonVersion.version;
+ *     const latest = latestAddonVersion.version;
+ *     return {
+ *         "default": _default,
+ *         latest: latest,
+ *     };
+ * }
  * ```
  */
 export function getAddonVersion(args: GetAddonVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonVersionResult> {

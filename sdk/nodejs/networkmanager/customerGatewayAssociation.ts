@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     siteId: exampleSite.id,
  * });
  * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
- *     bgpAsn: 65000,
+ *     bgpAsn: "65000",
  *     ipAddress: "172.83.124.10",
  *     type: "ipsec.1",
  * });

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *     zoneId: aws_route53_zone.example.zone_id,
  *     name: pulumi.interpolate`_amazonses.${example.id}`,
  *     type: "TXT",
- *     ttl: "600",
+ *     ttl: 600,
  *     records: [example.verificationToken],
  * });
  * const exampleVerification = new aws.ses.DomainIdentityVerification("exampleVerification", {domain: example.id}, {

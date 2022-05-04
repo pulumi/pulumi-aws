@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *         zoneId: "ABCDEFGHIJ123",
  *         name: exampleDomainDkim.dkimTokens[range.value].apply(dkimTokens => `${dkimTokens}._domainkey`),
  *         type: "CNAME",
- *         ttl: "600",
+ *         ttl: 600,
  *         records: [exampleDomainDkim.dkimTokens[range.value].apply(dkimTokens => `${dkimTokens}.dkim.amazonses.com`)],
  *     }));
  * }

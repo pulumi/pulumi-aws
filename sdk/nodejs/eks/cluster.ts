@@ -15,22 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.eks.Cluster("example", {
- *     roleArn: aws_iam_role.example.arn,
- *     vpcConfig: {
- *         subnetIds: [
- *             aws_subnet.example1.id,
- *             aws_subnet.example2.id,
+ * export = async () => {
+ *     const example = new aws.eks.Cluster("example", {
+ *         roleArn: aws_iam_role.example.arn,
+ *         vpcConfig: {
+ *             subnetIds: [
+ *                 aws_subnet.example1.id,
+ *                 aws_subnet.example2.id,
+ *             ],
+ *         },
+ *     }, {
+ *         dependsOn: [
+ *             aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
+ *             aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
  *         ],
- *     },
- * }, {
- *     dependsOn: [
- *         aws_iam_role_policy_attachment["example-AmazonEKSClusterPolicy"],
- *         aws_iam_role_policy_attachment["example-AmazonEKSVPCResourceController"],
- *     ],
- * });
- * export const endpoint = example.endpoint;
- * export const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
+ *     });
+ *     const endpoint = example.endpoint;
+ *     const kubeconfig_certificate_authority_data = example.certificateAuthority.apply(certificateAuthority => certificateAuthority.data);
+ *     return {
+ *         endpoint: endpoint,
+ *         "kubeconfig-certificate-authority-data": kubeconfig_certificate_authority_data,
+ *     };
+ * }
  * ```
  * ### Example IAM Role for EKS Cluster
  *

@@ -321,7 +321,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         test_instance = aws.ec2.Instance("testInstance",
             ami=aws_service_storagegateway_ami_files3_latest.value,
             associate_public_ip_address=True,
-            instance_type=data["aws_ec2_instance_type_offering"]["available"]["instance_type"],
+            instance_type=aws.ec2/instancetype.InstanceType(data["aws_ec2_instance_type_offering"]["available"]["instance_type"]),
             vpc_security_group_ids=[aws_security_group["test"]["id"]],
             subnet_id=aws_subnet["test"][0]["id"],
             opts=pulumi.ResourceOptions(depends_on=[
@@ -408,7 +408,7 @@ class FileSystemAssociation(pulumi.CustomResource):
         test_instance = aws.ec2.Instance("testInstance",
             ami=aws_service_storagegateway_ami_files3_latest.value,
             associate_public_ip_address=True,
-            instance_type=data["aws_ec2_instance_type_offering"]["available"]["instance_type"],
+            instance_type=aws.ec2/instancetype.InstanceType(data["aws_ec2_instance_type_offering"]["available"]["instance_type"]),
             vpc_security_group_ids=[aws_security_group["test"]["id"]],
             subnet_id=aws_subnet["test"][0]["id"],
             opts=pulumi.ResourceOptions(depends_on=[

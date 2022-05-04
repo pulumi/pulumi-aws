@@ -11,7 +11,7 @@ const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
 const size = aws.ec2.InstanceType.T2_Micro;
 
-let group = new aws.ec2.SecurityGroup("web-secgrp-2", {
+let group = new aws.ec2.SecurityGroup("ts-web-secgrp-2", {
     description: "Enable HTTP access",
     ingress: [
         { protocol: aws.ec2.TCPProtocol, fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },

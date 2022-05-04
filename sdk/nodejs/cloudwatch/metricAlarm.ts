@@ -42,12 +42,12 @@ import {Topic} from "../sns";
  * });
  * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("batMetricAlarm", {
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: "2",
+ *     evaluationPeriods: 2,
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
- *     period: "120",
+ *     period: 120,
  *     statistic: "Average",
- *     threshold: "80",
+ *     threshold: 80,
  *     dimensions: {
  *         AutoScalingGroupName: aws_autoscaling_group.bar.name,
  *     },
@@ -148,14 +148,14 @@ import {Topic} from "../sns";
  *
  * const nlbHealthyhosts = new aws.cloudwatch.MetricAlarm("nlbHealthyhosts", {
  *     comparisonOperator: "LessThanThreshold",
- *     evaluationPeriods: "1",
+ *     evaluationPeriods: 1,
  *     metricName: "HealthyHostCount",
  *     namespace: "AWS/NetworkELB",
- *     period: "60",
+ *     period: 60,
  *     statistic: "Average",
  *     threshold: _var.logstash_servers_count,
  *     alarmDescription: "Number of healthy nodes in Target Group",
- *     actionsEnabled: "true",
+ *     actionsEnabled: true,
  *     alarmActions: [aws_sns_topic.sns.arn],
  *     okActions: [aws_sns_topic.sns.arn],
  *     dimensions: {

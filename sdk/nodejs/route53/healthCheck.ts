@@ -65,12 +65,12 @@ import * as utilities from "../utilities";
  *
  * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
  *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: "2",
+ *     evaluationPeriods: 2,
  *     metricName: "CPUUtilization",
  *     namespace: "AWS/EC2",
- *     period: "120",
+ *     period: 120,
  *     statistic: "Average",
- *     threshold: "80",
+ *     threshold: 80,
  *     alarmDescription: "This metric monitors ec2 cpu utilization",
  * });
  * const foo = new aws.route53.HealthCheck("foo", {
