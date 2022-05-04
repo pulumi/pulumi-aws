@@ -8,7 +8,7 @@ const config = new pulumi.Config("aws");
 const region = <aws.Region>config.require("envRegion");
 const providerOpts = { provider: new aws.Provider("prov", { region }) };
 
-let group = new aws.ec2.SecurityGroup("web-secgrp", {
+let group = new aws.ec2.SecurityGroup("web-secgrp-comp", {
     description: "Enable HTTP access",
     ingress: [
         { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },

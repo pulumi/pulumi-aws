@@ -9,7 +9,7 @@ import (
 
 func main() {
 	pulumi.Run(func(ctx *pulumi.Context) error {
-		group, err := ec2.NewSecurityGroup(ctx, "web-secgrp-2", &ec2.SecurityGroupArgs{
+		group, err := ec2.NewSecurityGroup(ctx, "go-web-secgrp-2", &ec2.SecurityGroupArgs{
 			Description: pulumi.String("Enable HTTP access"),
 			Ingress: ec2.SecurityGroupIngressArray{
 				ec2.SecurityGroupIngressArgs{

@@ -6,7 +6,7 @@ from ami import get_linux_ami
 
 size = ec2.InstanceType.T2_MICRO
 
-group = ec2.SecurityGroup('web-secgrp',
+group = ec2.SecurityGroup('py-web-secgrp',
     description='Enable HTTP access',
     ingress=[
         ec2.SecurityGroupIngressArgs(protocol='tcp', from_port=80, to_port=80, cidr_blocks=['0.0.0.0/0'])

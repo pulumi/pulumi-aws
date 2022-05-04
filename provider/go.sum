@@ -857,8 +857,8 @@ github.com/prometheus/procfs v0.0.8/go.mod h1:7Qr8sr6344vo1JqZ6HhLceV9o3AJ1Ff+Gx
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
 github.com/pulumi/pulumi-java/pkg v0.1.0 h1:NsbaTKH6edcEfGcsu3RHxEB5zq29+FXV5D79CPTZPBU=
 github.com/pulumi/pulumi-java/pkg v0.1.0/go.mod h1:Dw5klQSJCD6hHaHN4BcCoOW+KjC6NafdBtDsy6sY6uc=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.0 h1:fQ9z9uzdK367vHkbsejToGCbpPS1TM2wR97Fr7B2amo=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.0/go.mod h1:XBt1gnE/O56HM9mJ12t7RntmydGarVHoKsGK/vDctuY=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.1 h1:Zv/5tBvCT50iwF33SqBfIWZzgytDtVyp8h6cFRWr+Sw=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.1/go.mod h1:XBt1gnE/O56HM9mJ12t7RntmydGarVHoKsGK/vDctuY=
 github.com/pulumi/pulumi-yaml v0.3.0 h1:I7aW6Qm/1EsYDJJDJ0DLrLvpOlpmjbAgTnYo8pZlUcs=
 github.com/pulumi/pulumi-yaml v0.3.0/go.mod h1:6pQ0QcQqLYbq+i5vYjir/gDnpCvTkKcHqB5+mt0d3So=
 github.com/pulumi/pulumi/pkg/v3 v3.26.0/go.mod h1:L9E+MXe05AbrSmX1GjX3jIrVNpE2RrauKEjME+BNzi4=

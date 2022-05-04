@@ -6,7 +6,7 @@ require (
 	github.com/hashicorp/aws-sdk-go-base v1.1.0
 	github.com/hashicorp/terraform-provider-aws/shim v0.0.0
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.1
 	github.com/pulumi/pulumi/pkg/v3 v3.31.2-0.20220504080053-86c015b9e64a
 	github.com/pulumi/pulumi/sdk/v3 v3.31.1
 )
