@@ -15,7 +15,6 @@ cloud.google.com/go v0.53.0/go.mod h1:fp/UouUEsRkN6ryDKNW/Upv/JBKnv6WDthjR6+vze6
 cloud.google.com/go v0.54.0/go.mod h1:1rq2OEkV3YMf6n/9ZvGWI3GWw0VoqH/1x2nd8Is/bPc=
 cloud.google.com/go v0.56.0/go.mod h1:jr7tqZxxKOVYizybht9+26Z/gUq7tiRzu+ACVAMbKVk=
 cloud.google.com/go v0.57.0/go.mod h1:oXiQ6Rzq3RAkkY7N6t3TcE6jE+CIBBbA36lwQ1JyzZs=
-cloud.google.com/go v0.61.0/go.mod h1:XukKJg4Y7QsUu0Hxg3qQKUWR4VuWivmyMK2+rUyxAqw=
 cloud.google.com/go v0.62.0/go.mod h1:jmCYTdRCQuc1PHIIJ/maLInMho30T/Y0M4hTdTShOYc=
 cloud.google.com/go v0.65.0/go.mod h1:O5N8zS7uWy9vkA9vayVHs65eM1ubvY4h553ofrNHObY=
 cloud.google.com/go v0.72.0/go.mod h1:M+5Vjvlc2wnp6tjzE102Dw08nGShTscUx2nZMufOKPI=
@@ -527,8 +526,6 @@ github.com/hashicorp/go-hclog v0.0.0-20180709165350-ff2cf002a8dd/go.mod h1:9bjs9
 github.com/hashicorp/go-hclog v0.9.2/go.mod h1:5CU+agLiy3J7N7QjHK5d05KxGsuXiQLrjA0H7acj2lQ=
 github.com/hashicorp/go-hclog v0.12.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
 github.com/hashicorp/go-hclog v0.14.1/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
-github.com/hashicorp/go-hclog v0.16.1/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
-github.com/hashicorp/go-hclog v1.0.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
 github.com/hashicorp/go-hclog v1.2.0 h1:La19f8d7WIlm4ogzNHB0JGqs5AUDAZ2UfCY4sJXcJdM=
 github.com/hashicorp/go-hclog v1.2.0/go.mod h1:whpDNt7SSdeAju8AWKIWsul05p54N/39EeqMAyrmvFQ=
 github.com/hashicorp/go-immutable-radix v1.0.0/go.mod h1:0y9vanUI8NX6FsYoO3zeMjhV/C5i9g4Q3DwcSNZ4P60=
@@ -540,8 +537,6 @@ github.com/hashicorp/go-multierror v1.1.0/go.mod h1:spPvp8C1qA32ftKqdAHm4hHTbPw+
 github.com/hashicorp/go-multierror v1.1.1 h1:H5DkEtf6CXdFp0N0Em5UCwQpXMWke8IA0+lD48awMYo=
 github.com/hashicorp/go-multierror v1.1.1/go.mod h1:iw975J/qwKPdAO1clOe2L8331t/9/fmwbPZ6JB6eMoM=
 github.com/hashicorp/go-plugin v1.0.1/go.mod h1:++UyYGoz3o5w9ZzAdZxtQKrWWP+iqPBn3cQptSMzBuY=
-github.com/hashicorp/go-plugin v1.3.0/go.mod h1:F9eH4LrE/ZsRdbwhfjs9k9HoDUwAHnYtXdgmf1AVNs0=
-github.com/hashicorp/go-plugin v1.4.1/go.mod h1:5fGEH17QVwTTcR0zV7yhDPLLmFX9YSZ38b18Udy6vYQ=
 github.com/hashicorp/go-plugin v1.4.3 h1:DXmvivbWD5qdiBts9TpBC7BYL1Aia5sxbRgQB+v6UZM=
 github.com/hashicorp/go-plugin v1.4.3/go.mod h1:5fGEH17QVwTTcR0zV7yhDPLLmFX9YSZ38b18Udy6vYQ=
 github.com/hashicorp/go-retryablehttp v0.5.3/go.mod h1:9B5zBasrRhHXnJnui7y6sL7es7NDiJgTc6Er0maI1Xs=
@@ -587,16 +582,15 @@ github.com/hashicorp/logutils v1.0.0/go.mod h1:QIAnNjmIWmVIIkWDTG1z5v++HQmx9WQRO
 github.com/hashicorp/terraform-config-inspect v0.0.0-20190821133035-82a99dc22ef4/go.mod h1:JDmizlhaP5P0rYTTZB0reDMefAiJyfWPEtugV4in1oI=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20191115094559-17f92b0546e8 h1:+RyjwU+Gnd/aTJBPZVDNm903eXVjjqhbaR4Ypx3xYyY=
 github.com/hashicorp/terraform-config-inspect v0.0.0-20191115094559-17f92b0546e8/go.mod h1:p+ivJws3dpqbp1iP84+npOyAmTTOLMgCzrXd3GSdn/A=
-github.com/hashicorp/terraform-exec v0.15.0/go.mod h1:H4IG8ZxanU+NW0ZpDRNsvh9f0ul7C0nHP+rUR/CHs7I=
+github.com/hashicorp/terraform-exec v0.16.0/go.mod h1:wB5JHmjxZ/YVNZuv9npAXKmz5pGyxy8PSi0GRR0+YjA=
 github.com/hashicorp/terraform-exec v0.16.1 h1:NAwZFJW2L2SaCBVZoVaH8LPImLOGbPLkSHy0IYbs2uE=
 github.com/hashicorp/terraform-exec v0.16.1/go.mod h1:aj0lVshy8l+MHhFNoijNHtqTJQI3Xlowv5EOsEaGO7M=
 github.com/hashicorp/terraform-json v0.4.0/go.mod h1:eAbqb4w0pSlRmdvl8fOyHAi/+8jnkVYN28gJkSJrLhU=
 github.com/hashicorp/terraform-json v0.13.0 h1:Li9L+lKD1FO5RVFRM1mMMIBDoUHslOniyEi5CM+FWGY=
 github.com/hashicorp/terraform-json v0.13.0/go.mod h1:y5OdLBCT+rxbwnpxZs9kGL7R9ExU76+cpdY8zHwoazk=
-github.com/hashicorp/terraform-plugin-go v0.5.0/go.mod h1:PAVN26PNGpkkmsvva1qfriae5Arky3xl3NfzKa8XFVM=
+github.com/hashicorp/terraform-plugin-go v0.8.0/go.mod h1:E3GuvfX0Pz2Azcl6BegD6t51StXsVZMOYQoGO8mkHM0=
 github.com/hashicorp/terraform-plugin-go v0.9.0 h1:FvLY/3z4SNVatPZdoFcyrlNbCar+WyyOTv5X4Tp+WZc=
 github.com/hashicorp/terraform-plugin-go v0.9.0/go.mod h1:EawBkgjBWNf7jiKnVoyDyF39OSV+u6KUX+Y73EPj3oM=
-github.com/hashicorp/terraform-plugin-log v0.2.0/go.mod h1:E1kJmapEHzqu1x6M++gjvhzM2yMQNXPVWZRCB8sgYjg=
 github.com/hashicorp/terraform-plugin-log v0.3.0 h1:NPENNOjaJSVX0f7JJTl4f/2JKRPQ7S2ZN9B4NSqq5kA=
 github.com/hashicorp/terraform-plugin-log v0.3.0/go.mod h1:EjueSP/HjlyFAsDqt+okpCPjkT4NDynAe32AeDC4vps=
 github.com/hashicorp/terraform-plugin-sdk v1.0.0/go.mod h1:NuwtLpEpPsFaKJPJNGtMcn9vlhe6Ofe+Y6NqXhJgV2M=
@@ -857,8 +851,8 @@ github.com/prometheus/procfs v0.0.8/go.mod h1:7Qr8sr6344vo1JqZ6HhLceV9o3AJ1Ff+Gx
 github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40TwIPHuXU=
 github.com/pulumi/pulumi-java/pkg v0.1.0 h1:NsbaTKH6edcEfGcsu3RHxEB5zq29+FXV5D79CPTZPBU=
 github.com/pulumi/pulumi-java/pkg v0.1.0/go.mod h1:Dw5klQSJCD6hHaHN4BcCoOW+KjC6NafdBtDsy6sY6uc=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.1 h1:Zv/5tBvCT50iwF33SqBfIWZzgytDtVyp8h6cFRWr+Sw=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.22.1/go.mod h1:XBt1gnE/O56HM9mJ12t7RntmydGarVHoKsGK/vDctuY=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.23.0 h1:YeSmBWxic8fpkCaNmOeTw2kPfF95sGnD/rdhRI2KYH4=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.23.0/go.mod h1:0hQiT2/MJtBFByRcIKMv/IScJdXMNdkO5MVEYU47nEs=
 github.com/pulumi/pulumi-yaml v0.3.0 h1:I7aW6Qm/1EsYDJJDJ0DLrLvpOlpmjbAgTnYo8pZlUcs=
 github.com/pulumi/pulumi-yaml v0.3.0/go.mod h1:6pQ0QcQqLYbq+i5vYjir/gDnpCvTkKcHqB5+mt0d3So=
 github.com/pulumi/pulumi/pkg/v3 v3.26.0/go.mod h1:L9E+MXe05AbrSmX1GjX3jIrVNpE2RrauKEjME+BNzi4=
@@ -872,8 +866,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.31.1 h1:2DvdxfBj5YBCxnIX5b54mOJtXR39efonWe0LB
 github.com/pulumi/pulumi/sdk/v3 v3.31.1/go.mod h1:hGo/+AL1L4sPL9Ukd/i5bNFM3WHs3dHcA+GKEW7M3RA=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20211230170131-3a7c83bfab87 h1:Reqyb/CbcDwThvBRzA62H7cvuCqgTJuGNt+F6mnmXJ4=
-github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20211230170131-3a7c83bfab87/go.mod h1:FjM9DXWfP0w/AeOtJoSKHBZ01LqmaO6uP4bXhv3fekw=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220505215311-795430389fa7 h1:RAiGj0GniixD+G+HuUzFWZh2VKdQ50nv5+EmkKG1u3E=
+github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20220505215311-795430389fa7/go.mod h1:TPjMXvpPNWagHzYOmVPzzRRIBTuaLVukR+esL08tgzg=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20220425115028-72c3a67ae4a7 h1:JaG/IRpMK8GIartNN0u8tTxtmBKvUkhPm8yz9lb2AYk=
 github.com/pulumi/terraform-provider-aws v1.38.1-0.20220425115028-72c3a67ae4a7/go.mod h1:Dmj5muu7I0eq4qcbrVAe/mt13cLzAjeCQ9g0DksmzvM=
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
@@ -1541,7 +1535,6 @@ google.golang.org/grpc v1.29.1/go.mod h1:itym6AZVZYACWQqET3MqgPpjcuV5QH3BxFS3Iji
 google.golang.org/grpc v1.30.0/go.mod h1:N36X2cJ7JwdamYAgDz+s+rVMFjt3numwzf/HckM8pak=
 google.golang.org/grpc v1.31.0/go.mod h1:N36X2cJ7JwdamYAgDz+s+rVMFjt3numwzf/HckM8pak=
 google.golang.org/grpc v1.31.1/go.mod h1:N36X2cJ7JwdamYAgDz+s+rVMFjt3numwzf/HckM8pak=
-google.golang.org/grpc v1.32.0/go.mod h1:N36X2cJ7JwdamYAgDz+s+rVMFjt3numwzf/HckM8pak=
 google.golang.org/grpc v1.33.1/go.mod h1:fr5YgcSWrqhRRxogOsw7RzIpsmvOZ6IcH4kBYTpR3n0=
 google.golang.org/grpc v1.33.2/go.mod h1:JMHMWHQWaTccqQQlmk3MJZS+GWXOdAesneDmEnv2fbc=
 google.golang.org/grpc v1.34.0/go.mod h1:WotjhfgOW/POjDeRt8vscBtXq+2VjORFy659qA51WJ8=
