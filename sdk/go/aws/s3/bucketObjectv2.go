@@ -261,6 +261,12 @@ func NewBucketObjectv2(ctx *pulumi.Context,
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("aws:s3/BucketObject:BucketObject"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource BucketObjectv2
 	err := ctx.RegisterResource("aws:s3/bucketObjectv2:BucketObjectv2", name, args, &resource, opts...)
 	if err != nil {

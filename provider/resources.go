@@ -2669,6 +2669,11 @@ func Provider() tfbridge.ProviderInfo {
 						},
 					},
 				},
+				Aliases: []tfbridge.AliasInfo{
+					{
+						Type: stringRef("aws:s3/BucketObject:BucketObject"),
+					},
+				},
 			},
 			"aws_s3_bucket_legacy": {
 				Tok: awsResource(s3Mod, "Bucket"),
