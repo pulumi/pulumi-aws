@@ -118,6 +118,10 @@ export interface GetAmiResult {
      */
     readonly creationDate: string;
     /**
+     * The date and time when the image will be deprecated.
+     */
+    readonly deprecationTime: string;
+    /**
      * The description of the AMI that was provided during image
      * creation.
      */

@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// The instance requirements. See below.
+        /// </summary>
+        public readonly Outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements? InstanceRequirements;
+        /// <summary>
         /// The type of instance to request.
         /// </summary>
         public readonly string? InstanceType;
@@ -42,6 +46,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         private SpotFleetRequestLaunchTemplateConfigOverride(
             string? availabilityZone,
 
+            Outputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements? instanceRequirements,
+
             string? instanceType,
 
             double? priority,
@@ -53,6 +59,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             double? weightedCapacity)
         {
             AvailabilityZone = availabilityZone;
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             Priority = priority;
             SpotPrice = spotPrice;

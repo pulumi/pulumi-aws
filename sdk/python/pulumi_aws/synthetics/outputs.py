@@ -79,8 +79,8 @@ class CanaryArtifactConfigS3Encryption(dict):
                  encryption_mode: Optional[str] = None,
                  kms_key_arn: Optional[str] = None):
         """
-        :param str encryption_mode: The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
-        :param str kms_key_arn: The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryption_mode`.
+        :param str encryption_mode: The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
+        :param str kms_key_arn: The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
         """
         if encryption_mode is not None:
             pulumi.set(__self__, "encryption_mode", encryption_mode)
@@ -91,7 +91,7 @@ class CanaryArtifactConfigS3Encryption(dict):
     @pulumi.getter(name="encryptionMode")
     def encryption_mode(self) -> Optional[str]:
         """
-        The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+        The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
         """
         return pulumi.get(self, "encryption_mode")
 
@@ -99,7 +99,7 @@ class CanaryArtifactConfigS3Encryption(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         """
-        The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryption_mode`.
+        The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
         """
         return pulumi.get(self, "kms_key_arn")
 

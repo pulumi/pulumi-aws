@@ -89,6 +89,14 @@ export interface GetCertificateResult {
      * Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
      */
     readonly arn: string;
+    /**
+     * The ACM-issued certificate.
+     */
+    readonly certificate: string;
+    /**
+     * Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+     */
+    readonly certificateChain: string;
     readonly domain: string;
     /**
      * The provider-assigned unique ID for this managed resource.

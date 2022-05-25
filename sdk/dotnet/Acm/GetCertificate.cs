@@ -263,6 +263,14 @@ namespace Pulumi.Aws.Acm
         /// Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The ACM-issued certificate.
+        /// </summary>
+        public readonly string Certificate;
+        /// <summary>
+        /// Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+        /// </summary>
+        public readonly string CertificateChain;
         public readonly string Domain;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -285,6 +293,10 @@ namespace Pulumi.Aws.Acm
         private GetCertificateResult(
             string arn,
 
+            string certificate,
+
+            string certificateChain,
+
             string domain,
 
             string id,
@@ -302,6 +314,8 @@ namespace Pulumi.Aws.Acm
             ImmutableArray<string> types)
         {
             Arn = arn;
+            Certificate = certificate;
+            CertificateChain = certificateChain;
             Domain = domain;
             Id = id;
             KeyTypes = keyTypes;

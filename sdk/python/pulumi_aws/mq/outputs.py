@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'BrokerConfiguration',
@@ -23,6 +24,8 @@ __all__ = [
     'GetBrokerLogsResult',
     'GetBrokerMaintenanceWindowStartTimeResult',
     'GetBrokerUserResult',
+    'GetInstanceTypeOfferingsBrokerInstanceOptionResult',
+    'GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult',
 ]
 
 @pulumi.output_type
@@ -705,5 +708,96 @@ class GetBrokerUserResult(dict):
     @pulumi.getter
     def username(self) -> str:
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class GetInstanceTypeOfferingsBrokerInstanceOptionResult(dict):
+    def __init__(__self__, *,
+                 availability_zones: Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult'],
+                 engine_type: str,
+                 host_instance_type: str,
+                 storage_type: str,
+                 supported_deployment_modes: Sequence[str],
+                 supported_engine_versions: Sequence[str]):
+        """
+        :param Sequence['GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs'] availability_zones: The list of available AZs. See Availability Zones. below
+        :param str engine_type: Filter response by engine type.
+        :param str host_instance_type: Filter response by host instance type.
+        :param str storage_type: Filter response by storage type.
+        :param Sequence[str] supported_deployment_modes: The list of supported deployment modes.
+        :param Sequence[str] supported_engine_versions: The list of supported engine versions.
+        """
+        pulumi.set(__self__, "availability_zones", availability_zones)
+        pulumi.set(__self__, "engine_type", engine_type)
+        pulumi.set(__self__, "host_instance_type", host_instance_type)
+        pulumi.set(__self__, "storage_type", storage_type)
+        pulumi.set(__self__, "supported_deployment_modes", supported_deployment_modes)
+        pulumi.set(__self__, "supported_engine_versions", supported_engine_versions)
+
+    @property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Sequence['outputs.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult']:
+        """
+        The list of available AZs. See Availability Zones. below
+        """
+        return pulumi.get(self, "availability_zones")
+
+    @property
+    @pulumi.getter(name="engineType")
+    def engine_type(self) -> str:
+        """
+        Filter response by engine type.
+        """
+        return pulumi.get(self, "engine_type")
+
+    @property
+    @pulumi.getter(name="hostInstanceType")
+    def host_instance_type(self) -> str:
+        """
+        Filter response by host instance type.
+        """
+        return pulumi.get(self, "host_instance_type")
+
+    @property
+    @pulumi.getter(name="storageType")
+    def storage_type(self) -> str:
+        """
+        Filter response by storage type.
+        """
+        return pulumi.get(self, "storage_type")
+
+    @property
+    @pulumi.getter(name="supportedDeploymentModes")
+    def supported_deployment_modes(self) -> Sequence[str]:
+        """
+        The list of supported deployment modes.
+        """
+        return pulumi.get(self, "supported_deployment_modes")
+
+    @property
+    @pulumi.getter(name="supportedEngineVersions")
+    def supported_engine_versions(self) -> Sequence[str]:
+        """
+        The list of supported engine versions.
+        """
+        return pulumi.get(self, "supported_engine_versions")
+
+
+@pulumi.output_type
+class GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneResult(dict):
+    def __init__(__self__, *,
+                 name: str):
+        """
+        :param str name: The name of the Availability Zone.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Availability Zone.
+        """
+        return pulumi.get(self, "name")
 
 

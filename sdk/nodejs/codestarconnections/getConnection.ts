@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
  * Provides details about CodeStar Connection.
  *
  * ## Example Usage
+ * ### By ARN
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -17,8 +18,19 @@ import * as utilities from "../utilities";
  *     arn: aws_codestarconnections_connection.example.arn,
  * });
  * ```
+ * ### By Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.codestarconnections.getConnection({
+ *     name: aws_codestarconnections_connection.example.name,
+ * });
+ * ```
  */
-export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
+export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -26,6 +38,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:codestarconnections/getConnection:getConnection", {
         "arn": args.arn,
+        "name": args.name,
         "tags": args.tags,
     }, opts);
 }
@@ -37,7 +50,11 @@ export interface GetConnectionArgs {
     /**
      * The CodeStar Connection ARN.
      */
-    arn: string;
+    arn?: string;
+    /**
+     * The CodeStar Connection name.
+     */
+    name?: string;
     /**
      * Map of key-value resource tags to associate with the resource.
      */
@@ -75,7 +92,7 @@ export interface GetConnectionResult {
     readonly tags: {[key: string]: string};
 }
 
-export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply(a => getConnection(a, opts))
 }
 
@@ -86,7 +103,11 @@ export interface GetConnectionOutputArgs {
     /**
      * The CodeStar Connection ARN.
      */
-    arn: pulumi.Input<string>;
+    arn?: pulumi.Input<string>;
+    /**
+     * The CodeStar Connection name.
+     */
+    name?: pulumi.Input<string>;
     /**
      * Map of key-value resource tags to associate with the resource.
      */

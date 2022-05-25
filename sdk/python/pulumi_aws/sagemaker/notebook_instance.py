@@ -561,7 +561,7 @@ class NotebookInstance(pulumi.CustomResource):
                  volume_size: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        Provides a Sagemaker Notebook Instance resource.
+        Provides a SageMaker Notebook Instance resource.
 
         ## Example Usage
         ### Basic usage
@@ -599,7 +599,7 @@ class NotebookInstance(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Notebook Instances can be imported using the `name`, e.g.,
+        SageMaker Notebook Instances can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
@@ -630,7 +630,7 @@ class NotebookInstance(pulumi.CustomResource):
                  args: NotebookInstanceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Sagemaker Notebook Instance resource.
+        Provides a SageMaker Notebook Instance resource.
 
         ## Example Usage
         ### Basic usage
@@ -668,7 +668,7 @@ class NotebookInstance(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Notebook Instances can be imported using the `name`, e.g.,
+        SageMaker Notebook Instances can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance

@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// The instance requirements. See below.
+        /// </summary>
+        [Input("instanceRequirements")]
+        public Input<Inputs.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs>? InstanceRequirements { get; set; }
+
+        /// <summary>
         /// The type of instance to request.
         /// </summary>
         [Input("instanceType")]

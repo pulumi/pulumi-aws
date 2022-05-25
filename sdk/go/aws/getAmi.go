@@ -111,6 +111,8 @@ type GetAmiResult struct {
 	BootMode string `pulumi:"bootMode"`
 	// The date and time the image was created.
 	CreationDate string `pulumi:"creationDate"`
+	// The date and time when the image will be deprecated.
+	DeprecationTime string `pulumi:"deprecationTime"`
 	// The description of the AMI that was provided during image
 	// creation.
 	Description string `pulumi:"description"`
@@ -262,6 +264,11 @@ func (o GetAmiResultOutput) BootMode() pulumi.StringOutput {
 // The date and time the image was created.
 func (o GetAmiResultOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiResult) string { return v.CreationDate }).(pulumi.StringOutput)
+}
+
+// The date and time when the image will be deprecated.
+func (o GetAmiResultOutput) DeprecationTime() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAmiResult) string { return v.DeprecationTime }).(pulumi.StringOutput)
 }
 
 // The description of the AMI that was provided during image

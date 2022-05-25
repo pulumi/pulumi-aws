@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Synthetics.Inputs
     public sealed class CanaryArtifactConfigS3EncryptionGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+        /// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
         /// </summary>
         [Input("encryptionMode")]
         public Input<string>? EncryptionMode { get; set; }
 
         /// <summary>
-        /// The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryption_mode`.
+        /// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

@@ -16,6 +16,7 @@ __all__ = ['AmiFromInstanceArgs', 'AmiFromInstance']
 class AmiFromInstanceArgs:
     def __init__(__self__, *,
                  source_instance_id: pulumi.Input[str],
+                 deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]]] = None,
@@ -25,6 +26,7 @@ class AmiFromInstanceArgs:
         """
         The set of arguments for constructing a AmiFromInstance resource.
         :param pulumi.Input[str] source_instance_id: The id of the instance to use as the basis of the AMI.
+        :param pulumi.Input[str] deprecation_time: The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -38,6 +40,8 @@ class AmiFromInstanceArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source_instance_id", source_instance_id)
+        if deprecation_time is not None:
+            pulumi.set(__self__, "deprecation_time", deprecation_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ebs_block_devices is not None:
@@ -62,6 +66,18 @@ class AmiFromInstanceArgs:
     @source_instance_id.setter
     def source_instance_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_instance_id", value)
+
+    @property
+    @pulumi.getter(name="deprecationTime")
+    def deprecation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
+        return pulumi.get(self, "deprecation_time")
+
+    @deprecation_time.setter
+    def deprecation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deprecation_time", value)
 
     @property
     @pulumi.getter
@@ -147,6 +163,7 @@ class _AmiFromInstanceState:
                  architecture: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  boot_mode: Optional[pulumi.Input[str]] = None,
+                 deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]]] = None,
                  ena_support: Optional[pulumi.Input[bool]] = None,
@@ -177,6 +194,7 @@ class _AmiFromInstanceState:
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
         :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] deprecation_time: The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEbsBlockDeviceArgs']]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -209,6 +227,8 @@ class _AmiFromInstanceState:
             pulumi.set(__self__, "arn", arn)
         if boot_mode is not None:
             pulumi.set(__self__, "boot_mode", boot_mode)
+        if deprecation_time is not None:
+            pulumi.set(__self__, "deprecation_time", deprecation_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if ebs_block_devices is not None:
@@ -295,6 +315,18 @@ class _AmiFromInstanceState:
     @boot_mode.setter
     def boot_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "boot_mode", value)
+
+    @property
+    @pulumi.getter(name="deprecationTime")
+    def deprecation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
+        return pulumi.get(self, "deprecation_time")
+
+    @deprecation_time.setter
+    def deprecation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deprecation_time", value)
 
     @property
     @pulumi.getter
@@ -580,6 +612,7 @@ class AmiFromInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]]] = None,
@@ -618,6 +651,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deprecation_time: The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -680,6 +714,7 @@ class AmiFromInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
                  ephemeral_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]]] = None,
@@ -699,6 +734,7 @@ class AmiFromInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AmiFromInstanceArgs.__new__(AmiFromInstanceArgs)
 
+            __props__.__dict__["deprecation_time"] = deprecation_time
             __props__.__dict__["description"] = description
             __props__.__dict__["ebs_block_devices"] = ebs_block_devices
             __props__.__dict__["ephemeral_block_devices"] = ephemeral_block_devices
@@ -742,6 +778,7 @@ class AmiFromInstance(pulumi.CustomResource):
             architecture: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             boot_mode: Optional[pulumi.Input[str]] = None,
+            deprecation_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]]] = None,
             ena_support: Optional[pulumi.Input[bool]] = None,
@@ -777,6 +814,7 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
         :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] deprecation_time: The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEbsBlockDeviceArgs']]]] ebs_block_devices: Nested block describing an EBS block device that should be
                attached to created instances. The structure of this block is described below.
@@ -810,6 +848,7 @@ class AmiFromInstance(pulumi.CustomResource):
         __props__.__dict__["architecture"] = architecture
         __props__.__dict__["arn"] = arn
         __props__.__dict__["boot_mode"] = boot_mode
+        __props__.__dict__["deprecation_time"] = deprecation_time
         __props__.__dict__["description"] = description
         __props__.__dict__["ebs_block_devices"] = ebs_block_devices
         __props__.__dict__["ena_support"] = ena_support
@@ -860,6 +899,14 @@ class AmiFromInstance(pulumi.CustomResource):
         The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         """
         return pulumi.get(self, "boot_mode")
+
+    @property
+    @pulumi.getter(name="deprecationTime")
+    def deprecation_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
+        return pulumi.get(self, "deprecation_time")
 
     @property
     @pulumi.getter

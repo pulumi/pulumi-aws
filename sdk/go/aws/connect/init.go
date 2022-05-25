@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoutingProfile{}
 	case "aws:connect/securityProfile:SecurityProfile":
 		r = &SecurityProfile{}
+	case "aws:connect/userHierarchyGroup:UserHierarchyGroup":
+		r = &UserHierarchyGroup{}
 	case "aws:connect/userHierarchyStructure:UserHierarchyStructure":
 		r = &UserHierarchyStructure{}
 	default:
@@ -104,6 +106,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"connect/securityProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"connect/userHierarchyGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

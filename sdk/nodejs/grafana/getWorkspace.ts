@@ -26,6 +26,7 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:grafana/getWorkspace:getWorkspace", {
+        "tags": args.tags,
         "workspaceId": args.workspaceId,
     }, opts);
 }
@@ -34,6 +35,10 @@ export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceArgs {
+    /**
+     * The tags assigned to the resource
+     */
+    tags?: {[key: string]: string};
     /**
      * The Grafana workspace ID.
      */
@@ -117,6 +122,10 @@ export interface GetWorkspaceResult {
      * The status of the Grafana workspace.
      */
     readonly status: string;
+    /**
+     * The tags assigned to the resource
+     */
+    readonly tags: {[key: string]: string};
     readonly workspaceId: string;
 }
 
@@ -128,6 +137,10 @@ export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getWorkspace.
  */
 export interface GetWorkspaceOutputArgs {
+    /**
+     * The tags assigned to the resource
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Grafana workspace ID.
      */

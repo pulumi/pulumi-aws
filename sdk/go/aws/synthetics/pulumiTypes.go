@@ -148,9 +148,9 @@ func (o CanaryArtifactConfigPtrOutput) S3Encryption() CanaryArtifactConfigS3Encr
 }
 
 type CanaryArtifactConfigS3Encryption struct {
-	// The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+	// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
 	EncryptionMode *string `pulumi:"encryptionMode"`
-	// The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryptionMode`.
+	// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -166,9 +166,9 @@ type CanaryArtifactConfigS3EncryptionInput interface {
 }
 
 type CanaryArtifactConfigS3EncryptionArgs struct {
-	// The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+	// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
 	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
-	// The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryptionMode`.
+	// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
@@ -249,12 +249,12 @@ func (o CanaryArtifactConfigS3EncryptionOutput) ToCanaryArtifactConfigS3Encrypti
 	}).(CanaryArtifactConfigS3EncryptionPtrOutput)
 }
 
-// The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
 func (o CanaryArtifactConfigS3EncryptionOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryArtifactConfigS3Encryption) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryptionMode`.
+// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
 func (o CanaryArtifactConfigS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CanaryArtifactConfigS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -283,7 +283,7 @@ func (o CanaryArtifactConfigS3EncryptionPtrOutput) Elem() CanaryArtifactConfigS3
 	}).(CanaryArtifactConfigS3EncryptionOutput)
 }
 
-// The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+// The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
 func (o CanaryArtifactConfigS3EncryptionPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryArtifactConfigS3Encryption) *string {
 		if v == nil {
@@ -293,7 +293,7 @@ func (o CanaryArtifactConfigS3EncryptionPtrOutput) EncryptionMode() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryptionMode`.
+// The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
 func (o CanaryArtifactConfigS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CanaryArtifactConfigS3Encryption) *string {
 		if v == nil {

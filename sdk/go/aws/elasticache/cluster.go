@@ -183,10 +183,13 @@ type Cluster struct {
 	Engine pulumi.StringOutput `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
-	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// Otherwise, specify the full version desired, e.g., `5.0.6`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The running version of the cache engine.
+	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
@@ -282,10 +285,13 @@ type clusterState struct {
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
-	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// Otherwise, specify the full version desired, e.g., `5.0.6`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The running version of the cache engine.
+	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
@@ -353,10 +359,13 @@ type ClusterState struct {
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
-	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// Otherwise, specify the full version desired, e.g., `5.0.6`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
 	EngineVersion pulumi.StringPtrInput
-	// The running version of the cache engine.
+	// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 	EngineVersionActual pulumi.StringPtrInput
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
@@ -420,8 +429,11 @@ type clusterArgs struct {
 	Engine *string `pulumi:"engine"`
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
-	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// Otherwise, specify the full version desired, e.g., `5.0.6`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
@@ -481,8 +493,11 @@ type ClusterArgs struct {
 	Engine pulumi.StringPtrInput
 	// Version number of the cache engine to be used.
 	// If not set, defaults to the latest version.
-	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-	// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+	// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+	// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// Otherwise, specify the full version desired, e.g., `5.0.6`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
 	EngineVersion pulumi.StringPtrInput
 	// Name of your final cluster snapshot. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
@@ -665,13 +680,16 @@ func (o ClusterOutput) Engine() pulumi.StringOutput {
 
 // Version number of the cache engine to be used.
 // If not set, defaults to the latest version.
-// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-// in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, , see Attributes Reference below.
+// See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+// When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+// Otherwise, specify the full version desired, e.g., `5.0.6`.
+// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
 func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// The running version of the cache engine.
+// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
 func (o ClusterOutput) EngineVersionActual() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersionActual }).(pulumi.StringOutput)
 }

@@ -76,6 +76,10 @@ export class AmiFromInstance extends pulumi.CustomResource {
      */
     public /*out*/ readonly bootMode!: pulumi.Output<string>;
     /**
+     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     */
+    public readonly deprecationTime!: pulumi.Output<string | undefined>;
+    /**
      * A longer, human-readable description for the AMI.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -170,6 +174,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             resourceInputs["architecture"] = state ? state.architecture : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bootMode"] = state ? state.bootMode : undefined;
+            resourceInputs["deprecationTime"] = state ? state.deprecationTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             resourceInputs["enaSupport"] = state ? state.enaSupport : undefined;
@@ -200,6 +205,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
             if ((!args || args.sourceInstanceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceInstanceId'");
             }
+            resourceInputs["deprecationTime"] = args ? args.deprecationTime : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
             resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
@@ -250,6 +256,10 @@ export interface AmiFromInstanceState {
      * The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
      */
     bootMode?: pulumi.Input<string>;
+    /**
+     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     */
+    deprecationTime?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */
@@ -334,6 +344,10 @@ export interface AmiFromInstanceState {
  * The set of arguments for constructing a AmiFromInstance resource.
  */
 export interface AmiFromInstanceArgs {
+    /**
+     * The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+     */
+    deprecationTime?: pulumi.Input<string>;
     /**
      * A longer, human-readable description for the AMI.
      */

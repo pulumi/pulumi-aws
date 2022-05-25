@@ -44,6 +44,7 @@ import * as apigateway from "./apigateway";
 import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
 import * as appconfig from "./appconfig";
+import * as appflow from "./appflow";
 import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as appmesh from "./appmesh";
 import * as apprunner from "./apprunner";
@@ -75,6 +76,7 @@ import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as config from "./config";
 import * as connect from "./connect";
+import * as costexplorer from "./costexplorer";
 import * as cur from "./cur";
 import * as dataexchange from "./dataexchange";
 import * as datapipeline from "./datapipeline";
@@ -105,6 +107,7 @@ import * as elasticsearch from "./elasticsearch";
 import * as elastictranscoder from "./elastictranscoder";
 import * as elb from "./elb";
 import * as emr from "./emr";
+import * as emrcontainers from "./emrcontainers";
 import * as fms from "./fms";
 import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
@@ -128,6 +131,7 @@ import * as lb from "./lb";
 import * as lex from "./lex";
 import * as licensemanager from "./licensemanager";
 import * as lightsail from "./lightsail";
+import * as location from "./location";
 import * as macie from "./macie";
 import * as macie2 from "./macie2";
 import * as mediaconvert from "./mediaconvert";
@@ -204,6 +208,7 @@ export {
     apigatewayv2,
     appautoscaling,
     appconfig,
+    appflow,
     applicationloadbalancing,
     appmesh,
     apprunner,
@@ -235,6 +240,7 @@ export {
     cognito,
     config,
     connect,
+    costexplorer,
     cur,
     dataexchange,
     datapipeline,
@@ -265,6 +271,7 @@ export {
     elastictranscoder,
     elb,
     emr,
+    emrcontainers,
     fms,
     fsx,
     gamelift,
@@ -288,6 +295,7 @@ export {
     lex,
     licensemanager,
     lightsail,
+    location,
     macie,
     macie2,
     mediaconvert,

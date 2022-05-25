@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a IPAM resource.
+// Provides an IPAM resource.
 //
 // ## Import
 //

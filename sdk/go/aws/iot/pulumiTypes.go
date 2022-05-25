@@ -2193,6 +2193,200 @@ func (o TopicRuleCloudwatchMetricPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleDestinationVpcConfiguration struct {
+	// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+	RoleArn string `pulumi:"roleArn"`
+	// The security groups of the VPC destination.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The subnet IDs of the VPC destination.
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The ID of the VPC.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// TopicRuleDestinationVpcConfigurationInput is an input type that accepts TopicRuleDestinationVpcConfigurationArgs and TopicRuleDestinationVpcConfigurationOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationVpcConfigurationInput` via:
+//
+//          TopicRuleDestinationVpcConfigurationArgs{...}
+type TopicRuleDestinationVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationVpcConfigurationOutput() TopicRuleDestinationVpcConfigurationOutput
+	ToTopicRuleDestinationVpcConfigurationOutputWithContext(context.Context) TopicRuleDestinationVpcConfigurationOutput
+}
+
+type TopicRuleDestinationVpcConfigurationArgs struct {
+	// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The security groups of the VPC destination.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The subnet IDs of the VPC destination.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+	// The ID of the VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (TopicRuleDestinationVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationVpcConfiguration)(nil)).Elem()
+}
+
+func (i TopicRuleDestinationVpcConfigurationArgs) ToTopicRuleDestinationVpcConfigurationOutput() TopicRuleDestinationVpcConfigurationOutput {
+	return i.ToTopicRuleDestinationVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationVpcConfigurationArgs) ToTopicRuleDestinationVpcConfigurationOutputWithContext(ctx context.Context) TopicRuleDestinationVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationVpcConfigurationOutput)
+}
+
+func (i TopicRuleDestinationVpcConfigurationArgs) ToTopicRuleDestinationVpcConfigurationPtrOutput() TopicRuleDestinationVpcConfigurationPtrOutput {
+	return i.ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationVpcConfigurationArgs) ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(ctx context.Context) TopicRuleDestinationVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationVpcConfigurationOutput).ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(ctx)
+}
+
+// TopicRuleDestinationVpcConfigurationPtrInput is an input type that accepts TopicRuleDestinationVpcConfigurationArgs, TopicRuleDestinationVpcConfigurationPtr and TopicRuleDestinationVpcConfigurationPtrOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationVpcConfigurationPtrInput` via:
+//
+//          TopicRuleDestinationVpcConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleDestinationVpcConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationVpcConfigurationPtrOutput() TopicRuleDestinationVpcConfigurationPtrOutput
+	ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(context.Context) TopicRuleDestinationVpcConfigurationPtrOutput
+}
+
+type topicRuleDestinationVpcConfigurationPtrType TopicRuleDestinationVpcConfigurationArgs
+
+func TopicRuleDestinationVpcConfigurationPtr(v *TopicRuleDestinationVpcConfigurationArgs) TopicRuleDestinationVpcConfigurationPtrInput {
+	return (*topicRuleDestinationVpcConfigurationPtrType)(v)
+}
+
+func (*topicRuleDestinationVpcConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationVpcConfiguration)(nil)).Elem()
+}
+
+func (i *topicRuleDestinationVpcConfigurationPtrType) ToTopicRuleDestinationVpcConfigurationPtrOutput() TopicRuleDestinationVpcConfigurationPtrOutput {
+	return i.ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleDestinationVpcConfigurationPtrType) ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(ctx context.Context) TopicRuleDestinationVpcConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationVpcConfigurationPtrOutput)
+}
+
+type TopicRuleDestinationVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationVpcConfiguration)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationVpcConfigurationOutput) ToTopicRuleDestinationVpcConfigurationOutput() TopicRuleDestinationVpcConfigurationOutput {
+	return o
+}
+
+func (o TopicRuleDestinationVpcConfigurationOutput) ToTopicRuleDestinationVpcConfigurationOutputWithContext(ctx context.Context) TopicRuleDestinationVpcConfigurationOutput {
+	return o
+}
+
+func (o TopicRuleDestinationVpcConfigurationOutput) ToTopicRuleDestinationVpcConfigurationPtrOutput() TopicRuleDestinationVpcConfigurationPtrOutput {
+	return o.ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleDestinationVpcConfigurationOutput) ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(ctx context.Context) TopicRuleDestinationVpcConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDestinationVpcConfiguration) *TopicRuleDestinationVpcConfiguration {
+		return &v
+	}).(TopicRuleDestinationVpcConfigurationPtrOutput)
+}
+
+// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+func (o TopicRuleDestinationVpcConfigurationOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The security groups of the VPC destination.
+func (o TopicRuleDestinationVpcConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The subnet IDs of the VPC destination.
+func (o TopicRuleDestinationVpcConfigurationOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the VPC.
+func (o TopicRuleDestinationVpcConfigurationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDestinationVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type TopicRuleDestinationVpcConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationVpcConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationVpcConfiguration)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationVpcConfigurationPtrOutput) ToTopicRuleDestinationVpcConfigurationPtrOutput() TopicRuleDestinationVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationVpcConfigurationPtrOutput) ToTopicRuleDestinationVpcConfigurationPtrOutputWithContext(ctx context.Context) TopicRuleDestinationVpcConfigurationPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationVpcConfigurationPtrOutput) Elem() TopicRuleDestinationVpcConfigurationOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) TopicRuleDestinationVpcConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleDestinationVpcConfiguration
+		return ret
+	}).(TopicRuleDestinationVpcConfigurationOutput)
+}
+
+// The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+func (o TopicRuleDestinationVpcConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The security groups of the VPC destination.
+func (o TopicRuleDestinationVpcConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnet IDs of the VPC destination.
+func (o TopicRuleDestinationVpcConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the VPC.
+func (o TopicRuleDestinationVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationVpcConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VpcId
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicRuleDynamodb struct {
 	// The hash key name.
 	HashKeyField string `pulumi:"hashKeyField"`
@@ -2965,8 +3159,10 @@ type TopicRuleErrorAction struct {
 	Dynamodbv2       *TopicRuleErrorActionDynamodbv2       `pulumi:"dynamodbv2"`
 	Elasticsearch    *TopicRuleErrorActionElasticsearch    `pulumi:"elasticsearch"`
 	Firehose         *TopicRuleErrorActionFirehose         `pulumi:"firehose"`
+	Http             *TopicRuleErrorActionHttp             `pulumi:"http"`
 	IotAnalytics     *TopicRuleErrorActionIotAnalytics     `pulumi:"iotAnalytics"`
 	IotEvents        *TopicRuleErrorActionIotEvents        `pulumi:"iotEvents"`
+	Kafka            *TopicRuleErrorActionKafka            `pulumi:"kafka"`
 	Kinesis          *TopicRuleErrorActionKinesis          `pulumi:"kinesis"`
 	Lambda           *TopicRuleErrorActionLambda           `pulumi:"lambda"`
 	Republish        *TopicRuleErrorActionRepublish        `pulumi:"republish"`
@@ -2974,6 +3170,7 @@ type TopicRuleErrorAction struct {
 	Sns              *TopicRuleErrorActionSns              `pulumi:"sns"`
 	Sqs              *TopicRuleErrorActionSqs              `pulumi:"sqs"`
 	StepFunctions    *TopicRuleErrorActionStepFunctions    `pulumi:"stepFunctions"`
+	Timestream       *TopicRuleErrorActionTimestream       `pulumi:"timestream"`
 }
 
 // TopicRuleErrorActionInput is an input type that accepts TopicRuleErrorActionArgs and TopicRuleErrorActionOutput values.
@@ -2995,8 +3192,10 @@ type TopicRuleErrorActionArgs struct {
 	Dynamodbv2       TopicRuleErrorActionDynamodbv2PtrInput       `pulumi:"dynamodbv2"`
 	Elasticsearch    TopicRuleErrorActionElasticsearchPtrInput    `pulumi:"elasticsearch"`
 	Firehose         TopicRuleErrorActionFirehosePtrInput         `pulumi:"firehose"`
+	Http             TopicRuleErrorActionHttpPtrInput             `pulumi:"http"`
 	IotAnalytics     TopicRuleErrorActionIotAnalyticsPtrInput     `pulumi:"iotAnalytics"`
 	IotEvents        TopicRuleErrorActionIotEventsPtrInput        `pulumi:"iotEvents"`
+	Kafka            TopicRuleErrorActionKafkaPtrInput            `pulumi:"kafka"`
 	Kinesis          TopicRuleErrorActionKinesisPtrInput          `pulumi:"kinesis"`
 	Lambda           TopicRuleErrorActionLambdaPtrInput           `pulumi:"lambda"`
 	Republish        TopicRuleErrorActionRepublishPtrInput        `pulumi:"republish"`
@@ -3004,6 +3203,7 @@ type TopicRuleErrorActionArgs struct {
 	Sns              TopicRuleErrorActionSnsPtrInput              `pulumi:"sns"`
 	Sqs              TopicRuleErrorActionSqsPtrInput              `pulumi:"sqs"`
 	StepFunctions    TopicRuleErrorActionStepFunctionsPtrInput    `pulumi:"stepFunctions"`
+	Timestream       TopicRuleErrorActionTimestreamPtrInput       `pulumi:"timestream"`
 }
 
 func (TopicRuleErrorActionArgs) ElementType() reflect.Type {
@@ -3111,12 +3311,20 @@ func (o TopicRuleErrorActionOutput) Firehose() TopicRuleErrorActionFirehosePtrOu
 	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionFirehose { return v.Firehose }).(TopicRuleErrorActionFirehosePtrOutput)
 }
 
+func (o TopicRuleErrorActionOutput) Http() TopicRuleErrorActionHttpPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionHttp { return v.Http }).(TopicRuleErrorActionHttpPtrOutput)
+}
+
 func (o TopicRuleErrorActionOutput) IotAnalytics() TopicRuleErrorActionIotAnalyticsPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionIotAnalytics { return v.IotAnalytics }).(TopicRuleErrorActionIotAnalyticsPtrOutput)
 }
 
 func (o TopicRuleErrorActionOutput) IotEvents() TopicRuleErrorActionIotEventsPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionIotEvents { return v.IotEvents }).(TopicRuleErrorActionIotEventsPtrOutput)
+}
+
+func (o TopicRuleErrorActionOutput) Kafka() TopicRuleErrorActionKafkaPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionKafka { return v.Kafka }).(TopicRuleErrorActionKafkaPtrOutput)
 }
 
 func (o TopicRuleErrorActionOutput) Kinesis() TopicRuleErrorActionKinesisPtrOutput {
@@ -3145,6 +3353,10 @@ func (o TopicRuleErrorActionOutput) Sqs() TopicRuleErrorActionSqsPtrOutput {
 
 func (o TopicRuleErrorActionOutput) StepFunctions() TopicRuleErrorActionStepFunctionsPtrOutput {
 	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionStepFunctions { return v.StepFunctions }).(TopicRuleErrorActionStepFunctionsPtrOutput)
+}
+
+func (o TopicRuleErrorActionOutput) Timestream() TopicRuleErrorActionTimestreamPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorAction) *TopicRuleErrorActionTimestream { return v.Timestream }).(TopicRuleErrorActionTimestreamPtrOutput)
 }
 
 type TopicRuleErrorActionPtrOutput struct{ *pulumi.OutputState }
@@ -3234,6 +3446,15 @@ func (o TopicRuleErrorActionPtrOutput) Firehose() TopicRuleErrorActionFirehosePt
 	}).(TopicRuleErrorActionFirehosePtrOutput)
 }
 
+func (o TopicRuleErrorActionPtrOutput) Http() TopicRuleErrorActionHttpPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorAction) *TopicRuleErrorActionHttp {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(TopicRuleErrorActionHttpPtrOutput)
+}
+
 func (o TopicRuleErrorActionPtrOutput) IotAnalytics() TopicRuleErrorActionIotAnalyticsPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorAction) *TopicRuleErrorActionIotAnalytics {
 		if v == nil {
@@ -3250,6 +3471,15 @@ func (o TopicRuleErrorActionPtrOutput) IotEvents() TopicRuleErrorActionIotEvents
 		}
 		return v.IotEvents
 	}).(TopicRuleErrorActionIotEventsPtrOutput)
+}
+
+func (o TopicRuleErrorActionPtrOutput) Kafka() TopicRuleErrorActionKafkaPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorAction) *TopicRuleErrorActionKafka {
+		if v == nil {
+			return nil
+		}
+		return v.Kafka
+	}).(TopicRuleErrorActionKafkaPtrOutput)
 }
 
 func (o TopicRuleErrorActionPtrOutput) Kinesis() TopicRuleErrorActionKinesisPtrOutput {
@@ -3313,6 +3543,15 @@ func (o TopicRuleErrorActionPtrOutput) StepFunctions() TopicRuleErrorActionStepF
 		}
 		return v.StepFunctions
 	}).(TopicRuleErrorActionStepFunctionsPtrOutput)
+}
+
+func (o TopicRuleErrorActionPtrOutput) Timestream() TopicRuleErrorActionTimestreamPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorAction) *TopicRuleErrorActionTimestream {
+		if v == nil {
+			return nil
+		}
+		return v.Timestream
+	}).(TopicRuleErrorActionTimestreamPtrOutput)
 }
 
 type TopicRuleErrorActionCloudwatchAlarm struct {
@@ -4886,6 +5125,287 @@ func (o TopicRuleErrorActionFirehosePtrOutput) Separator() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleErrorActionHttp struct {
+	// The HTTPS URL used to verify ownership of `url`.
+	ConfirmationUrl *string `pulumi:"confirmationUrl"`
+	// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+	HttpHeaders []TopicRuleErrorActionHttpHttpHeader `pulumi:"httpHeaders"`
+	// The HTTPS URL.
+	Url string `pulumi:"url"`
+}
+
+// TopicRuleErrorActionHttpInput is an input type that accepts TopicRuleErrorActionHttpArgs and TopicRuleErrorActionHttpOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionHttpInput` via:
+//
+//          TopicRuleErrorActionHttpArgs{...}
+type TopicRuleErrorActionHttpInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionHttpOutput() TopicRuleErrorActionHttpOutput
+	ToTopicRuleErrorActionHttpOutputWithContext(context.Context) TopicRuleErrorActionHttpOutput
+}
+
+type TopicRuleErrorActionHttpArgs struct {
+	// The HTTPS URL used to verify ownership of `url`.
+	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
+	// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+	HttpHeaders TopicRuleErrorActionHttpHttpHeaderArrayInput `pulumi:"httpHeaders"`
+	// The HTTPS URL.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (TopicRuleErrorActionHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionHttp)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionHttpArgs) ToTopicRuleErrorActionHttpOutput() TopicRuleErrorActionHttpOutput {
+	return i.ToTopicRuleErrorActionHttpOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionHttpArgs) ToTopicRuleErrorActionHttpOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionHttpOutput)
+}
+
+func (i TopicRuleErrorActionHttpArgs) ToTopicRuleErrorActionHttpPtrOutput() TopicRuleErrorActionHttpPtrOutput {
+	return i.ToTopicRuleErrorActionHttpPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionHttpArgs) ToTopicRuleErrorActionHttpPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionHttpOutput).ToTopicRuleErrorActionHttpPtrOutputWithContext(ctx)
+}
+
+// TopicRuleErrorActionHttpPtrInput is an input type that accepts TopicRuleErrorActionHttpArgs, TopicRuleErrorActionHttpPtr and TopicRuleErrorActionHttpPtrOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionHttpPtrInput` via:
+//
+//          TopicRuleErrorActionHttpArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleErrorActionHttpPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionHttpPtrOutput() TopicRuleErrorActionHttpPtrOutput
+	ToTopicRuleErrorActionHttpPtrOutputWithContext(context.Context) TopicRuleErrorActionHttpPtrOutput
+}
+
+type topicRuleErrorActionHttpPtrType TopicRuleErrorActionHttpArgs
+
+func TopicRuleErrorActionHttpPtr(v *TopicRuleErrorActionHttpArgs) TopicRuleErrorActionHttpPtrInput {
+	return (*topicRuleErrorActionHttpPtrType)(v)
+}
+
+func (*topicRuleErrorActionHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionHttp)(nil)).Elem()
+}
+
+func (i *topicRuleErrorActionHttpPtrType) ToTopicRuleErrorActionHttpPtrOutput() TopicRuleErrorActionHttpPtrOutput {
+	return i.ToTopicRuleErrorActionHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleErrorActionHttpPtrType) ToTopicRuleErrorActionHttpPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionHttpPtrOutput)
+}
+
+type TopicRuleErrorActionHttpOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionHttp)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionHttpOutput) ToTopicRuleErrorActionHttpOutput() TopicRuleErrorActionHttpOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionHttpOutput) ToTopicRuleErrorActionHttpOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionHttpOutput) ToTopicRuleErrorActionHttpPtrOutput() TopicRuleErrorActionHttpPtrOutput {
+	return o.ToTopicRuleErrorActionHttpPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleErrorActionHttpOutput) ToTopicRuleErrorActionHttpPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionHttp) *TopicRuleErrorActionHttp {
+		return &v
+	}).(TopicRuleErrorActionHttpPtrOutput)
+}
+
+// The HTTPS URL used to verify ownership of `url`.
+func (o TopicRuleErrorActionHttpOutput) ConfirmationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionHttp) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+func (o TopicRuleErrorActionHttpOutput) HttpHeaders() TopicRuleErrorActionHttpHttpHeaderArrayOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionHttp) []TopicRuleErrorActionHttpHttpHeader { return v.HttpHeaders }).(TopicRuleErrorActionHttpHttpHeaderArrayOutput)
+}
+
+// The HTTPS URL.
+func (o TopicRuleErrorActionHttpOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionHttp) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type TopicRuleErrorActionHttpPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionHttp)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionHttpPtrOutput) ToTopicRuleErrorActionHttpPtrOutput() TopicRuleErrorActionHttpPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionHttpPtrOutput) ToTopicRuleErrorActionHttpPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionHttpPtrOutput) Elem() TopicRuleErrorActionHttpOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionHttp) TopicRuleErrorActionHttp {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionHttp
+		return ret
+	}).(TopicRuleErrorActionHttpOutput)
+}
+
+// The HTTPS URL used to verify ownership of `url`.
+func (o TopicRuleErrorActionHttpPtrOutput) ConfirmationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfirmationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+func (o TopicRuleErrorActionHttpPtrOutput) HttpHeaders() TopicRuleErrorActionHttpHttpHeaderArrayOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionHttp) []TopicRuleErrorActionHttpHttpHeader {
+		if v == nil {
+			return nil
+		}
+		return v.HttpHeaders
+	}).(TopicRuleErrorActionHttpHttpHeaderArrayOutput)
+}
+
+// The HTTPS URL.
+func (o TopicRuleErrorActionHttpPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionHttp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleErrorActionHttpHttpHeader struct {
+	// The name of the HTTP header.
+	Key string `pulumi:"key"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleErrorActionHttpHttpHeaderInput is an input type that accepts TopicRuleErrorActionHttpHttpHeaderArgs and TopicRuleErrorActionHttpHttpHeaderOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionHttpHttpHeaderInput` via:
+//
+//          TopicRuleErrorActionHttpHttpHeaderArgs{...}
+type TopicRuleErrorActionHttpHttpHeaderInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionHttpHttpHeaderOutput() TopicRuleErrorActionHttpHttpHeaderOutput
+	ToTopicRuleErrorActionHttpHttpHeaderOutputWithContext(context.Context) TopicRuleErrorActionHttpHttpHeaderOutput
+}
+
+type TopicRuleErrorActionHttpHttpHeaderArgs struct {
+	// The name of the HTTP header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleErrorActionHttpHttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionHttpHttpHeader)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionHttpHttpHeaderArgs) ToTopicRuleErrorActionHttpHttpHeaderOutput() TopicRuleErrorActionHttpHttpHeaderOutput {
+	return i.ToTopicRuleErrorActionHttpHttpHeaderOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionHttpHttpHeaderArgs) ToTopicRuleErrorActionHttpHttpHeaderOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpHttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionHttpHttpHeaderOutput)
+}
+
+// TopicRuleErrorActionHttpHttpHeaderArrayInput is an input type that accepts TopicRuleErrorActionHttpHttpHeaderArray and TopicRuleErrorActionHttpHttpHeaderArrayOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionHttpHttpHeaderArrayInput` via:
+//
+//          TopicRuleErrorActionHttpHttpHeaderArray{ TopicRuleErrorActionHttpHttpHeaderArgs{...} }
+type TopicRuleErrorActionHttpHttpHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionHttpHttpHeaderArrayOutput() TopicRuleErrorActionHttpHttpHeaderArrayOutput
+	ToTopicRuleErrorActionHttpHttpHeaderArrayOutputWithContext(context.Context) TopicRuleErrorActionHttpHttpHeaderArrayOutput
+}
+
+type TopicRuleErrorActionHttpHttpHeaderArray []TopicRuleErrorActionHttpHttpHeaderInput
+
+func (TopicRuleErrorActionHttpHttpHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleErrorActionHttpHttpHeader)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionHttpHttpHeaderArray) ToTopicRuleErrorActionHttpHttpHeaderArrayOutput() TopicRuleErrorActionHttpHttpHeaderArrayOutput {
+	return i.ToTopicRuleErrorActionHttpHttpHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionHttpHttpHeaderArray) ToTopicRuleErrorActionHttpHttpHeaderArrayOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpHttpHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionHttpHttpHeaderArrayOutput)
+}
+
+type TopicRuleErrorActionHttpHttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionHttpHttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionHttpHttpHeader)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionHttpHttpHeaderOutput) ToTopicRuleErrorActionHttpHttpHeaderOutput() TopicRuleErrorActionHttpHttpHeaderOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionHttpHttpHeaderOutput) ToTopicRuleErrorActionHttpHttpHeaderOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpHttpHeaderOutput {
+	return o
+}
+
+// The name of the HTTP header.
+func (o TopicRuleErrorActionHttpHttpHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionHttpHttpHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleErrorActionHttpHttpHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionHttpHttpHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleErrorActionHttpHttpHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionHttpHttpHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleErrorActionHttpHttpHeader)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionHttpHttpHeaderArrayOutput) ToTopicRuleErrorActionHttpHttpHeaderArrayOutput() TopicRuleErrorActionHttpHttpHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionHttpHttpHeaderArrayOutput) ToTopicRuleErrorActionHttpHttpHeaderArrayOutputWithContext(ctx context.Context) TopicRuleErrorActionHttpHttpHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionHttpHttpHeaderArrayOutput) Index(i pulumi.IntInput) TopicRuleErrorActionHttpHttpHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleErrorActionHttpHttpHeader {
+		return vs[0].([]TopicRuleErrorActionHttpHttpHeader)[vs[1].(int)]
+	}).(TopicRuleErrorActionHttpHttpHeaderOutput)
+}
+
 type TopicRuleErrorActionIotAnalytics struct {
 	// Name of AWS IOT Analytics channel.
 	ChannelName string `pulumi:"channelName"`
@@ -5214,6 +5734,219 @@ func (o TopicRuleErrorActionIotEventsPtrOutput) RoleArn() pulumi.StringPtrOutput
 			return nil
 		}
 		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleErrorActionKafka struct {
+	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+	ClientProperties map[string]string `pulumi:"clientProperties"`
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	DestinationArn string `pulumi:"destinationArn"`
+	// The Kafka message key.
+	Key *string `pulumi:"key"`
+	// The Kafka message partition.
+	Partition *string `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic string `pulumi:"topic"`
+}
+
+// TopicRuleErrorActionKafkaInput is an input type that accepts TopicRuleErrorActionKafkaArgs and TopicRuleErrorActionKafkaOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionKafkaInput` via:
+//
+//          TopicRuleErrorActionKafkaArgs{...}
+type TopicRuleErrorActionKafkaInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionKafkaOutput() TopicRuleErrorActionKafkaOutput
+	ToTopicRuleErrorActionKafkaOutputWithContext(context.Context) TopicRuleErrorActionKafkaOutput
+}
+
+type TopicRuleErrorActionKafkaArgs struct {
+	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// The Kafka message key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The Kafka message partition.
+	Partition pulumi.StringPtrInput `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic pulumi.StringInput `pulumi:"topic"`
+}
+
+func (TopicRuleErrorActionKafkaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionKafka)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionKafkaArgs) ToTopicRuleErrorActionKafkaOutput() TopicRuleErrorActionKafkaOutput {
+	return i.ToTopicRuleErrorActionKafkaOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionKafkaArgs) ToTopicRuleErrorActionKafkaOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionKafkaOutput)
+}
+
+func (i TopicRuleErrorActionKafkaArgs) ToTopicRuleErrorActionKafkaPtrOutput() TopicRuleErrorActionKafkaPtrOutput {
+	return i.ToTopicRuleErrorActionKafkaPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionKafkaArgs) ToTopicRuleErrorActionKafkaPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionKafkaOutput).ToTopicRuleErrorActionKafkaPtrOutputWithContext(ctx)
+}
+
+// TopicRuleErrorActionKafkaPtrInput is an input type that accepts TopicRuleErrorActionKafkaArgs, TopicRuleErrorActionKafkaPtr and TopicRuleErrorActionKafkaPtrOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionKafkaPtrInput` via:
+//
+//          TopicRuleErrorActionKafkaArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleErrorActionKafkaPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionKafkaPtrOutput() TopicRuleErrorActionKafkaPtrOutput
+	ToTopicRuleErrorActionKafkaPtrOutputWithContext(context.Context) TopicRuleErrorActionKafkaPtrOutput
+}
+
+type topicRuleErrorActionKafkaPtrType TopicRuleErrorActionKafkaArgs
+
+func TopicRuleErrorActionKafkaPtr(v *TopicRuleErrorActionKafkaArgs) TopicRuleErrorActionKafkaPtrInput {
+	return (*topicRuleErrorActionKafkaPtrType)(v)
+}
+
+func (*topicRuleErrorActionKafkaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionKafka)(nil)).Elem()
+}
+
+func (i *topicRuleErrorActionKafkaPtrType) ToTopicRuleErrorActionKafkaPtrOutput() TopicRuleErrorActionKafkaPtrOutput {
+	return i.ToTopicRuleErrorActionKafkaPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleErrorActionKafkaPtrType) ToTopicRuleErrorActionKafkaPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionKafkaPtrOutput)
+}
+
+type TopicRuleErrorActionKafkaOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionKafkaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionKafka)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionKafkaOutput) ToTopicRuleErrorActionKafkaOutput() TopicRuleErrorActionKafkaOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionKafkaOutput) ToTopicRuleErrorActionKafkaOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionKafkaOutput) ToTopicRuleErrorActionKafkaPtrOutput() TopicRuleErrorActionKafkaPtrOutput {
+	return o.ToTopicRuleErrorActionKafkaPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleErrorActionKafkaOutput) ToTopicRuleErrorActionKafkaPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionKafka) *TopicRuleErrorActionKafka {
+		return &v
+	}).(TopicRuleErrorActionKafkaPtrOutput)
+}
+
+// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+func (o TopicRuleErrorActionKafkaOutput) ClientProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionKafka) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
+}
+
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+func (o TopicRuleErrorActionKafkaOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionKafka) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+// The Kafka message key.
+func (o TopicRuleErrorActionKafkaOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionKafka) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The Kafka message partition.
+func (o TopicRuleErrorActionKafkaOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionKafka) *string { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// The Kafka topic for messages to be sent to the Kafka broker.
+func (o TopicRuleErrorActionKafkaOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionKafka) string { return v.Topic }).(pulumi.StringOutput)
+}
+
+type TopicRuleErrorActionKafkaPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionKafkaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionKafka)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionKafkaPtrOutput) ToTopicRuleErrorActionKafkaPtrOutput() TopicRuleErrorActionKafkaPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionKafkaPtrOutput) ToTopicRuleErrorActionKafkaPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionKafkaPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionKafkaPtrOutput) Elem() TopicRuleErrorActionKafkaOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionKafka) TopicRuleErrorActionKafka {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionKafka
+		return ret
+	}).(TopicRuleErrorActionKafkaOutput)
+}
+
+// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+func (o TopicRuleErrorActionKafkaPtrOutput) ClientProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionKafka) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientProperties
+	}).(pulumi.StringMapOutput)
+}
+
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+func (o TopicRuleErrorActionKafkaPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka message key.
+func (o TopicRuleErrorActionKafkaPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka message partition.
+func (o TopicRuleErrorActionKafkaPtrOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Partition
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Kafka topic for messages to be sent to the Kafka broker.
+func (o TopicRuleErrorActionKafkaPtrOutput) Topic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionKafka) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Topic
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5707,7 +6440,9 @@ func (o TopicRuleErrorActionRepublishPtrOutput) Topic() pulumi.StringPtrOutput {
 type TopicRuleErrorActionS3 struct {
 	// The Amazon S3 bucket name.
 	BucketName string `pulumi:"bucketName"`
-	// The object key.
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	CannedAcl *string `pulumi:"cannedAcl"`
+	// The name of the HTTP header.
 	Key string `pulumi:"key"`
 	// The IAM role ARN that allows access to the CloudWatch alarm.
 	RoleArn string `pulumi:"roleArn"`
@@ -5727,7 +6462,9 @@ type TopicRuleErrorActionS3Input interface {
 type TopicRuleErrorActionS3Args struct {
 	// The Amazon S3 bucket name.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The object key.
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	// The name of the HTTP header.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The IAM role ARN that allows access to the CloudWatch alarm.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -5815,7 +6552,12 @@ func (o TopicRuleErrorActionS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The object key.
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+func (o TopicRuleErrorActionS3Output) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
+}
+
+// The name of the HTTP header.
 func (o TopicRuleErrorActionS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleErrorActionS3) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -5859,7 +6601,17 @@ func (o TopicRuleErrorActionS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key.
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+func (o TopicRuleErrorActionS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CannedAcl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the HTTP header.
 func (o TopicRuleErrorActionS3PtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleErrorActionS3) *string {
 		if v == nil {
@@ -6404,6 +7156,481 @@ func (o TopicRuleErrorActionStepFunctionsPtrOutput) StateMachineName() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type TopicRuleErrorActionTimestream struct {
+	// The name of an Amazon Timestream database.
+	DatabaseName string `pulumi:"databaseName"`
+	// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+	Dimensions []TopicRuleErrorActionTimestreamDimension `pulumi:"dimensions"`
+	// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the database table into which to write the measure records.
+	TableName string `pulumi:"tableName"`
+	// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+	Timestamp *TopicRuleErrorActionTimestreamTimestamp `pulumi:"timestamp"`
+}
+
+// TopicRuleErrorActionTimestreamInput is an input type that accepts TopicRuleErrorActionTimestreamArgs and TopicRuleErrorActionTimestreamOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionTimestreamInput` via:
+//
+//          TopicRuleErrorActionTimestreamArgs{...}
+type TopicRuleErrorActionTimestreamInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionTimestreamOutput() TopicRuleErrorActionTimestreamOutput
+	ToTopicRuleErrorActionTimestreamOutputWithContext(context.Context) TopicRuleErrorActionTimestreamOutput
+}
+
+type TopicRuleErrorActionTimestreamArgs struct {
+	// The name of an Amazon Timestream database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+	Dimensions TopicRuleErrorActionTimestreamDimensionArrayInput `pulumi:"dimensions"`
+	// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the database table into which to write the measure records.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+	Timestamp TopicRuleErrorActionTimestreamTimestampPtrInput `pulumi:"timestamp"`
+}
+
+func (TopicRuleErrorActionTimestreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionTimestream)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionTimestreamArgs) ToTopicRuleErrorActionTimestreamOutput() TopicRuleErrorActionTimestreamOutput {
+	return i.ToTopicRuleErrorActionTimestreamOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionTimestreamArgs) ToTopicRuleErrorActionTimestreamOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionTimestreamOutput)
+}
+
+func (i TopicRuleErrorActionTimestreamArgs) ToTopicRuleErrorActionTimestreamPtrOutput() TopicRuleErrorActionTimestreamPtrOutput {
+	return i.ToTopicRuleErrorActionTimestreamPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionTimestreamArgs) ToTopicRuleErrorActionTimestreamPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionTimestreamOutput).ToTopicRuleErrorActionTimestreamPtrOutputWithContext(ctx)
+}
+
+// TopicRuleErrorActionTimestreamPtrInput is an input type that accepts TopicRuleErrorActionTimestreamArgs, TopicRuleErrorActionTimestreamPtr and TopicRuleErrorActionTimestreamPtrOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionTimestreamPtrInput` via:
+//
+//          TopicRuleErrorActionTimestreamArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleErrorActionTimestreamPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionTimestreamPtrOutput() TopicRuleErrorActionTimestreamPtrOutput
+	ToTopicRuleErrorActionTimestreamPtrOutputWithContext(context.Context) TopicRuleErrorActionTimestreamPtrOutput
+}
+
+type topicRuleErrorActionTimestreamPtrType TopicRuleErrorActionTimestreamArgs
+
+func TopicRuleErrorActionTimestreamPtr(v *TopicRuleErrorActionTimestreamArgs) TopicRuleErrorActionTimestreamPtrInput {
+	return (*topicRuleErrorActionTimestreamPtrType)(v)
+}
+
+func (*topicRuleErrorActionTimestreamPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionTimestream)(nil)).Elem()
+}
+
+func (i *topicRuleErrorActionTimestreamPtrType) ToTopicRuleErrorActionTimestreamPtrOutput() TopicRuleErrorActionTimestreamPtrOutput {
+	return i.ToTopicRuleErrorActionTimestreamPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleErrorActionTimestreamPtrType) ToTopicRuleErrorActionTimestreamPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionTimestreamPtrOutput)
+}
+
+type TopicRuleErrorActionTimestreamOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionTimestreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionTimestream)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionTimestreamOutput) ToTopicRuleErrorActionTimestreamOutput() TopicRuleErrorActionTimestreamOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamOutput) ToTopicRuleErrorActionTimestreamOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamOutput) ToTopicRuleErrorActionTimestreamPtrOutput() TopicRuleErrorActionTimestreamPtrOutput {
+	return o.ToTopicRuleErrorActionTimestreamPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleErrorActionTimestreamOutput) ToTopicRuleErrorActionTimestreamPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionTimestream) *TopicRuleErrorActionTimestream {
+		return &v
+	}).(TopicRuleErrorActionTimestreamPtrOutput)
+}
+
+// The name of an Amazon Timestream database.
+func (o TopicRuleErrorActionTimestreamOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestream) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+func (o TopicRuleErrorActionTimestreamOutput) Dimensions() TopicRuleErrorActionTimestreamDimensionArrayOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestream) []TopicRuleErrorActionTimestreamDimension { return v.Dimensions }).(TopicRuleErrorActionTimestreamDimensionArrayOutput)
+}
+
+// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+func (o TopicRuleErrorActionTimestreamOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestream) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The name of the database table into which to write the measure records.
+func (o TopicRuleErrorActionTimestreamOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestream) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+func (o TopicRuleErrorActionTimestreamOutput) Timestamp() TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestream) *TopicRuleErrorActionTimestreamTimestamp { return v.Timestamp }).(TopicRuleErrorActionTimestreamTimestampPtrOutput)
+}
+
+type TopicRuleErrorActionTimestreamPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionTimestreamPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionTimestream)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionTimestreamPtrOutput) ToTopicRuleErrorActionTimestreamPtrOutput() TopicRuleErrorActionTimestreamPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamPtrOutput) ToTopicRuleErrorActionTimestreamPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamPtrOutput) Elem() TopicRuleErrorActionTimestreamOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) TopicRuleErrorActionTimestream {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionTimestream
+		return ret
+	}).(TopicRuleErrorActionTimestreamOutput)
+}
+
+// The name of an Amazon Timestream database.
+func (o TopicRuleErrorActionTimestreamPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+func (o TopicRuleErrorActionTimestreamPtrOutput) Dimensions() TopicRuleErrorActionTimestreamDimensionArrayOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) []TopicRuleErrorActionTimestreamDimension {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(TopicRuleErrorActionTimestreamDimensionArrayOutput)
+}
+
+// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+func (o TopicRuleErrorActionTimestreamPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the database table into which to write the measure records.
+func (o TopicRuleErrorActionTimestreamPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+func (o TopicRuleErrorActionTimestreamPtrOutput) Timestamp() TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestream) *TopicRuleErrorActionTimestreamTimestamp {
+		if v == nil {
+			return nil
+		}
+		return v.Timestamp
+	}).(TopicRuleErrorActionTimestreamTimestampPtrOutput)
+}
+
+type TopicRuleErrorActionTimestreamDimension struct {
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleErrorActionTimestreamDimensionInput is an input type that accepts TopicRuleErrorActionTimestreamDimensionArgs and TopicRuleErrorActionTimestreamDimensionOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionTimestreamDimensionInput` via:
+//
+//          TopicRuleErrorActionTimestreamDimensionArgs{...}
+type TopicRuleErrorActionTimestreamDimensionInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionTimestreamDimensionOutput() TopicRuleErrorActionTimestreamDimensionOutput
+	ToTopicRuleErrorActionTimestreamDimensionOutputWithContext(context.Context) TopicRuleErrorActionTimestreamDimensionOutput
+}
+
+type TopicRuleErrorActionTimestreamDimensionArgs struct {
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleErrorActionTimestreamDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionTimestreamDimension)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionTimestreamDimensionArgs) ToTopicRuleErrorActionTimestreamDimensionOutput() TopicRuleErrorActionTimestreamDimensionOutput {
+	return i.ToTopicRuleErrorActionTimestreamDimensionOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionTimestreamDimensionArgs) ToTopicRuleErrorActionTimestreamDimensionOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionTimestreamDimensionOutput)
+}
+
+// TopicRuleErrorActionTimestreamDimensionArrayInput is an input type that accepts TopicRuleErrorActionTimestreamDimensionArray and TopicRuleErrorActionTimestreamDimensionArrayOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionTimestreamDimensionArrayInput` via:
+//
+//          TopicRuleErrorActionTimestreamDimensionArray{ TopicRuleErrorActionTimestreamDimensionArgs{...} }
+type TopicRuleErrorActionTimestreamDimensionArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionTimestreamDimensionArrayOutput() TopicRuleErrorActionTimestreamDimensionArrayOutput
+	ToTopicRuleErrorActionTimestreamDimensionArrayOutputWithContext(context.Context) TopicRuleErrorActionTimestreamDimensionArrayOutput
+}
+
+type TopicRuleErrorActionTimestreamDimensionArray []TopicRuleErrorActionTimestreamDimensionInput
+
+func (TopicRuleErrorActionTimestreamDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleErrorActionTimestreamDimension)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionTimestreamDimensionArray) ToTopicRuleErrorActionTimestreamDimensionArrayOutput() TopicRuleErrorActionTimestreamDimensionArrayOutput {
+	return i.ToTopicRuleErrorActionTimestreamDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionTimestreamDimensionArray) ToTopicRuleErrorActionTimestreamDimensionArrayOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionTimestreamDimensionArrayOutput)
+}
+
+type TopicRuleErrorActionTimestreamDimensionOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionTimestreamDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionTimestreamDimension)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionTimestreamDimensionOutput) ToTopicRuleErrorActionTimestreamDimensionOutput() TopicRuleErrorActionTimestreamDimensionOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamDimensionOutput) ToTopicRuleErrorActionTimestreamDimensionOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamDimensionOutput {
+	return o
+}
+
+// The name of the rule.
+func (o TopicRuleErrorActionTimestreamDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestreamDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleErrorActionTimestreamDimensionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestreamDimension) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleErrorActionTimestreamDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionTimestreamDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleErrorActionTimestreamDimension)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionTimestreamDimensionArrayOutput) ToTopicRuleErrorActionTimestreamDimensionArrayOutput() TopicRuleErrorActionTimestreamDimensionArrayOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamDimensionArrayOutput) ToTopicRuleErrorActionTimestreamDimensionArrayOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamDimensionArrayOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamDimensionArrayOutput) Index(i pulumi.IntInput) TopicRuleErrorActionTimestreamDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleErrorActionTimestreamDimension {
+		return vs[0].([]TopicRuleErrorActionTimestreamDimension)[vs[1].(int)]
+	}).(TopicRuleErrorActionTimestreamDimensionOutput)
+}
+
+type TopicRuleErrorActionTimestreamTimestamp struct {
+	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+	Unit string `pulumi:"unit"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleErrorActionTimestreamTimestampInput is an input type that accepts TopicRuleErrorActionTimestreamTimestampArgs and TopicRuleErrorActionTimestreamTimestampOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionTimestreamTimestampInput` via:
+//
+//          TopicRuleErrorActionTimestreamTimestampArgs{...}
+type TopicRuleErrorActionTimestreamTimestampInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionTimestreamTimestampOutput() TopicRuleErrorActionTimestreamTimestampOutput
+	ToTopicRuleErrorActionTimestreamTimestampOutputWithContext(context.Context) TopicRuleErrorActionTimestreamTimestampOutput
+}
+
+type TopicRuleErrorActionTimestreamTimestampArgs struct {
+	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleErrorActionTimestreamTimestampArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionTimestreamTimestamp)(nil)).Elem()
+}
+
+func (i TopicRuleErrorActionTimestreamTimestampArgs) ToTopicRuleErrorActionTimestreamTimestampOutput() TopicRuleErrorActionTimestreamTimestampOutput {
+	return i.ToTopicRuleErrorActionTimestreamTimestampOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionTimestreamTimestampArgs) ToTopicRuleErrorActionTimestreamTimestampOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamTimestampOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionTimestreamTimestampOutput)
+}
+
+func (i TopicRuleErrorActionTimestreamTimestampArgs) ToTopicRuleErrorActionTimestreamTimestampPtrOutput() TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return i.ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleErrorActionTimestreamTimestampArgs) ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionTimestreamTimestampOutput).ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(ctx)
+}
+
+// TopicRuleErrorActionTimestreamTimestampPtrInput is an input type that accepts TopicRuleErrorActionTimestreamTimestampArgs, TopicRuleErrorActionTimestreamTimestampPtr and TopicRuleErrorActionTimestreamTimestampPtrOutput values.
+// You can construct a concrete instance of `TopicRuleErrorActionTimestreamTimestampPtrInput` via:
+//
+//          TopicRuleErrorActionTimestreamTimestampArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleErrorActionTimestreamTimestampPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleErrorActionTimestreamTimestampPtrOutput() TopicRuleErrorActionTimestreamTimestampPtrOutput
+	ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(context.Context) TopicRuleErrorActionTimestreamTimestampPtrOutput
+}
+
+type topicRuleErrorActionTimestreamTimestampPtrType TopicRuleErrorActionTimestreamTimestampArgs
+
+func TopicRuleErrorActionTimestreamTimestampPtr(v *TopicRuleErrorActionTimestreamTimestampArgs) TopicRuleErrorActionTimestreamTimestampPtrInput {
+	return (*topicRuleErrorActionTimestreamTimestampPtrType)(v)
+}
+
+func (*topicRuleErrorActionTimestreamTimestampPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionTimestreamTimestamp)(nil)).Elem()
+}
+
+func (i *topicRuleErrorActionTimestreamTimestampPtrType) ToTopicRuleErrorActionTimestreamTimestampPtrOutput() TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return i.ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleErrorActionTimestreamTimestampPtrType) ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleErrorActionTimestreamTimestampPtrOutput)
+}
+
+type TopicRuleErrorActionTimestreamTimestampOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionTimestreamTimestampOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleErrorActionTimestreamTimestamp)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionTimestreamTimestampOutput) ToTopicRuleErrorActionTimestreamTimestampOutput() TopicRuleErrorActionTimestreamTimestampOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamTimestampOutput) ToTopicRuleErrorActionTimestreamTimestampOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamTimestampOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamTimestampOutput) ToTopicRuleErrorActionTimestreamTimestampPtrOutput() TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return o.ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleErrorActionTimestreamTimestampOutput) ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleErrorActionTimestreamTimestamp) *TopicRuleErrorActionTimestreamTimestamp {
+		return &v
+	}).(TopicRuleErrorActionTimestreamTimestampPtrOutput)
+}
+
+// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+func (o TopicRuleErrorActionTimestreamTimestampOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestreamTimestamp) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleErrorActionTimestreamTimestampOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleErrorActionTimestreamTimestamp) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleErrorActionTimestreamTimestampPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleErrorActionTimestreamTimestampPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleErrorActionTimestreamTimestamp)(nil)).Elem()
+}
+
+func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) ToTopicRuleErrorActionTimestreamTimestampPtrOutput() TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) ToTopicRuleErrorActionTimestreamTimestampPtrOutputWithContext(ctx context.Context) TopicRuleErrorActionTimestreamTimestampPtrOutput {
+	return o
+}
+
+func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Elem() TopicRuleErrorActionTimestreamTimestampOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestreamTimestamp) TopicRuleErrorActionTimestreamTimestamp {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleErrorActionTimestreamTimestamp
+		return ret
+	}).(TopicRuleErrorActionTimestreamTimestampOutput)
+}
+
+// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestreamTimestamp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleErrorActionTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleErrorActionTimestreamTimestamp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type TopicRuleFirehose struct {
 	// The delivery stream name.
 	DeliveryStreamName string `pulumi:"deliveryStreamName"`
@@ -6577,6 +7804,227 @@ func (o TopicRuleFirehosePtrOutput) Separator() pulumi.StringPtrOutput {
 		}
 		return v.Separator
 	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleHttp struct {
+	// The HTTPS URL used to verify ownership of `url`.
+	ConfirmationUrl *string `pulumi:"confirmationUrl"`
+	// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+	HttpHeaders []TopicRuleHttpHttpHeader `pulumi:"httpHeaders"`
+	// The HTTPS URL.
+	Url string `pulumi:"url"`
+}
+
+// TopicRuleHttpInput is an input type that accepts TopicRuleHttpArgs and TopicRuleHttpOutput values.
+// You can construct a concrete instance of `TopicRuleHttpInput` via:
+//
+//          TopicRuleHttpArgs{...}
+type TopicRuleHttpInput interface {
+	pulumi.Input
+
+	ToTopicRuleHttpOutput() TopicRuleHttpOutput
+	ToTopicRuleHttpOutputWithContext(context.Context) TopicRuleHttpOutput
+}
+
+type TopicRuleHttpArgs struct {
+	// The HTTPS URL used to verify ownership of `url`.
+	ConfirmationUrl pulumi.StringPtrInput `pulumi:"confirmationUrl"`
+	// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+	HttpHeaders TopicRuleHttpHttpHeaderArrayInput `pulumi:"httpHeaders"`
+	// The HTTPS URL.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (TopicRuleHttpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleHttp)(nil)).Elem()
+}
+
+func (i TopicRuleHttpArgs) ToTopicRuleHttpOutput() TopicRuleHttpOutput {
+	return i.ToTopicRuleHttpOutputWithContext(context.Background())
+}
+
+func (i TopicRuleHttpArgs) ToTopicRuleHttpOutputWithContext(ctx context.Context) TopicRuleHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleHttpOutput)
+}
+
+// TopicRuleHttpArrayInput is an input type that accepts TopicRuleHttpArray and TopicRuleHttpArrayOutput values.
+// You can construct a concrete instance of `TopicRuleHttpArrayInput` via:
+//
+//          TopicRuleHttpArray{ TopicRuleHttpArgs{...} }
+type TopicRuleHttpArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleHttpArrayOutput() TopicRuleHttpArrayOutput
+	ToTopicRuleHttpArrayOutputWithContext(context.Context) TopicRuleHttpArrayOutput
+}
+
+type TopicRuleHttpArray []TopicRuleHttpInput
+
+func (TopicRuleHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleHttp)(nil)).Elem()
+}
+
+func (i TopicRuleHttpArray) ToTopicRuleHttpArrayOutput() TopicRuleHttpArrayOutput {
+	return i.ToTopicRuleHttpArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleHttpArray) ToTopicRuleHttpArrayOutputWithContext(ctx context.Context) TopicRuleHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleHttpArrayOutput)
+}
+
+type TopicRuleHttpOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleHttp)(nil)).Elem()
+}
+
+func (o TopicRuleHttpOutput) ToTopicRuleHttpOutput() TopicRuleHttpOutput {
+	return o
+}
+
+func (o TopicRuleHttpOutput) ToTopicRuleHttpOutputWithContext(ctx context.Context) TopicRuleHttpOutput {
+	return o
+}
+
+// The HTTPS URL used to verify ownership of `url`.
+func (o TopicRuleHttpOutput) ConfirmationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleHttp) *string { return v.ConfirmationUrl }).(pulumi.StringPtrOutput)
+}
+
+// Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+func (o TopicRuleHttpOutput) HttpHeaders() TopicRuleHttpHttpHeaderArrayOutput {
+	return o.ApplyT(func(v TopicRuleHttp) []TopicRuleHttpHttpHeader { return v.HttpHeaders }).(TopicRuleHttpHttpHeaderArrayOutput)
+}
+
+// The HTTPS URL.
+func (o TopicRuleHttpOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleHttp) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type TopicRuleHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleHttp)(nil)).Elem()
+}
+
+func (o TopicRuleHttpArrayOutput) ToTopicRuleHttpArrayOutput() TopicRuleHttpArrayOutput {
+	return o
+}
+
+func (o TopicRuleHttpArrayOutput) ToTopicRuleHttpArrayOutputWithContext(ctx context.Context) TopicRuleHttpArrayOutput {
+	return o
+}
+
+func (o TopicRuleHttpArrayOutput) Index(i pulumi.IntInput) TopicRuleHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleHttp {
+		return vs[0].([]TopicRuleHttp)[vs[1].(int)]
+	}).(TopicRuleHttpOutput)
+}
+
+type TopicRuleHttpHttpHeader struct {
+	// The name of the HTTP header.
+	Key string `pulumi:"key"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleHttpHttpHeaderInput is an input type that accepts TopicRuleHttpHttpHeaderArgs and TopicRuleHttpHttpHeaderOutput values.
+// You can construct a concrete instance of `TopicRuleHttpHttpHeaderInput` via:
+//
+//          TopicRuleHttpHttpHeaderArgs{...}
+type TopicRuleHttpHttpHeaderInput interface {
+	pulumi.Input
+
+	ToTopicRuleHttpHttpHeaderOutput() TopicRuleHttpHttpHeaderOutput
+	ToTopicRuleHttpHttpHeaderOutputWithContext(context.Context) TopicRuleHttpHttpHeaderOutput
+}
+
+type TopicRuleHttpHttpHeaderArgs struct {
+	// The name of the HTTP header.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleHttpHttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleHttpHttpHeader)(nil)).Elem()
+}
+
+func (i TopicRuleHttpHttpHeaderArgs) ToTopicRuleHttpHttpHeaderOutput() TopicRuleHttpHttpHeaderOutput {
+	return i.ToTopicRuleHttpHttpHeaderOutputWithContext(context.Background())
+}
+
+func (i TopicRuleHttpHttpHeaderArgs) ToTopicRuleHttpHttpHeaderOutputWithContext(ctx context.Context) TopicRuleHttpHttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleHttpHttpHeaderOutput)
+}
+
+// TopicRuleHttpHttpHeaderArrayInput is an input type that accepts TopicRuleHttpHttpHeaderArray and TopicRuleHttpHttpHeaderArrayOutput values.
+// You can construct a concrete instance of `TopicRuleHttpHttpHeaderArrayInput` via:
+//
+//          TopicRuleHttpHttpHeaderArray{ TopicRuleHttpHttpHeaderArgs{...} }
+type TopicRuleHttpHttpHeaderArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleHttpHttpHeaderArrayOutput() TopicRuleHttpHttpHeaderArrayOutput
+	ToTopicRuleHttpHttpHeaderArrayOutputWithContext(context.Context) TopicRuleHttpHttpHeaderArrayOutput
+}
+
+type TopicRuleHttpHttpHeaderArray []TopicRuleHttpHttpHeaderInput
+
+func (TopicRuleHttpHttpHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleHttpHttpHeader)(nil)).Elem()
+}
+
+func (i TopicRuleHttpHttpHeaderArray) ToTopicRuleHttpHttpHeaderArrayOutput() TopicRuleHttpHttpHeaderArrayOutput {
+	return i.ToTopicRuleHttpHttpHeaderArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleHttpHttpHeaderArray) ToTopicRuleHttpHttpHeaderArrayOutputWithContext(ctx context.Context) TopicRuleHttpHttpHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleHttpHttpHeaderArrayOutput)
+}
+
+type TopicRuleHttpHttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleHttpHttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleHttpHttpHeader)(nil)).Elem()
+}
+
+func (o TopicRuleHttpHttpHeaderOutput) ToTopicRuleHttpHttpHeaderOutput() TopicRuleHttpHttpHeaderOutput {
+	return o
+}
+
+func (o TopicRuleHttpHttpHeaderOutput) ToTopicRuleHttpHttpHeaderOutputWithContext(ctx context.Context) TopicRuleHttpHttpHeaderOutput {
+	return o
+}
+
+// The name of the HTTP header.
+func (o TopicRuleHttpHttpHeaderOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleHttpHttpHeader) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleHttpHttpHeaderOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleHttpHttpHeader) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleHttpHttpHeaderArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleHttpHttpHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleHttpHttpHeader)(nil)).Elem()
+}
+
+func (o TopicRuleHttpHttpHeaderArrayOutput) ToTopicRuleHttpHttpHeaderArrayOutput() TopicRuleHttpHttpHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleHttpHttpHeaderArrayOutput) ToTopicRuleHttpHttpHeaderArrayOutputWithContext(ctx context.Context) TopicRuleHttpHttpHeaderArrayOutput {
+	return o
+}
+
+func (o TopicRuleHttpHttpHeaderArrayOutput) Index(i pulumi.IntInput) TopicRuleHttpHttpHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleHttpHttpHeader {
+		return vs[0].([]TopicRuleHttpHttpHeader)[vs[1].(int)]
+	}).(TopicRuleHttpHttpHeaderOutput)
 }
 
 type TopicRuleIotAnalytic struct {
@@ -6798,6 +8246,139 @@ func (o TopicRuleIotEventArrayOutput) Index(i pulumi.IntInput) TopicRuleIotEvent
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleIotEvent {
 		return vs[0].([]TopicRuleIotEvent)[vs[1].(int)]
 	}).(TopicRuleIotEventOutput)
+}
+
+type TopicRuleKafka struct {
+	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+	ClientProperties map[string]string `pulumi:"clientProperties"`
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	DestinationArn string `pulumi:"destinationArn"`
+	// The Kafka message key.
+	Key *string `pulumi:"key"`
+	// The Kafka message partition.
+	Partition *string `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic string `pulumi:"topic"`
+}
+
+// TopicRuleKafkaInput is an input type that accepts TopicRuleKafkaArgs and TopicRuleKafkaOutput values.
+// You can construct a concrete instance of `TopicRuleKafkaInput` via:
+//
+//          TopicRuleKafkaArgs{...}
+type TopicRuleKafkaInput interface {
+	pulumi.Input
+
+	ToTopicRuleKafkaOutput() TopicRuleKafkaOutput
+	ToTopicRuleKafkaOutputWithContext(context.Context) TopicRuleKafkaOutput
+}
+
+type TopicRuleKafkaArgs struct {
+	// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+	ClientProperties pulumi.StringMapInput `pulumi:"clientProperties"`
+	// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+	DestinationArn pulumi.StringInput `pulumi:"destinationArn"`
+	// The Kafka message key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The Kafka message partition.
+	Partition pulumi.StringPtrInput `pulumi:"partition"`
+	// The Kafka topic for messages to be sent to the Kafka broker.
+	Topic pulumi.StringInput `pulumi:"topic"`
+}
+
+func (TopicRuleKafkaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKafka)(nil)).Elem()
+}
+
+func (i TopicRuleKafkaArgs) ToTopicRuleKafkaOutput() TopicRuleKafkaOutput {
+	return i.ToTopicRuleKafkaOutputWithContext(context.Background())
+}
+
+func (i TopicRuleKafkaArgs) ToTopicRuleKafkaOutputWithContext(ctx context.Context) TopicRuleKafkaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKafkaOutput)
+}
+
+// TopicRuleKafkaArrayInput is an input type that accepts TopicRuleKafkaArray and TopicRuleKafkaArrayOutput values.
+// You can construct a concrete instance of `TopicRuleKafkaArrayInput` via:
+//
+//          TopicRuleKafkaArray{ TopicRuleKafkaArgs{...} }
+type TopicRuleKafkaArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleKafkaArrayOutput() TopicRuleKafkaArrayOutput
+	ToTopicRuleKafkaArrayOutputWithContext(context.Context) TopicRuleKafkaArrayOutput
+}
+
+type TopicRuleKafkaArray []TopicRuleKafkaInput
+
+func (TopicRuleKafkaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKafka)(nil)).Elem()
+}
+
+func (i TopicRuleKafkaArray) ToTopicRuleKafkaArrayOutput() TopicRuleKafkaArrayOutput {
+	return i.ToTopicRuleKafkaArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleKafkaArray) ToTopicRuleKafkaArrayOutputWithContext(ctx context.Context) TopicRuleKafkaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleKafkaArrayOutput)
+}
+
+type TopicRuleKafkaOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleKafkaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleKafka)(nil)).Elem()
+}
+
+func (o TopicRuleKafkaOutput) ToTopicRuleKafkaOutput() TopicRuleKafkaOutput {
+	return o
+}
+
+func (o TopicRuleKafkaOutput) ToTopicRuleKafkaOutputWithContext(ctx context.Context) TopicRuleKafkaOutput {
+	return o
+}
+
+// Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+func (o TopicRuleKafkaOutput) ClientProperties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TopicRuleKafka) map[string]string { return v.ClientProperties }).(pulumi.StringMapOutput)
+}
+
+// The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+func (o TopicRuleKafkaOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKafka) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+// The Kafka message key.
+func (o TopicRuleKafkaOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleKafka) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The Kafka message partition.
+func (o TopicRuleKafkaOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleKafka) *string { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// The Kafka topic for messages to be sent to the Kafka broker.
+func (o TopicRuleKafkaOutput) Topic() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleKafka) string { return v.Topic }).(pulumi.StringOutput)
+}
+
+type TopicRuleKafkaArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleKafkaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleKafka)(nil)).Elem()
+}
+
+func (o TopicRuleKafkaArrayOutput) ToTopicRuleKafkaArrayOutput() TopicRuleKafkaArrayOutput {
+	return o
+}
+
+func (o TopicRuleKafkaArrayOutput) ToTopicRuleKafkaArrayOutputWithContext(ctx context.Context) TopicRuleKafkaArrayOutput {
+	return o
+}
+
+func (o TopicRuleKafkaArrayOutput) Index(i pulumi.IntInput) TopicRuleKafkaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleKafka {
+		return vs[0].([]TopicRuleKafka)[vs[1].(int)]
+	}).(TopicRuleKafkaOutput)
 }
 
 type TopicRuleKinesis struct {
@@ -7290,7 +8871,9 @@ func (o TopicRuleRepublishPtrOutput) Topic() pulumi.StringPtrOutput {
 type TopicRuleS3 struct {
 	// The Amazon S3 bucket name.
 	BucketName string `pulumi:"bucketName"`
-	// The object key.
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	CannedAcl *string `pulumi:"cannedAcl"`
+	// The name of the HTTP header.
 	Key string `pulumi:"key"`
 	// The IAM role ARN that allows access to the CloudWatch alarm.
 	RoleArn string `pulumi:"roleArn"`
@@ -7310,7 +8893,9 @@ type TopicRuleS3Input interface {
 type TopicRuleS3Args struct {
 	// The Amazon S3 bucket name.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// The object key.
+	// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+	CannedAcl pulumi.StringPtrInput `pulumi:"cannedAcl"`
+	// The name of the HTTP header.
 	Key pulumi.StringInput `pulumi:"key"`
 	// The IAM role ARN that allows access to the CloudWatch alarm.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
@@ -7398,7 +8983,12 @@ func (o TopicRuleS3Output) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// The object key.
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+func (o TopicRuleS3Output) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleS3) *string { return v.CannedAcl }).(pulumi.StringPtrOutput)
+}
+
+// The name of the HTTP header.
 func (o TopicRuleS3Output) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v TopicRuleS3) string { return v.Key }).(pulumi.StringOutput)
 }
@@ -7442,7 +9032,17 @@ func (o TopicRuleS3PtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The object key.
+// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+func (o TopicRuleS3PtrOutput) CannedAcl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleS3) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CannedAcl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the HTTP header.
 func (o TopicRuleS3PtrOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TopicRuleS3) *string {
 		if v == nil {
@@ -7927,6 +9527,401 @@ func (o TopicRuleStepFunctionArrayOutput) Index(i pulumi.IntInput) TopicRuleStep
 	}).(TopicRuleStepFunctionOutput)
 }
 
+type TopicRuleTimestream struct {
+	// The name of an Amazon Timestream database.
+	DatabaseName string `pulumi:"databaseName"`
+	// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+	Dimensions []TopicRuleTimestreamDimension `pulumi:"dimensions"`
+	// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+	RoleArn string `pulumi:"roleArn"`
+	// The name of the database table into which to write the measure records.
+	TableName string `pulumi:"tableName"`
+	// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+	Timestamp *TopicRuleTimestreamTimestamp `pulumi:"timestamp"`
+}
+
+// TopicRuleTimestreamInput is an input type that accepts TopicRuleTimestreamArgs and TopicRuleTimestreamOutput values.
+// You can construct a concrete instance of `TopicRuleTimestreamInput` via:
+//
+//          TopicRuleTimestreamArgs{...}
+type TopicRuleTimestreamInput interface {
+	pulumi.Input
+
+	ToTopicRuleTimestreamOutput() TopicRuleTimestreamOutput
+	ToTopicRuleTimestreamOutputWithContext(context.Context) TopicRuleTimestreamOutput
+}
+
+type TopicRuleTimestreamArgs struct {
+	// The name of an Amazon Timestream database.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+	Dimensions TopicRuleTimestreamDimensionArrayInput `pulumi:"dimensions"`
+	// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// The name of the database table into which to write the measure records.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+	// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+	Timestamp TopicRuleTimestreamTimestampPtrInput `pulumi:"timestamp"`
+}
+
+func (TopicRuleTimestreamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTimestream)(nil)).Elem()
+}
+
+func (i TopicRuleTimestreamArgs) ToTopicRuleTimestreamOutput() TopicRuleTimestreamOutput {
+	return i.ToTopicRuleTimestreamOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTimestreamArgs) ToTopicRuleTimestreamOutputWithContext(ctx context.Context) TopicRuleTimestreamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamOutput)
+}
+
+// TopicRuleTimestreamArrayInput is an input type that accepts TopicRuleTimestreamArray and TopicRuleTimestreamArrayOutput values.
+// You can construct a concrete instance of `TopicRuleTimestreamArrayInput` via:
+//
+//          TopicRuleTimestreamArray{ TopicRuleTimestreamArgs{...} }
+type TopicRuleTimestreamArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleTimestreamArrayOutput() TopicRuleTimestreamArrayOutput
+	ToTopicRuleTimestreamArrayOutputWithContext(context.Context) TopicRuleTimestreamArrayOutput
+}
+
+type TopicRuleTimestreamArray []TopicRuleTimestreamInput
+
+func (TopicRuleTimestreamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleTimestream)(nil)).Elem()
+}
+
+func (i TopicRuleTimestreamArray) ToTopicRuleTimestreamArrayOutput() TopicRuleTimestreamArrayOutput {
+	return i.ToTopicRuleTimestreamArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTimestreamArray) ToTopicRuleTimestreamArrayOutputWithContext(ctx context.Context) TopicRuleTimestreamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamArrayOutput)
+}
+
+type TopicRuleTimestreamOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTimestreamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTimestream)(nil)).Elem()
+}
+
+func (o TopicRuleTimestreamOutput) ToTopicRuleTimestreamOutput() TopicRuleTimestreamOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamOutput) ToTopicRuleTimestreamOutputWithContext(ctx context.Context) TopicRuleTimestreamOutput {
+	return o
+}
+
+// The name of an Amazon Timestream database.
+func (o TopicRuleTimestreamOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTimestream) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+func (o TopicRuleTimestreamOutput) Dimensions() TopicRuleTimestreamDimensionArrayOutput {
+	return o.ApplyT(func(v TopicRuleTimestream) []TopicRuleTimestreamDimension { return v.Dimensions }).(TopicRuleTimestreamDimensionArrayOutput)
+}
+
+// The ARN of the role that grants permission to write to the Amazon Timestream database table.
+func (o TopicRuleTimestreamOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTimestream) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// The name of the database table into which to write the measure records.
+func (o TopicRuleTimestreamOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTimestream) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+// Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+func (o TopicRuleTimestreamOutput) Timestamp() TopicRuleTimestreamTimestampPtrOutput {
+	return o.ApplyT(func(v TopicRuleTimestream) *TopicRuleTimestreamTimestamp { return v.Timestamp }).(TopicRuleTimestreamTimestampPtrOutput)
+}
+
+type TopicRuleTimestreamArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTimestreamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleTimestream)(nil)).Elem()
+}
+
+func (o TopicRuleTimestreamArrayOutput) ToTopicRuleTimestreamArrayOutput() TopicRuleTimestreamArrayOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamArrayOutput) ToTopicRuleTimestreamArrayOutputWithContext(ctx context.Context) TopicRuleTimestreamArrayOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamArrayOutput) Index(i pulumi.IntInput) TopicRuleTimestreamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleTimestream {
+		return vs[0].([]TopicRuleTimestream)[vs[1].(int)]
+	}).(TopicRuleTimestreamOutput)
+}
+
+type TopicRuleTimestreamDimension struct {
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleTimestreamDimensionInput is an input type that accepts TopicRuleTimestreamDimensionArgs and TopicRuleTimestreamDimensionOutput values.
+// You can construct a concrete instance of `TopicRuleTimestreamDimensionInput` via:
+//
+//          TopicRuleTimestreamDimensionArgs{...}
+type TopicRuleTimestreamDimensionInput interface {
+	pulumi.Input
+
+	ToTopicRuleTimestreamDimensionOutput() TopicRuleTimestreamDimensionOutput
+	ToTopicRuleTimestreamDimensionOutputWithContext(context.Context) TopicRuleTimestreamDimensionOutput
+}
+
+type TopicRuleTimestreamDimensionArgs struct {
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleTimestreamDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTimestreamDimension)(nil)).Elem()
+}
+
+func (i TopicRuleTimestreamDimensionArgs) ToTopicRuleTimestreamDimensionOutput() TopicRuleTimestreamDimensionOutput {
+	return i.ToTopicRuleTimestreamDimensionOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTimestreamDimensionArgs) ToTopicRuleTimestreamDimensionOutputWithContext(ctx context.Context) TopicRuleTimestreamDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamDimensionOutput)
+}
+
+// TopicRuleTimestreamDimensionArrayInput is an input type that accepts TopicRuleTimestreamDimensionArray and TopicRuleTimestreamDimensionArrayOutput values.
+// You can construct a concrete instance of `TopicRuleTimestreamDimensionArrayInput` via:
+//
+//          TopicRuleTimestreamDimensionArray{ TopicRuleTimestreamDimensionArgs{...} }
+type TopicRuleTimestreamDimensionArrayInput interface {
+	pulumi.Input
+
+	ToTopicRuleTimestreamDimensionArrayOutput() TopicRuleTimestreamDimensionArrayOutput
+	ToTopicRuleTimestreamDimensionArrayOutputWithContext(context.Context) TopicRuleTimestreamDimensionArrayOutput
+}
+
+type TopicRuleTimestreamDimensionArray []TopicRuleTimestreamDimensionInput
+
+func (TopicRuleTimestreamDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleTimestreamDimension)(nil)).Elem()
+}
+
+func (i TopicRuleTimestreamDimensionArray) ToTopicRuleTimestreamDimensionArrayOutput() TopicRuleTimestreamDimensionArrayOutput {
+	return i.ToTopicRuleTimestreamDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTimestreamDimensionArray) ToTopicRuleTimestreamDimensionArrayOutputWithContext(ctx context.Context) TopicRuleTimestreamDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamDimensionArrayOutput)
+}
+
+type TopicRuleTimestreamDimensionOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTimestreamDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTimestreamDimension)(nil)).Elem()
+}
+
+func (o TopicRuleTimestreamDimensionOutput) ToTopicRuleTimestreamDimensionOutput() TopicRuleTimestreamDimensionOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamDimensionOutput) ToTopicRuleTimestreamDimensionOutputWithContext(ctx context.Context) TopicRuleTimestreamDimensionOutput {
+	return o
+}
+
+// The name of the rule.
+func (o TopicRuleTimestreamDimensionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTimestreamDimension) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleTimestreamDimensionOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTimestreamDimension) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleTimestreamDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTimestreamDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TopicRuleTimestreamDimension)(nil)).Elem()
+}
+
+func (o TopicRuleTimestreamDimensionArrayOutput) ToTopicRuleTimestreamDimensionArrayOutput() TopicRuleTimestreamDimensionArrayOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamDimensionArrayOutput) ToTopicRuleTimestreamDimensionArrayOutputWithContext(ctx context.Context) TopicRuleTimestreamDimensionArrayOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamDimensionArrayOutput) Index(i pulumi.IntInput) TopicRuleTimestreamDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TopicRuleTimestreamDimension {
+		return vs[0].([]TopicRuleTimestreamDimension)[vs[1].(int)]
+	}).(TopicRuleTimestreamDimensionOutput)
+}
+
+type TopicRuleTimestreamTimestamp struct {
+	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+	Unit string `pulumi:"unit"`
+	// The value of the HTTP header.
+	Value string `pulumi:"value"`
+}
+
+// TopicRuleTimestreamTimestampInput is an input type that accepts TopicRuleTimestreamTimestampArgs and TopicRuleTimestreamTimestampOutput values.
+// You can construct a concrete instance of `TopicRuleTimestreamTimestampInput` via:
+//
+//          TopicRuleTimestreamTimestampArgs{...}
+type TopicRuleTimestreamTimestampInput interface {
+	pulumi.Input
+
+	ToTopicRuleTimestreamTimestampOutput() TopicRuleTimestreamTimestampOutput
+	ToTopicRuleTimestreamTimestampOutputWithContext(context.Context) TopicRuleTimestreamTimestampOutput
+}
+
+type TopicRuleTimestreamTimestampArgs struct {
+	// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// The value of the HTTP header.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TopicRuleTimestreamTimestampArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTimestreamTimestamp)(nil)).Elem()
+}
+
+func (i TopicRuleTimestreamTimestampArgs) ToTopicRuleTimestreamTimestampOutput() TopicRuleTimestreamTimestampOutput {
+	return i.ToTopicRuleTimestreamTimestampOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTimestreamTimestampArgs) ToTopicRuleTimestreamTimestampOutputWithContext(ctx context.Context) TopicRuleTimestreamTimestampOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamTimestampOutput)
+}
+
+func (i TopicRuleTimestreamTimestampArgs) ToTopicRuleTimestreamTimestampPtrOutput() TopicRuleTimestreamTimestampPtrOutput {
+	return i.ToTopicRuleTimestreamTimestampPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleTimestreamTimestampArgs) ToTopicRuleTimestreamTimestampPtrOutputWithContext(ctx context.Context) TopicRuleTimestreamTimestampPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamTimestampOutput).ToTopicRuleTimestreamTimestampPtrOutputWithContext(ctx)
+}
+
+// TopicRuleTimestreamTimestampPtrInput is an input type that accepts TopicRuleTimestreamTimestampArgs, TopicRuleTimestreamTimestampPtr and TopicRuleTimestreamTimestampPtrOutput values.
+// You can construct a concrete instance of `TopicRuleTimestreamTimestampPtrInput` via:
+//
+//          TopicRuleTimestreamTimestampArgs{...}
+//
+//  or:
+//
+//          nil
+type TopicRuleTimestreamTimestampPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleTimestreamTimestampPtrOutput() TopicRuleTimestreamTimestampPtrOutput
+	ToTopicRuleTimestreamTimestampPtrOutputWithContext(context.Context) TopicRuleTimestreamTimestampPtrOutput
+}
+
+type topicRuleTimestreamTimestampPtrType TopicRuleTimestreamTimestampArgs
+
+func TopicRuleTimestreamTimestampPtr(v *TopicRuleTimestreamTimestampArgs) TopicRuleTimestreamTimestampPtrInput {
+	return (*topicRuleTimestreamTimestampPtrType)(v)
+}
+
+func (*topicRuleTimestreamTimestampPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleTimestreamTimestamp)(nil)).Elem()
+}
+
+func (i *topicRuleTimestreamTimestampPtrType) ToTopicRuleTimestreamTimestampPtrOutput() TopicRuleTimestreamTimestampPtrOutput {
+	return i.ToTopicRuleTimestreamTimestampPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleTimestreamTimestampPtrType) ToTopicRuleTimestreamTimestampPtrOutputWithContext(ctx context.Context) TopicRuleTimestreamTimestampPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleTimestreamTimestampPtrOutput)
+}
+
+type TopicRuleTimestreamTimestampOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTimestreamTimestampOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleTimestreamTimestamp)(nil)).Elem()
+}
+
+func (o TopicRuleTimestreamTimestampOutput) ToTopicRuleTimestreamTimestampOutput() TopicRuleTimestreamTimestampOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamTimestampOutput) ToTopicRuleTimestreamTimestampOutputWithContext(ctx context.Context) TopicRuleTimestreamTimestampOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamTimestampOutput) ToTopicRuleTimestreamTimestampPtrOutput() TopicRuleTimestreamTimestampPtrOutput {
+	return o.ToTopicRuleTimestreamTimestampPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleTimestreamTimestampOutput) ToTopicRuleTimestreamTimestampPtrOutputWithContext(ctx context.Context) TopicRuleTimestreamTimestampPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleTimestreamTimestamp) *TopicRuleTimestreamTimestamp {
+		return &v
+	}).(TopicRuleTimestreamTimestampPtrOutput)
+}
+
+// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+func (o TopicRuleTimestreamTimestampOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleTimestreamTimestampOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleTimestreamTimestamp) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TopicRuleTimestreamTimestampPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleTimestreamTimestampPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleTimestreamTimestamp)(nil)).Elem()
+}
+
+func (o TopicRuleTimestreamTimestampPtrOutput) ToTopicRuleTimestreamTimestampPtrOutput() TopicRuleTimestreamTimestampPtrOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamTimestampPtrOutput) ToTopicRuleTimestreamTimestampPtrOutputWithContext(ctx context.Context) TopicRuleTimestreamTimestampPtrOutput {
+	return o
+}
+
+func (o TopicRuleTimestreamTimestampPtrOutput) Elem() TopicRuleTimestreamTimestampOutput {
+	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) TopicRuleTimestreamTimestamp {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleTimestreamTimestamp
+		return ret
+	}).(TopicRuleTimestreamTimestampOutput)
+}
+
+// The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+func (o TopicRuleTimestreamTimestampPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value of the HTTP header.
+func (o TopicRuleTimestreamTimestampPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleTimestreamTimestamp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexingConfigurationThingGroupIndexingConfigurationPtrInput)(nil)).Elem(), IndexingConfigurationThingGroupIndexingConfigurationArgs{})
@@ -7958,6 +9953,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchLogArrayInput)(nil)).Elem(), TopicRuleCloudwatchLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchMetricInput)(nil)).Elem(), TopicRuleCloudwatchMetricArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchMetricPtrInput)(nil)).Elem(), TopicRuleCloudwatchMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationVpcConfigurationInput)(nil)).Elem(), TopicRuleDestinationVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationVpcConfigurationPtrInput)(nil)).Elem(), TopicRuleDestinationVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbInput)(nil)).Elem(), TopicRuleDynamodbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbPtrInput)(nil)).Elem(), TopicRuleDynamodbArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamodbv2Input)(nil)).Elem(), TopicRuleDynamodbv2Args{})
@@ -7984,10 +9981,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionElasticsearchPtrInput)(nil)).Elem(), TopicRuleErrorActionElasticsearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionFirehoseInput)(nil)).Elem(), TopicRuleErrorActionFirehoseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionFirehosePtrInput)(nil)).Elem(), TopicRuleErrorActionFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionHttpInput)(nil)).Elem(), TopicRuleErrorActionHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionHttpPtrInput)(nil)).Elem(), TopicRuleErrorActionHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionHttpHttpHeaderInput)(nil)).Elem(), TopicRuleErrorActionHttpHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionHttpHttpHeaderArrayInput)(nil)).Elem(), TopicRuleErrorActionHttpHttpHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionIotAnalyticsInput)(nil)).Elem(), TopicRuleErrorActionIotAnalyticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionIotAnalyticsPtrInput)(nil)).Elem(), TopicRuleErrorActionIotAnalyticsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionIotEventsInput)(nil)).Elem(), TopicRuleErrorActionIotEventsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionIotEventsPtrInput)(nil)).Elem(), TopicRuleErrorActionIotEventsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKafkaInput)(nil)).Elem(), TopicRuleErrorActionKafkaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKafkaPtrInput)(nil)).Elem(), TopicRuleErrorActionKafkaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKinesisInput)(nil)).Elem(), TopicRuleErrorActionKinesisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionKinesisPtrInput)(nil)).Elem(), TopicRuleErrorActionKinesisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionLambdaInput)(nil)).Elem(), TopicRuleErrorActionLambdaArgs{})
@@ -8002,12 +10005,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionSqsPtrInput)(nil)).Elem(), TopicRuleErrorActionSqsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionStepFunctionsInput)(nil)).Elem(), TopicRuleErrorActionStepFunctionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionStepFunctionsPtrInput)(nil)).Elem(), TopicRuleErrorActionStepFunctionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionTimestreamInput)(nil)).Elem(), TopicRuleErrorActionTimestreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionTimestreamPtrInput)(nil)).Elem(), TopicRuleErrorActionTimestreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionTimestreamDimensionInput)(nil)).Elem(), TopicRuleErrorActionTimestreamDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionTimestreamDimensionArrayInput)(nil)).Elem(), TopicRuleErrorActionTimestreamDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionTimestreamTimestampInput)(nil)).Elem(), TopicRuleErrorActionTimestreamTimestampArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleErrorActionTimestreamTimestampPtrInput)(nil)).Elem(), TopicRuleErrorActionTimestreamTimestampArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleFirehoseInput)(nil)).Elem(), TopicRuleFirehoseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleFirehosePtrInput)(nil)).Elem(), TopicRuleFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpInput)(nil)).Elem(), TopicRuleHttpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpArrayInput)(nil)).Elem(), TopicRuleHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpHttpHeaderInput)(nil)).Elem(), TopicRuleHttpHttpHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpHttpHeaderArrayInput)(nil)).Elem(), TopicRuleHttpHttpHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotAnalyticInput)(nil)).Elem(), TopicRuleIotAnalyticArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotAnalyticArrayInput)(nil)).Elem(), TopicRuleIotAnalyticArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotEventInput)(nil)).Elem(), TopicRuleIotEventArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotEventArrayInput)(nil)).Elem(), TopicRuleIotEventArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaInput)(nil)).Elem(), TopicRuleKafkaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKafkaArrayInput)(nil)).Elem(), TopicRuleKafkaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisInput)(nil)).Elem(), TopicRuleKinesisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleKinesisPtrInput)(nil)).Elem(), TopicRuleKinesisArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleLambdaInput)(nil)).Elem(), TopicRuleLambdaArgs{})
@@ -8022,6 +10037,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqsPtrInput)(nil)).Elem(), TopicRuleSqsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionInput)(nil)).Elem(), TopicRuleStepFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionArrayInput)(nil)).Elem(), TopicRuleStepFunctionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamInput)(nil)).Elem(), TopicRuleTimestreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamArrayInput)(nil)).Elem(), TopicRuleTimestreamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamDimensionInput)(nil)).Elem(), TopicRuleTimestreamDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamDimensionArrayInput)(nil)).Elem(), TopicRuleTimestreamDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamTimestampInput)(nil)).Elem(), TopicRuleTimestreamTimestampArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleTimestreamTimestampPtrInput)(nil)).Elem(), TopicRuleTimestreamTimestampArgs{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexingConfigurationThingGroupIndexingConfigurationCustomFieldOutput{})
@@ -8052,6 +10073,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleCloudwatchLogArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamodbv2Output{})
@@ -8078,10 +10101,16 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleErrorActionElasticsearchPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionFirehoseOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionFirehosePtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionHttpOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionHttpPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionHttpHttpHeaderOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionHttpHttpHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionIotAnalyticsOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionIotAnalyticsPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionIotEventsOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionIotEventsPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionKafkaOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionKafkaPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionKinesisOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionKinesisPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionLambdaOutput{})
@@ -8096,12 +10125,24 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleErrorActionSqsPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionStepFunctionsOutput{})
 	pulumi.RegisterOutputType(TopicRuleErrorActionStepFunctionsPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionTimestreamOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionTimestreamPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionTimestreamDimensionOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionTimestreamDimensionArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionTimestreamTimestampOutput{})
+	pulumi.RegisterOutputType(TopicRuleErrorActionTimestreamTimestampPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleFirehoseOutput{})
 	pulumi.RegisterOutputType(TopicRuleFirehosePtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleHttpOutput{})
+	pulumi.RegisterOutputType(TopicRuleHttpArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleHttpHttpHeaderOutput{})
+	pulumi.RegisterOutputType(TopicRuleHttpHttpHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleIotAnalyticOutput{})
 	pulumi.RegisterOutputType(TopicRuleIotAnalyticArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleIotEventOutput{})
 	pulumi.RegisterOutputType(TopicRuleIotEventArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleKafkaOutput{})
+	pulumi.RegisterOutputType(TopicRuleKafkaArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleKinesisOutput{})
 	pulumi.RegisterOutputType(TopicRuleKinesisPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleLambdaOutput{})
@@ -8116,4 +10157,10 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleSqsPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleStepFunctionOutput{})
 	pulumi.RegisterOutputType(TopicRuleStepFunctionArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleTimestreamOutput{})
+	pulumi.RegisterOutputType(TopicRuleTimestreamArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleTimestreamDimensionOutput{})
+	pulumi.RegisterOutputType(TopicRuleTimestreamDimensionArrayOutput{})
+	pulumi.RegisterOutputType(TopicRuleTimestreamTimestampOutput{})
+	pulumi.RegisterOutputType(TopicRuleTimestreamTimestampPtrOutput{})
 }

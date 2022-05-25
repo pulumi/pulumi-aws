@@ -37,6 +37,7 @@ __all__ = [
     'InstanceEnclaveOptionsArgs',
     'InstanceEphemeralBlockDeviceArgs',
     'InstanceLaunchTemplateArgs',
+    'InstanceMaintenanceOptionsArgs',
     'InstanceMetadataOptionsArgs',
     'InstanceNetworkInterfaceArgs',
     'InstanceRootBlockDeviceArgs',
@@ -57,7 +58,17 @@ __all__ = [
     'LaunchTemplateIamInstanceProfileArgs',
     'LaunchTemplateInstanceMarketOptionsArgs',
     'LaunchTemplateInstanceMarketOptionsSpotOptionsArgs',
+    'LaunchTemplateInstanceRequirementsArgs',
+    'LaunchTemplateInstanceRequirementsAcceleratorCountArgs',
+    'LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs',
+    'LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
+    'LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs',
+    'LaunchTemplateInstanceRequirementsMemoryMibArgs',
+    'LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs',
+    'LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs',
+    'LaunchTemplateInstanceRequirementsVcpuCountArgs',
     'LaunchTemplateLicenseSpecificationArgs',
+    'LaunchTemplateMaintenanceOptionsArgs',
     'LaunchTemplateMetadataOptionsArgs',
     'LaunchTemplateMonitoringArgs',
     'LaunchTemplateNetworkInterfaceArgs',
@@ -80,6 +91,15 @@ __all__ = [
     'SpotFleetRequestLaunchTemplateConfigArgs',
     'SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs',
     'SpotFleetRequestLaunchTemplateConfigOverrideArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs',
+    'SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs',
     'SpotFleetRequestSpotMaintenanceStrategiesArgs',
     'SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs',
     'SpotInstanceRequestCapacityReservationSpecificationArgs',
@@ -89,6 +109,7 @@ __all__ = [
     'SpotInstanceRequestEnclaveOptionsArgs',
     'SpotInstanceRequestEphemeralBlockDeviceArgs',
     'SpotInstanceRequestLaunchTemplateArgs',
+    'SpotInstanceRequestMaintenanceOptionsArgs',
     'SpotInstanceRequestMetadataOptionsArgs',
     'SpotInstanceRequestNetworkInterfaceArgs',
     'SpotInstanceRequestRootBlockDeviceArgs',
@@ -2429,6 +2450,29 @@ class InstanceLaunchTemplateArgs:
 
 
 @pulumi.input_type
+class InstanceMaintenanceOptionsArgs:
+    def __init__(__self__, *,
+                 auto_recovery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auto_recovery: The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+    @auto_recovery.setter
+    def auto_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_recovery", value)
+
+
+@pulumi.input_type
 class InstanceMetadataOptionsArgs:
     def __init__(__self__, *,
                  http_endpoint: Optional[pulumi.Input[str]] = None,
@@ -3636,6 +3680,657 @@ class LaunchTemplateInstanceMarketOptionsSpotOptionsArgs:
 
 
 @pulumi.input_type
+class LaunchTemplateInstanceRequirementsArgs:
+    def __init__(__self__, *,
+                 memory_mib: pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgs'],
+                 vcpu_count: pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs'],
+                 accelerator_count: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs']] = None,
+                 accelerator_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 accelerator_total_memory_mib: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs']] = None,
+                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 bare_metal: Optional[pulumi.Input[str]] = None,
+                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs']] = None,
+                 burstable_performance: Optional[pulumi.Input[str]] = None,
+                 cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 local_storage: Optional[pulumi.Input[str]] = None,
+                 local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 memory_gib_per_vcpu: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
+                 network_interface_count: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs']] = None,
+                 on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
+                 require_hibernate_support: Optional[pulumi.Input[bool]] = None,
+                 spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
+                 total_local_storage_gb: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs']] = None):
+        """
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
+        :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
+        :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+        :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+        :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        """
+        pulumi.set(__self__, "memory_mib", memory_mib)
+        pulumi.set(__self__, "vcpu_count", vcpu_count)
+        if accelerator_count is not None:
+            pulumi.set(__self__, "accelerator_count", accelerator_count)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_names is not None:
+            pulumi.set(__self__, "accelerator_names", accelerator_names)
+        if accelerator_total_memory_mib is not None:
+            pulumi.set(__self__, "accelerator_total_memory_mib", accelerator_total_memory_mib)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if bare_metal is not None:
+            pulumi.set(__self__, "bare_metal", bare_metal)
+        if baseline_ebs_bandwidth_mbps is not None:
+            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if burstable_performance is not None:
+            pulumi.set(__self__, "burstable_performance", burstable_performance)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+        if instance_generations is not None:
+            pulumi.set(__self__, "instance_generations", instance_generations)
+        if local_storage is not None:
+            pulumi.set(__self__, "local_storage", local_storage)
+        if local_storage_types is not None:
+            pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if memory_gib_per_vcpu is not None:
+            pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
+        if network_interface_count is not None:
+            pulumi.set(__self__, "network_interface_count", network_interface_count)
+        if on_demand_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_hibernate_support is not None:
+            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+        if spot_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+        if total_local_storage_gb is not None:
+            pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
+
+    @property
+    @pulumi.getter(name="memoryMib")
+    def memory_mib(self) -> pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgs']:
+        """
+        Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        """
+        return pulumi.get(self, "memory_mib")
+
+    @memory_mib.setter
+    def memory_mib(self, value: pulumi.Input['LaunchTemplateInstanceRequirementsMemoryMibArgs']):
+        pulumi.set(self, "memory_mib", value)
+
+    @property
+    @pulumi.getter(name="vcpuCount")
+    def vcpu_count(self) -> pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs']:
+        """
+        Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        """
+        return pulumi.get(self, "vcpu_count")
+
+    @vcpu_count.setter
+    def vcpu_count(self, value: pulumi.Input['LaunchTemplateInstanceRequirementsVcpuCountArgs']):
+        pulumi.set(self, "vcpu_count", value)
+
+    @property
+    @pulumi.getter(name="acceleratorCount")
+    def accelerator_count(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs']]:
+        """
+        Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "accelerator_count")
+
+    @accelerator_count.setter
+    def accelerator_count(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorCountArgs']]):
+        pulumi.set(self, "accelerator_count", value)
+
+    @property
+    @pulumi.getter(name="acceleratorManufacturers")
+    def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of accelerator manufacturer names. Default is any manufacturer.
+        """
+        return pulumi.get(self, "accelerator_manufacturers")
+
+    @accelerator_manufacturers.setter
+    def accelerator_manufacturers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_manufacturers", value)
+
+    @property
+    @pulumi.getter(name="acceleratorNames")
+    def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of accelerator names. Default is any acclerator.
+        """
+        return pulumi.get(self, "accelerator_names")
+
+    @accelerator_names.setter
+    def accelerator_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_names", value)
+
+    @property
+    @pulumi.getter(name="acceleratorTotalMemoryMib")
+    def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs']]:
+        """
+        Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "accelerator_total_memory_mib")
+
+    @accelerator_total_memory_mib.setter
+    def accelerator_total_memory_mib(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs']]):
+        pulumi.set(self, "accelerator_total_memory_mib", value)
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of accelerator types. Default is any accelerator type.
+        """
+        return pulumi.get(self, "accelerator_types")
+
+    @accelerator_types.setter
+    def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_types", value)
+
+    @property
+    @pulumi.getter(name="bareMetal")
+    def bare_metal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        return pulumi.get(self, "bare_metal")
+
+    @bare_metal.setter
+    def bare_metal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bare_metal", value)
+
+    @property
+    @pulumi.getter(name="baselineEbsBandwidthMbps")
+    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]:
+        """
+        Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
+
+    @baseline_ebs_bandwidth_mbps.setter
+    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]):
+        pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
+
+    @property
+    @pulumi.getter(name="burstablePerformance")
+    def burstable_performance(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        return pulumi.get(self, "burstable_performance")
+
+    @burstable_performance.setter
+    def burstable_performance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "burstable_performance", value)
+
+    @property
+    @pulumi.getter(name="cpuManufacturers")
+    def cpu_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of CPU manufacturer names. Default is any manufacturer.
+        """
+        return pulumi.get(self, "cpu_manufacturers")
+
+    @cpu_manufacturers.setter
+    def cpu_manufacturers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cpu_manufacturers", value)
+
+    @property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        """
+        return pulumi.get(self, "excluded_instance_types")
+
+    @excluded_instance_types.setter
+    def excluded_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_instance_types", value)
+
+    @property
+    @pulumi.getter(name="instanceGenerations")
+    def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of instance generation names. Default is any generation.
+        """
+        return pulumi.get(self, "instance_generations")
+
+    @instance_generations.setter
+    def instance_generations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "instance_generations", value)
+
+    @property
+    @pulumi.getter(name="localStorage")
+    def local_storage(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+        """
+        return pulumi.get(self, "local_storage")
+
+    @local_storage.setter
+    def local_storage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_storage", value)
+
+    @property
+    @pulumi.getter(name="localStorageTypes")
+    def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of local storage type names. Default any storage type.
+        """
+        return pulumi.get(self, "local_storage_types")
+
+    @local_storage_types.setter
+    def local_storage_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "local_storage_types", value)
+
+    @property
+    @pulumi.getter(name="memoryGibPerVcpu")
+    def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']]:
+        """
+        Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "memory_gib_per_vcpu")
+
+    @memory_gib_per_vcpu.setter
+    def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs']]):
+        pulumi.set(self, "memory_gib_per_vcpu", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceCount")
+    def network_interface_count(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs']]:
+        """
+        Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "network_interface_count")
+
+    @network_interface_count.setter
+    def network_interface_count(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs']]):
+        pulumi.set(self, "network_interface_count", value)
+
+    @property
+    @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
+    def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
+        """
+        The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+        """
+        return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
+
+    @on_demand_max_price_percentage_over_lowest_price.setter
+    def on_demand_max_price_percentage_over_lowest_price(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "on_demand_max_price_percentage_over_lowest_price", value)
+
+    @property
+    @pulumi.getter(name="requireHibernateSupport")
+    def require_hibernate_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+        """
+        return pulumi.get(self, "require_hibernate_support")
+
+    @require_hibernate_support.setter
+    def require_hibernate_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_hibernate_support", value)
+
+    @property
+    @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
+    def spot_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        """
+        return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
+
+    @spot_max_price_percentage_over_lowest_price.setter
+    def spot_max_price_percentage_over_lowest_price(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "spot_max_price_percentage_over_lowest_price", value)
+
+    @property
+    @pulumi.getter(name="totalLocalStorageGb")
+    def total_local_storage_gb(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs']]:
+        """
+        Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "total_local_storage_gb")
+
+    @total_local_storage_gb.setter
+    def total_local_storage_gb(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs']]):
+        pulumi.set(self, "total_local_storage_gb", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsAcceleratorCountArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsMemoryMibArgs:
+    def __init__(__self__, *,
+                 min: pulumi.Input[int],
+                 max: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] min: Minimum.
+        :param pulumi.Input[int] max: Maximum.
+        """
+        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+
+    @property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[int]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class LaunchTemplateInstanceRequirementsVcpuCountArgs:
+    def __init__(__self__, *,
+                 min: pulumi.Input[int],
+                 max: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] min: Minimum.
+        :param pulumi.Input[int] max: Maximum.
+        """
+        pulumi.set(__self__, "min", min)
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+
+    @property
+    @pulumi.getter
+    def min(self) -> pulumi.Input[int]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: pulumi.Input[int]):
+        pulumi.set(self, "min", value)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+
+@pulumi.input_type
 class LaunchTemplateLicenseSpecificationArgs:
     def __init__(__self__, *,
                  license_configuration_arn: pulumi.Input[str]):
@@ -3655,6 +4350,29 @@ class LaunchTemplateLicenseSpecificationArgs:
     @license_configuration_arn.setter
     def license_configuration_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "license_configuration_arn", value)
+
+
+@pulumi.input_type
+class LaunchTemplateMaintenanceOptionsArgs:
+    def __init__(__self__, *,
+                 auto_recovery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auto_recovery: Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+    @auto_recovery.setter
+    def auto_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_recovery", value)
 
 
 @pulumi.input_type
@@ -5948,6 +6666,7 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
 class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
     def __init__(__self__, *,
                  availability_zone: Optional[pulumi.Input[str]] = None,
+                 instance_requirements: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  priority: Optional[pulumi.Input[float]] = None,
                  spot_price: Optional[pulumi.Input[str]] = None,
@@ -5955,6 +6674,7 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
                  weighted_capacity: Optional[pulumi.Input[float]] = None):
         """
         :param pulumi.Input[str] availability_zone: The availability zone in which to place the request.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs'] instance_requirements: The instance requirements. See below.
         :param pulumi.Input[str] instance_type: The type of instance to request.
         :param pulumi.Input[float] priority: The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
@@ -5963,6 +6683,8 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
         """
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if priority is not None:
@@ -5985,6 +6707,18 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
     @availability_zone.setter
     def availability_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs']]:
+        """
+        The instance requirements. See below.
+        """
+        return pulumi.get(self, "instance_requirements")
+
+    @instance_requirements.setter
+    def instance_requirements(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs']]):
+        pulumi.set(self, "instance_requirements", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -6045,6 +6779,661 @@ class SpotFleetRequestLaunchTemplateConfigOverrideArgs:
     @weighted_capacity.setter
     def weighted_capacity(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "weighted_capacity", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs:
+    def __init__(__self__, *,
+                 accelerator_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']] = None,
+                 accelerator_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 accelerator_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 accelerator_total_memory_mib: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']] = None,
+                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 bare_metal: Optional[pulumi.Input[str]] = None,
+                 baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']] = None,
+                 burstable_performance: Optional[pulumi.Input[str]] = None,
+                 cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 instance_generations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 local_storage: Optional[pulumi.Input[str]] = None,
+                 local_storage_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 memory_gib_per_vcpu: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']] = None,
+                 memory_mib: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']] = None,
+                 network_interface_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']] = None,
+                 on_demand_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
+                 require_hibernate_support: Optional[pulumi.Input[bool]] = None,
+                 spot_max_price_percentage_over_lowest_price: Optional[pulumi.Input[int]] = None,
+                 total_local_storage_gb: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']] = None,
+                 vcpu_count: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']] = None):
+        """
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs'] accelerator_count: Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_manufacturers: List of accelerator manufacturer names. Default is any manufacturer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_names: List of accelerator names. Default is any acclerator.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs'] accelerator_total_memory_mib: Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: List of accelerator types. Default is any accelerator type.
+        :param pulumi.Input[str] bare_metal: Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        :param pulumi.Input[str] burstable_performance: Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cpu_manufacturers: List of CPU manufacturer names. Default is any manufacturer.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_instance_types: List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_generations: List of instance generation names. Default is any generation.
+        :param pulumi.Input[str] local_storage: Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] local_storage_types: List of local storage type names. Default any storage type.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs'] memory_gib_per_vcpu: Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs'] memory_mib: Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs'] network_interface_count: Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        :param pulumi.Input[int] on_demand_max_price_percentage_over_lowest_price: The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+        :param pulumi.Input[bool] require_hibernate_support: Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+        :param pulumi.Input[int] spot_max_price_percentage_over_lowest_price: The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs'] total_local_storage_gb: Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        :param pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs'] vcpu_count: Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        """
+        if accelerator_count is not None:
+            pulumi.set(__self__, "accelerator_count", accelerator_count)
+        if accelerator_manufacturers is not None:
+            pulumi.set(__self__, "accelerator_manufacturers", accelerator_manufacturers)
+        if accelerator_names is not None:
+            pulumi.set(__self__, "accelerator_names", accelerator_names)
+        if accelerator_total_memory_mib is not None:
+            pulumi.set(__self__, "accelerator_total_memory_mib", accelerator_total_memory_mib)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
+        if bare_metal is not None:
+            pulumi.set(__self__, "bare_metal", bare_metal)
+        if baseline_ebs_bandwidth_mbps is not None:
+            pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if burstable_performance is not None:
+            pulumi.set(__self__, "burstable_performance", burstable_performance)
+        if cpu_manufacturers is not None:
+            pulumi.set(__self__, "cpu_manufacturers", cpu_manufacturers)
+        if excluded_instance_types is not None:
+            pulumi.set(__self__, "excluded_instance_types", excluded_instance_types)
+        if instance_generations is not None:
+            pulumi.set(__self__, "instance_generations", instance_generations)
+        if local_storage is not None:
+            pulumi.set(__self__, "local_storage", local_storage)
+        if local_storage_types is not None:
+            pulumi.set(__self__, "local_storage_types", local_storage_types)
+        if memory_gib_per_vcpu is not None:
+            pulumi.set(__self__, "memory_gib_per_vcpu", memory_gib_per_vcpu)
+        if memory_mib is not None:
+            pulumi.set(__self__, "memory_mib", memory_mib)
+        if network_interface_count is not None:
+            pulumi.set(__self__, "network_interface_count", network_interface_count)
+        if on_demand_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "on_demand_max_price_percentage_over_lowest_price", on_demand_max_price_percentage_over_lowest_price)
+        if require_hibernate_support is not None:
+            pulumi.set(__self__, "require_hibernate_support", require_hibernate_support)
+        if spot_max_price_percentage_over_lowest_price is not None:
+            pulumi.set(__self__, "spot_max_price_percentage_over_lowest_price", spot_max_price_percentage_over_lowest_price)
+        if total_local_storage_gb is not None:
+            pulumi.set(__self__, "total_local_storage_gb", total_local_storage_gb)
+        if vcpu_count is not None:
+            pulumi.set(__self__, "vcpu_count", vcpu_count)
+
+    @property
+    @pulumi.getter(name="acceleratorCount")
+    def accelerator_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]:
+        """
+        Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "accelerator_count")
+
+    @accelerator_count.setter
+    def accelerator_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs']]):
+        pulumi.set(self, "accelerator_count", value)
+
+    @property
+    @pulumi.getter(name="acceleratorManufacturers")
+    def accelerator_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of accelerator manufacturer names. Default is any manufacturer.
+        """
+        return pulumi.get(self, "accelerator_manufacturers")
+
+    @accelerator_manufacturers.setter
+    def accelerator_manufacturers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_manufacturers", value)
+
+    @property
+    @pulumi.getter(name="acceleratorNames")
+    def accelerator_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of accelerator names. Default is any acclerator.
+        """
+        return pulumi.get(self, "accelerator_names")
+
+    @accelerator_names.setter
+    def accelerator_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_names", value)
+
+    @property
+    @pulumi.getter(name="acceleratorTotalMemoryMib")
+    def accelerator_total_memory_mib(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]:
+        """
+        Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "accelerator_total_memory_mib")
+
+    @accelerator_total_memory_mib.setter
+    def accelerator_total_memory_mib(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs']]):
+        pulumi.set(self, "accelerator_total_memory_mib", value)
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of accelerator types. Default is any accelerator type.
+        """
+        return pulumi.get(self, "accelerator_types")
+
+    @accelerator_types.setter
+    def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_types", value)
+
+    @property
+    @pulumi.getter(name="bareMetal")
+    def bare_metal(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        return pulumi.get(self, "bare_metal")
+
+    @bare_metal.setter
+    def bare_metal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bare_metal", value)
+
+    @property
+    @pulumi.getter(name="baselineEbsBandwidthMbps")
+    def baseline_ebs_bandwidth_mbps(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]:
+        """
+        Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "baseline_ebs_bandwidth_mbps")
+
+    @baseline_ebs_bandwidth_mbps.setter
+    def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs']]):
+        pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
+
+    @property
+    @pulumi.getter(name="burstablePerformance")
+    def burstable_performance(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+        """
+        return pulumi.get(self, "burstable_performance")
+
+    @burstable_performance.setter
+    def burstable_performance(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "burstable_performance", value)
+
+    @property
+    @pulumi.getter(name="cpuManufacturers")
+    def cpu_manufacturers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of CPU manufacturer names. Default is any manufacturer.
+        """
+        return pulumi.get(self, "cpu_manufacturers")
+
+    @cpu_manufacturers.setter
+    def cpu_manufacturers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "cpu_manufacturers", value)
+
+    @property
+    @pulumi.getter(name="excludedInstanceTypes")
+    def excluded_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+        """
+        return pulumi.get(self, "excluded_instance_types")
+
+    @excluded_instance_types.setter
+    def excluded_instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_instance_types", value)
+
+    @property
+    @pulumi.getter(name="instanceGenerations")
+    def instance_generations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of instance generation names. Default is any generation.
+        """
+        return pulumi.get(self, "instance_generations")
+
+    @instance_generations.setter
+    def instance_generations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "instance_generations", value)
+
+    @property
+    @pulumi.getter(name="localStorage")
+    def local_storage(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+        """
+        return pulumi.get(self, "local_storage")
+
+    @local_storage.setter
+    def local_storage(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "local_storage", value)
+
+    @property
+    @pulumi.getter(name="localStorageTypes")
+    def local_storage_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of local storage type names. Default any storage type.
+        """
+        return pulumi.get(self, "local_storage_types")
+
+    @local_storage_types.setter
+    def local_storage_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "local_storage_types", value)
+
+    @property
+    @pulumi.getter(name="memoryGibPerVcpu")
+    def memory_gib_per_vcpu(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]:
+        """
+        Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "memory_gib_per_vcpu")
+
+    @memory_gib_per_vcpu.setter
+    def memory_gib_per_vcpu(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs']]):
+        pulumi.set(self, "memory_gib_per_vcpu", value)
+
+    @property
+    @pulumi.getter(name="memoryMib")
+    def memory_mib(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']]:
+        """
+        Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+        """
+        return pulumi.get(self, "memory_mib")
+
+    @memory_mib.setter
+    def memory_mib(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs']]):
+        pulumi.set(self, "memory_mib", value)
+
+    @property
+    @pulumi.getter(name="networkInterfaceCount")
+    def network_interface_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']]:
+        """
+        Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "network_interface_count")
+
+    @network_interface_count.setter
+    def network_interface_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs']]):
+        pulumi.set(self, "network_interface_count", value)
+
+    @property
+    @pulumi.getter(name="onDemandMaxPricePercentageOverLowestPrice")
+    def on_demand_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
+        """
+        The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+        """
+        return pulumi.get(self, "on_demand_max_price_percentage_over_lowest_price")
+
+    @on_demand_max_price_percentage_over_lowest_price.setter
+    def on_demand_max_price_percentage_over_lowest_price(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "on_demand_max_price_percentage_over_lowest_price", value)
+
+    @property
+    @pulumi.getter(name="requireHibernateSupport")
+    def require_hibernate_support(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+        """
+        return pulumi.get(self, "require_hibernate_support")
+
+    @require_hibernate_support.setter
+    def require_hibernate_support(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "require_hibernate_support", value)
+
+    @property
+    @pulumi.getter(name="spotMaxPricePercentageOverLowestPrice")
+    def spot_max_price_percentage_over_lowest_price(self) -> Optional[pulumi.Input[int]]:
+        """
+        The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+        """
+        return pulumi.get(self, "spot_max_price_percentage_over_lowest_price")
+
+    @spot_max_price_percentage_over_lowest_price.setter
+    def spot_max_price_percentage_over_lowest_price(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "spot_max_price_percentage_over_lowest_price", value)
+
+    @property
+    @pulumi.getter(name="totalLocalStorageGb")
+    def total_local_storage_gb(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']]:
+        """
+        Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+        """
+        return pulumi.get(self, "total_local_storage_gb")
+
+    @total_local_storage_gb.setter
+    def total_local_storage_gb(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs']]):
+        pulumi.set(self, "total_local_storage_gb", value)
+
+    @property
+    @pulumi.getter(name="vcpuCount")
+    def vcpu_count(self) -> Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']]:
+        """
+        Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+        """
+        return pulumi.get(self, "vcpu_count")
+
+    @vcpu_count.setter
+    def vcpu_count(self, value: Optional[pulumi.Input['SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs']]):
+        pulumi.set(self, "vcpu_count", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[float]] = None,
+                 min: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[float] max: Maximum.
+        :param pulumi.Input[float] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[float]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[float]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "min", value)
+
+
+@pulumi.input_type
+class SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs:
+    def __init__(__self__, *,
+                 max: Optional[pulumi.Input[int]] = None,
+                 min: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] max: Maximum.
+        :param pulumi.Input[int] min: Minimum.
+        """
+        if max is not None:
+            pulumi.set(__self__, "max", max)
+        if min is not None:
+            pulumi.set(__self__, "min", min)
+
+    @property
+    @pulumi.getter
+    def max(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum.
+        """
+        return pulumi.get(self, "max")
+
+    @max.setter
+    def max(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max", value)
+
+    @property
+    @pulumi.getter
+    def min(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum.
+        """
+        return pulumi.get(self, "min")
+
+    @min.setter
+    def min(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "min", value)
 
 
 @pulumi.input_type
@@ -6502,6 +7891,29 @@ class SpotInstanceRequestLaunchTemplateArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version", value)
+
+
+@pulumi.input_type
+class SpotInstanceRequestMaintenanceOptionsArgs:
+    def __init__(__self__, *,
+                 auto_recovery: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] auto_recovery: The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        if auto_recovery is not None:
+            pulumi.set(__self__, "auto_recovery", auto_recovery)
+
+    @property
+    @pulumi.getter(name="autoRecovery")
+    def auto_recovery(self) -> Optional[pulumi.Input[str]]:
+        """
+        The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+        """
+        return pulumi.get(self, "auto_recovery")
+
+    @auto_recovery.setter
+    def auto_recovery(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auto_recovery", value)
 
 
 @pulumi.input_type

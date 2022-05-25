@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Msk.Inputs
         [Input("tls")]
         public Input<Inputs.ClusterClientAuthenticationTlsGetArgs>? Tls { get; set; }
 
+        /// <summary>
+        /// Enables unauthenticated access.
+        /// </summary>
+        [Input("unauthenticated")]
+        public Input<bool>? Unauthenticated { get; set; }
+
         public ClusterClientAuthenticationGetArgs()
         {
         }

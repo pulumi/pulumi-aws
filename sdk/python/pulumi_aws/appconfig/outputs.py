@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ConfigurationProfileValidator',
     'EnvironmentMonitor',
+    'EventIntegrationEventFilter',
 ]
 
 @pulumi.output_type
@@ -90,5 +91,23 @@ class EnvironmentMonitor(dict):
         ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
         """
         return pulumi.get(self, "alarm_role_arn")
+
+
+@pulumi.output_type
+class EventIntegrationEventFilter(dict):
+    def __init__(__self__, *,
+                 source: str):
+        """
+        :param str source: The source of the events.
+        """
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        The source of the events.
+        """
+        return pulumi.get(self, "source")
 
 

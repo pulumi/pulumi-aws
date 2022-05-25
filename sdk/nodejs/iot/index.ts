@@ -20,6 +20,7 @@ export * from "./thingGroupMembership";
 export * from "./thingPrincipalAttachment";
 export * from "./thingType";
 export * from "./topicRule";
+export * from "./topicRuleDestination";
 
 // Import resources to register:
 import { Authorizer } from "./authorizer";
@@ -36,6 +37,7 @@ import { ThingGroupMembership } from "./thingGroupMembership";
 import { ThingPrincipalAttachment } from "./thingPrincipalAttachment";
 import { ThingType } from "./thingType";
 import { TopicRule } from "./topicRule";
+import { TopicRuleDestination } from "./topicRuleDestination";
 
 const _module = {
     version: utilities.getVersion(),
@@ -69,6 +71,8 @@ const _module = {
                 return new ThingType(name, <any>undefined, { urn })
             case "aws:iot/topicRule:TopicRule":
                 return new TopicRule(name, <any>undefined, { urn })
+            case "aws:iot/topicRuleDestination:TopicRuleDestination":
+                return new TopicRuleDestination(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -88,3 +92,4 @@ pulumi.runtime.registerResourceModule("aws", "iot/thingGroupMembership", _module
 pulumi.runtime.registerResourceModule("aws", "iot/thingPrincipalAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/thingType", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/topicRule", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/topicRuleDestination", _module)

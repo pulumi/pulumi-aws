@@ -20,8 +20,10 @@ namespace Pulumi.Aws.Iot.Outputs
         public readonly Outputs.TopicRuleErrorActionDynamodbv2? Dynamodbv2;
         public readonly Outputs.TopicRuleErrorActionElasticsearch? Elasticsearch;
         public readonly Outputs.TopicRuleErrorActionFirehose? Firehose;
+        public readonly Outputs.TopicRuleErrorActionHttp? Http;
         public readonly Outputs.TopicRuleErrorActionIotAnalytics? IotAnalytics;
         public readonly Outputs.TopicRuleErrorActionIotEvents? IotEvents;
+        public readonly Outputs.TopicRuleErrorActionKafka? Kafka;
         public readonly Outputs.TopicRuleErrorActionKinesis? Kinesis;
         public readonly Outputs.TopicRuleErrorActionLambda? Lambda;
         public readonly Outputs.TopicRuleErrorActionRepublish? Republish;
@@ -29,6 +31,7 @@ namespace Pulumi.Aws.Iot.Outputs
         public readonly Outputs.TopicRuleErrorActionSns? Sns;
         public readonly Outputs.TopicRuleErrorActionSqs? Sqs;
         public readonly Outputs.TopicRuleErrorActionStepFunctions? StepFunctions;
+        public readonly Outputs.TopicRuleErrorActionTimestream? Timestream;
 
         [OutputConstructor]
         private TopicRuleErrorAction(
@@ -46,9 +49,13 @@ namespace Pulumi.Aws.Iot.Outputs
 
             Outputs.TopicRuleErrorActionFirehose? firehose,
 
+            Outputs.TopicRuleErrorActionHttp? http,
+
             Outputs.TopicRuleErrorActionIotAnalytics? iotAnalytics,
 
             Outputs.TopicRuleErrorActionIotEvents? iotEvents,
+
+            Outputs.TopicRuleErrorActionKafka? kafka,
 
             Outputs.TopicRuleErrorActionKinesis? kinesis,
 
@@ -62,7 +69,9 @@ namespace Pulumi.Aws.Iot.Outputs
 
             Outputs.TopicRuleErrorActionSqs? sqs,
 
-            Outputs.TopicRuleErrorActionStepFunctions? stepFunctions)
+            Outputs.TopicRuleErrorActionStepFunctions? stepFunctions,
+
+            Outputs.TopicRuleErrorActionTimestream? timestream)
         {
             CloudwatchAlarm = cloudwatchAlarm;
             CloudwatchLogs = cloudwatchLogs;
@@ -71,8 +80,10 @@ namespace Pulumi.Aws.Iot.Outputs
             Dynamodbv2 = dynamodbv2;
             Elasticsearch = elasticsearch;
             Firehose = firehose;
+            Http = http;
             IotAnalytics = iotAnalytics;
             IotEvents = iotEvents;
+            Kafka = kafka;
             Kinesis = kinesis;
             Lambda = lambda;
             Republish = republish;
@@ -80,6 +91,7 @@ namespace Pulumi.Aws.Iot.Outputs
             Sns = sns;
             Sqs = sqs;
             StepFunctions = stepFunctions;
+            Timestream = timestream;
         }
     }
 }

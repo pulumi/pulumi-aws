@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:athena/dataCatalog:DataCatalog":
+		r = &DataCatalog{}
 	case "aws:athena/database:Database":
 		r = &Database{}
 	case "aws:athena/namedQuery:NamedQuery":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"athena/dataCatalog",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"athena/database",

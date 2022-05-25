@@ -21,7 +21,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_size=None, min_size=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, service_linked_role_arn=None, status=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
+    def __init__(__self__, arn=None, availability_zones=None, default_cooldown=None, desired_capacity=None, enabled_metrics=None, health_check_grace_period=None, health_check_type=None, id=None, launch_configuration=None, launch_templates=None, load_balancers=None, max_size=None, min_size=None, name=None, new_instances_protected_from_scale_in=None, placement_group=None, service_linked_role_arn=None, status=None, target_group_arns=None, termination_policies=None, vpc_zone_identifier=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -34,6 +34,9 @@ class GetGroupResult:
         if desired_capacity and not isinstance(desired_capacity, int):
             raise TypeError("Expected argument 'desired_capacity' to be a int")
         pulumi.set(__self__, "desired_capacity", desired_capacity)
+        if enabled_metrics and not isinstance(enabled_metrics, list):
+            raise TypeError("Expected argument 'enabled_metrics' to be a list")
+        pulumi.set(__self__, "enabled_metrics", enabled_metrics)
         if health_check_grace_period and not isinstance(health_check_grace_period, int):
             raise TypeError("Expected argument 'health_check_grace_period' to be a int")
         pulumi.set(__self__, "health_check_grace_period", health_check_grace_period)
@@ -111,6 +114,14 @@ class GetGroupResult:
         The desired size of the group.
         """
         return pulumi.get(self, "desired_capacity")
+
+    @property
+    @pulumi.getter(name="enabledMetrics")
+    def enabled_metrics(self) -> Sequence[str]:
+        """
+        The list of metrics enabled for collection.
+        """
+        return pulumi.get(self, "enabled_metrics")
 
     @property
     @pulumi.getter(name="healthCheckGracePeriod")
@@ -245,6 +256,7 @@ class AwaitableGetGroupResult(GetGroupResult):
             availability_zones=self.availability_zones,
             default_cooldown=self.default_cooldown,
             desired_capacity=self.desired_capacity,
+            enabled_metrics=self.enabled_metrics,
             health_check_grace_period=self.health_check_grace_period,
             health_check_type=self.health_check_type,
             id=self.id,
@@ -293,6 +305,7 @@ def get_group(name: Optional[str] = None,
         availability_zones=__ret__.availability_zones,
         default_cooldown=__ret__.default_cooldown,
         desired_capacity=__ret__.desired_capacity,
+        enabled_metrics=__ret__.enabled_metrics,
         health_check_grace_period=__ret__.health_check_grace_period,
         health_check_type=__ret__.health_check_type,
         id=__ret__.id,

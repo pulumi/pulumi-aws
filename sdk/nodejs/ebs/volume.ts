@@ -78,7 +78,7 @@ export class Volume extends pulumi.CustomResource {
     public readonly iops!: pulumi.Output<number>;
     public readonly kmsKeyId!: pulumi.Output<string>;
     /**
-     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      */
     public readonly multiAttachEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -182,7 +182,7 @@ export interface VolumeState {
     iops?: pulumi.Input<number>;
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      */
     multiAttachEnabled?: pulumi.Input<boolean>;
     /**
@@ -233,7 +233,7 @@ export interface VolumeArgs {
     iops?: pulumi.Input<number>;
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+     * Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
      */
     multiAttachEnabled?: pulumi.Input<boolean>;
     /**

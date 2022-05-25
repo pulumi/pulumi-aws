@@ -58,6 +58,10 @@ export interface GetGroupResult {
      */
     readonly desiredCapacity: number;
     /**
+     * The list of metrics enabled for collection.
+     */
+    readonly enabledMetrics: string[];
+    /**
      * The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
      */
     readonly healthCheckGracePeriod: number;

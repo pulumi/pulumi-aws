@@ -15,11 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const current = aws.getCallerIdentity({});
  * const exampleKey = new aws.kms.Key("exampleKey", {
  *     customerMasterKeySpec: "ECC_NIST_P256",
  *     deletionWindowInDays: 7,
  *     keyUsage: "SIGN_VERIFY",
- *     policy: JSON.stringify({
+ *     policy: Promise.all([current, current]).then(([current, current1]) => JSON.stringify({
  *         Statement: [
  *             {
  *                 Action: [
@@ -33,6 +34,14 @@ import * as utilities from "../utilities";
  *                 },
  *                 Sid: "Allow Route 53 DNSSEC Service",
  *                 Resource: "*",
+ *                 Condition: {
+ *                     StringEquals: {
+ *                         "aws:SourceAccount": current.accountId,
+ *                     },
+ *                     ArnLike: {
+ *                         "aws:SourceArn": "arn:aws:route53:::hostedzone/*",
+ *                     },
+ *                 },
  *             },
  *             {
  *                 Action: "kms:CreateGrant",
@@ -52,14 +61,14 @@ import * as utilities from "../utilities";
  *                 Action: "kms:*",
  *                 Effect: "Allow",
  *                 Principal: {
- *                     AWS: "*",
+ *                     AWS: `arn:aws:iam::${current1.accountId}:root`,
  *                 },
  *                 Resource: "*",
- *                 Sid: "IAM User Permissions",
+ *                 Sid: "Enable IAM User Permissions",
  *             },
  *         ],
  *         Version: "2012-10-17",
- *     }),
+ *     })),
  * });
  * const exampleZone = new aws.route53.Zone("exampleZone", {});
  * const exampleKeySigningKey = new aws.route53.KeySigningKey("exampleKeySigningKey", {

@@ -25,6 +25,7 @@ __all__ = [
     'TopicRuleCloudwatchAlarm',
     'TopicRuleCloudwatchLog',
     'TopicRuleCloudwatchMetric',
+    'TopicRuleDestinationVpcConfiguration',
     'TopicRuleDynamodb',
     'TopicRuleDynamodbv2',
     'TopicRuleDynamodbv2PutItem',
@@ -38,8 +39,11 @@ __all__ = [
     'TopicRuleErrorActionDynamodbv2PutItem',
     'TopicRuleErrorActionElasticsearch',
     'TopicRuleErrorActionFirehose',
+    'TopicRuleErrorActionHttp',
+    'TopicRuleErrorActionHttpHttpHeader',
     'TopicRuleErrorActionIotAnalytics',
     'TopicRuleErrorActionIotEvents',
+    'TopicRuleErrorActionKafka',
     'TopicRuleErrorActionKinesis',
     'TopicRuleErrorActionLambda',
     'TopicRuleErrorActionRepublish',
@@ -47,9 +51,15 @@ __all__ = [
     'TopicRuleErrorActionSns',
     'TopicRuleErrorActionSqs',
     'TopicRuleErrorActionStepFunctions',
+    'TopicRuleErrorActionTimestream',
+    'TopicRuleErrorActionTimestreamDimension',
+    'TopicRuleErrorActionTimestreamTimestamp',
     'TopicRuleFirehose',
+    'TopicRuleHttp',
+    'TopicRuleHttpHttpHeader',
     'TopicRuleIotAnalytic',
     'TopicRuleIotEvent',
+    'TopicRuleKafka',
     'TopicRuleKinesis',
     'TopicRuleLambda',
     'TopicRuleRepublish',
@@ -57,6 +67,9 @@ __all__ = [
     'TopicRuleSns',
     'TopicRuleSqs',
     'TopicRuleStepFunction',
+    'TopicRuleTimestream',
+    'TopicRuleTimestreamDimension',
+    'TopicRuleTimestreamTimestamp',
 ]
 
 @pulumi.output_type
@@ -831,6 +844,81 @@ class TopicRuleCloudwatchMetric(dict):
 
 
 @pulumi.output_type
+class TopicRuleDestinationVpcConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "subnetIds":
+            suggest = "subnet_ids"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDestinationVpcConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDestinationVpcConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDestinationVpcConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: str,
+                 subnet_ids: Sequence[str],
+                 vpc_id: str,
+                 security_groups: Optional[Sequence[str]] = None):
+        """
+        :param str role_arn: The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+        :param Sequence[str] subnet_ids: The subnet IDs of the VPC destination.
+        :param str vpc_id: The ID of the VPC.
+        :param Sequence[str] security_groups: The security groups of the VPC destination.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Sequence[str]:
+        """
+        The subnet IDs of the VPC destination.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> str:
+        """
+        The ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        The security groups of the VPC destination.
+        """
+        return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
 class TopicRuleDynamodb(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1188,15 +1276,18 @@ class TopicRuleErrorAction(dict):
                  dynamodbv2: Optional['outputs.TopicRuleErrorActionDynamodbv2'] = None,
                  elasticsearch: Optional['outputs.TopicRuleErrorActionElasticsearch'] = None,
                  firehose: Optional['outputs.TopicRuleErrorActionFirehose'] = None,
+                 http: Optional['outputs.TopicRuleErrorActionHttp'] = None,
                  iot_analytics: Optional['outputs.TopicRuleErrorActionIotAnalytics'] = None,
                  iot_events: Optional['outputs.TopicRuleErrorActionIotEvents'] = None,
+                 kafka: Optional['outputs.TopicRuleErrorActionKafka'] = None,
                  kinesis: Optional['outputs.TopicRuleErrorActionKinesis'] = None,
                  lambda_: Optional['outputs.TopicRuleErrorActionLambda'] = None,
                  republish: Optional['outputs.TopicRuleErrorActionRepublish'] = None,
                  s3: Optional['outputs.TopicRuleErrorActionS3'] = None,
                  sns: Optional['outputs.TopicRuleErrorActionSns'] = None,
                  sqs: Optional['outputs.TopicRuleErrorActionSqs'] = None,
-                 step_functions: Optional['outputs.TopicRuleErrorActionStepFunctions'] = None):
+                 step_functions: Optional['outputs.TopicRuleErrorActionStepFunctions'] = None,
+                 timestream: Optional['outputs.TopicRuleErrorActionTimestream'] = None):
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
         if cloudwatch_logs is not None:
@@ -1211,10 +1302,14 @@ class TopicRuleErrorAction(dict):
             pulumi.set(__self__, "elasticsearch", elasticsearch)
         if firehose is not None:
             pulumi.set(__self__, "firehose", firehose)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
         if iot_analytics is not None:
             pulumi.set(__self__, "iot_analytics", iot_analytics)
         if iot_events is not None:
             pulumi.set(__self__, "iot_events", iot_events)
+        if kafka is not None:
+            pulumi.set(__self__, "kafka", kafka)
         if kinesis is not None:
             pulumi.set(__self__, "kinesis", kinesis)
         if lambda_ is not None:
@@ -1229,6 +1324,8 @@ class TopicRuleErrorAction(dict):
             pulumi.set(__self__, "sqs", sqs)
         if step_functions is not None:
             pulumi.set(__self__, "step_functions", step_functions)
+        if timestream is not None:
+            pulumi.set(__self__, "timestream", timestream)
 
     @property
     @pulumi.getter(name="cloudwatchAlarm")
@@ -1266,6 +1363,11 @@ class TopicRuleErrorAction(dict):
         return pulumi.get(self, "firehose")
 
     @property
+    @pulumi.getter
+    def http(self) -> Optional['outputs.TopicRuleErrorActionHttp']:
+        return pulumi.get(self, "http")
+
+    @property
     @pulumi.getter(name="iotAnalytics")
     def iot_analytics(self) -> Optional['outputs.TopicRuleErrorActionIotAnalytics']:
         return pulumi.get(self, "iot_analytics")
@@ -1274,6 +1376,11 @@ class TopicRuleErrorAction(dict):
     @pulumi.getter(name="iotEvents")
     def iot_events(self) -> Optional['outputs.TopicRuleErrorActionIotEvents']:
         return pulumi.get(self, "iot_events")
+
+    @property
+    @pulumi.getter
+    def kafka(self) -> Optional['outputs.TopicRuleErrorActionKafka']:
+        return pulumi.get(self, "kafka")
 
     @property
     @pulumi.getter
@@ -1309,6 +1416,11 @@ class TopicRuleErrorAction(dict):
     @pulumi.getter(name="stepFunctions")
     def step_functions(self) -> Optional['outputs.TopicRuleErrorActionStepFunctions']:
         return pulumi.get(self, "step_functions")
+
+    @property
+    @pulumi.getter
+    def timestream(self) -> Optional['outputs.TopicRuleErrorActionTimestream']:
+        return pulumi.get(self, "timestream")
 
 
 @pulumi.output_type
@@ -1914,6 +2026,96 @@ class TopicRuleErrorActionFirehose(dict):
 
 
 @pulumi.output_type
+class TopicRuleErrorActionHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confirmationUrl":
+            suggest = "confirmation_url"
+        elif key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionHttp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 confirmation_url: Optional[str] = None,
+                 http_headers: Optional[Sequence['outputs.TopicRuleErrorActionHttpHttpHeader']] = None):
+        """
+        :param str url: The HTTPS URL.
+        :param str confirmation_url: The HTTPS URL used to verify ownership of `url`.
+        :param Sequence['TopicRuleErrorActionHttpHttpHeaderArgs'] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        """
+        pulumi.set(__self__, "url", url)
+        if confirmation_url is not None:
+            pulumi.set(__self__, "confirmation_url", confirmation_url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The HTTPS URL.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="confirmationUrl")
+    def confirmation_url(self) -> Optional[str]:
+        """
+        The HTTPS URL used to verify ownership of `url`.
+        """
+        return pulumi.get(self, "confirmation_url")
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Sequence['outputs.TopicRuleErrorActionHttpHttpHeader']]:
+        """
+        Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        """
+        return pulumi.get(self, "http_headers")
+
+
+@pulumi.output_type
+class TopicRuleErrorActionHttpHttpHeader(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The name of the HTTP header.
+        :param str value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the HTTP header.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TopicRuleErrorActionIotAnalytics(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2021,6 +2223,89 @@ class TopicRuleErrorActionIotEvents(dict):
         Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         """
         return pulumi.get(self, "message_id")
+
+
+@pulumi.output_type
+class TopicRuleErrorActionKafka(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientProperties":
+            suggest = "client_properties"
+        elif key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionKafka. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionKafka.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionKafka.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_properties: Mapping[str, str],
+                 destination_arn: str,
+                 topic: str,
+                 key: Optional[str] = None,
+                 partition: Optional[str] = None):
+        """
+        :param Mapping[str, str] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        :param str destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        :param str topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param str key: The Kafka message key.
+        :param str partition: The Kafka message partition.
+        """
+        pulumi.set(__self__, "client_properties", client_properties)
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "topic", topic)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter(name="clientProperties")
+    def client_properties(self) -> Mapping[str, str]:
+        """
+        Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        """
+        return pulumi.get(self, "client_properties")
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> str:
+        """
+        The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> str:
+        """
+        The Kafka topic for messages to be sent to the Kafka broker.
+        """
+        return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The Kafka message key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[str]:
+        """
+        The Kafka message partition.
+        """
+        return pulumi.get(self, "partition")
 
 
 @pulumi.output_type
@@ -2187,6 +2472,8 @@ class TopicRuleErrorActionS3(dict):
             suggest = "bucket_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "cannedAcl":
+            suggest = "canned_acl"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionS3. Access the value via the '{suggest}' property getter instead.")
@@ -2202,15 +2489,19 @@ class TopicRuleErrorActionS3(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  key: str,
-                 role_arn: str):
+                 role_arn: str,
+                 canned_acl: Optional[str] = None):
         """
         :param str bucket_name: The Amazon S3 bucket name.
-        :param str key: The object key.
+        :param str key: The name of the HTTP header.
         :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param str canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
+        if canned_acl is not None:
+            pulumi.set(__self__, "canned_acl", canned_acl)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2224,7 +2515,7 @@ class TopicRuleErrorActionS3(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The object key.
+        The name of the HTTP header.
         """
         return pulumi.get(self, "key")
 
@@ -2235,6 +2526,14 @@ class TopicRuleErrorActionS3(dict):
         The IAM role ARN that allows access to the CloudWatch alarm.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="cannedAcl")
+    def canned_acl(self) -> Optional[str]:
+        """
+        The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        """
+        return pulumi.get(self, "canned_acl")
 
 
 @pulumi.output_type
@@ -2423,6 +2722,148 @@ class TopicRuleErrorActionStepFunctions(dict):
 
 
 @pulumi.output_type
+class TopicRuleErrorActionTimestream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleErrorActionTimestream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleErrorActionTimestream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleErrorActionTimestream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 dimensions: Sequence['outputs.TopicRuleErrorActionTimestreamDimension'],
+                 role_arn: str,
+                 table_name: str,
+                 timestamp: Optional['outputs.TopicRuleErrorActionTimestreamTimestamp'] = None):
+        """
+        :param str database_name: The name of an Amazon Timestream database.
+        :param Sequence['TopicRuleErrorActionTimestreamDimensionArgs'] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        :param str role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        :param str table_name: The name of the database table into which to write the measure records.
+        :param 'TopicRuleErrorActionTimestreamTimestampArgs' timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of an Amazon Timestream database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['outputs.TopicRuleErrorActionTimestreamDimension']:
+        """
+        Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the database table into which to write the measure records.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional['outputs.TopicRuleErrorActionTimestreamTimestamp']:
+        """
+        Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class TopicRuleErrorActionTimestreamDimension(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the rule.
+        :param str value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TopicRuleErrorActionTimestreamTimestamp(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: str):
+        """
+        :param str unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        :param str value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class TopicRuleFirehose(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2480,6 +2921,96 @@ class TopicRuleFirehose(dict):
         A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
         """
         return pulumi.get(self, "separator")
+
+
+@pulumi.output_type
+class TopicRuleHttp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "confirmationUrl":
+            suggest = "confirmation_url"
+        elif key == "httpHeaders":
+            suggest = "http_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleHttp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleHttp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleHttp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 url: str,
+                 confirmation_url: Optional[str] = None,
+                 http_headers: Optional[Sequence['outputs.TopicRuleHttpHttpHeader']] = None):
+        """
+        :param str url: The HTTPS URL.
+        :param str confirmation_url: The HTTPS URL used to verify ownership of `url`.
+        :param Sequence['TopicRuleHttpHttpHeaderArgs'] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        """
+        pulumi.set(__self__, "url", url)
+        if confirmation_url is not None:
+            pulumi.set(__self__, "confirmation_url", confirmation_url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        The HTTPS URL.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="confirmationUrl")
+    def confirmation_url(self) -> Optional[str]:
+        """
+        The HTTPS URL used to verify ownership of `url`.
+        """
+        return pulumi.get(self, "confirmation_url")
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[Sequence['outputs.TopicRuleHttpHttpHeader']]:
+        """
+        Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        """
+        return pulumi.get(self, "http_headers")
+
+
+@pulumi.output_type
+class TopicRuleHttpHttpHeader(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: The name of the HTTP header.
+        :param str value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The name of the HTTP header.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -2590,6 +3121,89 @@ class TopicRuleIotEvent(dict):
         Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
         """
         return pulumi.get(self, "message_id")
+
+
+@pulumi.output_type
+class TopicRuleKafka(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientProperties":
+            suggest = "client_properties"
+        elif key == "destinationArn":
+            suggest = "destination_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleKafka. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleKafka.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleKafka.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_properties: Mapping[str, str],
+                 destination_arn: str,
+                 topic: str,
+                 key: Optional[str] = None,
+                 partition: Optional[str] = None):
+        """
+        :param Mapping[str, str] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        :param str destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        :param str topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param str key: The Kafka message key.
+        :param str partition: The Kafka message partition.
+        """
+        pulumi.set(__self__, "client_properties", client_properties)
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "topic", topic)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter(name="clientProperties")
+    def client_properties(self) -> Mapping[str, str]:
+        """
+        Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        """
+        return pulumi.get(self, "client_properties")
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> str:
+        """
+        The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter
+    def topic(self) -> str:
+        """
+        The Kafka topic for messages to be sent to the Kafka broker.
+        """
+        return pulumi.get(self, "topic")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        """
+        The Kafka message key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[str]:
+        """
+        The Kafka message partition.
+        """
+        return pulumi.get(self, "partition")
 
 
 @pulumi.output_type
@@ -2756,6 +3370,8 @@ class TopicRuleS3(dict):
             suggest = "bucket_name"
         elif key == "roleArn":
             suggest = "role_arn"
+        elif key == "cannedAcl":
+            suggest = "canned_acl"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TopicRuleS3. Access the value via the '{suggest}' property getter instead.")
@@ -2771,15 +3387,19 @@ class TopicRuleS3(dict):
     def __init__(__self__, *,
                  bucket_name: str,
                  key: str,
-                 role_arn: str):
+                 role_arn: str,
+                 canned_acl: Optional[str] = None):
         """
         :param str bucket_name: The Amazon S3 bucket name.
-        :param str key: The object key.
+        :param str key: The name of the HTTP header.
         :param str role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param str canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
+        if canned_acl is not None:
+            pulumi.set(__self__, "canned_acl", canned_acl)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2793,7 +3413,7 @@ class TopicRuleS3(dict):
     @pulumi.getter
     def key(self) -> str:
         """
-        The object key.
+        The name of the HTTP header.
         """
         return pulumi.get(self, "key")
 
@@ -2804,6 +3424,14 @@ class TopicRuleS3(dict):
         The IAM role ARN that allows access to the CloudWatch alarm.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="cannedAcl")
+    def canned_acl(self) -> Optional[str]:
+        """
+        The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        """
+        return pulumi.get(self, "canned_acl")
 
 
 @pulumi.output_type
@@ -2989,5 +3617,147 @@ class TopicRuleStepFunction(dict):
         The prefix used to generate, along with a UUID, the unique state machine execution name.
         """
         return pulumi.get(self, "execution_name_prefix")
+
+
+@pulumi.output_type
+class TopicRuleTimestream(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleTimestream. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleTimestream.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleTimestream.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 dimensions: Sequence['outputs.TopicRuleTimestreamDimension'],
+                 role_arn: str,
+                 table_name: str,
+                 timestamp: Optional['outputs.TopicRuleTimestreamTimestamp'] = None):
+        """
+        :param str database_name: The name of an Amazon Timestream database.
+        :param Sequence['TopicRuleTimestreamDimensionArgs'] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        :param str role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        :param str table_name: The name of the database table into which to write the measure records.
+        :param 'TopicRuleTimestreamTimestampArgs' timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of an Amazon Timestream database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> Sequence['outputs.TopicRuleTimestreamDimension']:
+        """
+        Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        """
+        The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the database table into which to write the measure records.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional['outputs.TopicRuleTimestreamTimestamp']:
+        """
+        Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        """
+        return pulumi.get(self, "timestamp")
+
+
+@pulumi.output_type
+class TopicRuleTimestreamDimension(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: str):
+        """
+        :param str name: The name of the rule.
+        :param str value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TopicRuleTimestreamTimestamp(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: str):
+        """
+        :param str unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        :param str value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
 
 

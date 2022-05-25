@@ -10,6 +10,7 @@ from .configuration_profile import *
 from .deployment import *
 from .deployment_strategy import *
 from .environment import *
+from .event_integration import *
 from .hosted_configuration_version import *
 from ._inputs import *
 from . import outputs

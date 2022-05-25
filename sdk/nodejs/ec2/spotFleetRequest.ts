@@ -142,6 +142,12 @@ export class SpotFleetRequest extends pulumi.CustomResource {
     public readonly targetGroupArns!: pulumi.Output<string[]>;
     /**
      * Indicates whether running Spot
+     * instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+     * If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+     */
+    public readonly terminateInstancesOnDelete!: pulumi.Output<string | undefined>;
+    /**
+     * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.
      */
     public readonly terminateInstancesWithExpiration!: pulumi.Output<boolean | undefined>;
@@ -194,6 +200,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["targetCapacity"] = state ? state.targetCapacity : undefined;
             resourceInputs["targetGroupArns"] = state ? state.targetGroupArns : undefined;
+            resourceInputs["terminateInstancesOnDelete"] = state ? state.terminateInstancesOnDelete : undefined;
             resourceInputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
             resourceInputs["validFrom"] = state ? state.validFrom : undefined;
             resourceInputs["validUntil"] = state ? state.validUntil : undefined;
@@ -224,6 +231,7 @@ export class SpotFleetRequest extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["targetCapacity"] = args ? args.targetCapacity : undefined;
             resourceInputs["targetGroupArns"] = args ? args.targetGroupArns : undefined;
+            resourceInputs["terminateInstancesOnDelete"] = args ? args.terminateInstancesOnDelete : undefined;
             resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
             resourceInputs["validFrom"] = args ? args.validFrom : undefined;
             resourceInputs["validUntil"] = args ? args.validUntil : undefined;
@@ -341,6 +349,12 @@ export interface SpotFleetRequestState {
     targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Indicates whether running Spot
+     * instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+     * If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+     */
+    terminateInstancesOnDelete?: pulumi.Input<string>;
+    /**
+     * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.
      */
     terminateInstancesWithExpiration?: pulumi.Input<boolean>;
@@ -453,6 +467,12 @@ export interface SpotFleetRequestArgs {
      * A list of `aws.alb.TargetGroup` ARNs, for use with Application Load Balancing.
      */
     targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates whether running Spot
+     * instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+     * If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+     */
+    terminateInstancesOnDelete?: pulumi.Input<string>;
     /**
      * Indicates whether running Spot
      * instances should be terminated when the Spot fleet request expires.

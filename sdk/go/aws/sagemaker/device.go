@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Sagemaker Device resource.
+// Provides a SageMaker Device resource.
 //
 // ## Example Usage
 // ### Basic usage
@@ -42,7 +42,7 @@ import (
 //
 // ## Import
 //
-// Sagemaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
+// SageMaker Devices can be imported using the `device-fleet-name/device-name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device

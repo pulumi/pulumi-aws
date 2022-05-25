@@ -58,6 +58,8 @@ type LookupGroupResult struct {
 	DefaultCooldown   int      `pulumi:"defaultCooldown"`
 	// The desired size of the group.
 	DesiredCapacity int `pulumi:"desiredCapacity"`
+	// The list of metrics enabled for collection.
+	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
 	HealthCheckGracePeriod int `pulumi:"healthCheckGracePeriod"`
 	// The service to use for the health checks. The valid values are EC2 and ELB.
@@ -145,6 +147,11 @@ func (o LookupGroupResultOutput) DefaultCooldown() pulumi.IntOutput {
 // The desired size of the group.
 func (o LookupGroupResultOutput) DesiredCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupGroupResult) int { return v.DesiredCapacity }).(pulumi.IntOutput)
+}
+
+// The list of metrics enabled for collection.
+func (o LookupGroupResultOutput) EnabledMetrics() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupGroupResult) []string { return v.EnabledMetrics }).(pulumi.StringArrayOutput)
 }
 
 // The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.

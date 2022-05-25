@@ -23,20 +23,22 @@ class CertificateArgs:
                  private_key: Optional[pulumi.Input[str]] = None,
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 validation_method: Optional[pulumi.Input[str]] = None):
+                 validation_method: Optional[pulumi.Input[str]] = None,
+                 validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] certificate_authority_arn: ARN of an ACM PCA
         :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
                * Creating a private CA issued certificate
-        :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
+        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
-               * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource..
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+               * Importing an existing certificate
         """
         if certificate_authority_arn is not None:
             pulumi.set(__self__, "certificate_authority_arn", certificate_authority_arn)
@@ -56,6 +58,8 @@ class CertificateArgs:
             pulumi.set(__self__, "tags", tags)
         if validation_method is not None:
             pulumi.set(__self__, "validation_method", validation_method)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
 
     @property
     @pulumi.getter(name="certificateAuthorityArn")
@@ -98,7 +102,7 @@ class CertificateArgs:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A domain name for which the certificate should be issued
+        A fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -111,7 +115,6 @@ class CertificateArgs:
     def options(self) -> Optional[pulumi.Input['CertificateOptionsArgs']]:
         """
         Configuration block used to set certificate options. Detailed below.
-        * Importing an existing certificate
         """
         return pulumi.get(self, "options")
 
@@ -167,6 +170,19 @@ class CertificateArgs:
     def validation_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "validation_method", value)
 
+    @property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]:
+        """
+        Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+        * Importing an existing certificate
+        """
+        return pulumi.get(self, "validation_options")
+
+    @validation_options.setter
+    def validation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]):
+        pulumi.set(self, "validation_options", value)
+
 
 @pulumi.input_type
 class _CertificateState:
@@ -184,7 +200,8 @@ class _CertificateState:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 validation_method: Optional[pulumi.Input[str]] = None):
+                 validation_method: Optional[pulumi.Input[str]] = None,
+                 validation_options: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[str] arn: The ARN of the certificate
@@ -192,10 +209,9 @@ class _CertificateState:
         :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
                * Creating a private CA issued certificate
-        :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
+        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
-               * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[str] status: Status of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
@@ -203,6 +219,8 @@ class _CertificateState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+               * Importing an existing certificate
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -232,6 +250,8 @@ class _CertificateState:
             pulumi.set(__self__, "validation_emails", validation_emails)
         if validation_method is not None:
             pulumi.set(__self__, "validation_method", validation_method)
+        if validation_options is not None:
+            pulumi.set(__self__, "validation_options", validation_options)
 
     @property
     @pulumi.getter
@@ -286,7 +306,7 @@ class _CertificateState:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A domain name for which the certificate should be issued
+        A fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -311,7 +331,6 @@ class _CertificateState:
     def options(self) -> Optional[pulumi.Input['CertificateOptionsArgs']]:
         """
         Configuration block used to set certificate options. Detailed below.
-        * Importing an existing certificate
         """
         return pulumi.get(self, "options")
 
@@ -403,6 +422,19 @@ class _CertificateState:
     def validation_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "validation_method", value)
 
+    @property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]:
+        """
+        Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+        * Importing an existing certificate
+        """
+        return pulumi.get(self, "validation_options")
+
+    @validation_options.setter
+    def validation_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CertificateValidationOptionArgs']]]]):
+        pulumi.set(self, "validation_options", value)
+
 
 class Certificate(pulumi.CustomResource):
     @overload
@@ -418,6 +450,7 @@ class Certificate(pulumi.CustomResource):
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
+                 validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]]] = None,
                  __props__=None):
         """
         The ACM certificate resource allows requesting and management of certificates
@@ -448,6 +481,20 @@ class Certificate(pulumi.CustomResource):
                 "Environment": "test",
             },
             validation_method="DNS")
+        ```
+        ### Custom Domain Validation Options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.acm.Certificate("cert",
+            domain_name="testing.example.com",
+            validation_method="EMAIL",
+            validation_options=[aws.acm.CertificateValidationOptionArgs(
+                domain_name="testing.example.com",
+                validation_domain="example.com",
+            )])
         ```
         ### Existing Certificate Body Import
 
@@ -511,13 +558,14 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
                * Creating a private CA issued certificate
-        :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
+        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
-               * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource..
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+               * Importing an existing certificate
         """
         ...
     @overload
@@ -554,6 +602,20 @@ class Certificate(pulumi.CustomResource):
                 "Environment": "test",
             },
             validation_method="DNS")
+        ```
+        ### Custom Domain Validation Options
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        cert = aws.acm.Certificate("cert",
+            domain_name="testing.example.com",
+            validation_method="EMAIL",
+            validation_options=[aws.acm.CertificateValidationOptionArgs(
+                domain_name="testing.example.com",
+                validation_domain="example.com",
+            )])
         ```
         ### Existing Certificate Body Import
 
@@ -635,6 +697,7 @@ class Certificate(pulumi.CustomResource):
                  subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  validation_method: Optional[pulumi.Input[str]] = None,
+                 validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -656,6 +719,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["subject_alternative_names"] = subject_alternative_names
             __props__.__dict__["tags"] = tags
             __props__.__dict__["validation_method"] = validation_method
+            __props__.__dict__["validation_options"] = validation_options
             __props__.__dict__["arn"] = None
             __props__.__dict__["domain_validation_options"] = None
             __props__.__dict__["status"] = None
@@ -684,7 +748,8 @@ class Certificate(pulumi.CustomResource):
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             validation_emails: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            validation_method: Optional[pulumi.Input[str]] = None) -> 'Certificate':
+            validation_method: Optional[pulumi.Input[str]] = None,
+            validation_options: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -697,10 +762,9 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_body: The certificate's PEM-formatted public key
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
                * Creating a private CA issued certificate
-        :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
+        :param pulumi.Input[str] domain_name: A fully qualified domain name (FQDN) in the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
-               * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
         :param pulumi.Input[str] status: Status of the certificate.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subject_alternative_names: Set of domains that should be SANs in the issued certificate. To remove all elements of a previously configured list, set this value equal to an empty list (`[]`).
@@ -708,6 +772,8 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] validation_emails: A list of addresses that received a validation E-Mail. Only set if `EMAIL`-validation was used.
         :param pulumi.Input[str] validation_method: Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateValidationOptionArgs']]]] validation_options: Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+               * Importing an existing certificate
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -727,6 +793,7 @@ class Certificate(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["validation_emails"] = validation_emails
         __props__.__dict__["validation_method"] = validation_method
+        __props__.__dict__["validation_options"] = validation_options
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -766,7 +833,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
         """
-        A domain name for which the certificate should be issued
+        A fully qualified domain name (FQDN) in the certificate.
         """
         return pulumi.get(self, "domain_name")
 
@@ -783,7 +850,6 @@ class Certificate(pulumi.CustomResource):
     def options(self) -> pulumi.Output[Optional['outputs.CertificateOptions']]:
         """
         Configuration block used to set certificate options. Detailed below.
-        * Importing an existing certificate
         """
         return pulumi.get(self, "options")
 
@@ -842,4 +908,13 @@ class Certificate(pulumi.CustomResource):
         Which method to use for validation. `DNS` or `EMAIL` are valid, `NONE` can be used for certificates that were imported into ACM and then into the provider.
         """
         return pulumi.get(self, "validation_method")
+
+    @property
+    @pulumi.getter(name="validationOptions")
+    def validation_options(self) -> pulumi.Output[Optional[Sequence['outputs.CertificateValidationOption']]]:
+        """
+        Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+        * Importing an existing certificate
+        """
+        return pulumi.get(self, "validation_options")
 

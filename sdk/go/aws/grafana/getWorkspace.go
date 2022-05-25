@@ -46,6 +46,8 @@ func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pul
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceArgs struct {
+	// The tags assigned to the resource
+	Tags map[string]string `pulumi:"tags"`
 	// The Grafana workspace ID.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -88,8 +90,10 @@ type LookupWorkspaceResult struct {
 	// The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
 	StackSetName string `pulumi:"stackSetName"`
 	// The status of the Grafana workspace.
-	Status      string `pulumi:"status"`
-	WorkspaceId string `pulumi:"workspaceId"`
+	Status string `pulumi:"status"`
+	// The tags assigned to the resource
+	Tags        map[string]string `pulumi:"tags"`
+	WorkspaceId string            `pulumi:"workspaceId"`
 }
 
 func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
@@ -107,6 +111,8 @@ func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, 
 
 // A collection of arguments for invoking getWorkspace.
 type LookupWorkspaceOutputArgs struct {
+	// The tags assigned to the resource
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The Grafana workspace ID.
 	WorkspaceId pulumi.StringInput `pulumi:"workspaceId"`
 }
@@ -222,6 +228,11 @@ func (o LookupWorkspaceResultOutput) StackSetName() pulumi.StringOutput {
 // The status of the Grafana workspace.
 func (o LookupWorkspaceResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWorkspaceResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The tags assigned to the resource
+func (o LookupWorkspaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupWorkspaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o LookupWorkspaceResultOutput) WorkspaceId() pulumi.StringOutput {

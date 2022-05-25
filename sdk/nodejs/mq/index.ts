@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./broker";
 export * from "./configuration";
 export * from "./getBroker";
+export * from "./getInstanceTypeOfferings";
 
 // Import resources to register:
 import { Broker } from "./broker";

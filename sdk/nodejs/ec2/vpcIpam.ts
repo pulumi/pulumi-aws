@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a IPAM resource.
+ * Provides an IPAM resource.
  *
  * ## Import
  *

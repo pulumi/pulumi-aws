@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Domain resource.
+ * Provides a SageMaker Domain resource.
  *
  * ## Example Usage
  * ### Basic usage
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Code Domains can be imported using the `id`, e.g.,
+ * SageMaker Code Domains can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8

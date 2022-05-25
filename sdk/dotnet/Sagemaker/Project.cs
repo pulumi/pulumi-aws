@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Project resource.
+    /// Provides a SageMaker Project resource.
     /// 
-    ///  &gt; Note: If you are trying to use Sagemaker projects with Sagemaker studio you will need to add a tag with the key `sagemaker:studio-visibility` with value `true`. For more on requirements to use projects and permission needed see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html).
+    ///  &gt; Note: If you are trying to use SageMaker projects with SageMaker studio you will need to add a tag with the key `sagemaker:studio-visibility` with value `true`. For more on requirements to use projects and permission needed see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html).
     /// 
     /// ## Example Usage
     /// 
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Projects can be imported using the `project_name`, e.g.,
+    /// SageMaker Projects can be imported using the `project_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/project:Project example example

@@ -18,6 +18,9 @@ func GetAllowedAccountIds(ctx *pulumi.Context) string {
 func GetAssumeRole(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:assumeRole")
 }
+func GetAssumeRoleWithWebIdentity(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:assumeRoleWithWebIdentity")
+}
 
 // File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
 // variable. (Setting `ca_bundle` in the shared config file is not supported.)

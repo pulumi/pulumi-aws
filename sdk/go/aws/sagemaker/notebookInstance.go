@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Sagemaker Notebook Instance resource.
+// Provides a SageMaker Notebook Instance resource.
 //
 // ## Example Usage
 // ### Basic usage
@@ -79,7 +79,7 @@ import (
 //
 // ## Import
 //
-// Sagemaker Notebook Instances can be imported using the `name`, e.g.,
+// SageMaker Notebook Instances can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance

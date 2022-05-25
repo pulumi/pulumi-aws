@@ -51,6 +51,8 @@ if typing.TYPE_CHECKING:
     appautoscaling = __appautoscaling
     import pulumi_aws.appconfig as __appconfig
     appconfig = __appconfig
+    import pulumi_aws.appflow as __appflow
+    appflow = __appflow
     import pulumi_aws.applicationloadbalancing as __applicationloadbalancing
     applicationloadbalancing = __applicationloadbalancing
     import pulumi_aws.appmesh as __appmesh
@@ -113,6 +115,8 @@ if typing.TYPE_CHECKING:
     config = __config
     import pulumi_aws.connect as __connect
     connect = __connect
+    import pulumi_aws.costexplorer as __costexplorer
+    costexplorer = __costexplorer
     import pulumi_aws.cur as __cur
     cur = __cur
     import pulumi_aws.dataexchange as __dataexchange
@@ -173,6 +177,8 @@ if typing.TYPE_CHECKING:
     elb = __elb
     import pulumi_aws.emr as __emr
     emr = __emr
+    import pulumi_aws.emrcontainers as __emrcontainers
+    emrcontainers = __emrcontainers
     import pulumi_aws.fms as __fms
     fms = __fms
     import pulumi_aws.fsx as __fsx
@@ -219,6 +225,8 @@ if typing.TYPE_CHECKING:
     licensemanager = __licensemanager
     import pulumi_aws.lightsail as __lightsail
     lightsail = __lightsail
+    import pulumi_aws.location as __location
+    location = __location
     import pulumi_aws.macie as __macie
     macie = __macie
     import pulumi_aws.macie2 as __macie2
@@ -353,6 +361,7 @@ else:
     apigatewayv2 = _utilities.lazy_import('pulumi_aws.apigatewayv2')
     appautoscaling = _utilities.lazy_import('pulumi_aws.appautoscaling')
     appconfig = _utilities.lazy_import('pulumi_aws.appconfig')
+    appflow = _utilities.lazy_import('pulumi_aws.appflow')
     applicationloadbalancing = _utilities.lazy_import('pulumi_aws.applicationloadbalancing')
     appmesh = _utilities.lazy_import('pulumi_aws.appmesh')
     apprunner = _utilities.lazy_import('pulumi_aws.apprunner')
@@ -384,6 +393,7 @@ else:
     cognito = _utilities.lazy_import('pulumi_aws.cognito')
     config = _utilities.lazy_import('pulumi_aws.config')
     connect = _utilities.lazy_import('pulumi_aws.connect')
+    costexplorer = _utilities.lazy_import('pulumi_aws.costexplorer')
     cur = _utilities.lazy_import('pulumi_aws.cur')
     dataexchange = _utilities.lazy_import('pulumi_aws.dataexchange')
     datapipeline = _utilities.lazy_import('pulumi_aws.datapipeline')
@@ -414,6 +424,7 @@ else:
     elastictranscoder = _utilities.lazy_import('pulumi_aws.elastictranscoder')
     elb = _utilities.lazy_import('pulumi_aws.elb')
     emr = _utilities.lazy_import('pulumi_aws.emr')
+    emrcontainers = _utilities.lazy_import('pulumi_aws.emrcontainers')
     fms = _utilities.lazy_import('pulumi_aws.fms')
     fsx = _utilities.lazy_import('pulumi_aws.fsx')
     gamelift = _utilities.lazy_import('pulumi_aws.gamelift')
@@ -437,6 +448,7 @@ else:
     lex = _utilities.lazy_import('pulumi_aws.lex')
     licensemanager = _utilities.lazy_import('pulumi_aws.licensemanager')
     lightsail = _utilities.lazy_import('pulumi_aws.lightsail')
+    location = _utilities.lazy_import('pulumi_aws.location')
     macie = _utilities.lazy_import('pulumi_aws.macie')
     macie2 = _utilities.lazy_import('pulumi_aws.macie2')
     mediaconvert = _utilities.lazy_import('pulumi_aws.mediaconvert')
@@ -1024,10 +1036,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appconfig/eventIntegration",
+  "fqn": "pulumi_aws.appconfig",
+  "classes": {
+   "aws:appconfig/eventIntegration:EventIntegration": "EventIntegration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appconfig/hostedConfigurationVersion",
   "fqn": "pulumi_aws.appconfig",
   "classes": {
    "aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion": "HostedConfigurationVersion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appflow/connectorProfile",
+  "fqn": "pulumi_aws.appflow",
+  "classes": {
+   "aws:appflow/connectorProfile:ConnectorProfile": "ConnectorProfile"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appflow/flow",
+  "fqn": "pulumi_aws.appflow",
+  "classes": {
+   "aws:appflow/flow:Flow": "Flow"
   }
  },
  {
@@ -1292,6 +1328,14 @@ _utilities.register(
   "fqn": "pulumi_aws.appsync",
   "classes": {
    "aws:appsync/resolver:Resolver": "Resolver"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "athena/dataCatalog",
+  "fqn": "pulumi_aws.athena",
+  "classes": {
+   "aws:athena/dataCatalog:DataCatalog": "DataCatalog"
   }
  },
  {
@@ -2360,10 +2404,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "connect/userHierarchyGroup",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/userHierarchyGroup:UserHierarchyGroup": "UserHierarchyGroup"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/userHierarchyStructure",
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/userHierarchyStructure:UserHierarchyStructure": "UserHierarchyStructure"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "costexplorer/costCategory",
+  "fqn": "pulumi_aws.costexplorer",
+  "classes": {
+   "aws:costexplorer/costCategory:CostCategory": "CostCategory"
   }
  },
  {
@@ -2836,6 +2896,14 @@ _utilities.register(
   "fqn": "pulumi_aws.docdb",
   "classes": {
    "aws:docdb/clusterSnapshot:ClusterSnapshot": "ClusterSnapshot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "docdb/eventSubscription",
+  "fqn": "pulumi_aws.docdb",
+  "classes": {
+   "aws:docdb/eventSubscription:EventSubscription": "EventSubscription"
   }
  },
  {
@@ -4408,6 +4476,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "emrcontainers/virtualCluster",
+  "fqn": "pulumi_aws.emrcontainers",
+  "classes": {
+   "aws:emrcontainers/virtualCluster:VirtualCluster": "VirtualCluster"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "fms/adminAccount",
   "fqn": "pulumi_aws.fms",
   "classes": {
@@ -5240,6 +5316,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iot/topicRuleDestination",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/topicRuleDestination:TopicRuleDestination": "TopicRuleDestination"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "keyspaces/keyspace",
   "fqn": "pulumi_aws.keyspaces",
   "classes": {
@@ -5612,6 +5696,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lightsail",
   "classes": {
    "aws:lightsail/staticIpAttachment:StaticIpAttachment": "StaticIpAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "location/map",
+  "fqn": "pulumi_aws.location",
+  "classes": {
+   "aws:location/map:Map": "Map"
   }
  },
  {

@@ -151,7 +151,7 @@ import (
 // 						&cloudtrail.TrailEventSelectorDataResourceArgs{
 // 							Type: pulumi.String("AWS::S3::Object"),
 // 							Values: pulumi.StringArray{
-// 								pulumi.String("arn:aws:s3:::"),
+// 								pulumi.String("arn:aws:s3"),
 // 							},
 // 						},
 // 					},

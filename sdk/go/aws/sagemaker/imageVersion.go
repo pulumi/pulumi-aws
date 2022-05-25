@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Sagemaker Image Version resource.
+// Provides a SageMaker Image Version resource.
 //
 // ## Example Usage
 // ### Basic usage
@@ -40,7 +40,7 @@ import (
 //
 // ## Import
 //
-// Sagemaker Image Versions can be imported using the `name`, e.g.,
+// SageMaker Image Versions can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo

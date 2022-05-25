@@ -253,11 +253,15 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * Version number of the cache engine to be used for the cache clusters in this replication group.
+     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+     * Otherwise, specify the full version desired, e.g., `5.0.6`.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
-     * Running version of the cache engine.
+     * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      */
     public /*out*/ readonly engineVersionActual!: pulumi.Output<string>;
     /**
@@ -557,11 +561,15 @@ export interface ReplicationGroupState {
      */
     engine?: pulumi.Input<string>;
     /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * Version number of the cache engine to be used for the cache clusters in this replication group.
+     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+     * Otherwise, specify the full version desired, e.g., `5.0.6`.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
-     * Running version of the cache engine.
+     * Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
      */
     engineVersionActual?: pulumi.Input<string>;
     /**
@@ -737,7 +745,11 @@ export interface ReplicationGroupArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+     * Version number of the cache engine to be used for the cache clusters in this replication group.
+     * If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+     * or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+     * Otherwise, specify the full version desired, e.g., `5.0.6`.
+     * The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
      */
     engineVersion?: pulumi.Input<string>;
     /**

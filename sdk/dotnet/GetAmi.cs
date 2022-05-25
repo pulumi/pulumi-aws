@@ -325,6 +325,10 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string CreationDate;
         /// <summary>
+        /// The date and time when the image will be deprecated.
+        /// </summary>
+        public readonly string DeprecationTime;
+        /// <summary>
         /// The description of the AMI that was provided during image
         /// creation.
         /// </summary>
@@ -455,6 +459,8 @@ namespace Pulumi.Aws
 
             string creationDate,
 
+            string deprecationTime,
+
             string description,
 
             bool enaSupport,
@@ -520,6 +526,7 @@ namespace Pulumi.Aws
             BlockDeviceMappings = blockDeviceMappings;
             BootMode = bootMode;
             CreationDate = creationDate;
+            DeprecationTime = deprecationTime;
             Description = description;
             EnaSupport = enaSupport;
             ExecutableUsers = executableUsers;

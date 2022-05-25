@@ -189,28 +189,70 @@ namespace Pulumi.Aws.Ssm
     [OutputType]
     public sealed class GetPatchBaselineResult
     {
+        /// <summary>
+        /// A list of rules used to include patches in the baseline.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPatchBaselineApprovalRuleResult> ApprovalRules;
+        /// <summary>
+        /// A list of explicitly approved patches for the baseline.
+        /// </summary>
+        public readonly ImmutableArray<string> ApprovedPatches;
+        /// <summary>
+        /// The compliance level for approved patches.
+        /// </summary>
+        public readonly string ApprovedPatchesComplianceLevel;
+        /// <summary>
+        /// Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+        /// </summary>
+        public readonly bool ApprovedPatchesEnableNonSecurity;
         public readonly bool? DefaultBaseline;
         /// <summary>
         /// The description of the baseline.
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// A set of global filters used to exclude patches from the baseline.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPatchBaselineGlobalFilterResult> GlobalFilters;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of the baseline.
+        /// The name specified to identify the patch source.
         /// </summary>
         public readonly string Name;
         public readonly string? NamePrefix;
         public readonly string? OperatingSystem;
         public readonly string Owner;
+        /// <summary>
+        /// A list of rejected patches.
+        /// </summary>
+        public readonly ImmutableArray<string> RejectedPatches;
+        /// <summary>
+        /// The action specified to take on patches included in the `rejected_patches` list.
+        /// </summary>
+        public readonly string RejectedPatchesAction;
+        /// <summary>
+        /// Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetPatchBaselineSourceResult> Sources;
 
         [OutputConstructor]
         private GetPatchBaselineResult(
+            ImmutableArray<Outputs.GetPatchBaselineApprovalRuleResult> approvalRules,
+
+            ImmutableArray<string> approvedPatches,
+
+            string approvedPatchesComplianceLevel,
+
+            bool approvedPatchesEnableNonSecurity,
+
             bool? defaultBaseline,
 
             string description,
+
+            ImmutableArray<Outputs.GetPatchBaselineGlobalFilterResult> globalFilters,
 
             string id,
 
@@ -220,15 +262,29 @@ namespace Pulumi.Aws.Ssm
 
             string? operatingSystem,
 
-            string owner)
+            string owner,
+
+            ImmutableArray<string> rejectedPatches,
+
+            string rejectedPatchesAction,
+
+            ImmutableArray<Outputs.GetPatchBaselineSourceResult> sources)
         {
+            ApprovalRules = approvalRules;
+            ApprovedPatches = approvedPatches;
+            ApprovedPatchesComplianceLevel = approvedPatchesComplianceLevel;
+            ApprovedPatchesEnableNonSecurity = approvedPatchesEnableNonSecurity;
             DefaultBaseline = defaultBaseline;
             Description = description;
+            GlobalFilters = globalFilters;
             Id = id;
             Name = name;
             NamePrefix = namePrefix;
             OperatingSystem = operatingSystem;
             Owner = owner;
+            RejectedPatches = rejectedPatches;
+            RejectedPatchesAction = rejectedPatchesAction;
+            Sources = sources;
         }
     }
 }

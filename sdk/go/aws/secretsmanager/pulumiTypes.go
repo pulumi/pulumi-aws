@@ -605,6 +605,112 @@ func (o GetSecretRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSecretRota
 	}).(GetSecretRotationRuleOutput)
 }
 
+type GetSecretsFilter struct {
+	// The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetSecretsFilterInput is an input type that accepts GetSecretsFilterArgs and GetSecretsFilterOutput values.
+// You can construct a concrete instance of `GetSecretsFilterInput` via:
+//
+//          GetSecretsFilterArgs{...}
+type GetSecretsFilterInput interface {
+	pulumi.Input
+
+	ToGetSecretsFilterOutput() GetSecretsFilterOutput
+	ToGetSecretsFilterOutputWithContext(context.Context) GetSecretsFilterOutput
+}
+
+type GetSecretsFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetSecretsFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretsFilter)(nil)).Elem()
+}
+
+func (i GetSecretsFilterArgs) ToGetSecretsFilterOutput() GetSecretsFilterOutput {
+	return i.ToGetSecretsFilterOutputWithContext(context.Background())
+}
+
+func (i GetSecretsFilterArgs) ToGetSecretsFilterOutputWithContext(ctx context.Context) GetSecretsFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsFilterOutput)
+}
+
+// GetSecretsFilterArrayInput is an input type that accepts GetSecretsFilterArray and GetSecretsFilterArrayOutput values.
+// You can construct a concrete instance of `GetSecretsFilterArrayInput` via:
+//
+//          GetSecretsFilterArray{ GetSecretsFilterArgs{...} }
+type GetSecretsFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetSecretsFilterArrayOutput() GetSecretsFilterArrayOutput
+	ToGetSecretsFilterArrayOutputWithContext(context.Context) GetSecretsFilterArrayOutput
+}
+
+type GetSecretsFilterArray []GetSecretsFilterInput
+
+func (GetSecretsFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretsFilter)(nil)).Elem()
+}
+
+func (i GetSecretsFilterArray) ToGetSecretsFilterArrayOutput() GetSecretsFilterArrayOutput {
+	return i.ToGetSecretsFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetSecretsFilterArray) ToGetSecretsFilterArrayOutputWithContext(ctx context.Context) GetSecretsFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSecretsFilterArrayOutput)
+}
+
+type GetSecretsFilterOutput struct{ *pulumi.OutputState }
+
+func (GetSecretsFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSecretsFilter)(nil)).Elem()
+}
+
+func (o GetSecretsFilterOutput) ToGetSecretsFilterOutput() GetSecretsFilterOutput {
+	return o
+}
+
+func (o GetSecretsFilterOutput) ToGetSecretsFilterOutputWithContext(ctx context.Context) GetSecretsFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+func (o GetSecretsFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSecretsFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetSecretsFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSecretsFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetSecretsFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSecretsFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSecretsFilter)(nil)).Elem()
+}
+
+func (o GetSecretsFilterArrayOutput) ToGetSecretsFilterArrayOutput() GetSecretsFilterArrayOutput {
+	return o
+}
+
+func (o GetSecretsFilterArrayOutput) ToGetSecretsFilterArrayOutputWithContext(ctx context.Context) GetSecretsFilterArrayOutput {
+	return o
+}
+
+func (o GetSecretsFilterArrayOutput) Index(i pulumi.IntInput) GetSecretsFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSecretsFilter {
+		return vs[0].([]GetSecretsFilter)[vs[1].(int)]
+	}).(GetSecretsFilterOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaInput)(nil)).Elem(), SecretReplicaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaArrayInput)(nil)).Elem(), SecretReplicaArray{})
@@ -616,6 +722,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRotationRuleArrayInput)(nil)).Elem(), GetSecretRotationRotationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRuleInput)(nil)).Elem(), GetSecretRotationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRuleArrayInput)(nil)).Elem(), GetSecretRotationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsFilterInput)(nil)).Elem(), GetSecretsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsFilterArrayInput)(nil)).Elem(), GetSecretsFilterArray{})
 	pulumi.RegisterOutputType(SecretReplicaOutput{})
 	pulumi.RegisterOutputType(SecretReplicaArrayOutput{})
 	pulumi.RegisterOutputType(SecretRotationRotationRulesOutput{})
@@ -626,4 +734,6 @@ func init() {
 	pulumi.RegisterOutputType(GetSecretRotationRotationRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretRotationRuleOutput{})
 	pulumi.RegisterOutputType(GetSecretRotationRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetSecretsFilterOutput{})
+	pulumi.RegisterOutputType(GetSecretsFilterArrayOutput{})
 }

@@ -20,7 +20,7 @@ class GetWorkspaceResult:
     """
     A collection of values returned by getWorkspace.
     """
-    def __init__(__self__, account_access_type=None, arn=None, authentication_providers=None, created_date=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, last_updated_date=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, role_arn=None, saml_configuration_status=None, stack_set_name=None, status=None, workspace_id=None):
+    def __init__(__self__, account_access_type=None, arn=None, authentication_providers=None, created_date=None, data_sources=None, description=None, endpoint=None, grafana_version=None, id=None, last_updated_date=None, name=None, notification_destinations=None, organization_role_name=None, organizational_units=None, permission_type=None, role_arn=None, saml_configuration_status=None, stack_set_name=None, status=None, tags=None, workspace_id=None):
         if account_access_type and not isinstance(account_access_type, str):
             raise TypeError("Expected argument 'account_access_type' to be a str")
         pulumi.set(__self__, "account_access_type", account_access_type)
@@ -78,6 +78,9 @@ class GetWorkspaceResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if workspace_id and not isinstance(workspace_id, str):
             raise TypeError("Expected argument 'workspace_id' to be a str")
         pulumi.set(__self__, "workspace_id", workspace_id)
@@ -232,6 +235,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        The tags assigned to the resource
+        """
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="workspaceId")
     def workspace_id(self) -> str:
         return pulumi.get(self, "workspace_id")
@@ -262,10 +273,12 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             saml_configuration_status=self.saml_configuration_status,
             stack_set_name=self.stack_set_name,
             status=self.status,
+            tags=self.tags,
             workspace_id=self.workspace_id)
 
 
-def get_workspace(workspace_id: Optional[str] = None,
+def get_workspace(tags: Optional[Mapping[str, str]] = None,
+                  workspace_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspaceResult:
     """
     Provides an Amazon Managed Grafana workspace data source.
@@ -281,9 +294,11 @@ def get_workspace(workspace_id: Optional[str] = None,
     ```
 
 
+    :param Mapping[str, str] tags: The tags assigned to the resource
     :param str workspace_id: The Grafana workspace ID.
     """
     __args__ = dict()
+    __args__['tags'] = tags
     __args__['workspaceId'] = workspace_id
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -311,11 +326,13 @@ def get_workspace(workspace_id: Optional[str] = None,
         saml_configuration_status=__ret__.saml_configuration_status,
         stack_set_name=__ret__.stack_set_name,
         status=__ret__.status,
+        tags=__ret__.tags,
         workspace_id=__ret__.workspace_id)
 
 
 @_utilities.lift_output_func(get_workspace)
-def get_workspace_output(workspace_id: Optional[pulumi.Input[str]] = None,
+def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
+                         workspace_id: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Provides an Amazon Managed Grafana workspace data source.
@@ -331,6 +348,7 @@ def get_workspace_output(workspace_id: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param Mapping[str, str] tags: The tags assigned to the resource
     :param str workspace_id: The Grafana workspace ID.
     """
     ...

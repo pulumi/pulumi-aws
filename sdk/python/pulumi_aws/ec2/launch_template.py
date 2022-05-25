@@ -31,10 +31,12 @@ class LaunchTemplateArgs:
                  image_id: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_market_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']] = None,
+                 instance_requirements: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+                 maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -74,10 +76,12 @@ class LaunchTemplateArgs:
                (Default: `stop`).
         :param pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs'] instance_market_options: The market (purchasing) option for the instance. See Market Options
                below for details.
-        :param pulumi.Input[str] instance_type: The type of the instance.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsArgs'] instance_requirements: The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        :param pulumi.Input[str] instance_type: The type of the instance. If present then `instance_requirements` cannot be present.
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input['LaunchTemplateMaintenanceOptionsArgs'] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -126,6 +130,8 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_market_options is not None:
             pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if kernel_id is not None:
@@ -134,6 +140,8 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "key_name", key_name)
         if license_specifications is not None:
             pulumi.set(__self__, "license_specifications", license_specifications)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -363,10 +371,22 @@ class LaunchTemplateArgs:
         pulumi.set(self, "instance_market_options", value)
 
     @property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']]:
+        """
+        The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        """
+        return pulumi.get(self, "instance_requirements")
+
+    @instance_requirements.setter
+    def instance_requirements(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']]):
+        pulumi.set(self, "instance_requirements", value)
+
+    @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the instance.
+        The type of the instance. If present then `instance_requirements` cannot be present.
         """
         return pulumi.get(self, "instance_type")
 
@@ -409,6 +429,18 @@ class LaunchTemplateArgs:
     @license_specifications.setter
     def license_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]):
         pulumi.set(self, "license_specifications", value)
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]:
+        """
+        The maintenance options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -598,11 +630,13 @@ class _LaunchTemplateState:
                  image_id: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_market_options: Optional[pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs']] = None,
+                 instance_requirements: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  latest_version: Optional[pulumi.Input[int]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]] = None,
+                 maintenance_options: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']] = None,
                  metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -644,11 +678,13 @@ class _LaunchTemplateState:
                (Default: `stop`).
         :param pulumi.Input['LaunchTemplateInstanceMarketOptionsArgs'] instance_market_options: The market (purchasing) option for the instance. See Market Options
                below for details.
-        :param pulumi.Input[str] instance_type: The type of the instance.
+        :param pulumi.Input['LaunchTemplateInstanceRequirementsArgs'] instance_requirements: The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        :param pulumi.Input[str] instance_type: The type of the instance. If present then `instance_requirements` cannot be present.
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[int] latest_version: The latest version of the launch template.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input['LaunchTemplateMaintenanceOptionsArgs'] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input['LaunchTemplateMetadataOptionsArgs'] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input['LaunchTemplateMonitoringArgs'] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -700,6 +736,8 @@ class _LaunchTemplateState:
             pulumi.set(__self__, "instance_initiated_shutdown_behavior", instance_initiated_shutdown_behavior)
         if instance_market_options is not None:
             pulumi.set(__self__, "instance_market_options", instance_market_options)
+        if instance_requirements is not None:
+            pulumi.set(__self__, "instance_requirements", instance_requirements)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if kernel_id is not None:
@@ -710,6 +748,8 @@ class _LaunchTemplateState:
             pulumi.set(__self__, "latest_version", latest_version)
         if license_specifications is not None:
             pulumi.set(__self__, "license_specifications", license_specifications)
+        if maintenance_options is not None:
+            pulumi.set(__self__, "maintenance_options", maintenance_options)
         if metadata_options is not None:
             pulumi.set(__self__, "metadata_options", metadata_options)
         if monitoring is not None:
@@ -953,10 +993,22 @@ class _LaunchTemplateState:
         pulumi.set(self, "instance_market_options", value)
 
     @property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']]:
+        """
+        The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        """
+        return pulumi.get(self, "instance_requirements")
+
+    @instance_requirements.setter
+    def instance_requirements(self, value: Optional[pulumi.Input['LaunchTemplateInstanceRequirementsArgs']]):
+        pulumi.set(self, "instance_requirements", value)
+
+    @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the instance.
+        The type of the instance. If present then `instance_requirements` cannot be present.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1011,6 +1063,18 @@ class _LaunchTemplateState:
     @license_specifications.setter
     def license_specifications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateLicenseSpecificationArgs']]]]):
         pulumi.set(self, "license_specifications", value)
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]:
+        """
+        The maintenance options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
+
+    @maintenance_options.setter
+    def maintenance_options(self, value: Optional[pulumi.Input['LaunchTemplateMaintenanceOptionsArgs']]):
+        pulumi.set(self, "maintenance_options", value)
 
     @property
     @pulumi.getter(name="metadataOptions")
@@ -1213,10 +1277,12 @@ class LaunchTemplate(pulumi.CustomResource):
                  image_id: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_market_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateInstanceMarketOptionsArgs']]] = None,
+                 instance_requirements: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateInstanceRequirementsArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]]] = None,
+                 maintenance_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1340,10 +1406,12 @@ class LaunchTemplate(pulumi.CustomResource):
                (Default: `stop`).
         :param pulumi.Input[pulumi.InputType['LaunchTemplateInstanceMarketOptionsArgs']] instance_market_options: The market (purchasing) option for the instance. See Market Options
                below for details.
-        :param pulumi.Input[str] instance_type: The type of the instance.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplateInstanceRequirementsArgs']] instance_requirements: The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        :param pulumi.Input[str] instance_type: The type of the instance. If present then `instance_requirements` cannot be present.
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -1480,10 +1548,12 @@ class LaunchTemplate(pulumi.CustomResource):
                  image_id: Optional[pulumi.Input[str]] = None,
                  instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
                  instance_market_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateInstanceMarketOptionsArgs']]] = None,
+                 instance_requirements: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateInstanceRequirementsArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kernel_id: Optional[pulumi.Input[str]] = None,
                  key_name: Optional[pulumi.Input[str]] = None,
                  license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]]] = None,
+                 maintenance_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']]] = None,
                  metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']]] = None,
                  monitoring: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -1526,10 +1596,12 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["image_id"] = image_id
             __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
             __props__.__dict__["instance_market_options"] = instance_market_options
+            __props__.__dict__["instance_requirements"] = instance_requirements
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["kernel_id"] = kernel_id
             __props__.__dict__["key_name"] = key_name
             __props__.__dict__["license_specifications"] = license_specifications
+            __props__.__dict__["maintenance_options"] = maintenance_options
             __props__.__dict__["metadata_options"] = metadata_options
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["name"] = name
@@ -1574,11 +1646,13 @@ class LaunchTemplate(pulumi.CustomResource):
             image_id: Optional[pulumi.Input[str]] = None,
             instance_initiated_shutdown_behavior: Optional[pulumi.Input[str]] = None,
             instance_market_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateInstanceMarketOptionsArgs']]] = None,
+            instance_requirements: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateInstanceRequirementsArgs']]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             kernel_id: Optional[pulumi.Input[str]] = None,
             key_name: Optional[pulumi.Input[str]] = None,
             latest_version: Optional[pulumi.Input[int]] = None,
             license_specifications: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]]] = None,
+            maintenance_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']]] = None,
             metadata_options: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']]] = None,
             monitoring: Optional[pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -1625,11 +1699,13 @@ class LaunchTemplate(pulumi.CustomResource):
                (Default: `stop`).
         :param pulumi.Input[pulumi.InputType['LaunchTemplateInstanceMarketOptionsArgs']] instance_market_options: The market (purchasing) option for the instance. See Market Options
                below for details.
-        :param pulumi.Input[str] instance_type: The type of the instance.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplateInstanceRequirementsArgs']] instance_requirements: The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        :param pulumi.Input[str] instance_type: The type of the instance. If present then `instance_requirements` cannot be present.
         :param pulumi.Input[str] kernel_id: The kernel ID.
         :param pulumi.Input[str] key_name: The key name to use for the instance.
         :param pulumi.Input[int] latest_version: The latest version of the launch template.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LaunchTemplateLicenseSpecificationArgs']]]] license_specifications: A list of license specifications to associate with. See License Specification below for more details.
+        :param pulumi.Input[pulumi.InputType['LaunchTemplateMaintenanceOptionsArgs']] maintenance_options: The maintenance options for the instance. See Maintenance Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMetadataOptionsArgs']] metadata_options: Customize the metadata options for the instance. See Metadata Options below for more details.
         :param pulumi.Input[pulumi.InputType['LaunchTemplateMonitoringArgs']] monitoring: The monitoring option for the instance. See Monitoring below for more details.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -1668,11 +1744,13 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["image_id"] = image_id
         __props__.__dict__["instance_initiated_shutdown_behavior"] = instance_initiated_shutdown_behavior
         __props__.__dict__["instance_market_options"] = instance_market_options
+        __props__.__dict__["instance_requirements"] = instance_requirements
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["kernel_id"] = kernel_id
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["latest_version"] = latest_version
         __props__.__dict__["license_specifications"] = license_specifications
+        __props__.__dict__["maintenance_options"] = maintenance_options
         __props__.__dict__["metadata_options"] = metadata_options
         __props__.__dict__["monitoring"] = monitoring
         __props__.__dict__["name"] = name
@@ -1834,10 +1912,18 @@ class LaunchTemplate(pulumi.CustomResource):
         return pulumi.get(self, "instance_market_options")
 
     @property
+    @pulumi.getter(name="instanceRequirements")
+    def instance_requirements(self) -> pulumi.Output[Optional['outputs.LaunchTemplateInstanceRequirements']]:
+        """
+        The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        """
+        return pulumi.get(self, "instance_requirements")
+
+    @property
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[Optional[str]]:
         """
-        The type of the instance.
+        The type of the instance. If present then `instance_requirements` cannot be present.
         """
         return pulumi.get(self, "instance_type")
 
@@ -1872,6 +1958,14 @@ class LaunchTemplate(pulumi.CustomResource):
         A list of license specifications to associate with. See License Specification below for more details.
         """
         return pulumi.get(self, "license_specifications")
+
+    @property
+    @pulumi.getter(name="maintenanceOptions")
+    def maintenance_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplateMaintenanceOptions']]:
+        """
+        The maintenance options for the instance. See Maintenance Options below for more details.
+        """
+        return pulumi.get(self, "maintenance_options")
 
     @property
     @pulumi.getter(name="metadataOptions")

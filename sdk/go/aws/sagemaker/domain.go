@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Sagemaker Domain resource.
+// Provides a SageMaker Domain resource.
 //
 // ## Example Usage
 // ### Basic usage
@@ -138,7 +138,7 @@ import (
 //
 // ## Import
 //
-// Sagemaker Code Domains can be imported using the `id`, e.g.,
+// SageMaker Code Domains can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8

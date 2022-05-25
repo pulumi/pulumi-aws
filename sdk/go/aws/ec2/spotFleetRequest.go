@@ -80,6 +80,10 @@ type SpotFleetRequest struct {
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
 	// Indicates whether running Spot
+	// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+	// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+	TerminateInstancesOnDelete pulumi.StringPtrOutput `pulumi:"terminateInstancesOnDelete"`
+	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
 	TerminateInstancesWithExpiration pulumi.BoolPtrOutput `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -186,6 +190,10 @@ type spotFleetRequestState struct {
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// Indicates whether running Spot
+	// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+	// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+	TerminateInstancesOnDelete *string `pulumi:"terminateInstancesOnDelete"`
+	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -258,6 +266,10 @@ type SpotFleetRequestState struct {
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput
 	// Indicates whether running Spot
+	// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+	// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+	TerminateInstancesOnDelete pulumi.StringPtrInput
+	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -329,6 +341,10 @@ type spotFleetRequestArgs struct {
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// Indicates whether running Spot
+	// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+	// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+	TerminateInstancesOnDelete *string `pulumi:"terminateInstancesOnDelete"`
+	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
 	TerminateInstancesWithExpiration *bool `pulumi:"terminateInstancesWithExpiration"`
 	// The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -396,6 +412,10 @@ type SpotFleetRequestArgs struct {
 	TargetCapacity pulumi.IntInput
 	// A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 	TargetGroupArns pulumi.StringArrayInput
+	// Indicates whether running Spot
+	// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+	// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+	TerminateInstancesOnDelete pulumi.StringPtrInput
 	// Indicates whether running Spot
 	// instances should be terminated when the Spot fleet request expires.
 	TerminateInstancesWithExpiration pulumi.BoolPtrInput
@@ -621,6 +641,13 @@ func (o SpotFleetRequestOutput) TargetCapacity() pulumi.IntOutput {
 // A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
 func (o SpotFleetRequestOutput) TargetGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringArrayOutput { return v.TargetGroupArns }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether running Spot
+// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+// If no value is specified, the value of the `terminateInstancesWithExpiration` argument is used.
+func (o SpotFleetRequestOutput) TerminateInstancesOnDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequest) pulumi.StringPtrOutput { return v.TerminateInstancesOnDelete }).(pulumi.StringPtrOutput)
 }
 
 // Indicates whether running Spot

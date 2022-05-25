@@ -243,11 +243,13 @@ namespace Pulumi.Aws.Ec2
         public readonly string ImageId;
         public readonly string InstanceInitiatedShutdownBehavior;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionResult> InstanceMarketOptions;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementResult> InstanceRequirements;
         public readonly string InstanceType;
         public readonly string KernelId;
         public readonly string KeyName;
         public readonly int LatestVersion;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateLicenseSpecificationResult> LicenseSpecifications;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateMaintenanceOptionResult> MaintenanceOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> MetadataOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> Monitorings;
         public readonly string Name;
@@ -301,6 +303,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetLaunchTemplateInstanceMarketOptionResult> instanceMarketOptions,
 
+            ImmutableArray<Outputs.GetLaunchTemplateInstanceRequirementResult> instanceRequirements,
+
             string instanceType,
 
             string kernelId,
@@ -310,6 +314,8 @@ namespace Pulumi.Aws.Ec2
             int latestVersion,
 
             ImmutableArray<Outputs.GetLaunchTemplateLicenseSpecificationResult> licenseSpecifications,
+
+            ImmutableArray<Outputs.GetLaunchTemplateMaintenanceOptionResult> maintenanceOptions,
 
             ImmutableArray<Outputs.GetLaunchTemplateMetadataOptionResult> metadataOptions,
 
@@ -354,11 +360,13 @@ namespace Pulumi.Aws.Ec2
             ImageId = imageId;
             InstanceInitiatedShutdownBehavior = instanceInitiatedShutdownBehavior;
             InstanceMarketOptions = instanceMarketOptions;
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             KernelId = kernelId;
             KeyName = keyName;
             LatestVersion = latestVersion;
             LicenseSpecifications = licenseSpecifications;
+            MaintenanceOptions = maintenanceOptions;
             MetadataOptions = metadataOptions;
             Monitorings = monitorings;
             Name = name;

@@ -14,10 +14,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * const current = aws.getCallerIdentity({});
  * const exampleKey = new aws.kms.Key("exampleKey", {
  *     description: "my test kms key",
  *     deletionWindowInDays: 7,
- *     policy: `{
+ *     policy: current.then(current => `{
  *   "Version": "2012-10-17",
  *   "Id": "kms-tf-1",
  *   "Statement": [
@@ -25,14 +26,14 @@ import * as utilities from "../utilities";
  *       "Sid": "Enable IAM User Permissions",
  *       "Effect": "Allow",
  *       "Principal": {
- *         "AWS": "*"
+ *         "AWS": "arn:aws:iam::${current.accountId}:root"
  *       },
  *       "Action": "kms:*",
  *       "Resource": "*"
  *     }
  *   ]
  * }
- * `,
+ * `),
  * });
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleReportGroup = new aws.codebuild.ReportGroup("exampleReportGroup", {

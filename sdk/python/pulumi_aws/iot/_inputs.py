@@ -24,6 +24,7 @@ __all__ = [
     'TopicRuleCloudwatchAlarmArgs',
     'TopicRuleCloudwatchLogArgs',
     'TopicRuleCloudwatchMetricArgs',
+    'TopicRuleDestinationVpcConfigurationArgs',
     'TopicRuleDynamodbArgs',
     'TopicRuleDynamodbv2Args',
     'TopicRuleDynamodbv2PutItemArgs',
@@ -37,8 +38,11 @@ __all__ = [
     'TopicRuleErrorActionDynamodbv2PutItemArgs',
     'TopicRuleErrorActionElasticsearchArgs',
     'TopicRuleErrorActionFirehoseArgs',
+    'TopicRuleErrorActionHttpArgs',
+    'TopicRuleErrorActionHttpHttpHeaderArgs',
     'TopicRuleErrorActionIotAnalyticsArgs',
     'TopicRuleErrorActionIotEventsArgs',
+    'TopicRuleErrorActionKafkaArgs',
     'TopicRuleErrorActionKinesisArgs',
     'TopicRuleErrorActionLambdaArgs',
     'TopicRuleErrorActionRepublishArgs',
@@ -46,9 +50,15 @@ __all__ = [
     'TopicRuleErrorActionSnsArgs',
     'TopicRuleErrorActionSqsArgs',
     'TopicRuleErrorActionStepFunctionsArgs',
+    'TopicRuleErrorActionTimestreamArgs',
+    'TopicRuleErrorActionTimestreamDimensionArgs',
+    'TopicRuleErrorActionTimestreamTimestampArgs',
     'TopicRuleFirehoseArgs',
+    'TopicRuleHttpArgs',
+    'TopicRuleHttpHttpHeaderArgs',
     'TopicRuleIotAnalyticArgs',
     'TopicRuleIotEventArgs',
+    'TopicRuleKafkaArgs',
     'TopicRuleKinesisArgs',
     'TopicRuleLambdaArgs',
     'TopicRuleRepublishArgs',
@@ -56,6 +66,9 @@ __all__ = [
     'TopicRuleSnsArgs',
     'TopicRuleSqsArgs',
     'TopicRuleStepFunctionArgs',
+    'TopicRuleTimestreamArgs',
+    'TopicRuleTimestreamDimensionArgs',
+    'TopicRuleTimestreamTimestampArgs',
 ]
 
 @pulumi.input_type
@@ -784,6 +797,74 @@ class TopicRuleCloudwatchMetricArgs:
 
 
 @pulumi.input_type
+class TopicRuleDestinationVpcConfigurationArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[str],
+                 subnet_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 vpc_id: pulumi.Input[str],
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] role_arn: The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The subnet IDs of the VPC destination.
+        :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups of the VPC destination.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "subnet_ids", subnet_ids)
+        pulumi.set(__self__, "vpc_id", vpc_id)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The subnet IDs of the VPC destination.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The security groups of the VPC destination.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+
+@pulumi.input_type
 class TopicRuleDynamodbArgs:
     def __init__(__self__, *,
                  hash_key_field: pulumi.Input[str],
@@ -1098,15 +1179,18 @@ class TopicRuleErrorActionArgs:
                  dynamodbv2: Optional[pulumi.Input['TopicRuleErrorActionDynamodbv2Args']] = None,
                  elasticsearch: Optional[pulumi.Input['TopicRuleErrorActionElasticsearchArgs']] = None,
                  firehose: Optional[pulumi.Input['TopicRuleErrorActionFirehoseArgs']] = None,
+                 http: Optional[pulumi.Input['TopicRuleErrorActionHttpArgs']] = None,
                  iot_analytics: Optional[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgs']] = None,
                  iot_events: Optional[pulumi.Input['TopicRuleErrorActionIotEventsArgs']] = None,
+                 kafka: Optional[pulumi.Input['TopicRuleErrorActionKafkaArgs']] = None,
                  kinesis: Optional[pulumi.Input['TopicRuleErrorActionKinesisArgs']] = None,
                  lambda_: Optional[pulumi.Input['TopicRuleErrorActionLambdaArgs']] = None,
                  republish: Optional[pulumi.Input['TopicRuleErrorActionRepublishArgs']] = None,
                  s3: Optional[pulumi.Input['TopicRuleErrorActionS3Args']] = None,
                  sns: Optional[pulumi.Input['TopicRuleErrorActionSnsArgs']] = None,
                  sqs: Optional[pulumi.Input['TopicRuleErrorActionSqsArgs']] = None,
-                 step_functions: Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']] = None):
+                 step_functions: Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']] = None,
+                 timestream: Optional[pulumi.Input['TopicRuleErrorActionTimestreamArgs']] = None):
         if cloudwatch_alarm is not None:
             pulumi.set(__self__, "cloudwatch_alarm", cloudwatch_alarm)
         if cloudwatch_logs is not None:
@@ -1121,10 +1205,14 @@ class TopicRuleErrorActionArgs:
             pulumi.set(__self__, "elasticsearch", elasticsearch)
         if firehose is not None:
             pulumi.set(__self__, "firehose", firehose)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
         if iot_analytics is not None:
             pulumi.set(__self__, "iot_analytics", iot_analytics)
         if iot_events is not None:
             pulumi.set(__self__, "iot_events", iot_events)
+        if kafka is not None:
+            pulumi.set(__self__, "kafka", kafka)
         if kinesis is not None:
             pulumi.set(__self__, "kinesis", kinesis)
         if lambda_ is not None:
@@ -1139,6 +1227,8 @@ class TopicRuleErrorActionArgs:
             pulumi.set(__self__, "sqs", sqs)
         if step_functions is not None:
             pulumi.set(__self__, "step_functions", step_functions)
+        if timestream is not None:
+            pulumi.set(__self__, "timestream", timestream)
 
     @property
     @pulumi.getter(name="cloudwatchAlarm")
@@ -1204,6 +1294,15 @@ class TopicRuleErrorActionArgs:
         pulumi.set(self, "firehose", value)
 
     @property
+    @pulumi.getter
+    def http(self) -> Optional[pulumi.Input['TopicRuleErrorActionHttpArgs']]:
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: Optional[pulumi.Input['TopicRuleErrorActionHttpArgs']]):
+        pulumi.set(self, "http", value)
+
+    @property
     @pulumi.getter(name="iotAnalytics")
     def iot_analytics(self) -> Optional[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgs']]:
         return pulumi.get(self, "iot_analytics")
@@ -1220,6 +1319,15 @@ class TopicRuleErrorActionArgs:
     @iot_events.setter
     def iot_events(self, value: Optional[pulumi.Input['TopicRuleErrorActionIotEventsArgs']]):
         pulumi.set(self, "iot_events", value)
+
+    @property
+    @pulumi.getter
+    def kafka(self) -> Optional[pulumi.Input['TopicRuleErrorActionKafkaArgs']]:
+        return pulumi.get(self, "kafka")
+
+    @kafka.setter
+    def kafka(self, value: Optional[pulumi.Input['TopicRuleErrorActionKafkaArgs']]):
+        pulumi.set(self, "kafka", value)
 
     @property
     @pulumi.getter
@@ -1283,6 +1391,15 @@ class TopicRuleErrorActionArgs:
     @step_functions.setter
     def step_functions(self, value: Optional[pulumi.Input['TopicRuleErrorActionStepFunctionsArgs']]):
         pulumi.set(self, "step_functions", value)
+
+    @property
+    @pulumi.getter
+    def timestream(self) -> Optional[pulumi.Input['TopicRuleErrorActionTimestreamArgs']]:
+        return pulumi.get(self, "timestream")
+
+    @timestream.setter
+    def timestream(self, value: Optional[pulumi.Input['TopicRuleErrorActionTimestreamArgs']]):
+        pulumi.set(self, "timestream", value)
 
 
 @pulumi.input_type
@@ -1846,6 +1963,97 @@ class TopicRuleErrorActionFirehoseArgs:
 
 
 @pulumi.input_type
+class TopicRuleErrorActionHttpArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 confirmation_url: Optional[pulumi.Input[str]] = None,
+                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[str] url: The HTTPS URL.
+        :param pulumi.Input[str] confirmation_url: The HTTPS URL used to verify ownership of `url`.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        """
+        pulumi.set(__self__, "url", url)
+        if confirmation_url is not None:
+            pulumi.set(__self__, "confirmation_url", confirmation_url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The HTTPS URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="confirmationUrl")
+    def confirmation_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTPS URL used to verify ownership of `url`.
+        """
+        return pulumi.get(self, "confirmation_url")
+
+    @confirmation_url.setter
+    def confirmation_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "confirmation_url", value)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]]:
+        """
+        Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgs']]]]):
+        pulumi.set(self, "http_headers", value)
+
+
+@pulumi.input_type
+class TopicRuleErrorActionHttpHttpHeaderArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The name of the HTTP header.
+        :param pulumi.Input[str] value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the HTTP header.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TopicRuleErrorActionIotAnalyticsArgs:
     def __init__(__self__, *,
                  channel_name: pulumi.Input[str],
@@ -1933,6 +2141,90 @@ class TopicRuleErrorActionIotEventsArgs:
     @message_id.setter
     def message_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_id", value)
+
+
+@pulumi.input_type
+class TopicRuleErrorActionKafkaArgs:
+    def __init__(__self__, *,
+                 client_properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 destination_arn: pulumi.Input[str],
+                 topic: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        :param pulumi.Input[str] topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param pulumi.Input[str] key: The Kafka message key.
+        :param pulumi.Input[str] partition: The Kafka message partition.
+        """
+        pulumi.set(__self__, "client_properties", client_properties)
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "topic", topic)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter(name="clientProperties")
+    def client_properties(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        """
+        return pulumi.get(self, "client_properties")
+
+    @client_properties.setter
+    def client_properties(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "client_properties", value)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> pulumi.Input[str]:
+        """
+        The Kafka topic for messages to be sent to the Kafka broker.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kafka message key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kafka message partition.
+        """
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition", value)
 
 
 @pulumi.input_type
@@ -2068,15 +2360,19 @@ class TopicRuleErrorActionS3Args:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  key: pulumi.Input[str],
-                 role_arn: pulumi.Input[str]):
+                 role_arn: pulumi.Input[str],
+                 canned_acl: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_name: The Amazon S3 bucket name.
-        :param pulumi.Input[str] key: The object key.
+        :param pulumi.Input[str] key: The name of the HTTP header.
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param pulumi.Input[str] canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
+        if canned_acl is not None:
+            pulumi.set(__self__, "canned_acl", canned_acl)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2094,7 +2390,7 @@ class TopicRuleErrorActionS3Args:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The object key.
+        The name of the HTTP header.
         """
         return pulumi.get(self, "key")
 
@@ -2113,6 +2409,18 @@ class TopicRuleErrorActionS3Args:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="cannedAcl")
+    def canned_acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        """
+        return pulumi.get(self, "canned_acl")
+
+    @canned_acl.setter
+    def canned_acl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "canned_acl", value)
 
 
 @pulumi.input_type
@@ -2274,6 +2582,163 @@ class TopicRuleErrorActionStepFunctionsArgs:
 
 
 @pulumi.input_type
+class TopicRuleErrorActionTimestreamArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgs']]],
+                 role_arn: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 timestamp: Optional[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs']] = None):
+        """
+        :param pulumi.Input[str] database_name: The name of an Amazon Timestream database.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgs']]] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        :param pulumi.Input[str] table_name: The name of the database table into which to write the measure records.
+        :param pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs'] timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of an Amazon Timestream database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgs']]]:
+        """
+        Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgs']]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database table into which to write the measure records.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs']]:
+        """
+        Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        """
+        return pulumi.get(self, "timestamp")
+
+    @timestamp.setter
+    def timestamp(self, value: Optional[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgs']]):
+        pulumi.set(self, "timestamp", value)
+
+
+@pulumi.input_type
+class TopicRuleErrorActionTimestreamDimensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the rule.
+        :param pulumi.Input[str] value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TopicRuleErrorActionTimestreamTimestampArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        :param pulumi.Input[str] value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
 class TopicRuleFirehoseArgs:
     def __init__(__self__, *,
                  delivery_stream_name: pulumi.Input[str],
@@ -2324,6 +2789,97 @@ class TopicRuleFirehoseArgs:
     @separator.setter
     def separator(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "separator", value)
+
+
+@pulumi.input_type
+class TopicRuleHttpArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[str],
+                 confirmation_url: Optional[pulumi.Input[str]] = None,
+                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]] = None):
+        """
+        :param pulumi.Input[str] url: The HTTPS URL.
+        :param pulumi.Input[str] confirmation_url: The HTTPS URL used to verify ownership of `url`.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]] http_headers: Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        """
+        pulumi.set(__self__, "url", url)
+        if confirmation_url is not None:
+            pulumi.set(__self__, "confirmation_url", confirmation_url)
+        if http_headers is not None:
+            pulumi.set(__self__, "http_headers", http_headers)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        The HTTPS URL.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="confirmationUrl")
+    def confirmation_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTPS URL used to verify ownership of `url`.
+        """
+        return pulumi.get(self, "confirmation_url")
+
+    @confirmation_url.setter
+    def confirmation_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "confirmation_url", value)
+
+    @property
+    @pulumi.getter(name="httpHeaders")
+    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]]:
+        """
+        Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+        """
+        return pulumi.get(self, "http_headers")
+
+    @http_headers.setter
+    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgs']]]]):
+        pulumi.set(self, "http_headers", value)
+
+
+@pulumi.input_type
+class TopicRuleHttpHttpHeaderArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] key: The name of the HTTP header.
+        :param pulumi.Input[str] value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the HTTP header.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -2414,6 +2970,90 @@ class TopicRuleIotEventArgs:
     @message_id.setter
     def message_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message_id", value)
+
+
+@pulumi.input_type
+class TopicRuleKafkaArgs:
+    def __init__(__self__, *,
+                 client_properties: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 destination_arn: pulumi.Input[str],
+                 topic: pulumi.Input[str],
+                 key: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] client_properties: Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        :param pulumi.Input[str] destination_arn: The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        :param pulumi.Input[str] topic: The Kafka topic for messages to be sent to the Kafka broker.
+        :param pulumi.Input[str] key: The Kafka message key.
+        :param pulumi.Input[str] partition: The Kafka message partition.
+        """
+        pulumi.set(__self__, "client_properties", client_properties)
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "topic", topic)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter(name="clientProperties")
+    def client_properties(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+        """
+        return pulumi.get(self, "client_properties")
+
+    @client_properties.setter
+    def client_properties(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "client_properties", value)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of Kafka action's VPC `iot.TopicRuleDestination` .
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter
+    def topic(self) -> pulumi.Input[str]:
+        """
+        The Kafka topic for messages to be sent to the Kafka broker.
+        """
+        return pulumi.get(self, "topic")
+
+    @topic.setter
+    def topic(self, value: pulumi.Input[str]):
+        pulumi.set(self, "topic", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kafka message key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Kafka message partition.
+        """
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition", value)
 
 
 @pulumi.input_type
@@ -2549,15 +3189,19 @@ class TopicRuleS3Args:
     def __init__(__self__, *,
                  bucket_name: pulumi.Input[str],
                  key: pulumi.Input[str],
-                 role_arn: pulumi.Input[str]):
+                 role_arn: pulumi.Input[str],
+                 canned_acl: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket_name: The Amazon S3 bucket name.
-        :param pulumi.Input[str] key: The object key.
+        :param pulumi.Input[str] key: The name of the HTTP header.
         :param pulumi.Input[str] role_arn: The IAM role ARN that allows access to the CloudWatch alarm.
+        :param pulumi.Input[str] canned_acl: The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "role_arn", role_arn)
+        if canned_acl is not None:
+            pulumi.set(__self__, "canned_acl", canned_acl)
 
     @property
     @pulumi.getter(name="bucketName")
@@ -2575,7 +3219,7 @@ class TopicRuleS3Args:
     @pulumi.getter
     def key(self) -> pulumi.Input[str]:
         """
-        The object key.
+        The name of the HTTP header.
         """
         return pulumi.get(self, "key")
 
@@ -2594,6 +3238,18 @@ class TopicRuleS3Args:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="cannedAcl")
+    def canned_acl(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        """
+        return pulumi.get(self, "canned_acl")
+
+    @canned_acl.setter
+    def canned_acl(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "canned_acl", value)
 
 
 @pulumi.input_type
@@ -2752,5 +3408,162 @@ class TopicRuleStepFunctionArgs:
     @execution_name_prefix.setter
     def execution_name_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "execution_name_prefix", value)
+
+
+@pulumi.input_type
+class TopicRuleTimestreamArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]],
+                 role_arn: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 timestamp: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']] = None):
+        """
+        :param pulumi.Input[str] database_name: The name of an Amazon Timestream database.
+        :param pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]] dimensions: Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        :param pulumi.Input[str] role_arn: The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        :param pulumi.Input[str] table_name: The name of the database table into which to write the measure records.
+        :param pulumi.Input['TopicRuleTimestreamTimestampArgs'] timestamp: Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dimensions", dimensions)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if timestamp is not None:
+            pulumi.set(__self__, "timestamp", timestamp)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of an Amazon Timestream database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]]:
+        """
+        Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgs']]]):
+        pulumi.set(self, "dimensions", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the role that grants permission to write to the Amazon Timestream database table.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database table into which to write the measure records.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter
+    def timestamp(self) -> Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']]:
+        """
+        Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+        """
+        return pulumi.get(self, "timestamp")
+
+    @timestamp.setter
+    def timestamp(self, value: Optional[pulumi.Input['TopicRuleTimestreamTimestampArgs']]):
+        pulumi.set(self, "timestamp", value)
+
+
+@pulumi.input_type
+class TopicRuleTimestreamDimensionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the rule.
+        :param pulumi.Input[str] value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TopicRuleTimestreamTimestampArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[str],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] unit: The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        :param pulumi.Input[str] value: The value of the HTTP header.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[str]:
+        """
+        The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[str]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value of the HTTP header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 

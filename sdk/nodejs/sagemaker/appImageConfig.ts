@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker App Image Config resource.
+ * Provides a SageMaker App Image Config resource.
  *
  * ## Example Usage
  * ### Basic usage
@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker App Image Configs can be imported using the `name`, e.g.,
+ * SageMaker App Image Configs can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example

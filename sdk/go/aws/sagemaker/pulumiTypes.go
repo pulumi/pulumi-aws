@@ -502,7 +502,7 @@ func (o AppImageConfigKernelGatewayImageConfigKernelSpecPtrOutput) Name() pulumi
 }
 
 type AppResourceSpec struct {
-	// The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	// The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
@@ -524,7 +524,7 @@ type AppResourceSpecInput interface {
 }
 
 type AppResourceSpecArgs struct {
-	// The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	// The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
@@ -611,7 +611,7 @@ func (o AppResourceSpecOutput) ToAppResourceSpecPtrOutputWithContext(ctx context
 	}).(AppResourceSpecPtrOutput)
 }
 
-// The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+// The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o AppResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AppResourceSpec) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
@@ -655,7 +655,7 @@ func (o AppResourceSpecPtrOutput) Elem() AppResourceSpecOutput {
 	}).(AppResourceSpecOutput)
 }
 
-// The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+// The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o AppResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AppResourceSpec) *string {
 		if v == nil {
@@ -1598,7 +1598,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput) LifecycleCon
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec struct {
-	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
@@ -1620,7 +1620,7 @@ type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput i
 }
 
 type DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
@@ -1707,7 +1707,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutp
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
@@ -1759,7 +1759,7 @@ func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrO
 	}).(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -2096,7 +2096,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArrayOutput)
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec struct {
-	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
@@ -2118,7 +2118,7 @@ type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecInput i
 }
 
 type DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
@@ -2205,7 +2205,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutp
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
@@ -2257,7 +2257,7 @@ func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrO
 	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec) *string {
 		if v == nil {
@@ -2612,7 +2612,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput) DefaultResourc
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec struct {
-	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn *string `pulumi:"lifecycleConfigArn"`
@@ -2634,7 +2634,7 @@ type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecInput int
 }
 
 type DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecArgs struct {
-	// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+	// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
 	LifecycleConfigArn pulumi.StringPtrInput `pulumi:"lifecycleConfigArn"`
@@ -2721,7 +2721,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput)
 }
 
-// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		return v.InstanceType
@@ -2773,7 +2773,7 @@ func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOut
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecOutput)
 }
 
-// The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+// The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
 func (o DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpecPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec) *string {
 		if v == nil {

@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Flow Definition resource.
+ * Provides a SageMaker Flow Definition resource.
  *
  * ## Example Usage
  * ### Basic Usage
@@ -102,7 +102,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
+ * SageMaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example

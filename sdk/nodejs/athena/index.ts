@@ -5,11 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./dataCatalog";
 export * from "./database";
 export * from "./namedQuery";
 export * from "./workgroup";
 
 // Import resources to register:
+import { DataCatalog } from "./dataCatalog";
 import { Database } from "./database";
 import { NamedQuery } from "./namedQuery";
 import { Workgroup } from "./workgroup";
@@ -18,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:athena/dataCatalog:DataCatalog":
+                return new DataCatalog(name, <any>undefined, { urn })
             case "aws:athena/database:Database":
                 return new Database(name, <any>undefined, { urn })
             case "aws:athena/namedQuery:NamedQuery":
@@ -29,6 +33,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "athena/dataCatalog", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/database", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/namedQuery", _module)
 pulumi.runtime.registerResourceModule("aws", "athena/workgroup", _module)

@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly ImmutableArray<string> ClientSubnets;
         /// <summary>
+        /// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        /// </summary>
+        public readonly Outputs.ClusterBrokerNodeGroupInfoConnectivityInfo? ConnectivityInfo;
+        /// <summary>
         /// The size in GiB of the EBS volume for the data drive on each broker node.
         /// </summary>
         public readonly int EbsVolumeSize;
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.Msk.Outputs
 
             ImmutableArray<string> clientSubnets,
 
+            Outputs.ClusterBrokerNodeGroupInfoConnectivityInfo? connectivityInfo,
+
             int ebsVolumeSize,
 
             string instanceType,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.Msk.Outputs
         {
             AzDistribution = azDistribution;
             ClientSubnets = clientSubnets;
+            ConnectivityInfo = connectivityInfo;
             EbsVolumeSize = ebsVolumeSize;
             InstanceType = instanceType;
             SecurityGroups = securityGroups;

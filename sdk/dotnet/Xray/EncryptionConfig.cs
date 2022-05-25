@@ -42,26 +42,27 @@ namespace Pulumi.Aws.Xray
     /// {
     ///     public MyStack()
     ///     {
+    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var exampleKey = new Aws.Kms.Key("exampleKey", new Aws.Kms.KeyArgs
     ///         {
     ///             Description = "Some Key",
     ///             DeletionWindowInDays = 7,
-    ///             Policy = @"{
+    ///             Policy = current.Apply(current =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""kms-tf-1"",
     ///   ""Statement"": [
-    ///     {
+    ///     {{
     ///       ""Sid"": ""Enable IAM User Permissions"",
     ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""AWS"": ""*""
-    ///       },
+    ///       ""Principal"": {{
+    ///         ""AWS"": ""arn:aws:iam::{current.AccountId}:root""
+    ///       }},
     ///       ""Action"": ""kms:*"",
     ///       ""Resource"": ""*""
-    ///     }
+    ///     }}
     ///   ]
-    /// }
-    /// ",
+    /// }}
+    /// "),
     ///         });
     ///         var exampleEncryptionConfig = new Aws.Xray.EncryptionConfig("exampleEncryptionConfig", new Aws.Xray.EncryptionConfigArgs
     ///         {

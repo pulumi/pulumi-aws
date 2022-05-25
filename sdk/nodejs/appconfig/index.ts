@@ -10,6 +10,7 @@ export * from "./configurationProfile";
 export * from "./deployment";
 export * from "./deploymentStrategy";
 export * from "./environment";
+export * from "./eventIntegration";
 export * from "./hostedConfigurationVersion";
 
 // Import resources to register:
@@ -18,6 +19,7 @@ import { ConfigurationProfile } from "./configurationProfile";
 import { Deployment } from "./deployment";
 import { DeploymentStrategy } from "./deploymentStrategy";
 import { Environment } from "./environment";
+import { EventIntegration } from "./eventIntegration";
 import { HostedConfigurationVersion } from "./hostedConfigurationVersion";
 
 const _module = {
@@ -34,6 +36,8 @@ const _module = {
                 return new DeploymentStrategy(name, <any>undefined, { urn })
             case "aws:appconfig/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
+            case "aws:appconfig/eventIntegration:EventIntegration":
+                return new EventIntegration(name, <any>undefined, { urn })
             case "aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion":
                 return new HostedConfigurationVersion(name, <any>undefined, { urn })
             default:
@@ -46,4 +50,5 @@ pulumi.runtime.registerResourceModule("aws", "appconfig/configurationProfile", _
 pulumi.runtime.registerResourceModule("aws", "appconfig/deployment", _module)
 pulumi.runtime.registerResourceModule("aws", "appconfig/deploymentStrategy", _module)
 pulumi.runtime.registerResourceModule("aws", "appconfig/environment", _module)
+pulumi.runtime.registerResourceModule("aws", "appconfig/eventIntegration", _module)
 pulumi.runtime.registerResourceModule("aws", "appconfig/hostedConfigurationVersion", _module)

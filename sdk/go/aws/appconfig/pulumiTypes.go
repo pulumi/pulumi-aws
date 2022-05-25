@@ -222,13 +222,154 @@ func (o EnvironmentMonitorArrayOutput) Index(i pulumi.IntInput) EnvironmentMonit
 	}).(EnvironmentMonitorOutput)
 }
 
+type EventIntegrationEventFilter struct {
+	// The source of the events.
+	Source string `pulumi:"source"`
+}
+
+// EventIntegrationEventFilterInput is an input type that accepts EventIntegrationEventFilterArgs and EventIntegrationEventFilterOutput values.
+// You can construct a concrete instance of `EventIntegrationEventFilterInput` via:
+//
+//          EventIntegrationEventFilterArgs{...}
+type EventIntegrationEventFilterInput interface {
+	pulumi.Input
+
+	ToEventIntegrationEventFilterOutput() EventIntegrationEventFilterOutput
+	ToEventIntegrationEventFilterOutputWithContext(context.Context) EventIntegrationEventFilterOutput
+}
+
+type EventIntegrationEventFilterArgs struct {
+	// The source of the events.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (EventIntegrationEventFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventIntegrationEventFilter)(nil)).Elem()
+}
+
+func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterOutput() EventIntegrationEventFilterOutput {
+	return i.ToEventIntegrationEventFilterOutputWithContext(context.Background())
+}
+
+func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterOutputWithContext(ctx context.Context) EventIntegrationEventFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterOutput)
+}
+
+func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
+	return i.ToEventIntegrationEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (i EventIntegrationEventFilterArgs) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterOutput).ToEventIntegrationEventFilterPtrOutputWithContext(ctx)
+}
+
+// EventIntegrationEventFilterPtrInput is an input type that accepts EventIntegrationEventFilterArgs, EventIntegrationEventFilterPtr and EventIntegrationEventFilterPtrOutput values.
+// You can construct a concrete instance of `EventIntegrationEventFilterPtrInput` via:
+//
+//          EventIntegrationEventFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type EventIntegrationEventFilterPtrInput interface {
+	pulumi.Input
+
+	ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput
+	ToEventIntegrationEventFilterPtrOutputWithContext(context.Context) EventIntegrationEventFilterPtrOutput
+}
+
+type eventIntegrationEventFilterPtrType EventIntegrationEventFilterArgs
+
+func EventIntegrationEventFilterPtr(v *EventIntegrationEventFilterArgs) EventIntegrationEventFilterPtrInput {
+	return (*eventIntegrationEventFilterPtrType)(v)
+}
+
+func (*eventIntegrationEventFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventIntegrationEventFilter)(nil)).Elem()
+}
+
+func (i *eventIntegrationEventFilterPtrType) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
+	return i.ToEventIntegrationEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *eventIntegrationEventFilterPtrType) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventIntegrationEventFilterPtrOutput)
+}
+
+type EventIntegrationEventFilterOutput struct{ *pulumi.OutputState }
+
+func (EventIntegrationEventFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventIntegrationEventFilter)(nil)).Elem()
+}
+
+func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterOutput() EventIntegrationEventFilterOutput {
+	return o
+}
+
+func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterOutputWithContext(ctx context.Context) EventIntegrationEventFilterOutput {
+	return o
+}
+
+func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
+	return o.ToEventIntegrationEventFilterPtrOutputWithContext(context.Background())
+}
+
+func (o EventIntegrationEventFilterOutput) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventIntegrationEventFilter) *EventIntegrationEventFilter {
+		return &v
+	}).(EventIntegrationEventFilterPtrOutput)
+}
+
+// The source of the events.
+func (o EventIntegrationEventFilterOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v EventIntegrationEventFilter) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type EventIntegrationEventFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (EventIntegrationEventFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventIntegrationEventFilter)(nil)).Elem()
+}
+
+func (o EventIntegrationEventFilterPtrOutput) ToEventIntegrationEventFilterPtrOutput() EventIntegrationEventFilterPtrOutput {
+	return o
+}
+
+func (o EventIntegrationEventFilterPtrOutput) ToEventIntegrationEventFilterPtrOutputWithContext(ctx context.Context) EventIntegrationEventFilterPtrOutput {
+	return o
+}
+
+func (o EventIntegrationEventFilterPtrOutput) Elem() EventIntegrationEventFilterOutput {
+	return o.ApplyT(func(v *EventIntegrationEventFilter) EventIntegrationEventFilter {
+		if v != nil {
+			return *v
+		}
+		var ret EventIntegrationEventFilter
+		return ret
+	}).(EventIntegrationEventFilterOutput)
+}
+
+// The source of the events.
+func (o EventIntegrationEventFilterPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventIntegrationEventFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorInput)(nil)).Elem(), ConfigurationProfileValidatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorArrayInput)(nil)).Elem(), ConfigurationProfileValidatorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorInput)(nil)).Elem(), EnvironmentMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventIntegrationEventFilterPtrInput)(nil)).Elem(), EventIntegrationEventFilterArgs{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorArrayOutput{})
+	pulumi.RegisterOutputType(EventIntegrationEventFilterOutput{})
+	pulumi.RegisterOutputType(EventIntegrationEventFilterPtrOutput{})
 }

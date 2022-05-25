@@ -14,6 +14,7 @@ __all__ = [
     'ClusterRestoreToPointInTimeArgs',
     'ClusterS3ImportArgs',
     'ClusterScalingConfigurationArgs',
+    'ClusterServerlessv2ScalingConfigurationArgs',
     'GlobalClusterGlobalClusterMemberArgs',
     'InstanceRestoreToPointInTimeArgs',
     'InstanceS3ImportArgs',
@@ -322,6 +323,43 @@ class ClusterScalingConfigurationArgs:
     @timeout_action.setter
     def timeout_action(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timeout_action", value)
+
+
+@pulumi.input_type
+class ClusterServerlessv2ScalingConfigurationArgs:
+    def __init__(__self__, *,
+                 max_capacity: pulumi.Input[float],
+                 min_capacity: pulumi.Input[float]):
+        """
+        :param pulumi.Input[float] max_capacity: The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+        :param pulumi.Input[float] min_capacity: The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        """
+        pulumi.set(__self__, "max_capacity", max_capacity)
+        pulumi.set(__self__, "min_capacity", min_capacity)
+
+    @property
+    @pulumi.getter(name="maxCapacity")
+    def max_capacity(self) -> pulumi.Input[float]:
+        """
+        The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+        """
+        return pulumi.get(self, "max_capacity")
+
+    @max_capacity.setter
+    def max_capacity(self, value: pulumi.Input[float]):
+        pulumi.set(self, "max_capacity", value)
+
+    @property
+    @pulumi.getter(name="minCapacity")
+    def min_capacity(self) -> pulumi.Input[float]:
+        """
+        The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+        """
+        return pulumi.get(self, "min_capacity")
+
+    @min_capacity.setter
+    def min_capacity(self, value: pulumi.Input[float]):
+        pulumi.set(self, "min_capacity", value)
 
 
 @pulumi.input_type

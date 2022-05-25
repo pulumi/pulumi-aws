@@ -52,8 +52,11 @@ class ClusterArgs:
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
-               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+               When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+               Otherwise, specify the full version desired, e.g., `5.0.6`.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
@@ -206,8 +209,11 @@ class ClusterArgs:
         """
         Version number of the cache engine to be used.
         If not set, defaults to the latest version.
-        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+        When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        Otherwise, specify the full version desired, e.g., `5.0.6`.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -484,9 +490,12 @@ class _ClusterState:
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
-               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
-        :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
+               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+               When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+               Otherwise, specify the full version desired, e.g., `5.0.6`.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterLogDeliveryConfigurationArgs']]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
@@ -699,8 +708,11 @@ class _ClusterState:
         """
         Version number of the cache engine to be used.
         If not set, defaults to the latest version.
-        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+        When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        Otherwise, specify the full version desired, e.g., `5.0.6`.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -712,7 +724,7 @@ class _ClusterState:
     @pulumi.getter(name="engineVersionActual")
     def engine_version_actual(self) -> Optional[pulumi.Input[str]]:
         """
-        The running version of the cache engine.
+        Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         """
         return pulumi.get(self, "engine_version_actual")
 
@@ -1086,8 +1098,11 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
-               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+               When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+               Otherwise, specify the full version desired, e.g., `5.0.6`.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
@@ -1355,9 +1370,12 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                If not set, defaults to the latest version.
-               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
-        :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
+               See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+               When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+               Otherwise, specify the full version desired, e.g., `5.0.6`.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        :param pulumi.Input[str] engine_version_actual: Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterLogDeliveryConfigurationArgs']]]] log_delivery_configurations: Specifies the destination and format of Redis [SLOWLOG](https://redis.io/commands/slowlog) or Redis [Engine Log](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html#Log_contents-engine-log). See the documentation on [Amazon ElastiCache](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Log_Delivery.html). See Log Delivery Configuration below for more details.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
@@ -1504,8 +1522,11 @@ class Cluster(pulumi.CustomResource):
         """
         Version number of the cache engine to be used.
         If not set, defaults to the latest version.
-        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, , see Attributes Reference below.
+        See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html) in the AWS Documentation for supported versions.
+        When `engine` is `redis` and the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        Otherwise, specify the full version desired, e.g., `5.0.6`.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1513,7 +1534,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="engineVersionActual")
     def engine_version_actual(self) -> pulumi.Output[str]:
         """
-        The running version of the cache engine.
+        Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         """
         return pulumi.get(self, "engine_version_actual")
 

@@ -61,7 +61,7 @@ type Volume struct {
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     pulumi.IntOutput    `pulumi:"iops"`
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrOutput `pulumi:"multiAttachEnabled"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
@@ -120,7 +120,7 @@ type volumeState struct {
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     *int    `pulumi:"iops"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
@@ -148,7 +148,7 @@ type VolumeState struct {
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     pulumi.IntPtrInput
 	KmsKeyId pulumi.StringPtrInput
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
@@ -178,7 +178,7 @@ type volumeArgs struct {
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     *int    `pulumi:"iops"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
@@ -203,7 +203,7 @@ type VolumeArgs struct {
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     pulumi.IntPtrInput
 	KmsKeyId pulumi.StringPtrInput
-	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
@@ -330,7 +330,7 @@ func (o VolumeOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 func (o VolumeOutput) MultiAttachEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.MultiAttachEnabled }).(pulumi.BoolPtrOutput)
 }

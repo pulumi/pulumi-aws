@@ -49,6 +49,33 @@ namespace Pulumi.Aws.Acm
     /// 
     /// }
     /// ```
+    /// ### Custom Domain Validation Options
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var cert = new Aws.Acm.Certificate("cert", new Aws.Acm.CertificateArgs
+    ///         {
+    ///             DomainName = "testing.example.com",
+    ///             ValidationMethod = "EMAIL",
+    ///             ValidationOptions = 
+    ///             {
+    ///                 new Aws.Acm.Inputs.CertificateValidationOptionArgs
+    ///                 {
+    ///                     DomainName = "testing.example.com",
+    ///                     ValidationDomain = "example.com",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Existing Certificate Body Import
     /// 
     /// ```csharp
@@ -131,7 +158,7 @@ namespace Pulumi.Aws.Acm
         public Output<string?> CertificateChain { get; private set; } = null!;
 
         /// <summary>
-        /// A domain name for which the certificate should be issued
+        /// A fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -144,7 +171,6 @@ namespace Pulumi.Aws.Acm
 
         /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
-        /// * Importing an existing certificate
         /// </summary>
         [Output("options")]
         public Output<Outputs.CertificateOptions?> Options { get; private set; } = null!;
@@ -190,6 +216,13 @@ namespace Pulumi.Aws.Acm
         /// </summary>
         [Output("validationMethod")]
         public Output<string> ValidationMethod { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
+        [Output("validationOptions")]
+        public Output<ImmutableArray<Outputs.CertificateValidationOption>> ValidationOptions { get; private set; } = null!;
 
 
         /// <summary>
@@ -257,14 +290,13 @@ namespace Pulumi.Aws.Acm
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
-        /// A domain name for which the certificate should be issued
+        /// A fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
-        /// * Importing an existing certificate
         /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsArgs>? Options { get; set; }
@@ -305,6 +337,19 @@ namespace Pulumi.Aws.Acm
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
 
+        [Input("validationOptions")]
+        private InputList<Inputs.CertificateValidationOptionArgs>? _validationOptions;
+
+        /// <summary>
+        /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
+        public InputList<Inputs.CertificateValidationOptionArgs> ValidationOptions
+        {
+            get => _validationOptions ?? (_validationOptions = new InputList<Inputs.CertificateValidationOptionArgs>());
+            set => _validationOptions = value;
+        }
+
         public CertificateArgs()
         {
         }
@@ -338,7 +383,7 @@ namespace Pulumi.Aws.Acm
         public Input<string>? CertificateChain { get; set; }
 
         /// <summary>
-        /// A domain name for which the certificate should be issued
+        /// A fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
@@ -357,7 +402,6 @@ namespace Pulumi.Aws.Acm
 
         /// <summary>
         /// Configuration block used to set certificate options. Detailed below.
-        /// * Importing an existing certificate
         /// </summary>
         [Input("options")]
         public Input<Inputs.CertificateOptionsGetArgs>? Options { get; set; }
@@ -427,6 +471,19 @@ namespace Pulumi.Aws.Acm
         /// </summary>
         [Input("validationMethod")]
         public Input<string>? ValidationMethod { get; set; }
+
+        [Input("validationOptions")]
+        private InputList<Inputs.CertificateValidationOptionGetArgs>? _validationOptions;
+
+        /// <summary>
+        /// Configuration block used to specify information about the initial validation of each domain name. Detailed below.
+        /// * Importing an existing certificate
+        /// </summary>
+        public InputList<Inputs.CertificateValidationOptionGetArgs> ValidationOptions
+        {
+            get => _validationOptions ?? (_validationOptions = new InputList<Inputs.CertificateValidationOptionGetArgs>());
+            set => _validationOptions = value;
+        }
 
         public CertificateState()
         {

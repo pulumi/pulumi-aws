@@ -82,7 +82,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly authenticationProviders!: pulumi.Output<string[]>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `CLOUDWATCH`, `PROMETHEUS`, `XRAY`, `TIMESTREAM`, `SITEWISE`.
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      */
     public readonly dataSources!: pulumi.Output<string[] | undefined>;
     /**
@@ -126,6 +126,14 @@ export class Workspace extends pulumi.CustomResource {
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */
     public readonly stackSetName!: pulumi.Output<string | undefined>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -155,6 +163,8 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["samlConfigurationStatus"] = state ? state.samlConfigurationStatus : undefined;
             resourceInputs["stackSetName"] = state ? state.stackSetName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if ((!args || args.accountAccessType === undefined) && !opts.urn) {
@@ -177,6 +187,8 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["permissionType"] = args ? args.permissionType : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["stackSetName"] = args ? args.stackSetName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["grafanaVersion"] = undefined /*out*/;
@@ -204,7 +216,7 @@ export interface WorkspaceState {
      */
     authenticationProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `CLOUDWATCH`, `PROMETHEUS`, `XRAY`, `TIMESTREAM`, `SITEWISE`.
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      */
     dataSources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -248,6 +260,14 @@ export interface WorkspaceState {
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */
     stackSetName?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -263,7 +283,7 @@ export interface WorkspaceArgs {
      */
     authenticationProviders: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `CLOUDWATCH`, `PROMETHEUS`, `XRAY`, `TIMESTREAM`, `SITEWISE`.
+     * The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `XRAY`
      */
     dataSources?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -298,4 +318,12 @@ export interface WorkspaceArgs {
      * The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
      */
     stackSetName?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -186,6 +186,8 @@ type Instance struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate InstanceLaunchTemplatePtrOutput `pulumi:"launchTemplate"`
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions InstanceMaintenanceOptionsOutput `pulumi:"maintenanceOptions"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsOutput `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -318,6 +320,8 @@ type instanceState struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate *InstanceLaunchTemplate `pulumi:"launchTemplate"`
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions *InstanceMaintenanceOptions `pulumi:"maintenanceOptions"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -422,6 +426,8 @@ type InstanceState struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate InstanceLaunchTemplatePtrInput
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions InstanceMaintenanceOptionsPtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -526,6 +532,8 @@ type instanceArgs struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate *InstanceLaunchTemplate `pulumi:"launchTemplate"`
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions *InstanceMaintenanceOptions `pulumi:"maintenanceOptions"`
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions *InstanceMetadataOptions `pulumi:"metadataOptions"`
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -613,6 +621,8 @@ type InstanceArgs struct {
 	// Specifies a Launch Template to configure the instance. Parameters configured on this resource will override the corresponding parameters in the Launch Template.
 	// See Launch Template Specification below for more details.
 	LaunchTemplate InstanceLaunchTemplatePtrInput
+	// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+	MaintenanceOptions InstanceMaintenanceOptionsPtrInput
 	// Customize the metadata options of the instance. See Metadata Options below for more details.
 	MetadataOptions InstanceMetadataOptionsPtrInput
 	// If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
@@ -861,6 +871,11 @@ func (o InstanceOutput) KeyName() pulumi.StringOutput {
 // See Launch Template Specification below for more details.
 func (o InstanceOutput) LaunchTemplate() InstanceLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceLaunchTemplatePtrOutput { return v.LaunchTemplate }).(InstanceLaunchTemplatePtrOutput)
+}
+
+// The maintenance and recovery options for the instance. See Maintenance Options below for more details.
+func (o InstanceOutput) MaintenanceOptions() InstanceMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *Instance) InstanceMaintenanceOptionsOutput { return v.MaintenanceOptions }).(InstanceMaintenanceOptionsOutput)
 }
 
 // Customize the metadata options of the instance. See Metadata Options below for more details.

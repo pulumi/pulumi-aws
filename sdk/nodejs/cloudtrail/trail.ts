@@ -105,7 +105,7 @@ import * as utilities from "../utilities";
  *         includeManagementEvents: true,
  *         dataResources: [{
  *             type: "AWS::S3::Object",
- *             values: ["arn:aws:s3:::"],
+ *             values: ["arn:aws:s3"],
  *         }],
  *     }],
  * });

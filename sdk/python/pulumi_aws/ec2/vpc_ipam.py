@@ -248,7 +248,7 @@ class VpcIpam(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a IPAM resource.
+        Provides an IPAM resource.
 
         ## Import
 
@@ -272,7 +272,7 @@ class VpcIpam(pulumi.CustomResource):
                  args: VpcIpamArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a IPAM resource.
+        Provides an IPAM resource.
 
         ## Import
 

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -76,22 +77,54 @@ export interface GetPatchBaselineArgs {
  * A collection of values returned by getPatchBaseline.
  */
 export interface GetPatchBaselineResult {
+    /**
+     * A list of rules used to include patches in the baseline.
+     */
+    readonly approvalRules: outputs.ssm.GetPatchBaselineApprovalRule[];
+    /**
+     * A list of explicitly approved patches for the baseline.
+     */
+    readonly approvedPatches: string[];
+    /**
+     * The compliance level for approved patches.
+     */
+    readonly approvedPatchesComplianceLevel: string;
+    /**
+     * Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+     */
+    readonly approvedPatchesEnableNonSecurity: boolean;
     readonly defaultBaseline?: boolean;
     /**
      * The description of the baseline.
      */
     readonly description: string;
     /**
+     * A set of global filters used to exclude patches from the baseline.
+     */
+    readonly globalFilters: outputs.ssm.GetPatchBaselineGlobalFilter[];
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The name of the baseline.
+     * The name specified to identify the patch source.
      */
     readonly name: string;
     readonly namePrefix?: string;
     readonly operatingSystem?: string;
     readonly owner: string;
+    /**
+     * A list of rejected patches.
+     */
+    readonly rejectedPatches: string[];
+    /**
+     * The action specified to take on patches included in the `rejectedPatches` list.
+     */
+    readonly rejectedPatchesAction: string;
+    /**
+     * Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
+     */
+    readonly sources: outputs.ssm.GetPatchBaselineSource[];
 }
 
 export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {

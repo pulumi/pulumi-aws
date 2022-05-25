@@ -125,26 +125,26 @@ namespace Pulumi.Aws.Dlm
     /// {
     ///     public MyStack()
     ///     {
-    ///         // ...other configuration...
+    ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var dlmCrossRegionCopyCmk = new Aws.Kms.Key("dlmCrossRegionCopyCmk", new Aws.Kms.KeyArgs
     ///         {
     ///             Description = "Example Alternate Region KMS Key",
-    ///             Policy = @"{
+    ///             Policy = current.Apply(current =&gt; @$"{{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Id"": ""dlm-cross-region-copy-cmk"",
     ///   ""Statement"": [
-    ///     {
+    ///     {{
     ///       ""Sid"": ""Enable IAM User Permissions"",
     ///       ""Effect"": ""Allow"",
-    ///       ""Principal"": {
-    ///         ""AWS"": ""*""
-    ///       },
+    ///       ""Principal"": {{
+    ///         ""AWS"": ""arn:aws:iam::{current.AccountId}:root""
+    ///       }},
     ///       ""Action"": ""kms:*"",
     ///       ""Resource"": ""*""
-    ///     }
+    ///     }}
     ///   ]
-    /// }
-    /// ",
+    /// }}
+    /// "),
     ///         }, new CustomResourceOptions
     ///         {
     ///             Provider = aws.Alternate,

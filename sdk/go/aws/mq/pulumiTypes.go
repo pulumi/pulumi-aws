@@ -1847,6 +1847,247 @@ func (o GetBrokerUserArrayOutput) Index(i pulumi.IntInput) GetBrokerUserOutput {
 	}).(GetBrokerUserOutput)
 }
 
+type GetInstanceTypeOfferingsBrokerInstanceOption struct {
+	// The list of available AZs. See Availability Zones. below
+	AvailabilityZones []GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone `pulumi:"availabilityZones"`
+	// Filter response by engine type.
+	EngineType string `pulumi:"engineType"`
+	// Filter response by host instance type.
+	HostInstanceType string `pulumi:"hostInstanceType"`
+	// Filter response by storage type.
+	StorageType string `pulumi:"storageType"`
+	// The list of supported deployment modes.
+	SupportedDeploymentModes []string `pulumi:"supportedDeploymentModes"`
+	// The list of supported engine versions.
+	SupportedEngineVersions []string `pulumi:"supportedEngineVersions"`
+}
+
+// GetInstanceTypeOfferingsBrokerInstanceOptionInput is an input type that accepts GetInstanceTypeOfferingsBrokerInstanceOptionArgs and GetInstanceTypeOfferingsBrokerInstanceOptionOutput values.
+// You can construct a concrete instance of `GetInstanceTypeOfferingsBrokerInstanceOptionInput` via:
+//
+//          GetInstanceTypeOfferingsBrokerInstanceOptionArgs{...}
+type GetInstanceTypeOfferingsBrokerInstanceOptionInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeOfferingsBrokerInstanceOptionOutput() GetInstanceTypeOfferingsBrokerInstanceOptionOutput
+	ToGetInstanceTypeOfferingsBrokerInstanceOptionOutputWithContext(context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionOutput
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionArgs struct {
+	// The list of available AZs. See Availability Zones. below
+	AvailabilityZones GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput `pulumi:"availabilityZones"`
+	// Filter response by engine type.
+	EngineType pulumi.StringInput `pulumi:"engineType"`
+	// Filter response by host instance type.
+	HostInstanceType pulumi.StringInput `pulumi:"hostInstanceType"`
+	// Filter response by storage type.
+	StorageType pulumi.StringInput `pulumi:"storageType"`
+	// The list of supported deployment modes.
+	SupportedDeploymentModes pulumi.StringArrayInput `pulumi:"supportedDeploymentModes"`
+	// The list of supported engine versions.
+	SupportedEngineVersions pulumi.StringArrayInput `pulumi:"supportedEngineVersions"`
+}
+
+func (GetInstanceTypeOfferingsBrokerInstanceOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOption)(nil)).Elem()
+}
+
+func (i GetInstanceTypeOfferingsBrokerInstanceOptionArgs) ToGetInstanceTypeOfferingsBrokerInstanceOptionOutput() GetInstanceTypeOfferingsBrokerInstanceOptionOutput {
+	return i.ToGetInstanceTypeOfferingsBrokerInstanceOptionOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeOfferingsBrokerInstanceOptionArgs) ToGetInstanceTypeOfferingsBrokerInstanceOptionOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsBrokerInstanceOptionOutput)
+}
+
+// GetInstanceTypeOfferingsBrokerInstanceOptionArrayInput is an input type that accepts GetInstanceTypeOfferingsBrokerInstanceOptionArray and GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeOfferingsBrokerInstanceOptionArrayInput` via:
+//
+//          GetInstanceTypeOfferingsBrokerInstanceOptionArray{ GetInstanceTypeOfferingsBrokerInstanceOptionArgs{...} }
+type GetInstanceTypeOfferingsBrokerInstanceOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput() GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput
+	ToGetInstanceTypeOfferingsBrokerInstanceOptionArrayOutputWithContext(context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionArray []GetInstanceTypeOfferingsBrokerInstanceOptionInput
+
+func (GetInstanceTypeOfferingsBrokerInstanceOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeOfferingsBrokerInstanceOption)(nil)).Elem()
+}
+
+func (i GetInstanceTypeOfferingsBrokerInstanceOptionArray) ToGetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput() GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput {
+	return i.ToGetInstanceTypeOfferingsBrokerInstanceOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeOfferingsBrokerInstanceOptionArray) ToGetInstanceTypeOfferingsBrokerInstanceOptionArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput)
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOption)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionOutput() GetInstanceTypeOfferingsBrokerInstanceOptionOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionOutput {
+	return o
+}
+
+// The list of available AZs. See Availability Zones. below
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) AvailabilityZones() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) []GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone {
+		return v.AvailabilityZones
+	}).(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput)
+}
+
+// Filter response by engine type.
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) EngineType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) string { return v.EngineType }).(pulumi.StringOutput)
+}
+
+// Filter response by host instance type.
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) HostInstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) string { return v.HostInstanceType }).(pulumi.StringOutput)
+}
+
+// Filter response by storage type.
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) StorageType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) string { return v.StorageType }).(pulumi.StringOutput)
+}
+
+// The list of supported deployment modes.
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) SupportedDeploymentModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) []string { return v.SupportedDeploymentModes }).(pulumi.StringArrayOutput)
+}
+
+// The list of supported engine versions.
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionOutput) SupportedEngineVersions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOption) []string { return v.SupportedEngineVersions }).(pulumi.StringArrayOutput)
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeOfferingsBrokerInstanceOption)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput() GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeOfferingsBrokerInstanceOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeOfferingsBrokerInstanceOption {
+		return vs[0].([]GetInstanceTypeOfferingsBrokerInstanceOption)[vs[1].(int)]
+	}).(GetInstanceTypeOfferingsBrokerInstanceOptionOutput)
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone struct {
+	// The name of the Availability Zone.
+	Name string `pulumi:"name"`
+}
+
+// GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneInput is an input type that accepts GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs and GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput values.
+// You can construct a concrete instance of `GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneInput` via:
+//
+//          GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs{...}
+type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput
+	ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutputWithContext(context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs struct {
+	// The name of the Availability Zone.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone)(nil)).Elem()
+}
+
+func (i GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput {
+	return i.ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput)
+}
+
+// GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput is an input type that accepts GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray and GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput` via:
+//
+//          GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray{ GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs{...} }
+type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput
+	ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutputWithContext(context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray []GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneInput
+
+func (GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone)(nil)).Elem()
+}
+
+func (i GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput {
+	return i.ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput)
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput {
+	return o
+}
+
+// The name of the Availability Zone.
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone)(nil)).Elem()
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput() GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput) ToGetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutputWithContext(ctx context.Context) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput) Index(i pulumi.IntInput) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone {
+		return vs[0].([]GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone)[vs[1].(int)]
+	}).(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerConfigurationInput)(nil)).Elem(), BrokerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerConfigurationPtrInput)(nil)).Elem(), BrokerConfigurationArgs{})
@@ -1873,6 +2114,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerMaintenanceWindowStartTimeInput)(nil)).Elem(), GetBrokerMaintenanceWindowStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerUserInput)(nil)).Elem(), GetBrokerUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerUserArrayInput)(nil)).Elem(), GetBrokerUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOptionInput)(nil)).Elem(), GetInstanceTypeOfferingsBrokerInstanceOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOptionArrayInput)(nil)).Elem(), GetInstanceTypeOfferingsBrokerInstanceOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneInput)(nil)).Elem(), GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayInput)(nil)).Elem(), GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArray{})
 	pulumi.RegisterOutputType(BrokerConfigurationOutput{})
 	pulumi.RegisterOutputType(BrokerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BrokerEncryptionOptionsOutput{})
@@ -1898,4 +2143,8 @@ func init() {
 	pulumi.RegisterOutputType(GetBrokerMaintenanceWindowStartTimeOutput{})
 	pulumi.RegisterOutputType(GetBrokerUserOutput{})
 	pulumi.RegisterOutputType(GetBrokerUserArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingsBrokerInstanceOptionOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingsBrokerInstanceOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZoneArrayOutput{})
 }

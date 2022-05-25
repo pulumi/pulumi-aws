@@ -13,6 +13,7 @@ import (
 // Provides details about CodeStar Connection.
 //
 // ## Example Usage
+// ### By ARN
 //
 // ```go
 // package main
@@ -25,7 +26,29 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := codestarconnections.LookupConnection(ctx, &codestarconnections.LookupConnectionArgs{
-// 			Arn: aws_codestarconnections_connection.Example.Arn,
+// 			Arn: pulumi.StringRef(aws_codestarconnections_connection.Example.Arn),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### By Name
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/codestarconnections"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := codestarconnections.LookupConnection(ctx, &codestarconnections.LookupConnectionArgs{
+// 			Name: pulumi.StringRef(aws_codestarconnections_connection.Example.Name),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -46,7 +69,9 @@ func LookupConnection(ctx *pulumi.Context, args *LookupConnectionArgs, opts ...p
 // A collection of arguments for invoking getConnection.
 type LookupConnectionArgs struct {
 	// The CodeStar Connection ARN.
-	Arn string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// The CodeStar Connection name.
+	Name *string `pulumi:"name"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -84,7 +109,9 @@ func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs
 // A collection of arguments for invoking getConnection.
 type LookupConnectionOutputArgs struct {
 	// The CodeStar Connection ARN.
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Arn pulumi.StringPtrInput `pulumi:"arn"`
+	// The CodeStar Connection name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }

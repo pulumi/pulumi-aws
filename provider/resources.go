@@ -334,6 +334,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"skip_metadata_api_check": {
+				Type: "boolean",
 				Default: &tfbridge.DefaultInfo{
 					Value: true,
 				},

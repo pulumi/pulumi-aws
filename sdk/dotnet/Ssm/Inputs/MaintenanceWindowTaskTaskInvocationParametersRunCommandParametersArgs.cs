@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Ssm.Inputs
         }
 
         /// <summary>
-        /// The IAM service role to assume during task execution.
+        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         /// </summary>
         [Input("serviceRoleArn")]
         public Input<string>? ServiceRoleArn { get; set; }

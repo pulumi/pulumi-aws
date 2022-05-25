@@ -33,6 +33,10 @@ __all__ = [
     'ResourceDataSyncS3Destination',
     'GetInstancesFilterResult',
     'GetMaintenanceWindowsFilterResult',
+    'GetPatchBaselineApprovalRuleResult',
+    'GetPatchBaselineApprovalRulePatchFilterResult',
+    'GetPatchBaselineGlobalFilterResult',
+    'GetPatchBaselineSourceResult',
 ]
 
 @pulumi.output_type
@@ -548,7 +552,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
         :param str output_s3_bucket: The name of the Amazon S3 bucket.
         :param str output_s3_key_prefix: The Amazon S3 bucket subfolder.
         :param Sequence['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs'] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
-        :param str service_role_arn: The IAM service role to assume during task execution.
+        :param str service_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         :param int timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
         if cloudwatch_config is not None:
@@ -650,7 +654,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters(dict):
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[str]:
         """
-        The IAM service role to assume during task execution.
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         """
         return pulumi.get(self, "service_role_arn")
 
@@ -1148,5 +1152,165 @@ class GetMaintenanceWindowsFilterResult(dict):
         Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetPatchBaselineApprovalRuleResult(dict):
+    def __init__(__self__, *,
+                 approve_after_days: int,
+                 approve_until_date: str,
+                 compliance_level: str,
+                 enable_non_security: bool,
+                 patch_filters: Sequence['outputs.GetPatchBaselineApprovalRulePatchFilterResult']):
+        """
+        :param int approve_after_days: The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+        :param str approve_until_date: The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        :param str compliance_level: The compliance level for patches approved by this rule.
+        :param bool enable_non_security: Boolean enabling the application of non-security updates.
+        :param Sequence['GetPatchBaselineApprovalRulePatchFilterArgs'] patch_filters: The patch filter group that defines the criteria for the rule.
+        """
+        pulumi.set(__self__, "approve_after_days", approve_after_days)
+        pulumi.set(__self__, "approve_until_date", approve_until_date)
+        pulumi.set(__self__, "compliance_level", compliance_level)
+        pulumi.set(__self__, "enable_non_security", enable_non_security)
+        pulumi.set(__self__, "patch_filters", patch_filters)
+
+    @property
+    @pulumi.getter(name="approveAfterDays")
+    def approve_after_days(self) -> int:
+        """
+        The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+        """
+        return pulumi.get(self, "approve_after_days")
+
+    @property
+    @pulumi.getter(name="approveUntilDate")
+    def approve_until_date(self) -> str:
+        """
+        The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approve_after_days`
+        """
+        return pulumi.get(self, "approve_until_date")
+
+    @property
+    @pulumi.getter(name="complianceLevel")
+    def compliance_level(self) -> str:
+        """
+        The compliance level for patches approved by this rule.
+        """
+        return pulumi.get(self, "compliance_level")
+
+    @property
+    @pulumi.getter(name="enableNonSecurity")
+    def enable_non_security(self) -> bool:
+        """
+        Boolean enabling the application of non-security updates.
+        """
+        return pulumi.get(self, "enable_non_security")
+
+    @property
+    @pulumi.getter(name="patchFilters")
+    def patch_filters(self) -> Sequence['outputs.GetPatchBaselineApprovalRulePatchFilterResult']:
+        """
+        The patch filter group that defines the criteria for the rule.
+        """
+        return pulumi.get(self, "patch_filters")
+
+
+@pulumi.output_type
+class GetPatchBaselineApprovalRulePatchFilterResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: The key for the filter.
+        :param Sequence[str] values: The value for the filter.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for the filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The value for the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetPatchBaselineGlobalFilterResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: The key for the filter.
+        :param Sequence[str] values: The value for the filter.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key for the filter.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        The value for the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetPatchBaselineSourceResult(dict):
+    def __init__(__self__, *,
+                 configuration: str,
+                 name: str,
+                 products: Sequence[str]):
+        """
+        :param str configuration: The value of the yum repo configuration.
+        :param str name: The name specified to identify the patch source.
+        :param Sequence[str] products: The specific operating system versions a patch repository applies to.
+        """
+        pulumi.set(__self__, "configuration", configuration)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "products", products)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> str:
+        """
+        The value of the yum repo configuration.
+        """
+        return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name specified to identify the patch source.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def products(self) -> Sequence[str]:
+        """
+        The specific operating system versions a patch repository applies to.
+        """
+        return pulumi.get(self, "products")
 
 

@@ -9,6 +9,7 @@ export * from "./cluster";
 export * from "./clusterInstance";
 export * from "./clusterParameterGroup";
 export * from "./clusterSnapshot";
+export * from "./eventSubscription";
 export * from "./getEngineVersion";
 export * from "./getOrderableDbInstance";
 export * from "./globalCluster";
@@ -19,6 +20,7 @@ import { Cluster } from "./cluster";
 import { ClusterInstance } from "./clusterInstance";
 import { ClusterParameterGroup } from "./clusterParameterGroup";
 import { ClusterSnapshot } from "./clusterSnapshot";
+import { EventSubscription } from "./eventSubscription";
 import { GlobalCluster } from "./globalCluster";
 import { SubnetGroup } from "./subnetGroup";
 
@@ -34,6 +36,8 @@ const _module = {
                 return new ClusterParameterGroup(name, <any>undefined, { urn })
             case "aws:docdb/clusterSnapshot:ClusterSnapshot":
                 return new ClusterSnapshot(name, <any>undefined, { urn })
+            case "aws:docdb/eventSubscription:EventSubscription":
+                return new EventSubscription(name, <any>undefined, { urn })
             case "aws:docdb/globalCluster:GlobalCluster":
                 return new GlobalCluster(name, <any>undefined, { urn })
             case "aws:docdb/subnetGroup:SubnetGroup":
@@ -47,5 +51,6 @@ pulumi.runtime.registerResourceModule("aws", "docdb/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/clusterInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/clusterParameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/clusterSnapshot", _module)
+pulumi.runtime.registerResourceModule("aws", "docdb/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/globalCluster", _module)
 pulumi.runtime.registerResourceModule("aws", "docdb/subnetGroup", _module)

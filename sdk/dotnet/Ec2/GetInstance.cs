@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly bool EbsOptimized;
         /// <summary>
-        /// The enclave options of the Instance.
+        /// The enclave options of the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceEnclaveOptionResult> EnclaveOptions;
         /// <summary>
@@ -313,6 +313,10 @@ namespace Pulumi.Aws.Ec2
         /// The key name of the Instance.
         /// </summary>
         public readonly string KeyName;
+        /// <summary>
+        /// The maintenance and recovery options for the instance.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInstanceMaintenanceOptionResult> MaintenanceOptions;
         /// <summary>
         /// The metadata options of the Instance.
         /// </summary>
@@ -450,6 +454,8 @@ namespace Pulumi.Aws.Ec2
 
             string keyName,
 
+            ImmutableArray<Outputs.GetInstanceMaintenanceOptionResult> maintenanceOptions,
+
             ImmutableArray<Outputs.GetInstanceMetadataOptionResult> metadataOptions,
 
             bool monitoring,
@@ -514,6 +520,7 @@ namespace Pulumi.Aws.Ec2
             InstanceType = instanceType;
             Ipv6Addresses = ipv6Addresses;
             KeyName = keyName;
+            MaintenanceOptions = maintenanceOptions;
             MetadataOptions = metadataOptions;
             Monitoring = monitoring;
             NetworkInterfaceId = networkInterfaceId;

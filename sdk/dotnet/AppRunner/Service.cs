@@ -85,13 +85,14 @@ namespace Pulumi.Aws.AppRunner
     ///             ServiceName = "example",
     ///             SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
     ///             {
+    ///                 AutoDeploymentEnabled = false,
     ///                 ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
     ///                 {
     ///                     ImageConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs
     ///                     {
     ///                         Port = "8000",
     ///                     },
-    ///                     ImageIdentifier = "public.ecr.aws/jg/hello:latest",
+    ///                     ImageIdentifier = "public.ecr.aws/aws-containers/hello-app-runner:latest",
     ///                     ImageRepositoryType = "ECR_PUBLIC",
     ///                 },
     ///             },

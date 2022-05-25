@@ -33,6 +33,7 @@ class SpotFleetRequestArgs:
                  spot_price: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
@@ -74,6 +75,9 @@ class SpotFleetRequestArgs:
         :param pulumi.Input[str] spot_price: The maximum spot bid for this override request.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
+        :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
+               instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+               If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running Spot
                instances should be terminated when the Spot fleet request expires.
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -116,6 +120,8 @@ class SpotFleetRequestArgs:
             pulumi.set(__self__, "tags", tags)
         if target_group_arns is not None:
             pulumi.set(__self__, "target_group_arns", target_group_arns)
+        if terminate_instances_on_delete is not None:
+            pulumi.set(__self__, "terminate_instances_on_delete", terminate_instances_on_delete)
         if terminate_instances_with_expiration is not None:
             pulumi.set(__self__, "terminate_instances_with_expiration", terminate_instances_with_expiration)
         if valid_from is not None:
@@ -359,6 +365,20 @@ class SpotFleetRequestArgs:
         pulumi.set(self, "target_group_arns", value)
 
     @property
+    @pulumi.getter(name="terminateInstancesOnDelete")
+    def terminate_instances_on_delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether running Spot
+        instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+        If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        """
+        return pulumi.get(self, "terminate_instances_on_delete")
+
+    @terminate_instances_on_delete.setter
+    def terminate_instances_on_delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "terminate_instances_on_delete", value)
+
+    @property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -434,6 +454,7 @@ class _SpotFleetRequestState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
@@ -477,6 +498,9 @@ class _SpotFleetRequestState:
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
+        :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
+               instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+               If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running Spot
                instances should be terminated when the Spot fleet request expires.
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -527,6 +551,8 @@ class _SpotFleetRequestState:
             pulumi.set(__self__, "target_capacity", target_capacity)
         if target_group_arns is not None:
             pulumi.set(__self__, "target_group_arns", target_group_arns)
+        if terminate_instances_on_delete is not None:
+            pulumi.set(__self__, "terminate_instances_on_delete", terminate_instances_on_delete)
         if terminate_instances_with_expiration is not None:
             pulumi.set(__self__, "terminate_instances_with_expiration", terminate_instances_with_expiration)
         if valid_from is not None:
@@ -803,6 +829,20 @@ class _SpotFleetRequestState:
         pulumi.set(self, "target_group_arns", value)
 
     @property
+    @pulumi.getter(name="terminateInstancesOnDelete")
+    def terminate_instances_on_delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates whether running Spot
+        instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+        If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        """
+        return pulumi.get(self, "terminate_instances_on_delete")
+
+    @terminate_instances_on_delete.setter
+    def terminate_instances_on_delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "terminate_instances_on_delete", value)
+
+    @property
     @pulumi.getter(name="terminateInstancesWithExpiration")
     def terminate_instances_with_expiration(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -877,6 +917,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
@@ -928,6 +969,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
+        :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
+               instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+               If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running Spot
                instances should be terminated when the Spot fleet request expires.
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -984,6 +1028,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  target_capacity: Optional[pulumi.Input[int]] = None,
                  target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
                  terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
                  valid_from: Optional[pulumi.Input[str]] = None,
                  valid_until: Optional[pulumi.Input[str]] = None,
@@ -1022,6 +1067,7 @@ class SpotFleetRequest(pulumi.CustomResource):
                 raise TypeError("Missing required property 'target_capacity'")
             __props__.__dict__["target_capacity"] = target_capacity
             __props__.__dict__["target_group_arns"] = target_group_arns
+            __props__.__dict__["terminate_instances_on_delete"] = terminate_instances_on_delete
             __props__.__dict__["terminate_instances_with_expiration"] = terminate_instances_with_expiration
             __props__.__dict__["valid_from"] = valid_from
             __props__.__dict__["valid_until"] = valid_until
@@ -1060,6 +1106,7 @@ class SpotFleetRequest(pulumi.CustomResource):
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             target_capacity: Optional[pulumi.Input[int]] = None,
             target_group_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            terminate_instances_on_delete: Optional[pulumi.Input[str]] = None,
             terminate_instances_with_expiration: Optional[pulumi.Input[bool]] = None,
             valid_from: Optional[pulumi.Input[str]] = None,
             valid_until: Optional[pulumi.Input[str]] = None,
@@ -1108,6 +1155,9 @@ class SpotFleetRequest(pulumi.CustomResource):
                target capacity in terms of instances or a performance characteristic that is
                important to your application workload, such as vCPUs, memory, or I/O.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_group_arns: A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
+        :param pulumi.Input[str] terminate_instances_on_delete: Indicates whether running Spot
+               instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+               If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Indicates whether running Spot
                instances should be terminated when the Spot fleet request expires.
         :param pulumi.Input[str] valid_from: The start date and time of the request, in UTC [RFC3339](https://tools.ietf.org/html/rfc3339#section-5.8) format(for example, YYYY-MM-DDTHH:MM:SSZ). The default is to start fulfilling the request immediately.
@@ -1141,6 +1191,7 @@ class SpotFleetRequest(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_capacity"] = target_capacity
         __props__.__dict__["target_group_arns"] = target_group_arns
+        __props__.__dict__["terminate_instances_on_delete"] = terminate_instances_on_delete
         __props__.__dict__["terminate_instances_with_expiration"] = terminate_instances_with_expiration
         __props__.__dict__["valid_from"] = valid_from
         __props__.__dict__["valid_until"] = valid_until
@@ -1328,6 +1379,16 @@ class SpotFleetRequest(pulumi.CustomResource):
         A list of `alb.TargetGroup` ARNs, for use with Application Load Balancing.
         """
         return pulumi.get(self, "target_group_arns")
+
+    @property
+    @pulumi.getter(name="terminateInstancesOnDelete")
+    def terminate_instances_on_delete(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates whether running Spot
+        instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+        If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        """
+        return pulumi.get(self, "terminate_instances_on_delete")
 
     @property
     @pulumi.getter(name="terminateInstancesWithExpiration")

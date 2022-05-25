@@ -251,6 +251,12 @@ namespace Pulumi.Aws.Lambda
         public Output<string> Function { get; private set; } = null!;
 
         /// <summary>
+        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        /// </summary>
+        [Output("functionUrlAuthType")]
+        public Output<string?> FunctionUrlAuthType { get; private set; } = null!;
+
+        /// <summary>
         /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
         /// </summary>
         [Output("principal")]
@@ -294,7 +300,7 @@ namespace Pulumi.Aws.Lambda
         /// A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statement_id`.
         /// </summary>
         [Output("statementIdPrefix")]
-        public Output<string?> StatementIdPrefix { get; private set; } = null!;
+        public Output<string> StatementIdPrefix { get; private set; } = null!;
 
 
         /// <summary>
@@ -359,6 +365,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("function", required: true)]
         public Input<string> Function { get; set; } = null!;
+
+        /// <summary>
+        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        /// </summary>
+        [Input("functionUrlAuthType")]
+        public Input<string>? FunctionUrlAuthType { get; set; }
 
         /// <summary>
         /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
@@ -430,6 +442,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("function")]
         public Input<string>? Function { get; set; }
+
+        /// <summary>
+        /// Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+        /// </summary>
+        [Input("functionUrlAuthType")]
+        public Input<string>? FunctionUrlAuthType { get; set; }
 
         /// <summary>
         /// The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.

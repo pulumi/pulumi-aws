@@ -98,11 +98,13 @@ type TopicRule struct {
 	Elasticsearch TopicRuleElasticsearchPtrOutput `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrOutput   `pulumi:"errorAction"`
 	Firehose     TopicRuleFirehosePtrOutput      `pulumi:"firehose"`
+	Https        TopicRuleHttpArrayOutput        `pulumi:"https"`
 	IotAnalytics TopicRuleIotAnalyticArrayOutput `pulumi:"iotAnalytics"`
 	IotEvents    TopicRuleIotEventArrayOutput    `pulumi:"iotEvents"`
+	Kafkas       TopicRuleKafkaArrayOutput       `pulumi:"kafkas"`
 	Kinesis      TopicRuleKinesisPtrOutput       `pulumi:"kinesis"`
 	Lambda       TopicRuleLambdaPtrOutput        `pulumi:"lambda"`
 	// The name of the rule.
@@ -119,7 +121,8 @@ type TopicRule struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	TagsAll     pulumi.StringMapOutput         `pulumi:"tagsAll"`
+	Timestreams TopicRuleTimestreamArrayOutput `pulumi:"timestreams"`
 }
 
 // NewTopicRule registers a new resource with the given unique name, arguments, and options.
@@ -172,11 +175,13 @@ type topicRuleState struct {
 	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  *TopicRuleErrorAction  `pulumi:"errorAction"`
 	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
+	Https        []TopicRuleHttp        `pulumi:"https"`
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
 	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
+	Kafkas       []TopicRuleKafka       `pulumi:"kafkas"`
 	Kinesis      *TopicRuleKinesis      `pulumi:"kinesis"`
 	Lambda       *TopicRuleLambda       `pulumi:"lambda"`
 	// The name of the rule.
@@ -193,7 +198,8 @@ type topicRuleState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	TagsAll     map[string]string     `pulumi:"tagsAll"`
+	Timestreams []TopicRuleTimestream `pulumi:"timestreams"`
 }
 
 type TopicRuleState struct {
@@ -209,11 +215,13 @@ type TopicRuleState struct {
 	Elasticsearch TopicRuleElasticsearchPtrInput
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolPtrInput
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrInput
 	Firehose     TopicRuleFirehosePtrInput
+	Https        TopicRuleHttpArrayInput
 	IotAnalytics TopicRuleIotAnalyticArrayInput
 	IotEvents    TopicRuleIotEventArrayInput
+	Kafkas       TopicRuleKafkaArrayInput
 	Kinesis      TopicRuleKinesisPtrInput
 	Lambda       TopicRuleLambdaPtrInput
 	// The name of the rule.
@@ -230,7 +238,8 @@ type TopicRuleState struct {
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
-	TagsAll pulumi.StringMapInput
+	TagsAll     pulumi.StringMapInput
+	Timestreams TopicRuleTimestreamArrayInput
 }
 
 func (TopicRuleState) ElementType() reflect.Type {
@@ -248,11 +257,13 @@ type topicRuleArgs struct {
 	Elasticsearch *TopicRuleElasticsearch `pulumi:"elasticsearch"`
 	// Specifies whether the rule is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  *TopicRuleErrorAction  `pulumi:"errorAction"`
 	Firehose     *TopicRuleFirehose     `pulumi:"firehose"`
+	Https        []TopicRuleHttp        `pulumi:"https"`
 	IotAnalytics []TopicRuleIotAnalytic `pulumi:"iotAnalytics"`
 	IotEvents    []TopicRuleIotEvent    `pulumi:"iotEvents"`
+	Kafkas       []TopicRuleKafka       `pulumi:"kafkas"`
 	Kinesis      *TopicRuleKinesis      `pulumi:"kinesis"`
 	Lambda       *TopicRuleLambda       `pulumi:"lambda"`
 	// The name of the rule.
@@ -267,7 +278,8 @@ type topicRuleArgs struct {
 	Sqs           *TopicRuleSqs           `pulumi:"sqs"`
 	StepFunctions []TopicRuleStepFunction `pulumi:"stepFunctions"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags map[string]string `pulumi:"tags"`
+	Tags        map[string]string     `pulumi:"tags"`
+	Timestreams []TopicRuleTimestream `pulumi:"timestreams"`
 }
 
 // The set of arguments for constructing a TopicRule resource.
@@ -282,11 +294,13 @@ type TopicRuleArgs struct {
 	Elasticsearch TopicRuleElasticsearchPtrInput
 	// Specifies whether the rule is enabled.
 	Enabled pulumi.BoolInput
-	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+	// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 	ErrorAction  TopicRuleErrorActionPtrInput
 	Firehose     TopicRuleFirehosePtrInput
+	Https        TopicRuleHttpArrayInput
 	IotAnalytics TopicRuleIotAnalyticArrayInput
 	IotEvents    TopicRuleIotEventArrayInput
+	Kafkas       TopicRuleKafkaArrayInput
 	Kinesis      TopicRuleKinesisPtrInput
 	Lambda       TopicRuleLambdaPtrInput
 	// The name of the rule.
@@ -301,7 +315,8 @@ type TopicRuleArgs struct {
 	Sqs           TopicRuleSqsPtrInput
 	StepFunctions TopicRuleStepFunctionArrayInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags pulumi.StringMapInput
+	Tags        pulumi.StringMapInput
+	Timestreams TopicRuleTimestreamArrayInput
 }
 
 func (TopicRuleArgs) ElementType() reflect.Type {
@@ -430,7 +445,7 @@ func (o TopicRuleOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
 func (o TopicRuleOutput) ErrorAction() TopicRuleErrorActionPtrOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleErrorActionPtrOutput { return v.ErrorAction }).(TopicRuleErrorActionPtrOutput)
 }
@@ -439,12 +454,20 @@ func (o TopicRuleOutput) Firehose() TopicRuleFirehosePtrOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleFirehosePtrOutput { return v.Firehose }).(TopicRuleFirehosePtrOutput)
 }
 
+func (o TopicRuleOutput) Https() TopicRuleHttpArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleHttpArrayOutput { return v.Https }).(TopicRuleHttpArrayOutput)
+}
+
 func (o TopicRuleOutput) IotAnalytics() TopicRuleIotAnalyticArrayOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleIotAnalyticArrayOutput { return v.IotAnalytics }).(TopicRuleIotAnalyticArrayOutput)
 }
 
 func (o TopicRuleOutput) IotEvents() TopicRuleIotEventArrayOutput {
 	return o.ApplyT(func(v *TopicRule) TopicRuleIotEventArrayOutput { return v.IotEvents }).(TopicRuleIotEventArrayOutput)
+}
+
+func (o TopicRuleOutput) Kafkas() TopicRuleKafkaArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleKafkaArrayOutput { return v.Kafkas }).(TopicRuleKafkaArrayOutput)
 }
 
 func (o TopicRuleOutput) Kinesis() TopicRuleKinesisPtrOutput {
@@ -498,6 +521,10 @@ func (o TopicRuleOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider .
 func (o TopicRuleOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *TopicRule) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+func (o TopicRuleOutput) Timestreams() TopicRuleTimestreamArrayOutput {
+	return o.ApplyT(func(v *TopicRule) TopicRuleTimestreamArrayOutput { return v.Timestreams }).(TopicRuleTimestreamArrayOutput)
 }
 
 type TopicRuleArrayOutput struct{ *pulumi.OutputState }
