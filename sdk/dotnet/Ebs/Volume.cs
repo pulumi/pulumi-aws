@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Ebs
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         /// </summary>
         [Output("multiAttachEnabled")]
         public Output<bool?> MultiAttachEnabled { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         /// </summary>
         [Input("multiAttachEnabled")]
         public Input<bool>? MultiAttachEnabled { get; set; }
@@ -274,7 +274,7 @@ namespace Pulumi.Aws.Ebs
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported exclusively on `io1` volumes.
+        /// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         /// </summary>
         [Input("multiAttachEnabled")]
         public Input<bool>? MultiAttachEnabled { get; set; }

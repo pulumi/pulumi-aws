@@ -338,6 +338,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly scalingConfiguration!: pulumi.Output<outputs.rds.ClusterScalingConfiguration | undefined>;
     /**
+     * Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
+     */
+    public readonly serverlessv2ScalingConfiguration!: pulumi.Output<outputs.rds.ClusterServerlessv2ScalingConfiguration | undefined>;
+    /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     public readonly skipFinalSnapshot!: pulumi.Output<boolean | undefined>;
@@ -426,6 +430,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["restoreToPointInTime"] = state ? state.restoreToPointInTime : undefined;
             resourceInputs["s3Import"] = state ? state.s3Import : undefined;
             resourceInputs["scalingConfiguration"] = state ? state.scalingConfiguration : undefined;
+            resourceInputs["serverlessv2ScalingConfiguration"] = state ? state.serverlessv2ScalingConfiguration : undefined;
             resourceInputs["skipFinalSnapshot"] = state ? state.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = state ? state.snapshotIdentifier : undefined;
             resourceInputs["sourceRegion"] = state ? state.sourceRegion : undefined;
@@ -473,6 +478,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             resourceInputs["s3Import"] = args ? args.s3Import : undefined;
             resourceInputs["scalingConfiguration"] = args ? args.scalingConfiguration : undefined;
+            resourceInputs["serverlessv2ScalingConfiguration"] = args ? args.serverlessv2ScalingConfiguration : undefined;
             resourceInputs["skipFinalSnapshot"] = args ? args.skipFinalSnapshot : undefined;
             resourceInputs["snapshotIdentifier"] = args ? args.snapshotIdentifier : undefined;
             resourceInputs["sourceRegion"] = args ? args.sourceRegion : undefined;
@@ -668,6 +674,10 @@ export interface ClusterState {
      */
     scalingConfiguration?: pulumi.Input<inputs.rds.ClusterScalingConfiguration>;
     /**
+     * Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
+     */
+    serverlessv2ScalingConfiguration?: pulumi.Input<inputs.rds.ClusterServerlessv2ScalingConfiguration>;
+    /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */
     skipFinalSnapshot?: pulumi.Input<boolean>;
@@ -850,6 +860,10 @@ export interface ClusterArgs {
      * Nested attribute with scaling properties. Only valid when `engineMode` is set to `serverless`. More details below.
      */
     scalingConfiguration?: pulumi.Input<inputs.rds.ClusterScalingConfiguration>;
+    /**
+     * Nested attribute with scaling properties for ServerlessV2. Only valid when `engineMode` is set to `provisioned`. More details below.
+     */
+    serverlessv2ScalingConfiguration?: pulumi.Input<inputs.rds.ClusterServerlessv2ScalingConfiguration>;
     /**
      * Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
      */

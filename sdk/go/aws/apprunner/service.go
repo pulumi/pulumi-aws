@@ -81,11 +81,12 @@ import (
 // 		_, err := apprunner.NewService(ctx, "example", &apprunner.ServiceArgs{
 // 			ServiceName: pulumi.String("example"),
 // 			SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
+// 				AutoDeploymentEnabled: false,
 // 				ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
 // 					ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
 // 						Port: pulumi.String("8000"),
 // 					},
-// 					ImageIdentifier:     pulumi.String("public.ecr.aws/jg/hello:latest"),
+// 					ImageIdentifier:     pulumi.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 // 					ImageRepositoryType: pulumi.String("ECR_PUBLIC"),
 // 				},
 // 			},

@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Iot
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         /// </summary>
         [Output("errorAction")]
         public Output<Outputs.TopicRuleErrorAction?> ErrorAction { get; private set; } = null!;
@@ -142,11 +142,17 @@ namespace Pulumi.Aws.Iot
         [Output("firehose")]
         public Output<Outputs.TopicRuleFirehose?> Firehose { get; private set; } = null!;
 
+        [Output("https")]
+        public Output<ImmutableArray<Outputs.TopicRuleHttp>> Https { get; private set; } = null!;
+
         [Output("iotAnalytics")]
         public Output<ImmutableArray<Outputs.TopicRuleIotAnalytic>> IotAnalytics { get; private set; } = null!;
 
         [Output("iotEvents")]
         public Output<ImmutableArray<Outputs.TopicRuleIotEvent>> IotEvents { get; private set; } = null!;
+
+        [Output("kafkas")]
+        public Output<ImmutableArray<Outputs.TopicRuleKafka>> Kafkas { get; private set; } = null!;
 
         [Output("kinesis")]
         public Output<Outputs.TopicRuleKinesis?> Kinesis { get; private set; } = null!;
@@ -198,6 +204,9 @@ namespace Pulumi.Aws.Iot
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        [Output("timestreams")]
+        public Output<ImmutableArray<Outputs.TopicRuleTimestream>> Timestreams { get; private set; } = null!;
 
 
         /// <summary>
@@ -286,13 +295,21 @@ namespace Pulumi.Aws.Iot
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         /// </summary>
         [Input("errorAction")]
         public Input<Inputs.TopicRuleErrorActionArgs>? ErrorAction { get; set; }
 
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseArgs>? Firehose { get; set; }
+
+        [Input("https")]
+        private InputList<Inputs.TopicRuleHttpArgs>? _https;
+        public InputList<Inputs.TopicRuleHttpArgs> Https
+        {
+            get => _https ?? (_https = new InputList<Inputs.TopicRuleHttpArgs>());
+            set => _https = value;
+        }
 
         [Input("iotAnalytics")]
         private InputList<Inputs.TopicRuleIotAnalyticArgs>? _iotAnalytics;
@@ -308,6 +325,14 @@ namespace Pulumi.Aws.Iot
         {
             get => _iotEvents ?? (_iotEvents = new InputList<Inputs.TopicRuleIotEventArgs>());
             set => _iotEvents = value;
+        }
+
+        [Input("kafkas")]
+        private InputList<Inputs.TopicRuleKafkaArgs>? _kafkas;
+        public InputList<Inputs.TopicRuleKafkaArgs> Kafkas
+        {
+            get => _kafkas ?? (_kafkas = new InputList<Inputs.TopicRuleKafkaArgs>());
+            set => _kafkas = value;
         }
 
         [Input("kinesis")]
@@ -366,6 +391,14 @@ namespace Pulumi.Aws.Iot
             set => _tags = value;
         }
 
+        [Input("timestreams")]
+        private InputList<Inputs.TopicRuleTimestreamArgs>? _timestreams;
+        public InputList<Inputs.TopicRuleTimestreamArgs> Timestreams
+        {
+            get => _timestreams ?? (_timestreams = new InputList<Inputs.TopicRuleTimestreamArgs>());
+            set => _timestreams = value;
+        }
+
         public TopicRuleArgs()
         {
         }
@@ -420,13 +453,21 @@ namespace Pulumi.Aws.Iot
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iot_analytics`, `iot_events`, `kinesis`, `lambda`, `republish`, `s3`, `step_functions`, `sns`, `sqs` configuration blocks for further configuration details.
+        /// Configuration block with error action to be associated with the rule. See the documentation for `cloudwatch_alarm`, `cloudwatch_logs`, `cloudwatch_metric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iot_analytics`, `iot_events`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `step_functions`, `timestream` configuration blocks for further configuration details.
         /// </summary>
         [Input("errorAction")]
         public Input<Inputs.TopicRuleErrorActionGetArgs>? ErrorAction { get; set; }
 
         [Input("firehose")]
         public Input<Inputs.TopicRuleFirehoseGetArgs>? Firehose { get; set; }
+
+        [Input("https")]
+        private InputList<Inputs.TopicRuleHttpGetArgs>? _https;
+        public InputList<Inputs.TopicRuleHttpGetArgs> Https
+        {
+            get => _https ?? (_https = new InputList<Inputs.TopicRuleHttpGetArgs>());
+            set => _https = value;
+        }
 
         [Input("iotAnalytics")]
         private InputList<Inputs.TopicRuleIotAnalyticGetArgs>? _iotAnalytics;
@@ -442,6 +483,14 @@ namespace Pulumi.Aws.Iot
         {
             get => _iotEvents ?? (_iotEvents = new InputList<Inputs.TopicRuleIotEventGetArgs>());
             set => _iotEvents = value;
+        }
+
+        [Input("kafkas")]
+        private InputList<Inputs.TopicRuleKafkaGetArgs>? _kafkas;
+        public InputList<Inputs.TopicRuleKafkaGetArgs> Kafkas
+        {
+            get => _kafkas ?? (_kafkas = new InputList<Inputs.TopicRuleKafkaGetArgs>());
+            set => _kafkas = value;
         }
 
         [Input("kinesis")]
@@ -510,6 +559,14 @@ namespace Pulumi.Aws.Iot
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
+        }
+
+        [Input("timestreams")]
+        private InputList<Inputs.TopicRuleTimestreamGetArgs>? _timestreams;
+        public InputList<Inputs.TopicRuleTimestreamGetArgs> Timestreams
+        {
+            get => _timestreams ?? (_timestreams = new InputList<Inputs.TopicRuleTimestreamGetArgs>());
+            set => _timestreams = value;
         }
 
         public TopicRuleState()

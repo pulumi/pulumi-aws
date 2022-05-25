@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Human Task UI resource.
+    /// Provides a SageMaker Human Task UI resource.
     /// 
     /// ## Example Usage
     /// 
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
+    /// SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example

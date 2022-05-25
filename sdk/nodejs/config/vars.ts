@@ -37,6 +37,14 @@ Object.defineProperty(exports, "assumeRole", {
     enumerable: true,
 });
 
+export declare const assumeRoleWithWebIdentity: outputs.config.AssumeRoleWithWebIdentity | undefined;
+Object.defineProperty(exports, "assumeRoleWithWebIdentity", {
+    get() {
+        return __config.getObject<outputs.config.AssumeRoleWithWebIdentity>("assumeRoleWithWebIdentity");
+    },
+    enumerable: true,
+});
+
 /**
  * File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
  * variable. (Setting `ca_bundle` in the shared config file is not supported.)

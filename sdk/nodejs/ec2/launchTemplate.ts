@@ -193,7 +193,11 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     public readonly instanceMarketOptions!: pulumi.Output<outputs.ec2.LaunchTemplateInstanceMarketOptions | undefined>;
     /**
-     * The type of the instance.
+     * The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
+     */
+    public readonly instanceRequirements!: pulumi.Output<outputs.ec2.LaunchTemplateInstanceRequirements | undefined>;
+    /**
+     * The type of the instance. If present then `instanceRequirements` cannot be present.
      */
     public readonly instanceType!: pulumi.Output<string | undefined>;
     /**
@@ -212,6 +216,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * A list of license specifications to associate with. See License Specification below for more details.
      */
     public readonly licenseSpecifications!: pulumi.Output<outputs.ec2.LaunchTemplateLicenseSpecification[] | undefined>;
+    /**
+     * The maintenance options for the instance. See Maintenance Options below for more details.
+     */
+    public readonly maintenanceOptions!: pulumi.Output<outputs.ec2.LaunchTemplateMaintenanceOptions | undefined>;
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */
@@ -302,11 +310,13 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["imageId"] = state ? state.imageId : undefined;
             resourceInputs["instanceInitiatedShutdownBehavior"] = state ? state.instanceInitiatedShutdownBehavior : undefined;
             resourceInputs["instanceMarketOptions"] = state ? state.instanceMarketOptions : undefined;
+            resourceInputs["instanceRequirements"] = state ? state.instanceRequirements : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
             resourceInputs["kernelId"] = state ? state.kernelId : undefined;
             resourceInputs["keyName"] = state ? state.keyName : undefined;
             resourceInputs["latestVersion"] = state ? state.latestVersion : undefined;
             resourceInputs["licenseSpecifications"] = state ? state.licenseSpecifications : undefined;
+            resourceInputs["maintenanceOptions"] = state ? state.maintenanceOptions : undefined;
             resourceInputs["metadataOptions"] = state ? state.metadataOptions : undefined;
             resourceInputs["monitoring"] = state ? state.monitoring : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -340,10 +350,12 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["imageId"] = args ? args.imageId : undefined;
             resourceInputs["instanceInitiatedShutdownBehavior"] = args ? args.instanceInitiatedShutdownBehavior : undefined;
             resourceInputs["instanceMarketOptions"] = args ? args.instanceMarketOptions : undefined;
+            resourceInputs["instanceRequirements"] = args ? args.instanceRequirements : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["kernelId"] = args ? args.kernelId : undefined;
             resourceInputs["keyName"] = args ? args.keyName : undefined;
             resourceInputs["licenseSpecifications"] = args ? args.licenseSpecifications : undefined;
+            resourceInputs["maintenanceOptions"] = args ? args.maintenanceOptions : undefined;
             resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
             resourceInputs["monitoring"] = args ? args.monitoring : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -447,7 +459,11 @@ export interface LaunchTemplateState {
      */
     instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptions>;
     /**
-     * The type of the instance.
+     * The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
+     */
+    instanceRequirements?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceRequirements>;
+    /**
+     * The type of the instance. If present then `instanceRequirements` cannot be present.
      */
     instanceType?: pulumi.Input<string>;
     /**
@@ -466,6 +482,10 @@ export interface LaunchTemplateState {
      * A list of license specifications to associate with. See License Specification below for more details.
      */
     licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    /**
+     * The maintenance options for the instance. See Maintenance Options below for more details.
+     */
+    maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptions>;
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */
@@ -603,7 +623,11 @@ export interface LaunchTemplateArgs {
      */
     instanceMarketOptions?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceMarketOptions>;
     /**
-     * The type of the instance.
+     * The attribute requirements for the type of instance. If present then `instanceType` cannot be present.
+     */
+    instanceRequirements?: pulumi.Input<inputs.ec2.LaunchTemplateInstanceRequirements>;
+    /**
+     * The type of the instance. If present then `instanceRequirements` cannot be present.
      */
     instanceType?: pulumi.Input<string>;
     /**
@@ -618,6 +642,10 @@ export interface LaunchTemplateArgs {
      * A list of license specifications to associate with. See License Specification below for more details.
      */
     licenseSpecifications?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateLicenseSpecification>[]>;
+    /**
+     * The maintenance options for the instance. See Maintenance Options below for more details.
+     */
+    maintenanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateMaintenanceOptions>;
     /**
      * Customize the metadata options for the instance. See Metadata Options below for more details.
      */

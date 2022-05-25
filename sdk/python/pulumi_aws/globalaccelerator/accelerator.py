@@ -286,7 +286,7 @@ class Accelerator(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator accelerators can be imported using the `id`, e.g.,
+        Global Accelerator accelerators can be imported using the `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
@@ -327,7 +327,7 @@ class Accelerator(pulumi.CustomResource):
 
         ## Import
 
-        Global Accelerator accelerators can be imported using the `id`, e.g.,
+        Global Accelerator accelerators can be imported using the `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx

@@ -106,7 +106,7 @@ export interface GetRegionsFilter {
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
-         * A domain name for which the certificate should be issued
+         * A fully qualified domain name (FQDN) in the certificate.
          */
         domainName: string;
         /**
@@ -128,6 +128,17 @@ export namespace acm {
          * Specifies whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
          */
         certificateTransparencyLoggingPreference?: string;
+    }
+
+    export interface CertificateValidationOption {
+        /**
+         * A fully qualified domain name (FQDN) in the certificate.
+         */
+        domainName: string;
+        /**
+         * The domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domainName` value or a superdomain of the `domainName` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+         */
+        validationDomain: string;
     }
 
 }
@@ -1577,6 +1588,1683 @@ export namespace appconfig {
          * ARN of an IAM role for AWS AppConfig to monitor `alarmArn`.
          */
         alarmRoleArn?: string;
+    }
+
+    export interface EventIntegrationEventFilter {
+        /**
+         * The source of the events.
+         */
+        source: string;
+    }
+
+}
+
+export namespace appflow {
+    export interface ConnectorProfileConnectorProfileConfig {
+        /**
+         * The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+         */
+        connectorProfileCredentials: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentials;
+        /**
+         * The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+         */
+        connectorProfileProperties: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileProperties;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentials {
+        /**
+         * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         */
+        amplitude?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude;
+        /**
+         * The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+         */
+        customConnector?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector;
+        /**
+         * The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         */
+        datadog?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog;
+        /**
+         * The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+         */
+        dynatrace?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace;
+        /**
+         * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         */
+        googleAnalytics?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics;
+        /**
+         * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         */
+        honeycode?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode;
+        /**
+         * The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+         */
+        inforNexus?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus;
+        /**
+         * The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         */
+        marketo?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo;
+        /**
+         * The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         */
+        redshift?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift;
+        /**
+         * The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+         */
+        salesforce?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce;
+        /**
+         * The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+         */
+        sapoData?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData;
+        /**
+         * The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+         */
+        serviceNow?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow;
+        /**
+         * The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         */
+        singular?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular;
+        /**
+         * The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         */
+        slack?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack;
+        /**
+         * The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+         */
+        snowflake?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake;
+        /**
+         * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         */
+        trendmicro?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro;
+        /**
+         * The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         */
+        veeva?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva;
+        /**
+         * The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         */
+        zendesk?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude {
+        /**
+         * A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
+        apiKey: string;
+        /**
+         * The Secret Access Key portion of the credentials.
+         */
+        secretKey: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnector {
+        /**
+         * A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
+        apiKey?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey;
+        /**
+         * The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+         */
+        authenticationType: string;
+        /**
+         * The basic credentials that are required for the authentication of the user.
+         */
+        basic?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic;
+        /**
+         * If the connector uses the custom authentication mechanism, this holds the required credentials.
+         */
+        custom?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom;
+        /**
+         * The OAuth 2.0 credentials required for the authentication of the user.
+         */
+        oauth2?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKey {
+        /**
+         * A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
+        apiKey: string;
+        /**
+         * The Secret Access Key portion of the credentials.
+         */
+        apiSecretKey?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasic {
+        /**
+         * The password that corresponds to the user name.
+         */
+        password: string;
+        /**
+         * The name of the user.
+         */
+        username: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustom {
+        /**
+         * A map that holds custom authentication credentials.
+         */
+        credentialsMap?: {[key: string]: string};
+        /**
+         * The custom authentication type that the connector uses.
+         */
+        customAuthenticationType: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2 {
+        /**
+         * The credentials used to access protected Zendesk resources.
+         */
+        accessToken?: string;
+        /**
+         * The identifier for the desired client.
+         */
+        clientId?: string;
+        /**
+         * The client secret used by the OAuth client to authenticate to the authorization server.
+         */
+        clientSecret?: string;
+        /**
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         */
+        oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest;
+        /**
+         * The refresh token used to refresh expired access token.
+         */
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequest {
+        /**
+         * The code provided by the connector when it has been authenticated via the connected app.
+         */
+        authCode?: string;
+        /**
+         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         */
+        redirectUri?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadog {
+        /**
+         * A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
+        apiKey: string;
+        /**
+         * Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+         */
+        applicationKey: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace {
+        /**
+         * The API tokens used by Dynatrace API to authenticate various API calls.
+         */
+        apiToken: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalytics {
+        /**
+         * The credentials used to access protected Zendesk resources.
+         */
+        accessToken?: string;
+        /**
+         * The identifier for the desired client.
+         */
+        clientId: string;
+        /**
+         * The client secret used by the OAuth client to authenticate to the authorization server.
+         */
+        clientSecret: string;
+        /**
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         */
+        oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest;
+        /**
+         * The refresh token used to refresh expired access token.
+         */
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequest {
+        /**
+         * The code provided by the connector when it has been authenticated via the connected app.
+         */
+        authCode?: string;
+        /**
+         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         */
+        redirectUri?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode {
+        /**
+         * The credentials used to access protected Zendesk resources.
+         */
+        accessToken?: string;
+        /**
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         */
+        oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest;
+        /**
+         * The refresh token used to refresh expired access token.
+         */
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequest {
+        /**
+         * The code provided by the connector when it has been authenticated via the connected app.
+         */
+        authCode?: string;
+        /**
+         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         */
+        redirectUri?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexus {
+        /**
+         * The Access Key portion of the credentials.
+         */
+        accessKeyId: string;
+        /**
+         * The encryption keys used to encrypt data.
+         */
+        datakey: string;
+        /**
+         * The secret key used to sign requests.
+         */
+        secretAccessKey: string;
+        /**
+         * The identifier for the user.
+         */
+        userId: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketo {
+        /**
+         * The credentials used to access protected Zendesk resources.
+         */
+        accessToken?: string;
+        /**
+         * The identifier for the desired client.
+         */
+        clientId: string;
+        /**
+         * The client secret used by the OAuth client to authenticate to the authorization server.
+         */
+        clientSecret: string;
+        /**
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         */
+        oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequest {
+        /**
+         * The code provided by the connector when it has been authenticated via the connected app.
+         */
+        authCode?: string;
+        /**
+         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         */
+        redirectUri?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshift {
+        /**
+         * The password that corresponds to the user name.
+         */
+        password: string;
+        /**
+         * The name of the user.
+         */
+        username: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforce {
+        /**
+         * The credentials used to access protected Zendesk resources.
+         */
+        accessToken?: string;
+        /**
+         * The secret manager ARN, which contains the client ID and client secret of the connected app.
+         */
+        clientCredentialsArn?: string;
+        /**
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         */
+        oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest;
+        /**
+         * The refresh token used to refresh expired access token.
+         */
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequest {
+        /**
+         * The code provided by the connector when it has been authenticated via the connected app.
+         */
+        authCode?: string;
+        /**
+         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         */
+        redirectUri?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoData {
+        /**
+         * The SAPOData basic authentication credentials.
+         */
+        basicAuthCredentials?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials;
+        /**
+         * The SAPOData OAuth type authentication credentials.
+         */
+        oauthCredentials?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentials {
+        /**
+         * The password that corresponds to the user name.
+         */
+        password: string;
+        /**
+         * The name of the user.
+         */
+        username: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentials {
+        /**
+         * The credentials used to access protected Zendesk resources.
+         */
+        accessToken?: string;
+        /**
+         * The identifier for the desired client.
+         */
+        clientId: string;
+        /**
+         * The client secret used by the OAuth client to authenticate to the authorization server.
+         */
+        clientSecret: string;
+        /**
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         */
+        oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest;
+        /**
+         * The refresh token used to refresh expired access token.
+         */
+        refreshToken?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequest {
+        /**
+         * The code provided by the connector when it has been authenticated via the connected app.
+         */
+        authCode?: string;
+        /**
+         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         */
+        redirectUri?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNow {
+        /**
+         * The password that corresponds to the user name.
+         */
+        password: string;
+        /**
+         * The name of the user.
+         */
+        username: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingular {
+        /**
+         * A unique alphanumeric identifier used to authenticate a user, developer, or calling program to your API.
+         */
+        apiKey: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlack {
+        /**
+         * The credentials used to access protected Zendesk resources.
+         */
+        accessToken?: string;
+        /**
+         * The identifier for the desired client.
+         */
+        clientId: string;
+        /**
+         * The client secret used by the OAuth client to authenticate to the authorization server.
+         */
+        clientSecret: string;
+        /**
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         */
+        oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequest {
+        /**
+         * The code provided by the connector when it has been authenticated via the connected app.
+         */
+        authCode?: string;
+        /**
+         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         */
+        redirectUri?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake {
+        /**
+         * The password that corresponds to the user name.
+         */
+        password: string;
+        /**
+         * The name of the user.
+         */
+        username: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicro {
+        /**
+         * The Secret Access Key portion of the credentials.
+         */
+        apiSecretKey: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeeva {
+        /**
+         * The password that corresponds to the user name.
+         */
+        password: string;
+        /**
+         * The name of the user.
+         */
+        username: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendesk {
+        /**
+         * The credentials used to access protected Zendesk resources.
+         */
+        accessToken?: string;
+        /**
+         * The identifier for the desired client.
+         */
+        clientId: string;
+        /**
+         * The client secret used by the OAuth client to authenticate to the authorization server.
+         */
+        clientSecret: string;
+        /**
+         * The OAuth requirement needed to request security tokens from the connector endpoint. See OAuth Request for more details.
+         */
+        oauthRequest?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequest {
+        /**
+         * The code provided by the connector when it has been authenticated via the connected app.
+         */
+        authCode?: string;
+        /**
+         * The URL to which the authentication server redirects the browser after authorization has been granted.
+         */
+        redirectUri?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfileProperties {
+        /**
+         * The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+         */
+        amplitude?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude;
+        /**
+         * The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+         */
+        customConnector?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector;
+        /**
+         * The connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+         */
+        datadog?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog;
+        /**
+         * The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+         */
+        dynatrace?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace;
+        /**
+         * The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+         */
+        googleAnalytics?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics;
+        /**
+         * The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+         */
+        honeycode?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode;
+        /**
+         * The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+         */
+        inforNexus?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus;
+        /**
+         * The connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+         */
+        marketo?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo;
+        /**
+         * The connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+         */
+        redshift?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift;
+        /**
+         * The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+         */
+        salesforce?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce;
+        /**
+         * The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+         */
+        sapoData?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData;
+        /**
+         * The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+         */
+        serviceNow?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow;
+        /**
+         * The connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+         */
+        singular?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular;
+        /**
+         * The connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+         */
+        slack?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack;
+        /**
+         * The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+         */
+        snowflake?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake;
+        /**
+         * The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+         */
+        trendmicro?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro;
+        /**
+         * The connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+         */
+        veeva?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva;
+        /**
+         * The connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+         */
+        zendesk?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitude {
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnector {
+        /**
+         * The OAuth 2.0 properties required for OAuth 2.0 authentication.
+         */
+        oauth2Properties?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties;
+        /**
+         * A map of properties that are required to create a profile for the custom connector.
+         */
+        profileProperties?: {[key: string]: string};
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2Properties {
+        /**
+         * The OAuth 2.0 grant type used by connector for OAuth 2.0 authentication. One of: `AUTHORIZATION_CODE`, `CLIENT_CREDENTIALS`.
+         */
+        oauth2GrantType: string;
+        /**
+         * The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+         */
+        tokenUrl: string;
+        /**
+         * Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+         */
+        tokenUrlCustomProperties?: {[key: string]: string};
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadog {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatrace {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalytics {
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycode {
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketo {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshift {
+        /**
+         * The name of the Amazon S3 bucket associated with Snowflake.
+         */
+        bucketName: string;
+        /**
+         * The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         */
+        bucketPrefix?: string;
+        /**
+         * The JDBC URL of the Amazon Redshift cluster.
+         */
+        databaseUrl?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the IAM role.
+         */
+        roleArn: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl?: string;
+        /**
+         * Indicates whether the connector profile applies to a sandbox or production environment.
+         */
+        isSandboxEnvironment?: boolean;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoData {
+        /**
+         * The location of the SAPOData resource.
+         */
+        applicationHostUrl: string;
+        /**
+         * The application path to catalog service.
+         */
+        applicationServicePath: string;
+        /**
+         * The client number for the client creating the connection.
+         */
+        clientNumber: string;
+        /**
+         * The logon language of SAPOData instance.
+         */
+        logonLanguage?: string;
+        /**
+         * The SAPOData OAuth properties required for OAuth type authentication.
+         */
+        oauthProperties?: outputs.appflow.ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties;
+        /**
+         * The port number of the SAPOData instance.
+         */
+        portNumber: number;
+        /**
+         * The Snowflake Private Link service name to be used for private data transfers.
+         */
+        privateLinkServiceName?: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthProperties {
+        /**
+         * The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+         */
+        authCodeUrl: string;
+        /**
+         * The OAuth scopes required for OAuth type authentication.
+         */
+        oauthScopes: string[];
+        /**
+         * The token url required to fetch access/refresh tokens using authorization code and also to refresh expired access token using refresh token.
+         */
+        tokenUrl: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingular {
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlack {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflake {
+        /**
+         * The name of the account.
+         */
+        accountName?: string;
+        /**
+         * The name of the Amazon S3 bucket associated with Snowflake.
+         */
+        bucketName: string;
+        /**
+         * The bucket path that refers to the Amazon S3 bucket associated with Snowflake.
+         */
+        bucketPrefix?: string;
+        /**
+         * The Snowflake Private Link service name to be used for private data transfers.
+         */
+        privateLinkServiceName?: string;
+        /**
+         * The AWS Region of the Snowflake account.
+         */
+        region?: string;
+        /**
+         * The name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+         */
+        stage: string;
+        /**
+         * The name of the Snowflake warehouse.
+         */
+        warehouse: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro {
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeeva {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl: string;
+    }
+
+    export interface ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendesk {
+        /**
+         * The location of the Salesforce resource.
+         */
+        instanceUrl: string;
+    }
+
+    export interface FlowDestinationFlowConfig {
+        /**
+         * The API version that the destination connector uses.
+         */
+        apiVersion?: string;
+        /**
+         * The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         */
+        connectorProfileName?: string;
+        /**
+         * The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+         */
+        connectorType: string;
+        /**
+         * This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+         */
+        destinationConnectorProperties: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorProperties;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorProperties {
+        /**
+         * Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        customConnector?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector;
+        /**
+         * The properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+         */
+        customerProfiles?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles;
+        /**
+         * The properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+         */
+        eventBridge?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge;
+        /**
+         * The properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+         */
+        honeycode?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode;
+        lookoutMetrics?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics;
+        /**
+         * The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        marketo?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo;
+        /**
+         * The properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+         */
+        redshift?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift;
+        /**
+         * The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        s3?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3;
+        /**
+         * The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        salesforce?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce;
+        /**
+         * The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        sapoData?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData;
+        /**
+         * The properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+         */
+        snowflake?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake;
+        /**
+         * The properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+         */
+        upsolver?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver;
+        /**
+         * The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        zendesk?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnector {
+        /**
+         * The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+         */
+        customProperties?: {[key: string]: string};
+        /**
+         * The entity specified in the custom connector as a source in the flow.
+         */
+        entityName: string;
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig;
+        /**
+         * The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         */
+        idFieldNames?: string[];
+        /**
+         * This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         */
+        writeOperationType?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfiles {
+        /**
+         * The unique name of the Amazon Connect Customer Profiles domain.
+         */
+        domainName: string;
+        /**
+         * The object specified in the Amazon Connect Customer Profiles flow destination.
+         */
+        objectTypeName?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridge {
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig;
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycode {
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig;
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetrics {
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesMarketo {
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig;
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesRedshift {
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig;
+        /**
+         * The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         */
+        intermediateBucketName: string;
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3 {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+         */
+        s3OutputFormatConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfig {
+        /**
+         * The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+         */
+        aggregationConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig;
+        /**
+         * Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+         */
+        fileType?: string;
+        /**
+         * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+         */
+        prefixConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfig {
+        /**
+         * Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+         */
+        aggregationType?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfig {
+        /**
+         * Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+         */
+        prefixFormat?: string;
+        /**
+         * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+         */
+        prefixType?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforce {
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig;
+        /**
+         * The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         */
+        idFieldNames?: string[];
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+        /**
+         * This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         */
+        writeOperationType?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSapoData {
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig;
+        /**
+         * The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         */
+        idFieldNames?: string[];
+        /**
+         * The object path specified in the SAPOData flow source.
+         */
+        objectPath: string;
+        /**
+         * Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+         */
+        successResponseHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig;
+        /**
+         * This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         */
+        writeOperationType?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflake {
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig;
+        /**
+         * The intermediate bucket that Amazon AppFlow uses when moving data into Amazon Snowflake.
+         */
+        intermediateBucketName: string;
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolver {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * The configuration that determines how Amazon AppFlow should format the flow output data when Upsolver is used as the destination. See Upsolver S3 Output Format Config for more details.
+         */
+        s3OutputFormatConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfig {
+        /**
+         * The aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+         */
+        aggregationConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig;
+        /**
+         * Indicates the file type that Amazon AppFlow places in the Upsolver Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+         */
+        fileType?: string;
+        /**
+         * Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+         */
+        prefixConfig: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfig {
+        /**
+         * Specifies whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+         */
+        aggregationType?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfig {
+        /**
+         * Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+         */
+        prefixFormat?: string;
+        /**
+         * Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+         */
+        prefixType: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesZendesk {
+        /**
+         * The settings that determine how Amazon AppFlow handles an error when placing data in the destination. See Error Handling Config for more details.
+         */
+        errorHandlingConfig?: outputs.appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig;
+        /**
+         * The name of the field that Amazon AppFlow uses as an ID when performing a write operation such as update or delete.
+         */
+        idFieldNames?: string[];
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+        /**
+         * This specifies the type of write operation to be performed in Zendesk. When the value is `UPSERT`, then `idFieldNames` is required. Valid values are `INSERT`, `UPSERT`, `UPDATE`, and `DELETE`.
+         */
+        writeOperationType?: string;
+    }
+
+    export interface FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfig {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName?: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * Specifies if the flow should fail after the first instance of a failure when attempting to place data in the destination.
+         */
+        failOnFirstDestinationError?: boolean;
+    }
+
+    export interface FlowSourceFlowConfig {
+        /**
+         * The API version that the destination connector uses.
+         */
+        apiVersion?: string;
+        /**
+         * The name of the connector profile. This name must be unique for each connector profile in the AWS account.
+         */
+        connectorProfileName?: string;
+        /**
+         * The type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+         */
+        connectorType: string;
+        /**
+         * Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+         */
+        incrementalPullConfig?: outputs.appflow.FlowSourceFlowConfigIncrementalPullConfig;
+        /**
+         * Specifies the information that is required to query a particular source connector. See Source Connector Properties for details.
+         */
+        sourceConnectorProperties: outputs.appflow.FlowSourceFlowConfigSourceConnectorProperties;
+    }
+
+    export interface FlowSourceFlowConfigIncrementalPullConfig {
+        /**
+         * A field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+         */
+        datetimeTypeFieldName?: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorProperties {
+        /**
+         * The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+         */
+        amplitude?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesAmplitude;
+        /**
+         * Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        customConnector?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector;
+        /**
+         * The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        datadog?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesDatadog;
+        /**
+         * The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        dynatrace?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesDynatrace;
+        /**
+         * The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+         */
+        googleAnalytics?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics;
+        /**
+         * The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        inforNexus?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesInforNexus;
+        /**
+         * The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        marketo?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesMarketo;
+        /**
+         * The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        s3?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3;
+        /**
+         * The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        salesforce?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSalesforce;
+        /**
+         * The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        sapoData?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSapoData;
+        /**
+         * The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        serviceNow?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesServiceNow;
+        /**
+         * The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        singular?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSingular;
+        /**
+         * The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        slack?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesSlack;
+        /**
+         * The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        trendmicro?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro;
+        /**
+         * The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        veeva?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesVeeva;
+        /**
+         * The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        zendesk?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesZendesk;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesAmplitude {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesCustomConnector {
+        /**
+         * The custom properties that are specific to the connector when it's used as a source in the flow. Maximum of 50 items.
+         */
+        customProperties?: {[key: string]: string};
+        /**
+         * The entity specified in the custom connector as a source in the flow.
+         */
+        entityName: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesDatadog {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesDynatrace {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalytics {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesInforNexus {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesMarketo {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesS3 {
+        /**
+         * The Amazon S3 bucket name where the source files are stored.
+         */
+        bucketName: string;
+        /**
+         * The object key for the Amazon S3 bucket in which the source files are stored.
+         */
+        bucketPrefix?: string;
+        /**
+         * When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+         */
+        s3InputFormatConfig?: outputs.appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfig {
+        /**
+         * The file type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+         */
+        s3InputFileType?: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesSalesforce {
+        /**
+         * The flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+         */
+        enableDynamicFieldUpdate?: boolean;
+        /**
+         * Indicates whether Amazon AppFlow includes deleted files in the flow run.
+         */
+        includeDeletedRecords?: boolean;
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesSapoData {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesServiceNow {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesSingular {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesSlack {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesTrendmicro {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesVeeva {
+        /**
+         * The document type specified in the Veeva document extract flow.
+         */
+        documentType?: string;
+        /**
+         * Boolean value to include All Versions of files in Veeva document extract flow.
+         */
+        includeAllVersions?: boolean;
+        /**
+         * Boolean value to include file renditions in Veeva document extract flow.
+         */
+        includeRenditions?: boolean;
+        /**
+         * Boolean value to include source files in Veeva document extract flow.
+         */
+        includeSourceFiles?: boolean;
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowSourceFlowConfigSourceConnectorPropertiesZendesk {
+        /**
+         * The object specified in the Veeva flow source.
+         */
+        object: string;
+    }
+
+    export interface FlowTask {
+        /**
+         * The operation to be performed on the provided source fields. See Connector Operator for details.
+         */
+        connectorOperators?: outputs.appflow.FlowTaskConnectorOperator[];
+        /**
+         * A field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+         */
+        destinationField?: string;
+        /**
+         * The source fields to which a particular task is applied.
+         */
+        sourceFields: string[];
+        /**
+         * A map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+         */
+        taskProperties?: {[key: string]: string};
+        /**
+         * Specifies the particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+         */
+        taskType: string;
+    }
+
+    export interface FlowTaskConnectorOperator {
+        /**
+         * The operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+         */
+        amplitude?: string;
+        /**
+         * Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        customConnector?: string;
+        /**
+         * The operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        datadog?: string;
+        /**
+         * The operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        dynatrace?: string;
+        /**
+         * The operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+         */
+        googleAnalytics?: string;
+        /**
+         * The operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        inforNexus?: string;
+        /**
+         * The operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        marketo?: string;
+        /**
+         * The operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        s3?: string;
+        /**
+         * The operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        salesforce?: string;
+        /**
+         * The operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        sapoData?: string;
+        /**
+         * The operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        serviceNow?: string;
+        /**
+         * The operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        singular?: string;
+        /**
+         * The operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        slack?: string;
+        /**
+         * The operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        trendmicro?: string;
+        /**
+         * The operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        veeva?: string;
+        /**
+         * The operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+         */
+        zendesk?: string;
+    }
+
+    export interface FlowTriggerConfig {
+        /**
+         * Specifies the configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+         */
+        triggerProperties: outputs.appflow.FlowTriggerConfigTriggerProperties;
+        /**
+         * Specifies the type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+         */
+        triggerType: string;
+    }
+
+    export interface FlowTriggerConfigTriggerProperties {
+        scheduled?: outputs.appflow.FlowTriggerConfigTriggerPropertiesScheduled;
+    }
+
+    export interface FlowTriggerConfigTriggerPropertiesScheduled {
+        /**
+         * Specifies whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+         */
+        dataPullMode?: string;
+        /**
+         * Specifies the date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+         */
+        firstExecutionFrom?: string;
+        /**
+         * Specifies the scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+         */
+        scheduleEndTime?: string;
+        /**
+         * The scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+         */
+        scheduleExpression: string;
+        /**
+         * Specifies the optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+         */
+        scheduleOffset?: number;
+        /**
+         * Specifies the scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+         */
+        scheduleStartTime?: string;
+        /**
+         * Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+         */
+        timezone?: string;
     }
 
 }
@@ -10148,7 +11836,7 @@ export namespace config {
     export interface AssumeRole {
         duration?: string;
         /**
-         * @deprecated Use assume_role.0.duration instead
+         * @deprecated Use assume_role.duration instead
          */
         durationSeconds?: number;
         externalId?: string;
@@ -10158,6 +11846,16 @@ export namespace config {
         sessionName?: string;
         tags?: {[key: string]: string};
         transitiveTagKeys?: string[];
+    }
+
+    export interface AssumeRoleWithWebIdentity {
+        duration?: string;
+        policy?: string;
+        policyArns?: string[];
+        roleArn?: string;
+        sessionName?: string;
+        webIdentityToken?: string;
+        webIdentityTokenFile?: string;
     }
 
     export interface DefaultTags {
@@ -10174,10 +11872,13 @@ export namespace config {
         amp?: string;
         amplify?: string;
         amplifybackend?: string;
+        amplifyuibuilder?: string;
         apigateway?: string;
+        apigatewaymanagementapi?: string;
         apigatewayv2?: string;
         appautoscaling?: string;
         appconfig?: string;
+        appconfigdata?: string;
         appflow?: string;
         appintegrations?: string;
         appintegrationsservice?: string;
@@ -10197,10 +11898,16 @@ export namespace config {
         autoscaling?: string;
         autoscalingplans?: string;
         backup?: string;
+        backupgateway?: string;
         batch?: string;
+        billingconductor?: string;
         braket?: string;
         budgets?: string;
+        ce?: string;
         chime?: string;
+        chimesdkidentity?: string;
+        chimesdkmeetings?: string;
+        chimesdkmessaging?: string;
         cloud9?: string;
         cloudcontrol?: string;
         cloudcontrolapi?: string;
@@ -10233,30 +11940,39 @@ export namespace config {
         cognitosync?: string;
         comprehend?: string;
         comprehendmedical?: string;
+        computeoptimizer?: string;
         config?: string;
         configservice?: string;
         connect?: string;
         connectcontactlens?: string;
         connectparticipant?: string;
+        connectwisdomservice?: string;
         costandusagereportservice?: string;
         costexplorer?: string;
         cur?: string;
+        customerprofiles?: string;
         databasemigration?: string;
         databasemigrationservice?: string;
+        databrew?: string;
         dataexchange?: string;
         datapipeline?: string;
         datasync?: string;
         dax?: string;
+        deploy?: string;
         detective?: string;
         devicefarm?: string;
         devopsguru?: string;
         directconnect?: string;
+        directoryservice?: string;
+        discovery?: string;
         dlm?: string;
         dms?: string;
         docdb?: string;
+        drs?: string;
         ds?: string;
         dynamodb?: string;
         dynamodbstreams?: string;
+        ebs?: string;
         ec2?: string;
         ec2instanceconnect?: string;
         ecr?: string;
@@ -10267,6 +11983,8 @@ export namespace config {
         elasticache?: string;
         elasticbeanstalk?: string;
         elasticinference?: string;
+        elasticloadbalancing?: string;
+        elasticloadbalancingv2?: string;
         elasticsearch?: string;
         elasticsearchservice?: string;
         elastictranscoder?: string;
@@ -10277,6 +11995,7 @@ export namespace config {
         es?: string;
         eventbridge?: string;
         events?: string;
+        evidently?: string;
         finspace?: string;
         finspacedata?: string;
         firehose?: string;
@@ -10305,21 +12024,26 @@ export namespace config {
         identitystore?: string;
         imagebuilder?: string;
         inspector?: string;
+        inspector2?: string;
         iot?: string;
         iot1clickdevices?: string;
         iot1clickdevicesservice?: string;
         iot1clickprojects?: string;
         iotanalytics?: string;
+        iotdata?: string;
         iotdataplane?: string;
         iotdeviceadvisor?: string;
         iotevents?: string;
         ioteventsdata?: string;
         iotfleethub?: string;
+        iotjobsdata?: string;
         iotjobsdataplane?: string;
         iotsecuretunneling?: string;
         iotsitewise?: string;
         iotthingsgraph?: string;
+        iottwinmaker?: string;
         iotwireless?: string;
+        ivs?: string;
         kafka?: string;
         kafkaconnect?: string;
         kendra?: string;
@@ -10330,6 +12054,7 @@ export namespace config {
         kinesisvideo?: string;
         kinesisvideoarchivedmedia?: string;
         kinesisvideomedia?: string;
+        kinesisvideosignaling?: string;
         kinesisvideosignalingchannels?: string;
         kms?: string;
         lakeformation?: string;
@@ -10341,12 +12066,17 @@ export namespace config {
         lexruntime?: string;
         lexruntimeservice?: string;
         lexruntimev2?: string;
+        lexv2models?: string;
+        lexv2runtime?: string;
         licensemanager?: string;
         lightsail?: string;
         location?: string;
+        locationservice?: string;
+        logs?: string;
         lookoutequipment?: string;
         lookoutforvision?: string;
         lookoutmetrics?: string;
+        lookoutvision?: string;
         machinelearning?: string;
         macie?: string;
         macie2?: string;
@@ -10366,17 +12096,22 @@ export namespace config {
         mediastoredata?: string;
         mediatailor?: string;
         memorydb?: string;
+        meteringmarketplace?: string;
+        mgh?: string;
         mgn?: string;
         migrationhub?: string;
         migrationhubconfig?: string;
+        migrationhubrefactorspaces?: string;
+        migrationhubstrategy?: string;
+        migrationhubstrategyrecommendations?: string;
         mobile?: string;
-        mobileanalytics?: string;
         mq?: string;
         mturk?: string;
         mwaa?: string;
         neptune?: string;
         networkfirewall?: string;
         networkmanager?: string;
+        nimble?: string;
         nimblestudio?: string;
         opensearch?: string;
         opensearchservice?: string;
@@ -10384,6 +12119,7 @@ export namespace config {
         opsworkscm?: string;
         organizations?: string;
         outposts?: string;
+        panorama?: string;
         personalize?: string;
         personalizeevents?: string;
         personalizeruntime?: string;
@@ -10400,25 +12136,34 @@ export namespace config {
         qldbsession?: string;
         quicksight?: string;
         ram?: string;
+        rbin?: string;
         rds?: string;
         rdsdata?: string;
         rdsdataservice?: string;
+        recyclebin?: string;
         redshift?: string;
         redshiftdata?: string;
+        redshiftdataapiservice?: string;
         rekognition?: string;
+        resiliencehub?: string;
         resourcegroups?: string;
         resourcegroupstagging?: string;
         resourcegroupstaggingapi?: string;
         robomaker?: string;
         route53?: string;
         route53domains?: string;
+        route53recoverycluster?: string;
         route53recoverycontrolconfig?: string;
         route53recoveryreadiness?: string;
         route53resolver?: string;
+        rum?: string;
         s3?: string;
+        s3api?: string;
         s3control?: string;
         s3outposts?: string;
         sagemaker?: string;
+        sagemakera2iruntime?: string;
+        sagemakeredge?: string;
         sagemakeredgemanager?: string;
         sagemakerfeaturestoreruntime?: string;
         sagemakerruntime?: string;
@@ -10431,6 +12176,7 @@ export namespace config {
         serverlessapprepo?: string;
         serverlessrepo?: string;
         servicecatalog?: string;
+        servicecatalogappregistry?: string;
         servicediscovery?: string;
         servicequotas?: string;
         ses?: string;
@@ -10441,6 +12187,7 @@ export namespace config {
         simpledb?: string;
         sms?: string;
         snowball?: string;
+        snowdevicemanagement?: string;
         sns?: string;
         sqs?: string;
         ssm?: string;
@@ -10464,15 +12211,18 @@ export namespace config {
         transcribestreamingservice?: string;
         transfer?: string;
         translate?: string;
+        voiceid?: string;
         waf?: string;
         wafregional?: string;
         wafv2?: string;
         wellarchitected?: string;
+        wisdom?: string;
         workdocs?: string;
         worklink?: string;
         workmail?: string;
         workmailmessageflow?: string;
         workspaces?: string;
+        workspacesweb?: string;
         xray?: string;
     }
 
@@ -10604,6 +12354,142 @@ export namespace connect {
          * Specifies the identifier for the user.
          */
         userId: string;
+    }
+
+    export interface GetRoutingProfileMediaConcurrency {
+        /**
+         * Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+         */
+        channel: string;
+        /**
+         * Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+         */
+        concurrency: number;
+    }
+
+    export interface GetRoutingProfileQueueConfig {
+        /**
+         * Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+         */
+        channel: string;
+        /**
+         * Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+         */
+        delay: number;
+        /**
+         * Specifies the order in which contacts are to be handled for the queue.
+         */
+        priority: number;
+        /**
+         * Specifies the ARN for the queue.
+         */
+        queueArn: string;
+        /**
+         * Specifies the identifier for the queue.
+         */
+        queueId: string;
+        /**
+         * Specifies the name for the queue.
+         */
+        queueName: string;
+    }
+
+    export interface GetUserHierarchyStructureHierarchyStructure {
+        /**
+         * A block that defines the details of level five. The level block is documented below.
+         */
+        levelFives: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelFife[];
+        /**
+         * A block that defines the details of level four. The level block is documented below.
+         */
+        levelFours: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelFour[];
+        /**
+         * A block that defines the details of level one. The level block is documented below.
+         */
+        levelOnes: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelOne[];
+        /**
+         * A block that defines the details of level three. The level block is documented below.
+         */
+        levelThrees: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelThree[];
+        /**
+         * A block that defines the details of level two. The level block is documented below.
+         */
+        levelTwos: outputs.connect.GetUserHierarchyStructureHierarchyStructureLevelTwo[];
+    }
+
+    export interface GetUserHierarchyStructureHierarchyStructureLevelFife {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
+
+    export interface GetUserHierarchyStructureHierarchyStructureLevelFour {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
+
+    export interface GetUserHierarchyStructureHierarchyStructureLevelOne {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
+
+    export interface GetUserHierarchyStructureHierarchyStructureLevelThree {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
+    }
+
+    export interface GetUserHierarchyStructureHierarchyStructureLevelTwo {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy level.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy level.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy level. Must not be more than 50 characters.
+         */
+        name: string;
     }
 
     export interface HoursOfOperationConfig {
@@ -10771,6 +12657,104 @@ export namespace connect {
         queueName: string;
     }
 
+    export interface UserHierarchyGroupHierarchyPath {
+        /**
+         * A block that defines the details of level five. The level block is documented below.
+         */
+        levelFives: outputs.connect.UserHierarchyGroupHierarchyPathLevelFife[];
+        /**
+         * A block that defines the details of level four. The level block is documented below.
+         */
+        levelFours: outputs.connect.UserHierarchyGroupHierarchyPathLevelFour[];
+        /**
+         * A block that defines the details of level one. The level block is documented below.
+         */
+        levelOnes: outputs.connect.UserHierarchyGroupHierarchyPathLevelOne[];
+        /**
+         * A block that defines the details of level three. The level block is documented below.
+         */
+        levelThrees: outputs.connect.UserHierarchyGroupHierarchyPathLevelThree[];
+        /**
+         * A block that defines the details of level two. The level block is documented below.
+         */
+        levelTwos: outputs.connect.UserHierarchyGroupHierarchyPathLevelTwo[];
+    }
+
+    export interface UserHierarchyGroupHierarchyPathLevelFife {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy group.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy group.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy group. Must not be more than 100 characters.
+         */
+        name: string;
+    }
+
+    export interface UserHierarchyGroupHierarchyPathLevelFour {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy group.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy group.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy group. Must not be more than 100 characters.
+         */
+        name: string;
+    }
+
+    export interface UserHierarchyGroupHierarchyPathLevelOne {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy group.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy group.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy group. Must not be more than 100 characters.
+         */
+        name: string;
+    }
+
+    export interface UserHierarchyGroupHierarchyPathLevelThree {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy group.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy group.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy group. Must not be more than 100 characters.
+         */
+        name: string;
+    }
+
+    export interface UserHierarchyGroupHierarchyPathLevelTwo {
+        /**
+         * The Amazon Resource Name (ARN) of the hierarchy group.
+         */
+        arn: string;
+        /**
+         * The identifier of the hierarchy group.
+         */
+        id: string;
+        /**
+         * The name of the user hierarchy group. Must not be more than 100 characters.
+         */
+        name: string;
+    }
+
     export interface UserHierarchyStructureHierarchyStructure {
         /**
          * A block that defines the details of level five. The level block is documented below.
@@ -10868,6 +12852,884 @@ export namespace connect {
          */
         name: string;
     }
+
+}
+
+export namespace costexplorer {
+    export interface CostCategoryRule {
+        /**
+         * Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
+         */
+        inheritedValue?: outputs.costexplorer.CostCategoryRuleInheritedValue;
+        /**
+         * Configuration block for the `Expression` object used to categorize costs. See below.
+         */
+        rule?: outputs.costexplorer.CostCategoryRuleRule;
+        /**
+         * Parameter type.
+         */
+        type?: string;
+        /**
+         * Default value for the cost category.
+         */
+        value?: string;
+    }
+
+    export interface CostCategoryRuleInheritedValue {
+        /**
+         * Key to extract cost category values.
+         */
+        dimensionKey?: string;
+        /**
+         * Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
+         */
+        dimensionName?: string;
+    }
+
+    export interface CostCategoryRuleRule {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
+        ands?: outputs.costexplorer.CostCategoryRuleRuleAnd[];
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.CostCategoryRuleRuleCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.CostCategoryRuleRuleDimension;
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        not?: outputs.costexplorer.CostCategoryRuleRuleNot;
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        ors?: outputs.costexplorer.CostCategoryRuleRuleOr[];
+        tags?: outputs.costexplorer.CostCategoryRuleRuleTags;
+    }
+
+    export interface CostCategoryRuleRuleAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.CostCategoryRuleRuleAndCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.CostCategoryRuleRuleAndDimension;
+        tags?: outputs.costexplorer.CostCategoryRuleRuleAndTags;
+    }
+
+    export interface CostCategoryRuleRuleAndCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleAndDimension {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleAndTags {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleDimension {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.CostCategoryRuleRuleNotCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.CostCategoryRuleRuleNotDimension;
+        tags?: outputs.costexplorer.CostCategoryRuleRuleNotTags;
+    }
+
+    export interface CostCategoryRuleRuleNotCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleNotDimension {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleNotTags {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.CostCategoryRuleRuleOrCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.CostCategoryRuleRuleOrDimension;
+        tags?: outputs.costexplorer.CostCategoryRuleRuleOrTags;
+    }
+
+    export interface CostCategoryRuleRuleOrCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleOrDimension {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleOrTags {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategoryRuleRuleTags {
+        /**
+         * Key for the tag.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface CostCategorySplitChargeRule {
+        /**
+         * Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
+         */
+        method: string;
+        /**
+         * Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
+         */
+        parameters?: outputs.costexplorer.CostCategorySplitChargeRuleParameter[];
+        /**
+         * Cost Category value that you want to split.
+         */
+        source: string;
+        /**
+         * Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
+         */
+        targets: string[];
+    }
+
+    export interface CostCategorySplitChargeRuleParameter {
+        /**
+         * Parameter type.
+         */
+        type?: string;
+        /**
+         * Parameter values.
+         */
+        values?: string[];
+    }
+
+    export interface GetCostCategoryRule {
+        /**
+         * Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
+         */
+        inheritedValues: outputs.costexplorer.GetCostCategoryRuleInheritedValue[];
+        /**
+         * Configuration block for the `Expression` object used to categorize costs. See below.
+         */
+        rules: outputs.costexplorer.GetCostCategoryRuleRule[];
+        /**
+         * Parameter type.
+         */
+        type: string;
+        /**
+         * Default value for the cost category.
+         */
+        value: string;
+    }
+
+    export interface GetCostCategoryRuleInheritedValue {
+        /**
+         * Key to extract cost category values.
+         */
+        dimensionKey: string;
+        /**
+         * Name of the dimension that's used to group costs. If you specify `LINKED_ACCOUNT_NAME`, the cost category value is based on account name. If you specify `TAG`, the cost category value will be based on the value of the specified tag key. Valid values are `LINKED_ACCOUNT_NAME`, `TAG`
+         */
+        dimensionName: string;
+    }
+
+    export interface GetCostCategoryRuleRule {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
+        ands: outputs.costexplorer.GetCostCategoryRuleRuleAnd[];
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleCostCategory[];
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleDimension[];
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        nots: outputs.costexplorer.GetCostCategoryRuleRuleNot[];
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        ors: outputs.costexplorer.GetCostCategoryRuleRuleOr[];
+        tags: outputs.costexplorer.GetCostCategoryRuleRuleTag[];
+    }
+
+    export interface GetCostCategoryRuleRuleAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleAndCostCategory[];
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleAndDimension[];
+        tags: outputs.costexplorer.GetCostCategoryRuleRuleAndTag[];
+    }
+
+    export interface GetCostCategoryRuleRuleAndCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleAndDimension {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleAndTag {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleDimension {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleNotCostCategory[];
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleNotDimension[];
+        tags: outputs.costexplorer.GetCostCategoryRuleRuleNotTag[];
+    }
+
+    export interface GetCostCategoryRuleRuleNotCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleNotDimension {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleNotTag {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategories: outputs.costexplorer.GetCostCategoryRuleRuleOrCostCategory[];
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimensions: outputs.costexplorer.GetCostCategoryRuleRuleOrDimension[];
+        tags: outputs.costexplorer.GetCostCategoryRuleRuleOrTag[];
+    }
+
+    export interface GetCostCategoryRuleRuleOrCostCategory {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleOrDimension {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleOrTag {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategoryRuleRuleTag {
+        /**
+         * Key for the tag.
+         */
+        key: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions: string[];
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetCostCategorySplitChargeRule {
+        /**
+         * Method that's used to define how to split your source costs across your targets. Valid values are `FIXED`, `PROPORTIONAL`, `EVEN`
+         */
+        method: string;
+        /**
+         * Configuration block for the parameters for a split charge method. This is only required for the `FIXED` method. See below.
+         */
+        parameters: outputs.costexplorer.GetCostCategorySplitChargeRuleParameter[];
+        /**
+         * Cost Category value that you want to split.
+         */
+        source: string;
+        /**
+         * Cost Category values that you want to split costs across. These values can't be used as a source in other split charge rules.
+         */
+        targets: string[];
+    }
+
+    export interface GetCostCategorySplitChargeRuleParameter {
+        /**
+         * Parameter type.
+         */
+        type: string;
+        /**
+         * Parameter values.
+         */
+        values: string[];
+    }
+
+    export interface GetTagsFilter {
+        /**
+         * Return results that match both `Dimension` objects.
+         */
+        ands?: outputs.costexplorer.GetTagsFilterAnd[];
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.GetTagsFilterCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.GetTagsFilterDimension;
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        not?: outputs.costexplorer.GetTagsFilterNot;
+        /**
+         * Return results that match both `Dimension` object.
+         */
+        ors?: outputs.costexplorer.GetTagsFilterOr[];
+        /**
+         * Tags that match your request.
+         */
+        tags?: outputs.costexplorer.GetTagsFilterTags;
+    }
+
+    export interface GetTagsFilterAnd {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.GetTagsFilterAndCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.GetTagsFilterAndDimension;
+        /**
+         * Tags that match your request.
+         */
+        tags?: outputs.costexplorer.GetTagsFilterAndTags;
+    }
+
+    export interface GetTagsFilterAndCostCategory {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterAndDimension {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterAndTags {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterCostCategory {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterDimension {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterNot {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.GetTagsFilterNotCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.GetTagsFilterNotDimension;
+        /**
+         * Tags that match your request.
+         */
+        tags?: outputs.costexplorer.GetTagsFilterNotTags;
+    }
+
+    export interface GetTagsFilterNotCostCategory {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterNotDimension {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterNotTags {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterOr {
+        /**
+         * Configuration block for the filter that's based on `CostCategory` values. See below.
+         */
+        costCategory?: outputs.costexplorer.GetTagsFilterOrCostCategory;
+        /**
+         * Configuration block for the specific `Dimension` to use for `Expression`. See below.
+         */
+        dimension?: outputs.costexplorer.GetTagsFilterOrDimension;
+        /**
+         * Tags that match your request.
+         */
+        tags?: outputs.costexplorer.GetTagsFilterOrTags;
+    }
+
+    export interface GetTagsFilterOrCostCategory {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterOrDimension {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterOrTags {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsFilterTags {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * Match options that you can use to filter your results. MatchOptions is only applicable for actions related to cost category. The default values for MatchOptions is `EQUALS` and `CASE_SENSITIVE`. Valid values are: `EQUALS`,  `ABSENT`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`.
+         */
+        matchOptions?: string[];
+        /**
+         * Specific value of the Cost Category.
+         */
+        values?: string[];
+    }
+
+    export interface GetTagsSortBy {
+        /**
+         * key that's used to sort the data. Valid values are: `BlendedCost`,  `UnblendedCost`, `AmortizedCost`, `NetAmortizedCost`, `NetUnblendedCost`, `UsageQuantity`, `NormalizedUsageAmount`.
+         */
+        key?: string;
+        /**
+         * order that's used to sort the data. Valid values are: `ASCENDING`,  `DESCENDING`.
+         */
+        sortOrder?: string;
+    }
+
+    export interface GetTagsTimePeriod {
+        /**
+         * Beginning of the time period.
+         */
+        end: string;
+        /**
+         * End of the time period.
+         */
+        start: string;
+    }
+
 }
 
 export namespace datapipeline {
@@ -12857,6 +15719,13 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetInstanceMaintenanceOption {
+        /**
+         * The automatic recovery behavior of the instance.
+         */
+        autoRecovery: string;
+    }
+
     export interface GetInstanceMetadataOption {
         /**
          * The state of the metadata service: `enabled`, `disabled`.
@@ -13195,8 +16064,76 @@ export namespace ec2 {
         validUntil: string;
     }
 
+    export interface GetLaunchTemplateInstanceRequirement {
+        acceleratorCounts: outputs.ec2.GetLaunchTemplateInstanceRequirementAcceleratorCount[];
+        acceleratorManufacturers: string[];
+        acceleratorNames: string[];
+        acceleratorTotalMemoryMibs: outputs.ec2.GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib[];
+        acceleratorTypes: string[];
+        bareMetal: string;
+        baselineEbsBandwidthMbps: outputs.ec2.GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp[];
+        burstablePerformance: string;
+        cpuManufacturers: string[];
+        excludedInstanceTypes: string[];
+        instanceGenerations: string[];
+        localStorage: string;
+        localStorageTypes: string[];
+        memoryGibPerVcpus: outputs.ec2.GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus[];
+        memoryMibs: outputs.ec2.GetLaunchTemplateInstanceRequirementMemoryMib[];
+        networkInterfaceCounts: outputs.ec2.GetLaunchTemplateInstanceRequirementNetworkInterfaceCount[];
+        onDemandMaxPricePercentageOverLowestPrice: number;
+        requireHibernateSupport: boolean;
+        spotMaxPricePercentageOverLowestPrice: number;
+        totalLocalStorageGbs: outputs.ec2.GetLaunchTemplateInstanceRequirementTotalLocalStorageGb[];
+        vcpuCounts: outputs.ec2.GetLaunchTemplateInstanceRequirementVcpuCount[];
+    }
+
+    export interface GetLaunchTemplateInstanceRequirementAcceleratorCount {
+        max: number;
+        min: number;
+    }
+
+    export interface GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib {
+        max: number;
+        min: number;
+    }
+
+    export interface GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp {
+        max: number;
+        min: number;
+    }
+
+    export interface GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus {
+        max: number;
+        min: number;
+    }
+
+    export interface GetLaunchTemplateInstanceRequirementMemoryMib {
+        max: number;
+        min: number;
+    }
+
+    export interface GetLaunchTemplateInstanceRequirementNetworkInterfaceCount {
+        max: number;
+        min: number;
+    }
+
+    export interface GetLaunchTemplateInstanceRequirementTotalLocalStorageGb {
+        max: number;
+        min: number;
+    }
+
+    export interface GetLaunchTemplateInstanceRequirementVcpuCount {
+        max: number;
+        min: number;
+    }
+
     export interface GetLaunchTemplateLicenseSpecification {
         licenseConfigurationArn: string;
+    }
+
+    export interface GetLaunchTemplateMaintenanceOption {
+        autoRecovery: string;
     }
 
     export interface GetLaunchTemplateMetadataOption {
@@ -13910,6 +16847,13 @@ export namespace ec2 {
         version?: string;
     }
 
+    export interface InstanceMaintenanceOptions {
+        /**
+         * The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+         */
+        autoRecovery: string;
+    }
+
     export interface InstanceMetadataOptions {
         /**
          * Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
@@ -14208,11 +17152,193 @@ export namespace ec2 {
         validUntil: string;
     }
 
+    export interface LaunchTemplateInstanceRequirements {
+        /**
+         * Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+         */
+        acceleratorCount?: outputs.ec2.LaunchTemplateInstanceRequirementsAcceleratorCount;
+        /**
+         * List of accelerator manufacturer names. Default is any manufacturer.
+         */
+        acceleratorManufacturers?: string[];
+        /**
+         * List of accelerator names. Default is any acclerator.
+         */
+        acceleratorNames?: string[];
+        /**
+         * Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+         */
+        acceleratorTotalMemoryMib?: outputs.ec2.LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib;
+        /**
+         * List of accelerator types. Default is any accelerator type.
+         */
+        acceleratorTypes?: string[];
+        /**
+         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         */
+        bareMetal?: string;
+        /**
+         * Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+         */
+        baselineEbsBandwidthMbps?: outputs.ec2.LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps;
+        /**
+         * Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         */
+        burstablePerformance?: string;
+        /**
+         * List of CPU manufacturer names. Default is any manufacturer.
+         */
+        cpuManufacturers?: string[];
+        /**
+         * List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+         */
+        excludedInstanceTypes?: string[];
+        /**
+         * List of instance generation names. Default is any generation.
+         */
+        instanceGenerations?: string[];
+        /**
+         * Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+         */
+        localStorage?: string;
+        /**
+         * List of local storage type names. Default any storage type.
+         */
+        localStorageTypes?: string[];
+        /**
+         * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+         */
+        memoryGibPerVcpu?: outputs.ec2.LaunchTemplateInstanceRequirementsMemoryGibPerVcpu;
+        /**
+         * Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+         */
+        memoryMib: outputs.ec2.LaunchTemplateInstanceRequirementsMemoryMib;
+        /**
+         * Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+         */
+        networkInterfaceCount?: outputs.ec2.LaunchTemplateInstanceRequirementsNetworkInterfaceCount;
+        /**
+         * The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+         */
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        /**
+         * Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+         */
+        requireHibernateSupport?: boolean;
+        /**
+         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+         */
+        spotMaxPricePercentageOverLowestPrice?: number;
+        /**
+         * Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+         */
+        totalLocalStorageGb?: outputs.ec2.LaunchTemplateInstanceRequirementsTotalLocalStorageGb;
+        /**
+         * Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+         */
+        vcpuCount: outputs.ec2.LaunchTemplateInstanceRequirementsVcpuCount;
+    }
+
+    export interface LaunchTemplateInstanceRequirementsAcceleratorCount {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface LaunchTemplateInstanceRequirementsMemoryMib {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min: number;
+    }
+
+    export interface LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface LaunchTemplateInstanceRequirementsVcpuCount {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min: number;
+    }
+
     export interface LaunchTemplateLicenseSpecification {
         /**
          * ARN of the license configuration.
          */
         licenseConfigurationArn: string;
+    }
+
+    export interface LaunchTemplateMaintenanceOptions {
+        /**
+         * Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+         */
+        autoRecovery?: string;
     }
 
     export interface LaunchTemplateMetadataOptions {
@@ -14769,6 +17895,10 @@ export namespace ec2 {
          */
         availabilityZone?: string;
         /**
+         * The instance requirements. See below.
+         */
+        instanceRequirements?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements;
+        /**
          * The type of instance to request.
          */
         instanceType?: string;
@@ -14788,6 +17918,181 @@ export namespace ec2 {
          * The capacity added to the fleet by a fulfilled request.
          */
         weightedCapacity: number;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements {
+        /**
+         * Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+         */
+        acceleratorCount?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount;
+        /**
+         * List of accelerator manufacturer names. Default is any manufacturer.
+         */
+        acceleratorManufacturers?: string[];
+        /**
+         * List of accelerator names. Default is any acclerator.
+         */
+        acceleratorNames?: string[];
+        /**
+         * Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+         */
+        acceleratorTotalMemoryMib?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib;
+        /**
+         * List of accelerator types. Default is any accelerator type.
+         */
+        acceleratorTypes?: string[];
+        /**
+         * Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         */
+        bareMetal?: string;
+        /**
+         * Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+         */
+        baselineEbsBandwidthMbps?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps;
+        /**
+         * Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+         */
+        burstablePerformance?: string;
+        /**
+         * List of CPU manufacturer names. Default is any manufacturer.
+         */
+        cpuManufacturers?: string[];
+        /**
+         * List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+         */
+        excludedInstanceTypes?: string[];
+        /**
+         * List of instance generation names. Default is any generation.
+         */
+        instanceGenerations?: string[];
+        /**
+         * Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+         */
+        localStorage?: string;
+        /**
+         * List of local storage type names. Default any storage type.
+         */
+        localStorageTypes?: string[];
+        /**
+         * Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+         */
+        memoryGibPerVcpu?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu;
+        /**
+         * Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+         */
+        memoryMib?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib;
+        /**
+         * Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+         */
+        networkInterfaceCount?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount;
+        /**
+         * The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+         */
+        onDemandMaxPricePercentageOverLowestPrice?: number;
+        /**
+         * Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+         */
+        requireHibernateSupport?: boolean;
+        /**
+         * The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+         */
+        spotMaxPricePercentageOverLowestPrice?: number;
+        /**
+         * Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+         */
+        totalLocalStorageGb?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb;
+        /**
+         * Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+         */
+        vcpuCount?: outputs.ec2.SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
+    }
+
+    export interface SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+        /**
+         * Maximum.
+         */
+        max?: number;
+        /**
+         * Minimum.
+         */
+        min?: number;
     }
 
     export interface SpotFleetRequestSpotMaintenanceStrategies {
@@ -14912,6 +18217,13 @@ export namespace ec2 {
          * Template version. Can be a specific version number, `$Latest` or `$Default`. The default value is `$Default`.
          */
         version?: string;
+    }
+
+    export interface SpotInstanceRequestMaintenanceOptions {
+        /**
+         * The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+         */
+        autoRecovery: string;
     }
 
     export interface SpotInstanceRequestMetadataOptions {
@@ -18910,6 +22222,67 @@ export namespace emr {
 
 }
 
+export namespace emrcontainers {
+    export interface GetVirtualClusterContainerProvider {
+        /**
+         * The name of the container provider that is running your EMR Containers cluster
+         */
+        id: string;
+        /**
+         * Nested list containing information about the configuration of the container provider
+         */
+        infos: outputs.emrcontainers.GetVirtualClusterContainerProviderInfo[];
+        /**
+         * The type of the container provider
+         */
+        type: string;
+    }
+
+    export interface GetVirtualClusterContainerProviderInfo {
+        /**
+         * Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
+         */
+        eksInfos: outputs.emrcontainers.GetVirtualClusterContainerProviderInfoEksInfo[];
+    }
+
+    export interface GetVirtualClusterContainerProviderInfoEksInfo {
+        /**
+         * The namespace where the EMR Containers cluster is running
+         */
+        namespace: string;
+    }
+
+    export interface VirtualClusterContainerProvider {
+        /**
+         * The name of the container provider that is running your EMR Containers cluster
+         */
+        id: string;
+        /**
+         * Nested list containing information about the configuration of the container provider
+         */
+        info: outputs.emrcontainers.VirtualClusterContainerProviderInfo;
+        /**
+         * The type of the container provider
+         */
+        type: string;
+    }
+
+    export interface VirtualClusterContainerProviderInfo {
+        /**
+         * Nested list containing EKS-specific information about the cluster where the EMR Containers cluster is running
+         */
+        eksInfo: outputs.emrcontainers.VirtualClusterContainerProviderInfoEksInfo;
+    }
+
+    export interface VirtualClusterContainerProviderInfoEksInfo {
+        /**
+         * The namespace where the EMR Containers cluster is running
+         */
+        namespace?: string;
+    }
+
+}
+
 export namespace fms {
     export interface PolicyExcludeMap {
         /**
@@ -21638,6 +25011,25 @@ export namespace iot {
         roleArn: string;
     }
 
+    export interface TopicRuleDestinationVpcConfiguration {
+        /**
+         * The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+         */
+        roleArn: string;
+        /**
+         * The security groups of the VPC destination.
+         */
+        securityGroups?: string[];
+        /**
+         * The subnet IDs of the VPC destination.
+         */
+        subnetIds: string[];
+        /**
+         * The ID of the VPC.
+         */
+        vpcId: string;
+    }
+
     export interface TopicRuleDynamodb {
         /**
          * The hash key name.
@@ -21730,8 +25122,10 @@ export namespace iot {
         dynamodbv2?: outputs.iot.TopicRuleErrorActionDynamodbv2;
         elasticsearch?: outputs.iot.TopicRuleErrorActionElasticsearch;
         firehose?: outputs.iot.TopicRuleErrorActionFirehose;
+        http?: outputs.iot.TopicRuleErrorActionHttp;
         iotAnalytics?: outputs.iot.TopicRuleErrorActionIotAnalytics;
         iotEvents?: outputs.iot.TopicRuleErrorActionIotEvents;
+        kafka?: outputs.iot.TopicRuleErrorActionKafka;
         kinesis?: outputs.iot.TopicRuleErrorActionKinesis;
         lambda?: outputs.iot.TopicRuleErrorActionLambda;
         republish?: outputs.iot.TopicRuleErrorActionRepublish;
@@ -21739,6 +25133,7 @@ export namespace iot {
         sns?: outputs.iot.TopicRuleErrorActionSns;
         sqs?: outputs.iot.TopicRuleErrorActionSqs;
         stepFunctions?: outputs.iot.TopicRuleErrorActionStepFunctions;
+        timestream?: outputs.iot.TopicRuleErrorActionTimestream;
     }
 
     export interface TopicRuleErrorActionCloudwatchAlarm {
@@ -21897,6 +25292,32 @@ export namespace iot {
         separator?: string;
     }
 
+    export interface TopicRuleErrorActionHttp {
+        /**
+         * The HTTPS URL used to verify ownership of `url`.
+         */
+        confirmationUrl?: string;
+        /**
+         * Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+         */
+        httpHeaders?: outputs.iot.TopicRuleErrorActionHttpHttpHeader[];
+        /**
+         * The HTTPS URL.
+         */
+        url: string;
+    }
+
+    export interface TopicRuleErrorActionHttpHttpHeader {
+        /**
+         * The name of the HTTP header.
+         */
+        key: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
+    }
+
     export interface TopicRuleErrorActionIotAnalytics {
         /**
          * Name of AWS IOT Analytics channel.
@@ -21921,6 +25342,29 @@ export namespace iot {
          * The ARN of the IAM role that grants access.
          */
         roleArn: string;
+    }
+
+    export interface TopicRuleErrorActionKafka {
+        /**
+         * Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+         */
+        clientProperties: {[key: string]: string};
+        /**
+         * The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination` .
+         */
+        destinationArn: string;
+        /**
+         * The Kafka message key.
+         */
+        key?: string;
+        /**
+         * The Kafka message partition.
+         */
+        partition?: string;
+        /**
+         * The Kafka topic for messages to be sent to the Kafka broker.
+         */
+        topic: string;
     }
 
     export interface TopicRuleErrorActionKinesis {
@@ -21966,7 +25410,11 @@ export namespace iot {
          */
         bucketName: string;
         /**
-         * The object key.
+         * The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+         */
+        cannedAcl?: string;
+        /**
+         * The name of the HTTP header.
          */
         key: string;
         /**
@@ -22020,6 +25468,51 @@ export namespace iot {
         stateMachineName: string;
     }
 
+    export interface TopicRuleErrorActionTimestream {
+        /**
+         * The name of an Amazon Timestream database.
+         */
+        databaseName: string;
+        /**
+         * Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+         */
+        dimensions: outputs.iot.TopicRuleErrorActionTimestreamDimension[];
+        /**
+         * The ARN of the role that grants permission to write to the Amazon Timestream database table.
+         */
+        roleArn: string;
+        /**
+         * The name of the database table into which to write the measure records.
+         */
+        tableName: string;
+        /**
+         * Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+         */
+        timestamp?: outputs.iot.TopicRuleErrorActionTimestreamTimestamp;
+    }
+
+    export interface TopicRuleErrorActionTimestreamDimension {
+        /**
+         * The name of the rule.
+         */
+        name: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
+    }
+
+    export interface TopicRuleErrorActionTimestreamTimestamp {
+        /**
+         * The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+         */
+        unit: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
+    }
+
     export interface TopicRuleFirehose {
         /**
          * The delivery stream name.
@@ -22033,6 +25526,32 @@ export namespace iot {
          * A character separator that is used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).
          */
         separator?: string;
+    }
+
+    export interface TopicRuleHttp {
+        /**
+         * The HTTPS URL used to verify ownership of `url`.
+         */
+        confirmationUrl?: string;
+        /**
+         * Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+         */
+        httpHeaders?: outputs.iot.TopicRuleHttpHttpHeader[];
+        /**
+         * The HTTPS URL.
+         */
+        url: string;
+    }
+
+    export interface TopicRuleHttpHttpHeader {
+        /**
+         * The name of the HTTP header.
+         */
+        key: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
     }
 
     export interface TopicRuleIotAnalytic {
@@ -22059,6 +25578,29 @@ export namespace iot {
          * The ARN of the IAM role that grants access.
          */
         roleArn: string;
+    }
+
+    export interface TopicRuleKafka {
+        /**
+         * Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+         */
+        clientProperties: {[key: string]: string};
+        /**
+         * The ARN of Kafka action's VPC `aws.iot.TopicRuleDestination` .
+         */
+        destinationArn: string;
+        /**
+         * The Kafka message key.
+         */
+        key?: string;
+        /**
+         * The Kafka message partition.
+         */
+        partition?: string;
+        /**
+         * The Kafka topic for messages to be sent to the Kafka broker.
+         */
+        topic: string;
     }
 
     export interface TopicRuleKinesis {
@@ -22104,7 +25646,11 @@ export namespace iot {
          */
         bucketName: string;
         /**
-         * The object key.
+         * The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+         */
+        cannedAcl?: string;
+        /**
+         * The name of the HTTP header.
          */
         key: string;
         /**
@@ -22156,6 +25702,51 @@ export namespace iot {
          * The name of the Step Functions state machine whose execution will be started.
          */
         stateMachineName: string;
+    }
+
+    export interface TopicRuleTimestream {
+        /**
+         * The name of an Amazon Timestream database.
+         */
+        databaseName: string;
+        /**
+         * Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+         */
+        dimensions: outputs.iot.TopicRuleTimestreamDimension[];
+        /**
+         * The ARN of the role that grants permission to write to the Amazon Timestream database table.
+         */
+        roleArn: string;
+        /**
+         * The name of the database table into which to write the measure records.
+         */
+        tableName: string;
+        /**
+         * Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+         */
+        timestamp?: outputs.iot.TopicRuleTimestreamTimestamp;
+    }
+
+    export interface TopicRuleTimestreamDimension {
+        /**
+         * The name of the rule.
+         */
+        name: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
+    }
+
+    export interface TopicRuleTimestreamTimestamp {
+        /**
+         * The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+         */
+        unit: string;
+        /**
+         * The value of the HTTP header.
+         */
+        value: string;
     }
 
 }
@@ -22611,14 +26202,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -22921,14 +26512,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -23072,14 +26663,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamHttpEndpointConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -23204,14 +26795,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamRedshiftConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -23414,14 +27005,14 @@ export namespace kinesis {
          */
         parameters?: outputs.kinesis.FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter[];
         /**
-         * The type of processor. Valid Values: `Lambda`
+         * The type of processor. Valid Values: `RecordDeAggregation`, `Lambda`, `MetadataExtraction`, `AppendDelimiterToRecord`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         type: string;
     }
 
     export interface FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter {
         /**
-         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`
+         * Parameter name. Valid Values: `LambdaArn`, `NumberOfRetries`, `MetadataExtractionQuery`, `JsonParsingEngine`, `RoleArn`, `BufferSizeInMBs`, `BufferIntervalInSeconds`, `SubRecordType`, `Delimiter`. Validation is done against [AWS SDK constants](https://docs.aws.amazon.com/sdk-for-go/api/service/firehose/#pkg-constants); so that values not explicitly listed may also work.
          */
         parameterName: string;
         /**
@@ -25551,6 +29142,23 @@ export namespace lightsail {
 
 }
 
+export namespace location {
+    export interface GetMapConfiguration {
+        /**
+         * The map style selected from an available data provider.
+         */
+        style: string;
+    }
+
+    export interface MapConfiguration {
+        /**
+         * Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+         */
+        style: string;
+    }
+
+}
+
 export namespace macie {
     export interface FindingsFilterFindingCriteria {
         /**
@@ -26273,6 +29881,40 @@ export namespace mq {
         username: string;
     }
 
+    export interface GetInstanceTypeOfferingsBrokerInstanceOption {
+        /**
+         * The list of available AZs. See Availability Zones. below
+         */
+        availabilityZones: outputs.mq.GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone[];
+        /**
+         * Filter response by engine type.
+         */
+        engineType: string;
+        /**
+         * Filter response by host instance type.
+         */
+        hostInstanceType: string;
+        /**
+         * Filter response by storage type.
+         */
+        storageType: string;
+        /**
+         * The list of supported deployment modes.
+         */
+        supportedDeploymentModes: string[];
+        /**
+         * The list of supported engine versions.
+         */
+        supportedEngineVersions: string[];
+    }
+
+    export interface GetInstanceTypeOfferingsBrokerInstanceOptionAvailabilityZone {
+        /**
+         * The name of the Availability Zone.
+         */
+        name: string;
+    }
+
 }
 
 export namespace msk {
@@ -26285,6 +29927,10 @@ export namespace msk {
          * A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
          */
         clientSubnets: string[];
+        /**
+         * Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+         */
+        connectivityInfo: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfo;
         /**
          * The size in GiB of the EBS volume for the data drive on each broker node.
          */
@@ -26299,6 +29945,20 @@ export namespace msk {
         securityGroups: string[];
     }
 
+    export interface ClusterBrokerNodeGroupInfoConnectivityInfo {
+        /**
+         * Access control settings for brokers. See below.
+         */
+        publicAccess: outputs.msk.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess;
+    }
+
+    export interface ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+        /**
+         * Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+         */
+        type: string;
+    }
+
     export interface ClusterClientAuthentication {
         /**
          * Configuration block for specifying SASL client authentication. See below.
@@ -26308,6 +29968,10 @@ export namespace msk {
          * Configuration block for specifying TLS client authentication. See below.
          */
         tls?: outputs.msk.ClusterClientAuthenticationTls;
+        /**
+         * Enables unauthenticated access.
+         */
+        unauthenticated?: boolean;
     }
 
     export interface ClusterClientAuthenticationSasl {
@@ -29348,6 +33012,17 @@ export namespace rds {
         timeoutAction?: string;
     }
 
+    export interface ClusterServerlessv2ScalingConfiguration {
+        /**
+         * The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+         */
+        maxCapacity: number;
+        /**
+         * The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+         */
+        minCapacity: number;
+    }
+
     export interface GetProxyAuth {
         authScheme: string;
         description: string;
@@ -32131,7 +35806,7 @@ export namespace sagemaker {
 
     export interface AppResourceSpec {
         /**
-         * The instance type that the image version runs on. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * The instance type that the image version runs on. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -32229,7 +35904,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
         /**
-         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -32278,7 +35953,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec {
         /**
-         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -32319,7 +35994,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec {
         /**
-         * The instance type that the image version runs on.. For valid values see [Sagemaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
+         * The instance type that the image version runs on.. For valid values see [SageMaker Instance Types](https://docs.aws.amazon.com/sagemaker/latest/dg/notebooks-available-instance-types.html).
          */
         instanceType?: string;
         /**
@@ -33079,6 +36754,17 @@ export namespace secretsmanager {
 
     export interface GetSecretRotationRule {
         automaticallyAfterDays: number;
+    }
+
+    export interface GetSecretsFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Secrets Manager ListSecrets API Reference](https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_ListSecrets.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
     }
 
     export interface SecretReplica {
@@ -35239,6 +38925,66 @@ export namespace ssm {
         values: string[];
     }
 
+    export interface GetPatchBaselineApprovalRule {
+        /**
+         * The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+         */
+        approveAfterDays: number;
+        /**
+         * The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+         */
+        approveUntilDate: string;
+        /**
+         * The compliance level for patches approved by this rule.
+         */
+        complianceLevel: string;
+        /**
+         * Boolean enabling the application of non-security updates.
+         */
+        enableNonSecurity: boolean;
+        /**
+         * The patch filter group that defines the criteria for the rule.
+         */
+        patchFilters: outputs.ssm.GetPatchBaselineApprovalRulePatchFilter[];
+    }
+
+    export interface GetPatchBaselineApprovalRulePatchFilter {
+        /**
+         * The key for the filter.
+         */
+        key: string;
+        /**
+         * The value for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetPatchBaselineGlobalFilter {
+        /**
+         * The key for the filter.
+         */
+        key: string;
+        /**
+         * The value for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetPatchBaselineSource {
+        /**
+         * The value of the yum repo configuration.
+         */
+        configuration: string;
+        /**
+         * The name specified to identify the patch source.
+         */
+        name: string;
+        /**
+         * The specific operating system versions a patch repository applies to.
+         */
+        products: string[];
+    }
+
     export interface MaintenanceWindowTargetTarget {
         key: string;
         values: string[];
@@ -35346,7 +39092,7 @@ export namespace ssm {
          */
         parameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter[];
         /**
-         * The IAM service role to assume during task execution.
+         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
          */
         serviceRoleArn?: string;
         /**
@@ -35473,7 +39219,6 @@ export namespace ssm {
          */
         syncFormat?: string;
     }
-
 }
 
 export namespace storagegateway {
@@ -35591,11 +39336,11 @@ export namespace synthetics {
 
     export interface CanaryArtifactConfigS3Encryption {
         /**
-         * The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+         * The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
          */
         encryptionMode?: string;
         /**
-         * The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryptionMode`.
+         * The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryptionMode`.
          */
         kmsKeyArn?: string;
     }

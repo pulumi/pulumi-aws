@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Acm.Inputs
     public sealed class CertificateDomainValidationOptionGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A domain name for which the certificate should be issued
+        /// A fully qualified domain name (FQDN) in the certificate.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

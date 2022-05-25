@@ -31,6 +31,10 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('assumeRole')
 
     @property
+    def assume_role_with_web_identity(self) -> Optional[str]:
+        return __config__.get('assumeRoleWithWebIdentity')
+
+    @property
     def custom_ca_bundle(self) -> Optional[str]:
         """
         File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment

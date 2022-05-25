@@ -8,6 +8,7 @@ import typing
 from .get_secret import *
 from .get_secret_rotation import *
 from .get_secret_version import *
+from .get_secrets import *
 from .secret import *
 from .secret_policy import *
 from .secret_rotation import *

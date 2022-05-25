@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Code Repository resource.
+ * Provides a SageMaker Code Repository resource.
  *
  * ## Example Usage
  * ### Basic usage
@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Code Repositories can be imported using the `name`, e.g.,
+ * SageMaker Code Repositories can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo

@@ -12,6 +12,7 @@ export * from "./documents";
 export * from "./getAccountAlias";
 export * from "./getGroup";
 export * from "./getInstanceProfile";
+export * from "./getInstanceProfiles";
 export * from "./getOpenidConnectProvider";
 export * from "./getPolicy";
 export * from "./getPolicyDocument";

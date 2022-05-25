@@ -24,7 +24,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, usage_operation=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, usage_operation=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -40,6 +40,9 @@ class GetAmiResult:
         if creation_date and not isinstance(creation_date, str):
             raise TypeError("Expected argument 'creation_date' to be a str")
         pulumi.set(__self__, "creation_date", creation_date)
+        if deprecation_time and not isinstance(deprecation_time, str):
+            raise TypeError("Expected argument 'deprecation_time' to be a str")
+        pulumi.set(__self__, "deprecation_time", deprecation_time)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -170,6 +173,14 @@ class GetAmiResult:
         The date and time the image was created.
         """
         return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="deprecationTime")
+    def deprecation_time(self) -> str:
+        """
+        The date and time when the image will be deprecated.
+        """
+        return pulumi.get(self, "deprecation_time")
 
     @property
     @pulumi.getter
@@ -421,6 +432,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             block_device_mappings=self.block_device_mappings,
             boot_mode=self.boot_mode,
             creation_date=self.creation_date,
+            deprecation_time=self.deprecation_time,
             description=self.description,
             ena_support=self.ena_support,
             executable_users=self.executable_users,
@@ -528,6 +540,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         block_device_mappings=__ret__.block_device_mappings,
         boot_mode=__ret__.boot_mode,
         creation_date=__ret__.creation_date,
+        deprecation_time=__ret__.deprecation_time,
         description=__ret__.description,
         ena_support=__ret__.ena_support,
         executable_users=__ret__.executable_users,

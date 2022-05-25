@@ -74,6 +74,52 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * ```
+ * ### Extended S3 Destination with dynamic partitioning
+ * These examples use built-in Firehose functionality, rather than requiring a lambda.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const extendedS3Stream = new aws.kinesis.FirehoseDeliveryStream("extendedS3Stream", {
+ *     destination: "extended_s3",
+ *     extendedS3Configuration: {
+ *         roleArn: aws_iam_role.firehose_role.arn,
+ *         bucketArn: aws_s3_bucket.bucket.arn,
+ *         prefix: "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+ *         errorOutputPrefix: "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+ *         bufferSize: 64,
+ *         processingConfiguration: {
+ *             enabled: true,
+ *             processors: [
+ *                 {
+ *                     type: "RecordDeAggregation",
+ *                     parameters: [{
+ *                         parameterName: "SubRecordType",
+ *                         parameterValue: "JSON",
+ *                     }],
+ *                 },
+ *                 {
+ *                     type: "AppendDelimiterToRecord",
+ *                 },
+ *                 {
+ *                     type: "MetadataExtraction",
+ *                     parameters: [
+ *                         {
+ *                             parameterName: "JsonParsingEngine",
+ *                             parameterValue: "JQ-1.6",
+ *                         },
+ *                         {
+ *                             parameterName: "MetadataExtractionQuery",
+ *                             parameterValue: "{customer_id:.customer_id}",
+ *                         },
+ *                     ],
+ *                 },
+ *             ],
+ *         },
+ *     },
+ * });
+ * ```
  * ### S3 Destination (deprecated)
  *
  * ```typescript

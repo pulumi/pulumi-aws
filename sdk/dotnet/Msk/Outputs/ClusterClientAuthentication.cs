@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Msk.Outputs
         /// Configuration block for specifying TLS client authentication. See below.
         /// </summary>
         public readonly Outputs.ClusterClientAuthenticationTls? Tls;
+        /// <summary>
+        /// Enables unauthenticated access.
+        /// </summary>
+        public readonly bool? Unauthenticated;
 
         [OutputConstructor]
         private ClusterClientAuthentication(
             Outputs.ClusterClientAuthenticationSasl? sasl,
 
-            Outputs.ClusterClientAuthenticationTls? tls)
+            Outputs.ClusterClientAuthenticationTls? tls,
+
+            bool? unauthenticated)
         {
             Sasl = sasl;
             Tls = tls;
+            Unauthenticated = unauthenticated;
         }
     }
 }

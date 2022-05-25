@@ -18,7 +18,11 @@ namespace Pulumi.Aws.Iot.Outputs
         /// </summary>
         public readonly string BucketName;
         /// <summary>
-        /// The object key.
+        /// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        /// </summary>
+        public readonly string? CannedAcl;
+        /// <summary>
+        /// The name of the HTTP header.
         /// </summary>
         public readonly string Key;
         /// <summary>
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.Iot.Outputs
         private TopicRuleErrorActionS3(
             string bucketName,
 
+            string? cannedAcl,
+
             string key,
 
             string roleArn)
         {
             BucketName = bucketName;
+            CannedAcl = cannedAcl;
             Key = key;
             RoleArn = roleArn;
         }

@@ -17,6 +17,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### By ARN
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -35,9 +36,29 @@ namespace Pulumi.Aws.CodeStarConnections
         /// }
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Name
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.CodeStarConnections.GetConnection.InvokeAsync(new Aws.CodeStarConnections.GetConnectionArgs
+        ///         {
+        ///             Name = aws_codestarconnections_connection.Example.Name,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs args, InvokeOptions? options = null)
+        public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:codestarconnections/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
 
         /// <summary>
@@ -46,6 +67,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### By ARN
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -64,9 +86,29 @@ namespace Pulumi.Aws.CodeStarConnections
         /// }
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Name
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.CodeStarConnections.GetConnection.InvokeAsync(new Aws.CodeStarConnections.GetConnectionArgs
+        ///         {
+        ///             Name = aws_codestarconnections_connection.Example.Name,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:codestarconnections/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
@@ -76,8 +118,14 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// The CodeStar Connection ARN.
         /// </summary>
-        [Input("arn", required: true)]
-        public string Arn { get; set; } = null!;
+        [Input("arn")]
+        public string? Arn { get; set; }
+
+        /// <summary>
+        /// The CodeStar Connection name.
+        /// </summary>
+        [Input("name")]
+        public string? Name { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -101,8 +149,14 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// The CodeStar Connection ARN.
         /// </summary>
-        [Input("arn", required: true)]
-        public Input<string> Arn { get; set; } = null!;
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The CodeStar Connection name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

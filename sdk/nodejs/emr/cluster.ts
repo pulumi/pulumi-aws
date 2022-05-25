@@ -614,6 +614,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly kerberosAttributes!: pulumi.Output<outputs.emr.ClusterKerberosAttributes | undefined>;
     /**
+     * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+     */
+    public readonly listStepsStates!: pulumi.Output<string[] | undefined>;
+    /**
      * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      */
     public readonly logEncryptionKmsKeyId!: pulumi.Output<string | undefined>;
@@ -653,10 +657,6 @@ export class Cluster extends pulumi.CustomResource {
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      */
     public readonly serviceRole!: pulumi.Output<string>;
-    /**
-     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-     */
-    public readonly stepConcurrencyLevel!: pulumi.Output<number | undefined>;
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
@@ -707,6 +707,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["ec2Attributes"] = state ? state.ec2Attributes : undefined;
             resourceInputs["keepJobFlowAliveWhenNoSteps"] = state ? state.keepJobFlowAliveWhenNoSteps : undefined;
             resourceInputs["kerberosAttributes"] = state ? state.kerberosAttributes : undefined;
+            resourceInputs["listStepsStates"] = state ? state.listStepsStates : undefined;
             resourceInputs["logEncryptionKmsKeyId"] = state ? state.logEncryptionKmsKeyId : undefined;
             resourceInputs["logUri"] = state ? state.logUri : undefined;
             resourceInputs["masterInstanceFleet"] = state ? state.masterInstanceFleet : undefined;
@@ -717,7 +718,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
-            resourceInputs["stepConcurrencyLevel"] = state ? state.stepConcurrencyLevel : undefined;
             resourceInputs["steps"] = state ? state.steps : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -745,6 +745,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["ec2Attributes"] = args ? args.ec2Attributes : undefined;
             resourceInputs["keepJobFlowAliveWhenNoSteps"] = args ? args.keepJobFlowAliveWhenNoSteps : undefined;
             resourceInputs["kerberosAttributes"] = args ? args.kerberosAttributes : undefined;
+            resourceInputs["listStepsStates"] = args ? args.listStepsStates : undefined;
             resourceInputs["logEncryptionKmsKeyId"] = args ? args.logEncryptionKmsKeyId : undefined;
             resourceInputs["logUri"] = args ? args.logUri : undefined;
             resourceInputs["masterInstanceFleet"] = args ? args.masterInstanceFleet : undefined;
@@ -754,7 +755,6 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
-            resourceInputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationProtection"] = args ? args.terminationProtection : undefined;
@@ -829,6 +829,10 @@ export interface ClusterState {
      */
     kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes>;
     /**
+     * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+     */
+    listStepsStates?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      */
     logEncryptionKmsKeyId?: pulumi.Input<string>;
@@ -868,10 +872,6 @@ export interface ClusterState {
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      */
     serviceRole?: pulumi.Input<string>;
-    /**
-     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-     */
-    stepConcurrencyLevel?: pulumi.Input<number>;
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
@@ -952,6 +952,10 @@ export interface ClusterArgs {
      */
     kerberosAttributes?: pulumi.Input<inputs.emr.ClusterKerberosAttributes>;
     /**
+     * List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+     */
+    listStepsStates?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
      */
     logEncryptionKmsKeyId?: pulumi.Input<string>;
@@ -987,10 +991,6 @@ export interface ClusterArgs {
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      */
     serviceRole: pulumi.Input<string>;
-    /**
-     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
-     */
-    stepConcurrencyLevel?: pulumi.Input<number>;
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */

@@ -1393,7 +1393,7 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters struct {
 	OutputS3KeyPrefix *string `pulumi:"outputS3KeyPrefix"`
 	// The parameters for the RUN_COMMAND task execution. Documented below.
 	Parameters []MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter `pulumi:"parameters"`
-	// The IAM service role to assume during task execution.
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// If this time is reached and the command has not already started executing, it doesn't run.
 	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
@@ -1429,7 +1429,7 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs struc
 	OutputS3KeyPrefix pulumi.StringPtrInput `pulumi:"outputS3KeyPrefix"`
 	// The parameters for the RUN_COMMAND task execution. Documented below.
 	Parameters MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayInput `pulumi:"parameters"`
-	// The IAM service role to assume during task execution.
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 	ServiceRoleArn pulumi.StringPtrInput `pulumi:"serviceRoleArn"`
 	// If this time is reached and the command has not already started executing, it doesn't run.
 	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
@@ -1573,7 +1573,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput)
 }
 
-// The IAM service role to assume during task execution.
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		return v.ServiceRoleArn
@@ -1701,7 +1701,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput)
 }
 
-// The IAM service role to assume during task execution.
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		if v == nil {
@@ -3201,6 +3201,466 @@ func (o GetMaintenanceWindowsFilterArrayOutput) Index(i pulumi.IntInput) GetMain
 	}).(GetMaintenanceWindowsFilterOutput)
 }
 
+type GetPatchBaselineApprovalRule struct {
+	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+	ApproveAfterDays int `pulumi:"approveAfterDays"`
+	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+	ApproveUntilDate string `pulumi:"approveUntilDate"`
+	// The compliance level for patches approved by this rule.
+	ComplianceLevel string `pulumi:"complianceLevel"`
+	// Boolean enabling the application of non-security updates.
+	EnableNonSecurity bool `pulumi:"enableNonSecurity"`
+	// The patch filter group that defines the criteria for the rule.
+	PatchFilters []GetPatchBaselineApprovalRulePatchFilter `pulumi:"patchFilters"`
+}
+
+// GetPatchBaselineApprovalRuleInput is an input type that accepts GetPatchBaselineApprovalRuleArgs and GetPatchBaselineApprovalRuleOutput values.
+// You can construct a concrete instance of `GetPatchBaselineApprovalRuleInput` via:
+//
+//          GetPatchBaselineApprovalRuleArgs{...}
+type GetPatchBaselineApprovalRuleInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselineApprovalRuleOutput() GetPatchBaselineApprovalRuleOutput
+	ToGetPatchBaselineApprovalRuleOutputWithContext(context.Context) GetPatchBaselineApprovalRuleOutput
+}
+
+type GetPatchBaselineApprovalRuleArgs struct {
+	// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+	ApproveAfterDays pulumi.IntInput `pulumi:"approveAfterDays"`
+	// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+	ApproveUntilDate pulumi.StringInput `pulumi:"approveUntilDate"`
+	// The compliance level for patches approved by this rule.
+	ComplianceLevel pulumi.StringInput `pulumi:"complianceLevel"`
+	// Boolean enabling the application of non-security updates.
+	EnableNonSecurity pulumi.BoolInput `pulumi:"enableNonSecurity"`
+	// The patch filter group that defines the criteria for the rule.
+	PatchFilters GetPatchBaselineApprovalRulePatchFilterArrayInput `pulumi:"patchFilters"`
+}
+
+func (GetPatchBaselineApprovalRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselineApprovalRule)(nil)).Elem()
+}
+
+func (i GetPatchBaselineApprovalRuleArgs) ToGetPatchBaselineApprovalRuleOutput() GetPatchBaselineApprovalRuleOutput {
+	return i.ToGetPatchBaselineApprovalRuleOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselineApprovalRuleArgs) ToGetPatchBaselineApprovalRuleOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineApprovalRuleOutput)
+}
+
+// GetPatchBaselineApprovalRuleArrayInput is an input type that accepts GetPatchBaselineApprovalRuleArray and GetPatchBaselineApprovalRuleArrayOutput values.
+// You can construct a concrete instance of `GetPatchBaselineApprovalRuleArrayInput` via:
+//
+//          GetPatchBaselineApprovalRuleArray{ GetPatchBaselineApprovalRuleArgs{...} }
+type GetPatchBaselineApprovalRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselineApprovalRuleArrayOutput() GetPatchBaselineApprovalRuleArrayOutput
+	ToGetPatchBaselineApprovalRuleArrayOutputWithContext(context.Context) GetPatchBaselineApprovalRuleArrayOutput
+}
+
+type GetPatchBaselineApprovalRuleArray []GetPatchBaselineApprovalRuleInput
+
+func (GetPatchBaselineApprovalRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselineApprovalRule)(nil)).Elem()
+}
+
+func (i GetPatchBaselineApprovalRuleArray) ToGetPatchBaselineApprovalRuleArrayOutput() GetPatchBaselineApprovalRuleArrayOutput {
+	return i.ToGetPatchBaselineApprovalRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselineApprovalRuleArray) ToGetPatchBaselineApprovalRuleArrayOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineApprovalRuleArrayOutput)
+}
+
+type GetPatchBaselineApprovalRuleOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselineApprovalRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselineApprovalRule)(nil)).Elem()
+}
+
+func (o GetPatchBaselineApprovalRuleOutput) ToGetPatchBaselineApprovalRuleOutput() GetPatchBaselineApprovalRuleOutput {
+	return o
+}
+
+func (o GetPatchBaselineApprovalRuleOutput) ToGetPatchBaselineApprovalRuleOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRuleOutput {
+	return o
+}
+
+// The number of days after the release date of each patch matched by the rule the patch is marked as approved in the patch baseline.
+func (o GetPatchBaselineApprovalRuleOutput) ApproveAfterDays() pulumi.IntOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) int { return v.ApproveAfterDays }).(pulumi.IntOutput)
+}
+
+// The cutoff date for auto approval of released patches. Any patches released on or before this date are installed automatically. Date is formatted as `YYYY-MM-DD`. Conflicts with `approveAfterDays`
+func (o GetPatchBaselineApprovalRuleOutput) ApproveUntilDate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) string { return v.ApproveUntilDate }).(pulumi.StringOutput)
+}
+
+// The compliance level for patches approved by this rule.
+func (o GetPatchBaselineApprovalRuleOutput) ComplianceLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) string { return v.ComplianceLevel }).(pulumi.StringOutput)
+}
+
+// Boolean enabling the application of non-security updates.
+func (o GetPatchBaselineApprovalRuleOutput) EnableNonSecurity() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) bool { return v.EnableNonSecurity }).(pulumi.BoolOutput)
+}
+
+// The patch filter group that defines the criteria for the rule.
+func (o GetPatchBaselineApprovalRuleOutput) PatchFilters() GetPatchBaselineApprovalRulePatchFilterArrayOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRule) []GetPatchBaselineApprovalRulePatchFilter { return v.PatchFilters }).(GetPatchBaselineApprovalRulePatchFilterArrayOutput)
+}
+
+type GetPatchBaselineApprovalRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselineApprovalRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselineApprovalRule)(nil)).Elem()
+}
+
+func (o GetPatchBaselineApprovalRuleArrayOutput) ToGetPatchBaselineApprovalRuleArrayOutput() GetPatchBaselineApprovalRuleArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselineApprovalRuleArrayOutput) ToGetPatchBaselineApprovalRuleArrayOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRuleArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselineApprovalRuleArrayOutput) Index(i pulumi.IntInput) GetPatchBaselineApprovalRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPatchBaselineApprovalRule {
+		return vs[0].([]GetPatchBaselineApprovalRule)[vs[1].(int)]
+	}).(GetPatchBaselineApprovalRuleOutput)
+}
+
+type GetPatchBaselineApprovalRulePatchFilter struct {
+	// The key for the filter.
+	Key string `pulumi:"key"`
+	// The value for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetPatchBaselineApprovalRulePatchFilterInput is an input type that accepts GetPatchBaselineApprovalRulePatchFilterArgs and GetPatchBaselineApprovalRulePatchFilterOutput values.
+// You can construct a concrete instance of `GetPatchBaselineApprovalRulePatchFilterInput` via:
+//
+//          GetPatchBaselineApprovalRulePatchFilterArgs{...}
+type GetPatchBaselineApprovalRulePatchFilterInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselineApprovalRulePatchFilterOutput() GetPatchBaselineApprovalRulePatchFilterOutput
+	ToGetPatchBaselineApprovalRulePatchFilterOutputWithContext(context.Context) GetPatchBaselineApprovalRulePatchFilterOutput
+}
+
+type GetPatchBaselineApprovalRulePatchFilterArgs struct {
+	// The key for the filter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPatchBaselineApprovalRulePatchFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselineApprovalRulePatchFilter)(nil)).Elem()
+}
+
+func (i GetPatchBaselineApprovalRulePatchFilterArgs) ToGetPatchBaselineApprovalRulePatchFilterOutput() GetPatchBaselineApprovalRulePatchFilterOutput {
+	return i.ToGetPatchBaselineApprovalRulePatchFilterOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselineApprovalRulePatchFilterArgs) ToGetPatchBaselineApprovalRulePatchFilterOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRulePatchFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineApprovalRulePatchFilterOutput)
+}
+
+// GetPatchBaselineApprovalRulePatchFilterArrayInput is an input type that accepts GetPatchBaselineApprovalRulePatchFilterArray and GetPatchBaselineApprovalRulePatchFilterArrayOutput values.
+// You can construct a concrete instance of `GetPatchBaselineApprovalRulePatchFilterArrayInput` via:
+//
+//          GetPatchBaselineApprovalRulePatchFilterArray{ GetPatchBaselineApprovalRulePatchFilterArgs{...} }
+type GetPatchBaselineApprovalRulePatchFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselineApprovalRulePatchFilterArrayOutput() GetPatchBaselineApprovalRulePatchFilterArrayOutput
+	ToGetPatchBaselineApprovalRulePatchFilterArrayOutputWithContext(context.Context) GetPatchBaselineApprovalRulePatchFilterArrayOutput
+}
+
+type GetPatchBaselineApprovalRulePatchFilterArray []GetPatchBaselineApprovalRulePatchFilterInput
+
+func (GetPatchBaselineApprovalRulePatchFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselineApprovalRulePatchFilter)(nil)).Elem()
+}
+
+func (i GetPatchBaselineApprovalRulePatchFilterArray) ToGetPatchBaselineApprovalRulePatchFilterArrayOutput() GetPatchBaselineApprovalRulePatchFilterArrayOutput {
+	return i.ToGetPatchBaselineApprovalRulePatchFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselineApprovalRulePatchFilterArray) ToGetPatchBaselineApprovalRulePatchFilterArrayOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRulePatchFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineApprovalRulePatchFilterArrayOutput)
+}
+
+type GetPatchBaselineApprovalRulePatchFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselineApprovalRulePatchFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselineApprovalRulePatchFilter)(nil)).Elem()
+}
+
+func (o GetPatchBaselineApprovalRulePatchFilterOutput) ToGetPatchBaselineApprovalRulePatchFilterOutput() GetPatchBaselineApprovalRulePatchFilterOutput {
+	return o
+}
+
+func (o GetPatchBaselineApprovalRulePatchFilterOutput) ToGetPatchBaselineApprovalRulePatchFilterOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRulePatchFilterOutput {
+	return o
+}
+
+// The key for the filter.
+func (o GetPatchBaselineApprovalRulePatchFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRulePatchFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the filter.
+func (o GetPatchBaselineApprovalRulePatchFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPatchBaselineApprovalRulePatchFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPatchBaselineApprovalRulePatchFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselineApprovalRulePatchFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselineApprovalRulePatchFilter)(nil)).Elem()
+}
+
+func (o GetPatchBaselineApprovalRulePatchFilterArrayOutput) ToGetPatchBaselineApprovalRulePatchFilterArrayOutput() GetPatchBaselineApprovalRulePatchFilterArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselineApprovalRulePatchFilterArrayOutput) ToGetPatchBaselineApprovalRulePatchFilterArrayOutputWithContext(ctx context.Context) GetPatchBaselineApprovalRulePatchFilterArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselineApprovalRulePatchFilterArrayOutput) Index(i pulumi.IntInput) GetPatchBaselineApprovalRulePatchFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPatchBaselineApprovalRulePatchFilter {
+		return vs[0].([]GetPatchBaselineApprovalRulePatchFilter)[vs[1].(int)]
+	}).(GetPatchBaselineApprovalRulePatchFilterOutput)
+}
+
+type GetPatchBaselineGlobalFilter struct {
+	// The key for the filter.
+	Key string `pulumi:"key"`
+	// The value for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetPatchBaselineGlobalFilterInput is an input type that accepts GetPatchBaselineGlobalFilterArgs and GetPatchBaselineGlobalFilterOutput values.
+// You can construct a concrete instance of `GetPatchBaselineGlobalFilterInput` via:
+//
+//          GetPatchBaselineGlobalFilterArgs{...}
+type GetPatchBaselineGlobalFilterInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselineGlobalFilterOutput() GetPatchBaselineGlobalFilterOutput
+	ToGetPatchBaselineGlobalFilterOutputWithContext(context.Context) GetPatchBaselineGlobalFilterOutput
+}
+
+type GetPatchBaselineGlobalFilterArgs struct {
+	// The key for the filter.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPatchBaselineGlobalFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselineGlobalFilter)(nil)).Elem()
+}
+
+func (i GetPatchBaselineGlobalFilterArgs) ToGetPatchBaselineGlobalFilterOutput() GetPatchBaselineGlobalFilterOutput {
+	return i.ToGetPatchBaselineGlobalFilterOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselineGlobalFilterArgs) ToGetPatchBaselineGlobalFilterOutputWithContext(ctx context.Context) GetPatchBaselineGlobalFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineGlobalFilterOutput)
+}
+
+// GetPatchBaselineGlobalFilterArrayInput is an input type that accepts GetPatchBaselineGlobalFilterArray and GetPatchBaselineGlobalFilterArrayOutput values.
+// You can construct a concrete instance of `GetPatchBaselineGlobalFilterArrayInput` via:
+//
+//          GetPatchBaselineGlobalFilterArray{ GetPatchBaselineGlobalFilterArgs{...} }
+type GetPatchBaselineGlobalFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselineGlobalFilterArrayOutput() GetPatchBaselineGlobalFilterArrayOutput
+	ToGetPatchBaselineGlobalFilterArrayOutputWithContext(context.Context) GetPatchBaselineGlobalFilterArrayOutput
+}
+
+type GetPatchBaselineGlobalFilterArray []GetPatchBaselineGlobalFilterInput
+
+func (GetPatchBaselineGlobalFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselineGlobalFilter)(nil)).Elem()
+}
+
+func (i GetPatchBaselineGlobalFilterArray) ToGetPatchBaselineGlobalFilterArrayOutput() GetPatchBaselineGlobalFilterArrayOutput {
+	return i.ToGetPatchBaselineGlobalFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselineGlobalFilterArray) ToGetPatchBaselineGlobalFilterArrayOutputWithContext(ctx context.Context) GetPatchBaselineGlobalFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineGlobalFilterArrayOutput)
+}
+
+type GetPatchBaselineGlobalFilterOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselineGlobalFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselineGlobalFilter)(nil)).Elem()
+}
+
+func (o GetPatchBaselineGlobalFilterOutput) ToGetPatchBaselineGlobalFilterOutput() GetPatchBaselineGlobalFilterOutput {
+	return o
+}
+
+func (o GetPatchBaselineGlobalFilterOutput) ToGetPatchBaselineGlobalFilterOutputWithContext(ctx context.Context) GetPatchBaselineGlobalFilterOutput {
+	return o
+}
+
+// The key for the filter.
+func (o GetPatchBaselineGlobalFilterOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselineGlobalFilter) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the filter.
+func (o GetPatchBaselineGlobalFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPatchBaselineGlobalFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPatchBaselineGlobalFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselineGlobalFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselineGlobalFilter)(nil)).Elem()
+}
+
+func (o GetPatchBaselineGlobalFilterArrayOutput) ToGetPatchBaselineGlobalFilterArrayOutput() GetPatchBaselineGlobalFilterArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselineGlobalFilterArrayOutput) ToGetPatchBaselineGlobalFilterArrayOutputWithContext(ctx context.Context) GetPatchBaselineGlobalFilterArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselineGlobalFilterArrayOutput) Index(i pulumi.IntInput) GetPatchBaselineGlobalFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPatchBaselineGlobalFilter {
+		return vs[0].([]GetPatchBaselineGlobalFilter)[vs[1].(int)]
+	}).(GetPatchBaselineGlobalFilterOutput)
+}
+
+type GetPatchBaselineSource struct {
+	// The value of the yum repo configuration.
+	Configuration string `pulumi:"configuration"`
+	// The name specified to identify the patch source.
+	Name string `pulumi:"name"`
+	// The specific operating system versions a patch repository applies to.
+	Products []string `pulumi:"products"`
+}
+
+// GetPatchBaselineSourceInput is an input type that accepts GetPatchBaselineSourceArgs and GetPatchBaselineSourceOutput values.
+// You can construct a concrete instance of `GetPatchBaselineSourceInput` via:
+//
+//          GetPatchBaselineSourceArgs{...}
+type GetPatchBaselineSourceInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselineSourceOutput() GetPatchBaselineSourceOutput
+	ToGetPatchBaselineSourceOutputWithContext(context.Context) GetPatchBaselineSourceOutput
+}
+
+type GetPatchBaselineSourceArgs struct {
+	// The value of the yum repo configuration.
+	Configuration pulumi.StringInput `pulumi:"configuration"`
+	// The name specified to identify the patch source.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The specific operating system versions a patch repository applies to.
+	Products pulumi.StringArrayInput `pulumi:"products"`
+}
+
+func (GetPatchBaselineSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselineSource)(nil)).Elem()
+}
+
+func (i GetPatchBaselineSourceArgs) ToGetPatchBaselineSourceOutput() GetPatchBaselineSourceOutput {
+	return i.ToGetPatchBaselineSourceOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselineSourceArgs) ToGetPatchBaselineSourceOutputWithContext(ctx context.Context) GetPatchBaselineSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineSourceOutput)
+}
+
+// GetPatchBaselineSourceArrayInput is an input type that accepts GetPatchBaselineSourceArray and GetPatchBaselineSourceArrayOutput values.
+// You can construct a concrete instance of `GetPatchBaselineSourceArrayInput` via:
+//
+//          GetPatchBaselineSourceArray{ GetPatchBaselineSourceArgs{...} }
+type GetPatchBaselineSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetPatchBaselineSourceArrayOutput() GetPatchBaselineSourceArrayOutput
+	ToGetPatchBaselineSourceArrayOutputWithContext(context.Context) GetPatchBaselineSourceArrayOutput
+}
+
+type GetPatchBaselineSourceArray []GetPatchBaselineSourceInput
+
+func (GetPatchBaselineSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselineSource)(nil)).Elem()
+}
+
+func (i GetPatchBaselineSourceArray) ToGetPatchBaselineSourceArrayOutput() GetPatchBaselineSourceArrayOutput {
+	return i.ToGetPatchBaselineSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetPatchBaselineSourceArray) ToGetPatchBaselineSourceArrayOutputWithContext(ctx context.Context) GetPatchBaselineSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPatchBaselineSourceArrayOutput)
+}
+
+type GetPatchBaselineSourceOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselineSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPatchBaselineSource)(nil)).Elem()
+}
+
+func (o GetPatchBaselineSourceOutput) ToGetPatchBaselineSourceOutput() GetPatchBaselineSourceOutput {
+	return o
+}
+
+func (o GetPatchBaselineSourceOutput) ToGetPatchBaselineSourceOutputWithContext(ctx context.Context) GetPatchBaselineSourceOutput {
+	return o
+}
+
+// The value of the yum repo configuration.
+func (o GetPatchBaselineSourceOutput) Configuration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselineSource) string { return v.Configuration }).(pulumi.StringOutput)
+}
+
+// The name specified to identify the patch source.
+func (o GetPatchBaselineSourceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPatchBaselineSource) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The specific operating system versions a patch repository applies to.
+func (o GetPatchBaselineSourceOutput) Products() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPatchBaselineSource) []string { return v.Products }).(pulumi.StringArrayOutput)
+}
+
+type GetPatchBaselineSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPatchBaselineSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPatchBaselineSource)(nil)).Elem()
+}
+
+func (o GetPatchBaselineSourceArrayOutput) ToGetPatchBaselineSourceArrayOutput() GetPatchBaselineSourceArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselineSourceArrayOutput) ToGetPatchBaselineSourceArrayOutputWithContext(ctx context.Context) GetPatchBaselineSourceArrayOutput {
+	return o
+}
+
+func (o GetPatchBaselineSourceArrayOutput) Index(i pulumi.IntInput) GetPatchBaselineSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPatchBaselineSource {
+		return vs[0].([]GetPatchBaselineSource)[vs[1].(int)]
+	}).(GetPatchBaselineSourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationInput)(nil)).Elem(), AssociationOutputLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationPtrInput)(nil)).Elem(), AssociationOutputLocationArgs{})
@@ -3246,6 +3706,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterArrayInput)(nil)).Elem(), GetInstancesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaintenanceWindowsFilterInput)(nil)).Elem(), GetMaintenanceWindowsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMaintenanceWindowsFilterArrayInput)(nil)).Elem(), GetMaintenanceWindowsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineApprovalRuleInput)(nil)).Elem(), GetPatchBaselineApprovalRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineApprovalRuleArrayInput)(nil)).Elem(), GetPatchBaselineApprovalRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineApprovalRulePatchFilterInput)(nil)).Elem(), GetPatchBaselineApprovalRulePatchFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineApprovalRulePatchFilterArrayInput)(nil)).Elem(), GetPatchBaselineApprovalRulePatchFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineGlobalFilterInput)(nil)).Elem(), GetPatchBaselineGlobalFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineGlobalFilterArrayInput)(nil)).Elem(), GetPatchBaselineGlobalFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineSourceInput)(nil)).Elem(), GetPatchBaselineSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPatchBaselineSourceArrayInput)(nil)).Elem(), GetPatchBaselineSourceArray{})
 	pulumi.RegisterOutputType(AssociationOutputLocationOutput{})
 	pulumi.RegisterOutputType(AssociationOutputLocationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationTargetOutput{})
@@ -3290,4 +3758,12 @@ func init() {
 	pulumi.RegisterOutputType(GetInstancesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetMaintenanceWindowsFilterOutput{})
 	pulumi.RegisterOutputType(GetMaintenanceWindowsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselineApprovalRuleOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselineApprovalRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselineApprovalRulePatchFilterOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselineApprovalRulePatchFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselineGlobalFilterOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselineGlobalFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselineSourceOutput{})
+	pulumi.RegisterOutputType(GetPatchBaselineSourceArrayOutput{})
 }

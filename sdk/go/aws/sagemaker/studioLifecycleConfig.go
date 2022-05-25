@@ -11,13 +11,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Sagemaker Studio Lifecycle Config resource.
+// Provides a SageMaker Studio Lifecycle Config resource.
 //
 // ## Example Usage
 //
 // ## Import
 //
-// Sagemaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
+// SageMaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example

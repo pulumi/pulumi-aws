@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a IPAM resource.
+    /// Provides an IPAM resource.
     /// 
     /// ## Import
     /// 

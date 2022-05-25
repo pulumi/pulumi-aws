@@ -15,6 +15,8 @@ type ClusterBrokerNodeGroupInfo struct {
 	AzDistribution *string `pulumi:"azDistribution"`
 	// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
 	ClientSubnets []string `pulumi:"clientSubnets"`
+	// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+	ConnectivityInfo *ClusterBrokerNodeGroupInfoConnectivityInfo `pulumi:"connectivityInfo"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	EbsVolumeSize int `pulumi:"ebsVolumeSize"`
 	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
@@ -39,6 +41,8 @@ type ClusterBrokerNodeGroupInfoArgs struct {
 	AzDistribution pulumi.StringPtrInput `pulumi:"azDistribution"`
 	// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
 	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
+	// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+	ConnectivityInfo ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	EbsVolumeSize pulumi.IntInput `pulumi:"ebsVolumeSize"`
 	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
@@ -134,6 +138,13 @@ func (o ClusterBrokerNodeGroupInfoOutput) ClientSubnets() pulumi.StringArrayOutp
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.ClientSubnets }).(pulumi.StringArrayOutput)
 }
 
+// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+func (o ClusterBrokerNodeGroupInfoOutput) ConnectivityInfo() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoConnectivityInfo {
+		return v.ConnectivityInfo
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
+}
+
 // The size in GiB of the EBS volume for the data drive on each broker node.
 func (o ClusterBrokerNodeGroupInfoOutput) EbsVolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) int { return v.EbsVolumeSize }).(pulumi.IntOutput)
@@ -193,6 +204,16 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayO
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoConnectivityInfo {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectivityInfo
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
+}
+
 // The size in GiB of the EBS volume for the data drive on each broker node.
 func (o ClusterBrokerNodeGroupInfoPtrOutput) EbsVolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *int {
@@ -223,11 +244,289 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArray
 	}).(pulumi.StringArrayOutput)
 }
 
+type ClusterBrokerNodeGroupInfoConnectivityInfo struct {
+	// Access control settings for brokers. See below.
+	PublicAccess *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess `pulumi:"publicAccess"`
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoArgs and ClusterBrokerNodeGroupInfoConnectivityInfoOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoInput` via:
+//
+//          ClusterBrokerNodeGroupInfoConnectivityInfoArgs{...}
+type ClusterBrokerNodeGroupInfoConnectivityInfoInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoOutput() ClusterBrokerNodeGroupInfoConnectivityInfoOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoOutput
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoArgs struct {
+	// Access control settings for brokers. See below.
+	PublicAccess ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput `pulumi:"publicAccess"`
+}
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfo)(nil)).Elem()
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoOutput() ClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoOutput)
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoOutput).ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(ctx)
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoArgs, ClusterBrokerNodeGroupInfoConnectivityInfoPtr and ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput` via:
+//
+//          ClusterBrokerNodeGroupInfoConnectivityInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoConnectivityInfoPtrType ClusterBrokerNodeGroupInfoConnectivityInfoArgs
+
+func ClusterBrokerNodeGroupInfoConnectivityInfoPtr(v *ClusterBrokerNodeGroupInfoConnectivityInfoArgs) ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput {
+	return (*clusterBrokerNodeGroupInfoConnectivityInfoPtrType)(v)
+}
+
+func (*clusterBrokerNodeGroupInfoConnectivityInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfo)(nil)).Elem()
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfo)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoOutput() ClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfo {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput)
+}
+
+// Access control settings for brokers. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoOutput) PublicAccess() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+		return v.PublicAccess
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfo)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoConnectivityInfoOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfo) ClusterBrokerNodeGroupInfoConnectivityInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoConnectivityInfo
+		return ret
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoOutput)
+}
+
+// Access control settings for brokers. See below.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput) PublicAccess() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfo) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+		if v == nil {
+			return nil
+		}
+		return v.PublicAccess
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess struct {
+	// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+	Type *string `pulumi:"type"`
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs and ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput` via:
+//
+//          ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{...}
+type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs struct {
+	// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)(nil)).Elem()
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput)
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput).ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(ctx)
+}
+
+// ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs, ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtr and ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput` via:
+//
+//          ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput
+	ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrType ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs
+
+func ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtr(v *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput {
+	return (*clusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrType)(v)
+}
+
+func (*clusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)(nil)).Elem()
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrType) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput)
+}
+
+// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) ToClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Elem() ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess
+		return ret
+	}).(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput)
+}
+
+// Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type ClusterClientAuthentication struct {
 	// Configuration block for specifying SASL client authentication. See below.
 	Sasl *ClusterClientAuthenticationSasl `pulumi:"sasl"`
 	// Configuration block for specifying TLS client authentication. See below.
 	Tls *ClusterClientAuthenticationTls `pulumi:"tls"`
+	// Enables unauthenticated access.
+	Unauthenticated *bool `pulumi:"unauthenticated"`
 }
 
 // ClusterClientAuthenticationInput is an input type that accepts ClusterClientAuthenticationArgs and ClusterClientAuthenticationOutput values.
@@ -246,6 +545,8 @@ type ClusterClientAuthenticationArgs struct {
 	Sasl ClusterClientAuthenticationSaslPtrInput `pulumi:"sasl"`
 	// Configuration block for specifying TLS client authentication. See below.
 	Tls ClusterClientAuthenticationTlsPtrInput `pulumi:"tls"`
+	// Enables unauthenticated access.
+	Unauthenticated pulumi.BoolPtrInput `pulumi:"unauthenticated"`
 }
 
 func (ClusterClientAuthenticationArgs) ElementType() reflect.Type {
@@ -335,6 +636,11 @@ func (o ClusterClientAuthenticationOutput) Tls() ClusterClientAuthenticationTlsP
 	return o.ApplyT(func(v ClusterClientAuthentication) *ClusterClientAuthenticationTls { return v.Tls }).(ClusterClientAuthenticationTlsPtrOutput)
 }
 
+// Enables unauthenticated access.
+func (o ClusterClientAuthenticationOutput) Unauthenticated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterClientAuthentication) *bool { return v.Unauthenticated }).(pulumi.BoolPtrOutput)
+}
+
 type ClusterClientAuthenticationPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterClientAuthenticationPtrOutput) ElementType() reflect.Type {
@@ -377,6 +683,16 @@ func (o ClusterClientAuthenticationPtrOutput) Tls() ClusterClientAuthenticationT
 		}
 		return v.Tls
 	}).(ClusterClientAuthenticationTlsPtrOutput)
+}
+
+// Enables unauthenticated access.
+func (o ClusterClientAuthenticationPtrOutput) Unauthenticated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterClientAuthentication) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Unauthenticated
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ClusterClientAuthenticationSasl struct {
@@ -2645,6 +2961,10 @@ func (o GetBrokerNodesNodeInfoListArrayOutput) Index(i pulumi.IntInput) GetBroke
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationInput)(nil)).Elem(), ClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationPtrInput)(nil)).Elem(), ClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationSaslInput)(nil)).Elem(), ClusterClientAuthenticationSaslArgs{})
@@ -2679,6 +2999,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListArrayInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArray{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationSaslOutput{})

@@ -47,7 +47,9 @@ const (
 	accessAnalyzerMod           = "AccessAnalyzer"           // Access Analyzer
 	ampMod                      = "Amp"                      // Amp
 	amplifyMod                  = "Amplify"                  // Amplify
+	appFlowMod                  = "AppFlow"                  // AppFlow
 	appConfigMod                = "AppConfig"                // AppConfig
+	appIntegrationsMod          = "AppIntegrations"          // AppIntegrations
 	appStreamMod                = "AppStream"                // AppStream
 	appsyncMod                  = "AppSync"                  // AppSync
 	appmeshMod                  = "AppMesh"                  // AppMesh
@@ -79,6 +81,7 @@ const (
 	codestarNotificationsMod    = "CodeStarNotifications"    // CodeStar Notifications
 	cognitoMod                  = "Cognito"                  // Cognito
 	connectMod                  = "Connect"                  // Connect
+	costExplorerMod             = "CostExplorer"             // CostExplorer
 	curMod                      = "Cur"                      // Cost and Usage Report
 	cfgMod                      = "Cfg"                      // Resource Config
 	dataexchangeMod             = "DataExchange"             // Data exchange
@@ -110,6 +113,7 @@ const (
 	albMod                      = "Alb"                      // Elastic Load Balancing (V2: Application)
 	lbMod                       = "LB"                       // Elastic Load Balancing (V2: Application and Network)
 	emrMod                      = "Emr"                      // Elastic MapReduce
+	emrContainersMod            = "EmrContainers"            // Elastic MapReduce Containers
 	fmsMod                      = "Fms"                      // FMS
 	fsxMod                      = "Fsx"                      // FSX
 	gameliftMod                 = "GameLift"                 // Gamelift
@@ -132,6 +136,7 @@ const (
 	lexMod                      = "Lex"                      // Lex
 	licensemanagerMod           = "LicenseManager"           // License Manager
 	lightsailMod                = "LightSail"                // LightSail
+	locationMod                 = "Location"                 // Location
 	macieMod                    = "Macie"                    // Macie (Classic)
 	macie2Mod                   = "Macie2"                   // Macie2
 	mediaconvertMod             = "MediaConvert"             // Media Convert
@@ -329,6 +334,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"skip_metadata_api_check": {
+				Type: "boolean",
 				Default: &tfbridge.DefaultInfo{
 					Value: true,
 				},
@@ -615,6 +621,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_appautoscaling_target": {Tok: awsResource(appautoscalingMod, "Target")},
+
 			// Athena
 			"aws_athena_database": {
 				Tok: awsResource(athenaMod, "Database"),
@@ -628,8 +635,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_athena_named_query": {Tok: awsResource(athenaMod, "NamedQuery")},
-			"aws_athena_workgroup":   {Tok: awsResource(athenaMod, "Workgroup")},
+			"aws_athena_named_query":  {Tok: awsResource(athenaMod, "NamedQuery")},
+			"aws_athena_workgroup":    {Tok: awsResource(athenaMod, "Workgroup")},
+			"aws_athena_data_catalog": {Tok: awsResource(athenaMod, "DataCatalog")},
+
 			// Auto Scaling
 			"aws_autoscaling_attachment": {Tok: awsResource(autoscalingMod, "Attachment")},
 			"aws_autoscaling_group": {
@@ -935,6 +944,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_connect_security_profile":            {Tok: awsResource(connectMod, "SecurityProfile")},
 			"aws_connect_routing_profile":             {Tok: awsResource(connectMod, "RoutingProfile")},
 			"aws_connect_user_hierarchy_structure":    {Tok: awsResource(connectMod, "UserHierarchyStructure")},
+			"aws_connect_user_hierarchy_group":        {Tok: awsResource(connectMod, "UserHierarchyGroup")},
+
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
 			"aws_config_config_rule":                   {Tok: awsResource(cfgMod, "Rule")},
@@ -950,6 +961,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Cost and Usage Report
 			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
+
+			// CostExplorer
+			"aws_ce_cost_category": {Tok: awsResource(costExplorerMod, "CostCategory")},
 
 			// DataExchange
 			"aws_dataexchange_data_set": {Tok: awsResource(dataexchangeMod, "DataSet")},
@@ -1036,6 +1050,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_directory_service_log_subscription": {Tok: awsResource(directoryserviceMod, "LogService")},
+
 			// Document DB
 			"aws_docdb_cluster":                 {Tok: awsResource(docdbMod, "Cluster")},
 			"aws_docdb_cluster_instance":        {Tok: awsResource(docdbMod, "ClusterInstance")},
@@ -1049,7 +1064,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_docdb_global_cluster": {Tok: awsResource(docdbMod, "GlobalCluster")},
+			"aws_docdb_global_cluster":     {Tok: awsResource(docdbMod, "GlobalCluster")},
+			"aws_docdb_event_subscription": {Tok: awsResource(docdbMod, "EventSubscription")},
+
 			// Direct Connect
 			"aws_dx_bgp_peer":                         {Tok: awsResource(dxMod, "BgpPeer")},
 			"aws_dx_connection":                       {Tok: awsResource(dxMod, "Connection")},
@@ -1479,15 +1496,6 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecr_pull_through_cache_rule": {Tok: awsResource(ecrMod, "PullThroughCacheRule")},
 			"aws_ecr_registry_scanning_configuration": {
 				Tok: awsResource(ecrMod, "RegistryScanningConfiguration"),
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"policy": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:      "string",
-							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-							Transform: tfbridge.TransformJSONDocument,
-						},
-					},
-				},
 			},
 			// ecr public
 			"aws_ecrpublic_repository":        {Tok: awsResource(ecrPublicMod, "Repository")},
@@ -1611,6 +1619,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_instance_fleet":         {Tok: awsResource(emrMod, "InstanceFleet")},
 			"aws_emr_studio":                 {Tok: awsResource(emrMod, "Studio")},
 			"aws_emr_studio_session_mapping": {Tok: awsResource(emrMod, "StudioSessionMapping")},
+
+			// EMR Containers
+			"aws_emrcontainers_virtual_cluster": {Tok: awsResource(emrContainersMod, "VirtualCluster")},
 
 			// FSX
 			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},
@@ -1889,6 +1900,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_inspector_assessment_target":   {Tok: awsResource(inspectorMod, "AssessmentTarget")},
 			"aws_inspector_assessment_template": {Tok: awsResource(inspectorMod, "AssessmentTemplate")},
 			"aws_inspector_resource_group":      {Tok: awsResource(inspectorMod, "ResourceGroup")},
+
 			// IOT
 			"aws_iot_certificate": {Tok: awsResource(iotMod, "Certificate")},
 			"aws_iot_policy": {
@@ -1949,6 +1961,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iot_indexing_configuration": {Tok: awsResource(iotMod, "IndexingConfiguration")},
 			"aws_iot_logging_options":        {Tok: awsResource(iotMod, "LoggingOptions")},
 			"aws_iot_provisioning_template":  {Tok: awsResource(iotMod, "ProvisioningTemplate")},
+			"aws_iot_topic_rule_destination": {Tok: awsResource(iotMod, "TopicRuleDestination")},
+
 			// Keyspaces
 			"aws_keyspaces_keyspace": {Tok: awsResource(keyspacesMod, "Keyspace")},
 			// Kinesis
@@ -2069,6 +2083,7 @@ func Provider() tfbridge.ProviderInfo {
 			// License Manager
 			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
+
 			// LightSail
 			"aws_lightsail_domain":                {Tok: awsResource(lightsailMod, "Domain")},
 			"aws_lightsail_instance":              {Tok: awsResource(lightsailMod, "Instance")},
@@ -2076,6 +2091,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_static_ip":             {Tok: awsResource(lightsailMod, "StaticIp")},
 			"aws_lightsail_static_ip_attachment":  {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
 			"aws_lightsail_instance_public_ports": {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
+
+			// Location
+			"aws_location_map": {Tok: awsResource(locationMod, "Map")},
+
 			// Macie
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
 			"aws_macie_s3_bucket_association":      {Tok: awsResource(macieMod, "S3BucketAssociation")},
@@ -2130,6 +2149,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_mq_configuration": {Tok: awsResource(mqMod, "Configuration")},
+
 			// Neptune
 			"aws_neptune_cluster":                 {Tok: awsResource(neptuneMod, "Cluster")},
 			"aws_neptune_cluster_instance":        {Tok: awsResource(neptuneMod, "ClusterInstance")},
@@ -3166,6 +3186,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_amplify_domain_association":  {Tok: awsResource(amplifyMod, "DomainAssociation")},
 			"aws_amplify_webhook":             {Tok: awsResource(amplifyMod, "Webhook")},
 
+			// AppFlow
+			"aws_appflow_connector_profile": {Tok: awsResource(appFlowMod, "ConnectorProfile")},
+			"aws_appflow_flow":              {Tok: awsResource(appFlowMod, "Flow")},
+
 			// appconfig
 			"aws_appconfig_application":                  {Tok: awsResource(appConfigMod, "Application")},
 			"aws_appconfig_configuration_profile":        {Tok: awsResource(appConfigMod, "ConfigurationProfile")},
@@ -3173,6 +3197,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appconfig_environment":                  {Tok: awsResource(appConfigMod, "Environment")},
 			"aws_appconfig_hosted_configuration_version": {Tok: awsResource(appConfigMod, "HostedConfigurationVersion")},
 			"aws_appconfig_deployment":                   {Tok: awsResource(appConfigMod, "Deployment")},
+
+			// AppIntegrations
+			"aws_appintegrations_event_integration": {Tok: awsResource(appConfigMod, "EventIntegration")},
 
 			// AppStream
 			"aws_appstream_stack":                   {Tok: awsResource(appStreamMod, "Stack")},
@@ -4322,6 +4349,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_connect_prompt":                      {Tok: awsDataSource(connectMod, "getPrompt")},
 			"aws_connect_quick_connect":               {Tok: awsDataSource(connectMod, "getQuickConnect")},
 			"aws_connect_queue":                       {Tok: awsDataSource(connectMod, "getQueue")},
+			"aws_connect_routing_profile":             {Tok: awsDataSource(connectMod, "getRoutingProfile")},
+			"aws_connect_security_profile":            {Tok: awsDataSource(connectMod, "getSecurityProfile")},
+			"aws_connect_user_hierarchy_structure":    {Tok: awsDataSource(connectMod, "getUserHierarchyStructure")},
+
+			// Cost Explorer
+			"aws_ce_cost_category": {Tok: awsDataSource(costExplorerMod, "getCostCategory")},
+			"aws_ce_tags":          {Tok: awsDataSource(costExplorerMod, "getTags")},
 
 			// Datapipeline
 			"aws_datapipeline_pipeline":            {Tok: awsDataSource(datapipelineMod, "getPipeline")},
@@ -4507,8 +4541,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticache_cluster":           {Tok: awsDataSource(elasticacheMod, "getCluster")},
 			"aws_elasticache_replication_group": {Tok: awsDataSource(elasticacheMod, "getReplicationGroup")},
 			"aws_elasticache_user":              {Tok: awsDataSource(elasticacheMod, "getUser")},
+
 			// EMR
 			"aws_emr_release_labels": {Tok: awsDataSource(emrMod, "getReleaseLabels")},
+
+			// EMR Containers
+			"aws_emrcontainers_virtual_cluster": {Tok: awsDataSource(emrContainersMod, "getVirtualCluster")},
+
 			// Global Accelerator
 			"aws_globalaccelerator_accelerator": {Tok: awsDataSource(globalacceleratorMod, "getAccelerator")},
 			// grafana
@@ -4549,6 +4588,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_memorydb_snapshot":        {Tok: awsDataSource(memoryDbMod, "getSnapshot")},
 			"aws_memorydb_subnet_group":    {Tok: awsDataSource(memoryDbMod, "getSubnetGroup")},
 			"aws_memorydb_user":            {Tok: awsDataSource(memoryDbMod, "getUser")},
+
 			// MQ
 			"aws_mq_broker": {
 				Tok: awsDataSource(mqMod, "getBroker"),
@@ -4571,6 +4611,8 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_mq_broker_instance_type_offerings": {Tok: awsDataSource(mqMod, "getInstanceTypeOfferings")},
+
 			// IAM
 			"aws_iam_account_alias":           {Tok: awsDataSource(iamMod, "getAccountAlias")},
 			"aws_iam_group":                   {Tok: awsDataSource(iamMod, "getGroup")},
@@ -4586,6 +4628,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_user_ssh_key":            {Tok: awsDataSource(iamMod, "getUserSshKey")},
 			"aws_iam_openid_connect_provider": {Tok: awsDataSource(iamMod, "getOpenidConnectProvider")},
 			"aws_iam_saml_provider":           {Tok: awsDataSource(iamMod, "getSamlProvider")},
+			"aws_iam_instance_profiles":       {Tok: awsDataSource(iamMod, "getInstanceProfiles")},
+
 			// IdentityStore
 			"aws_identitystore_group": {Tok: awsDataSource(identityStoreMod, "getGroup")},
 			"aws_identitystore_user":  {Tok: awsDataSource(identityStoreMod, "getUser")},
@@ -4602,6 +4646,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_secret":     {Tok: awsDataSource(kmsMod, "getSecret")},
 			"aws_kms_secrets":    {Tok: awsDataSource(kmsMod, "getSecrets")},
 			"aws_kms_public_key": {Tok: awsDataSource(kmsMod, "getPublicKey")},
+
+			// Location
+			"aws_location_map": {Tok: awsDataSource(locationMod, "getMap")},
+
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
 			// RDS
@@ -4635,10 +4683,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket_policy":  {Tok: awsDataSource(s3Mod, "getBucketPolicy")},
 			"aws_s3_object":         {Tok: awsDataSource(s3Mod, "getObject")},
 			"aws_s3_objects":        {Tok: awsDataSource(s3Mod, "getObjects")},
+
 			// Secrets Manager
 			"aws_secretsmanager_secret":          {Tok: awsDataSource(secretsmanagerMod, "getSecret")},
 			"aws_secretsmanager_secret_version":  {Tok: awsDataSource(secretsmanagerMod, "getSecretVersion")},
 			"aws_secretsmanager_secret_rotation": {Tok: awsDataSource(secretsmanagerMod, "getSecretRotation")},
+			"aws_secretsmanager_secrets":         {Tok: awsDataSource(secretsmanagerMod, "getSecrets")},
+
 			// SNS
 			"aws_sns_topic": {Tok: awsDataSource(snsMod, "getTopic")},
 			// SQS
@@ -4707,9 +4758,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_log_delivery_canonical_user_id": {
 				Tok: awsDataSource(cloudfrontMod, "getLogDeliveryCanonicalUserId"),
 			},
-			"aws_cloudfront_response_headers_policy": {Tok: awsDataSource(cloudfrontMod, "getResponseHeadersPolicy")},
-			"aws_cloudfront_origin_access_identity":  {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentity")},
-			"aws_cloudfront_realtime_log_config":     {Tok: awsDataSource(cloudfrontMod, "getRealtimeLogConfig")},
+			"aws_cloudfront_response_headers_policy":  {Tok: awsDataSource(cloudfrontMod, "getResponseHeadersPolicy")},
+			"aws_cloudfront_origin_access_identity":   {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentity")},
+			"aws_cloudfront_realtime_log_config":      {Tok: awsDataSource(cloudfrontMod, "getRealtimeLogConfig")},
+			"aws_cloudfront_origin_access_identities": {Tok: awsDataSource(cloudfrontMod, "getOriginAccessIdentities")},
 
 			// Backup
 			"aws_backup_plan":        {Tok: awsDataSource(backupMod, "getPlan")},

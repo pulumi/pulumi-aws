@@ -194,13 +194,13 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Sagemaker Studio Lifecycle Config resource.
+        Provides a SageMaker Studio Lifecycle Config resource.
 
         ## Example Usage
 
         ## Import
 
-        Sagemaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
+        SageMaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
@@ -220,13 +220,13 @@ class StudioLifecycleConfig(pulumi.CustomResource):
                  args: StudioLifecycleConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Sagemaker Studio Lifecycle Config resource.
+        Provides a SageMaker Studio Lifecycle Config resource.
 
         ## Example Usage
 
         ## Import
 
-        Sagemaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
+        SageMaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example

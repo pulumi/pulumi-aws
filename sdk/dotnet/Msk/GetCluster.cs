@@ -134,6 +134,18 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public readonly string BootstrapBrokers;
         /// <summary>
+        /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9198`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        public readonly string BootstrapBrokersPublicSaslIam;
+        /// <summary>
+        /// One or more DNS names (or IP addresses) and SASL SCRAM port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9196`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.scram` is set to `true` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        public readonly string BootstrapBrokersPublicSaslScram;
+        /// <summary>
+        /// One or more DNS names (or IP addresses) and TLS port pairs. For example, `b-1-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-2-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194,b-3-public.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9194`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `broker_node_group_info.0.connectivity_info.0.public_access.0.type` is set to `SERVICE_PROVIDED_EIPS` and the cluster fulfill all other requirements for public access. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
+        /// </summary>
+        public readonly string BootstrapBrokersPublicTls;
+        /// <summary>
         /// One or more DNS names (or IP addresses) and SASL IAM port pairs. For example, `b-1.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-2.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098,b-3.exampleClusterName.abcde.c2.kafka.us-east-1.amazonaws.com:9098`. This attribute will have a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `TLS_PLAINTEXT` or `TLS` and `client_authentication.0.sasl.0.iam` is set to `true`. The resource sorts the list alphabetically. AWS may not always return all endpoints so the values may not be stable across applies.
         /// </summary>
         public readonly string BootstrapBrokersSaslIam;
@@ -177,6 +189,12 @@ namespace Pulumi.Aws.Msk
 
             string bootstrapBrokers,
 
+            string bootstrapBrokersPublicSaslIam,
+
+            string bootstrapBrokersPublicSaslScram,
+
+            string bootstrapBrokersPublicTls,
+
             string bootstrapBrokersSaslIam,
 
             string bootstrapBrokersSaslScram,
@@ -199,6 +217,9 @@ namespace Pulumi.Aws.Msk
         {
             Arn = arn;
             BootstrapBrokers = bootstrapBrokers;
+            BootstrapBrokersPublicSaslIam = bootstrapBrokersPublicSaslIam;
+            BootstrapBrokersPublicSaslScram = bootstrapBrokersPublicSaslScram;
+            BootstrapBrokersPublicTls = bootstrapBrokersPublicTls;
             BootstrapBrokersSaslIam = bootstrapBrokersSaslIam;
             BootstrapBrokersSaslScram = bootstrapBrokersSaslScram;
             BootstrapBrokersTls = bootstrapBrokersTls;

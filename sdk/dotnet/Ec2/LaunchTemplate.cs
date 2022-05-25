@@ -253,7 +253,13 @@ namespace Pulumi.Aws.Ec2
         public Output<Outputs.LaunchTemplateInstanceMarketOptions?> InstanceMarketOptions { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the instance.
+        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// </summary>
+        [Output("instanceRequirements")]
+        public Output<Outputs.LaunchTemplateInstanceRequirements?> InstanceRequirements { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the instance. If present then `instance_requirements` cannot be present.
         /// </summary>
         [Output("instanceType")]
         public Output<string?> InstanceType { get; private set; } = null!;
@@ -281,6 +287,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("licenseSpecifications")]
         public Output<ImmutableArray<Outputs.LaunchTemplateLicenseSpecification>> LicenseSpecifications { get; private set; } = null!;
+
+        /// <summary>
+        /// The maintenance options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Output("maintenanceOptions")]
+        public Output<Outputs.LaunchTemplateMaintenanceOptions?> MaintenanceOptions { get; private set; } = null!;
 
         /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
@@ -533,7 +545,13 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateInstanceMarketOptionsArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
-        /// The type of the instance.
+        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// </summary>
+        [Input("instanceRequirements")]
+        public Input<Inputs.LaunchTemplateInstanceRequirementsArgs>? InstanceRequirements { get; set; }
+
+        /// <summary>
+        /// The type of the instance. If present then `instance_requirements` cannot be present.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -561,6 +579,12 @@ namespace Pulumi.Aws.Ec2
             get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationArgs>());
             set => _licenseSpecifications = value;
         }
+
+        /// <summary>
+        /// The maintenance options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Input("maintenanceOptions")]
+        public Input<Inputs.LaunchTemplateMaintenanceOptionsArgs>? MaintenanceOptions { get; set; }
 
         /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.
@@ -804,7 +828,13 @@ namespace Pulumi.Aws.Ec2
         public Input<Inputs.LaunchTemplateInstanceMarketOptionsGetArgs>? InstanceMarketOptions { get; set; }
 
         /// <summary>
-        /// The type of the instance.
+        /// The attribute requirements for the type of instance. If present then `instance_type` cannot be present.
+        /// </summary>
+        [Input("instanceRequirements")]
+        public Input<Inputs.LaunchTemplateInstanceRequirementsGetArgs>? InstanceRequirements { get; set; }
+
+        /// <summary>
+        /// The type of the instance. If present then `instance_requirements` cannot be present.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -838,6 +868,12 @@ namespace Pulumi.Aws.Ec2
             get => _licenseSpecifications ?? (_licenseSpecifications = new InputList<Inputs.LaunchTemplateLicenseSpecificationGetArgs>());
             set => _licenseSpecifications = value;
         }
+
+        /// <summary>
+        /// The maintenance options for the instance. See Maintenance Options below for more details.
+        /// </summary>
+        [Input("maintenanceOptions")]
+        public Input<Inputs.LaunchTemplateMaintenanceOptionsGetArgs>? MaintenanceOptions { get; set; }
 
         /// <summary>
         /// Customize the metadata options for the instance. See Metadata Options below for more details.

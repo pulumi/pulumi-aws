@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetPatchBaselineResult',
@@ -20,13 +21,28 @@ class GetPatchBaselineResult:
     """
     A collection of values returned by getPatchBaseline.
     """
-    def __init__(__self__, default_baseline=None, description=None, id=None, name=None, name_prefix=None, operating_system=None, owner=None):
+    def __init__(__self__, approval_rules=None, approved_patches=None, approved_patches_compliance_level=None, approved_patches_enable_non_security=None, default_baseline=None, description=None, global_filters=None, id=None, name=None, name_prefix=None, operating_system=None, owner=None, rejected_patches=None, rejected_patches_action=None, sources=None):
+        if approval_rules and not isinstance(approval_rules, list):
+            raise TypeError("Expected argument 'approval_rules' to be a list")
+        pulumi.set(__self__, "approval_rules", approval_rules)
+        if approved_patches and not isinstance(approved_patches, list):
+            raise TypeError("Expected argument 'approved_patches' to be a list")
+        pulumi.set(__self__, "approved_patches", approved_patches)
+        if approved_patches_compliance_level and not isinstance(approved_patches_compliance_level, str):
+            raise TypeError("Expected argument 'approved_patches_compliance_level' to be a str")
+        pulumi.set(__self__, "approved_patches_compliance_level", approved_patches_compliance_level)
+        if approved_patches_enable_non_security and not isinstance(approved_patches_enable_non_security, bool):
+            raise TypeError("Expected argument 'approved_patches_enable_non_security' to be a bool")
+        pulumi.set(__self__, "approved_patches_enable_non_security", approved_patches_enable_non_security)
         if default_baseline and not isinstance(default_baseline, bool):
             raise TypeError("Expected argument 'default_baseline' to be a bool")
         pulumi.set(__self__, "default_baseline", default_baseline)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if global_filters and not isinstance(global_filters, list):
+            raise TypeError("Expected argument 'global_filters' to be a list")
+        pulumi.set(__self__, "global_filters", global_filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -42,6 +58,47 @@ class GetPatchBaselineResult:
         if owner and not isinstance(owner, str):
             raise TypeError("Expected argument 'owner' to be a str")
         pulumi.set(__self__, "owner", owner)
+        if rejected_patches and not isinstance(rejected_patches, list):
+            raise TypeError("Expected argument 'rejected_patches' to be a list")
+        pulumi.set(__self__, "rejected_patches", rejected_patches)
+        if rejected_patches_action and not isinstance(rejected_patches_action, str):
+            raise TypeError("Expected argument 'rejected_patches_action' to be a str")
+        pulumi.set(__self__, "rejected_patches_action", rejected_patches_action)
+        if sources and not isinstance(sources, list):
+            raise TypeError("Expected argument 'sources' to be a list")
+        pulumi.set(__self__, "sources", sources)
+
+    @property
+    @pulumi.getter(name="approvalRules")
+    def approval_rules(self) -> Sequence['outputs.GetPatchBaselineApprovalRuleResult']:
+        """
+        A list of rules used to include patches in the baseline.
+        """
+        return pulumi.get(self, "approval_rules")
+
+    @property
+    @pulumi.getter(name="approvedPatches")
+    def approved_patches(self) -> Sequence[str]:
+        """
+        A list of explicitly approved patches for the baseline.
+        """
+        return pulumi.get(self, "approved_patches")
+
+    @property
+    @pulumi.getter(name="approvedPatchesComplianceLevel")
+    def approved_patches_compliance_level(self) -> str:
+        """
+        The compliance level for approved patches.
+        """
+        return pulumi.get(self, "approved_patches_compliance_level")
+
+    @property
+    @pulumi.getter(name="approvedPatchesEnableNonSecurity")
+    def approved_patches_enable_non_security(self) -> bool:
+        """
+        Indicates whether the list of approved patches includes non-security updates that should be applied to the instances.
+        """
+        return pulumi.get(self, "approved_patches_enable_non_security")
 
     @property
     @pulumi.getter(name="defaultBaseline")
@@ -57,6 +114,14 @@ class GetPatchBaselineResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="globalFilters")
+    def global_filters(self) -> Sequence['outputs.GetPatchBaselineGlobalFilterResult']:
+        """
+        A set of global filters used to exclude patches from the baseline.
+        """
+        return pulumi.get(self, "global_filters")
+
+    @property
     @pulumi.getter
     def id(self) -> str:
         """
@@ -68,7 +133,7 @@ class GetPatchBaselineResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the baseline.
+        The name specified to identify the patch source.
         """
         return pulumi.get(self, "name")
 
@@ -87,6 +152,30 @@ class GetPatchBaselineResult:
     def owner(self) -> str:
         return pulumi.get(self, "owner")
 
+    @property
+    @pulumi.getter(name="rejectedPatches")
+    def rejected_patches(self) -> Sequence[str]:
+        """
+        A list of rejected patches.
+        """
+        return pulumi.get(self, "rejected_patches")
+
+    @property
+    @pulumi.getter(name="rejectedPatchesAction")
+    def rejected_patches_action(self) -> str:
+        """
+        The action specified to take on patches included in the `rejected_patches` list.
+        """
+        return pulumi.get(self, "rejected_patches_action")
+
+    @property
+    @pulumi.getter
+    def sources(self) -> Sequence['outputs.GetPatchBaselineSourceResult']:
+        """
+        Information about the patches to use to update the managed nodes, including target operating systems and source repositories.
+        """
+        return pulumi.get(self, "sources")
+
 
 class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
     # pylint: disable=using-constant-test
@@ -94,13 +183,21 @@ class AwaitableGetPatchBaselineResult(GetPatchBaselineResult):
         if False:
             yield self
         return GetPatchBaselineResult(
+            approval_rules=self.approval_rules,
+            approved_patches=self.approved_patches,
+            approved_patches_compliance_level=self.approved_patches_compliance_level,
+            approved_patches_enable_non_security=self.approved_patches_enable_non_security,
             default_baseline=self.default_baseline,
             description=self.description,
+            global_filters=self.global_filters,
             id=self.id,
             name=self.name,
             name_prefix=self.name_prefix,
             operating_system=self.operating_system,
-            owner=self.owner)
+            owner=self.owner,
+            rejected_patches=self.rejected_patches,
+            rejected_patches_action=self.rejected_patches_action,
+            sources=self.sources)
 
 
 def get_patch_baseline(default_baseline: Optional[bool] = None,
@@ -154,13 +251,21 @@ def get_patch_baseline(default_baseline: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('aws:ssm/getPatchBaseline:getPatchBaseline', __args__, opts=opts, typ=GetPatchBaselineResult).value
 
     return AwaitableGetPatchBaselineResult(
+        approval_rules=__ret__.approval_rules,
+        approved_patches=__ret__.approved_patches,
+        approved_patches_compliance_level=__ret__.approved_patches_compliance_level,
+        approved_patches_enable_non_security=__ret__.approved_patches_enable_non_security,
         default_baseline=__ret__.default_baseline,
         description=__ret__.description,
+        global_filters=__ret__.global_filters,
         id=__ret__.id,
         name=__ret__.name,
         name_prefix=__ret__.name_prefix,
         operating_system=__ret__.operating_system,
-        owner=__ret__.owner)
+        owner=__ret__.owner,
+        rejected_patches=__ret__.rejected_patches,
+        rejected_patches_action=__ret__.rejected_patches_action,
+        sources=__ret__.sources)
 
 
 @_utilities.lift_output_func(get_patch_baseline)

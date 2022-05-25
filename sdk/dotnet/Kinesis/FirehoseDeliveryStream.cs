@@ -106,6 +106,73 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// }
     /// ```
+    /// ### Extended S3 Destination with dynamic partitioning
+    /// These examples use built-in Firehose functionality, rather than requiring a lambda.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extendedS3Stream", new Aws.Kinesis.FirehoseDeliveryStreamArgs
+    ///         {
+    ///             Destination = "extended_s3",
+    ///             ExtendedS3Configuration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs
+    ///             {
+    ///                 RoleArn = aws_iam_role.Firehose_role.Arn,
+    ///                 BucketArn = aws_s3_bucket.Bucket.Arn,
+    ///                 Prefix = "data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/",
+    ///                 ErrorOutputPrefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/",
+    ///                 BufferSize = 64,
+    ///                 ProcessingConfiguration = new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     Processors = 
+    ///                     {
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                         {
+    ///                             Type = "RecordDeAggregation",
+    ///                             Parameters = 
+    ///                             {
+    ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                                 {
+    ///                                     ParameterName = "SubRecordType",
+    ///                                     ParameterValue = "JSON",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                         {
+    ///                             Type = "AppendDelimiterToRecord",
+    ///                         },
+    ///                         new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs
+    ///                         {
+    ///                             Type = "MetadataExtraction",
+    ///                             Parameters = 
+    ///                             {
+    ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                                 {
+    ///                                     ParameterName = "JsonParsingEngine",
+    ///                                     ParameterValue = "JQ-1.6",
+    ///                                 },
+    ///                                 new Aws.Kinesis.Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs
+    ///                                 {
+    ///                                     ParameterName = "MetadataExtractionQuery",
+    ///                                     ParameterValue = "{customer_id:.customer_id}",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### S3 Destination (deprecated)
     /// 
     /// ```csharp

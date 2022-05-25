@@ -95,11 +95,13 @@ export interface GetLaunchTemplateResult {
     readonly imageId: string;
     readonly instanceInitiatedShutdownBehavior: string;
     readonly instanceMarketOptions: outputs.ec2.GetLaunchTemplateInstanceMarketOption[];
+    readonly instanceRequirements: outputs.ec2.GetLaunchTemplateInstanceRequirement[];
     readonly instanceType: string;
     readonly kernelId: string;
     readonly keyName: string;
     readonly latestVersion: number;
     readonly licenseSpecifications: outputs.ec2.GetLaunchTemplateLicenseSpecification[];
+    readonly maintenanceOptions: outputs.ec2.GetLaunchTemplateMaintenanceOption[];
     readonly metadataOptions: outputs.ec2.GetLaunchTemplateMetadataOption[];
     readonly monitorings: outputs.ec2.GetLaunchTemplateMonitoring[];
     readonly name: string;

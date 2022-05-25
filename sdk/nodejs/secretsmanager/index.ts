@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./getSecret";
 export * from "./getSecretRotation";
 export * from "./getSecretVersion";
+export * from "./getSecrets";
 export * from "./secret";
 export * from "./secretPolicy";
 export * from "./secretRotation";

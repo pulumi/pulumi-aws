@@ -527,7 +527,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
         :param pulumi.Input[str] output_s3_bucket: The name of the Amazon S3 bucket.
         :param pulumi.Input[str] output_s3_key_prefix: The Amazon S3 bucket subfolder.
         :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArgs']]] parameters: The parameters for the RUN_COMMAND task execution. Documented below.
-        :param pulumi.Input[str] service_role_arn: The IAM service role to assume during task execution.
+        :param pulumi.Input[str] service_role_arn: The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         :param pulumi.Input[int] timeout_seconds: If this time is reached and the command has not already started executing, it doesn't run.
         """
         if cloudwatch_config is not None:
@@ -665,7 +665,7 @@ class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs:
     @pulumi.getter(name="serviceRoleArn")
     def service_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM service role to assume during task execution.
+        The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
         """
         return pulumi.get(self, "service_role_arn")
 

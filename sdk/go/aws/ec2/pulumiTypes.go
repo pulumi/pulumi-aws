@@ -4290,6 +4290,143 @@ func (o InstanceLaunchTemplatePtrOutput) Version() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type InstanceMaintenanceOptions struct {
+	// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery *string `pulumi:"autoRecovery"`
+}
+
+// InstanceMaintenanceOptionsInput is an input type that accepts InstanceMaintenanceOptionsArgs and InstanceMaintenanceOptionsOutput values.
+// You can construct a concrete instance of `InstanceMaintenanceOptionsInput` via:
+//
+//          InstanceMaintenanceOptionsArgs{...}
+type InstanceMaintenanceOptionsInput interface {
+	pulumi.Input
+
+	ToInstanceMaintenanceOptionsOutput() InstanceMaintenanceOptionsOutput
+	ToInstanceMaintenanceOptionsOutputWithContext(context.Context) InstanceMaintenanceOptionsOutput
+}
+
+type InstanceMaintenanceOptionsArgs struct {
+	// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
+}
+
+func (InstanceMaintenanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMaintenanceOptions)(nil)).Elem()
+}
+
+func (i InstanceMaintenanceOptionsArgs) ToInstanceMaintenanceOptionsOutput() InstanceMaintenanceOptionsOutput {
+	return i.ToInstanceMaintenanceOptionsOutputWithContext(context.Background())
+}
+
+func (i InstanceMaintenanceOptionsArgs) ToInstanceMaintenanceOptionsOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMaintenanceOptionsOutput)
+}
+
+func (i InstanceMaintenanceOptionsArgs) ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput {
+	return i.ToInstanceMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstanceMaintenanceOptionsArgs) ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMaintenanceOptionsOutput).ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx)
+}
+
+// InstanceMaintenanceOptionsPtrInput is an input type that accepts InstanceMaintenanceOptionsArgs, InstanceMaintenanceOptionsPtr and InstanceMaintenanceOptionsPtrOutput values.
+// You can construct a concrete instance of `InstanceMaintenanceOptionsPtrInput` via:
+//
+//          InstanceMaintenanceOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstanceMaintenanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput
+	ToInstanceMaintenanceOptionsPtrOutputWithContext(context.Context) InstanceMaintenanceOptionsPtrOutput
+}
+
+type instanceMaintenanceOptionsPtrType InstanceMaintenanceOptionsArgs
+
+func InstanceMaintenanceOptionsPtr(v *InstanceMaintenanceOptionsArgs) InstanceMaintenanceOptionsPtrInput {
+	return (*instanceMaintenanceOptionsPtrType)(v)
+}
+
+func (*instanceMaintenanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMaintenanceOptions)(nil)).Elem()
+}
+
+func (i *instanceMaintenanceOptionsPtrType) ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput {
+	return i.ToInstanceMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instanceMaintenanceOptionsPtrType) ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstanceMaintenanceOptionsPtrOutput)
+}
+
+type InstanceMaintenanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstanceMaintenanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstanceMaintenanceOptions)(nil)).Elem()
+}
+
+func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsOutput() InstanceMaintenanceOptionsOutput {
+	return o
+}
+
+func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsOutput {
+	return o
+}
+
+func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput {
+	return o.ToInstanceMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstanceMaintenanceOptionsOutput) ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceMaintenanceOptions) *InstanceMaintenanceOptions {
+		return &v
+	}).(InstanceMaintenanceOptionsPtrOutput)
+}
+
+// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o InstanceMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
+}
+
+type InstanceMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstanceMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstanceMaintenanceOptions)(nil)).Elem()
+}
+
+func (o InstanceMaintenanceOptionsPtrOutput) ToInstanceMaintenanceOptionsPtrOutput() InstanceMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceMaintenanceOptionsPtrOutput) ToInstanceMaintenanceOptionsPtrOutputWithContext(ctx context.Context) InstanceMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o InstanceMaintenanceOptionsPtrOutput) Elem() InstanceMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *InstanceMaintenanceOptions) InstanceMaintenanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstanceMaintenanceOptions
+		return ret
+	}).(InstanceMaintenanceOptionsOutput)
+}
+
+// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o InstanceMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceMaintenanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRecovery
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceMetadataOptions struct {
 	// Whether the metadata service is available. Valid values include `enabled` or `disabled`. Defaults to `enabled`.
 	HttpEndpoint *string `pulumi:"httpEndpoint"`
@@ -7617,6 +7754,1787 @@ func (o LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput) ValidUntil() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+type LaunchTemplateInstanceRequirements struct {
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	AcceleratorCount *LaunchTemplateInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
+	// List of accelerator manufacturer names. Default is any manufacturer.
+	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
+	// List of accelerator names. Default is any acclerator.
+	AcceleratorNames []string `pulumi:"acceleratorNames"`
+	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+	AcceleratorTotalMemoryMib *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
+	// List of accelerator types. Default is any accelerator type.
+	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BareMetal *string `pulumi:"bareMetal"`
+	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+	BaselineEbsBandwidthMbps *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BurstablePerformance *string `pulumi:"burstablePerformance"`
+	// List of CPU manufacturer names. Default is any manufacturer.
+	CpuManufacturers []string `pulumi:"cpuManufacturers"`
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// List of instance generation names. Default is any generation.
+	InstanceGenerations []string `pulumi:"instanceGenerations"`
+	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+	LocalStorage *string `pulumi:"localStorage"`
+	// List of local storage type names. Default any storage type.
+	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+	MemoryGibPerVcpu *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
+	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	MemoryMib LaunchTemplateInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+	NetworkInterfaceCount *LaunchTemplateInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+	TotalLocalStorageGb *LaunchTemplateInstanceRequirementsTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
+	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+	VcpuCount LaunchTemplateInstanceRequirementsVcpuCount `pulumi:"vcpuCount"`
+}
+
+// LaunchTemplateInstanceRequirementsInput is an input type that accepts LaunchTemplateInstanceRequirementsArgs and LaunchTemplateInstanceRequirementsOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsInput` via:
+//
+//          LaunchTemplateInstanceRequirementsArgs{...}
+type LaunchTemplateInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsOutput() LaunchTemplateInstanceRequirementsOutput
+	ToLaunchTemplateInstanceRequirementsOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsOutput
+}
+
+type LaunchTemplateInstanceRequirementsArgs struct {
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	AcceleratorCount LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
+	// List of accelerator manufacturer names. Default is any manufacturer.
+	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
+	// List of accelerator names. Default is any acclerator.
+	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
+	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+	AcceleratorTotalMemoryMib LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
+	// List of accelerator types. Default is any accelerator type.
+	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
+	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+	BaselineEbsBandwidthMbps LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
+	// List of CPU manufacturer names. Default is any manufacturer.
+	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// List of instance generation names. Default is any generation.
+	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
+	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
+	// List of local storage type names. Default any storage type.
+	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+	MemoryGibPerVcpu LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
+	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	MemoryMib LaunchTemplateInstanceRequirementsMemoryMibInput `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+	NetworkInterfaceCount LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+	TotalLocalStorageGb LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
+	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+	VcpuCount LaunchTemplateInstanceRequirementsVcpuCountInput `pulumi:"vcpuCount"`
+}
+
+func (LaunchTemplateInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsArgs) ToLaunchTemplateInstanceRequirementsOutput() LaunchTemplateInstanceRequirementsOutput {
+	return i.ToLaunchTemplateInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsArgs) ToLaunchTemplateInstanceRequirementsOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsArgs) ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsArgs) ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsOutput).ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsArgs, LaunchTemplateInstanceRequirementsPtr and LaunchTemplateInstanceRequirementsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput
+	ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsPtrOutput
+}
+
+type launchTemplateInstanceRequirementsPtrType LaunchTemplateInstanceRequirementsArgs
+
+func LaunchTemplateInstanceRequirementsPtr(v *LaunchTemplateInstanceRequirementsArgs) LaunchTemplateInstanceRequirementsPtrInput {
+	return (*launchTemplateInstanceRequirementsPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsPtrType) ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsPtrType) ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequirementsOutput() LaunchTemplateInstanceRequirementsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequirementsOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsOutput) ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirements {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsPtrOutput)
+}
+
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorCount() LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsAcceleratorCount {
+		return v.AcceleratorCount
+	}).(LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// List of accelerator manufacturer names. Default is any manufacturer.
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorManufacturers }).(pulumi.StringArrayOutput)
+}
+
+// List of accelerator names. Default is any acclerator.
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMib() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+		return v.AcceleratorTotalMemoryMib
+	}).(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// List of accelerator types. Default is any accelerator type.
+func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o LaunchTemplateInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
+}
+
+// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) BaselineEbsBandwidthMbps() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+		return v.BaselineEbsBandwidthMbps
+	}).(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.BurstablePerformance }).(pulumi.StringPtrOutput)
+}
+
+// List of CPU manufacturer names. Default is any manufacturer.
+func (o LaunchTemplateInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
+}
+
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+func (o LaunchTemplateInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// List of instance generation names. Default is any generation.
+func (o LaunchTemplateInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+func (o LaunchTemplateInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *string { return v.LocalStorage }).(pulumi.StringPtrOutput)
+}
+
+// List of local storage type names. Default any storage type.
+func (o LaunchTemplateInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) MemoryGibPerVcpu() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+		return v.MemoryGibPerVcpu
+	}).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) MemoryMib() LaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) LaunchTemplateInstanceRequirementsMemoryMib {
+		return v.MemoryMib
+	}).(LaunchTemplateInstanceRequirementsMemoryMibOutput)
+}
+
+// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) NetworkInterfaceCount() LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+		return v.NetworkInterfaceCount
+	}).(LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+func (o LaunchTemplateInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
+}
+
+// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+func (o LaunchTemplateInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
+}
+
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+func (o LaunchTemplateInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntPtrOutput)
+}
+
+// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) TotalLocalStorageGb() LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+		return v.TotalLocalStorageGb
+	}).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+func (o LaunchTemplateInstanceRequirementsOutput) VcpuCount() LaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) LaunchTemplateInstanceRequirementsVcpuCount {
+		return v.VcpuCount
+	}).(LaunchTemplateInstanceRequirementsVcpuCountOutput)
+}
+
+type LaunchTemplateInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirements)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) ToLaunchTemplateInstanceRequirementsPtrOutput() LaunchTemplateInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) ToLaunchTemplateInstanceRequirementsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsPtrOutput) Elem() LaunchTemplateInstanceRequirementsOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) LaunchTemplateInstanceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirements
+		return ret
+	}).(LaunchTemplateInstanceRequirementsOutput)
+}
+
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorCount() LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsAcceleratorCount {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorCount
+	}).(LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// List of accelerator manufacturer names. Default is any manufacturer.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of accelerator names. Default is any acclerator.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTotalMemoryMib
+	}).(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// List of accelerator types. Default is any accelerator type.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BareMetal
+	}).(pulumi.StringPtrOutput)
+}
+
+// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v == nil {
+			return nil
+		}
+		return v.BaselineEbsBandwidthMbps
+	}).(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of CPU manufacturer names. Default is any manufacturer.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance generation names. Default is any generation.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of local storage type names. Default any storage type.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryGibPerVcpu() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryGibPerVcpu
+	}).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) MemoryMib() LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return &v.MemoryMib
+	}).(LaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) NetworkInterfaceCount() LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceCount
+	}).(LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) TotalLocalStorageGb() LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+		if v == nil {
+			return nil
+		}
+		return v.TotalLocalStorageGb
+	}).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+func (o LaunchTemplateInstanceRequirementsPtrOutput) VcpuCount() LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateInstanceRequirementsVcpuCount {
+		if v == nil {
+			return nil
+		}
+		return &v.VcpuCount
+	}).(LaunchTemplateInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsAcceleratorCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsAcceleratorCountInput is an input type that accepts LaunchTemplateInstanceRequirementsAcceleratorCountArgs and LaunchTemplateInstanceRequirementsAcceleratorCountOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsAcceleratorCountInput` via:
+//
+//          LaunchTemplateInstanceRequirementsAcceleratorCountArgs{...}
+type LaunchTemplateInstanceRequirementsAcceleratorCountInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsAcceleratorCountOutput() LaunchTemplateInstanceRequirementsAcceleratorCountOutput
+	ToLaunchTemplateInstanceRequirementsAcceleratorCountOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsAcceleratorCountOutput
+}
+
+type LaunchTemplateInstanceRequirementsAcceleratorCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsAcceleratorCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsAcceleratorCountArgs) ToLaunchTemplateInstanceRequirementsAcceleratorCountOutput() LaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return i.ToLaunchTemplateInstanceRequirementsAcceleratorCountOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsAcceleratorCountArgs) ToLaunchTemplateInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsAcceleratorCountOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsAcceleratorCountArgs) ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsAcceleratorCountArgs) ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsAcceleratorCountOutput).ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsAcceleratorCountArgs, LaunchTemplateInstanceRequirementsAcceleratorCountPtr and LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsAcceleratorCountArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput
+	ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput
+}
+
+type launchTemplateInstanceRequirementsAcceleratorCountPtrType LaunchTemplateInstanceRequirementsAcceleratorCountArgs
+
+func LaunchTemplateInstanceRequirementsAcceleratorCountPtr(v *LaunchTemplateInstanceRequirementsAcceleratorCountArgs) LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput {
+	return (*launchTemplateInstanceRequirementsAcceleratorCountPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsAcceleratorCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsAcceleratorCountPtrType) ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsAcceleratorCountPtrType) ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsAcceleratorCountOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsAcceleratorCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToLaunchTemplateInstanceRequirementsAcceleratorCountOutput() LaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToLaunchTemplateInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountOutput) ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsAcceleratorCount) *LaunchTemplateInstanceRequirementsAcceleratorCount {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsAcceleratorCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsAcceleratorCount) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) ToLaunchTemplateInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Elem() LaunchTemplateInstanceRequirementsAcceleratorCountOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsAcceleratorCount) LaunchTemplateInstanceRequirementsAcceleratorCount {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsAcceleratorCount
+		return ret
+	}).(LaunchTemplateInstanceRequirementsAcceleratorCountOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput is an input type that accepts LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs and LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput` via:
+//
+//          LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput
+	ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput
+}
+
+type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return i.ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput).ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs, LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtr and LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+	ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+}
+
+type launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs
+
+func LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtr(v *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput {
+	return (*launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Elem() LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib
+		return ret
+	}).(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput is an input type that accepts LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs and LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput` via:
+//
+//          LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+	ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+}
+
+type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return i.ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput).ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs, LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtr and LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+	ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+}
+
+type launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs
+
+func LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtr(v *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput {
+	return (*launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToLaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Elem() LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps
+		return ret
+	}).(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsMemoryGibPerVcpu struct {
+	// Maximum.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput is an input type that accepts LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs and LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput` via:
+//
+//          LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{...}
+type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput
+	ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput
+}
+
+type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs struct {
+	// Maximum.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return i.ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput).ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs, LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtr and LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput
+	ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput
+}
+
+type launchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs
+
+func LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtr(v *LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput {
+	return (*launchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsMemoryGibPerVcpuPtrType) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToLaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Elem() LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) LaunchTemplateInstanceRequirementsMemoryGibPerVcpu {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsMemoryGibPerVcpu
+		return ret
+	}).(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsMemoryMib struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min int `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsMemoryMibInput is an input type that accepts LaunchTemplateInstanceRequirementsMemoryMibArgs and LaunchTemplateInstanceRequirementsMemoryMibOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsMemoryMibInput` via:
+//
+//          LaunchTemplateInstanceRequirementsMemoryMibArgs{...}
+type LaunchTemplateInstanceRequirementsMemoryMibInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsMemoryMibOutput() LaunchTemplateInstanceRequirementsMemoryMibOutput
+	ToLaunchTemplateInstanceRequirementsMemoryMibOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsMemoryMibOutput
+}
+
+type LaunchTemplateInstanceRequirementsMemoryMibArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsMemoryMibArgs) ToLaunchTemplateInstanceRequirementsMemoryMibOutput() LaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return i.ToLaunchTemplateInstanceRequirementsMemoryMibOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsMemoryMibArgs) ToLaunchTemplateInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsMemoryMibOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsMemoryMibArgs) ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsMemoryMibArgs) ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsMemoryMibOutput).ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsMemoryMibPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsMemoryMibArgs, LaunchTemplateInstanceRequirementsMemoryMibPtr and LaunchTemplateInstanceRequirementsMemoryMibPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsMemoryMibPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsMemoryMibArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsMemoryMibPtrOutput
+	ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsMemoryMibPtrOutput
+}
+
+type launchTemplateInstanceRequirementsMemoryMibPtrType LaunchTemplateInstanceRequirementsMemoryMibArgs
+
+func LaunchTemplateInstanceRequirementsMemoryMibPtr(v *LaunchTemplateInstanceRequirementsMemoryMibArgs) LaunchTemplateInstanceRequirementsMemoryMibPtrInput {
+	return (*launchTemplateInstanceRequirementsMemoryMibPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsMemoryMibPtrType) ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsMemoryMibPtrType) ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryMibOutput) ToLaunchTemplateInstanceRequirementsMemoryMibOutput() LaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryMibOutput) ToLaunchTemplateInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryMibOutput) ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryMibOutput) ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsMemoryMib) *LaunchTemplateInstanceRequirementsMemoryMib {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsMemoryMibOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsMemoryMib) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type LaunchTemplateInstanceRequirementsMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutput() LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) ToLaunchTemplateInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Elem() LaunchTemplateInstanceRequirementsMemoryMibOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryMib) LaunchTemplateInstanceRequirementsMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsMemoryMib
+		return ret
+	}).(LaunchTemplateInstanceRequirementsMemoryMibOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsNetworkInterfaceCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsNetworkInterfaceCountInput is an input type that accepts LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs and LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsNetworkInterfaceCountInput` via:
+//
+//          LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{...}
+type LaunchTemplateInstanceRequirementsNetworkInterfaceCountInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput() LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput
+	ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput
+}
+
+type LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput() LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return i.ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput).ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs, LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtr and LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput
+	ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput
+}
+
+type launchTemplateInstanceRequirementsNetworkInterfaceCountPtrType LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs
+
+func LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtr(v *LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs) LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput {
+	return (*launchTemplateInstanceRequirementsNetworkInterfaceCountPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsNetworkInterfaceCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsNetworkInterfaceCountPtrType) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsNetworkInterfaceCountPtrType) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput() LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsNetworkInterfaceCount) *LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput() LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) ToLaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Elem() LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsNetworkInterfaceCount) LaunchTemplateInstanceRequirementsNetworkInterfaceCount {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsNetworkInterfaceCount
+		return ret
+	}).(LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsTotalLocalStorageGb struct {
+	// Maximum.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsTotalLocalStorageGbInput is an input type that accepts LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs and LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsTotalLocalStorageGbInput` via:
+//
+//          LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{...}
+type LaunchTemplateInstanceRequirementsTotalLocalStorageGbInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput() LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput
+	ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput
+}
+
+type LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs struct {
+	// Maximum.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput() LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return i.ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput).ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs, LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtr and LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput
+	ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput
+}
+
+type launchTemplateInstanceRequirementsTotalLocalStorageGbPtrType LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs
+
+func LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtr(v *LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs) LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput {
+	return (*launchTemplateInstanceRequirementsTotalLocalStorageGbPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsTotalLocalStorageGbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsTotalLocalStorageGbPtrType) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsTotalLocalStorageGbPtrType) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput() LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput() LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) ToLaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Elem() LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsTotalLocalStorageGb) LaunchTemplateInstanceRequirementsTotalLocalStorageGb {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsTotalLocalStorageGb
+		return ret
+	}).(LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsVcpuCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min int `pulumi:"min"`
+}
+
+// LaunchTemplateInstanceRequirementsVcpuCountInput is an input type that accepts LaunchTemplateInstanceRequirementsVcpuCountArgs and LaunchTemplateInstanceRequirementsVcpuCountOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsVcpuCountInput` via:
+//
+//          LaunchTemplateInstanceRequirementsVcpuCountArgs{...}
+type LaunchTemplateInstanceRequirementsVcpuCountInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsVcpuCountOutput() LaunchTemplateInstanceRequirementsVcpuCountOutput
+	ToLaunchTemplateInstanceRequirementsVcpuCountOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsVcpuCountOutput
+}
+
+type LaunchTemplateInstanceRequirementsVcpuCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (LaunchTemplateInstanceRequirementsVcpuCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i LaunchTemplateInstanceRequirementsVcpuCountArgs) ToLaunchTemplateInstanceRequirementsVcpuCountOutput() LaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return i.ToLaunchTemplateInstanceRequirementsVcpuCountOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsVcpuCountArgs) ToLaunchTemplateInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsVcpuCountOutput)
+}
+
+func (i LaunchTemplateInstanceRequirementsVcpuCountArgs) ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateInstanceRequirementsVcpuCountArgs) ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsVcpuCountOutput).ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateInstanceRequirementsVcpuCountPtrInput is an input type that accepts LaunchTemplateInstanceRequirementsVcpuCountArgs, LaunchTemplateInstanceRequirementsVcpuCountPtr and LaunchTemplateInstanceRequirementsVcpuCountPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateInstanceRequirementsVcpuCountPtrInput` via:
+//
+//          LaunchTemplateInstanceRequirementsVcpuCountArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateInstanceRequirementsVcpuCountPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() LaunchTemplateInstanceRequirementsVcpuCountPtrOutput
+	ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(context.Context) LaunchTemplateInstanceRequirementsVcpuCountPtrOutput
+}
+
+type launchTemplateInstanceRequirementsVcpuCountPtrType LaunchTemplateInstanceRequirementsVcpuCountArgs
+
+func LaunchTemplateInstanceRequirementsVcpuCountPtr(v *LaunchTemplateInstanceRequirementsVcpuCountArgs) LaunchTemplateInstanceRequirementsVcpuCountPtrInput {
+	return (*launchTemplateInstanceRequirementsVcpuCountPtrType)(v)
+}
+
+func (*launchTemplateInstanceRequirementsVcpuCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i *launchTemplateInstanceRequirementsVcpuCountPtrType) ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateInstanceRequirementsVcpuCountPtrType) ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type LaunchTemplateInstanceRequirementsVcpuCountOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsVcpuCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsVcpuCountOutput) ToLaunchTemplateInstanceRequirementsVcpuCountOutput() LaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsVcpuCountOutput) ToLaunchTemplateInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsVcpuCountOutput) ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o.ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateInstanceRequirementsVcpuCountOutput) ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateInstanceRequirementsVcpuCount) *LaunchTemplateInstanceRequirementsVcpuCount {
+		return &v
+	}).(LaunchTemplateInstanceRequirementsVcpuCountPtrOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsVcpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsVcpuCountOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v LaunchTemplateInstanceRequirementsVcpuCount) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type LaunchTemplateInstanceRequirementsVcpuCountPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateInstanceRequirementsVcpuCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o LaunchTemplateInstanceRequirementsVcpuCountPtrOutput) ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutput() LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsVcpuCountPtrOutput) ToLaunchTemplateInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) LaunchTemplateInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Elem() LaunchTemplateInstanceRequirementsVcpuCountOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsVcpuCount) LaunchTemplateInstanceRequirementsVcpuCount {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateInstanceRequirementsVcpuCount
+		return ret
+	}).(LaunchTemplateInstanceRequirementsVcpuCountOutput)
+}
+
+// Maximum.
+func (o LaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o LaunchTemplateInstanceRequirementsVcpuCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
 type LaunchTemplateLicenseSpecification struct {
 	// ARN of the license configuration.
 	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
@@ -7712,6 +9630,143 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateLicenseSpecification {
 		return vs[0].([]LaunchTemplateLicenseSpecification)[vs[1].(int)]
 	}).(LaunchTemplateLicenseSpecificationOutput)
+}
+
+type LaunchTemplateMaintenanceOptions struct {
+	// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery *string `pulumi:"autoRecovery"`
+}
+
+// LaunchTemplateMaintenanceOptionsInput is an input type that accepts LaunchTemplateMaintenanceOptionsArgs and LaunchTemplateMaintenanceOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateMaintenanceOptionsInput` via:
+//
+//          LaunchTemplateMaintenanceOptionsArgs{...}
+type LaunchTemplateMaintenanceOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput
+	ToLaunchTemplateMaintenanceOptionsOutputWithContext(context.Context) LaunchTemplateMaintenanceOptionsOutput
+}
+
+type LaunchTemplateMaintenanceOptionsArgs struct {
+	// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
+}
+
+func (LaunchTemplateMaintenanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsOutput)
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateMaintenanceOptionsArgs) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsOutput).ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateMaintenanceOptionsPtrInput is an input type that accepts LaunchTemplateMaintenanceOptionsArgs, LaunchTemplateMaintenanceOptionsPtr and LaunchTemplateMaintenanceOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateMaintenanceOptionsPtrInput` via:
+//
+//          LaunchTemplateMaintenanceOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type LaunchTemplateMaintenanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput
+	ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Context) LaunchTemplateMaintenanceOptionsPtrOutput
+}
+
+type launchTemplateMaintenanceOptionsPtrType LaunchTemplateMaintenanceOptionsArgs
+
+func LaunchTemplateMaintenanceOptionsPtr(v *LaunchTemplateMaintenanceOptionsArgs) LaunchTemplateMaintenanceOptionsPtrInput {
+	return (*launchTemplateMaintenanceOptionsPtrType)(v)
+}
+
+func (*launchTemplateMaintenanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateMaintenanceOptionsPtrType) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return i.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateMaintenanceOptionsPtrType) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateMaintenanceOptionsPtrOutput)
+}
+
+type LaunchTemplateMaintenanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMaintenanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsOutput() LaunchTemplateMaintenanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateMaintenanceOptionsOutput) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateMaintenanceOptions) *LaunchTemplateMaintenanceOptions {
+		return &v
+	}).(LaunchTemplateMaintenanceOptionsPtrOutput)
+}
+
+// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o LaunchTemplateMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateMaintenanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) ToLaunchTemplateMaintenanceOptionsPtrOutput() LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) ToLaunchTemplateMaintenanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) Elem() LaunchTemplateMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) LaunchTemplateMaintenanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateMaintenanceOptions
+		return ret
+	}).(LaunchTemplateMaintenanceOptionsOutput)
+}
+
+// Disables the automatic recovery behavior of your instance or sets it to default. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o LaunchTemplateMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateMaintenanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRecovery
+	}).(pulumi.StringPtrOutput)
 }
 
 type LaunchTemplateMetadataOptions struct {
@@ -11177,6 +13232,8 @@ func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) V
 type SpotFleetRequestLaunchTemplateConfigOverride struct {
 	// The availability zone in which to place the request.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The instance requirements. See below.
+	InstanceRequirements *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements `pulumi:"instanceRequirements"`
 	// The type of instance to request.
 	InstanceType *string `pulumi:"instanceType"`
 	// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
@@ -11203,6 +13260,8 @@ type SpotFleetRequestLaunchTemplateConfigOverrideInput interface {
 type SpotFleetRequestLaunchTemplateConfigOverrideArgs struct {
 	// The availability zone in which to place the request.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The instance requirements. See below.
+	InstanceRequirements SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
 	// The type of instance to request.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The priority for the launch template override. The lower the number, the higher the priority. If no number is set, the launch template override has the lowest priority.
@@ -11271,6 +13330,13 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) AvailabilityZone() p
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// The instance requirements. See below.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) InstanceRequirements() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements {
+		return v.InstanceRequirements
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput)
+}
+
 // The type of instance to request.
 func (o SpotFleetRequestLaunchTemplateConfigOverrideOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverride) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
@@ -11314,6 +13380,1835 @@ func (o SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetRequestLaunchTemplateConfigOverride {
 		return vs[0].([]SpotFleetRequestLaunchTemplateConfigOverride)[vs[1].(int)]
 	}).(SpotFleetRequestLaunchTemplateConfigOverrideOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements struct {
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	AcceleratorCount *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
+	// List of accelerator manufacturer names. Default is any manufacturer.
+	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
+	// List of accelerator names. Default is any acclerator.
+	AcceleratorNames []string `pulumi:"acceleratorNames"`
+	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+	AcceleratorTotalMemoryMib *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
+	// List of accelerator types. Default is any accelerator type.
+	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BareMetal *string `pulumi:"bareMetal"`
+	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+	BaselineEbsBandwidthMbps *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BurstablePerformance *string `pulumi:"burstablePerformance"`
+	// List of CPU manufacturer names. Default is any manufacturer.
+	CpuManufacturers []string `pulumi:"cpuManufacturers"`
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// List of instance generation names. Default is any generation.
+	InstanceGenerations []string `pulumi:"instanceGenerations"`
+	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+	LocalStorage *string `pulumi:"localStorage"`
+	// List of local storage type names. Default any storage type.
+	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+	MemoryGibPerVcpu *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
+	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	MemoryMib *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+	NetworkInterfaceCount *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+	TotalLocalStorageGb *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
+	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+	VcpuCount *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount `pulumi:"vcpuCount"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	AcceleratorCount SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
+	// List of accelerator manufacturer names. Default is any manufacturer.
+	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
+	// List of accelerator names. Default is any acclerator.
+	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
+	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+	AcceleratorTotalMemoryMib SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
+	// List of accelerator types. Default is any accelerator type.
+	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
+	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+	BaselineEbsBandwidthMbps SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
+	// List of CPU manufacturer names. Default is any manufacturer.
+	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// List of instance generation names. Default is any generation.
+	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
+	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
+	// List of local storage type names. Default any storage type.
+	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+	MemoryGibPerVcpu SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
+	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	MemoryMib SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+	NetworkInterfaceCount SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+	TotalLocalStorageGb SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
+	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+	VcpuCount SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput `pulumi:"vcpuCount"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput)
+}
+
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorCount() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+		return v.AcceleratorCount
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// List of accelerator manufacturer names. Default is any manufacturer.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of accelerator names. Default is any acclerator.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorTotalMemoryMib() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		return v.AcceleratorTotalMemoryMib
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// List of accelerator types. Default is any accelerator type.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
+}
+
+// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) BaselineEbsBandwidthMbps() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		return v.BaselineEbsBandwidthMbps
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string {
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of CPU manufacturer names. Default is any manufacturer.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance generation names. Default is any generation.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string {
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of local storage type names. Default any storage type.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) MemoryGibPerVcpu() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+		return v.MemoryGibPerVcpu
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) MemoryMib() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+		return v.MemoryMib
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) NetworkInterfaceCount() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+		return v.NetworkInterfaceCount
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *bool {
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) TotalLocalStorageGb() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+		return v.TotalLocalStorageGb
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput) VcpuCount() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+		return v.VcpuCount
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput)
+}
+
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorCount() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorCount
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// List of accelerator manufacturer names. Default is any manufacturer.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of accelerator names. Default is any acclerator.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTotalMemoryMib
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// List of accelerator types. Default is any accelerator type.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BareMetal
+	}).(pulumi.StringPtrOutput)
+}
+
+// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v == nil {
+			return nil
+		}
+		return v.BaselineEbsBandwidthMbps
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of CPU manufacturer names. Default is any manufacturer.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance generation names. Default is any generation.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of local storage type names. Default any storage type.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MemoryGibPerVcpu() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryGibPerVcpu
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MemoryMib() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryMib
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) NetworkInterfaceCount() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceCount
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) TotalLocalStorageGb() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+		if v == nil {
+			return nil
+		}
+		return v.TotalLocalStorageGb
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) VcpuCount() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirements) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+		if v == nil {
+			return nil
+		}
+		return v.VcpuCount
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu struct {
+	// Maximum.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
+	// Maximum.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb struct {
+	// Maximum.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
+	// Maximum.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{...}
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput)
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput).ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx)
+}
+
+// SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput is an input type that accepts SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs, SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtr and SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput values.
+// You can construct a concrete instance of `SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput` via:
+//
+//          SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput
+	ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput
+}
+
+type spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs
+
+func SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtr(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput {
+	return (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType)(v)
+}
+
+func (*spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+		return &v
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) ToSpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Elem() SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount
+		return ret
+	}).(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput)
+}
+
+// Maximum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
 }
 
 type SpotFleetRequestSpotMaintenanceStrategies struct {
@@ -12659,6 +16554,143 @@ func (o SpotInstanceRequestLaunchTemplatePtrOutput) Version() pulumi.StringPtrOu
 			return nil
 		}
 		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpotInstanceRequestMaintenanceOptions struct {
+	// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery *string `pulumi:"autoRecovery"`
+}
+
+// SpotInstanceRequestMaintenanceOptionsInput is an input type that accepts SpotInstanceRequestMaintenanceOptionsArgs and SpotInstanceRequestMaintenanceOptionsOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestMaintenanceOptionsInput` via:
+//
+//          SpotInstanceRequestMaintenanceOptionsArgs{...}
+type SpotInstanceRequestMaintenanceOptionsInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestMaintenanceOptionsOutput() SpotInstanceRequestMaintenanceOptionsOutput
+	ToSpotInstanceRequestMaintenanceOptionsOutputWithContext(context.Context) SpotInstanceRequestMaintenanceOptionsOutput
+}
+
+type SpotInstanceRequestMaintenanceOptionsArgs struct {
+	// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+	AutoRecovery pulumi.StringPtrInput `pulumi:"autoRecovery"`
+}
+
+func (SpotInstanceRequestMaintenanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestMaintenanceOptions)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestMaintenanceOptionsArgs) ToSpotInstanceRequestMaintenanceOptionsOutput() SpotInstanceRequestMaintenanceOptionsOutput {
+	return i.ToSpotInstanceRequestMaintenanceOptionsOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestMaintenanceOptionsArgs) ToSpotInstanceRequestMaintenanceOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMaintenanceOptionsOutput)
+}
+
+func (i SpotInstanceRequestMaintenanceOptionsArgs) ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return i.ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestMaintenanceOptionsArgs) ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMaintenanceOptionsOutput).ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx)
+}
+
+// SpotInstanceRequestMaintenanceOptionsPtrInput is an input type that accepts SpotInstanceRequestMaintenanceOptionsArgs, SpotInstanceRequestMaintenanceOptionsPtr and SpotInstanceRequestMaintenanceOptionsPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestMaintenanceOptionsPtrInput` via:
+//
+//          SpotInstanceRequestMaintenanceOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotInstanceRequestMaintenanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput
+	ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput
+}
+
+type spotInstanceRequestMaintenanceOptionsPtrType SpotInstanceRequestMaintenanceOptionsArgs
+
+func SpotInstanceRequestMaintenanceOptionsPtr(v *SpotInstanceRequestMaintenanceOptionsArgs) SpotInstanceRequestMaintenanceOptionsPtrInput {
+	return (*spotInstanceRequestMaintenanceOptionsPtrType)(v)
+}
+
+func (*spotInstanceRequestMaintenanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestMaintenanceOptions)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestMaintenanceOptionsPtrType) ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return i.ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestMaintenanceOptionsPtrType) ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestMaintenanceOptionsPtrOutput)
+}
+
+type SpotInstanceRequestMaintenanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestMaintenanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestMaintenanceOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMaintenanceOptionsOutput() SpotInstanceRequestMaintenanceOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMaintenanceOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o.ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsOutput) ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestMaintenanceOptions) *SpotInstanceRequestMaintenanceOptions {
+		return &v
+	}).(SpotInstanceRequestMaintenanceOptionsPtrOutput)
+}
+
+// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o SpotInstanceRequestMaintenanceOptionsOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestMaintenanceOptions) *string { return v.AutoRecovery }).(pulumi.StringPtrOutput)
+}
+
+type SpotInstanceRequestMaintenanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestMaintenanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestMaintenanceOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) ToSpotInstanceRequestMaintenanceOptionsPtrOutput() SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) ToSpotInstanceRequestMaintenanceOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestMaintenanceOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) Elem() SpotInstanceRequestMaintenanceOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestMaintenanceOptions) SpotInstanceRequestMaintenanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestMaintenanceOptions
+		return ret
+	}).(SpotInstanceRequestMaintenanceOptionsOutput)
+}
+
+// The automatic recovery behavior of the Instance. Can be `"default"` or `"disabled"`. See [Recover your instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html) for more details.
+func (o SpotInstanceRequestMaintenanceOptionsPtrOutput) AutoRecovery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestMaintenanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRecovery
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16753,6 +20785,103 @@ func (o GetInstanceFilterArrayOutput) Index(i pulumi.IntInput) GetInstanceFilter
 	}).(GetInstanceFilterOutput)
 }
 
+type GetInstanceMaintenanceOption struct {
+	// The automatic recovery behavior of the instance.
+	AutoRecovery string `pulumi:"autoRecovery"`
+}
+
+// GetInstanceMaintenanceOptionInput is an input type that accepts GetInstanceMaintenanceOptionArgs and GetInstanceMaintenanceOptionOutput values.
+// You can construct a concrete instance of `GetInstanceMaintenanceOptionInput` via:
+//
+//          GetInstanceMaintenanceOptionArgs{...}
+type GetInstanceMaintenanceOptionInput interface {
+	pulumi.Input
+
+	ToGetInstanceMaintenanceOptionOutput() GetInstanceMaintenanceOptionOutput
+	ToGetInstanceMaintenanceOptionOutputWithContext(context.Context) GetInstanceMaintenanceOptionOutput
+}
+
+type GetInstanceMaintenanceOptionArgs struct {
+	// The automatic recovery behavior of the instance.
+	AutoRecovery pulumi.StringInput `pulumi:"autoRecovery"`
+}
+
+func (GetInstanceMaintenanceOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceMaintenanceOption)(nil)).Elem()
+}
+
+func (i GetInstanceMaintenanceOptionArgs) ToGetInstanceMaintenanceOptionOutput() GetInstanceMaintenanceOptionOutput {
+	return i.ToGetInstanceMaintenanceOptionOutputWithContext(context.Background())
+}
+
+func (i GetInstanceMaintenanceOptionArgs) ToGetInstanceMaintenanceOptionOutputWithContext(ctx context.Context) GetInstanceMaintenanceOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMaintenanceOptionOutput)
+}
+
+// GetInstanceMaintenanceOptionArrayInput is an input type that accepts GetInstanceMaintenanceOptionArray and GetInstanceMaintenanceOptionArrayOutput values.
+// You can construct a concrete instance of `GetInstanceMaintenanceOptionArrayInput` via:
+//
+//          GetInstanceMaintenanceOptionArray{ GetInstanceMaintenanceOptionArgs{...} }
+type GetInstanceMaintenanceOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceMaintenanceOptionArrayOutput() GetInstanceMaintenanceOptionArrayOutput
+	ToGetInstanceMaintenanceOptionArrayOutputWithContext(context.Context) GetInstanceMaintenanceOptionArrayOutput
+}
+
+type GetInstanceMaintenanceOptionArray []GetInstanceMaintenanceOptionInput
+
+func (GetInstanceMaintenanceOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceMaintenanceOption)(nil)).Elem()
+}
+
+func (i GetInstanceMaintenanceOptionArray) ToGetInstanceMaintenanceOptionArrayOutput() GetInstanceMaintenanceOptionArrayOutput {
+	return i.ToGetInstanceMaintenanceOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceMaintenanceOptionArray) ToGetInstanceMaintenanceOptionArrayOutputWithContext(ctx context.Context) GetInstanceMaintenanceOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceMaintenanceOptionArrayOutput)
+}
+
+type GetInstanceMaintenanceOptionOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceMaintenanceOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceMaintenanceOption)(nil)).Elem()
+}
+
+func (o GetInstanceMaintenanceOptionOutput) ToGetInstanceMaintenanceOptionOutput() GetInstanceMaintenanceOptionOutput {
+	return o
+}
+
+func (o GetInstanceMaintenanceOptionOutput) ToGetInstanceMaintenanceOptionOutputWithContext(ctx context.Context) GetInstanceMaintenanceOptionOutput {
+	return o
+}
+
+// The automatic recovery behavior of the instance.
+func (o GetInstanceMaintenanceOptionOutput) AutoRecovery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceMaintenanceOption) string { return v.AutoRecovery }).(pulumi.StringOutput)
+}
+
+type GetInstanceMaintenanceOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceMaintenanceOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceMaintenanceOption)(nil)).Elem()
+}
+
+func (o GetInstanceMaintenanceOptionArrayOutput) ToGetInstanceMaintenanceOptionArrayOutput() GetInstanceMaintenanceOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceMaintenanceOptionArrayOutput) ToGetInstanceMaintenanceOptionArrayOutputWithContext(ctx context.Context) GetInstanceMaintenanceOptionArrayOutput {
+	return o
+}
+
+func (o GetInstanceMaintenanceOptionArrayOutput) Index(i pulumi.IntInput) GetInstanceMaintenanceOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceMaintenanceOption {
+		return vs[0].([]GetInstanceMaintenanceOption)[vs[1].(int)]
+	}).(GetInstanceMaintenanceOptionOutput)
+}
+
 type GetInstanceMetadataOption struct {
 	// The state of the metadata service: `enabled`, `disabled`.
 	HttpEndpoint string `pulumi:"httpEndpoint"`
@@ -20220,6 +24349,1036 @@ func (o GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput) Index(i pulu
 	}).(GetLaunchTemplateInstanceMarketOptionSpotOptionOutput)
 }
 
+type GetLaunchTemplateInstanceRequirement struct {
+	AcceleratorCounts                         []GetLaunchTemplateInstanceRequirementAcceleratorCount          `pulumi:"acceleratorCounts"`
+	AcceleratorManufacturers                  []string                                                        `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                          []string                                                        `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMibs                []GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMibs"`
+	AcceleratorTypes                          []string                                                        `pulumi:"acceleratorTypes"`
+	BareMetal                                 string                                                          `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                  []GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp   `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                      string                                                          `pulumi:"burstablePerformance"`
+	CpuManufacturers                          []string                                                        `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                     []string                                                        `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                       []string                                                        `pulumi:"instanceGenerations"`
+	LocalStorage                              string                                                          `pulumi:"localStorage"`
+	LocalStorageTypes                         []string                                                        `pulumi:"localStorageTypes"`
+	MemoryGibPerVcpus                         []GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus         `pulumi:"memoryGibPerVcpus"`
+	MemoryMibs                                []GetLaunchTemplateInstanceRequirementMemoryMib                 `pulumi:"memoryMibs"`
+	NetworkInterfaceCounts                    []GetLaunchTemplateInstanceRequirementNetworkInterfaceCount     `pulumi:"networkInterfaceCounts"`
+	OnDemandMaxPricePercentageOverLowestPrice int                                                             `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                   bool                                                            `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice     int                                                             `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGbs                      []GetLaunchTemplateInstanceRequirementTotalLocalStorageGb       `pulumi:"totalLocalStorageGbs"`
+	VcpuCounts                                []GetLaunchTemplateInstanceRequirementVcpuCount                 `pulumi:"vcpuCounts"`
+}
+
+// GetLaunchTemplateInstanceRequirementInput is an input type that accepts GetLaunchTemplateInstanceRequirementArgs and GetLaunchTemplateInstanceRequirementOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementArgs{...}
+type GetLaunchTemplateInstanceRequirementInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementOutput() GetLaunchTemplateInstanceRequirementOutput
+	ToGetLaunchTemplateInstanceRequirementOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementOutput
+}
+
+type GetLaunchTemplateInstanceRequirementArgs struct {
+	AcceleratorCounts                         GetLaunchTemplateInstanceRequirementAcceleratorCountArrayInput          `pulumi:"acceleratorCounts"`
+	AcceleratorManufacturers                  pulumi.StringArrayInput                                                 `pulumi:"acceleratorManufacturers"`
+	AcceleratorNames                          pulumi.StringArrayInput                                                 `pulumi:"acceleratorNames"`
+	AcceleratorTotalMemoryMibs                GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayInput `pulumi:"acceleratorTotalMemoryMibs"`
+	AcceleratorTypes                          pulumi.StringArrayInput                                                 `pulumi:"acceleratorTypes"`
+	BareMetal                                 pulumi.StringInput                                                      `pulumi:"bareMetal"`
+	BaselineEbsBandwidthMbps                  GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayInput   `pulumi:"baselineEbsBandwidthMbps"`
+	BurstablePerformance                      pulumi.StringInput                                                      `pulumi:"burstablePerformance"`
+	CpuManufacturers                          pulumi.StringArrayInput                                                 `pulumi:"cpuManufacturers"`
+	ExcludedInstanceTypes                     pulumi.StringArrayInput                                                 `pulumi:"excludedInstanceTypes"`
+	InstanceGenerations                       pulumi.StringArrayInput                                                 `pulumi:"instanceGenerations"`
+	LocalStorage                              pulumi.StringInput                                                      `pulumi:"localStorage"`
+	LocalStorageTypes                         pulumi.StringArrayInput                                                 `pulumi:"localStorageTypes"`
+	MemoryGibPerVcpus                         GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput         `pulumi:"memoryGibPerVcpus"`
+	MemoryMibs                                GetLaunchTemplateInstanceRequirementMemoryMibArrayInput                 `pulumi:"memoryMibs"`
+	NetworkInterfaceCounts                    GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput     `pulumi:"networkInterfaceCounts"`
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntInput                                                         `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	RequireHibernateSupport                   pulumi.BoolInput                                                        `pulumi:"requireHibernateSupport"`
+	SpotMaxPricePercentageOverLowestPrice     pulumi.IntInput                                                         `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	TotalLocalStorageGbs                      GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayInput       `pulumi:"totalLocalStorageGbs"`
+	VcpuCounts                                GetLaunchTemplateInstanceRequirementVcpuCountArrayInput                 `pulumi:"vcpuCounts"`
+}
+
+func (GetLaunchTemplateInstanceRequirementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirement)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementArgs) ToGetLaunchTemplateInstanceRequirementOutput() GetLaunchTemplateInstanceRequirementOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementArgs) ToGetLaunchTemplateInstanceRequirementOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementArray and GetLaunchTemplateInstanceRequirementArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementArray{ GetLaunchTemplateInstanceRequirementArgs{...} }
+type GetLaunchTemplateInstanceRequirementArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementArrayOutput() GetLaunchTemplateInstanceRequirementArrayOutput
+	ToGetLaunchTemplateInstanceRequirementArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementArray []GetLaunchTemplateInstanceRequirementInput
+
+func (GetLaunchTemplateInstanceRequirementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirement)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementArray) ToGetLaunchTemplateInstanceRequirementArrayOutput() GetLaunchTemplateInstanceRequirementArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementArray) ToGetLaunchTemplateInstanceRequirementArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirement)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) ToGetLaunchTemplateInstanceRequirementOutput() GetLaunchTemplateInstanceRequirementOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) ToGetLaunchTemplateInstanceRequirementOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) AcceleratorCounts() GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementAcceleratorCount {
+		return v.AcceleratorCounts
+	}).(GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.AcceleratorManufacturers }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) AcceleratorTotalMemoryMibs() GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib {
+		return v.AcceleratorTotalMemoryMibs
+	}).(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) BareMetal() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) string { return v.BareMetal }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) BaselineEbsBandwidthMbps() GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp {
+		return v.BaselineEbsBandwidthMbps
+	}).(GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) BurstablePerformance() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) string { return v.BurstablePerformance }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) LocalStorage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) string { return v.LocalStorage }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) MemoryGibPerVcpus() GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus {
+		return v.MemoryGibPerVcpus
+	}).(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) MemoryMibs() GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementMemoryMib {
+		return v.MemoryMibs
+	}).(GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) NetworkInterfaceCounts() GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementNetworkInterfaceCount {
+		return v.NetworkInterfaceCounts
+	}).(GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) int { return v.OnDemandMaxPricePercentageOverLowestPrice }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) RequireHibernateSupport() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) bool { return v.RequireHibernateSupport }).(pulumi.BoolOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) int { return v.SpotMaxPricePercentageOverLowestPrice }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) TotalLocalStorageGbs() GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementTotalLocalStorageGb {
+		return v.TotalLocalStorageGbs
+	}).(GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementOutput) VcpuCounts() GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirement) []GetLaunchTemplateInstanceRequirementVcpuCount {
+		return v.VcpuCounts
+	}).(GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirement)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementArrayOutput) ToGetLaunchTemplateInstanceRequirementArrayOutput() GetLaunchTemplateInstanceRequirementArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementArrayOutput) ToGetLaunchTemplateInstanceRequirementArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirement {
+		return vs[0].([]GetLaunchTemplateInstanceRequirement)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorCount struct {
+	Max int `pulumi:"max"`
+	Min int `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementAcceleratorCountInput is an input type that accepts GetLaunchTemplateInstanceRequirementAcceleratorCountArgs and GetLaunchTemplateInstanceRequirementAcceleratorCountOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementAcceleratorCountInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementAcceleratorCountArgs{...}
+type GetLaunchTemplateInstanceRequirementAcceleratorCountInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementAcceleratorCountOutput() GetLaunchTemplateInstanceRequirementAcceleratorCountOutput
+	ToGetLaunchTemplateInstanceRequirementAcceleratorCountOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementAcceleratorCountOutput
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorCountArgs struct {
+	Max pulumi.IntInput `pulumi:"max"`
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementAcceleratorCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementAcceleratorCount)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementAcceleratorCountArgs) ToGetLaunchTemplateInstanceRequirementAcceleratorCountOutput() GetLaunchTemplateInstanceRequirementAcceleratorCountOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementAcceleratorCountOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementAcceleratorCountArgs) ToGetLaunchTemplateInstanceRequirementAcceleratorCountOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementAcceleratorCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementAcceleratorCountOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementAcceleratorCountArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementAcceleratorCountArray and GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementAcceleratorCountArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementAcceleratorCountArray{ GetLaunchTemplateInstanceRequirementAcceleratorCountArgs{...} }
+type GetLaunchTemplateInstanceRequirementAcceleratorCountArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput() GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput
+	ToGetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorCountArray []GetLaunchTemplateInstanceRequirementAcceleratorCountInput
+
+func (GetLaunchTemplateInstanceRequirementAcceleratorCountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementAcceleratorCount)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementAcceleratorCountArray) ToGetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput() GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementAcceleratorCountArray) ToGetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorCountOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementAcceleratorCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementAcceleratorCount)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorCountOutput) ToGetLaunchTemplateInstanceRequirementAcceleratorCountOutput() GetLaunchTemplateInstanceRequirementAcceleratorCountOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorCountOutput) ToGetLaunchTemplateInstanceRequirementAcceleratorCountOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementAcceleratorCountOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorCountOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementAcceleratorCount) int { return v.Max }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorCountOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementAcceleratorCount) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementAcceleratorCount)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput) ToGetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput() GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput) ToGetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementAcceleratorCountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementAcceleratorCount {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementAcceleratorCount)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementAcceleratorCountOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib struct {
+	Max int `pulumi:"max"`
+	Min int `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibInput is an input type that accepts GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArgs and GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArgs{...}
+type GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput() GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput
+	ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArgs struct {
+	Max pulumi.IntInput `pulumi:"max"`
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArgs) ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput() GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArgs) ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArray and GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArray{ GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArgs{...} }
+type GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput() GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput
+	ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArray []GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibInput
+
+func (GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArray) ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput() GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArray) ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput) ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput() GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput) ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib) int { return v.Max }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput) ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput() GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput) ToGetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMib)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp struct {
+	Max int `pulumi:"max"`
+	Min int `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpInput is an input type that accepts GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArgs and GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArgs{...}
+type GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput() GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput
+	ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput
+}
+
+type GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArgs struct {
+	Max pulumi.IntInput `pulumi:"max"`
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArgs) ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput() GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArgs) ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArray and GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArray{ GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArgs{...} }
+type GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput() GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput
+	ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArray []GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpInput
+
+func (GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArray) ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput() GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArray) ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput) ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput() GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput) ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp) int { return v.Max }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput) ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput() GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput) ToGetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbp)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus struct {
+	Max float64 `pulumi:"max"`
+	Min float64 `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusInput is an input type that accepts GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArgs and GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArgs{...}
+type GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput() GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput
+	ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArgs struct {
+	Max pulumi.Float64Input `pulumi:"max"`
+	Min pulumi.Float64Input `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArgs) ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput() GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArgs) ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArray and GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArray{ GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArgs{...} }
+type GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput() GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput
+	ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArray []GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusInput
+
+func (GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArray) ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput() GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArray) ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput) ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput() GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput) ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput) Max() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus) float64 { return v.Max }).(pulumi.Float64Output)
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput) Min() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus) float64 { return v.Min }).(pulumi.Float64Output)
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput) ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput() GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput) ToGetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementMemoryGibPerVcpus)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryMib struct {
+	Max int `pulumi:"max"`
+	Min int `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementMemoryMibInput is an input type that accepts GetLaunchTemplateInstanceRequirementMemoryMibArgs and GetLaunchTemplateInstanceRequirementMemoryMibOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementMemoryMibInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementMemoryMibArgs{...}
+type GetLaunchTemplateInstanceRequirementMemoryMibInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementMemoryMibOutput() GetLaunchTemplateInstanceRequirementMemoryMibOutput
+	ToGetLaunchTemplateInstanceRequirementMemoryMibOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementMemoryMibOutput
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryMibArgs struct {
+	Max pulumi.IntInput `pulumi:"max"`
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryMib)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementMemoryMibArgs) ToGetLaunchTemplateInstanceRequirementMemoryMibOutput() GetLaunchTemplateInstanceRequirementMemoryMibOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementMemoryMibOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementMemoryMibArgs) ToGetLaunchTemplateInstanceRequirementMemoryMibOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementMemoryMibOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementMemoryMibArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementMemoryMibArray and GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementMemoryMibArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementMemoryMibArray{ GetLaunchTemplateInstanceRequirementMemoryMibArgs{...} }
+type GetLaunchTemplateInstanceRequirementMemoryMibArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementMemoryMibArrayOutput() GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput
+	ToGetLaunchTemplateInstanceRequirementMemoryMibArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryMibArray []GetLaunchTemplateInstanceRequirementMemoryMibInput
+
+func (GetLaunchTemplateInstanceRequirementMemoryMibArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementMemoryMib)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementMemoryMibArray) ToGetLaunchTemplateInstanceRequirementMemoryMibArrayOutput() GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementMemoryMibArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementMemoryMibArray) ToGetLaunchTemplateInstanceRequirementMemoryMibArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryMib)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryMibOutput) ToGetLaunchTemplateInstanceRequirementMemoryMibOutput() GetLaunchTemplateInstanceRequirementMemoryMibOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryMibOutput) ToGetLaunchTemplateInstanceRequirementMemoryMibOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementMemoryMibOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryMibOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementMemoryMib) int { return v.Max }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryMibOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementMemoryMib) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementMemoryMib)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput) ToGetLaunchTemplateInstanceRequirementMemoryMibArrayOutput() GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput) ToGetLaunchTemplateInstanceRequirementMemoryMibArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementMemoryMibOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementMemoryMib {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementMemoryMib)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementMemoryMibOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkInterfaceCount struct {
+	Max int `pulumi:"max"`
+	Min int `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementNetworkInterfaceCountInput is an input type that accepts GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs and GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementNetworkInterfaceCountInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs{...}
+type GetLaunchTemplateInstanceRequirementNetworkInterfaceCountInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput() GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput
+	ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs struct {
+	Max pulumi.IntInput `pulumi:"max"`
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs) ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput() GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs) ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArray and GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArray{ GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs{...} }
+type GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput() GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput
+	ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArray []GetLaunchTemplateInstanceRequirementNetworkInterfaceCountInput
+
+func (GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArray) ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput() GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArray) ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput) ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput() GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput) ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementNetworkInterfaceCount) int { return v.Max }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementNetworkInterfaceCount) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput) ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput() GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput) ToGetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementNetworkInterfaceCount {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementNetworkInterfaceCount)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementTotalLocalStorageGb struct {
+	Max float64 `pulumi:"max"`
+	Min float64 `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementTotalLocalStorageGbInput is an input type that accepts GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs and GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementTotalLocalStorageGbInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs{...}
+type GetLaunchTemplateInstanceRequirementTotalLocalStorageGbInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput() GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput
+	ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput
+}
+
+type GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs struct {
+	Max pulumi.Float64Input `pulumi:"max"`
+	Min pulumi.Float64Input `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs) ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput() GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs) ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArray and GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArray{ GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs{...} }
+type GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput() GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput
+	ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArray []GetLaunchTemplateInstanceRequirementTotalLocalStorageGbInput
+
+func (GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArray) ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput() GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArray) ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput) ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput() GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput) ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput) Max() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementTotalLocalStorageGb) float64 { return v.Max }).(pulumi.Float64Output)
+}
+
+func (o GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput) Min() pulumi.Float64Output {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementTotalLocalStorageGb) float64 { return v.Min }).(pulumi.Float64Output)
+}
+
+type GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput) ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput() GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput) ToGetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementTotalLocalStorageGb {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementTotalLocalStorageGb)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementVcpuCount struct {
+	Max int `pulumi:"max"`
+	Min int `pulumi:"min"`
+}
+
+// GetLaunchTemplateInstanceRequirementVcpuCountInput is an input type that accepts GetLaunchTemplateInstanceRequirementVcpuCountArgs and GetLaunchTemplateInstanceRequirementVcpuCountOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementVcpuCountInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementVcpuCountArgs{...}
+type GetLaunchTemplateInstanceRequirementVcpuCountInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementVcpuCountOutput() GetLaunchTemplateInstanceRequirementVcpuCountOutput
+	ToGetLaunchTemplateInstanceRequirementVcpuCountOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementVcpuCountOutput
+}
+
+type GetLaunchTemplateInstanceRequirementVcpuCountArgs struct {
+	Max pulumi.IntInput `pulumi:"max"`
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (GetLaunchTemplateInstanceRequirementVcpuCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementVcpuCount)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementVcpuCountArgs) ToGetLaunchTemplateInstanceRequirementVcpuCountOutput() GetLaunchTemplateInstanceRequirementVcpuCountOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementVcpuCountOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementVcpuCountArgs) ToGetLaunchTemplateInstanceRequirementVcpuCountOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementVcpuCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementVcpuCountOutput)
+}
+
+// GetLaunchTemplateInstanceRequirementVcpuCountArrayInput is an input type that accepts GetLaunchTemplateInstanceRequirementVcpuCountArray and GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateInstanceRequirementVcpuCountArrayInput` via:
+//
+//          GetLaunchTemplateInstanceRequirementVcpuCountArray{ GetLaunchTemplateInstanceRequirementVcpuCountArgs{...} }
+type GetLaunchTemplateInstanceRequirementVcpuCountArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateInstanceRequirementVcpuCountArrayOutput() GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput
+	ToGetLaunchTemplateInstanceRequirementVcpuCountArrayOutputWithContext(context.Context) GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput
+}
+
+type GetLaunchTemplateInstanceRequirementVcpuCountArray []GetLaunchTemplateInstanceRequirementVcpuCountInput
+
+func (GetLaunchTemplateInstanceRequirementVcpuCountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementVcpuCount)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateInstanceRequirementVcpuCountArray) ToGetLaunchTemplateInstanceRequirementVcpuCountArrayOutput() GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput {
+	return i.ToGetLaunchTemplateInstanceRequirementVcpuCountArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateInstanceRequirementVcpuCountArray) ToGetLaunchTemplateInstanceRequirementVcpuCountArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementVcpuCountOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementVcpuCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateInstanceRequirementVcpuCount)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementVcpuCountOutput) ToGetLaunchTemplateInstanceRequirementVcpuCountOutput() GetLaunchTemplateInstanceRequirementVcpuCountOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementVcpuCountOutput) ToGetLaunchTemplateInstanceRequirementVcpuCountOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementVcpuCountOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementVcpuCountOutput) Max() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementVcpuCount) int { return v.Max }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateInstanceRequirementVcpuCountOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateInstanceRequirementVcpuCount) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateInstanceRequirementVcpuCount)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput) ToGetLaunchTemplateInstanceRequirementVcpuCountArrayOutput() GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput) ToGetLaunchTemplateInstanceRequirementVcpuCountArrayOutputWithContext(ctx context.Context) GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateInstanceRequirementVcpuCountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateInstanceRequirementVcpuCount {
+		return vs[0].([]GetLaunchTemplateInstanceRequirementVcpuCount)[vs[1].(int)]
+	}).(GetLaunchTemplateInstanceRequirementVcpuCountOutput)
+}
+
 type GetLaunchTemplateLicenseSpecification struct {
 	LicenseConfigurationArn string `pulumi:"licenseConfigurationArn"`
 }
@@ -20312,6 +25471,100 @@ func (o GetLaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateLicenseSpecification {
 		return vs[0].([]GetLaunchTemplateLicenseSpecification)[vs[1].(int)]
 	}).(GetLaunchTemplateLicenseSpecificationOutput)
+}
+
+type GetLaunchTemplateMaintenanceOption struct {
+	AutoRecovery string `pulumi:"autoRecovery"`
+}
+
+// GetLaunchTemplateMaintenanceOptionInput is an input type that accepts GetLaunchTemplateMaintenanceOptionArgs and GetLaunchTemplateMaintenanceOptionOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateMaintenanceOptionInput` via:
+//
+//          GetLaunchTemplateMaintenanceOptionArgs{...}
+type GetLaunchTemplateMaintenanceOptionInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateMaintenanceOptionOutput() GetLaunchTemplateMaintenanceOptionOutput
+	ToGetLaunchTemplateMaintenanceOptionOutputWithContext(context.Context) GetLaunchTemplateMaintenanceOptionOutput
+}
+
+type GetLaunchTemplateMaintenanceOptionArgs struct {
+	AutoRecovery pulumi.StringInput `pulumi:"autoRecovery"`
+}
+
+func (GetLaunchTemplateMaintenanceOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateMaintenanceOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateMaintenanceOptionArgs) ToGetLaunchTemplateMaintenanceOptionOutput() GetLaunchTemplateMaintenanceOptionOutput {
+	return i.ToGetLaunchTemplateMaintenanceOptionOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateMaintenanceOptionArgs) ToGetLaunchTemplateMaintenanceOptionOutputWithContext(ctx context.Context) GetLaunchTemplateMaintenanceOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateMaintenanceOptionOutput)
+}
+
+// GetLaunchTemplateMaintenanceOptionArrayInput is an input type that accepts GetLaunchTemplateMaintenanceOptionArray and GetLaunchTemplateMaintenanceOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateMaintenanceOptionArrayInput` via:
+//
+//          GetLaunchTemplateMaintenanceOptionArray{ GetLaunchTemplateMaintenanceOptionArgs{...} }
+type GetLaunchTemplateMaintenanceOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateMaintenanceOptionArrayOutput() GetLaunchTemplateMaintenanceOptionArrayOutput
+	ToGetLaunchTemplateMaintenanceOptionArrayOutputWithContext(context.Context) GetLaunchTemplateMaintenanceOptionArrayOutput
+}
+
+type GetLaunchTemplateMaintenanceOptionArray []GetLaunchTemplateMaintenanceOptionInput
+
+func (GetLaunchTemplateMaintenanceOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateMaintenanceOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateMaintenanceOptionArray) ToGetLaunchTemplateMaintenanceOptionArrayOutput() GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return i.ToGetLaunchTemplateMaintenanceOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateMaintenanceOptionArray) ToGetLaunchTemplateMaintenanceOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateMaintenanceOptionArrayOutput)
+}
+
+type GetLaunchTemplateMaintenanceOptionOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateMaintenanceOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateMaintenanceOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateMaintenanceOptionOutput) ToGetLaunchTemplateMaintenanceOptionOutput() GetLaunchTemplateMaintenanceOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMaintenanceOptionOutput) ToGetLaunchTemplateMaintenanceOptionOutputWithContext(ctx context.Context) GetLaunchTemplateMaintenanceOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMaintenanceOptionOutput) AutoRecovery() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateMaintenanceOption) string { return v.AutoRecovery }).(pulumi.StringOutput)
+}
+
+type GetLaunchTemplateMaintenanceOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateMaintenanceOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateMaintenanceOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateMaintenanceOptionArrayOutput) ToGetLaunchTemplateMaintenanceOptionArrayOutput() GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMaintenanceOptionArrayOutput) ToGetLaunchTemplateMaintenanceOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateMaintenanceOptionArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateMaintenanceOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateMaintenanceOption {
+		return vs[0].([]GetLaunchTemplateMaintenanceOption)[vs[1].(int)]
+	}).(GetLaunchTemplateMaintenanceOptionOutput)
 }
 
 type GetLaunchTemplateMetadataOption struct {
@@ -25747,6 +31000,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), InstanceEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplateInput)(nil)).Elem(), InstanceLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceLaunchTemplatePtrInput)(nil)).Elem(), InstanceLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMaintenanceOptionsInput)(nil)).Elem(), InstanceMaintenanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMaintenanceOptionsPtrInput)(nil)).Elem(), InstanceMaintenanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsInput)(nil)).Elem(), InstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsPtrInput)(nil)).Elem(), InstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceInput)(nil)).Elem(), InstanceNetworkInterfaceArgs{})
@@ -25787,8 +31042,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceMarketOptionsPtrInput)(nil)).Elem(), LaunchTemplateInstanceMarketOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceMarketOptionsSpotOptionsInput)(nil)).Elem(), LaunchTemplateInstanceMarketOptionsSpotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceMarketOptionsSpotOptionsPtrInput)(nil)).Elem(), LaunchTemplateInstanceMarketOptionsSpotOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsAcceleratorCountInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsAcceleratorCountPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryGibPerVcpuInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryMibInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsMemoryMibPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkInterfaceCountInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsTotalLocalStorageGbInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsVcpuCountInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsVcpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateInstanceRequirementsVcpuCountPtrInput)(nil)).Elem(), LaunchTemplateInstanceRequirementsVcpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateLicenseSpecificationArrayInput)(nil)).Elem(), LaunchTemplateLicenseSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMaintenanceOptionsInput)(nil)).Elem(), LaunchTemplateMaintenanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMaintenanceOptionsPtrInput)(nil)).Elem(), LaunchTemplateMaintenanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMetadataOptionsInput)(nil)).Elem(), LaunchTemplateMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMetadataOptionsPtrInput)(nil)).Elem(), LaunchTemplateMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateMonitoringInput)(nil)).Elem(), LaunchTemplateMonitoringArgs{})
@@ -25832,6 +31107,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideArrayInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput)(nil)).Elem(), SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestSpotMaintenanceStrategiesInput)(nil)).Elem(), SpotFleetRequestSpotMaintenanceStrategiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestSpotMaintenanceStrategiesPtrInput)(nil)).Elem(), SpotFleetRequestSpotMaintenanceStrategiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceInput)(nil)).Elem(), SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceArgs{})
@@ -25850,6 +31143,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestEphemeralBlockDeviceArrayInput)(nil)).Elem(), SpotInstanceRequestEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestLaunchTemplateInput)(nil)).Elem(), SpotInstanceRequestLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestLaunchTemplatePtrInput)(nil)).Elem(), SpotInstanceRequestLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMaintenanceOptionsInput)(nil)).Elem(), SpotInstanceRequestMaintenanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMaintenanceOptionsPtrInput)(nil)).Elem(), SpotInstanceRequestMaintenanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMetadataOptionsInput)(nil)).Elem(), SpotInstanceRequestMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMetadataOptionsPtrInput)(nil)).Elem(), SpotInstanceRequestMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestNetworkInterfaceInput)(nil)).Elem(), SpotInstanceRequestNetworkInterfaceArgs{})
@@ -25910,6 +31205,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceEphemeralBlockDeviceArrayInput)(nil)).Elem(), GetInstanceEphemeralBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceFilterInput)(nil)).Elem(), GetInstanceFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceFilterArrayInput)(nil)).Elem(), GetInstanceFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMaintenanceOptionInput)(nil)).Elem(), GetInstanceMaintenanceOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMaintenanceOptionArrayInput)(nil)).Elem(), GetInstanceMaintenanceOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMetadataOptionInput)(nil)).Elem(), GetInstanceMetadataOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMetadataOptionArrayInput)(nil)).Elem(), GetInstanceMetadataOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceRootBlockDeviceInput)(nil)).Elem(), GetInstanceRootBlockDeviceArgs{})
@@ -25972,8 +31269,28 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceMarketOptionArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceMarketOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceMarketOptionSpotOptionInput)(nil)).Elem(), GetLaunchTemplateInstanceMarketOptionSpotOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceMarketOptionSpotOptionArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceMarketOptionSpotOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementAcceleratorCountInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementAcceleratorCountArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementAcceleratorCountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryMibInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementMemoryMibArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementMemoryMibArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkInterfaceCountInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementTotalLocalStorageGbInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementVcpuCountInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementVcpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateInstanceRequirementVcpuCountArrayInput)(nil)).Elem(), GetLaunchTemplateInstanceRequirementVcpuCountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateLicenseSpecificationInput)(nil)).Elem(), GetLaunchTemplateLicenseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateLicenseSpecificationArrayInput)(nil)).Elem(), GetLaunchTemplateLicenseSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMaintenanceOptionInput)(nil)).Elem(), GetLaunchTemplateMaintenanceOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMaintenanceOptionArrayInput)(nil)).Elem(), GetLaunchTemplateMaintenanceOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMetadataOptionInput)(nil)).Elem(), GetLaunchTemplateMetadataOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMetadataOptionArrayInput)(nil)).Elem(), GetLaunchTemplateMetadataOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateMonitoringInput)(nil)).Elem(), GetLaunchTemplateMonitoringArgs{})
@@ -26122,6 +31439,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(InstanceLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(InstanceMaintenanceOptionsOutput{})
+	pulumi.RegisterOutputType(InstanceMaintenanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(InstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
@@ -26162,8 +31481,28 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsSpotOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateInstanceMarketOptionsSpotOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsAcceleratorCountOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsAcceleratorCountPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsMemoryGibPerVcpuPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsMemoryMibOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsNetworkInterfaceCountOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsNetworkInterfaceCountPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsTotalLocalStorageGbOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsTotalLocalStorageGbPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsVcpuCountOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateInstanceRequirementsVcpuCountPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMaintenanceOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateMaintenanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateMonitoringOutput{})
@@ -26207,6 +31546,24 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideArrayOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput{})
+	pulumi.RegisterOutputType(SpotFleetRequestLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestSpotMaintenanceStrategiesOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestSpotMaintenanceStrategiesPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestSpotMaintenanceStrategiesCapacityRebalanceOutput{})
@@ -26225,6 +31582,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestMaintenanceOptionsOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestMaintenanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestNetworkInterfaceOutput{})
@@ -26285,6 +31644,8 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceEphemeralBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceFilterOutput{})
 	pulumi.RegisterOutputType(GetInstanceFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceMaintenanceOptionOutput{})
+	pulumi.RegisterOutputType(GetInstanceMaintenanceOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceMetadataOptionOutput{})
 	pulumi.RegisterOutputType(GetInstanceMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceOutput{})
@@ -26347,8 +31708,28 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionSpotOptionOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementAcceleratorCountOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementAcceleratorCountArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementAcceleratorTotalMemoryMibArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementBaselineEbsBandwidthMbpArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementMemoryGibPerVcpusArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementMemoryMibOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementMemoryMibArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementNetworkInterfaceCountOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementNetworkInterfaceCountArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementTotalLocalStorageGbOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementTotalLocalStorageGbArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementVcpuCountOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateInstanceRequirementVcpuCountArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateLicenseSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateLicenseSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateMaintenanceOptionOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateMaintenanceOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateMetadataOptionOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateMetadataOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateMonitoringOutput{})

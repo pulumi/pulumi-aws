@@ -796,6 +796,12 @@ namespace Pulumi.Aws.Emr
         public Output<Outputs.ClusterKerberosAttributes?> KerberosAttributes { get; private set; } = null!;
 
         /// <summary>
+        /// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+        /// </summary>
+        [Output("listStepsStates")]
+        public Output<ImmutableArray<string>> ListStepsStates { get; private set; } = null!;
+
+        /// <summary>
         /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         /// </summary>
         [Output("logEncryptionKmsKeyId")]
@@ -854,12 +860,6 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
-
-        /// <summary>
-        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
-        /// </summary>
-        [Output("stepConcurrencyLevel")]
-        public Output<int?> StepConcurrencyLevel { get; private set; } = null!;
 
         /// <summary>
         /// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
@@ -1030,6 +1030,18 @@ namespace Pulumi.Aws.Emr
         [Input("kerberosAttributes")]
         public Input<Inputs.ClusterKerberosAttributesArgs>? KerberosAttributes { get; set; }
 
+        [Input("listStepsStates")]
+        private InputList<string>? _listStepsStates;
+
+        /// <summary>
+        /// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+        /// </summary>
+        public InputList<string> ListStepsStates
+        {
+            get => _listStepsStates ?? (_listStepsStates = new InputList<string>());
+            set => _listStepsStates = value;
+        }
+
         /// <summary>
         /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         /// </summary>
@@ -1083,12 +1095,6 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
-
-        /// <summary>
-        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
-        /// </summary>
-        [Input("stepConcurrencyLevel")]
-        public Input<int>? StepConcurrencyLevel { get; set; }
 
         [Input("steps")]
         private InputList<Inputs.ClusterStepArgs>? _steps;
@@ -1232,6 +1238,18 @@ namespace Pulumi.Aws.Emr
         [Input("kerberosAttributes")]
         public Input<Inputs.ClusterKerberosAttributesGetArgs>? KerberosAttributes { get; set; }
 
+        [Input("listStepsStates")]
+        private InputList<string>? _listStepsStates;
+
+        /// <summary>
+        /// List of [step states](https://docs.aws.amazon.com/emr/latest/APIReference/API_StepStatus.html) used to filter returned steps
+        /// </summary>
+        public InputList<string> ListStepsStates
+        {
+            get => _listStepsStates ?? (_listStepsStates = new InputList<string>());
+            set => _listStepsStates = value;
+        }
+
         /// <summary>
         /// AWS KMS customer master key (CMK) key ID or arn used for encrypting log files. This attribute is only available with EMR version 5.30.0 and later, excluding EMR 6.0.0.
         /// </summary>
@@ -1291,12 +1309,6 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
-
-        /// <summary>
-        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
-        /// </summary>
-        [Input("stepConcurrencyLevel")]
-        public Input<int>? StepConcurrencyLevel { get; set; }
 
         [Input("steps")]
         private InputList<Inputs.ClusterStepGetArgs>? _steps;

@@ -165,7 +165,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                             Type = "AWS::S3::Object",
     ///                             Values = 
     ///                             {
-    ///                                 "arn:aws:s3:::",
+    ///                                 "arn:aws:s3",
     ///                             },
     ///                         },
     ///                     },

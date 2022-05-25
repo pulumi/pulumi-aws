@@ -31,6 +31,12 @@ namespace Pulumi.Aws.Msk.Inputs
         }
 
         /// <summary>
+        /// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        /// </summary>
+        [Input("connectivityInfo")]
+        public Input<Inputs.ClusterBrokerNodeGroupInfoConnectivityInfoGetArgs>? ConnectivityInfo { get; set; }
+
+        /// <summary>
         /// The size in GiB of the EBS volume for the data drive on each broker node.
         /// </summary>
         [Input("ebsVolumeSize", required: true)]

@@ -133,6 +133,9 @@ namespace Pulumi.Aws
         [Input("assumeRole", json: true)]
         public Input<Inputs.ProviderAssumeRoleArgs>? AssumeRole { get; set; }
 
+        [Input("assumeRoleWithWebIdentity", json: true)]
+        public Input<Inputs.ProviderAssumeRoleWithWebIdentityArgs>? AssumeRoleWithWebIdentity { get; set; }
+
         /// <summary>
         /// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
         /// variable. (Setting `ca_bundle` in the shared config file is not supported.)

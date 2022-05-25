@@ -11,6 +11,8 @@ from . import outputs
 
 __all__ = [
     'ClusterBrokerNodeGroupInfo',
+    'ClusterBrokerNodeGroupInfoConnectivityInfo',
+    'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess',
     'ClusterClientAuthentication',
     'ClusterClientAuthenticationSasl',
     'ClusterClientAuthenticationTls',
@@ -44,6 +46,8 @@ class ClusterBrokerNodeGroupInfo(dict):
             suggest = "security_groups"
         elif key == "azDistribution":
             suggest = "az_distribution"
+        elif key == "connectivityInfo":
+            suggest = "connectivity_info"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterBrokerNodeGroupInfo. Access the value via the '{suggest}' property getter instead.")
@@ -61,13 +65,15 @@ class ClusterBrokerNodeGroupInfo(dict):
                  ebs_volume_size: int,
                  instance_type: str,
                  security_groups: Sequence[str],
-                 az_distribution: Optional[str] = None):
+                 az_distribution: Optional[str] = None,
+                 connectivity_info: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfo'] = None):
         """
         :param Sequence[str] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
         :param int ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
         :param str instance_type: Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         :param Sequence[str] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param str az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoArgs' connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
         pulumi.set(__self__, "ebs_volume_size", ebs_volume_size)
@@ -75,6 +81,8 @@ class ClusterBrokerNodeGroupInfo(dict):
         pulumi.set(__self__, "security_groups", security_groups)
         if az_distribution is not None:
             pulumi.set(__self__, "az_distribution", az_distribution)
+        if connectivity_info is not None:
+            pulumi.set(__self__, "connectivity_info", connectivity_info)
 
     @property
     @pulumi.getter(name="clientSubnets")
@@ -116,20 +124,87 @@ class ClusterBrokerNodeGroupInfo(dict):
         """
         return pulumi.get(self, "az_distribution")
 
+    @property
+    @pulumi.getter(name="connectivityInfo")
+    def connectivity_info(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfo']:
+        """
+        Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        """
+        return pulumi.get(self, "connectivity_info")
+
+
+@pulumi.output_type
+class ClusterBrokerNodeGroupInfoConnectivityInfo(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicAccess":
+            suggest = "public_access"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterBrokerNodeGroupInfoConnectivityInfo. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterBrokerNodeGroupInfoConnectivityInfo.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterBrokerNodeGroupInfoConnectivityInfo.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_access: Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess'] = None):
+        """
+        :param 'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs' public_access: Access control settings for brokers. See below.
+        """
+        if public_access is not None:
+            pulumi.set(__self__, "public_access", public_access)
+
+    @property
+    @pulumi.getter(name="publicAccess")
+    def public_access(self) -> Optional['outputs.ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess']:
+        """
+        Access control settings for brokers. See below.
+        """
+        return pulumi.get(self, "public_access")
+
+
+@pulumi.output_type
+class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccess(dict):
+    def __init__(__self__, *,
+                 type: Optional[str] = None):
+        """
+        :param str type: Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Public access type. Valida values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class ClusterClientAuthentication(dict):
     def __init__(__self__, *,
                  sasl: Optional['outputs.ClusterClientAuthenticationSasl'] = None,
-                 tls: Optional['outputs.ClusterClientAuthenticationTls'] = None):
+                 tls: Optional['outputs.ClusterClientAuthenticationTls'] = None,
+                 unauthenticated: Optional[bool] = None):
         """
         :param 'ClusterClientAuthenticationSaslArgs' sasl: Configuration block for specifying SASL client authentication. See below.
         :param 'ClusterClientAuthenticationTlsArgs' tls: Configuration block for specifying TLS client authentication. See below.
+        :param bool unauthenticated: Enables unauthenticated access.
         """
         if sasl is not None:
             pulumi.set(__self__, "sasl", sasl)
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
+        if unauthenticated is not None:
+            pulumi.set(__self__, "unauthenticated", unauthenticated)
 
     @property
     @pulumi.getter
@@ -146,6 +221,14 @@ class ClusterClientAuthentication(dict):
         Configuration block for specifying TLS client authentication. See below.
         """
         return pulumi.get(self, "tls")
+
+    @property
+    @pulumi.getter
+    def unauthenticated(self) -> Optional[bool]:
+        """
+        Enables unauthenticated access.
+        """
+        return pulumi.get(self, "unauthenticated")
 
 
 @pulumi.output_type

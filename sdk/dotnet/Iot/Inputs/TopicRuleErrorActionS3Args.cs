@@ -19,7 +19,13 @@ namespace Pulumi.Aws.Iot.Inputs
         public Input<string> BucketName { get; set; } = null!;
 
         /// <summary>
-        /// The object key.
+        /// The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+        /// </summary>
+        [Input("cannedAcl")]
+        public Input<string>? CannedAcl { get; set; }
+
+        /// <summary>
+        /// The name of the HTTP header.
         /// </summary>
         [Input("key", required: true)]
         public Input<string> Key { get; set; } = null!;

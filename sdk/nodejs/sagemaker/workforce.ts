@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Workforce resource.
+ * Provides a SageMaker Workforce resource.
  *
  * ## Example Usage
  * ### Cognito Usage
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Workforces can be imported using the `workforce_name`, e.g.,
+ * SageMaker Workforces can be imported using the `workforce_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/workforce:Workforce example example

@@ -59,6 +59,8 @@ type AmiCopy struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 	BootMode pulumi.StringOutput `pulumi:"bootMode"`
+	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	DeprecationTime pulumi.StringPtrOutput `pulumi:"deprecationTime"`
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ARN of the Outpost to which to copy the AMI.
@@ -160,6 +162,8 @@ type amiCopyState struct {
 	Arn *string `pulumi:"arn"`
 	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 	BootMode *string `pulumi:"bootMode"`
+	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	DeprecationTime *string `pulumi:"deprecationTime"`
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// The ARN of the Outpost to which to copy the AMI.
@@ -227,6 +231,8 @@ type AmiCopyState struct {
 	Arn pulumi.StringPtrInput
 	// The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 	BootMode pulumi.StringPtrInput
+	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	DeprecationTime pulumi.StringPtrInput
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// The ARN of the Outpost to which to copy the AMI.
@@ -292,6 +298,8 @@ func (AmiCopyState) ElementType() reflect.Type {
 }
 
 type amiCopyArgs struct {
+	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	DeprecationTime *string `pulumi:"deprecationTime"`
 	// A longer, human-readable description for the AMI.
 	Description *string `pulumi:"description"`
 	// The ARN of the Outpost to which to copy the AMI.
@@ -323,6 +331,8 @@ type amiCopyArgs struct {
 
 // The set of arguments for constructing a AmiCopy resource.
 type AmiCopyArgs struct {
+	// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+	DeprecationTime pulumi.StringPtrInput
 	// A longer, human-readable description for the AMI.
 	Description pulumi.StringPtrInput
 	// The ARN of the Outpost to which to copy the AMI.
@@ -452,6 +462,11 @@ func (o AmiCopyOutput) Arn() pulumi.StringOutput {
 // The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
 func (o AmiCopyOutput) BootMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *AmiCopy) pulumi.StringOutput { return v.BootMode }).(pulumi.StringOutput)
+}
+
+// The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+func (o AmiCopyOutput) DeprecationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AmiCopy) pulumi.StringPtrOutput { return v.DeprecationTime }).(pulumi.StringPtrOutput)
 }
 
 // A longer, human-readable description for the AMI.

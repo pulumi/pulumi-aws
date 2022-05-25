@@ -20,10 +20,16 @@ class GetCertificateResult:
     """
     A collection of values returned by getCertificate.
     """
-    def __init__(__self__, arn=None, domain=None, id=None, key_types=None, most_recent=None, status=None, statuses=None, tags=None, types=None):
+    def __init__(__self__, arn=None, certificate=None, certificate_chain=None, domain=None, id=None, key_types=None, most_recent=None, status=None, statuses=None, tags=None, types=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if certificate and not isinstance(certificate, str):
+            raise TypeError("Expected argument 'certificate' to be a str")
+        pulumi.set(__self__, "certificate", certificate)
+        if certificate_chain and not isinstance(certificate_chain, str):
+            raise TypeError("Expected argument 'certificate_chain' to be a str")
+        pulumi.set(__self__, "certificate_chain", certificate_chain)
         if domain and not isinstance(domain, str):
             raise TypeError("Expected argument 'domain' to be a str")
         pulumi.set(__self__, "domain", domain)
@@ -56,6 +62,22 @@ class GetCertificateResult:
         Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def certificate(self) -> str:
+        """
+        The ACM-issued certificate.
+        """
+        return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="certificateChain")
+    def certificate_chain(self) -> str:
+        """
+        Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+        """
+        return pulumi.get(self, "certificate_chain")
 
     @property
     @pulumi.getter
@@ -114,6 +136,8 @@ class AwaitableGetCertificateResult(GetCertificateResult):
             yield self
         return GetCertificateResult(
             arn=self.arn,
+            certificate=self.certificate,
+            certificate_chain=self.certificate_chain,
             domain=self.domain,
             id=self.id,
             key_types=self.key_types,
@@ -176,6 +200,8 @@ def get_certificate(domain: Optional[str] = None,
 
     return AwaitableGetCertificateResult(
         arn=__ret__.arn,
+        certificate=__ret__.certificate,
+        certificate_chain=__ret__.certificate_chain,
         domain=__ret__.domain,
         id=__ret__.id,
         key_types=__ret__.key_types,

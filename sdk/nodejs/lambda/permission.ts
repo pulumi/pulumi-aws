@@ -193,6 +193,10 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly function!: pulumi.Output<string>;
     /**
+     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+     */
+    public readonly functionUrlAuthType!: pulumi.Output<string | undefined>;
+    /**
      * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     public readonly principal!: pulumi.Output<string>;
@@ -223,7 +227,7 @@ export class Permission extends pulumi.CustomResource {
     /**
      * A statement identifier prefix. This provider will generate a unique suffix. Conflicts with `statementId`.
      */
-    public readonly statementIdPrefix!: pulumi.Output<string | undefined>;
+    public readonly statementIdPrefix!: pulumi.Output<string>;
 
     /**
      * Create a Permission resource with the given unique name, arguments, and options.
@@ -241,6 +245,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["action"] = state ? state.action : undefined;
             resourceInputs["eventSourceToken"] = state ? state.eventSourceToken : undefined;
             resourceInputs["function"] = state ? state.function : undefined;
+            resourceInputs["functionUrlAuthType"] = state ? state.functionUrlAuthType : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
             resourceInputs["principalOrgId"] = state ? state.principalOrgId : undefined;
             resourceInputs["qualifier"] = state ? state.qualifier : undefined;
@@ -262,6 +267,7 @@ export class Permission extends pulumi.CustomResource {
             resourceInputs["action"] = args ? args.action : undefined;
             resourceInputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
             resourceInputs["function"] = args ? args.function : undefined;
+            resourceInputs["functionUrlAuthType"] = args ? args.functionUrlAuthType : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
             resourceInputs["principalOrgId"] = args ? args.principalOrgId : undefined;
             resourceInputs["qualifier"] = args ? args.qualifier : undefined;
@@ -291,6 +297,10 @@ export interface PermissionState {
      * Name of the Lambda function whose resource policy you are updating
      */
     function?: pulumi.Input<string | Function>;
+    /**
+     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+     */
+    functionUrlAuthType?: pulumi.Input<string>;
     /**
      * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
@@ -341,6 +351,10 @@ export interface PermissionArgs {
      * Name of the Lambda function whose resource policy you are updating
      */
     function: pulumi.Input<string | Function>;
+    /**
+     * Lambda Function URLs [authentication type](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html). Valid values are: `AWS_IAM` or `NONE`.
+     */
+    functionUrlAuthType?: pulumi.Input<string>;
     /**
      * The principal who is getting this permission e.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */

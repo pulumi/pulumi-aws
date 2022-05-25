@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Workforce resource.
+    /// Provides a SageMaker Workforce resource.
     /// 
     /// ## Example Usage
     /// ### Cognito Usage
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Workforces can be imported using the `workforce_name`, e.g.,
+    /// SageMaker Workforces can be imported using the `workforce_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/workforce:Workforce example example

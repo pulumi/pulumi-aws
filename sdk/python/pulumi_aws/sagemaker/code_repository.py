@@ -164,7 +164,7 @@ class CodeRepository(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Sagemaker Code Repository resource.
+        Provides a SageMaker Code Repository resource.
 
         ## Example Usage
         ### Basic usage
@@ -204,7 +204,7 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Repositories can be imported using the `name`, e.g.,
+        SageMaker Code Repositories can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
@@ -223,7 +223,7 @@ class CodeRepository(pulumi.CustomResource):
                  args: CodeRepositoryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Sagemaker Code Repository resource.
+        Provides a SageMaker Code Repository resource.
 
         ## Example Usage
         ### Basic usage
@@ -263,7 +263,7 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Repositories can be imported using the `name`, e.g.,
+        SageMaker Code Repositories can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo

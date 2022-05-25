@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Device Fleet resource.
+ * Provides a SageMaker Device Fleet resource.
  *
  * ## Example Usage
  * ### Basic usage
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Device Fleets can be imported using the `name`, e.g.,
+ * SageMaker Device Fleets can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet

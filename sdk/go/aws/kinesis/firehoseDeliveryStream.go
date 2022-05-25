@@ -96,6 +96,66 @@ import (
 // 	})
 // }
 // ```
+// ### Extended S3 Destination with dynamic partitioning
+// These examples use built-in Firehose functionality, rather than requiring a lambda.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kinesis"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := kinesis.NewFirehoseDeliveryStream(ctx, "extendedS3Stream", &kinesis.FirehoseDeliveryStreamArgs{
+// 			Destination: pulumi.String("extended_s3"),
+// 			ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
+// 				RoleArn:           pulumi.Any(aws_iam_role.Firehose_role.Arn),
+// 				BucketArn:         pulumi.Any(aws_s3_bucket.Bucket.Arn),
+// 				Prefix:            pulumi.String("data/customer_id=!{partitionKeyFromQuery:customer_id}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/"),
+// 				ErrorOutputPrefix: pulumi.String("errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/hour=!{timestamp:HH}/!{firehose:error-output-type}/"),
+// 				BufferSize:        pulumi.Int(64),
+// 				ProcessingConfiguration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{
+// 					Enabled: pulumi.Bool(true),
+// 					Processors: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArray{
+// 						&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{
+// 							Type: pulumi.String("RecordDeAggregation"),
+// 							Parameters: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{
+// 								&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
+// 									ParameterName:  pulumi.String("SubRecordType"),
+// 									ParameterValue: pulumi.String("JSON"),
+// 								},
+// 							},
+// 						},
+// 						&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{
+// 							Type: pulumi.String("AppendDelimiterToRecord"),
+// 						},
+// 						&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{
+// 							Type: pulumi.String("MetadataExtraction"),
+// 							Parameters: kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArray{
+// 								&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
+// 									ParameterName:  pulumi.String("JsonParsingEngine"),
+// 									ParameterValue: pulumi.String("JQ-1.6"),
+// 								},
+// 								&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
+// 									ParameterName:  pulumi.String("MetadataExtractionQuery"),
+// 									ParameterValue: pulumi.String("{customer_id:.customer_id}"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### S3 Destination (deprecated)
 //
 // ```go

@@ -14,6 +14,7 @@ export * from "./getCachePolicy";
 export * from "./getDistribution";
 export * from "./getFunction";
 export * from "./getLogDeliveryCanonicalUserId";
+export * from "./getOriginAccessIdentities";
 export * from "./getOriginAccessIdentity";
 export * from "./getOriginRequestPolicy";
 export * from "./getRealtimeLogConfig";

@@ -706,7 +706,7 @@ class Trail(pulumi.CustomResource):
                 include_management_events=True,
                 data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
                     type="AWS::S3::Object",
-                    values=["arn:aws:s3:::"],
+                    values=["arn:aws:s3"],
                 )],
             )])
         ```
@@ -1013,7 +1013,7 @@ class Trail(pulumi.CustomResource):
                 include_management_events=True,
                 data_resources=[aws.cloudtrail.TrailEventSelectorDataResourceArgs(
                     type="AWS::S3::Object",
-                    values=["arn:aws:s3:::"],
+                    values=["arn:aws:s3"],
                 )],
             )])
         ```

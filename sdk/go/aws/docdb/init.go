@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterParameterGroup{}
 	case "aws:docdb/clusterSnapshot:ClusterSnapshot":
 		r = &ClusterSnapshot{}
+	case "aws:docdb/eventSubscription:EventSubscription":
+		r = &EventSubscription{}
 	case "aws:docdb/globalCluster:GlobalCluster":
 		r = &GlobalCluster{}
 	case "aws:docdb/subnetGroup:SubnetGroup":
@@ -64,6 +66,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"docdb/clusterSnapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"docdb/eventSubscription",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

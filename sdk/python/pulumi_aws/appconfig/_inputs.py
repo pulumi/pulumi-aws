@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'ConfigurationProfileValidatorArgs',
     'EnvironmentMonitorArgs',
+    'EventIntegrationEventFilterArgs',
 ]
 
 @pulumi.input_type
@@ -87,5 +88,27 @@ class EnvironmentMonitorArgs:
     @alarm_role_arn.setter
     def alarm_role_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alarm_role_arn", value)
+
+
+@pulumi.input_type
+class EventIntegrationEventFilterArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] source: The source of the events.
+        """
+        pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[str]:
+        """
+        The source of the events.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source", value)
 
 

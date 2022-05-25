@@ -33,11 +33,17 @@ namespace Pulumi.Aws.Iot.Inputs
         [Input("firehose")]
         public Input<Inputs.TopicRuleErrorActionFirehoseArgs>? Firehose { get; set; }
 
+        [Input("http")]
+        public Input<Inputs.TopicRuleErrorActionHttpArgs>? Http { get; set; }
+
         [Input("iotAnalytics")]
         public Input<Inputs.TopicRuleErrorActionIotAnalyticsArgs>? IotAnalytics { get; set; }
 
         [Input("iotEvents")]
         public Input<Inputs.TopicRuleErrorActionIotEventsArgs>? IotEvents { get; set; }
+
+        [Input("kafka")]
+        public Input<Inputs.TopicRuleErrorActionKafkaArgs>? Kafka { get; set; }
 
         [Input("kinesis")]
         public Input<Inputs.TopicRuleErrorActionKinesisArgs>? Kinesis { get; set; }
@@ -59,6 +65,9 @@ namespace Pulumi.Aws.Iot.Inputs
 
         [Input("stepFunctions")]
         public Input<Inputs.TopicRuleErrorActionStepFunctionsArgs>? StepFunctions { get; set; }
+
+        [Input("timestream")]
+        public Input<Inputs.TopicRuleErrorActionTimestreamArgs>? Timestream { get; set; }
 
         public TopicRuleErrorActionArgs()
         {

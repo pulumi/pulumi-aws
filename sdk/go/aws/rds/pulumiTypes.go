@@ -755,6 +755,162 @@ func (o ClusterScalingConfigurationPtrOutput) TimeoutAction() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ClusterServerlessv2ScalingConfiguration struct {
+	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	MaxCapacity float64 `pulumi:"maxCapacity"`
+	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	MinCapacity float64 `pulumi:"minCapacity"`
+}
+
+// ClusterServerlessv2ScalingConfigurationInput is an input type that accepts ClusterServerlessv2ScalingConfigurationArgs and ClusterServerlessv2ScalingConfigurationOutput values.
+// You can construct a concrete instance of `ClusterServerlessv2ScalingConfigurationInput` via:
+//
+//          ClusterServerlessv2ScalingConfigurationArgs{...}
+type ClusterServerlessv2ScalingConfigurationInput interface {
+	pulumi.Input
+
+	ToClusterServerlessv2ScalingConfigurationOutput() ClusterServerlessv2ScalingConfigurationOutput
+	ToClusterServerlessv2ScalingConfigurationOutputWithContext(context.Context) ClusterServerlessv2ScalingConfigurationOutput
+}
+
+type ClusterServerlessv2ScalingConfigurationArgs struct {
+	// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+	MaxCapacity pulumi.Float64Input `pulumi:"maxCapacity"`
+	// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+	MinCapacity pulumi.Float64Input `pulumi:"minCapacity"`
+}
+
+func (ClusterServerlessv2ScalingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServerlessv2ScalingConfiguration)(nil)).Elem()
+}
+
+func (i ClusterServerlessv2ScalingConfigurationArgs) ToClusterServerlessv2ScalingConfigurationOutput() ClusterServerlessv2ScalingConfigurationOutput {
+	return i.ToClusterServerlessv2ScalingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ClusterServerlessv2ScalingConfigurationArgs) ToClusterServerlessv2ScalingConfigurationOutputWithContext(ctx context.Context) ClusterServerlessv2ScalingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessv2ScalingConfigurationOutput)
+}
+
+func (i ClusterServerlessv2ScalingConfigurationArgs) ToClusterServerlessv2ScalingConfigurationPtrOutput() ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return i.ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterServerlessv2ScalingConfigurationArgs) ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessv2ScalingConfigurationOutput).ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ClusterServerlessv2ScalingConfigurationPtrInput is an input type that accepts ClusterServerlessv2ScalingConfigurationArgs, ClusterServerlessv2ScalingConfigurationPtr and ClusterServerlessv2ScalingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ClusterServerlessv2ScalingConfigurationPtrInput` via:
+//
+//          ClusterServerlessv2ScalingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterServerlessv2ScalingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToClusterServerlessv2ScalingConfigurationPtrOutput() ClusterServerlessv2ScalingConfigurationPtrOutput
+	ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(context.Context) ClusterServerlessv2ScalingConfigurationPtrOutput
+}
+
+type clusterServerlessv2ScalingConfigurationPtrType ClusterServerlessv2ScalingConfigurationArgs
+
+func ClusterServerlessv2ScalingConfigurationPtr(v *ClusterServerlessv2ScalingConfigurationArgs) ClusterServerlessv2ScalingConfigurationPtrInput {
+	return (*clusterServerlessv2ScalingConfigurationPtrType)(v)
+}
+
+func (*clusterServerlessv2ScalingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServerlessv2ScalingConfiguration)(nil)).Elem()
+}
+
+func (i *clusterServerlessv2ScalingConfigurationPtrType) ToClusterServerlessv2ScalingConfigurationPtrOutput() ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return i.ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterServerlessv2ScalingConfigurationPtrType) ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterServerlessv2ScalingConfigurationPtrOutput)
+}
+
+type ClusterServerlessv2ScalingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ClusterServerlessv2ScalingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterServerlessv2ScalingConfiguration)(nil)).Elem()
+}
+
+func (o ClusterServerlessv2ScalingConfigurationOutput) ToClusterServerlessv2ScalingConfigurationOutput() ClusterServerlessv2ScalingConfigurationOutput {
+	return o
+}
+
+func (o ClusterServerlessv2ScalingConfigurationOutput) ToClusterServerlessv2ScalingConfigurationOutputWithContext(ctx context.Context) ClusterServerlessv2ScalingConfigurationOutput {
+	return o
+}
+
+func (o ClusterServerlessv2ScalingConfigurationOutput) ToClusterServerlessv2ScalingConfigurationPtrOutput() ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return o.ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterServerlessv2ScalingConfigurationOutput) ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterServerlessv2ScalingConfiguration) *ClusterServerlessv2ScalingConfiguration {
+		return &v
+	}).(ClusterServerlessv2ScalingConfigurationPtrOutput)
+}
+
+// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+func (o ClusterServerlessv2ScalingConfigurationOutput) MaxCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MaxCapacity }).(pulumi.Float64Output)
+}
+
+// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+func (o ClusterServerlessv2ScalingConfigurationOutput) MinCapacity() pulumi.Float64Output {
+	return o.ApplyT(func(v ClusterServerlessv2ScalingConfiguration) float64 { return v.MinCapacity }).(pulumi.Float64Output)
+}
+
+type ClusterServerlessv2ScalingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterServerlessv2ScalingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterServerlessv2ScalingConfiguration)(nil)).Elem()
+}
+
+func (o ClusterServerlessv2ScalingConfigurationPtrOutput) ToClusterServerlessv2ScalingConfigurationPtrOutput() ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterServerlessv2ScalingConfigurationPtrOutput) ToClusterServerlessv2ScalingConfigurationPtrOutputWithContext(ctx context.Context) ClusterServerlessv2ScalingConfigurationPtrOutput {
+	return o
+}
+
+func (o ClusterServerlessv2ScalingConfigurationPtrOutput) Elem() ClusterServerlessv2ScalingConfigurationOutput {
+	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) ClusterServerlessv2ScalingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterServerlessv2ScalingConfiguration
+		return ret
+	}).(ClusterServerlessv2ScalingConfigurationOutput)
+}
+
+// The maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MaxCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
+// The minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+func (o ClusterServerlessv2ScalingConfigurationPtrOutput) MinCapacity() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ClusterServerlessv2ScalingConfiguration) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.MinCapacity
+	}).(pulumi.Float64PtrOutput)
+}
+
 type GlobalClusterGlobalClusterMember struct {
 	// Amazon Resource Name (ARN) of member DB Cluster
 	DbClusterArn *string `pulumi:"dbClusterArn"`
@@ -2256,6 +2412,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterS3ImportPtrInput)(nil)).Elem(), ClusterS3ImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConfigurationInput)(nil)).Elem(), ClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConfigurationPtrInput)(nil)).Elem(), ClusterScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerlessv2ScalingConfigurationPtrInput)(nil)).Elem(), ClusterServerlessv2ScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimeInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
@@ -2284,6 +2442,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterS3ImportPtrOutput{})
 	pulumi.RegisterOutputType(ClusterScalingConfigurationOutput{})
 	pulumi.RegisterOutputType(ClusterScalingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationOutput{})
+	pulumi.RegisterOutputType(ClusterServerlessv2ScalingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberOutput{})
 	pulumi.RegisterOutputType(GlobalClusterGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(InstanceRestoreToPointInTimeOutput{})

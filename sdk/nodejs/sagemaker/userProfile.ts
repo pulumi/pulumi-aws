@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker User Profile resource.
+ * Provides a SageMaker User Profile resource.
  *
  * ## Example Usage
  * ### Basic usage
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Code User Profiles can be imported using the `arn`, e.g.,
+ * SageMaker Code User Profiles can be imported using the `arn`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name

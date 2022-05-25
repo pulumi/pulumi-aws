@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Domain resource.
+    /// Provides a SageMaker Domain resource.
     /// 
     /// ## Example Usage
     /// ### Basic usage
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Code Domains can be imported using the `id`, e.g.,
+    /// SageMaker Code Domains can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8

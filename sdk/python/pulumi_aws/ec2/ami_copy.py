@@ -17,6 +17,7 @@ class AmiCopyArgs:
     def __init__(__self__, *,
                  source_ami_id: pulumi.Input[str],
                  source_ami_region: pulumi.Input[str],
+                 deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
@@ -31,6 +32,7 @@ class AmiCopyArgs:
                given by `source_ami_region`.
         :param pulumi.Input[str] source_ami_region: The region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
+        :param pulumi.Input[str] deprecation_time: The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
@@ -47,6 +49,8 @@ class AmiCopyArgs:
         """
         pulumi.set(__self__, "source_ami_id", source_ami_id)
         pulumi.set(__self__, "source_ami_region", source_ami_region)
+        if deprecation_time is not None:
+            pulumi.set(__self__, "deprecation_time", deprecation_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if destination_outpost_arn is not None:
@@ -89,6 +93,18 @@ class AmiCopyArgs:
     @source_ami_region.setter
     def source_ami_region(self, value: pulumi.Input[str]):
         pulumi.set(self, "source_ami_region", value)
+
+    @property
+    @pulumi.getter(name="deprecationTime")
+    def deprecation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
+        return pulumi.get(self, "deprecation_time")
+
+    @deprecation_time.setter
+    def deprecation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deprecation_time", value)
 
     @property
     @pulumi.getter
@@ -198,6 +214,7 @@ class _AmiCopyState:
                  architecture: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  boot_mode: Optional[pulumi.Input[str]] = None,
+                 deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['AmiCopyEbsBlockDeviceArgs']]]] = None,
@@ -231,6 +248,7 @@ class _AmiCopyState:
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
         :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] deprecation_time: The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
@@ -268,6 +286,8 @@ class _AmiCopyState:
             pulumi.set(__self__, "arn", arn)
         if boot_mode is not None:
             pulumi.set(__self__, "boot_mode", boot_mode)
+        if deprecation_time is not None:
+            pulumi.set(__self__, "deprecation_time", deprecation_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if destination_outpost_arn is not None:
@@ -360,6 +380,18 @@ class _AmiCopyState:
     @boot_mode.setter
     def boot_mode(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "boot_mode", value)
+
+    @property
+    @pulumi.getter(name="deprecationTime")
+    def deprecation_time(self) -> Optional[pulumi.Input[str]]:
+        """
+        The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
+        return pulumi.get(self, "deprecation_time")
+
+    @deprecation_time.setter
+    def deprecation_time(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deprecation_time", value)
 
     @property
     @pulumi.getter
@@ -683,6 +715,7 @@ class AmiCopy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
@@ -724,6 +757,7 @@ class AmiCopy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] deprecation_time: The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
@@ -791,6 +825,7 @@ class AmiCopy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 deprecation_time: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  destination_outpost_arn: Optional[pulumi.Input[str]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
@@ -813,6 +848,7 @@ class AmiCopy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AmiCopyArgs.__new__(AmiCopyArgs)
 
+            __props__.__dict__["deprecation_time"] = deprecation_time
             __props__.__dict__["description"] = description
             __props__.__dict__["destination_outpost_arn"] = destination_outpost_arn
             __props__.__dict__["ebs_block_devices"] = ebs_block_devices
@@ -861,6 +897,7 @@ class AmiCopy(pulumi.CustomResource):
             architecture: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             boot_mode: Optional[pulumi.Input[str]] = None,
+            deprecation_time: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             destination_outpost_arn: Optional[pulumi.Input[str]] = None,
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiCopyEbsBlockDeviceArgs']]]]] = None,
@@ -899,6 +936,7 @@ class AmiCopy(pulumi.CustomResource):
         :param pulumi.Input[str] architecture: Machine architecture for created instances. Defaults to "x86_64".
         :param pulumi.Input[str] arn: The ARN of the AMI.
         :param pulumi.Input[str] boot_mode: The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+        :param pulumi.Input[str] deprecation_time: The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
         :param pulumi.Input[str] description: A longer, human-readable description for the AMI.
         :param pulumi.Input[str] destination_outpost_arn: The ARN of the Outpost to which to copy the AMI.
                Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost.
@@ -937,6 +975,7 @@ class AmiCopy(pulumi.CustomResource):
         __props__.__dict__["architecture"] = architecture
         __props__.__dict__["arn"] = arn
         __props__.__dict__["boot_mode"] = boot_mode
+        __props__.__dict__["deprecation_time"] = deprecation_time
         __props__.__dict__["description"] = description
         __props__.__dict__["destination_outpost_arn"] = destination_outpost_arn
         __props__.__dict__["ebs_block_devices"] = ebs_block_devices
@@ -990,6 +1029,14 @@ class AmiCopy(pulumi.CustomResource):
         The boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
         """
         return pulumi.get(self, "boot_mode")
+
+    @property
+    @pulumi.getter(name="deprecationTime")
+    def deprecation_time(self) -> pulumi.Output[Optional[str]]:
+        """
+        The date and time to deprecate the AMI. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
+        """
+        return pulumi.get(self, "deprecation_time")
 
     @property
     @pulumi.getter

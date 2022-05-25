@@ -115,6 +115,10 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         public readonly int DesiredCapacity;
         /// <summary>
+        /// The list of metrics enabled for collection.
+        /// </summary>
+        public readonly ImmutableArray<string> EnabledMetrics;
+        /// <summary>
         /// The amount of time, in seconds, that Amazon EC2 Auto Scaling waits before checking the health status of an EC2 instance that has come into service.
         /// </summary>
         public readonly int HealthCheckGracePeriod;
@@ -183,6 +187,8 @@ namespace Pulumi.Aws.AutoScaling
 
             int desiredCapacity,
 
+            ImmutableArray<string> enabledMetrics,
+
             int healthCheckGracePeriod,
 
             string healthCheckType,
@@ -219,6 +225,7 @@ namespace Pulumi.Aws.AutoScaling
             AvailabilityZones = availabilityZones;
             DefaultCooldown = defaultCooldown;
             DesiredCapacity = desiredCapacity;
+            EnabledMetrics = enabledMetrics;
             HealthCheckGracePeriod = healthCheckGracePeriod;
             HealthCheckType = healthCheckType;
             Id = id;

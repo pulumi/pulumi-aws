@@ -163,6 +163,14 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Indicates whether running Spot
+        /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+        /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        /// </summary>
+        [Output("terminateInstancesOnDelete")]
+        public Output<string?> TerminateInstancesOnDelete { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether running Spot
         /// instances should be terminated when the Spot fleet request expires.
         /// </summary>
         [Output("terminateInstancesWithExpiration")]
@@ -391,6 +399,14 @@ namespace Pulumi.Aws.Ec2
 
         /// <summary>
         /// Indicates whether running Spot
+        /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+        /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        /// </summary>
+        [Input("terminateInstancesOnDelete")]
+        public Input<string>? TerminateInstancesOnDelete { get; set; }
+
+        /// <summary>
+        /// Indicates whether running Spot
         /// instances should be terminated when the Spot fleet request expires.
         /// </summary>
         [Input("terminateInstancesWithExpiration")]
@@ -598,6 +614,14 @@ namespace Pulumi.Aws.Ec2
             get => _targetGroupArns ?? (_targetGroupArns = new InputList<string>());
             set => _targetGroupArns = value;
         }
+
+        /// <summary>
+        /// Indicates whether running Spot
+        /// instances should be terminated when the resource is deleted (and the Spot fleet request cancelled).
+        /// If no value is specified, the value of the `terminate_instances_with_expiration` argument is used.
+        /// </summary>
+        [Input("terminateInstancesOnDelete")]
+        public Input<string>? TerminateInstancesOnDelete { get; set; }
 
         /// <summary>
         /// Indicates whether running Spot

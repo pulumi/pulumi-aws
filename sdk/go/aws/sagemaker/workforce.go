@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Sagemaker Workforce resource.
+// Provides a SageMaker Workforce resource.
 //
 // ## Example Usage
 // ### Cognito Usage
@@ -94,7 +94,7 @@ import (
 //
 // ## Import
 //
-// Sagemaker Workforces can be imported using the `workforce_name`, e.g.,
+// SageMaker Workforces can be imported using the `workforce_name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/workforce:Workforce example example

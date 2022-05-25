@@ -311,13 +311,17 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// Version number of the cache engine to be used for the cache clusters in this replication group.
+        /// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        /// Otherwise, specify the full version desired, e.g., `5.0.6`.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Running version of the cache engine.
+        /// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         /// </summary>
         [Output("engineVersionActual")]
         public Output<string> EngineVersionActual { get; private set; } = null!;
@@ -617,7 +621,11 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// Version number of the cache engine to be used for the cache clusters in this replication group.
+        /// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        /// Otherwise, specify the full version desired, e.g., `5.0.6`.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -916,13 +924,17 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// Version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        /// Version number of the cache engine to be used for the cache clusters in this replication group.
+        /// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        /// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        /// Otherwise, specify the full version desired, e.g., `5.0.6`.
+        /// The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// Running version of the cache engine.
+        /// Because ElastiCache pulls the latest minor or patch for a version, this attribute returns the running version of the cache engine.
         /// </summary>
         [Input("engineVersionActual")]
         public Input<string>? EngineVersionActual { get; set; }

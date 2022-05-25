@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Flow Definition resource.
+    /// Provides a SageMaker Flow Definition resource.
     /// 
     /// ## Example Usage
     /// ### Basic Usage
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
+    /// SageMaker Flow Definitions can be imported using the `flow_definition_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example

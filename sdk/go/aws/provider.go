@@ -79,9 +79,10 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	AccessKey         *string             `pulumi:"accessKey"`
-	AllowedAccountIds []string            `pulumi:"allowedAccountIds"`
-	AssumeRole        *ProviderAssumeRole `pulumi:"assumeRole"`
+	AccessKey                 *string                            `pulumi:"accessKey"`
+	AllowedAccountIds         []string                           `pulumi:"allowedAccountIds"`
+	AssumeRole                *ProviderAssumeRole                `pulumi:"assumeRole"`
+	AssumeRoleWithWebIdentity *ProviderAssumeRoleWithWebIdentity `pulumi:"assumeRoleWithWebIdentity"`
 	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
 	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
 	CustomCaBundle *string `pulumi:"customCaBundle"`
@@ -153,9 +154,10 @@ type providerArgs struct {
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
-	AccessKey         pulumi.StringPtrInput
-	AllowedAccountIds pulumi.StringArrayInput
-	AssumeRole        ProviderAssumeRolePtrInput
+	AccessKey                 pulumi.StringPtrInput
+	AllowedAccountIds         pulumi.StringArrayInput
+	AssumeRole                ProviderAssumeRolePtrInput
+	AssumeRoleWithWebIdentity ProviderAssumeRoleWithWebIdentityPtrInput
 	// File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment
 	// variable. (Setting `ca_bundle` in the shared config file is not supported.)
 	CustomCaBundle pulumi.StringPtrInput

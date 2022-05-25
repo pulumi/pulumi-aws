@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DeploymentStrategy{}
 	case "aws:appconfig/environment:Environment":
 		r = &Environment{}
+	case "aws:appconfig/eventIntegration:EventIntegration":
+		r = &EventIntegration{}
 	case "aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion":
 		r = &HostedConfigurationVersion{}
 	default:
@@ -69,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"appconfig/environment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appconfig/eventIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

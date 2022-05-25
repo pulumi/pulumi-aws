@@ -58,11 +58,12 @@ import * as utilities from "../utilities";
  * const example = new aws.apprunner.Service("example", {
  *     serviceName: "example",
  *     sourceConfiguration: {
+ *         autoDeploymentEnabled: false,
  *         imageRepository: {
  *             imageConfiguration: {
  *                 port: "8000",
  *             },
- *             imageIdentifier: "public.ecr.aws/jg/hello:latest",
+ *             imageIdentifier: "public.ecr.aws/aws-containers/hello-app-runner:latest",
  *             imageRepositoryType: "ECR_PUBLIC",
  *         },
  *     },

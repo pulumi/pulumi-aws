@@ -113,12 +113,14 @@ class AwaitableGetConnectionResult(GetConnectionResult):
 
 
 def get_connection(arn: Optional[str] = None,
+                   name: Optional[str] = None,
                    tags: Optional[Mapping[str, str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
     Provides details about CodeStar Connection.
 
     ## Example Usage
+    ### By ARN
 
     ```python
     import pulumi
@@ -126,13 +128,23 @@ def get_connection(arn: Optional[str] = None,
 
     example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
     ```
+    ### By Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    ```
 
 
     :param str arn: The CodeStar Connection ARN.
+    :param str name: The CodeStar Connection name.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     __args__ = dict()
     __args__['arn'] = arn
+    __args__['name'] = name
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -151,13 +163,15 @@ def get_connection(arn: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_connection)
-def get_connection_output(arn: Optional[pulumi.Input[str]] = None,
+def get_connection_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
+                          name: Optional[pulumi.Input[Optional[str]]] = None,
                           tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
     Provides details about CodeStar Connection.
 
     ## Example Usage
+    ### By ARN
 
     ```python
     import pulumi
@@ -165,9 +179,18 @@ def get_connection_output(arn: Optional[pulumi.Input[str]] = None,
 
     example = aws.codestarconnections.get_connection(arn=aws_codestarconnections_connection["example"]["arn"])
     ```
+    ### By Name
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.codestarconnections.get_connection(name=aws_codestarconnections_connection["example"]["name"])
+    ```
 
 
     :param str arn: The CodeStar Connection ARN.
+    :param str name: The CodeStar Connection name.
     :param Mapping[str, str] tags: Map of key-value resource tags to associate with the resource.
     """
     ...

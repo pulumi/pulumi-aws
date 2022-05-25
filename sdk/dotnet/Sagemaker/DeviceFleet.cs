@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Sagemaker
 {
     /// <summary>
-    /// Provides a Sagemaker Device Fleet resource.
+    /// Provides a SageMaker Device Fleet resource.
     /// 
     /// ## Example Usage
     /// ### Basic usage
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Device Fleets can be imported using the `name`, e.g.,
+    /// SageMaker Device Fleets can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet

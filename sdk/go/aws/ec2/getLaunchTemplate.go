@@ -106,11 +106,13 @@ type LookupLaunchTemplateResult struct {
 	ImageId                           string                                  `pulumi:"imageId"`
 	InstanceInitiatedShutdownBehavior string                                  `pulumi:"instanceInitiatedShutdownBehavior"`
 	InstanceMarketOptions             []GetLaunchTemplateInstanceMarketOption `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              []GetLaunchTemplateInstanceRequirement  `pulumi:"instanceRequirements"`
 	InstanceType                      string                                  `pulumi:"instanceType"`
 	KernelId                          string                                  `pulumi:"kernelId"`
 	KeyName                           string                                  `pulumi:"keyName"`
 	LatestVersion                     int                                     `pulumi:"latestVersion"`
 	LicenseSpecifications             []GetLaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                []GetLaunchTemplateMaintenanceOption    `pulumi:"maintenanceOptions"`
 	MetadataOptions                   []GetLaunchTemplateMetadataOption       `pulumi:"metadataOptions"`
 	Monitorings                       []GetLaunchTemplateMonitoring           `pulumi:"monitorings"`
 	Name                              string                                  `pulumi:"name"`
@@ -256,6 +258,12 @@ func (o LookupLaunchTemplateResultOutput) InstanceMarketOptions() GetLaunchTempl
 	}).(GetLaunchTemplateInstanceMarketOptionArrayOutput)
 }
 
+func (o LookupLaunchTemplateResultOutput) InstanceRequirements() GetLaunchTemplateInstanceRequirementArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateInstanceRequirement {
+		return v.InstanceRequirements
+	}).(GetLaunchTemplateInstanceRequirementArrayOutput)
+}
+
 func (o LookupLaunchTemplateResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -276,6 +284,10 @@ func (o LookupLaunchTemplateResultOutput) LicenseSpecifications() GetLaunchTempl
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateLicenseSpecification {
 		return v.LicenseSpecifications
 	}).(GetLaunchTemplateLicenseSpecificationArrayOutput)
+}
+
+func (o LookupLaunchTemplateResultOutput) MaintenanceOptions() GetLaunchTemplateMaintenanceOptionArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateMaintenanceOption { return v.MaintenanceOptions }).(GetLaunchTemplateMaintenanceOptionArrayOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) MetadataOptions() GetLaunchTemplateMetadataOptionArrayOutput {

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a Sagemaker Model Package Group resource.
+ * Provides a SageMaker Model Package Group resource.
  *
  * ## Example Usage
  * ### Basic usage
@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Code Model Package Groups can be imported using the `name`, e.g.,
+ * SageMaker Code Model Package Groups can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo

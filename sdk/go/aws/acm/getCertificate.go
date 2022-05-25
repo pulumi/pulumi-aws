@@ -88,8 +88,12 @@ type LookupCertificateArgs struct {
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
 	// Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
-	Arn    string `pulumi:"arn"`
-	Domain string `pulumi:"domain"`
+	Arn string `pulumi:"arn"`
+	// The ACM-issued certificate.
+	Certificate string `pulumi:"certificate"`
+	// Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+	CertificateChain string `pulumi:"certificateChain"`
+	Domain           string `pulumi:"domain"`
 	// The provider-assigned unique ID for this managed resource.
 	Id         string   `pulumi:"id"`
 	KeyTypes   []string `pulumi:"keyTypes"`
@@ -155,6 +159,16 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 // Amazon Resource Name (ARN) of the found certificate, suitable for referencing in other resources that support ACM certificates.
 func (o LookupCertificateResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The ACM-issued certificate.
+func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// Certificates forming the requested ACM-issued certificate's chain of trust. The chain consists of the certificate of the issuing CA and the intermediate certificates of any other subordinate CAs.
+func (o LookupCertificateResultOutput) CertificateChain() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateChain }).(pulumi.StringOutput)
 }
 
 func (o LookupCertificateResultOutput) Domain() pulumi.StringOutput {

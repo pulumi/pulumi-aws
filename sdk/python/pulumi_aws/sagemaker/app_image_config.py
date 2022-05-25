@@ -165,7 +165,7 @@ class AppImageConfig(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a Sagemaker App Image Config resource.
+        Provides a SageMaker App Image Config resource.
 
         ## Example Usage
         ### Basic usage
@@ -200,7 +200,7 @@ class AppImageConfig(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker App Image Configs can be imported using the `name`, e.g.,
+        SageMaker App Image Configs can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
@@ -219,7 +219,7 @@ class AppImageConfig(pulumi.CustomResource):
                  args: AppImageConfigArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Sagemaker App Image Config resource.
+        Provides a SageMaker App Image Config resource.
 
         ## Example Usage
         ### Basic usage
@@ -254,7 +254,7 @@ class AppImageConfig(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker App Image Configs can be imported using the `name`, e.g.,
+        SageMaker App Image Configs can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example

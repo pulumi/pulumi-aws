@@ -22,6 +22,12 @@ __all__ = [
     'RoutingProfileMediaConcurrency',
     'RoutingProfileQueueConfig',
     'RoutingProfileQueueConfigsAssociated',
+    'UserHierarchyGroupHierarchyPath',
+    'UserHierarchyGroupHierarchyPathLevelFife',
+    'UserHierarchyGroupHierarchyPathLevelFour',
+    'UserHierarchyGroupHierarchyPathLevelOne',
+    'UserHierarchyGroupHierarchyPathLevelThree',
+    'UserHierarchyGroupHierarchyPathLevelTwo',
     'UserHierarchyStructureHierarchyStructure',
     'UserHierarchyStructureHierarchyStructureLevelFive',
     'UserHierarchyStructureHierarchyStructureLevelFour',
@@ -37,6 +43,14 @@ __all__ = [
     'GetQuickConnectQuickConnectConfigPhoneConfigResult',
     'GetQuickConnectQuickConnectConfigQueueConfigResult',
     'GetQuickConnectQuickConnectConfigUserConfigResult',
+    'GetRoutingProfileMediaConcurrencyResult',
+    'GetRoutingProfileQueueConfigResult',
+    'GetUserHierarchyStructureHierarchyStructureResult',
+    'GetUserHierarchyStructureHierarchyStructureLevelFifeResult',
+    'GetUserHierarchyStructureHierarchyStructureLevelFourResult',
+    'GetUserHierarchyStructureHierarchyStructureLevelOneResult',
+    'GetUserHierarchyStructureHierarchyStructureLevelThreeResult',
+    'GetUserHierarchyStructureHierarchyStructureLevelTwoResult',
 ]
 
 @pulumi.output_type
@@ -701,6 +715,313 @@ class RoutingProfileQueueConfigsAssociated(dict):
 
 
 @pulumi.output_type
+class UserHierarchyGroupHierarchyPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "levelFives":
+            suggest = "level_fives"
+        elif key == "levelFours":
+            suggest = "level_fours"
+        elif key == "levelOnes":
+            suggest = "level_ones"
+        elif key == "levelThrees":
+            suggest = "level_threes"
+        elif key == "levelTwos":
+            suggest = "level_twos"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserHierarchyGroupHierarchyPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserHierarchyGroupHierarchyPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserHierarchyGroupHierarchyPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 level_fives: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelFife']] = None,
+                 level_fours: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelFour']] = None,
+                 level_ones: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelOne']] = None,
+                 level_threes: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelThree']] = None,
+                 level_twos: Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelTwo']] = None):
+        """
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelFifeArgs'] level_fives: A block that defines the details of level five. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelFourArgs'] level_fours: A block that defines the details of level four. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelOneArgs'] level_ones: A block that defines the details of level one. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelThreeArgs'] level_threes: A block that defines the details of level three. The level block is documented below.
+        :param Sequence['UserHierarchyGroupHierarchyPathLevelTwoArgs'] level_twos: A block that defines the details of level two. The level block is documented below.
+        """
+        if level_fives is not None:
+            pulumi.set(__self__, "level_fives", level_fives)
+        if level_fours is not None:
+            pulumi.set(__self__, "level_fours", level_fours)
+        if level_ones is not None:
+            pulumi.set(__self__, "level_ones", level_ones)
+        if level_threes is not None:
+            pulumi.set(__self__, "level_threes", level_threes)
+        if level_twos is not None:
+            pulumi.set(__self__, "level_twos", level_twos)
+
+    @property
+    @pulumi.getter(name="levelFives")
+    def level_fives(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelFife']]:
+        """
+        A block that defines the details of level five. The level block is documented below.
+        """
+        return pulumi.get(self, "level_fives")
+
+    @property
+    @pulumi.getter(name="levelFours")
+    def level_fours(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelFour']]:
+        """
+        A block that defines the details of level four. The level block is documented below.
+        """
+        return pulumi.get(self, "level_fours")
+
+    @property
+    @pulumi.getter(name="levelOnes")
+    def level_ones(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelOne']]:
+        """
+        A block that defines the details of level one. The level block is documented below.
+        """
+        return pulumi.get(self, "level_ones")
+
+    @property
+    @pulumi.getter(name="levelThrees")
+    def level_threes(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelThree']]:
+        """
+        A block that defines the details of level three. The level block is documented below.
+        """
+        return pulumi.get(self, "level_threes")
+
+    @property
+    @pulumi.getter(name="levelTwos")
+    def level_twos(self) -> Optional[Sequence['outputs.UserHierarchyGroupHierarchyPathLevelTwo']]:
+        """
+        A block that defines the details of level two. The level block is documented below.
+        """
+        return pulumi.get(self, "level_twos")
+
+
+@pulumi.output_type
+class UserHierarchyGroupHierarchyPathLevelFife(dict):
+    def __init__(__self__, *,
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str id: The identifier of the hierarchy group.
+        :param str name: The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy group.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class UserHierarchyGroupHierarchyPathLevelFour(dict):
+    def __init__(__self__, *,
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str id: The identifier of the hierarchy group.
+        :param str name: The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy group.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class UserHierarchyGroupHierarchyPathLevelOne(dict):
+    def __init__(__self__, *,
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str id: The identifier of the hierarchy group.
+        :param str name: The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy group.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class UserHierarchyGroupHierarchyPathLevelThree(dict):
+    def __init__(__self__, *,
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str id: The identifier of the hierarchy group.
+        :param str name: The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy group.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class UserHierarchyGroupHierarchyPathLevelTwo(dict):
+    def __init__(__self__, *,
+                 arn: Optional[str] = None,
+                 id: Optional[str] = None,
+                 name: Optional[str] = None):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy group.
+        :param str id: The identifier of the hierarchy group.
+        :param str name: The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        if arn is not None:
+            pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy group.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        The identifier of the hierarchy group.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        The name of the user hierarchy group. Must not be more than 100 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
 class UserHierarchyStructureHierarchyStructure(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1294,5 +1615,369 @@ class GetQuickConnectQuickConnectConfigUserConfigResult(dict):
         Specifies the identifier for the user.
         """
         return pulumi.get(self, "user_id")
+
+
+@pulumi.output_type
+class GetRoutingProfileMediaConcurrencyResult(dict):
+    def __init__(__self__, *,
+                 channel: str,
+                 concurrency: int):
+        """
+        :param str channel: Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param int concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "concurrency", concurrency)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> str:
+        """
+        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        """
+        return pulumi.get(self, "channel")
+
+    @property
+    @pulumi.getter
+    def concurrency(self) -> int:
+        """
+        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of 1. Maximum value of 1. Valid Range for `CHAT`: Minimum value of 1. Maximum value of 10. Valid Range for `TASK`: Minimum value of 1. Maximum value of 10.
+        """
+        return pulumi.get(self, "concurrency")
+
+
+@pulumi.output_type
+class GetRoutingProfileQueueConfigResult(dict):
+    def __init__(__self__, *,
+                 channel: str,
+                 delay: int,
+                 priority: int,
+                 queue_arn: str,
+                 queue_id: str,
+                 queue_name: str):
+        """
+        :param str channel: Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        :param int delay: Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        :param int priority: Specifies the order in which contacts are to be handled for the queue.
+        :param str queue_arn: Specifies the ARN for the queue.
+        :param str queue_id: Specifies the identifier for the queue.
+        :param str queue_name: Specifies the name for the queue.
+        """
+        pulumi.set(__self__, "channel", channel)
+        pulumi.set(__self__, "delay", delay)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "queue_arn", queue_arn)
+        pulumi.set(__self__, "queue_id", queue_id)
+        pulumi.set(__self__, "queue_name", queue_name)
+
+    @property
+    @pulumi.getter
+    def channel(self) -> str:
+        """
+        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+        """
+        return pulumi.get(self, "channel")
+
+    @property
+    @pulumi.getter
+    def delay(self) -> int:
+        """
+        Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+        """
+        return pulumi.get(self, "delay")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Specifies the order in which contacts are to be handled for the queue.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="queueArn")
+    def queue_arn(self) -> str:
+        """
+        Specifies the ARN for the queue.
+        """
+        return pulumi.get(self, "queue_arn")
+
+    @property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> str:
+        """
+        Specifies the identifier for the queue.
+        """
+        return pulumi.get(self, "queue_id")
+
+    @property
+    @pulumi.getter(name="queueName")
+    def queue_name(self) -> str:
+        """
+        Specifies the name for the queue.
+        """
+        return pulumi.get(self, "queue_name")
+
+
+@pulumi.output_type
+class GetUserHierarchyStructureHierarchyStructureResult(dict):
+    def __init__(__self__, *,
+                 level_fives: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFifeResult'],
+                 level_fours: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFourResult'],
+                 level_ones: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelOneResult'],
+                 level_threes: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelThreeResult'],
+                 level_twos: Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelTwoResult']):
+        """
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFifeArgs'] level_fives: A block that defines the details of level five. The level block is documented below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelFourArgs'] level_fours: A block that defines the details of level four. The level block is documented below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelOneArgs'] level_ones: A block that defines the details of level one. The level block is documented below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelThreeArgs'] level_threes: A block that defines the details of level three. The level block is documented below.
+        :param Sequence['GetUserHierarchyStructureHierarchyStructureLevelTwoArgs'] level_twos: A block that defines the details of level two. The level block is documented below.
+        """
+        pulumi.set(__self__, "level_fives", level_fives)
+        pulumi.set(__self__, "level_fours", level_fours)
+        pulumi.set(__self__, "level_ones", level_ones)
+        pulumi.set(__self__, "level_threes", level_threes)
+        pulumi.set(__self__, "level_twos", level_twos)
+
+    @property
+    @pulumi.getter(name="levelFives")
+    def level_fives(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFifeResult']:
+        """
+        A block that defines the details of level five. The level block is documented below.
+        """
+        return pulumi.get(self, "level_fives")
+
+    @property
+    @pulumi.getter(name="levelFours")
+    def level_fours(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelFourResult']:
+        """
+        A block that defines the details of level four. The level block is documented below.
+        """
+        return pulumi.get(self, "level_fours")
+
+    @property
+    @pulumi.getter(name="levelOnes")
+    def level_ones(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelOneResult']:
+        """
+        A block that defines the details of level one. The level block is documented below.
+        """
+        return pulumi.get(self, "level_ones")
+
+    @property
+    @pulumi.getter(name="levelThrees")
+    def level_threes(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelThreeResult']:
+        """
+        A block that defines the details of level three. The level block is documented below.
+        """
+        return pulumi.get(self, "level_threes")
+
+    @property
+    @pulumi.getter(name="levelTwos")
+    def level_twos(self) -> Sequence['outputs.GetUserHierarchyStructureHierarchyStructureLevelTwoResult']:
+        """
+        A block that defines the details of level two. The level block is documented below.
+        """
+        return pulumi.get(self, "level_twos")
+
+
+@pulumi.output_type
+class GetUserHierarchyStructureHierarchyStructureLevelFifeResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 id: str,
+                 name: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str id: The identifier of the hierarchy level.
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetUserHierarchyStructureHierarchyStructureLevelFourResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 id: str,
+                 name: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str id: The identifier of the hierarchy level.
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetUserHierarchyStructureHierarchyStructureLevelOneResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 id: str,
+                 name: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str id: The identifier of the hierarchy level.
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetUserHierarchyStructureHierarchyStructureLevelThreeResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 id: str,
+                 name: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str id: The identifier of the hierarchy level.
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetUserHierarchyStructureHierarchyStructureLevelTwoResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 id: str,
+                 name: str):
+        """
+        :param str arn: The Amazon Resource Name (ARN) of the hierarchy level.
+        :param str id: The identifier of the hierarchy level.
+        :param str name: The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the hierarchy level.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The identifier of the hierarchy level.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the user hierarchy level. Must not be more than 50 characters.
+        """
+        return pulumi.get(self, "name")
 
 

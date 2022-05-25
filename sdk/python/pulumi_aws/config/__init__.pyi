@@ -18,6 +18,8 @@ allowedAccountIds: Optional[str]
 
 assumeRole: Optional[str]
 
+assumeRoleWithWebIdentity: Optional[str]
+
 customCaBundle: Optional[str]
 """
 File containing custom root and intermediate certificates. Can also be configured using the `AWS_CA_BUNDLE` environment

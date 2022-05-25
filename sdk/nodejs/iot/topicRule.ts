@@ -118,12 +118,14 @@ export class TopicRule extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
      */
     public readonly errorAction!: pulumi.Output<outputs.iot.TopicRuleErrorAction | undefined>;
     public readonly firehose!: pulumi.Output<outputs.iot.TopicRuleFirehose | undefined>;
+    public readonly https!: pulumi.Output<outputs.iot.TopicRuleHttp[] | undefined>;
     public readonly iotAnalytics!: pulumi.Output<outputs.iot.TopicRuleIotAnalytic[] | undefined>;
     public readonly iotEvents!: pulumi.Output<outputs.iot.TopicRuleIotEvent[] | undefined>;
+    public readonly kafkas!: pulumi.Output<outputs.iot.TopicRuleKafka[] | undefined>;
     public readonly kinesis!: pulumi.Output<outputs.iot.TopicRuleKinesis | undefined>;
     public readonly lambda!: pulumi.Output<outputs.iot.TopicRuleLambda | undefined>;
     /**
@@ -151,6 +153,7 @@ export class TopicRule extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public readonly timestreams!: pulumi.Output<outputs.iot.TopicRuleTimestream[] | undefined>;
 
     /**
      * Create a TopicRule resource with the given unique name, arguments, and options.
@@ -176,8 +179,10 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["errorAction"] = state ? state.errorAction : undefined;
             resourceInputs["firehose"] = state ? state.firehose : undefined;
+            resourceInputs["https"] = state ? state.https : undefined;
             resourceInputs["iotAnalytics"] = state ? state.iotAnalytics : undefined;
             resourceInputs["iotEvents"] = state ? state.iotEvents : undefined;
+            resourceInputs["kafkas"] = state ? state.kafkas : undefined;
             resourceInputs["kinesis"] = state ? state.kinesis : undefined;
             resourceInputs["lambda"] = state ? state.lambda : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -190,6 +195,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["stepFunctions"] = state ? state.stepFunctions : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timestreams"] = state ? state.timestreams : undefined;
         } else {
             const args = argsOrState as TopicRuleArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -211,8 +217,10 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["errorAction"] = args ? args.errorAction : undefined;
             resourceInputs["firehose"] = args ? args.firehose : undefined;
+            resourceInputs["https"] = args ? args.https : undefined;
             resourceInputs["iotAnalytics"] = args ? args.iotAnalytics : undefined;
             resourceInputs["iotEvents"] = args ? args.iotEvents : undefined;
+            resourceInputs["kafkas"] = args ? args.kafkas : undefined;
             resourceInputs["kinesis"] = args ? args.kinesis : undefined;
             resourceInputs["lambda"] = args ? args.lambda : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -224,6 +232,7 @@ export class TopicRule extends pulumi.CustomResource {
             resourceInputs["sqs"] = args ? args.sqs : undefined;
             resourceInputs["stepFunctions"] = args ? args.stepFunctions : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timestreams"] = args ? args.timestreams : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
@@ -255,12 +264,14 @@ export interface TopicRuleState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
      */
     errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
     firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
+    https?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleHttp>[]>;
     iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
     iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
+    kafkas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafka>[]>;
     kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
     lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
     /**
@@ -288,6 +299,7 @@ export interface TopicRuleState {
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    timestreams?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTimestream>[]>;
 }
 
 /**
@@ -309,12 +321,14 @@ export interface TopicRuleArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `iotAnalytics`, `iotEvents`, `kinesis`, `lambda`, `republish`, `s3`, `stepFunctions`, `sns`, `sqs` configuration blocks for further configuration details.
+     * Configuration block with error action to be associated with the rule. See the documentation for `cloudwatchAlarm`, `cloudwatchLogs`, `cloudwatchMetric`, `dynamodb`, `dynamodbv2`, `elasticsearch`, `firehose`, `http`, `iotAnalytics`, `iotEvents`, `kafka`, `kinesis`, `lambda`, `republish`, `s3`, `sns`, `sqs`, `stepFunctions`, `timestream` configuration blocks for further configuration details.
      */
     errorAction?: pulumi.Input<inputs.iot.TopicRuleErrorAction>;
     firehose?: pulumi.Input<inputs.iot.TopicRuleFirehose>;
+    https?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleHttp>[]>;
     iotAnalytics?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotAnalytic>[]>;
     iotEvents?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleIotEvent>[]>;
+    kafkas?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleKafka>[]>;
     kinesis?: pulumi.Input<inputs.iot.TopicRuleKinesis>;
     lambda?: pulumi.Input<inputs.iot.TopicRuleLambda>;
     /**
@@ -338,4 +352,5 @@ export interface TopicRuleArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    timestreams?: pulumi.Input<pulumi.Input<inputs.iot.TopicRuleTimestream>[]>;
 }

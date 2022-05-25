@@ -90,10 +90,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // ...other configuration...
+ * const current = aws.getCallerIdentity({});
  * const dlmCrossRegionCopyCmk = new aws.kms.Key("dlmCrossRegionCopyCmk", {
  *     description: "Example Alternate Region KMS Key",
- *     policy: `{
+ *     policy: current.then(current => `{
  *   "Version": "2012-10-17",
  *   "Id": "dlm-cross-region-copy-cmk",
  *   "Statement": [
@@ -101,14 +101,14 @@ import * as utilities from "../utilities";
  *       "Sid": "Enable IAM User Permissions",
  *       "Effect": "Allow",
  *       "Principal": {
- *         "AWS": "*"
+ *         "AWS": "arn:aws:iam::${current.accountId}:root"
  *       },
  *       "Action": "kms:*",
  *       "Resource": "*"
  *     }
  *   ]
  * }
- * `,
+ * `),
  * }, {
  *     provider: aws.alternate,
  * });

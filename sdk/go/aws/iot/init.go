@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ThingType{}
 	case "aws:iot/topicRule:TopicRule":
 		r = &TopicRule{}
+	case "aws:iot/topicRuleDestination:TopicRuleDestination":
+		r = &TopicRuleDestination{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -130,6 +132,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iot/topicRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iot/topicRuleDestination",
 		&module{version},
 	)
 }

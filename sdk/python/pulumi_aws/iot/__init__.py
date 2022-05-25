@@ -20,5 +20,6 @@ from .thing_group_membership import *
 from .thing_principal_attachment import *
 from .thing_type import *
 from .topic_rule import *
+from .topic_rule_destination import *
 from ._inputs import *
 from . import outputs
