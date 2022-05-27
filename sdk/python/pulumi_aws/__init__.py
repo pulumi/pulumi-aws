@@ -4060,6 +4060,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "efs/replicationConfiguration",
+  "fqn": "pulumi_aws.efs",
+  "classes": {
+   "aws:efs/replicationConfiguration:ReplicationConfiguration": "ReplicationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "eks/addon",
   "fqn": "pulumi_aws.eks",
   "classes": {
@@ -5332,6 +5340,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "keyspaces/table",
+  "fqn": "pulumi_aws.keyspaces",
+  "classes": {
+   "aws:keyspaces/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kinesis/analyticsApplication",
   "fqn": "pulumi_aws.kinesis",
   "classes": {
@@ -5704,6 +5720,14 @@ _utilities.register(
   "fqn": "pulumi_aws.location",
   "classes": {
    "aws:location/map:Map": "Map"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "location/placeIndex",
+  "fqn": "pulumi_aws.location",
+  "classes": {
+   "aws:location/placeIndex:PlaceIndex": "PlaceIndex"
   }
  },
  {
@@ -6644,10 +6668,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rds/snapshotCopy",
+  "fqn": "pulumi_aws.rds",
+  "classes": {
+   "aws:rds/snapshotCopy:SnapshotCopy": "SnapshotCopy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "rds/subnetGroup",
   "fqn": "pulumi_aws.rds",
   "classes": {
    "aws:rds/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/authenticationProfile",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/authenticationProfile:AuthenticationProfile": "AuthenticationProfile"
   }
  },
  {
@@ -6660,10 +6700,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshift/endpointAccess",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/endpointAccess:EndpointAccess": "EndpointAccess"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshift/eventSubscription",
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/eventSubscription:EventSubscription": "EventSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/hsmClientCertificate",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/hsmClientCertificate:HsmClientCertificate": "HsmClientCertificate"
   }
  },
  {
@@ -6720,6 +6776,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/usageLimit",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/usageLimit:UsageLimit": "UsageLimit"
   }
  },
  {

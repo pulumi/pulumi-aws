@@ -15,6 +15,7 @@ class AccountArgs:
     def __init__(__self__, *,
                  email: pulumi.Input[str],
                  close_on_deletion: Optional[pulumi.Input[bool]] = None,
+                 create_govcloud: Optional[pulumi.Input[bool]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  parent_id: Optional[pulumi.Input[str]] = None,
@@ -22,10 +23,10 @@ class AccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Account resource.
-        :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
-        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        :param pulumi.Input[str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
-        :param pulumi.Input[str] name: A friendly name for the member account.
+        :param pulumi.Input[str] name: Friendly name for the member account.
         :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         :param pulumi.Input[str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -33,6 +34,8 @@ class AccountArgs:
         pulumi.set(__self__, "email", email)
         if close_on_deletion is not None:
             pulumi.set(__self__, "close_on_deletion", close_on_deletion)
+        if create_govcloud is not None:
+            pulumi.set(__self__, "create_govcloud", create_govcloud)
         if iam_user_access_to_billing is not None:
             pulumi.set(__self__, "iam_user_access_to_billing", iam_user_access_to_billing)
         if name is not None:
@@ -48,7 +51,7 @@ class AccountArgs:
     @pulumi.getter
     def email(self) -> pulumi.Input[str]:
         """
-        The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         """
         return pulumi.get(self, "email")
 
@@ -60,13 +63,22 @@ class AccountArgs:
     @pulumi.getter(name="closeOnDeletion")
     def close_on_deletion(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         """
         return pulumi.get(self, "close_on_deletion")
 
     @close_on_deletion.setter
     def close_on_deletion(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "close_on_deletion", value)
+
+    @property
+    @pulumi.getter(name="createGovcloud")
+    def create_govcloud(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "create_govcloud")
+
+    @create_govcloud.setter
+    def create_govcloud(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_govcloud", value)
 
     @property
     @pulumi.getter(name="iamUserAccessToBilling")
@@ -84,7 +96,7 @@ class AccountArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A friendly name for the member account.
+        Friendly name for the member account.
         """
         return pulumi.get(self, "name")
 
@@ -134,7 +146,9 @@ class _AccountState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  close_on_deletion: Optional[pulumi.Input[bool]] = None,
+                 create_govcloud: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
+                 govcloud_id: Optional[pulumi.Input[str]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
                  joined_method: Optional[pulumi.Input[str]] = None,
                  joined_timestamp: Optional[pulumi.Input[str]] = None,
@@ -147,10 +161,11 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[str] arn: The ARN for this account.
-        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
-        :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+        :param pulumi.Input[str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        :param pulumi.Input[str] govcloud_id: ID for a GovCloud account created with the account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
-        :param pulumi.Input[str] name: A friendly name for the member account.
+        :param pulumi.Input[str] name: Friendly name for the member account.
         :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         :param pulumi.Input[str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -160,8 +175,12 @@ class _AccountState:
             pulumi.set(__self__, "arn", arn)
         if close_on_deletion is not None:
             pulumi.set(__self__, "close_on_deletion", close_on_deletion)
+        if create_govcloud is not None:
+            pulumi.set(__self__, "create_govcloud", create_govcloud)
         if email is not None:
             pulumi.set(__self__, "email", email)
+        if govcloud_id is not None:
+            pulumi.set(__self__, "govcloud_id", govcloud_id)
         if iam_user_access_to_billing is not None:
             pulumi.set(__self__, "iam_user_access_to_billing", iam_user_access_to_billing)
         if joined_method is not None:
@@ -197,7 +216,7 @@ class _AccountState:
     @pulumi.getter(name="closeOnDeletion")
     def close_on_deletion(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         """
         return pulumi.get(self, "close_on_deletion")
 
@@ -206,16 +225,37 @@ class _AccountState:
         pulumi.set(self, "close_on_deletion", value)
 
     @property
+    @pulumi.getter(name="createGovcloud")
+    def create_govcloud(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "create_govcloud")
+
+    @create_govcloud.setter
+    def create_govcloud(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "create_govcloud", value)
+
+    @property
     @pulumi.getter
     def email(self) -> Optional[pulumi.Input[str]]:
         """
-        The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         """
         return pulumi.get(self, "email")
 
     @email.setter
     def email(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "email", value)
+
+    @property
+    @pulumi.getter(name="govcloudId")
+    def govcloud_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID for a GovCloud account created with the account.
+        """
+        return pulumi.get(self, "govcloud_id")
+
+    @govcloud_id.setter
+    def govcloud_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "govcloud_id", value)
 
     @property
     @pulumi.getter(name="iamUserAccessToBilling")
@@ -251,7 +291,7 @@ class _AccountState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        A friendly name for the member account.
+        Friendly name for the member account.
         """
         return pulumi.get(self, "name")
 
@@ -323,6 +363,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  close_on_deletion: Optional[pulumi.Input[bool]] = None,
+                 create_govcloud: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -376,10 +417,10 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
-        :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+        :param pulumi.Input[str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
-        :param pulumi.Input[str] name: A friendly name for the member account.
+        :param pulumi.Input[str] name: Friendly name for the member account.
         :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         :param pulumi.Input[str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -450,6 +491,7 @@ class Account(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  close_on_deletion: Optional[pulumi.Input[bool]] = None,
+                 create_govcloud: Optional[pulumi.Input[bool]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -469,6 +511,7 @@ class Account(pulumi.CustomResource):
             __props__ = AccountArgs.__new__(AccountArgs)
 
             __props__.__dict__["close_on_deletion"] = close_on_deletion
+            __props__.__dict__["create_govcloud"] = create_govcloud
             if email is None and not opts.urn:
                 raise TypeError("Missing required property 'email'")
             __props__.__dict__["email"] = email
@@ -478,6 +521,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["role_name"] = role_name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["govcloud_id"] = None
             __props__.__dict__["joined_method"] = None
             __props__.__dict__["joined_timestamp"] = None
             __props__.__dict__["status"] = None
@@ -494,7 +538,9 @@ class Account(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             close_on_deletion: Optional[pulumi.Input[bool]] = None,
+            create_govcloud: Optional[pulumi.Input[bool]] = None,
             email: Optional[pulumi.Input[str]] = None,
+            govcloud_id: Optional[pulumi.Input[str]] = None,
             iam_user_access_to_billing: Optional[pulumi.Input[str]] = None,
             joined_method: Optional[pulumi.Input[str]] = None,
             joined_timestamp: Optional[pulumi.Input[str]] = None,
@@ -512,10 +558,11 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN for this account.
-        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
-        :param pulumi.Input[str] email: The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        :param pulumi.Input[bool] close_on_deletion: If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
+        :param pulumi.Input[str] email: Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        :param pulumi.Input[str] govcloud_id: ID for a GovCloud account created with the account.
         :param pulumi.Input[str] iam_user_access_to_billing: If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
-        :param pulumi.Input[str] name: A friendly name for the member account.
+        :param pulumi.Input[str] name: Friendly name for the member account.
         :param pulumi.Input[str] parent_id: Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
         :param pulumi.Input[str] role_name: The name of an IAM role that Organizations automatically preconfigures in the new member account. This role trusts the master account, allowing users in the master account to assume the role, as permitted by the master account administrator. The role has administrator permissions in the new member account. The Organizations API provides no method for reading this information after account creation, so this provider cannot perform drift detection on its value and will always show a difference for a configured value after import unless [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -527,7 +574,9 @@ class Account(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["close_on_deletion"] = close_on_deletion
+        __props__.__dict__["create_govcloud"] = create_govcloud
         __props__.__dict__["email"] = email
+        __props__.__dict__["govcloud_id"] = govcloud_id
         __props__.__dict__["iam_user_access_to_billing"] = iam_user_access_to_billing
         __props__.__dict__["joined_method"] = joined_method
         __props__.__dict__["joined_timestamp"] = joined_timestamp
@@ -551,17 +600,30 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="closeOnDeletion")
     def close_on_deletion(self) -> pulumi.Output[Optional[bool]]:
         """
-        If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         """
         return pulumi.get(self, "close_on_deletion")
+
+    @property
+    @pulumi.getter(name="createGovcloud")
+    def create_govcloud(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "create_govcloud")
 
     @property
     @pulumi.getter
     def email(self) -> pulumi.Output[str]:
         """
-        The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         """
         return pulumi.get(self, "email")
+
+    @property
+    @pulumi.getter(name="govcloudId")
+    def govcloud_id(self) -> pulumi.Output[str]:
+        """
+        ID for a GovCloud account created with the account.
+        """
+        return pulumi.get(self, "govcloud_id")
 
     @property
     @pulumi.getter(name="iamUserAccessToBilling")
@@ -585,7 +647,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        A friendly name for the member account.
+        Friendly name for the member account.
         """
         return pulumi.get(self, "name")
 

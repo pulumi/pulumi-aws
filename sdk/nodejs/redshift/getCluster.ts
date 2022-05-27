@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -72,6 +73,14 @@ export interface GetClusterResult {
      */
     readonly allowVersionUpgrade: boolean;
     /**
+     * The value represents how the cluster is configured to use AQUA.
+     */
+    readonly aquaConfigurationStatus: string;
+    /**
+     * Amazon Resource Name (ARN) of cluster.
+     */
+    readonly arn: string;
+    /**
      * The backup retention period
      */
     readonly automatedSnapshotRetentionPeriod: number;
@@ -91,6 +100,10 @@ export interface GetClusterResult {
      * The cluster identifier
      */
     readonly clusterIdentifier: string;
+    /**
+     * The nodes in the cluster. Cluster node blocks are documented below
+     */
+    readonly clusterNodes: outputs.redshift.GetClusterClusterNode[];
     /**
      * The name of the parameter group to be associated with this cluster
      */
@@ -120,6 +133,10 @@ export interface GetClusterResult {
      * The name of the default database in the cluster
      */
     readonly databaseName: string;
+    /**
+     * ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     */
+    readonly defaultIamRoleArn: string;
     /**
      * The Elastic IP of the cluster
      */
@@ -152,6 +169,22 @@ export interface GetClusterResult {
      * The KMS encryption key associated to the cluster
      */
     readonly kmsKeyId: string;
+    /**
+     * The log destination type.
+     */
+    readonly logDestinationType: string;
+    /**
+     * The collection of exported log types. Log types include the connection log, user log and user activity log.
+     */
+    readonly logExports: string[];
+    /**
+     * The name of the maintenance track for the restored cluster.
+     */
+    readonly maintenanceTrackName: string;
+    /**
+     * (Optional)  The default number of days to retain a manual snapshot.
+     */
+    readonly manualSnapshotRetentionPeriod: number;
     /**
      * Username for the master DB user
      */

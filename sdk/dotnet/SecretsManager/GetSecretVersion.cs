@@ -182,7 +182,7 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+        /// The decrypted part of the protected secret information that was originally provided as a binary.
         /// </summary>
         public readonly string SecretBinary;
         public readonly string SecretId;

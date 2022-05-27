@@ -159,10 +159,14 @@ export class AmiCopy extends pulumi.CustomResource {
      */
     public /*out*/ readonly sriovNetSupport!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    public /*out*/ readonly tpmSupport!: pulumi.Output<string>;
     public /*out*/ readonly usageOperation!: pulumi.Output<string>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -214,6 +218,7 @@ export class AmiCopy extends pulumi.CustomResource {
             resourceInputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tpmSupport"] = state ? state.tpmSupport : undefined;
             resourceInputs["usageOperation"] = state ? state.usageOperation : undefined;
             resourceInputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
@@ -254,6 +259,7 @@ export class AmiCopy extends pulumi.CustomResource {
             resourceInputs["rootSnapshotId"] = undefined /*out*/;
             resourceInputs["sriovNetSupport"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["tpmSupport"] = undefined /*out*/;
             resourceInputs["usageOperation"] = undefined /*out*/;
             resourceInputs["virtualizationType"] = undefined /*out*/;
         }
@@ -363,10 +369,14 @@ export interface AmiCopyState {
      */
     sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    tpmSupport?: pulumi.Input<string>;
     usageOperation?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances
@@ -428,7 +438,7 @@ export interface AmiCopyArgs {
      */
     sourceAmiRegion: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

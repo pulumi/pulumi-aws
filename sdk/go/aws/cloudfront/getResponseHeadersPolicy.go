@@ -65,6 +65,8 @@ type LookupResponseHeadersPolicyResult struct {
 	Name string `pulumi:"name"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfigs []GetResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfigs"`
+	// (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	ServerTimingHeadersConfigs []GetResponseHeadersPolicyServerTimingHeadersConfig `pulumi:"serverTimingHeadersConfigs"`
 }
 
 func LookupResponseHeadersPolicyOutput(ctx *pulumi.Context, args LookupResponseHeadersPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResponseHeadersPolicyResultOutput {
@@ -142,6 +144,13 @@ func (o LookupResponseHeadersPolicyResultOutput) SecurityHeadersConfigs() GetRes
 	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) []GetResponseHeadersPolicySecurityHeadersConfig {
 		return v.SecurityHeadersConfigs
 	}).(GetResponseHeadersPolicySecurityHeadersConfigArrayOutput)
+}
+
+// (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+func (o LookupResponseHeadersPolicyResultOutput) ServerTimingHeadersConfigs() GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput {
+	return o.ApplyT(func(v LookupResponseHeadersPolicyResult) []GetResponseHeadersPolicyServerTimingHeadersConfig {
+		return v.ServerTimingHeadersConfigs
+	}).(GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput)
 }
 
 func init() {

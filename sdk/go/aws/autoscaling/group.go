@@ -232,6 +232,63 @@ import (
 // 	})
 // }
 // ```
+// ### Mixed Instances Policy with Attribute-based Instance Type Selection
+//
+// As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/autoscaling"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "exampleLaunchTemplate", &ec2.LaunchTemplateArgs{
+// 			NamePrefix:   pulumi.String("example"),
+// 			ImageId:      pulumi.Any(data.Aws_ami.Example.Id),
+// 			InstanceType: pulumi.String("c5.large"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = autoscaling.NewGroup(ctx, "exampleGroup", &autoscaling.GroupArgs{
+// 			AvailabilityZones: pulumi.StringArray{
+// 				pulumi.String("us-east-1a"),
+// 			},
+// 			DesiredCapacity: pulumi.Int(1),
+// 			MaxSize:         pulumi.Int(1),
+// 			MinSize:         pulumi.Int(1),
+// 			MixedInstancesPolicy: &autoscaling.GroupMixedInstancesPolicyArgs{
+// 				LaunchTemplate: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs{
+// 					LaunchTemplateSpecification: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{
+// 						LaunchTemplateId: exampleLaunchTemplate.ID(),
+// 					},
+// 					Overrides: autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArray{
+// 						&autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{
+// 							InstanceRequirements: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{
+// 								MemoryMib: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{
+// 									Min: pulumi.Int(1000),
+// 								},
+// 								VcpuCount: &autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{
+// 									Min: pulumi.Int(4),
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Automatically refresh all instances after the group is updated
 //
 // ```go
@@ -426,6 +483,8 @@ type Group struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrOutput `pulumi:"capacityRebalance"`
+	// Reserved.
+	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntOutput `pulumi:"defaultCooldown"`
 	// The number of Amazon EC2 instances that
@@ -567,6 +626,8 @@ type groupState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
+	// Reserved.
+	Context *string `pulumi:"context"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown *int `pulumi:"defaultCooldown"`
 	// The number of Amazon EC2 instances that
@@ -674,6 +735,8 @@ type GroupState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
+	// Reserved.
+	Context pulumi.StringPtrInput
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntPtrInput
 	// The number of Amazon EC2 instances that
@@ -783,6 +846,8 @@ type groupArgs struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance *bool `pulumi:"capacityRebalance"`
+	// Reserved.
+	Context *string `pulumi:"context"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown *int `pulumi:"defaultCooldown"`
 	// The number of Amazon EC2 instances that
@@ -889,6 +954,8 @@ type GroupArgs struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 	CapacityRebalance pulumi.BoolPtrInput
+	// Reserved.
+	Context pulumi.StringPtrInput
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntPtrInput
 	// The number of Amazon EC2 instances that
@@ -1089,6 +1156,11 @@ func (o GroupOutput) AvailabilityZones() pulumi.StringArrayOutput {
 // Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
 func (o GroupOutput) CapacityRebalance() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Group) pulumi.BoolPtrOutput { return v.CapacityRebalance }).(pulumi.BoolPtrOutput)
+}
+
+// Reserved.
+func (o GroupOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
 }
 
 // The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.

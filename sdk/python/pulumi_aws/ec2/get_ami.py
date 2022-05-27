@@ -22,7 +22,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, usage_operation=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, usage_operation=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -125,6 +125,9 @@ class GetAmiResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+        if tpm_support and not isinstance(tpm_support, str):
+            raise TypeError("Expected argument 'tpm_support' to be a str")
+        pulumi.set(__self__, "tpm_support", tpm_support)
         if usage_operation and not isinstance(usage_operation, str):
             raise TypeError("Expected argument 'usage_operation' to be a str")
         pulumi.set(__self__, "usage_operation", usage_operation)
@@ -402,6 +405,14 @@ class GetAmiResult:
         return pulumi.get(self, "tags")
 
     @property
+    @pulumi.getter(name="tpmSupport")
+    def tpm_support(self) -> str:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`.
+        """
+        return pulumi.get(self, "tpm_support")
+
+    @property
     @pulumi.getter(name="usageOperation")
     def usage_operation(self) -> str:
         """
@@ -459,6 +470,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             state=self.state,
             state_reason=self.state_reason,
             tags=self.tags,
+            tpm_support=self.tpm_support,
             usage_operation=self.usage_operation,
             virtualization_type=self.virtualization_type)
 
@@ -566,6 +578,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         state=__ret__.state,
         state_reason=__ret__.state_reason,
         tags=__ret__.tags,
+        tpm_support=__ret__.tpm_support,
         usage_operation=__ret__.usage_operation,
         virtualization_type=__ret__.virtualization_type)
 

@@ -437,6 +437,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
+        /// If the image is configured for NitroTPM support, the value is `v2.0`.
+        /// </summary>
+        public readonly string TpmSupport;
+        /// <summary>
         /// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         /// </summary>
         public readonly string UsageOperation;
@@ -516,6 +520,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableDictionary<string, string> tags,
 
+            string tpmSupport,
+
             string usageOperation,
 
             string virtualizationType)
@@ -554,6 +560,7 @@ namespace Pulumi.Aws.Ec2
             State = state;
             StateReason = stateReason;
             Tags = tags;
+            TpmSupport = tpmSupport;
             UsageOperation = usageOperation;
             VirtualizationType = virtualizationType;
         }

@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./keyspace";
+export * from "./table";
 
 // Import resources to register:
 import { Keyspace } from "./keyspace";
+import { Table } from "./table";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:keyspaces/keyspace:Keyspace":
                 return new Keyspace(name, <any>undefined, { urn })
+            case "aws:keyspaces/table:Table":
+                return new Table(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "keyspaces/keyspace", _module)
+pulumi.runtime.registerResourceModule("aws", "keyspaces/table", _module)

@@ -29,6 +29,7 @@ class AmiArgs:
                  root_device_name: Optional[pulumi.Input[str]] = None,
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tpm_support: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Ami resource.
@@ -51,7 +52,8 @@ class AmiArgs:
         :param pulumi.Input[str] root_device_name: The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -84,6 +86,8 @@ class AmiArgs:
             pulumi.set(__self__, "sriov_net_support", sriov_net_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if tpm_support is not None:
+            pulumi.set(__self__, "tpm_support", tpm_support)
         if virtualization_type is not None:
             pulumi.set(__self__, "virtualization_type", virtualization_type)
 
@@ -253,13 +257,25 @@ class AmiArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tpmSupport")
+    def tpm_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "tpm_support")
+
+    @tpm_support.setter
+    def tpm_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tpm_support", value)
 
     @property
     @pulumi.getter(name="virtualizationType")
@@ -304,6 +320,7 @@ class _AmiState:
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tpm_support: Optional[pulumi.Input[str]] = None,
                  usage_operation: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
@@ -336,8 +353,9 @@ class _AmiState:
         :param pulumi.Input[str] root_snapshot_id: The Snapshot ID for the root volume (for EBS-backed AMIs)
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] usage_operation: The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -393,6 +411,8 @@ class _AmiState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if tpm_support is not None:
+            pulumi.set(__self__, "tpm_support", tpm_support)
         if usage_operation is not None:
             pulumi.set(__self__, "usage_operation", usage_operation)
         if virtualization_type is not None:
@@ -681,7 +701,7 @@ class _AmiState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -700,6 +720,18 @@ class _AmiState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="tpmSupport")
+    def tpm_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "tpm_support")
+
+    @tpm_support.setter
+    def tpm_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tpm_support", value)
 
     @property
     @pulumi.getter(name="usageOperation")
@@ -747,6 +779,7 @@ class Ami(pulumi.CustomResource):
                  root_device_name: Optional[pulumi.Input[str]] = None,
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tpm_support: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -807,7 +840,8 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[str] root_device_name: The name of the root device (for example, `/dev/sda1`, or `/dev/xvda`).
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -884,6 +918,7 @@ class Ami(pulumi.CustomResource):
                  root_device_name: Optional[pulumi.Input[str]] = None,
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tpm_support: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -911,6 +946,7 @@ class Ami(pulumi.CustomResource):
             __props__.__dict__["root_device_name"] = root_device_name
             __props__.__dict__["sriov_net_support"] = sriov_net_support
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["tpm_support"] = tpm_support
             __props__.__dict__["virtualization_type"] = virtualization_type
             __props__.__dict__["arn"] = None
             __props__.__dict__["hypervisor"] = None
@@ -959,6 +995,7 @@ class Ami(pulumi.CustomResource):
             sriov_net_support: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tpm_support: Optional[pulumi.Input[str]] = None,
             usage_operation: Optional[pulumi.Input[str]] = None,
             virtualization_type: Optional[pulumi.Input[str]] = None) -> 'Ami':
         """
@@ -996,8 +1033,9 @@ class Ami(pulumi.CustomResource):
         :param pulumi.Input[str] root_snapshot_id: The Snapshot ID for the root volume (for EBS-backed AMIs)
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] usage_operation: The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
@@ -1032,6 +1070,7 @@ class Ami(pulumi.CustomResource):
         __props__.__dict__["sriov_net_support"] = sriov_net_support
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["tpm_support"] = tpm_support
         __props__.__dict__["usage_operation"] = usage_operation
         __props__.__dict__["virtualization_type"] = virtualization_type
         return Ami(resource_name, opts=opts, __props__=__props__)
@@ -1227,7 +1266,7 @@ class Ami(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1238,6 +1277,14 @@ class Ami(pulumi.CustomResource):
         A map of tags assigned to the resource, including those inherited from the provider .
         """
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="tpmSupport")
+    def tpm_support(self) -> pulumi.Output[Optional[str]]:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "tpm_support")
 
     @property
     @pulumi.getter(name="usageOperation")

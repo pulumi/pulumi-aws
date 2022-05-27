@@ -191,6 +191,12 @@ namespace Pulumi.Aws.Ec2
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// </summary>
+        [Output("tpmSupport")]
+        public Output<string> TpmSupport { get; private set; } = null!;
+
         [Output("usageOperation")]
         public Output<string> UsageOperation { get; private set; } = null!;
 
@@ -489,6 +495,12 @@ namespace Pulumi.Aws.Ec2
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        /// </summary>
+        [Input("tpmSupport")]
+        public Input<string>? TpmSupport { get; set; }
 
         [Input("usageOperation")]
         public Input<string>? UsageOperation { get; set; }

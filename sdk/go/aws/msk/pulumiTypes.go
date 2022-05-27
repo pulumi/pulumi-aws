@@ -18,11 +18,15 @@ type ClusterBrokerNodeGroupInfo struct {
 	// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
 	ConnectivityInfo *ClusterBrokerNodeGroupInfoConnectivityInfo `pulumi:"connectivityInfo"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
-	EbsVolumeSize int `pulumi:"ebsVolumeSize"`
+	//
+	// Deprecated: use 'storage_info' argument instead
+	EbsVolumeSize *int `pulumi:"ebsVolumeSize"`
 	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 	InstanceType string `pulumi:"instanceType"`
 	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 	SecurityGroups []string `pulumi:"securityGroups"`
+	// A block that contains information about storage volumes attached to MSK broker nodes. See below.
+	StorageInfo *ClusterBrokerNodeGroupInfoStorageInfo `pulumi:"storageInfo"`
 }
 
 // ClusterBrokerNodeGroupInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoArgs and ClusterBrokerNodeGroupInfoOutput values.
@@ -44,11 +48,15 @@ type ClusterBrokerNodeGroupInfoArgs struct {
 	// Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
 	ConnectivityInfo ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput `pulumi:"connectivityInfo"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
-	EbsVolumeSize pulumi.IntInput `pulumi:"ebsVolumeSize"`
+	//
+	// Deprecated: use 'storage_info' argument instead
+	EbsVolumeSize pulumi.IntPtrInput `pulumi:"ebsVolumeSize"`
 	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// A block that contains information about storage volumes attached to MSK broker nodes. See below.
+	StorageInfo ClusterBrokerNodeGroupInfoStorageInfoPtrInput `pulumi:"storageInfo"`
 }
 
 func (ClusterBrokerNodeGroupInfoArgs) ElementType() reflect.Type {
@@ -146,8 +154,10 @@ func (o ClusterBrokerNodeGroupInfoOutput) ConnectivityInfo() ClusterBrokerNodeGr
 }
 
 // The size in GiB of the EBS volume for the data drive on each broker node.
-func (o ClusterBrokerNodeGroupInfoOutput) EbsVolumeSize() pulumi.IntOutput {
-	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) int { return v.EbsVolumeSize }).(pulumi.IntOutput)
+//
+// Deprecated: use 'storage_info' argument instead
+func (o ClusterBrokerNodeGroupInfoOutput) EbsVolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *int { return v.EbsVolumeSize }).(pulumi.IntPtrOutput)
 }
 
 // Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
@@ -158,6 +168,11 @@ func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 // A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 func (o ClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// A block that contains information about storage volumes attached to MSK broker nodes. See below.
+func (o ClusterBrokerNodeGroupInfoOutput) StorageInfo() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoStorageInfo { return v.StorageInfo }).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
 }
 
 type ClusterBrokerNodeGroupInfoPtrOutput struct{ *pulumi.OutputState }
@@ -215,12 +230,14 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) ConnectivityInfo() ClusterBrokerNod
 }
 
 // The size in GiB of the EBS volume for the data drive on each broker node.
+//
+// Deprecated: use 'storage_info' argument instead
 func (o ClusterBrokerNodeGroupInfoPtrOutput) EbsVolumeSize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.EbsVolumeSize
+		return v.EbsVolumeSize
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -242,6 +259,16 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArray
 		}
 		return v.SecurityGroups
 	}).(pulumi.StringArrayOutput)
+}
+
+// A block that contains information about storage volumes attached to MSK broker nodes. See below.
+func (o ClusterBrokerNodeGroupInfoPtrOutput) StorageInfo() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfoStorageInfo {
+		if v == nil {
+			return nil
+		}
+		return v.StorageInfo
+	}).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
 }
 
 type ClusterBrokerNodeGroupInfoConnectivityInfo struct {
@@ -518,6 +545,463 @@ func (o ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput) Type() 
 		}
 		return v.Type
 	}).(pulumi.StringPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfo struct {
+	// A block that contains EBS volume information. See below.
+	EbsStorageInfo *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo `pulumi:"ebsStorageInfo"`
+}
+
+// ClusterBrokerNodeGroupInfoStorageInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoStorageInfoArgs and ClusterBrokerNodeGroupInfoStorageInfoOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoStorageInfoInput` via:
+//
+//          ClusterBrokerNodeGroupInfoStorageInfoArgs{...}
+type ClusterBrokerNodeGroupInfoStorageInfoInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoStorageInfoOutput() ClusterBrokerNodeGroupInfoStorageInfoOutput
+	ToClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoStorageInfoOutput
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoArgs struct {
+	// A block that contains EBS volume information. See below.
+	EbsStorageInfo ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrInput `pulumi:"ebsStorageInfo"`
+}
+
+func (ClusterBrokerNodeGroupInfoStorageInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfo)(nil)).Elem()
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoOutput() ClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoOutput)
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoOutput).ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(ctx)
+}
+
+// ClusterBrokerNodeGroupInfoStorageInfoPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoStorageInfoArgs, ClusterBrokerNodeGroupInfoStorageInfoPtr and ClusterBrokerNodeGroupInfoStorageInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoStorageInfoPtrInput` via:
+//
+//          ClusterBrokerNodeGroupInfoStorageInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterBrokerNodeGroupInfoStorageInfoPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput
+	ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoStorageInfoPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoStorageInfoPtrType ClusterBrokerNodeGroupInfoStorageInfoArgs
+
+func ClusterBrokerNodeGroupInfoStorageInfoPtr(v *ClusterBrokerNodeGroupInfoStorageInfoArgs) ClusterBrokerNodeGroupInfoStorageInfoPtrInput {
+	return (*clusterBrokerNodeGroupInfoStorageInfoPtrType)(v)
+}
+
+func (*clusterBrokerNodeGroupInfoStorageInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoStorageInfo)(nil)).Elem()
+}
+
+func (i *clusterBrokerNodeGroupInfoStorageInfoPtrType) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterBrokerNodeGroupInfoStorageInfoPtrType) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoStorageInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfo)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) ToClusterBrokerNodeGroupInfoStorageInfoOutput() ClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) ToClusterBrokerNodeGroupInfoStorageInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfo {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput)
+}
+
+// A block that contains EBS volume information. See below.
+func (o ClusterBrokerNodeGroupInfoStorageInfoOutput) EbsStorageInfo() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
+		return v.EbsStorageInfo
+	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoStorageInfo)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoStorageInfoOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfo) ClusterBrokerNodeGroupInfoStorageInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoStorageInfo
+		return ret
+	}).(ClusterBrokerNodeGroupInfoStorageInfoOutput)
+}
+
+// A block that contains EBS volume information. See below.
+func (o ClusterBrokerNodeGroupInfoStorageInfoPtrOutput) EbsStorageInfo() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
+		if v == nil {
+			return nil
+		}
+		return v.EbsStorageInfo
+	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo struct {
+	// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+	ProvisionedThroughput *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput `pulumi:"provisionedThroughput"`
+	// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+	VolumeSize *int `pulumi:"volumeSize"`
+}
+
+// ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput is an input type that accepts ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs and ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput` via:
+//
+//          ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{...}
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput
+	ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs struct {
+	// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+	ProvisionedThroughput ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrInput `pulumi:"provisionedThroughput"`
+	// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
+}
+
+func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)(nil)).Elem()
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput)
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput).ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(ctx)
+}
+
+// ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs, ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtr and ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrInput` via:
+//
+//          ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput
+	ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrType ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
+
+func ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtr(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrInput {
+	return (*clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrType)(v)
+}
+
+func (*clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)(nil)).Elem()
+}
+
+func (i *clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrType) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrType) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput)
+}
+
+// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) ProvisionedThroughput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
+		return v.ProvisionedThroughput
+	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
+}
+
+// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *int { return v.VolumeSize }).(pulumi.IntPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo
+		return ret
+	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput)
+}
+
+// A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) ProvisionedThroughput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedThroughput
+	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
+}
+
+// The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput) VolumeSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfo) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeSize
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput struct {
+	// Controls whether provisioned throughput is enabled or not. Default value: `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+	VolumeThroughput *int `pulumi:"volumeThroughput"`
+}
+
+// ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput is an input type that accepts ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs and ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput` via:
+//
+//          ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{...}
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput
+	ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs struct {
+	// Controls whether provisioned throughput is enabled or not. Default value: `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+	VolumeThroughput pulumi.IntPtrInput `pulumi:"volumeThroughput"`
+}
+
+func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)(nil)).Elem()
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput)
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput).ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(ctx)
+}
+
+// ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs, ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtr and ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput values.
+// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrInput` via:
+//
+//          ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrInput interface {
+	pulumi.Input
+
+	ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput
+	ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput
+}
+
+type clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrType ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs
+
+func ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtr(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrInput {
+	return (*clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrType)(v)
+}
+
+func (*clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)(nil)).Elem()
+}
+
+func (i *clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrType) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return i.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrType) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return o.ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
+		return &v
+	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput)
+}
+
+// Controls whether provisioned throughput is enabled or not. Default value: `false`.
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput) VolumeThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *int {
+		return v.VolumeThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+type ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput)(nil)).Elem()
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) ToClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput {
+	return o
+}
+
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) Elem() ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput
+		return ret
+	}).(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput)
+}
+
+// Controls whether provisioned throughput is enabled or not. Default value: `false`.
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+func (o ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput) VolumeThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughput) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeThroughput
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterClientAuthentication struct {
@@ -1759,7 +2243,7 @@ func (o ClusterLoggingInfoBrokerLogsPtrOutput) S3() ClusterLoggingInfoBrokerLogs
 }
 
 type ClusterLoggingInfoBrokerLogsCloudwatchLogs struct {
-	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 	Enabled bool `pulumi:"enabled"`
 	// Name of the Cloudwatch Log Group to deliver logs to.
 	LogGroup *string `pulumi:"logGroup"`
@@ -1777,7 +2261,7 @@ type ClusterLoggingInfoBrokerLogsCloudwatchLogsInput interface {
 }
 
 type ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs struct {
-	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Name of the Cloudwatch Log Group to deliver logs to.
 	LogGroup pulumi.StringPtrInput `pulumi:"logGroup"`
@@ -1860,7 +2344,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) ToClusterLoggingInfoBr
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput)
 }
 
-// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsCloudwatchLogs) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -1894,7 +2378,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Elem() ClusterLoggi
 	}).(ClusterLoggingInfoBrokerLogsCloudwatchLogsOutput)
 }
 
-// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsCloudwatchLogs) *bool {
 		if v == nil {
@@ -1917,7 +2401,7 @@ func (o ClusterLoggingInfoBrokerLogsCloudwatchLogsPtrOutput) LogGroup() pulumi.S
 type ClusterLoggingInfoBrokerLogsFirehose struct {
 	// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 	DeliveryStream *string `pulumi:"deliveryStream"`
-	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -1935,7 +2419,7 @@ type ClusterLoggingInfoBrokerLogsFirehoseInput interface {
 type ClusterLoggingInfoBrokerLogsFirehoseArgs struct {
 	// Name of the Kinesis Data Firehose delivery stream to deliver logs to.
 	DeliveryStream pulumi.StringPtrInput `pulumi:"deliveryStream"`
-	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -2021,7 +2505,7 @@ func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) DeliveryStream() pulumi.Stri
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) *string { return v.DeliveryStream }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterLoggingInfoBrokerLogsFirehoseOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsFirehose) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2060,7 +2544,7 @@ func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) DeliveryStream() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsFirehose) *bool {
 		if v == nil {
@@ -2073,7 +2557,7 @@ func (o ClusterLoggingInfoBrokerLogsFirehosePtrOutput) Enabled() pulumi.BoolPtrO
 type ClusterLoggingInfoBrokerLogsS3 struct {
 	// Name of the S3 bucket to deliver logs to.
 	Bucket *string `pulumi:"bucket"`
-	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 	Enabled bool `pulumi:"enabled"`
 	// Prefix to append to the folder name.
 	Prefix *string `pulumi:"prefix"`
@@ -2093,7 +2577,7 @@ type ClusterLoggingInfoBrokerLogsS3Input interface {
 type ClusterLoggingInfoBrokerLogsS3Args struct {
 	// Name of the S3 bucket to deliver logs to.
 	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
-	// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+	// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Prefix to append to the folder name.
 	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
@@ -2181,7 +2665,7 @@ func (o ClusterLoggingInfoBrokerLogsS3Output) Bucket() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterLoggingInfoBrokerLogsS3Output) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLoggingInfoBrokerLogsS3) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2225,7 +2709,7 @@ func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Bucket() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+// Controls whether provisioned throughput is enabled or not. Default value: `false`.
 func (o ClusterLoggingInfoBrokerLogsS3PtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterLoggingInfoBrokerLogsS3) *bool {
 		if v == nil {
@@ -2965,6 +3449,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationInput)(nil)).Elem(), ClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationPtrInput)(nil)).Elem(), ClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationSaslInput)(nil)).Elem(), ClusterClientAuthenticationSaslArgs{})
@@ -3003,6 +3493,12 @@ func init() {
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoPtrOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputOutput{})
+	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationSaslOutput{})

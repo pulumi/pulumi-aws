@@ -178,6 +178,46 @@ namespace Pulumi.Aws.Rds
     /// 
     /// }
     /// ```
+    /// ### RDS Serverless v2 Cluster
+    /// 
+    /// &gt; More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
+    /// 
+    /// To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleCluster = new Aws.Rds.Cluster("exampleCluster", new Aws.Rds.ClusterArgs
+    ///         {
+    ///             ClusterIdentifier = "example",
+    ///             Engine = "aurora-postgresql",
+    ///             EngineMode = "provisioned",
+    ///             EngineVersion = "13.6",
+    ///             DatabaseName = "test",
+    ///             MasterUsername = "test",
+    ///             MasterPassword = "must_be_eight_characters",
+    ///             Serverlessv2ScalingConfiguration = new Aws.Rds.Inputs.ClusterServerlessv2ScalingConfigurationArgs
+    ///             {
+    ///                 MaxCapacity = 1,
+    ///                 MinCapacity = 0.5,
+    ///             },
+    ///         });
+    ///         var exampleClusterInstance = new Aws.Rds.ClusterInstance("exampleClusterInstance", new Aws.Rds.ClusterInstanceArgs
+    ///         {
+    ///             ClusterIdentifier = exampleCluster.Id,
+    ///             InstanceClass = "db.serverless",
+    ///             Engine = exampleCluster.Engine,
+    ///             EngineVersion = exampleCluster.EngineVersion,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 

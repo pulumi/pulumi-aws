@@ -147,6 +147,143 @@ func (o MapConfigurationPtrOutput) Style() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PlaceIndexDataSourceConfiguration struct {
+	// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+	IntendedUse *string `pulumi:"intendedUse"`
+}
+
+// PlaceIndexDataSourceConfigurationInput is an input type that accepts PlaceIndexDataSourceConfigurationArgs and PlaceIndexDataSourceConfigurationOutput values.
+// You can construct a concrete instance of `PlaceIndexDataSourceConfigurationInput` via:
+//
+//          PlaceIndexDataSourceConfigurationArgs{...}
+type PlaceIndexDataSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToPlaceIndexDataSourceConfigurationOutput() PlaceIndexDataSourceConfigurationOutput
+	ToPlaceIndexDataSourceConfigurationOutputWithContext(context.Context) PlaceIndexDataSourceConfigurationOutput
+}
+
+type PlaceIndexDataSourceConfigurationArgs struct {
+	// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+	IntendedUse pulumi.StringPtrInput `pulumi:"intendedUse"`
+}
+
+func (PlaceIndexDataSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaceIndexDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationOutput() PlaceIndexDataSourceConfigurationOutput {
+	return i.ToPlaceIndexDataSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationOutput)
+}
+
+func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationPtrOutput() PlaceIndexDataSourceConfigurationPtrOutput {
+	return i.ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlaceIndexDataSourceConfigurationArgs) ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationOutput).ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// PlaceIndexDataSourceConfigurationPtrInput is an input type that accepts PlaceIndexDataSourceConfigurationArgs, PlaceIndexDataSourceConfigurationPtr and PlaceIndexDataSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `PlaceIndexDataSourceConfigurationPtrInput` via:
+//
+//          PlaceIndexDataSourceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type PlaceIndexDataSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlaceIndexDataSourceConfigurationPtrOutput() PlaceIndexDataSourceConfigurationPtrOutput
+	ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(context.Context) PlaceIndexDataSourceConfigurationPtrOutput
+}
+
+type placeIndexDataSourceConfigurationPtrType PlaceIndexDataSourceConfigurationArgs
+
+func PlaceIndexDataSourceConfigurationPtr(v *PlaceIndexDataSourceConfigurationArgs) PlaceIndexDataSourceConfigurationPtrInput {
+	return (*placeIndexDataSourceConfigurationPtrType)(v)
+}
+
+func (*placeIndexDataSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaceIndexDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i *placeIndexDataSourceConfigurationPtrType) ToPlaceIndexDataSourceConfigurationPtrOutput() PlaceIndexDataSourceConfigurationPtrOutput {
+	return i.ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *placeIndexDataSourceConfigurationPtrType) ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaceIndexDataSourceConfigurationPtrOutput)
+}
+
+type PlaceIndexDataSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlaceIndexDataSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaceIndexDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigurationOutput() PlaceIndexDataSourceConfigurationOutput {
+	return o
+}
+
+func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigurationOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationOutput {
+	return o
+}
+
+func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigurationPtrOutput() PlaceIndexDataSourceConfigurationPtrOutput {
+	return o.ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlaceIndexDataSourceConfigurationOutput) ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaceIndexDataSourceConfiguration) *PlaceIndexDataSourceConfiguration {
+		return &v
+	}).(PlaceIndexDataSourceConfigurationPtrOutput)
+}
+
+// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+func (o PlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlaceIndexDataSourceConfiguration) *string { return v.IntendedUse }).(pulumi.StringPtrOutput)
+}
+
+type PlaceIndexDataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaceIndexDataSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaceIndexDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o PlaceIndexDataSourceConfigurationPtrOutput) ToPlaceIndexDataSourceConfigurationPtrOutput() PlaceIndexDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaceIndexDataSourceConfigurationPtrOutput) ToPlaceIndexDataSourceConfigurationPtrOutputWithContext(ctx context.Context) PlaceIndexDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaceIndexDataSourceConfigurationPtrOutput) Elem() PlaceIndexDataSourceConfigurationOutput {
+	return o.ApplyT(func(v *PlaceIndexDataSourceConfiguration) PlaceIndexDataSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlaceIndexDataSourceConfiguration
+		return ret
+	}).(PlaceIndexDataSourceConfigurationOutput)
+}
+
+// Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+func (o PlaceIndexDataSourceConfigurationPtrOutput) IntendedUse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlaceIndexDataSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IntendedUse
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetMapConfiguration struct {
 	// The map style selected from an available data provider.
 	Style string `pulumi:"style"`
@@ -244,13 +381,115 @@ func (o GetMapConfigurationArrayOutput) Index(i pulumi.IntInput) GetMapConfigura
 	}).(GetMapConfigurationOutput)
 }
 
+type GetPlaceIndexDataSourceConfiguration struct {
+	IntendedUse string `pulumi:"intendedUse"`
+}
+
+// GetPlaceIndexDataSourceConfigurationInput is an input type that accepts GetPlaceIndexDataSourceConfigurationArgs and GetPlaceIndexDataSourceConfigurationOutput values.
+// You can construct a concrete instance of `GetPlaceIndexDataSourceConfigurationInput` via:
+//
+//          GetPlaceIndexDataSourceConfigurationArgs{...}
+type GetPlaceIndexDataSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToGetPlaceIndexDataSourceConfigurationOutput() GetPlaceIndexDataSourceConfigurationOutput
+	ToGetPlaceIndexDataSourceConfigurationOutputWithContext(context.Context) GetPlaceIndexDataSourceConfigurationOutput
+}
+
+type GetPlaceIndexDataSourceConfigurationArgs struct {
+	IntendedUse pulumi.StringInput `pulumi:"intendedUse"`
+}
+
+func (GetPlaceIndexDataSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlaceIndexDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i GetPlaceIndexDataSourceConfigurationArgs) ToGetPlaceIndexDataSourceConfigurationOutput() GetPlaceIndexDataSourceConfigurationOutput {
+	return i.ToGetPlaceIndexDataSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetPlaceIndexDataSourceConfigurationArgs) ToGetPlaceIndexDataSourceConfigurationOutputWithContext(ctx context.Context) GetPlaceIndexDataSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlaceIndexDataSourceConfigurationOutput)
+}
+
+// GetPlaceIndexDataSourceConfigurationArrayInput is an input type that accepts GetPlaceIndexDataSourceConfigurationArray and GetPlaceIndexDataSourceConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetPlaceIndexDataSourceConfigurationArrayInput` via:
+//
+//          GetPlaceIndexDataSourceConfigurationArray{ GetPlaceIndexDataSourceConfigurationArgs{...} }
+type GetPlaceIndexDataSourceConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetPlaceIndexDataSourceConfigurationArrayOutput() GetPlaceIndexDataSourceConfigurationArrayOutput
+	ToGetPlaceIndexDataSourceConfigurationArrayOutputWithContext(context.Context) GetPlaceIndexDataSourceConfigurationArrayOutput
+}
+
+type GetPlaceIndexDataSourceConfigurationArray []GetPlaceIndexDataSourceConfigurationInput
+
+func (GetPlaceIndexDataSourceConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlaceIndexDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i GetPlaceIndexDataSourceConfigurationArray) ToGetPlaceIndexDataSourceConfigurationArrayOutput() GetPlaceIndexDataSourceConfigurationArrayOutput {
+	return i.ToGetPlaceIndexDataSourceConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetPlaceIndexDataSourceConfigurationArray) ToGetPlaceIndexDataSourceConfigurationArrayOutputWithContext(ctx context.Context) GetPlaceIndexDataSourceConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPlaceIndexDataSourceConfigurationArrayOutput)
+}
+
+type GetPlaceIndexDataSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetPlaceIndexDataSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPlaceIndexDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o GetPlaceIndexDataSourceConfigurationOutput) ToGetPlaceIndexDataSourceConfigurationOutput() GetPlaceIndexDataSourceConfigurationOutput {
+	return o
+}
+
+func (o GetPlaceIndexDataSourceConfigurationOutput) ToGetPlaceIndexDataSourceConfigurationOutputWithContext(ctx context.Context) GetPlaceIndexDataSourceConfigurationOutput {
+	return o
+}
+
+func (o GetPlaceIndexDataSourceConfigurationOutput) IntendedUse() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPlaceIndexDataSourceConfiguration) string { return v.IntendedUse }).(pulumi.StringOutput)
+}
+
+type GetPlaceIndexDataSourceConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPlaceIndexDataSourceConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPlaceIndexDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o GetPlaceIndexDataSourceConfigurationArrayOutput) ToGetPlaceIndexDataSourceConfigurationArrayOutput() GetPlaceIndexDataSourceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPlaceIndexDataSourceConfigurationArrayOutput) ToGetPlaceIndexDataSourceConfigurationArrayOutputWithContext(ctx context.Context) GetPlaceIndexDataSourceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetPlaceIndexDataSourceConfigurationArrayOutput) Index(i pulumi.IntInput) GetPlaceIndexDataSourceConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPlaceIndexDataSourceConfiguration {
+		return vs[0].([]GetPlaceIndexDataSourceConfiguration)[vs[1].(int)]
+	}).(GetPlaceIndexDataSourceConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MapConfigurationInput)(nil)).Elem(), MapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MapConfigurationPtrInput)(nil)).Elem(), MapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexDataSourceConfigurationInput)(nil)).Elem(), PlaceIndexDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaceIndexDataSourceConfigurationPtrInput)(nil)).Elem(), PlaceIndexDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMapConfigurationInput)(nil)).Elem(), GetMapConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMapConfigurationArrayInput)(nil)).Elem(), GetMapConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlaceIndexDataSourceConfigurationInput)(nil)).Elem(), GetPlaceIndexDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPlaceIndexDataSourceConfigurationArrayInput)(nil)).Elem(), GetPlaceIndexDataSourceConfigurationArray{})
 	pulumi.RegisterOutputType(MapConfigurationOutput{})
 	pulumi.RegisterOutputType(MapConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlaceIndexDataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(PlaceIndexDataSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GetMapConfigurationOutput{})
 	pulumi.RegisterOutputType(GetMapConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetPlaceIndexDataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(GetPlaceIndexDataSourceConfigurationArrayOutput{})
 }

@@ -75,6 +75,8 @@ class DomainIndexField(dict):
             suggest = "default_value"
         elif key == "return":
             suggest = "return_"
+        elif key == "sourceFields":
+            suggest = "source_fields"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainIndexField. Access the value via the '{suggest}' property getter instead.")
@@ -96,7 +98,8 @@ class DomainIndexField(dict):
                  highlight: Optional[bool] = None,
                  return_: Optional[bool] = None,
                  search: Optional[bool] = None,
-                 sort: Optional[bool] = None):
+                 sort: Optional[bool] = None,
+                 source_fields: Optional[str] = None):
         """
         :param str name: A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
         :param str type: The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
@@ -107,6 +110,7 @@ class DomainIndexField(dict):
         :param bool return_: You can enable returning the value of all searchable fields.
         :param bool search: You can set whether this index should be searchable or not.
         :param bool sort: You can enable the property to be sortable.
+        :param str source_fields: A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -124,6 +128,8 @@ class DomainIndexField(dict):
             pulumi.set(__self__, "search", search)
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
+        if source_fields is not None:
+            pulumi.set(__self__, "source_fields", source_fields)
 
     @property
     @pulumi.getter
@@ -196,6 +202,14 @@ class DomainIndexField(dict):
         You can enable the property to be sortable.
         """
         return pulumi.get(self, "sort")
+
+    @property
+    @pulumi.getter(name="sourceFields")
+    def source_fields(self) -> Optional[str]:
+        """
+        A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+        """
+        return pulumi.get(self, "source_fields")
 
 
 @pulumi.output_type

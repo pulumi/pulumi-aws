@@ -46,6 +46,10 @@ namespace Pulumi.Aws.CloudSearch.Outputs
         /// </summary>
         public readonly bool? Sort;
         /// <summary>
+        /// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+        /// </summary>
+        public readonly string? SourceFields;
+        /// <summary>
         /// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
         /// </summary>
         public readonly string Type;
@@ -68,6 +72,8 @@ namespace Pulumi.Aws.CloudSearch.Outputs
 
             bool? sort,
 
+            string? sourceFields,
+
             string type)
         {
             AnalysisScheme = analysisScheme;
@@ -78,6 +84,7 @@ namespace Pulumi.Aws.CloudSearch.Outputs
             Return = @return;
             Search = search;
             Sort = sort;
+            SourceFields = sourceFields;
             Type = type;
         }
     }

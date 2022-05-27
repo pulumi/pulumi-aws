@@ -967,7 +967,7 @@ class BucketV2(pulumi.CustomResource):
         or with the deprecated parameter `policy` in the resource `s3.BucketV2`.
         Configuring with both will cause inconsistencies and may overwrite configuration.
 
-        > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `aws_s3_bucket_replicaton_configuration`
+        > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `s3.BucketReplicationConfig`
         or with the deprecated parameter `replication_configuration` in the resource `s3.BucketV2`.
         Configuring with both will cause inconsistencies and may overwrite configuration.
 
@@ -1372,7 +1372,7 @@ class BucketV2(pulumi.CustomResource):
         or with the deprecated parameter `policy` in the resource `s3.BucketV2`.
         Configuring with both will cause inconsistencies and may overwrite configuration.
 
-        > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `aws_s3_bucket_replicaton_configuration`
+        > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `s3.BucketReplicationConfig`
         or with the deprecated parameter `replication_configuration` in the resource `s3.BucketV2`.
         Configuring with both will cause inconsistencies and may overwrite configuration.
 

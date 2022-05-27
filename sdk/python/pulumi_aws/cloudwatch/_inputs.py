@@ -40,6 +40,8 @@ __all__ = [
     'MetricAlarmMetricQueryMetricArgs',
     'MetricStreamExcludeFilterArgs',
     'MetricStreamIncludeFilterArgs',
+    'MetricStreamStatisticsConfigurationArgs',
+    'MetricStreamStatisticsConfigurationIncludeMetricArgs',
 ]
 
 @pulumi.input_type
@@ -1786,7 +1788,7 @@ class MetricStreamExcludeFilterArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
+        :param pulumi.Input[str] namespace: The namespace of the metric.
         """
         pulumi.set(__self__, "namespace", namespace)
 
@@ -1794,7 +1796,7 @@ class MetricStreamExcludeFilterArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
         """
-        Name of the metric namespace in the filter.
+        The namespace of the metric.
         """
         return pulumi.get(self, "namespace")
 
@@ -1808,7 +1810,7 @@ class MetricStreamIncludeFilterArgs:
     def __init__(__self__, *,
                  namespace: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] namespace: Name of the metric namespace in the filter.
+        :param pulumi.Input[str] namespace: The namespace of the metric.
         """
         pulumi.set(__self__, "namespace", namespace)
 
@@ -1816,7 +1818,81 @@ class MetricStreamIncludeFilterArgs:
     @pulumi.getter
     def namespace(self) -> pulumi.Input[str]:
         """
-        Name of the metric namespace in the filter.
+        The namespace of the metric.
+        """
+        return pulumi.get(self, "namespace")
+
+    @namespace.setter
+    def namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "namespace", value)
+
+
+@pulumi.input_type
+class MetricStreamStatisticsConfigurationArgs:
+    def __init__(__self__, *,
+                 additional_statistics: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_statistics: The additional statistics to stream for the metrics listed in `include_metrics`.
+        :param pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]] include_metrics: An array that defines the metrics that are to have additional statistics streamed. See details below.
+        """
+        pulumi.set(__self__, "additional_statistics", additional_statistics)
+        pulumi.set(__self__, "include_metrics", include_metrics)
+
+    @property
+    @pulumi.getter(name="additionalStatistics")
+    def additional_statistics(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The additional statistics to stream for the metrics listed in `include_metrics`.
+        """
+        return pulumi.get(self, "additional_statistics")
+
+    @additional_statistics.setter
+    def additional_statistics(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "additional_statistics", value)
+
+    @property
+    @pulumi.getter(name="includeMetrics")
+    def include_metrics(self) -> pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]]:
+        """
+        An array that defines the metrics that are to have additional statistics streamed. See details below.
+        """
+        return pulumi.get(self, "include_metrics")
+
+    @include_metrics.setter
+    def include_metrics(self, value: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgs']]]):
+        pulumi.set(self, "include_metrics", value)
+
+
+@pulumi.input_type
+class MetricStreamStatisticsConfigurationIncludeMetricArgs:
+    def __init__(__self__, *,
+                 metric_name: pulumi.Input[str],
+                 namespace: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] metric_name: The name of the metric.
+        :param pulumi.Input[str] namespace: The namespace of the metric.
+        """
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "namespace", namespace)
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> pulumi.Input[str]:
+        """
+        The name of the metric.
+        """
+        return pulumi.get(self, "metric_name")
+
+    @metric_name.setter
+    def metric_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "metric_name", value)
+
+    @property
+    @pulumi.getter
+    def namespace(self) -> pulumi.Input[str]:
+        """
+        The namespace of the metric.
         """
         return pulumi.get(self, "namespace")
 

@@ -21,7 +21,7 @@ class GetResponseHeadersPolicyResult:
     """
     A collection of values returned by getResponseHeadersPolicy.
     """
-    def __init__(__self__, comment=None, cors_configs=None, custom_headers_configs=None, etag=None, id=None, name=None, security_headers_configs=None):
+    def __init__(__self__, comment=None, cors_configs=None, custom_headers_configs=None, etag=None, id=None, name=None, security_headers_configs=None, server_timing_headers_configs=None):
         if comment and not isinstance(comment, str):
             raise TypeError("Expected argument 'comment' to be a str")
         pulumi.set(__self__, "comment", comment)
@@ -43,6 +43,9 @@ class GetResponseHeadersPolicyResult:
         if security_headers_configs and not isinstance(security_headers_configs, list):
             raise TypeError("Expected argument 'security_headers_configs' to be a list")
         pulumi.set(__self__, "security_headers_configs", security_headers_configs)
+        if server_timing_headers_configs and not isinstance(server_timing_headers_configs, list):
+            raise TypeError("Expected argument 'server_timing_headers_configs' to be a list")
+        pulumi.set(__self__, "server_timing_headers_configs", server_timing_headers_configs)
 
     @property
     @pulumi.getter
@@ -94,6 +97,14 @@ class GetResponseHeadersPolicyResult:
         """
         return pulumi.get(self, "security_headers_configs")
 
+    @property
+    @pulumi.getter(name="serverTimingHeadersConfigs")
+    def server_timing_headers_configs(self) -> Sequence['outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult']:
+        """
+        (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        """
+        return pulumi.get(self, "server_timing_headers_configs")
+
 
 class AwaitableGetResponseHeadersPolicyResult(GetResponseHeadersPolicyResult):
     # pylint: disable=using-constant-test
@@ -107,7 +118,8 @@ class AwaitableGetResponseHeadersPolicyResult(GetResponseHeadersPolicyResult):
             etag=self.etag,
             id=self.id,
             name=self.name,
-            security_headers_configs=self.security_headers_configs)
+            security_headers_configs=self.security_headers_configs,
+            server_timing_headers_configs=self.server_timing_headers_configs)
 
 
 def get_response_headers_policy(id: Optional[str] = None,
@@ -145,7 +157,8 @@ def get_response_headers_policy(id: Optional[str] = None,
         etag=__ret__.etag,
         id=__ret__.id,
         name=__ret__.name,
-        security_headers_configs=__ret__.security_headers_configs)
+        security_headers_configs=__ret__.security_headers_configs,
+        server_timing_headers_configs=__ret__.server_timing_headers_configs)
 
 
 @_utilities.lift_output_func(get_response_headers_policy)

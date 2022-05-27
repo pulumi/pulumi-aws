@@ -14,6 +14,7 @@ export * from "./getAccessPoints";
 export * from "./getFileSystem";
 export * from "./getMountTarget";
 export * from "./mountTarget";
+export * from "./replicationConfiguration";
 
 // Import resources to register:
 import { AccessPoint } from "./accessPoint";
@@ -21,6 +22,7 @@ import { BackupPolicy } from "./backupPolicy";
 import { FileSystem } from "./fileSystem";
 import { FileSystemPolicy } from "./fileSystemPolicy";
 import { MountTarget } from "./mountTarget";
+import { ReplicationConfiguration } from "./replicationConfiguration";
 
 const _module = {
     version: utilities.getVersion(),
@@ -36,6 +38,8 @@ const _module = {
                 return new FileSystemPolicy(name, <any>undefined, { urn })
             case "aws:efs/mountTarget:MountTarget":
                 return new MountTarget(name, <any>undefined, { urn })
+            case "aws:efs/replicationConfiguration:ReplicationConfiguration":
+                return new ReplicationConfiguration(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -46,3 +50,4 @@ pulumi.runtime.registerResourceModule("aws", "efs/backupPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "efs/fileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "efs/fileSystemPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "efs/mountTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "efs/replicationConfiguration", _module)

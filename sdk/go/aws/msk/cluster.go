@@ -14,6 +14,7 @@ import (
 // Manages AWS Managed Streaming for Kafka cluster
 //
 // ## Example Usage
+// ### Basic
 //
 // ```go
 // package main
@@ -120,12 +121,16 @@ import (
 // 			KafkaVersion:        pulumi.String("2.4.1"),
 // 			NumberOfBrokerNodes: pulumi.Int(3),
 // 			BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
-// 				InstanceType:  pulumi.String("kafka.m5.large"),
-// 				EbsVolumeSize: pulumi.Int(1000),
+// 				InstanceType: pulumi.String("kafka.m5.large"),
 // 				ClientSubnets: pulumi.StringArray{
 // 					subnetAz1.ID(),
 // 					subnetAz2.ID(),
 // 					subnetAz3.ID(),
+// 				},
+// 				StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
+// 					EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
+// 						VolumeSize: pulumi.Int(1000),
+// 					},
 // 				},
 // 				SecurityGroups: pulumi.StringArray{
 // 					sg.ID(),
@@ -170,6 +175,49 @@ import (
 // 		}
 // 		ctx.Export("zookeeperConnectString", example.ZookeeperConnectString)
 // 		ctx.Export("bootstrapBrokersTls", example.BootstrapBrokersTls)
+// 		return nil
+// 	})
+// }
+// ```
+// ### With volumeThroughput argument
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/msk"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
+// 			KafkaVersion:        pulumi.String("2.7.1"),
+// 			NumberOfBrokerNodes: pulumi.Int(3),
+// 			BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
+// 				InstanceType: pulumi.String("kafka.m5.4xlarge"),
+// 				ClientSubnets: pulumi.StringArray{
+// 					pulumi.Any(aws_subnet.Subnet_az1.Id),
+// 					pulumi.Any(aws_subnet.Subnet_az2.Id),
+// 					pulumi.Any(aws_subnet.Subnet_az3.Id),
+// 				},
+// 				StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
+// 					EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
+// 						ProvisionedThroughput: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{
+// 							Enabled:          pulumi.Bool(true),
+// 							VolumeThroughput: pulumi.Int(250),
+// 						},
+// 						VolumeSize: pulumi.Int(1000),
+// 					},
+// 				},
+// 				SecurityGroups: pulumi.StringArray{
+// 					pulumi.Any(aws_security_group.Sg.Id),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		return nil
 // 	})
 // }

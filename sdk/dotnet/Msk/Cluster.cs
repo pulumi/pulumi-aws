@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Msk
     /// Manages AWS Managed Streaming for Kafka cluster
     /// 
     /// ## Example Usage
+    /// ### Basic
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -104,12 +105,18 @@ namespace Pulumi.Aws.Msk
     ///             BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
     ///             {
     ///                 InstanceType = "kafka.m5.large",
-    ///                 EbsVolumeSize = 1000,
     ///                 ClientSubnets = 
     ///                 {
     ///                     subnetAz1.Id,
     ///                     subnetAz2.Id,
     ///                     subnetAz3.Id,
+    ///                 },
+    ///                 StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
+    ///                 {
+    ///                     EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
+    ///                     {
+    ///                         VolumeSize = 1000,
+    ///                     },
     ///                 },
     ///                 SecurityGroups = 
     ///                 {
@@ -169,6 +176,51 @@ namespace Pulumi.Aws.Msk
     ///     public Output&lt;string&gt; ZookeeperConnectString { get; set; }
     ///     [Output("bootstrapBrokersTls")]
     ///     public Output&lt;string&gt; BootstrapBrokersTls { get; set; }
+    /// }
+    /// ```
+    /// ### With volume_throughput argument
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Msk.Cluster("example", new Aws.Msk.ClusterArgs
+    ///         {
+    ///             KafkaVersion = "2.7.1",
+    ///             NumberOfBrokerNodes = 3,
+    ///             BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
+    ///             {
+    ///                 InstanceType = "kafka.m5.4xlarge",
+    ///                 ClientSubnets = 
+    ///                 {
+    ///                     aws_subnet.Subnet_az1.Id,
+    ///                     aws_subnet.Subnet_az2.Id,
+    ///                     aws_subnet.Subnet_az3.Id,
+    ///                 },
+    ///                 StorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoArgs
+    ///                 {
+    ///                     EbsStorageInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs
+    ///                     {
+    ///                         ProvisionedThroughput = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs
+    ///                         {
+    ///                             Enabled = true,
+    ///                             VolumeThroughput = 250,
+    ///                         },
+    ///                         VolumeSize = 1000,
+    ///                     },
+    ///                 },
+    ///                 SecurityGroups = 
+    ///                 {
+    ///                     aws_security_group.Sg.Id,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
     /// }
     /// ```
     /// 

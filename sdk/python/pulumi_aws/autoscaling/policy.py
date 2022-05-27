@@ -18,6 +18,7 @@ class PolicyArgs:
                  autoscaling_group_name: pulumi.Input[str],
                  adjustment_type: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
                  metric_aggregation_type: Optional[pulumi.Input[str]] = None,
                  min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
@@ -32,6 +33,7 @@ class PolicyArgs:
         :param pulumi.Input[str] autoscaling_group_name: The name of the autoscaling group.
         :param pulumi.Input[str] adjustment_type: Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[int] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        :param pulumi.Input[bool] enabled: Indicates whether the scaling policy is enabled or disabled. Default: `true`.
         :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
@@ -50,6 +52,8 @@ class PolicyArgs:
             pulumi.set(__self__, "adjustment_type", adjustment_type)
         if cooldown is not None:
             pulumi.set(__self__, "cooldown", cooldown)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if estimated_instance_warmup is not None:
             pulumi.set(__self__, "estimated_instance_warmup", estimated_instance_warmup)
         if metric_aggregation_type is not None:
@@ -104,6 +108,18 @@ class PolicyArgs:
     @cooldown.setter
     def cooldown(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cooldown", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")
@@ -224,6 +240,7 @@ class _PolicyState:
                  arn: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
                  metric_aggregation_type: Optional[pulumi.Input[str]] = None,
                  min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
@@ -239,6 +256,7 @@ class _PolicyState:
         :param pulumi.Input[str] arn: The ARN assigned by AWS to the scaling policy.
         :param pulumi.Input[str] autoscaling_group_name: The name of the autoscaling group.
         :param pulumi.Input[int] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        :param pulumi.Input[bool] enabled: Indicates whether the scaling policy is enabled or disabled. Default: `true`.
         :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
@@ -260,6 +278,8 @@ class _PolicyState:
             pulumi.set(__self__, "autoscaling_group_name", autoscaling_group_name)
         if cooldown is not None:
             pulumi.set(__self__, "cooldown", cooldown)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
         if estimated_instance_warmup is not None:
             pulumi.set(__self__, "estimated_instance_warmup", estimated_instance_warmup)
         if metric_aggregation_type is not None:
@@ -326,6 +346,18 @@ class _PolicyState:
     @cooldown.setter
     def cooldown(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "cooldown", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")
@@ -447,6 +479,7 @@ class Policy(pulumi.CustomResource):
                  adjustment_type: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
                  metric_aggregation_type: Optional[pulumi.Input[str]] = None,
                  min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
@@ -582,6 +615,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] adjustment_type: Specifies whether the adjustment is an absolute number or a percentage of the current capacity. Valid values are `ChangeInCapacity`, `ExactCapacity`, and `PercentChangeInCapacity`.
         :param pulumi.Input[str] autoscaling_group_name: The name of the autoscaling group.
         :param pulumi.Input[int] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        :param pulumi.Input[bool] enabled: Indicates whether the scaling policy is enabled or disabled. Default: `true`.
         :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
@@ -739,6 +773,7 @@ class Policy(pulumi.CustomResource):
                  adjustment_type: Optional[pulumi.Input[str]] = None,
                  autoscaling_group_name: Optional[pulumi.Input[str]] = None,
                  cooldown: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
                  estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
                  metric_aggregation_type: Optional[pulumi.Input[str]] = None,
                  min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
@@ -765,6 +800,7 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'autoscaling_group_name'")
             __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
             __props__.__dict__["cooldown"] = cooldown
+            __props__.__dict__["enabled"] = enabled
             __props__.__dict__["estimated_instance_warmup"] = estimated_instance_warmup
             __props__.__dict__["metric_aggregation_type"] = metric_aggregation_type
             __props__.__dict__["min_adjustment_magnitude"] = min_adjustment_magnitude
@@ -789,6 +825,7 @@ class Policy(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             autoscaling_group_name: Optional[pulumi.Input[str]] = None,
             cooldown: Optional[pulumi.Input[int]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
             estimated_instance_warmup: Optional[pulumi.Input[int]] = None,
             metric_aggregation_type: Optional[pulumi.Input[str]] = None,
             min_adjustment_magnitude: Optional[pulumi.Input[int]] = None,
@@ -809,6 +846,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN assigned by AWS to the scaling policy.
         :param pulumi.Input[str] autoscaling_group_name: The name of the autoscaling group.
         :param pulumi.Input[int] cooldown: The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
+        :param pulumi.Input[bool] enabled: Indicates whether the scaling policy is enabled or disabled. Default: `true`.
         :param pulumi.Input[int] estimated_instance_warmup: The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         :param pulumi.Input[str] metric_aggregation_type: The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
         :param pulumi.Input[int] min_adjustment_magnitude: Minimum value to scale by when `adjustment_type` is set to `PercentChangeInCapacity`.
@@ -830,6 +868,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["autoscaling_group_name"] = autoscaling_group_name
         __props__.__dict__["cooldown"] = cooldown
+        __props__.__dict__["enabled"] = enabled
         __props__.__dict__["estimated_instance_warmup"] = estimated_instance_warmup
         __props__.__dict__["metric_aggregation_type"] = metric_aggregation_type
         __props__.__dict__["min_adjustment_magnitude"] = min_adjustment_magnitude
@@ -872,6 +911,14 @@ class Policy(pulumi.CustomResource):
         The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
         """
         return pulumi.get(self, "cooldown")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+        """
+        return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="estimatedInstanceWarmup")

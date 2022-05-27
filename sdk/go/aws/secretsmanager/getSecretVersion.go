@@ -85,7 +85,7 @@ type LookupSecretVersionResult struct {
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+	// The decrypted part of the protected secret information that was originally provided as a binary.
 	SecretBinary string `pulumi:"secretBinary"`
 	SecretId     string `pulumi:"secretId"`
 	// The decrypted part of the protected secret information that was originally provided as a string.
@@ -148,7 +148,7 @@ func (o LookupSecretVersionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+// The decrypted part of the protected secret information that was originally provided as a binary.
 func (o LookupSecretVersionResultOutput) SecretBinary() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretVersionResult) string { return v.SecretBinary }).(pulumi.StringOutput)
 }

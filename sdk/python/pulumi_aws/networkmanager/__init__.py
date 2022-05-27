@@ -10,6 +10,7 @@ from .customer_gateway_association import *
 from .device import *
 from .get_connection import *
 from .get_connections import *
+from .get_core_network_policy_document import *
 from .get_device import *
 from .get_devices import *
 from .get_global_network import *

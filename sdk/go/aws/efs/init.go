@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FileSystemPolicy{}
 	case "aws:efs/mountTarget:MountTarget":
 		r = &MountTarget{}
+	case "aws:efs/replicationConfiguration:ReplicationConfiguration":
+		r = &ReplicationConfiguration{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +69,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"efs/mountTarget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"efs/replicationConfiguration",
 		&module{version},
 	)
 }

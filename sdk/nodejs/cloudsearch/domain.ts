@@ -29,6 +29,7 @@ import * as utilities from "../utilities";
  *             return: true,
  *             search: true,
  *             sort: true,
+ *             sourceFields: "headline",
  *             type: "double",
  *         },
  *     ],

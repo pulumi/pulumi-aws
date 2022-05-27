@@ -260,7 +260,7 @@ namespace Pulumi.Aws.ElastiCache
         /// Defaults to `true`.
         /// </summary>
         [Output("autoMinorVersionUpgrade")]
-        public Output<bool?> AutoMinorVersionUpgrade { get; private set; } = null!;
+        public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.

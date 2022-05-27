@@ -15,17 +15,34 @@ class GlobalReplicationGroupArgs:
     def __init__(__self__, *,
                  global_replication_group_id_suffix: pulumi.Input[str],
                  primary_replication_group_id: pulumi.Input[str],
-                 global_replication_group_description: Optional[pulumi.Input[str]] = None):
+                 engine_version: Optional[pulumi.Input[str]] = None,
+                 global_replication_group_description: Optional[pulumi.Input[str]] = None,
+                 parameter_group_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GlobalReplicationGroup resource.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
+        :param pulumi.Input[str] engine_version: Redis version to use for the Global Replication Group.
+               When creating, by default the Global Replication Group inherits the version of the primary replication group.
+               If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+               Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
+        :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
+               Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+               Specifying without a major version upgrade will fail.
+               Note that ElastiCache creates a copy of this parameter group for each member replication group.
         """
         pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
         pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
         if global_replication_group_description is not None:
             pulumi.set(__self__, "global_replication_group_description", global_replication_group_description)
+        if parameter_group_name is not None:
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
 
     @property
     @pulumi.getter(name="globalReplicationGroupIdSuffix")
@@ -52,6 +69,24 @@ class GlobalReplicationGroupArgs:
         pulumi.set(self, "primary_replication_group_id", value)
 
     @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redis version to use for the Global Replication Group.
+        When creating, by default the Global Replication Group inherits the version of the primary replication group.
+        If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+        Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @engine_version.setter
+    def engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version", value)
+
+    @property
     @pulumi.getter(name="globalReplicationGroupDescription")
     def global_replication_group_description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -63,6 +98,21 @@ class GlobalReplicationGroupArgs:
     def global_replication_group_description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "global_replication_group_description", value)
 
+    @property
+    @pulumi.getter(name="parameterGroupName")
+    def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An ElastiCache Parameter Group to use for the Global Replication Group.
+        Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+        Specifying without a major version upgrade will fail.
+        Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        """
+        return pulumi.get(self, "parameter_group_name")
+
+    @parameter_group_name.setter
+    def parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameter_group_name", value)
+
 
 @pulumi.input_type
 class _GlobalReplicationGroupState:
@@ -73,10 +123,12 @@ class _GlobalReplicationGroupState:
                  cache_node_type: Optional[pulumi.Input[str]] = None,
                  cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+                 parameter_group_name: Optional[pulumi.Input[str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[str]] = None,
                  transit_encryption_enabled: Optional[pulumi.Input[bool]] = None):
         """
@@ -87,10 +139,21 @@ class _GlobalReplicationGroupState:
         :param pulumi.Input[str] cache_node_type: The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         :param pulumi.Input[bool] cluster_enabled: Indicates whether the Global Datastore is cluster enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this global replication group.
+        :param pulumi.Input[str] engine_version: Redis version to use for the Global Replication Group.
+               When creating, by default the Global Replication Group inherits the version of the primary replication group.
+               If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+               Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
+               Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+               Specifying without a major version upgrade will fail.
+               Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
@@ -106,6 +169,8 @@ class _GlobalReplicationGroupState:
             pulumi.set(__self__, "cluster_enabled", cluster_enabled)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
         if engine_version_actual is not None:
             pulumi.set(__self__, "engine_version_actual", engine_version_actual)
         if global_replication_group_description is not None:
@@ -114,6 +179,8 @@ class _GlobalReplicationGroupState:
             pulumi.set(__self__, "global_replication_group_id", global_replication_group_id)
         if global_replication_group_id_suffix is not None:
             pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
+        if parameter_group_name is not None:
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
         if primary_replication_group_id is not None:
             pulumi.set(__self__, "primary_replication_group_id", primary_replication_group_id)
         if transit_encryption_enabled is not None:
@@ -192,6 +259,24 @@ class _GlobalReplicationGroupState:
         pulumi.set(self, "engine", value)
 
     @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redis version to use for the Global Replication Group.
+        When creating, by default the Global Replication Group inherits the version of the primary replication group.
+        If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+        Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @engine_version.setter
+    def engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "engine_version", value)
+
+    @property
     @pulumi.getter(name="engineVersionActual")
     def engine_version_actual(self) -> Optional[pulumi.Input[str]]:
         """
@@ -240,6 +325,21 @@ class _GlobalReplicationGroupState:
         pulumi.set(self, "global_replication_group_id_suffix", value)
 
     @property
+    @pulumi.getter(name="parameterGroupName")
+    def parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        An ElastiCache Parameter Group to use for the Global Replication Group.
+        Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+        Specifying without a major version upgrade will fail.
+        Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        """
+        return pulumi.get(self, "parameter_group_name")
+
+    @parameter_group_name.setter
+    def parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameter_group_name", value)
+
+    @property
     @pulumi.getter(name="primaryReplicationGroupId")
     def primary_replication_group_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -269,38 +369,13 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+                 parameter_group_name: Optional[pulumi.Input[str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
-
-        ## Example Usage
-        ### Global replication group with one secondary replication group
-
-        The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.elasticache.ReplicationGroup("primary",
-            replication_group_description="primary replication group",
-            engine="redis",
-            engine_version="5.0.6",
-            node_type="cache.m5.large",
-            number_cache_clusters=1)
-        example = aws.elasticache.GlobalReplicationGroup("example",
-            global_replication_group_id_suffix="example",
-            primary_replication_group_id=primary.id)
-        secondary = aws.elasticache.ReplicationGroup("secondary",
-            replication_group_description="secondary replication group",
-            global_replication_group_id=example.global_replication_group_id,
-            number_cache_clusters=1,
-            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
-        ```
-
         ## Import
 
         ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
@@ -311,8 +386,19 @@ class GlobalReplicationGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] engine_version: Redis version to use for the Global Replication Group.
+               When creating, by default the Global Replication Group inherits the version of the primary replication group.
+               If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+               Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
+               Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+               Specifying without a major version upgrade will fail.
+               Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         """
         ...
@@ -322,33 +408,6 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                  args: GlobalReplicationGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
-
-        ## Example Usage
-        ### Global replication group with one secondary replication group
-
-        The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        primary = aws.elasticache.ReplicationGroup("primary",
-            replication_group_description="primary replication group",
-            engine="redis",
-            engine_version="5.0.6",
-            node_type="cache.m5.large",
-            number_cache_clusters=1)
-        example = aws.elasticache.GlobalReplicationGroup("example",
-            global_replication_group_id_suffix="example",
-            primary_replication_group_id=primary.id)
-        secondary = aws.elasticache.ReplicationGroup("secondary",
-            replication_group_description="secondary replication group",
-            global_replication_group_id=example.global_replication_group_id,
-            number_cache_clusters=1,
-            opts=pulumi.ResourceOptions(provider=aws["other_region"]))
-        ```
-
         ## Import
 
         ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
@@ -372,8 +431,10 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 engine_version: Optional[pulumi.Input[str]] = None,
                  global_replication_group_description: Optional[pulumi.Input[str]] = None,
                  global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+                 parameter_group_name: Optional[pulumi.Input[str]] = None,
                  primary_replication_group_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -387,10 +448,12 @@ class GlobalReplicationGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GlobalReplicationGroupArgs.__new__(GlobalReplicationGroupArgs)
 
+            __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["global_replication_group_description"] = global_replication_group_description
             if global_replication_group_id_suffix is None and not opts.urn:
                 raise TypeError("Missing required property 'global_replication_group_id_suffix'")
             __props__.__dict__["global_replication_group_id_suffix"] = global_replication_group_id_suffix
+            __props__.__dict__["parameter_group_name"] = parameter_group_name
             if primary_replication_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'primary_replication_group_id'")
             __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
@@ -419,10 +482,12 @@ class GlobalReplicationGroup(pulumi.CustomResource):
             cache_node_type: Optional[pulumi.Input[str]] = None,
             cluster_enabled: Optional[pulumi.Input[bool]] = None,
             engine: Optional[pulumi.Input[str]] = None,
+            engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             global_replication_group_description: Optional[pulumi.Input[str]] = None,
             global_replication_group_id: Optional[pulumi.Input[str]] = None,
             global_replication_group_id_suffix: Optional[pulumi.Input[str]] = None,
+            parameter_group_name: Optional[pulumi.Input[str]] = None,
             primary_replication_group_id: Optional[pulumi.Input[str]] = None,
             transit_encryption_enabled: Optional[pulumi.Input[bool]] = None) -> 'GlobalReplicationGroup':
         """
@@ -438,10 +503,21 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] cache_node_type: The instance class used. See AWS documentation for information on [supported node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html) and [guidance on selecting node types](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/nodes-select-size.html).
         :param pulumi.Input[bool] cluster_enabled: Indicates whether the Global Datastore is cluster enabled.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this global replication group.
+        :param pulumi.Input[str] engine_version: Redis version to use for the Global Replication Group.
+               When creating, by default the Global Replication Group inherits the version of the primary replication group.
+               If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+               Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+               If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+               or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+               The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
         :param pulumi.Input[str] engine_version_actual: The full version number of the cache engine running on the members of this global replication group.
         :param pulumi.Input[str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[str] global_replication_group_id: The full ID of the global replication group.
         :param pulumi.Input[str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
+        :param pulumi.Input[str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
+               Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+               Specifying without a major version upgrade will fail.
+               Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
         """
@@ -455,10 +531,12 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["cache_node_type"] = cache_node_type
         __props__.__dict__["cluster_enabled"] = cluster_enabled
         __props__.__dict__["engine"] = engine
+        __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["engine_version_actual"] = engine_version_actual
         __props__.__dict__["global_replication_group_description"] = global_replication_group_description
         __props__.__dict__["global_replication_group_id"] = global_replication_group_id
         __props__.__dict__["global_replication_group_id_suffix"] = global_replication_group_id_suffix
+        __props__.__dict__["parameter_group_name"] = parameter_group_name
         __props__.__dict__["primary_replication_group_id"] = primary_replication_group_id
         __props__.__dict__["transit_encryption_enabled"] = transit_encryption_enabled
         return GlobalReplicationGroup(resource_name, opts=opts, __props__=__props__)
@@ -512,6 +590,20 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         return pulumi.get(self, "engine")
 
     @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> pulumi.Output[str]:
+        """
+        Redis version to use for the Global Replication Group.
+        When creating, by default the Global Replication Group inherits the version of the primary replication group.
+        If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+        Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+        If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+        or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+        The actual engine version used is returned in the attribute `engine_version_actual`, see Attributes Reference below.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @property
     @pulumi.getter(name="engineVersionActual")
     def engine_version_actual(self) -> pulumi.Output[str]:
         """
@@ -542,6 +634,17 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         """
         return pulumi.get(self, "global_replication_group_id_suffix")
+
+    @property
+    @pulumi.getter(name="parameterGroupName")
+    def parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        An ElastiCache Parameter Group to use for the Global Replication Group.
+        Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+        Specifying without a major version upgrade will fail.
+        Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        """
+        return pulumi.get(self, "parameter_group_name")
 
     @property
     @pulumi.getter(name="primaryReplicationGroupId")

@@ -55,6 +55,8 @@ import (
 type Fleet struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the fleet
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Reserved.
 	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
@@ -116,6 +118,8 @@ func GetFleet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Fleet resources.
 type fleetState struct {
+	// The ARN of the fleet
+	Arn *string `pulumi:"arn"`
 	// Reserved.
 	Context *string `pulumi:"context"`
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
@@ -143,6 +147,8 @@ type fleetState struct {
 }
 
 type FleetState struct {
+	// The ARN of the fleet
+	Arn pulumi.StringPtrInput
 	// Reserved.
 	Context pulumi.StringPtrInput
 	// Whether running instances should be terminated if the total target capacity of the EC2 Fleet is decreased below the current size of the EC2. Valid values: `no-termination`, `termination`. Defaults to `termination`.
@@ -309,6 +315,11 @@ func (o FleetOutput) ToFleetOutput() FleetOutput {
 
 func (o FleetOutput) ToFleetOutputWithContext(ctx context.Context) FleetOutput {
 	return o
+}
+
+// The ARN of the fleet
+func (o FleetOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Fleet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Reserved.

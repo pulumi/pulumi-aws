@@ -23,6 +23,14 @@ namespace Pulumi.Aws.RedShift.Outputs
         /// </summary>
         public readonly bool Enable;
         /// <summary>
+        /// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+        /// </summary>
+        public readonly string? LogDestinationType;
+        /// <summary>
+        /// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+        /// </summary>
+        public readonly ImmutableArray<string> LogExports;
+        /// <summary>
         /// The prefix applied to the log file names.
         /// </summary>
         public readonly string? S3KeyPrefix;
@@ -33,10 +41,16 @@ namespace Pulumi.Aws.RedShift.Outputs
 
             bool enable,
 
+            string? logDestinationType,
+
+            ImmutableArray<string> logExports,
+
             string? s3KeyPrefix)
         {
             BucketName = bucketName;
             Enable = enable;
+            LogDestinationType = logDestinationType;
+            LogExports = logExports;
             S3KeyPrefix = s3KeyPrefix;
         }
     }

@@ -77,6 +77,7 @@ __all__ = [
     'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy',
     'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity',
     'ResponseHeadersPolicySecurityHeadersConfigXssProtection',
+    'ResponseHeadersPolicyServerTimingHeadersConfig',
     'GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult',
     'GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult',
     'GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieResult',
@@ -106,6 +107,7 @@ __all__ = [
     'GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyResult',
     'GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityResult',
     'GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult',
+    'GetResponseHeadersPolicyServerTimingHeadersConfigResult',
 ]
 
 @pulumi.output_type
@@ -3891,6 +3893,52 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtection(dict):
 
 
 @pulumi.output_type
+class ResponseHeadersPolicyServerTimingHeadersConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "samplingRate":
+            suggest = "sampling_rate"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResponseHeadersPolicyServerTimingHeadersConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResponseHeadersPolicyServerTimingHeadersConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResponseHeadersPolicyServerTimingHeadersConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: bool,
+                 sampling_rate: float):
+        """
+        :param bool enabled: A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        :param float sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> float:
+        """
+        A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+
+@pulumi.output_type
 class GetCachePolicyParametersInCacheKeyAndForwardedToOriginResult(dict):
     def __init__(__self__, *,
                  cookies_configs: Sequence['outputs.GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigResult'],
@@ -4704,5 +4752,34 @@ class GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult(dict):
         A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
         """
         return pulumi.get(self, "report_uri")
+
+
+@pulumi.output_type
+class GetResponseHeadersPolicyServerTimingHeadersConfigResult(dict):
+    def __init__(__self__, *,
+                 enabled: bool,
+                 sampling_rate: float):
+        """
+        :param bool enabled: A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        :param float sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> float:
+        """
+        A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
+        """
+        return pulumi.get(self, "sampling_rate")
 
 

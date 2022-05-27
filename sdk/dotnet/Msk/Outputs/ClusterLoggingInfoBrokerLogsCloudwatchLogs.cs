@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Msk.Outputs
     public sealed class ClusterLoggingInfoBrokerLogsCloudwatchLogs
     {
         /// <summary>
-        /// Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+        /// Controls whether provisioned throughput is enabled or not. Default value: `false`.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

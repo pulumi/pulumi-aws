@@ -224,6 +224,65 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// }
     /// ```
+    /// ### Mixed Instances Policy with Attribute-based Instance Type Selection
+    /// 
+    /// As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("exampleLaunchTemplate", new Aws.Ec2.LaunchTemplateArgs
+    ///         {
+    ///             NamePrefix = "example",
+    ///             ImageId = data.Aws_ami.Example.Id,
+    ///             InstanceType = "c5.large",
+    ///         });
+    ///         var exampleGroup = new Aws.AutoScaling.Group("exampleGroup", new Aws.AutoScaling.GroupArgs
+    ///         {
+    ///             AvailabilityZones = 
+    ///             {
+    ///                 "us-east-1a",
+    ///             },
+    ///             DesiredCapacity = 1,
+    ///             MaxSize = 1,
+    ///             MinSize = 1,
+    ///             MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
+    ///             {
+    ///                 LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
+    ///                 {
+    ///                     LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs
+    ///                     {
+    ///                         LaunchTemplateId = exampleLaunchTemplate.Id,
+    ///                     },
+    ///                     Overrides = 
+    ///                     {
+    ///                         new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
+    ///                         {
+    ///                             InstanceRequirements = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs
+    ///                             {
+    ///                                 MemoryMib = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs
+    ///                                 {
+    ///                                     Min = 1000,
+    ///                                 },
+    ///                                 VcpuCount = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs
+    ///                                 {
+    ///                                     Min = 4,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Automatically refresh all instances after the group is updated
     /// 
     /// ```csharp
@@ -428,6 +487,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Output("capacityRebalance")]
         public Output<bool?> CapacityRebalance { get; private set; } = null!;
+
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Output("context")]
+        public Output<string?> Context { get; private set; } = null!;
 
         /// <summary>
         /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -714,6 +779,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("capacityRebalance")]
         public Input<bool>? CapacityRebalance { get; set; }
+
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        public Input<string>? Context { get; set; }
 
         /// <summary>
         /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
@@ -1022,6 +1093,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("capacityRebalance")]
         public Input<bool>? CapacityRebalance { get; set; }
+
+        /// <summary>
+        /// Reserved.
+        /// </summary>
+        [Input("context")]
+        public Input<string>? Context { get; set; }
 
         /// <summary>
         /// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.

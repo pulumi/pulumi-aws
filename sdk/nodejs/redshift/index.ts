@@ -5,11 +5,15 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./authenticationProfile";
 export * from "./cluster";
+export * from "./endpointAccess";
 export * from "./eventSubscription";
 export * from "./getCluster";
 export * from "./getOrderableCluster";
 export * from "./getServiceAccount";
+export * from "./getSubnetGroup";
+export * from "./hsmClientCertificate";
 export * from "./parameterGroup";
 export * from "./scheduledAction";
 export * from "./securityGroup";
@@ -17,10 +21,14 @@ export * from "./snapshotCopyGrant";
 export * from "./snapshotSchedule";
 export * from "./snapshotScheduleAssociation";
 export * from "./subnetGroup";
+export * from "./usageLimit";
 
 // Import resources to register:
+import { AuthenticationProfile } from "./authenticationProfile";
 import { Cluster } from "./cluster";
+import { EndpointAccess } from "./endpointAccess";
 import { EventSubscription } from "./eventSubscription";
+import { HsmClientCertificate } from "./hsmClientCertificate";
 import { ParameterGroup } from "./parameterGroup";
 import { ScheduledAction } from "./scheduledAction";
 import { SecurityGroup } from "./securityGroup";
@@ -28,15 +36,22 @@ import { SnapshotCopyGrant } from "./snapshotCopyGrant";
 import { SnapshotSchedule } from "./snapshotSchedule";
 import { SnapshotScheduleAssociation } from "./snapshotScheduleAssociation";
 import { SubnetGroup } from "./subnetGroup";
+import { UsageLimit } from "./usageLimit";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:redshift/authenticationProfile:AuthenticationProfile":
+                return new AuthenticationProfile(name, <any>undefined, { urn })
             case "aws:redshift/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws:redshift/endpointAccess:EndpointAccess":
+                return new EndpointAccess(name, <any>undefined, { urn })
             case "aws:redshift/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
+            case "aws:redshift/hsmClientCertificate:HsmClientCertificate":
+                return new HsmClientCertificate(name, <any>undefined, { urn })
             case "aws:redshift/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:redshift/scheduledAction:ScheduledAction":
@@ -51,13 +66,18 @@ const _module = {
                 return new SnapshotScheduleAssociation(name, <any>undefined, { urn })
             case "aws:redshift/subnetGroup:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
+            case "aws:redshift/usageLimit:UsageLimit":
+                return new UsageLimit(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "redshift/authenticationProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/cluster", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/endpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/hsmClientCertificate", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/scheduledAction", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/securityGroup", _module)
@@ -65,3 +85,4 @@ pulumi.runtime.registerResourceModule("aws", "redshift/snapshotCopyGrant", _modu
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotSchedule", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotScheduleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/subnetGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/usageLimit", _module)

@@ -196,6 +196,8 @@ type Policy struct {
 	AutoscalingGroupName pulumi.StringOutput `pulumi:"autoscalingGroupName"`
 	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrOutput `pulumi:"cooldown"`
+	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrOutput `pulumi:"estimatedInstanceWarmup"`
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
@@ -259,6 +261,8 @@ type policyState struct {
 	AutoscalingGroupName *string `pulumi:"autoscalingGroupName"`
 	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown *int `pulumi:"cooldown"`
+	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
@@ -291,6 +295,8 @@ type PolicyState struct {
 	AutoscalingGroupName pulumi.StringPtrInput
 	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrInput
+	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	Enabled pulumi.BoolPtrInput
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrInput
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
@@ -325,6 +331,8 @@ type policyArgs struct {
 	AutoscalingGroupName string `pulumi:"autoscalingGroupName"`
 	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown *int `pulumi:"cooldown"`
+	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	Enabled *bool `pulumi:"enabled"`
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup *int `pulumi:"estimatedInstanceWarmup"`
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
@@ -356,6 +364,8 @@ type PolicyArgs struct {
 	AutoscalingGroupName pulumi.StringInput
 	// The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 	Cooldown pulumi.IntPtrInput
+	// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+	Enabled pulumi.BoolPtrInput
 	// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
 	EstimatedInstanceWarmup pulumi.IntPtrInput
 	// The aggregation type for the policy's metrics. Valid values are "Minimum", "Maximum", and "Average". Without a value, AWS will treat the aggregation type as "Average".
@@ -484,6 +494,11 @@ func (o PolicyOutput) AutoscalingGroupName() pulumi.StringOutput {
 // The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
 func (o PolicyOutput) Cooldown() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.IntPtrOutput { return v.Cooldown }).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+func (o PolicyOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.

@@ -874,6 +874,211 @@ func (o FileSystemSizeInByteArrayOutput) Index(i pulumi.IntInput) FileSystemSize
 	}).(FileSystemSizeInByteOutput)
 }
 
+type ReplicationConfigurationDestination struct {
+	// The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
+	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
+	FileSystemId         *string `pulumi:"fileSystemId"`
+	// The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// The region in which the replica should be created.
+	Region *string `pulumi:"region"`
+	Status *string `pulumi:"status"`
+}
+
+// ReplicationConfigurationDestinationInput is an input type that accepts ReplicationConfigurationDestinationArgs and ReplicationConfigurationDestinationOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationDestinationInput` via:
+//
+//          ReplicationConfigurationDestinationArgs{...}
+type ReplicationConfigurationDestinationInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationDestinationOutput() ReplicationConfigurationDestinationOutput
+	ToReplicationConfigurationDestinationOutputWithContext(context.Context) ReplicationConfigurationDestinationOutput
+}
+
+type ReplicationConfigurationDestinationArgs struct {
+	// The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
+	AvailabilityZoneName pulumi.StringPtrInput `pulumi:"availabilityZoneName"`
+	FileSystemId         pulumi.StringPtrInput `pulumi:"fileSystemId"`
+	// The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// The region in which the replica should be created.
+	Region pulumi.StringPtrInput `pulumi:"region"`
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (ReplicationConfigurationDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationDestination)(nil)).Elem()
+}
+
+func (i ReplicationConfigurationDestinationArgs) ToReplicationConfigurationDestinationOutput() ReplicationConfigurationDestinationOutput {
+	return i.ToReplicationConfigurationDestinationOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationDestinationArgs) ToReplicationConfigurationDestinationOutputWithContext(ctx context.Context) ReplicationConfigurationDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationDestinationOutput)
+}
+
+func (i ReplicationConfigurationDestinationArgs) ToReplicationConfigurationDestinationPtrOutput() ReplicationConfigurationDestinationPtrOutput {
+	return i.ToReplicationConfigurationDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i ReplicationConfigurationDestinationArgs) ToReplicationConfigurationDestinationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationDestinationOutput).ToReplicationConfigurationDestinationPtrOutputWithContext(ctx)
+}
+
+// ReplicationConfigurationDestinationPtrInput is an input type that accepts ReplicationConfigurationDestinationArgs, ReplicationConfigurationDestinationPtr and ReplicationConfigurationDestinationPtrOutput values.
+// You can construct a concrete instance of `ReplicationConfigurationDestinationPtrInput` via:
+//
+//          ReplicationConfigurationDestinationArgs{...}
+//
+//  or:
+//
+//          nil
+type ReplicationConfigurationDestinationPtrInput interface {
+	pulumi.Input
+
+	ToReplicationConfigurationDestinationPtrOutput() ReplicationConfigurationDestinationPtrOutput
+	ToReplicationConfigurationDestinationPtrOutputWithContext(context.Context) ReplicationConfigurationDestinationPtrOutput
+}
+
+type replicationConfigurationDestinationPtrType ReplicationConfigurationDestinationArgs
+
+func ReplicationConfigurationDestinationPtr(v *ReplicationConfigurationDestinationArgs) ReplicationConfigurationDestinationPtrInput {
+	return (*replicationConfigurationDestinationPtrType)(v)
+}
+
+func (*replicationConfigurationDestinationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationDestination)(nil)).Elem()
+}
+
+func (i *replicationConfigurationDestinationPtrType) ToReplicationConfigurationDestinationPtrOutput() ReplicationConfigurationDestinationPtrOutput {
+	return i.ToReplicationConfigurationDestinationPtrOutputWithContext(context.Background())
+}
+
+func (i *replicationConfigurationDestinationPtrType) ToReplicationConfigurationDestinationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDestinationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationDestinationPtrOutput)
+}
+
+type ReplicationConfigurationDestinationOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationConfigurationDestination)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationDestinationOutput) ToReplicationConfigurationDestinationOutput() ReplicationConfigurationDestinationOutput {
+	return o
+}
+
+func (o ReplicationConfigurationDestinationOutput) ToReplicationConfigurationDestinationOutputWithContext(ctx context.Context) ReplicationConfigurationDestinationOutput {
+	return o
+}
+
+func (o ReplicationConfigurationDestinationOutput) ToReplicationConfigurationDestinationPtrOutput() ReplicationConfigurationDestinationPtrOutput {
+	return o.ToReplicationConfigurationDestinationPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationConfigurationDestinationOutput) ToReplicationConfigurationDestinationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDestinationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfigurationDestination) *ReplicationConfigurationDestination {
+		return &v
+	}).(ReplicationConfigurationDestinationPtrOutput)
+}
+
+// The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
+func (o ReplicationConfigurationDestinationOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigurationDestination) *string { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigurationDestinationOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigurationDestination) *string { return v.FileSystemId }).(pulumi.StringPtrOutput)
+}
+
+// The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
+func (o ReplicationConfigurationDestinationOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigurationDestination) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// The region in which the replica should be created.
+func (o ReplicationConfigurationDestinationOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigurationDestination) *string { return v.Region }).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigurationDestinationOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationConfigurationDestination) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationConfigurationDestinationPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationConfigurationDestinationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationConfigurationDestination)(nil)).Elem()
+}
+
+func (o ReplicationConfigurationDestinationPtrOutput) ToReplicationConfigurationDestinationPtrOutput() ReplicationConfigurationDestinationPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationDestinationPtrOutput) ToReplicationConfigurationDestinationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationDestinationPtrOutput {
+	return o
+}
+
+func (o ReplicationConfigurationDestinationPtrOutput) Elem() ReplicationConfigurationDestinationOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationDestination) ReplicationConfigurationDestination {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationConfigurationDestination
+		return ret
+	}).(ReplicationConfigurationDestinationOutput)
+}
+
+// The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
+func (o ReplicationConfigurationDestinationPtrOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZoneName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigurationDestinationPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
+func (o ReplicationConfigurationDestinationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The region in which the replica should be created.
+func (o ReplicationConfigurationDestinationPtrOutput) Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Region
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ReplicationConfigurationDestinationPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationConfigurationDestination) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetAccessPointPosixUser struct {
 	// Group ID
 	Gid int `pulumi:"gid"`
@@ -1281,6 +1486,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyArrayInput)(nil)).Elem(), FileSystemLifecyclePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSizeInByteInput)(nil)).Elem(), FileSystemSizeInByteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSizeInByteArrayInput)(nil)).Elem(), FileSystemSizeInByteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationDestinationInput)(nil)).Elem(), ReplicationConfigurationDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationDestinationPtrInput)(nil)).Elem(), ReplicationConfigurationDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPosixUserInput)(nil)).Elem(), GetAccessPointPosixUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPosixUserArrayInput)(nil)).Elem(), GetAccessPointPosixUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryInput)(nil)).Elem(), GetAccessPointRootDirectoryArgs{})
@@ -1300,6 +1507,8 @@ func init() {
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemSizeInByteOutput{})
 	pulumi.RegisterOutputType(FileSystemSizeInByteArrayOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationDestinationOutput{})
+	pulumi.RegisterOutputType(ReplicationConfigurationDestinationPtrOutput{})
 	pulumi.RegisterOutputType(GetAccessPointPosixUserOutput{})
 	pulumi.RegisterOutputType(GetAccessPointPosixUserArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointRootDirectoryOutput{})

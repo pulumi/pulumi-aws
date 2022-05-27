@@ -18,6 +18,8 @@ class ClusterArgs:
                  cluster_identifier: pulumi.Input[str],
                  node_type: pulumi.Input[str],
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 aqua_configuration_status: Optional[pulumi.Input[str]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -29,6 +31,7 @@ class ClusterArgs:
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 default_iam_role_arn: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -37,6 +40,8 @@ class ClusterArgs:
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
+                 maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  number_of_nodes: Optional[pulumi.Input[int]] = None,
@@ -54,7 +59,9 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] cluster_identifier: The Cluster Identifier. Must be a lower case string.
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
-        :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
@@ -68,6 +75,7 @@ class ClusterArgs:
                The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
+        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true , the data in the cluster is encrypted at rest.
         :param pulumi.Input[str] endpoint: The connection endpoint
@@ -76,16 +84,18 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input['ClusterLoggingArgs'] logging: Logging, documented below.
+        :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        :param pulumi.Input[int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         :param pulumi.Input[str] master_password: Password for the master DB user.
                Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
                contain at least one uppercase letter, one lowercase letter, and one number.
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
                The cluster is accessible only via the JDBC and ODBC connection strings.
                Part of the connection string requires the port on which the cluster will listen for incoming connections.
-               Default port is 5439.
+               Default port is `5439`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
@@ -100,6 +110,10 @@ class ClusterArgs:
         pulumi.set(__self__, "node_type", node_type)
         if allow_version_upgrade is not None:
             pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
+        if apply_immediately is not None:
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
+        if aqua_configuration_status is not None:
+            pulumi.set(__self__, "aqua_configuration_status", aqua_configuration_status)
         if automated_snapshot_retention_period is not None:
             pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
         if availability_zone is not None:
@@ -122,6 +136,8 @@ class ClusterArgs:
             pulumi.set(__self__, "cluster_version", cluster_version)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if default_iam_role_arn is not None:
+            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
         if elastic_ip is not None:
             pulumi.set(__self__, "elastic_ip", elastic_ip)
         if encrypted is not None:
@@ -138,6 +154,10 @@ class ClusterArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
+        if maintenance_track_name is not None:
+            pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
+        if manual_snapshot_retention_period is not None:
+            pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
         if master_username is not None:
@@ -193,13 +213,37 @@ class ClusterArgs:
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         """
         return pulumi.get(self, "allow_version_upgrade")
 
     @allow_version_upgrade.setter
     def allow_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="applyImmediately")
+    def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        """
+        return pulumi.get(self, "apply_immediately")
+
+    @apply_immediately.setter
+    def apply_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_immediately", value)
+
+    @property
+    @pulumi.getter(name="aquaConfigurationStatus")
+    def aqua_configuration_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        """
+        return pulumi.get(self, "aqua_configuration_status")
+
+    @aqua_configuration_status.setter
+    def aqua_configuration_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aqua_configuration_status", value)
 
     @property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
@@ -336,6 +380,18 @@ class ClusterArgs:
         pulumi.set(self, "database_name", value)
 
     @property
+    @pulumi.getter(name="defaultIamRoleArn")
+    def default_iam_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        """
+        return pulumi.get(self, "default_iam_role_arn")
+
+    @default_iam_role_arn.setter
+    def default_iam_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_iam_role_arn", value)
+
+    @property
     @pulumi.getter(name="elasticIp")
     def elastic_ip(self) -> Optional[pulumi.Input[str]]:
         """
@@ -432,6 +488,30 @@ class ClusterArgs:
         pulumi.set(self, "logging", value)
 
     @property
+    @pulumi.getter(name="maintenanceTrackName")
+    def maintenance_track_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        """
+        return pulumi.get(self, "maintenance_track_name")
+
+    @maintenance_track_name.setter
+    def maintenance_track_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_track_name", value)
+
+    @property
+    @pulumi.getter(name="manualSnapshotRetentionPeriod")
+    def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+        """
+        return pulumi.get(self, "manual_snapshot_retention_period")
+
+    @manual_snapshot_retention_period.setter
+    def manual_snapshot_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "manual_snapshot_retention_period", value)
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[str]]:
         """
@@ -485,10 +565,10 @@ class ClusterArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        The port number on which the cluster accepts incoming connections.
+        The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
         The cluster is accessible only via the JDBC and ODBC connection strings.
         Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        Default port is 5439.
+        Default port is `5439`.
         """
         return pulumi.get(self, "port")
 
@@ -598,6 +678,8 @@ class ClusterArgs:
 class _ClusterState:
     def __init__(__self__, *,
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 aqua_configuration_status: Optional[pulumi.Input[str]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
@@ -612,6 +694,7 @@ class _ClusterState:
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 default_iam_role_arn: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
@@ -621,6 +704,8 @@ class _ClusterState:
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input['ClusterLoggingArgs']] = None,
+                 maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -638,7 +723,9 @@ class _ClusterState:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Cluster resources.
-        :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
@@ -655,6 +742,7 @@ class _ClusterState:
                The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
+        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[str] dns_name: The DNS name of the cluster
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true , the data in the cluster is encrypted at rest.
@@ -664,6 +752,8 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input['ClusterLoggingArgs'] logging: Logging, documented below.
+        :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        :param pulumi.Input[int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         :param pulumi.Input[str] master_password: Password for the master DB user.
                Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
                contain at least one uppercase letter, one lowercase letter, and one number.
@@ -671,10 +761,10 @@ class _ClusterState:
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
                The cluster is accessible only via the JDBC and ODBC connection strings.
                Part of the connection string requires the port on which the cluster will listen for incoming connections.
-               Default port is 5439.
+               Default port is `5439`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
@@ -688,6 +778,10 @@ class _ClusterState:
         """
         if allow_version_upgrade is not None:
             pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
+        if apply_immediately is not None:
+            pulumi.set(__self__, "apply_immediately", apply_immediately)
+        if aqua_configuration_status is not None:
+            pulumi.set(__self__, "aqua_configuration_status", aqua_configuration_status)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if automated_snapshot_retention_period is not None:
@@ -716,6 +810,8 @@ class _ClusterState:
             pulumi.set(__self__, "cluster_version", cluster_version)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
+        if default_iam_role_arn is not None:
+            pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if elastic_ip is not None:
@@ -734,6 +830,10 @@ class _ClusterState:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if logging is not None:
             pulumi.set(__self__, "logging", logging)
+        if maintenance_track_name is not None:
+            pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
+        if manual_snapshot_retention_period is not None:
+            pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if master_password is not None:
             pulumi.set(__self__, "master_password", master_password)
         if master_username is not None:
@@ -769,13 +869,37 @@ class _ClusterState:
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
         """
-        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         """
         return pulumi.get(self, "allow_version_upgrade")
 
     @allow_version_upgrade.setter
     def allow_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "allow_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="applyImmediately")
+    def apply_immediately(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        """
+        return pulumi.get(self, "apply_immediately")
+
+    @apply_immediately.setter
+    def apply_immediately(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_immediately", value)
+
+    @property
+    @pulumi.getter(name="aquaConfigurationStatus")
+    def aqua_configuration_status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        """
+        return pulumi.get(self, "aqua_configuration_status")
+
+    @aqua_configuration_status.setter
+    def aqua_configuration_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "aqua_configuration_status", value)
 
     @property
     @pulumi.getter
@@ -948,6 +1072,18 @@ class _ClusterState:
         pulumi.set(self, "database_name", value)
 
     @property
+    @pulumi.getter(name="defaultIamRoleArn")
+    def default_iam_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        """
+        return pulumi.get(self, "default_iam_role_arn")
+
+    @default_iam_role_arn.setter
+    def default_iam_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_iam_role_arn", value)
+
+    @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1056,6 +1192,30 @@ class _ClusterState:
         pulumi.set(self, "logging", value)
 
     @property
+    @pulumi.getter(name="maintenanceTrackName")
+    def maintenance_track_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        """
+        return pulumi.get(self, "maintenance_track_name")
+
+    @maintenance_track_name.setter
+    def maintenance_track_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maintenance_track_name", value)
+
+    @property
+    @pulumi.getter(name="manualSnapshotRetentionPeriod")
+    def manual_snapshot_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+        """
+        return pulumi.get(self, "manual_snapshot_retention_period")
+
+    @manual_snapshot_retention_period.setter
+    def manual_snapshot_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "manual_snapshot_retention_period", value)
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1121,10 +1281,10 @@ class _ClusterState:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        The port number on which the cluster accepts incoming connections.
+        The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
         The cluster is accessible only via the JDBC and ODBC connection strings.
         Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        Default port is 5439.
+        Default port is `5439`.
         """
         return pulumi.get(self, "port")
 
@@ -1248,6 +1408,8 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 aqua_configuration_status: Optional[pulumi.Input[str]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1260,6 +1422,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 default_iam_role_arn: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -1268,6 +1431,8 @@ class Cluster(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
+                 maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -1311,7 +1476,9 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
         :param pulumi.Input[bool] availability_zone_relocation_enabled: If true, the cluster can be relocated to another availabity zone, either automatically by AWS or when requested. Default is `false`. Available for use on clusters from the RA3 instance family.
@@ -1326,6 +1493,7 @@ class Cluster(pulumi.CustomResource):
                The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
+        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true , the data in the cluster is encrypted at rest.
         :param pulumi.Input[str] endpoint: The connection endpoint
@@ -1334,6 +1502,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[pulumi.InputType['ClusterLoggingArgs']] logging: Logging, documented below.
+        :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        :param pulumi.Input[int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         :param pulumi.Input[str] master_password: Password for the master DB user.
                Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
                contain at least one uppercase letter, one lowercase letter, and one number.
@@ -1341,10 +1511,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
                The cluster is accessible only via the JDBC and ODBC connection strings.
                Part of the connection string requires the port on which the cluster will listen for incoming connections.
-               Default port is 5439.
+               Default port is `5439`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
@@ -1403,6 +1573,8 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 apply_immediately: Optional[pulumi.Input[bool]] = None,
+                 aqua_configuration_status: Optional[pulumi.Input[str]] = None,
                  automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  availability_zone_relocation_enabled: Optional[pulumi.Input[bool]] = None,
@@ -1415,6 +1587,7 @@ class Cluster(pulumi.CustomResource):
                  cluster_type: Optional[pulumi.Input[str]] = None,
                  cluster_version: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
+                 default_iam_role_arn: Optional[pulumi.Input[str]] = None,
                  elastic_ip: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -1423,6 +1596,8 @@ class Cluster(pulumi.CustomResource):
                  iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
+                 maintenance_track_name: Optional[pulumi.Input[str]] = None,
+                 manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
                  master_password: Optional[pulumi.Input[str]] = None,
                  master_username: Optional[pulumi.Input[str]] = None,
                  node_type: Optional[pulumi.Input[str]] = None,
@@ -1450,6 +1625,8 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["allow_version_upgrade"] = allow_version_upgrade
+            __props__.__dict__["apply_immediately"] = apply_immediately
+            __props__.__dict__["aqua_configuration_status"] = aqua_configuration_status
             __props__.__dict__["automated_snapshot_retention_period"] = automated_snapshot_retention_period
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["availability_zone_relocation_enabled"] = availability_zone_relocation_enabled
@@ -1464,6 +1641,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["cluster_type"] = cluster_type
             __props__.__dict__["cluster_version"] = cluster_version
             __props__.__dict__["database_name"] = database_name
+            __props__.__dict__["default_iam_role_arn"] = default_iam_role_arn
             __props__.__dict__["elastic_ip"] = elastic_ip
             __props__.__dict__["encrypted"] = encrypted
             __props__.__dict__["endpoint"] = endpoint
@@ -1472,6 +1650,8 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["iam_roles"] = iam_roles
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["logging"] = logging
+            __props__.__dict__["maintenance_track_name"] = maintenance_track_name
+            __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
             __props__.__dict__["master_password"] = master_password
             __props__.__dict__["master_username"] = master_username
             if node_type is None and not opts.urn:
@@ -1503,6 +1683,8 @@ class Cluster(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             allow_version_upgrade: Optional[pulumi.Input[bool]] = None,
+            apply_immediately: Optional[pulumi.Input[bool]] = None,
+            aqua_configuration_status: Optional[pulumi.Input[str]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             automated_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
@@ -1517,6 +1699,7 @@ class Cluster(pulumi.CustomResource):
             cluster_type: Optional[pulumi.Input[str]] = None,
             cluster_version: Optional[pulumi.Input[str]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
+            default_iam_role_arn: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             elastic_ip: Optional[pulumi.Input[str]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
@@ -1526,6 +1709,8 @@ class Cluster(pulumi.CustomResource):
             iam_roles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             logging: Optional[pulumi.Input[pulumi.InputType['ClusterLoggingArgs']]] = None,
+            maintenance_track_name: Optional[pulumi.Input[str]] = None,
+            manual_snapshot_retention_period: Optional[pulumi.Input[int]] = None,
             master_password: Optional[pulumi.Input[str]] = None,
             master_username: Optional[pulumi.Input[str]] = None,
             node_type: Optional[pulumi.Input[str]] = None,
@@ -1548,7 +1733,9 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        :param pulumi.Input[bool] allow_version_upgrade: If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
+        :param pulumi.Input[bool] apply_immediately: Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[str] aqua_configuration_status: The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of cluster
         :param pulumi.Input[int] automated_snapshot_retention_period: The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
         :param pulumi.Input[str] availability_zone: The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availability_zone_relocation_enabled` is `true`.
@@ -1565,6 +1752,7 @@ class Cluster(pulumi.CustomResource):
                The version selected runs on all the nodes in the cluster.
         :param pulumi.Input[str] database_name: The name of the first database to be created when the cluster is created.
                If you do not provide a name, Amazon Redshift will create a default database called `dev`.
+        :param pulumi.Input[str] default_iam_role_arn: The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         :param pulumi.Input[str] dns_name: The DNS name of the cluster
         :param pulumi.Input[str] elastic_ip: The Elastic IP (EIP) address for the cluster.
         :param pulumi.Input[bool] encrypted: If true , the data in the cluster is encrypted at rest.
@@ -1574,6 +1762,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] iam_roles: A list of IAM Role ARNs to associate with the cluster. A Maximum of 10 can be associated to the cluster at any time.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true.
         :param pulumi.Input[pulumi.InputType['ClusterLoggingArgs']] logging: Logging, documented below.
+        :param pulumi.Input[str] maintenance_track_name: The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        :param pulumi.Input[int] manual_snapshot_retention_period: The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
         :param pulumi.Input[str] master_password: Password for the master DB user.
                Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
                contain at least one uppercase letter, one lowercase letter, and one number.
@@ -1581,10 +1771,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] node_type: The node type to be provisioned for the cluster.
         :param pulumi.Input[int] number_of_nodes: The number of compute nodes in the cluster. This parameter is required when the ClusterType parameter is specified as multi-node. Default is 1.
         :param pulumi.Input[str] owner_account: The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
-        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections.
+        :param pulumi.Input[int] port: The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
                The cluster is accessible only via the JDBC and ODBC connection strings.
                Part of the connection string requires the port on which the cluster will listen for incoming connections.
-               Default port is 5439.
+               Default port is `5439`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range (in UTC) during which automated cluster maintenance can occur.
                Format: ddd:hh24:mi-ddd:hh24:mi
         :param pulumi.Input[bool] publicly_accessible: If true, the cluster can be accessed from a public network. Default is `true`.
@@ -1601,6 +1791,8 @@ class Cluster(pulumi.CustomResource):
         __props__ = _ClusterState.__new__(_ClusterState)
 
         __props__.__dict__["allow_version_upgrade"] = allow_version_upgrade
+        __props__.__dict__["apply_immediately"] = apply_immediately
+        __props__.__dict__["aqua_configuration_status"] = aqua_configuration_status
         __props__.__dict__["arn"] = arn
         __props__.__dict__["automated_snapshot_retention_period"] = automated_snapshot_retention_period
         __props__.__dict__["availability_zone"] = availability_zone
@@ -1615,6 +1807,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["cluster_type"] = cluster_type
         __props__.__dict__["cluster_version"] = cluster_version
         __props__.__dict__["database_name"] = database_name
+        __props__.__dict__["default_iam_role_arn"] = default_iam_role_arn
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["elastic_ip"] = elastic_ip
         __props__.__dict__["encrypted"] = encrypted
@@ -1624,6 +1817,8 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["iam_roles"] = iam_roles
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["logging"] = logging
+        __props__.__dict__["maintenance_track_name"] = maintenance_track_name
+        __props__.__dict__["manual_snapshot_retention_period"] = manual_snapshot_retention_period
         __props__.__dict__["master_password"] = master_password
         __props__.__dict__["master_username"] = master_username
         __props__.__dict__["node_type"] = node_type
@@ -1645,9 +1840,25 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="allowVersionUpgrade")
     def allow_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
-        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         """
         return pulumi.get(self, "allow_version_upgrade")
+
+    @property
+    @pulumi.getter(name="applyImmediately")
+    def apply_immediately(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        """
+        return pulumi.get(self, "apply_immediately")
+
+    @property
+    @pulumi.getter(name="aquaConfigurationStatus")
+    def aqua_configuration_status(self) -> pulumi.Output[str]:
+        """
+        The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        """
+        return pulumi.get(self, "aqua_configuration_status")
 
     @property
     @pulumi.getter
@@ -1764,6 +1975,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "database_name")
 
     @property
+    @pulumi.getter(name="defaultIamRoleArn")
+    def default_iam_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        """
+        return pulumi.get(self, "default_iam_role_arn")
+
+    @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
         """
@@ -1836,6 +2055,22 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "logging")
 
     @property
+    @pulumi.getter(name="maintenanceTrackName")
+    def maintenance_track_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        """
+        return pulumi.get(self, "maintenance_track_name")
+
+    @property
+    @pulumi.getter(name="manualSnapshotRetentionPeriod")
+    def manual_snapshot_retention_period(self) -> pulumi.Output[Optional[int]]:
+        """
+        The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+        """
+        return pulumi.get(self, "manual_snapshot_retention_period")
+
+    @property
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1881,10 +2116,10 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
-        The port number on which the cluster accepts incoming connections.
+        The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
         The cluster is accessible only via the JDBC and ODBC connection strings.
         Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        Default port is 5439.
+        Default port is `5439`.
         """
         return pulumi.get(self, "port")
 

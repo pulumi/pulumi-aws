@@ -2124,7 +2124,7 @@ class ReplicationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoMinorVersionUpgrade")
-    def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
+    def auto_minor_version_upgrade(self) -> pulumi.Output[bool]:
         """
         Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         Only supported for engine type `"redis"` and if the engine version is 6 or higher.

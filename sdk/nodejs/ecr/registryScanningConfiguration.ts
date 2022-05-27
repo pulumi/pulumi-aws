@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * ECR Scanning Configurations can be imported using the `registry_id`, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration aws_ecr_registry_scanning_configuration 012345678901
+ *  $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
  * ```
  */
 export class RegistryScanningConfiguration extends pulumi.CustomResource {

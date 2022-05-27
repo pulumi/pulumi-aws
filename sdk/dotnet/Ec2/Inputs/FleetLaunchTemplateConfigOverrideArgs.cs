@@ -19,6 +19,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
+        /// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+        /// </summary>
+        [Input("instanceRequirements")]
+        public Input<Inputs.FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs>? InstanceRequirements { get; set; }
+
+        /// <summary>
         /// Instance type.
         /// </summary>
         [Input("instanceType")]

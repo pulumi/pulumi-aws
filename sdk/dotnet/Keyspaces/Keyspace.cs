@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Import
     /// 
-    /// Use the `name` to import a subnet group. For example
+    /// Use the `name` to import a keyspace. For example
     /// 
     /// ```sh
     ///  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Keyspaces
     public partial class Keyspace : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the subnet group.
+        /// The ARN of the keyspace.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Keyspaces
     public sealed class KeyspaceState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the subnet group.
+        /// The ARN of the keyspace.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

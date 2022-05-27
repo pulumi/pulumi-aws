@@ -81,7 +81,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> CustomerAwsId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag to enable/disable the subscription. Defaults to true.
+        /// A boolean flag to enable/disable the subscription. Defaults to `true`.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -99,7 +99,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+        /// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         /// </summary>
         [Output("severity")]
         public Output<string?> Severity { get; private set; } = null!;
@@ -111,13 +111,13 @@ namespace Pulumi.Aws.RedShift
         public Output<string> SnsTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+        /// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
         /// </summary>
         [Output("sourceIds")]
         public Output<ImmutableArray<string>> SourceIds { get; private set; } = null!;
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
         /// </summary>
         [Output("sourceType")]
         public Output<string?> SourceType { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class EventSubscriptionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A boolean flag to enable/disable the subscription. Defaults to true.
+        /// A boolean flag to enable/disable the subscription. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+        /// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _sourceIds;
 
         /// <summary>
-        /// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+        /// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
         /// </summary>
         public InputList<string> SourceIds
         {
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -269,7 +269,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? CustomerAwsId { get; set; }
 
         /// <summary>
-        /// A boolean flag to enable/disable the subscription. Defaults to true.
+        /// A boolean flag to enable/disable the subscription. Defaults to `true`.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+        /// The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
         /// </summary>
         [Input("severity")]
         public Input<string>? Severity { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _sourceIds;
 
         /// <summary>
-        /// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
+        /// A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `source_type` must also be specified.
         /// </summary>
         public InputList<string> SourceIds
         {
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.RedShift
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

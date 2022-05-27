@@ -174,6 +174,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly cooldown!: pulumi.Output<number | undefined>;
     /**
+     * Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     */
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    /**
      * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
     public readonly estimatedInstanceWarmup!: pulumi.Output<number | undefined>;
@@ -230,6 +234,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
             resourceInputs["cooldown"] = state ? state.cooldown : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["estimatedInstanceWarmup"] = state ? state.estimatedInstanceWarmup : undefined;
             resourceInputs["metricAggregationType"] = state ? state.metricAggregationType : undefined;
             resourceInputs["minAdjustmentMagnitude"] = state ? state.minAdjustmentMagnitude : undefined;
@@ -247,6 +252,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["adjustmentType"] = args ? args.adjustmentType : undefined;
             resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
             resourceInputs["cooldown"] = args ? args.cooldown : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["estimatedInstanceWarmup"] = args ? args.estimatedInstanceWarmup : undefined;
             resourceInputs["metricAggregationType"] = args ? args.metricAggregationType : undefined;
             resourceInputs["minAdjustmentMagnitude"] = args ? args.minAdjustmentMagnitude : undefined;
@@ -283,6 +289,10 @@ export interface PolicyState {
      * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
     cooldown?: pulumi.Input<number>;
+    /**
+     * Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */
@@ -340,6 +350,10 @@ export interface PolicyArgs {
      * The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start.
      */
     cooldown?: pulumi.Input<number>;
+    /**
+     * Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+     */
+    enabled?: pulumi.Input<boolean>;
     /**
      * The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
      */

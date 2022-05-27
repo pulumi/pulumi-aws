@@ -50,6 +50,7 @@ export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pul
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:index/getAutoscalingGroups:getAutoscalingGroups", {
         "filters": args.filters,
+        "names": args.names,
     }, opts);
 }
 
@@ -61,6 +62,10 @@ export interface GetAutoscalingGroupsArgs {
      * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: inputs.GetAutoscalingGroupsFilter[];
+    /**
+     * A list of autoscaling group names
+     */
+    names?: string[];
 }
 
 /**
@@ -94,4 +99,8 @@ export interface GetAutoscalingGroupsOutputArgs {
      * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetAutoscalingGroupsFilterArgs>[]>;
+    /**
+     * A list of autoscaling group names
+     */
+    names?: pulumi.Input<pulumi.Input<string>[]>;
 }

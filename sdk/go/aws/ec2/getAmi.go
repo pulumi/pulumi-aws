@@ -174,6 +174,8 @@ type LookupAmiResult struct {
 	// * `tags.#.key` - The key name of the tag.
 	// * `tags.#.value` - The value of the tag.
 	Tags map[string]string `pulumi:"tags"`
+	// If the image is configured for NitroTPM support, the value is `v2.0`.
+	TpmSupport string `pulumi:"tpmSupport"`
 	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation string `pulumi:"usageOperation"`
 	// The type of virtualization of the AMI (ie: `hvm` or
@@ -414,6 +416,11 @@ func (o LookupAmiResultOutput) StateReason() pulumi.StringMapOutput {
 // * `tags.#.value` - The value of the tag.
 func (o LookupAmiResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupAmiResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// If the image is configured for NitroTPM support, the value is `v2.0`.
+func (o LookupAmiResultOutput) TpmSupport() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAmiResult) string { return v.TpmSupport }).(pulumi.StringOutput)
 }
 
 // The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.

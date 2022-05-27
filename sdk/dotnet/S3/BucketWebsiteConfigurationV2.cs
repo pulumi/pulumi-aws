@@ -13,6 +13,7 @@ namespace Pulumi.Aws.S3
     /// Provides an S3 bucket website configuration resource. For more information, see [Hosting Websites on S3](https://docs.aws.amazon.com/AmazonS3/latest/dev/WebsiteHosting.html).
     /// 
     /// ## Example Usage
+    /// ### With `routing_rule` configured
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -47,6 +48,41 @@ namespace Pulumi.Aws.S3
     ///                     },
     ///                 },
     ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### With `routing_rules` configured
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.S3.BucketWebsiteConfigurationV2("example", new Aws.S3.BucketWebsiteConfigurationV2Args
+    ///         {
+    ///             Bucket = aws_s3_bucket.Example.Bucket,
+    ///             IndexDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2IndexDocumentArgs
+    ///             {
+    ///                 Suffix = "index.html",
+    ///             },
+    ///             ErrorDocument = new Aws.S3.Inputs.BucketWebsiteConfigurationV2ErrorDocumentArgs
+    ///             {
+    ///                 Key = "error.html",
+    ///             },
+    ///             RoutingRuleDetails = @"[{
+    ///     ""Condition"": {
+    ///         ""KeyPrefixEquals"": ""docs/""
+    ///     },
+    ///     ""Redirect"": {
+    ///         ""ReplaceKeyPrefixWith"": """"
+    ///     }
+    /// }]
+    /// ",
     ///         });
     ///     }
     /// 
@@ -99,6 +135,13 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("redirectAllRequestsTo")]
         public Output<Outputs.BucketWebsiteConfigurationV2RedirectAllRequestsTo?> RedirectAllRequestsTo { get; private set; } = null!;
+
+        /// <summary>
+        /// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+        /// </summary>
+        [Output("routingRuleDetails")]
+        public Output<string> RoutingRuleDetails { get; private set; } = null!;
 
         /// <summary>
         /// List of rules that define when a redirect is applied and the redirect behavior detailed below.
@@ -194,6 +237,13 @@ namespace Pulumi.Aws.S3
         [Input("redirectAllRequestsTo")]
         public Input<Inputs.BucketWebsiteConfigurationV2RedirectAllRequestsToArgs>? RedirectAllRequestsTo { get; set; }
 
+        /// <summary>
+        /// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+        /// </summary>
+        [Input("routingRuleDetails")]
+        public Input<string>? RoutingRuleDetails { get; set; }
+
         [Input("routingRules")]
         private InputList<Inputs.BucketWebsiteConfigurationV2RoutingRuleArgs>? _routingRules;
 
@@ -242,6 +292,13 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("redirectAllRequestsTo")]
         public Input<Inputs.BucketWebsiteConfigurationV2RedirectAllRequestsToGetArgs>? RedirectAllRequestsTo { get; set; }
+
+        /// <summary>
+        /// A json array containing [routing rules](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html)
+        /// describing redirect behavior and when redirects are applied. Use this parameter when your routing rules contain empty String values (`""`) as seen in the example above.
+        /// </summary>
+        [Input("routingRuleDetails")]
+        public Input<string>? RoutingRuleDetails { get; set; }
 
         [Input("routingRules")]
         private InputList<Inputs.BucketWebsiteConfigurationV2RoutingRuleGetArgs>? _routingRules;

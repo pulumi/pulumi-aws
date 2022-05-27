@@ -1542,7 +1542,7 @@ class CrawlerRecrawlPolicy(dict):
     def __init__(__self__, *,
                  recrawl_behavior: Optional[str] = None):
         """
-        :param str recrawl_behavior: Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+        :param str recrawl_behavior: Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
         """
         if recrawl_behavior is not None:
             pulumi.set(__self__, "recrawl_behavior", recrawl_behavior)
@@ -1551,7 +1551,7 @@ class CrawlerRecrawlPolicy(dict):
     @pulumi.getter(name="recrawlBehavior")
     def recrawl_behavior(self) -> Optional[str]:
         """
-        Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+        Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
         """
         return pulumi.get(self, "recrawl_behavior")
 

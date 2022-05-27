@@ -80,6 +80,10 @@ type LookupClusterArgs struct {
 type LookupClusterResult struct {
 	// Whether major version upgrades can be applied during maintenance period
 	AllowVersionUpgrade bool `pulumi:"allowVersionUpgrade"`
+	// The value represents how the cluster is configured to use AQUA.
+	AquaConfigurationStatus string `pulumi:"aquaConfigurationStatus"`
+	// Amazon Resource Name (ARN) of cluster.
+	Arn string `pulumi:"arn"`
 	// The backup retention period
 	AutomatedSnapshotRetentionPeriod int `pulumi:"automatedSnapshotRetentionPeriod"`
 	// The availability zone of the cluster
@@ -90,6 +94,8 @@ type LookupClusterResult struct {
 	BucketName string `pulumi:"bucketName"`
 	// The cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The nodes in the cluster. Cluster node blocks are documented below
+	ClusterNodes []GetClusterClusterNode `pulumi:"clusterNodes"`
 	// The name of the parameter group to be associated with this cluster
 	ClusterParameterGroupName string `pulumi:"clusterParameterGroupName"`
 	// The public key for the cluster
@@ -105,6 +111,8 @@ type LookupClusterResult struct {
 	ClusterVersion string `pulumi:"clusterVersion"`
 	// The name of the default database in the cluster
 	DatabaseName string `pulumi:"databaseName"`
+	// ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	DefaultIamRoleArn string `pulumi:"defaultIamRoleArn"`
 	// The Elastic IP of the cluster
 	ElasticIp string `pulumi:"elasticIp"`
 	// Whether cluster logging is enabled
@@ -121,6 +129,14 @@ type LookupClusterResult struct {
 	Id string `pulumi:"id"`
 	// The KMS encryption key associated to the cluster
 	KmsKeyId string `pulumi:"kmsKeyId"`
+	// The log destination type.
+	LogDestinationType string `pulumi:"logDestinationType"`
+	// The collection of exported log types. Log types include the connection log, user log and user activity log.
+	LogExports []string `pulumi:"logExports"`
+	// The name of the maintenance track for the restored cluster.
+	MaintenanceTrackName string `pulumi:"maintenanceTrackName"`
+	// (Optional)  The default number of days to retain a manual snapshot.
+	ManualSnapshotRetentionPeriod int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Username for the master DB user
 	MasterUsername string `pulumi:"masterUsername"`
 	// The cluster node type
@@ -188,6 +204,16 @@ func (o LookupClusterResultOutput) AllowVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.AllowVersionUpgrade }).(pulumi.BoolOutput)
 }
 
+// The value represents how the cluster is configured to use AQUA.
+func (o LookupClusterResultOutput) AquaConfigurationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.AquaConfigurationStatus }).(pulumi.StringOutput)
+}
+
+// Amazon Resource Name (ARN) of cluster.
+func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
 // The backup retention period
 func (o LookupClusterResultOutput) AutomatedSnapshotRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.AutomatedSnapshotRetentionPeriod }).(pulumi.IntOutput)
@@ -211,6 +237,11 @@ func (o LookupClusterResultOutput) BucketName() pulumi.StringOutput {
 // The cluster identifier
 func (o LookupClusterResultOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// The nodes in the cluster. Cluster node blocks are documented below
+func (o LookupClusterResultOutput) ClusterNodes() GetClusterClusterNodeArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []GetClusterClusterNode { return v.ClusterNodes }).(GetClusterClusterNodeArrayOutput)
 }
 
 // The name of the parameter group to be associated with this cluster
@@ -252,6 +283,11 @@ func (o LookupClusterResultOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+func (o LookupClusterResultOutput) DefaultIamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
+}
+
 // The Elastic IP of the cluster
 func (o LookupClusterResultOutput) ElasticIp() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ElasticIp }).(pulumi.StringOutput)
@@ -290,6 +326,26 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 // The KMS encryption key associated to the cluster
 func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+// The log destination type.
+func (o LookupClusterResultOutput) LogDestinationType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.LogDestinationType }).(pulumi.StringOutput)
+}
+
+// The collection of exported log types. Log types include the connection log, user log and user activity log.
+func (o LookupClusterResultOutput) LogExports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupClusterResult) []string { return v.LogExports }).(pulumi.StringArrayOutput)
+}
+
+// The name of the maintenance track for the restored cluster.
+func (o LookupClusterResultOutput) MaintenanceTrackName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupClusterResult) string { return v.MaintenanceTrackName }).(pulumi.StringOutput)
+}
+
+// (Optional)  The default number of days to retain a manual snapshot.
+func (o LookupClusterResultOutput) ManualSnapshotRetentionPeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupClusterResult) int { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntOutput)
 }
 
 // Username for the master DB user

@@ -64,7 +64,8 @@ class DomainIndexFieldArgs:
                  highlight: Optional[pulumi.Input[bool]] = None,
                  return_: Optional[pulumi.Input[bool]] = None,
                  search: Optional[pulumi.Input[bool]] = None,
-                 sort: Optional[pulumi.Input[bool]] = None):
+                 sort: Optional[pulumi.Input[bool]] = None,
+                 source_fields: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: A unique name for the field. Field names must begin with a letter and be at least 3 and no more than 64 characters long. The allowed characters are: `a`-`z` (lower-case letters), `0`-`9`, and `_` (underscore). The name `score` is reserved and cannot be used as a field name.
         :param pulumi.Input[str] type: The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
@@ -75,6 +76,7 @@ class DomainIndexFieldArgs:
         :param pulumi.Input[bool] return_: You can enable returning the value of all searchable fields.
         :param pulumi.Input[bool] search: You can set whether this index should be searchable or not.
         :param pulumi.Input[bool] sort: You can enable the property to be sortable.
+        :param pulumi.Input[str] source_fields: A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -92,6 +94,8 @@ class DomainIndexFieldArgs:
             pulumi.set(__self__, "search", search)
         if sort is not None:
             pulumi.set(__self__, "sort", sort)
+        if source_fields is not None:
+            pulumi.set(__self__, "source_fields", source_fields)
 
     @property
     @pulumi.getter
@@ -200,6 +204,18 @@ class DomainIndexFieldArgs:
     @sort.setter
     def sort(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "sort", value)
+
+    @property
+    @pulumi.getter(name="sourceFields")
+    def source_fields(self) -> Optional[pulumi.Input[str]]:
+        """
+        A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+        """
+        return pulumi.get(self, "source_fields")
+
+    @source_fields.setter
+    def source_fields(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_fields", value)
 
 
 @pulumi.input_type

@@ -20,6 +20,7 @@ class GroupArgs:
                  min_size: pulumi.Input[int],
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -56,6 +57,7 @@ class GroupArgs:
         :param pulumi.Input[int] min_size: Specifies the minimum number of instances to maintain in the warm pool. This helps you to ensure that there is always a certain number of warmed instances available to handle traffic spikes. Defaults to 0 if not specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
@@ -125,6 +127,8 @@ class GroupArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
         if default_cooldown is not None:
             pulumi.set(__self__, "default_cooldown", default_cooldown)
         if desired_capacity is not None:
@@ -236,6 +240,18 @@ class GroupArgs:
     @capacity_rebalance.setter
     def capacity_rebalance(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "capacity_rebalance", value)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reserved.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
 
     @property
     @pulumi.getter(name="defaultCooldown")
@@ -634,6 +650,7 @@ class _GroupState:
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -671,6 +688,7 @@ class _GroupState:
         :param pulumi.Input[str] arn: The ARN for this Auto Scaling Group
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
@@ -742,6 +760,8 @@ class _GroupState:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if capacity_rebalance is not None:
             pulumi.set(__self__, "capacity_rebalance", capacity_rebalance)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
         if default_cooldown is not None:
             pulumi.set(__self__, "default_cooldown", default_cooldown)
         if desired_capacity is not None:
@@ -845,6 +865,18 @@ class _GroupState:
     @capacity_rebalance.setter
     def capacity_rebalance(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "capacity_rebalance", value)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Optional[pulumi.Input[str]]:
+        """
+        Reserved.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "context", value)
 
     @property
     @pulumi.getter(name="defaultCooldown")
@@ -1268,6 +1300,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1439,6 +1472,41 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        ### Mixed Instances Policy with Attribute-based Instance Type Selection
+
+        As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix="example",
+            image_id=data["aws_ami"]["example"]["id"],
+            instance_type="c5.large")
+        example_group = aws.autoscaling.Group("exampleGroup",
+            availability_zones=["us-east-1a"],
+            desired_capacity=1,
+            max_size=1,
+            min_size=1,
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                        launch_template_id=example_launch_template.id,
+                    ),
+                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs(
+                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs(
+                                min=1000,
+                            ),
+                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs(
+                                min=4,
+                            ),
+                        ),
+                    )],
+                ),
+            ))
+        ```
         ### Automatically refresh all instances after the group is updated
 
         ```python
@@ -1574,6 +1642,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
@@ -1783,6 +1852,41 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        ### Mixed Instances Policy with Attribute-based Instance Type Selection
+
+        As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_launch_template = aws.ec2.LaunchTemplate("exampleLaunchTemplate",
+            name_prefix="example",
+            image_id=data["aws_ami"]["example"]["id"],
+            instance_type="c5.large")
+        example_group = aws.autoscaling.Group("exampleGroup",
+            availability_zones=["us-east-1a"],
+            desired_capacity=1,
+            max_size=1,
+            min_size=1,
+            mixed_instances_policy=aws.autoscaling.GroupMixedInstancesPolicyArgs(
+                launch_template=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateArgs(
+                    launch_template_specification=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs(
+                        launch_template_id=example_launch_template.id,
+                    ),
+                    overrides=[aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs(
+                        instance_requirements=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs(
+                            memory_mib=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs(
+                                min=1000,
+                            ),
+                            vcpu_count=aws.autoscaling.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs(
+                                min=4,
+                            ),
+                        ),
+                    )],
+                ),
+            ))
+        ```
         ### Automatically refresh all instances after the group is updated
 
         ```python
@@ -1931,6 +2035,7 @@ class Group(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+                 context: Optional[pulumi.Input[str]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1977,6 +2082,7 @@ class Group(pulumi.CustomResource):
 
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
+            __props__.__dict__["context"] = context
             __props__.__dict__["default_cooldown"] = default_cooldown
             __props__.__dict__["desired_capacity"] = desired_capacity
             __props__.__dict__["enabled_metrics"] = enabled_metrics
@@ -2030,6 +2136,7 @@ class Group(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             capacity_rebalance: Optional[pulumi.Input[bool]] = None,
+            context: Optional[pulumi.Input[str]] = None,
             default_cooldown: Optional[pulumi.Input[int]] = None,
             desired_capacity: Optional[pulumi.Input[int]] = None,
             enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2072,6 +2179,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN for this Auto Scaling Group
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of one or more availability zones for the group. Used for EC2-Classic, attaching a network interface via id from a launch template and default subnets when not specified with `vpc_zone_identifier` argument. Conflicts with `vpc_zone_identifier`.
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
+        :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
@@ -2144,6 +2252,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["availability_zones"] = availability_zones
         __props__.__dict__["capacity_rebalance"] = capacity_rebalance
+        __props__.__dict__["context"] = context
         __props__.__dict__["default_cooldown"] = default_cooldown
         __props__.__dict__["desired_capacity"] = desired_capacity
         __props__.__dict__["enabled_metrics"] = enabled_metrics
@@ -2201,6 +2310,14 @@ class Group(pulumi.CustomResource):
         Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         """
         return pulumi.get(self, "capacity_rebalance")
+
+    @property
+    @pulumi.getter
+    def context(self) -> pulumi.Output[Optional[str]]:
+        """
+        Reserved.
+        """
+        return pulumi.get(self, "context")
 
     @property
     @pulumi.getter(name="defaultCooldown")

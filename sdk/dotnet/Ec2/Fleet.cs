@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Ec2
     public partial class Fleet : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ARN of the fleet
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Reserved.
         /// </summary>
         [Output("context")]
@@ -251,6 +257,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class FleetState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the fleet
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         /// <summary>
         /// Reserved.
         /// </summary>

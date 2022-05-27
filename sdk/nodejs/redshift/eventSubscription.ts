@@ -81,7 +81,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly customerAwsId!: pulumi.Output<string>;
     /**
-     * A boolean flag to enable/disable the subscription. Defaults to true.
+     * A boolean flag to enable/disable the subscription. Defaults to `true`.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -93,7 +93,7 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      */
     public readonly severity!: pulumi.Output<string | undefined>;
     /**
@@ -101,16 +101,16 @@ export class EventSubscription extends pulumi.CustomResource {
      */
     public readonly snsTopicArn!: pulumi.Output<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
      */
     public readonly sourceIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      */
     public readonly sourceType!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface EventSubscriptionState {
      */
     customerAwsId?: pulumi.Input<string>;
     /**
-     * A boolean flag to enable/disable the subscription. Defaults to true.
+     * A boolean flag to enable/disable the subscription. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -191,7 +191,7 @@ export interface EventSubscriptionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      */
     severity?: pulumi.Input<string>;
     /**
@@ -199,16 +199,16 @@ export interface EventSubscriptionState {
      */
     snsTopicArn?: pulumi.Input<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      */
     sourceType?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -222,7 +222,7 @@ export interface EventSubscriptionState {
  */
 export interface EventSubscriptionArgs {
     /**
-     * A boolean flag to enable/disable the subscription. Defaults to true.
+     * A boolean flag to enable/disable the subscription. Defaults to `true`.
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -234,7 +234,7 @@ export interface EventSubscriptionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`.
+     * The event severity to be published by the notification subscription. Valid options are `INFO` or `ERROR`. Default value of `INFO`.
      */
     severity?: pulumi.Input<string>;
     /**
@@ -242,15 +242,15 @@ export interface EventSubscriptionArgs {
      */
     snsTopicArn: pulumi.Input<string>;
     /**
-     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a sourceType must also be specified.
+     * A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a `sourceType` must also be specified.
      */
     sourceIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, or `cluster-snapshot`. If not set, all sources will be subscribed to.
+     * The type of source that will be generating the events. Valid options are `cluster`, `cluster-parameter-group`, `cluster-security-group`, `cluster-snapshot`, or `scheduled-action`. If not set, all sources will be subscribed to.
      */
     sourceType?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

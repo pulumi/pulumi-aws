@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:location/map:Map":
 		r = &Map{}
+	case "aws:location/placeIndex:PlaceIndex":
+		r = &PlaceIndex{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"location/map",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"location/placeIndex",
 		&module{version},
 	)
 }

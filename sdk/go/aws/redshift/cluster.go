@@ -51,8 +51,12 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
 	AllowVersionUpgrade pulumi.BoolPtrOutput `pulumi:"allowVersionUpgrade"`
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	AquaConfigurationStatus pulumi.StringOutput `pulumi:"aquaConfigurationStatus"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -83,6 +87,8 @@ type Cluster struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
+	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	DefaultIamRoleArn pulumi.StringPtrOutput `pulumi:"defaultIamRoleArn"`
 	// The DNS name of the cluster
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// The Elastic IP (EIP) address for the cluster.
@@ -101,6 +107,10 @@ type Cluster struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	Logging ClusterLoggingPtrOutput `pulumi:"logging"`
+	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
+	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
@@ -113,10 +123,10 @@ type Cluster struct {
 	NumberOfNodes pulumi.IntPtrOutput `pulumi:"numberOfNodes"`
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount pulumi.StringPtrOutput `pulumi:"ownerAccount"`
-	// The port number on which the cluster accepts incoming connections.
+	// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
 	// The cluster is accessible only via the JDBC and ODBC connection strings.
 	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
-	// Default port is 5439.
+	// Default port is `5439`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -174,8 +184,12 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
 	AllowVersionUpgrade *bool `pulumi:"allowVersionUpgrade"`
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	ApplyImmediately *bool `pulumi:"applyImmediately"`
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	AquaConfigurationStatus *string `pulumi:"aquaConfigurationStatus"`
 	// Amazon Resource Name (ARN) of cluster
 	Arn *string `pulumi:"arn"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -206,6 +220,8 @@ type clusterState struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName *string `pulumi:"databaseName"`
+	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// The DNS name of the cluster
 	DnsName *string `pulumi:"dnsName"`
 	// The Elastic IP (EIP) address for the cluster.
@@ -224,6 +240,10 @@ type clusterState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	Logging *ClusterLogging `pulumi:"logging"`
+	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
+	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
@@ -236,10 +256,10 @@ type clusterState struct {
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount *string `pulumi:"ownerAccount"`
-	// The port number on which the cluster accepts incoming connections.
+	// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
 	// The cluster is accessible only via the JDBC and ODBC connection strings.
 	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
-	// Default port is 5439.
+	// Default port is `5439`.
 	Port *int `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -263,8 +283,12 @@ type clusterState struct {
 }
 
 type ClusterState struct {
-	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
 	AllowVersionUpgrade pulumi.BoolPtrInput
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	ApplyImmediately pulumi.BoolPtrInput
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	AquaConfigurationStatus pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of cluster
 	Arn pulumi.StringPtrInput
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -295,6 +319,8 @@ type ClusterState struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	DefaultIamRoleArn pulumi.StringPtrInput
 	// The DNS name of the cluster
 	DnsName pulumi.StringPtrInput
 	// The Elastic IP (EIP) address for the cluster.
@@ -313,6 +339,10 @@ type ClusterState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Logging, documented below.
 	Logging ClusterLoggingPtrInput
+	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+	MaintenanceTrackName pulumi.StringPtrInput
+	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
 	// Password for the master DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
@@ -325,10 +355,10 @@ type ClusterState struct {
 	NumberOfNodes pulumi.IntPtrInput
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount pulumi.StringPtrInput
-	// The port number on which the cluster accepts incoming connections.
+	// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
 	// The cluster is accessible only via the JDBC and ODBC connection strings.
 	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
-	// Default port is 5439.
+	// Default port is `5439`.
 	Port pulumi.IntPtrInput
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -356,8 +386,12 @@ func (ClusterState) ElementType() reflect.Type {
 }
 
 type clusterArgs struct {
-	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
 	AllowVersionUpgrade *bool `pulumi:"allowVersionUpgrade"`
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	ApplyImmediately *bool `pulumi:"applyImmediately"`
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	AquaConfigurationStatus *string `pulumi:"aquaConfigurationStatus"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod *int `pulumi:"automatedSnapshotRetentionPeriod"`
 	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
@@ -384,6 +418,8 @@ type clusterArgs struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName *string `pulumi:"databaseName"`
+	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp *string `pulumi:"elasticIp"`
 	// If true , the data in the cluster is encrypted at rest.
@@ -400,6 +436,10 @@ type clusterArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Logging, documented below.
 	Logging *ClusterLogging `pulumi:"logging"`
+	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
+	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
 	// Password for the master DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
@@ -412,10 +452,10 @@ type clusterArgs struct {
 	NumberOfNodes *int `pulumi:"numberOfNodes"`
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount *string `pulumi:"ownerAccount"`
-	// The port number on which the cluster accepts incoming connections.
+	// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
 	// The cluster is accessible only via the JDBC and ODBC connection strings.
 	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
-	// Default port is 5439.
+	// Default port is `5439`.
 	Port *int `pulumi:"port"`
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -438,8 +478,12 @@ type clusterArgs struct {
 
 // The set of arguments for constructing a Cluster resource.
 type ClusterArgs struct {
-	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+	// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
 	AllowVersionUpgrade pulumi.BoolPtrInput
+	// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+	ApplyImmediately pulumi.BoolPtrInput
+	// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+	AquaConfigurationStatus pulumi.StringPtrInput
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrInput
 	// The EC2 Availability Zone (AZ) in which you want Amazon Redshift to provision the cluster. For example, if you have several EC2 instances running in a specific Availability Zone, then you might want the cluster to be provisioned in the same zone in order to decrease network latency. Can only be changed if `availabilityZoneRelocationEnabled` is `true`.
@@ -466,6 +510,8 @@ type ClusterArgs struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	DefaultIamRoleArn pulumi.StringPtrInput
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp pulumi.StringPtrInput
 	// If true , the data in the cluster is encrypted at rest.
@@ -482,6 +528,10 @@ type ClusterArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Logging, documented below.
 	Logging ClusterLoggingPtrInput
+	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+	MaintenanceTrackName pulumi.StringPtrInput
+	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
 	// Password for the master DB user.
 	// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 	// contain at least one uppercase letter, one lowercase letter, and one number.
@@ -494,10 +544,10 @@ type ClusterArgs struct {
 	NumberOfNodes pulumi.IntPtrInput
 	// The AWS customer account used to create or copy the snapshot. Required if you are restoring a snapshot you do not own, optional if you own the snapshot.
 	OwnerAccount pulumi.StringPtrInput
-	// The port number on which the cluster accepts incoming connections.
+	// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
 	// The cluster is accessible only via the JDBC and ODBC connection strings.
 	// Part of the connection string requires the port on which the cluster will listen for incoming connections.
-	// Default port is 5439.
+	// Default port is `5439`.
 	Port pulumi.IntPtrInput
 	// The weekly time range (in UTC) during which automated cluster maintenance can occur.
 	// Format: ddd:hh24:mi-ddd:hh24:mi
@@ -605,9 +655,19 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
 func (o ClusterOutput) AllowVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.AllowVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+func (o ClusterOutput) ApplyImmediately() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
+}
+
+// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+func (o ClusterOutput) AquaConfigurationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AquaConfigurationStatus }).(pulumi.StringOutput)
 }
 
 // Amazon Resource Name (ARN) of cluster
@@ -682,6 +742,11 @@ func (o ClusterOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+func (o ClusterOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DefaultIamRoleArn }).(pulumi.StringPtrOutput)
+}
+
 // The DNS name of the cluster
 func (o ClusterOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DnsName }).(pulumi.StringOutput)
@@ -727,6 +792,16 @@ func (o ClusterOutput) Logging() ClusterLoggingPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterLoggingPtrOutput { return v.Logging }).(ClusterLoggingPtrOutput)
 }
 
+// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+func (o ClusterOutput) MaintenanceTrackName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MaintenanceTrackName }).(pulumi.StringPtrOutput)
+}
+
+// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+func (o ClusterOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
+}
+
 // Password for the master DB user.
 // Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
 // contain at least one uppercase letter, one lowercase letter, and one number.
@@ -754,10 +829,10 @@ func (o ClusterOutput) OwnerAccount() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.OwnerAccount }).(pulumi.StringPtrOutput)
 }
 
-// The port number on which the cluster accepts incoming connections.
+// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
 // The cluster is accessible only via the JDBC and ODBC connection strings.
 // Part of the connection string requires the port on which the cluster will listen for incoming connections.
-// Default port is 5439.
+// Default port is `5439`.
 func (o ClusterOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
 }

@@ -231,6 +231,10 @@ export interface GetAmiResult {
      */
     readonly tags: {[key: string]: string};
     /**
+     * If the image is configured for NitroTPM support, the value is `v2.0`.
+     */
+    readonly tpmSupport: string;
+    /**
      * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
     readonly usageOperation: string;

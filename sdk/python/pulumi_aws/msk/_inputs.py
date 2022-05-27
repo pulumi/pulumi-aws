@@ -12,6 +12,9 @@ __all__ = [
     'ClusterBrokerNodeGroupInfoArgs',
     'ClusterBrokerNodeGroupInfoConnectivityInfoArgs',
     'ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs',
+    'ClusterBrokerNodeGroupInfoStorageInfoArgs',
+    'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs',
+    'ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs',
     'ClusterClientAuthenticationArgs',
     'ClusterClientAuthenticationSaslArgs',
     'ClusterClientAuthenticationTlsArgs',
@@ -33,27 +36,35 @@ __all__ = [
 class ClusterBrokerNodeGroupInfoArgs:
     def __init__(__self__, *,
                  client_subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
-                 ebs_volume_size: pulumi.Input[int],
                  instance_type: pulumi.Input[str],
                  security_groups: pulumi.Input[Sequence[pulumi.Input[str]]],
                  az_distribution: Optional[pulumi.Input[str]] = None,
-                 connectivity_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']] = None):
+                 connectivity_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']] = None,
+                 ebs_volume_size: Optional[pulumi.Input[int]] = None,
+                 storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_subnets: A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        :param pulumi.Input[int] ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
         :param pulumi.Input[str] instance_type: Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
         :param pulumi.Input[str] az_distribution: The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
         :param pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs'] connectivity_info: Information about the cluster access configuration. See below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+        :param pulumi.Input[int] ebs_volume_size: The size in GiB of the EBS volume for the data drive on each broker node.
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs'] storage_info: A block that contains information about storage volumes attached to MSK broker nodes. See below.
         """
         pulumi.set(__self__, "client_subnets", client_subnets)
-        pulumi.set(__self__, "ebs_volume_size", ebs_volume_size)
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "security_groups", security_groups)
         if az_distribution is not None:
             pulumi.set(__self__, "az_distribution", az_distribution)
         if connectivity_info is not None:
             pulumi.set(__self__, "connectivity_info", connectivity_info)
+        if ebs_volume_size is not None:
+            warnings.warn("""use 'storage_info' argument instead""", DeprecationWarning)
+            pulumi.log.warn("""ebs_volume_size is deprecated: use 'storage_info' argument instead""")
+        if ebs_volume_size is not None:
+            pulumi.set(__self__, "ebs_volume_size", ebs_volume_size)
+        if storage_info is not None:
+            pulumi.set(__self__, "storage_info", storage_info)
 
     @property
     @pulumi.getter(name="clientSubnets")
@@ -66,18 +77,6 @@ class ClusterBrokerNodeGroupInfoArgs:
     @client_subnets.setter
     def client_subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "client_subnets", value)
-
-    @property
-    @pulumi.getter(name="ebsVolumeSize")
-    def ebs_volume_size(self) -> pulumi.Input[int]:
-        """
-        The size in GiB of the EBS volume for the data drive on each broker node.
-        """
-        return pulumi.get(self, "ebs_volume_size")
-
-    @ebs_volume_size.setter
-    def ebs_volume_size(self, value: pulumi.Input[int]):
-        pulumi.set(self, "ebs_volume_size", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -127,6 +126,30 @@ class ClusterBrokerNodeGroupInfoArgs:
     def connectivity_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgs']]):
         pulumi.set(self, "connectivity_info", value)
 
+    @property
+    @pulumi.getter(name="ebsVolumeSize")
+    def ebs_volume_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size in GiB of the EBS volume for the data drive on each broker node.
+        """
+        return pulumi.get(self, "ebs_volume_size")
+
+    @ebs_volume_size.setter
+    def ebs_volume_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ebs_volume_size", value)
+
+    @property
+    @pulumi.getter(name="storageInfo")
+    def storage_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']]:
+        """
+        A block that contains information about storage volumes attached to MSK broker nodes. See below.
+        """
+        return pulumi.get(self, "storage_info")
+
+    @storage_info.setter
+    def storage_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgs']]):
+        pulumi.set(self, "storage_info", value)
+
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
@@ -172,6 +195,107 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class ClusterBrokerNodeGroupInfoStorageInfoArgs:
+    def __init__(__self__, *,
+                 ebs_storage_info: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']] = None):
+        """
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs'] ebs_storage_info: A block that contains EBS volume information. See below.
+        """
+        if ebs_storage_info is not None:
+            pulumi.set(__self__, "ebs_storage_info", ebs_storage_info)
+
+    @property
+    @pulumi.getter(name="ebsStorageInfo")
+    def ebs_storage_info(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]:
+        """
+        A block that contains EBS volume information. See below.
+        """
+        return pulumi.get(self, "ebs_storage_info")
+
+    @ebs_storage_info.setter
+    def ebs_storage_info(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs']]):
+        pulumi.set(self, "ebs_storage_info", value)
+
+
+@pulumi.input_type
+class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
+    def __init__(__self__, *,
+                 provisioned_throughput: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']] = None,
+                 volume_size: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs'] provisioned_throughput: A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+        :param pulumi.Input[int] volume_size: The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+        """
+        if provisioned_throughput is not None:
+            pulumi.set(__self__, "provisioned_throughput", provisioned_throughput)
+        if volume_size is not None:
+            pulumi.set(__self__, "volume_size", volume_size)
+
+    @property
+    @pulumi.getter(name="provisionedThroughput")
+    def provisioned_throughput(self) -> Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]:
+        """
+        A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See below.
+        """
+        return pulumi.get(self, "provisioned_throughput")
+
+    @provisioned_throughput.setter
+    def provisioned_throughput(self, value: Optional[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs']]):
+        pulumi.set(self, "provisioned_throughput", value)
+
+    @property
+    @pulumi.getter(name="volumeSize")
+    def volume_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+        """
+        return pulumi.get(self, "volume_size")
+
+    @volume_size.setter
+    def volume_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_size", value)
+
+
+@pulumi.input_type
+class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 volume_throughput: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Controls whether provisioned throughput is enabled or not. Default value: `false`.
+        :param pulumi.Input[int] volume_throughput: Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if volume_throughput is not None:
+            pulumi.set(__self__, "volume_throughput", volume_throughput)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Controls whether provisioned throughput is enabled or not. Default value: `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="volumeThroughput")
+    def volume_throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+        """
+        return pulumi.get(self, "volume_throughput")
+
+    @volume_throughput.setter
+    def volume_throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_throughput", value)
 
 
 @pulumi.input_type
@@ -475,7 +599,7 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
                  enabled: pulumi.Input[bool],
                  log_group: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+        :param pulumi.Input[bool] enabled: Controls whether provisioned throughput is enabled or not. Default value: `false`.
         :param pulumi.Input[str] log_group: Name of the Cloudwatch Log Group to deliver logs to.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -486,7 +610,7 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+        Controls whether provisioned throughput is enabled or not. Default value: `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -513,7 +637,7 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgs:
                  enabled: pulumi.Input[bool],
                  delivery_stream: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+        :param pulumi.Input[bool] enabled: Controls whether provisioned throughput is enabled or not. Default value: `false`.
         :param pulumi.Input[str] delivery_stream: Name of the Kinesis Data Firehose delivery stream to deliver logs to.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -524,7 +648,7 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+        Controls whether provisioned throughput is enabled or not. Default value: `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -552,7 +676,7 @@ class ClusterLoggingInfoBrokerLogsS3Args:
                  bucket: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[bool] enabled: Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+        :param pulumi.Input[bool] enabled: Controls whether provisioned throughput is enabled or not. Default value: `false`.
         :param pulumi.Input[str] bucket: Name of the S3 bucket to deliver logs to.
         :param pulumi.Input[str] prefix: Prefix to append to the folder name.
         """
@@ -566,7 +690,7 @@ class ClusterLoggingInfoBrokerLogsS3Args:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Indicates whether you want to enable or disable streaming broker logs to Cloudwatch Logs.
+        Controls whether provisioned throughput is enabled or not. Default value: `false`.
         """
         return pulumi.get(self, "enabled")
 

@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetClusterResult',
@@ -20,10 +21,16 @@ class GetClusterResult:
     """
     A collection of values returned by getCluster.
     """
-    def __init__(__self__, allow_version_upgrade=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
+    def __init__(__self__, allow_version_upgrade=None, aqua_configuration_status=None, arn=None, automated_snapshot_retention_period=None, availability_zone=None, availability_zone_relocation_enabled=None, bucket_name=None, cluster_identifier=None, cluster_nodes=None, cluster_parameter_group_name=None, cluster_public_key=None, cluster_revision_number=None, cluster_security_groups=None, cluster_subnet_group_name=None, cluster_type=None, cluster_version=None, database_name=None, default_iam_role_arn=None, elastic_ip=None, enable_logging=None, encrypted=None, endpoint=None, enhanced_vpc_routing=None, iam_roles=None, id=None, kms_key_id=None, log_destination_type=None, log_exports=None, maintenance_track_name=None, manual_snapshot_retention_period=None, master_username=None, node_type=None, number_of_nodes=None, port=None, preferred_maintenance_window=None, publicly_accessible=None, s3_key_prefix=None, tags=None, vpc_id=None, vpc_security_group_ids=None):
         if allow_version_upgrade and not isinstance(allow_version_upgrade, bool):
             raise TypeError("Expected argument 'allow_version_upgrade' to be a bool")
         pulumi.set(__self__, "allow_version_upgrade", allow_version_upgrade)
+        if aqua_configuration_status and not isinstance(aqua_configuration_status, str):
+            raise TypeError("Expected argument 'aqua_configuration_status' to be a str")
+        pulumi.set(__self__, "aqua_configuration_status", aqua_configuration_status)
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if automated_snapshot_retention_period and not isinstance(automated_snapshot_retention_period, int):
             raise TypeError("Expected argument 'automated_snapshot_retention_period' to be a int")
         pulumi.set(__self__, "automated_snapshot_retention_period", automated_snapshot_retention_period)
@@ -39,6 +46,9 @@ class GetClusterResult:
         if cluster_identifier and not isinstance(cluster_identifier, str):
             raise TypeError("Expected argument 'cluster_identifier' to be a str")
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if cluster_nodes and not isinstance(cluster_nodes, list):
+            raise TypeError("Expected argument 'cluster_nodes' to be a list")
+        pulumi.set(__self__, "cluster_nodes", cluster_nodes)
         if cluster_parameter_group_name and not isinstance(cluster_parameter_group_name, str):
             raise TypeError("Expected argument 'cluster_parameter_group_name' to be a str")
         pulumi.set(__self__, "cluster_parameter_group_name", cluster_parameter_group_name)
@@ -63,6 +73,9 @@ class GetClusterResult:
         if database_name and not isinstance(database_name, str):
             raise TypeError("Expected argument 'database_name' to be a str")
         pulumi.set(__self__, "database_name", database_name)
+        if default_iam_role_arn and not isinstance(default_iam_role_arn, str):
+            raise TypeError("Expected argument 'default_iam_role_arn' to be a str")
+        pulumi.set(__self__, "default_iam_role_arn", default_iam_role_arn)
         if elastic_ip and not isinstance(elastic_ip, str):
             raise TypeError("Expected argument 'elastic_ip' to be a str")
         pulumi.set(__self__, "elastic_ip", elastic_ip)
@@ -87,6 +100,18 @@ class GetClusterResult:
         if kms_key_id and not isinstance(kms_key_id, str):
             raise TypeError("Expected argument 'kms_key_id' to be a str")
         pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if log_destination_type and not isinstance(log_destination_type, str):
+            raise TypeError("Expected argument 'log_destination_type' to be a str")
+        pulumi.set(__self__, "log_destination_type", log_destination_type)
+        if log_exports and not isinstance(log_exports, list):
+            raise TypeError("Expected argument 'log_exports' to be a list")
+        pulumi.set(__self__, "log_exports", log_exports)
+        if maintenance_track_name and not isinstance(maintenance_track_name, str):
+            raise TypeError("Expected argument 'maintenance_track_name' to be a str")
+        pulumi.set(__self__, "maintenance_track_name", maintenance_track_name)
+        if manual_snapshot_retention_period and not isinstance(manual_snapshot_retention_period, int):
+            raise TypeError("Expected argument 'manual_snapshot_retention_period' to be a int")
+        pulumi.set(__self__, "manual_snapshot_retention_period", manual_snapshot_retention_period)
         if master_username and not isinstance(master_username, str):
             raise TypeError("Expected argument 'master_username' to be a str")
         pulumi.set(__self__, "master_username", master_username)
@@ -127,6 +152,22 @@ class GetClusterResult:
         return pulumi.get(self, "allow_version_upgrade")
 
     @property
+    @pulumi.getter(name="aquaConfigurationStatus")
+    def aqua_configuration_status(self) -> str:
+        """
+        The value represents how the cluster is configured to use AQUA.
+        """
+        return pulumi.get(self, "aqua_configuration_status")
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of cluster.
+        """
+        return pulumi.get(self, "arn")
+
+    @property
     @pulumi.getter(name="automatedSnapshotRetentionPeriod")
     def automated_snapshot_retention_period(self) -> int:
         """
@@ -165,6 +206,14 @@ class GetClusterResult:
         The cluster identifier
         """
         return pulumi.get(self, "cluster_identifier")
+
+    @property
+    @pulumi.getter(name="clusterNodes")
+    def cluster_nodes(self) -> Sequence['outputs.GetClusterClusterNodeResult']:
+        """
+        The nodes in the cluster. Cluster node blocks are documented below
+        """
+        return pulumi.get(self, "cluster_nodes")
 
     @property
     @pulumi.getter(name="clusterParameterGroupName")
@@ -226,6 +275,14 @@ class GetClusterResult:
         The name of the default database in the cluster
         """
         return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="defaultIamRoleArn")
+    def default_iam_role_arn(self) -> str:
+        """
+        ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        """
+        return pulumi.get(self, "default_iam_role_arn")
 
     @property
     @pulumi.getter(name="elasticIp")
@@ -290,6 +347,38 @@ class GetClusterResult:
         The KMS encryption key associated to the cluster
         """
         return pulumi.get(self, "kms_key_id")
+
+    @property
+    @pulumi.getter(name="logDestinationType")
+    def log_destination_type(self) -> str:
+        """
+        The log destination type.
+        """
+        return pulumi.get(self, "log_destination_type")
+
+    @property
+    @pulumi.getter(name="logExports")
+    def log_exports(self) -> Sequence[str]:
+        """
+        The collection of exported log types. Log types include the connection log, user log and user activity log.
+        """
+        return pulumi.get(self, "log_exports")
+
+    @property
+    @pulumi.getter(name="maintenanceTrackName")
+    def maintenance_track_name(self) -> str:
+        """
+        The name of the maintenance track for the restored cluster.
+        """
+        return pulumi.get(self, "maintenance_track_name")
+
+    @property
+    @pulumi.getter(name="manualSnapshotRetentionPeriod")
+    def manual_snapshot_retention_period(self) -> int:
+        """
+        (Optional)  The default number of days to retain a manual snapshot.
+        """
+        return pulumi.get(self, "manual_snapshot_retention_period")
 
     @property
     @pulumi.getter(name="masterUsername")
@@ -379,11 +468,14 @@ class AwaitableGetClusterResult(GetClusterResult):
             yield self
         return GetClusterResult(
             allow_version_upgrade=self.allow_version_upgrade,
+            aqua_configuration_status=self.aqua_configuration_status,
+            arn=self.arn,
             automated_snapshot_retention_period=self.automated_snapshot_retention_period,
             availability_zone=self.availability_zone,
             availability_zone_relocation_enabled=self.availability_zone_relocation_enabled,
             bucket_name=self.bucket_name,
             cluster_identifier=self.cluster_identifier,
+            cluster_nodes=self.cluster_nodes,
             cluster_parameter_group_name=self.cluster_parameter_group_name,
             cluster_public_key=self.cluster_public_key,
             cluster_revision_number=self.cluster_revision_number,
@@ -392,6 +484,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             cluster_type=self.cluster_type,
             cluster_version=self.cluster_version,
             database_name=self.database_name,
+            default_iam_role_arn=self.default_iam_role_arn,
             elastic_ip=self.elastic_ip,
             enable_logging=self.enable_logging,
             encrypted=self.encrypted,
@@ -400,6 +493,10 @@ class AwaitableGetClusterResult(GetClusterResult):
             iam_roles=self.iam_roles,
             id=self.id,
             kms_key_id=self.kms_key_id,
+            log_destination_type=self.log_destination_type,
+            log_exports=self.log_exports,
+            maintenance_track_name=self.maintenance_track_name,
+            manual_snapshot_retention_period=self.manual_snapshot_retention_period,
             master_username=self.master_username,
             node_type=self.node_type,
             number_of_nodes=self.number_of_nodes,
@@ -460,11 +557,14 @@ def get_cluster(cluster_identifier: Optional[str] = None,
 
     return AwaitableGetClusterResult(
         allow_version_upgrade=__ret__.allow_version_upgrade,
+        aqua_configuration_status=__ret__.aqua_configuration_status,
+        arn=__ret__.arn,
         automated_snapshot_retention_period=__ret__.automated_snapshot_retention_period,
         availability_zone=__ret__.availability_zone,
         availability_zone_relocation_enabled=__ret__.availability_zone_relocation_enabled,
         bucket_name=__ret__.bucket_name,
         cluster_identifier=__ret__.cluster_identifier,
+        cluster_nodes=__ret__.cluster_nodes,
         cluster_parameter_group_name=__ret__.cluster_parameter_group_name,
         cluster_public_key=__ret__.cluster_public_key,
         cluster_revision_number=__ret__.cluster_revision_number,
@@ -473,6 +573,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         cluster_type=__ret__.cluster_type,
         cluster_version=__ret__.cluster_version,
         database_name=__ret__.database_name,
+        default_iam_role_arn=__ret__.default_iam_role_arn,
         elastic_ip=__ret__.elastic_ip,
         enable_logging=__ret__.enable_logging,
         encrypted=__ret__.encrypted,
@@ -481,6 +582,10 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         iam_roles=__ret__.iam_roles,
         id=__ret__.id,
         kms_key_id=__ret__.kms_key_id,
+        log_destination_type=__ret__.log_destination_type,
+        log_exports=__ret__.log_exports,
+        maintenance_track_name=__ret__.maintenance_track_name,
+        manual_snapshot_retention_period=__ret__.manual_snapshot_retention_period,
         master_username=__ret__.master_username,
         node_type=__ret__.node_type,
         number_of_nodes=__ret__.number_of_nodes,

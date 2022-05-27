@@ -20,7 +20,8 @@ class ResponseHeadersPolicyArgs:
                  custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None):
+                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
+                 server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         """
         The set of arguments for constructing a ResponseHeadersPolicy resource.
         :param pulumi.Input[str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
@@ -29,6 +30,7 @@ class ResponseHeadersPolicyArgs:
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        :param pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs'] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -42,6 +44,8 @@ class ResponseHeadersPolicyArgs:
             pulumi.set(__self__, "name", name)
         if security_headers_config is not None:
             pulumi.set(__self__, "security_headers_config", security_headers_config)
+        if server_timing_headers_config is not None:
+            pulumi.set(__self__, "server_timing_headers_config", server_timing_headers_config)
 
     @property
     @pulumi.getter
@@ -114,6 +118,18 @@ class ResponseHeadersPolicyArgs:
     @security_headers_config.setter
     def security_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]):
         pulumi.set(self, "security_headers_config", value)
+
+    @property
+    @pulumi.getter(name="serverTimingHeadersConfig")
+    def server_timing_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]:
+        """
+        A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        """
+        return pulumi.get(self, "server_timing_headers_config")
+
+    @server_timing_headers_config.setter
+    def server_timing_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]):
+        pulumi.set(self, "server_timing_headers_config", value)
 
 
 @pulumi.input_type
@@ -124,7 +140,8 @@ class _ResponseHeadersPolicyState:
                  custom_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']] = None,
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None):
+                 security_headers_config: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']] = None,
+                 server_timing_headers_config: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] = None):
         """
         Input properties used for looking up and filtering ResponseHeadersPolicy resources.
         :param pulumi.Input[str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
@@ -133,6 +150,7 @@ class _ResponseHeadersPolicyState:
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        :param pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs'] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -146,6 +164,8 @@ class _ResponseHeadersPolicyState:
             pulumi.set(__self__, "name", name)
         if security_headers_config is not None:
             pulumi.set(__self__, "security_headers_config", security_headers_config)
+        if server_timing_headers_config is not None:
+            pulumi.set(__self__, "server_timing_headers_config", server_timing_headers_config)
 
     @property
     @pulumi.getter
@@ -218,6 +238,18 @@ class _ResponseHeadersPolicyState:
     @security_headers_config.setter
     def security_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs']]):
         pulumi.set(self, "security_headers_config", value)
+
+    @property
+    @pulumi.getter(name="serverTimingHeadersConfig")
+    def server_timing_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]:
+        """
+        A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        """
+        return pulumi.get(self, "server_timing_headers_config")
+
+    @server_timing_headers_config.setter
+    def server_timing_headers_config(self, value: Optional[pulumi.Input['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]):
+        pulumi.set(self, "server_timing_headers_config", value)
 
 
 class ResponseHeadersPolicy(pulumi.CustomResource):
@@ -231,6 +263,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  security_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']]] = None,
+                 server_timing_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]] = None,
                  __props__=None):
         """
         Provides a CloudFront response headers policy resource.
@@ -285,6 +318,26 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ))
         ```
 
+        The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.ResponseHeadersPolicy("example",
+            custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
+                items=[aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                    header="X-Permitted-Cross-Domain-Policies",
+                    override=True,
+                    value="none",
+                )],
+            ),
+            server_timing_headers_config=aws.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfigArgs(
+                enabled=True,
+                sampling_rate=50,
+            ))
+        ```
+
         ## Import
 
         Cloudfront Response Headers Policies can be imported using the `id`, e.g.
@@ -301,6 +354,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         ...
     @overload
@@ -361,6 +415,26 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         ))
         ```
 
+        The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.ResponseHeadersPolicy("example",
+            custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
+                items=[aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                    header="X-Permitted-Cross-Domain-Policies",
+                    override=True,
+                    value="none",
+                )],
+            ),
+            server_timing_headers_config=aws.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfigArgs(
+                enabled=True,
+                sampling_rate=50,
+            ))
+        ```
+
         ## Import
 
         Cloudfront Response Headers Policies can be imported using the `id`, e.g.
@@ -390,6 +464,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                  etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  security_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']]] = None,
+                 server_timing_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -408,6 +483,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             __props__.__dict__["etag"] = etag
             __props__.__dict__["name"] = name
             __props__.__dict__["security_headers_config"] = security_headers_config
+            __props__.__dict__["server_timing_headers_config"] = server_timing_headers_config
         super(ResponseHeadersPolicy, __self__).__init__(
             'aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy',
             resource_name,
@@ -423,7 +499,8 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             custom_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']]] = None,
             etag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            security_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']]] = None) -> 'ResponseHeadersPolicy':
+            security_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']]] = None,
+            server_timing_headers_config: Optional[pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']]] = None) -> 'ResponseHeadersPolicy':
         """
         Get an existing ResponseHeadersPolicy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -437,6 +514,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
+        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyServerTimingHeadersConfigArgs']] server_timing_headers_config: A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -448,6 +526,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         __props__.__dict__["etag"] = etag
         __props__.__dict__["name"] = name
         __props__.__dict__["security_headers_config"] = security_headers_config
+        __props__.__dict__["server_timing_headers_config"] = server_timing_headers_config
         return ResponseHeadersPolicy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -497,4 +576,12 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         """
         return pulumi.get(self, "security_headers_config")
+
+    @property
+    @pulumi.getter(name="serverTimingHeadersConfig")
+    def server_timing_headers_config(self) -> pulumi.Output[Optional['outputs.ResponseHeadersPolicyServerTimingHeadersConfig']]:
+        """
+        A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        """
+        return pulumi.get(self, "server_timing_headers_config")
 

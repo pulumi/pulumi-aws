@@ -226,6 +226,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int?> Cooldown { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+        /// </summary>
+        [Output("enabled")]
+        public Output<bool?> Enabled { get; private set; } = null!;
+
+        /// <summary>
         /// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         /// </summary>
         [Output("estimatedInstanceWarmup")]
@@ -347,6 +353,12 @@ namespace Pulumi.Aws.AutoScaling
         public Input<int>? Cooldown { get; set; }
 
         /// <summary>
+        /// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
+        /// <summary>
         /// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.
         /// </summary>
         [Input("estimatedInstanceWarmup")]
@@ -439,6 +451,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("cooldown")]
         public Input<int>? Cooldown { get; set; }
+
+        /// <summary>
+        /// Indicates whether the scaling policy is enabled or disabled. Default: `true`.
+        /// </summary>
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
 
         /// <summary>
         /// The estimated time, in seconds, until a newly launched instance will contribute CloudWatch metrics. Without a value, AWS will default to the group's specified cooldown period.

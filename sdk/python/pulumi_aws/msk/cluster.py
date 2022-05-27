@@ -592,6 +592,7 @@ class Cluster(pulumi.CustomResource):
         Manages AWS Managed Streaming for Kafka cluster
 
         ## Example Usage
+        ### Basic
 
         ```python
         import pulumi
@@ -646,12 +647,16 @@ class Cluster(pulumi.CustomResource):
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
                 instance_type="kafka.m5.large",
-                ebs_volume_size=1000,
                 client_subnets=[
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
+                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
+                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
+                        volume_size=1000,
+                    ),
+                ),
                 security_groups=[sg.id],
             ),
             encryption_info=aws.msk.ClusterEncryptionInfoArgs(
@@ -689,6 +694,34 @@ class Cluster(pulumi.CustomResource):
             })
         pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
+        ```
+        ### With volume_throughput argument
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.msk.Cluster("example",
+            kafka_version="2.7.1",
+            number_of_broker_nodes=3,
+            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
+                instance_type="kafka.m5.4xlarge",
+                client_subnets=[
+                    aws_subnet["subnet_az1"]["id"],
+                    aws_subnet["subnet_az2"]["id"],
+                    aws_subnet["subnet_az3"]["id"],
+                ],
+                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
+                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
+                        provisioned_throughput=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs(
+                            enabled=True,
+                            volume_throughput=250,
+                        ),
+                        volume_size=1000,
+                    ),
+                ),
+                security_groups=[aws_security_group["sg"]["id"]],
+            ))
         ```
 
         ## Import
@@ -723,6 +756,7 @@ class Cluster(pulumi.CustomResource):
         Manages AWS Managed Streaming for Kafka cluster
 
         ## Example Usage
+        ### Basic
 
         ```python
         import pulumi
@@ -777,12 +811,16 @@ class Cluster(pulumi.CustomResource):
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
                 instance_type="kafka.m5.large",
-                ebs_volume_size=1000,
                 client_subnets=[
                     subnet_az1.id,
                     subnet_az2.id,
                     subnet_az3.id,
                 ],
+                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
+                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
+                        volume_size=1000,
+                    ),
+                ),
                 security_groups=[sg.id],
             ),
             encryption_info=aws.msk.ClusterEncryptionInfoArgs(
@@ -820,6 +858,34 @@ class Cluster(pulumi.CustomResource):
             })
         pulumi.export("zookeeperConnectString", example.zookeeper_connect_string)
         pulumi.export("bootstrapBrokersTls", example.bootstrap_brokers_tls)
+        ```
+        ### With volume_throughput argument
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.msk.Cluster("example",
+            kafka_version="2.7.1",
+            number_of_broker_nodes=3,
+            broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
+                instance_type="kafka.m5.4xlarge",
+                client_subnets=[
+                    aws_subnet["subnet_az1"]["id"],
+                    aws_subnet["subnet_az2"]["id"],
+                    aws_subnet["subnet_az3"]["id"],
+                ],
+                storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoArgs(
+                    ebs_storage_info=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs(
+                        provisioned_throughput=aws.msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs(
+                            enabled=True,
+                            volume_throughput=250,
+                        ),
+                        volume_size=1000,
+                    ),
+                ),
+                security_groups=[aws_security_group["sg"]["id"]],
+            ))
         ```
 
         ## Import

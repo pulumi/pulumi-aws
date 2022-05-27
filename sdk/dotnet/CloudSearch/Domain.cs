@@ -41,6 +41,7 @@ namespace Pulumi.Aws.CloudSearch
     ///                     Return = true,
     ///                     Search = true,
     ///                     Sort = true,
+    ///                     SourceFields = "headline",
     ///                     Type = "double",
     ///                 },
     ///             },

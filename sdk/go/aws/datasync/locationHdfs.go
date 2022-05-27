@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Hdfs Location within AWS DataSync.
+// Manages an HDFS Location within AWS DataSync.
 //
 // > **NOTE:** The DataSync Agents must be available before creating this resource.
 //
@@ -76,7 +76,7 @@ type LocationHdfs struct {
 	KmsKeyProviderUri pulumi.StringPtrOutput `pulumi:"kmsKeyProviderUri"`
 	// The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
 	NameNodes LocationHdfsNameNodeArrayOutput `pulumi:"nameNodes"`
-	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If QopConfiguration isn't specified, RpcProtection and DataTransferProtection default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration LocationHdfsQopConfigurationPtrOutput `pulumi:"qopConfiguration"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor pulumi.IntPtrOutput `pulumi:"replicationFactor"`
@@ -144,7 +144,7 @@ type locationHdfsState struct {
 	KmsKeyProviderUri *string `pulumi:"kmsKeyProviderUri"`
 	// The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
 	NameNodes []LocationHdfsNameNode `pulumi:"nameNodes"`
-	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If QopConfiguration isn't specified, RpcProtection and DataTransferProtection default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration *LocationHdfsQopConfiguration `pulumi:"qopConfiguration"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor *int `pulumi:"replicationFactor"`
@@ -178,7 +178,7 @@ type LocationHdfsState struct {
 	KmsKeyProviderUri pulumi.StringPtrInput
 	// The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
 	NameNodes LocationHdfsNameNodeArrayInput
-	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If QopConfiguration isn't specified, RpcProtection and DataTransferProtection default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration LocationHdfsQopConfigurationPtrInput
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor pulumi.IntPtrInput
@@ -214,7 +214,7 @@ type locationHdfsArgs struct {
 	KmsKeyProviderUri *string `pulumi:"kmsKeyProviderUri"`
 	// The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
 	NameNodes []LocationHdfsNameNode `pulumi:"nameNodes"`
-	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If QopConfiguration isn't specified, RpcProtection and DataTransferProtection default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration *LocationHdfsQopConfiguration `pulumi:"qopConfiguration"`
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor *int `pulumi:"replicationFactor"`
@@ -244,7 +244,7 @@ type LocationHdfsArgs struct {
 	KmsKeyProviderUri pulumi.StringPtrInput
 	// The NameNode that manages the HDFS namespace. The NameNode performs operations such as opening, closing, and renaming files and directories. The NameNode contains the information to map blocks of data to the DataNodes. You can use only one NameNode. See configuration below.
 	NameNodes LocationHdfsNameNodeArrayInput
-	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If QopConfiguration isn't specified, RpcProtection and DataTransferProtection default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+	// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 	QopConfiguration LocationHdfsQopConfigurationPtrInput
 	// The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
 	ReplicationFactor pulumi.IntPtrInput
@@ -388,7 +388,7 @@ func (o LocationHdfsOutput) NameNodes() LocationHdfsNameNodeArrayOutput {
 	return o.ApplyT(func(v *LocationHdfs) LocationHdfsNameNodeArrayOutput { return v.NameNodes }).(LocationHdfsNameNodeArrayOutput)
 }
 
-// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If QopConfiguration isn't specified, RpcProtection and DataTransferProtection default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
+// The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qopConfiguration` isn't specified, `rpcProtection` and `dataTransferProtection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
 func (o LocationHdfsOutput) QopConfiguration() LocationHdfsQopConfigurationPtrOutput {
 	return o.ApplyT(func(v *LocationHdfs) LocationHdfsQopConfigurationPtrOutput { return v.QopConfiguration }).(LocationHdfsQopConfigurationPtrOutput)
 }
