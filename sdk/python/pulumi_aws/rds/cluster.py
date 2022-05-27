@@ -1746,6 +1746,34 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             storage_type="io1")
         ```
+        ### RDS Serverless v2 Cluster
+
+        > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
+
+        To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster = aws.rds.Cluster("exampleCluster",
+            cluster_identifier="example",
+            engine="aurora-postgresql",
+            engine_mode="provisioned",
+            engine_version="13.6",
+            database_name="test",
+            master_username="test",
+            master_password="must_be_eight_characters",
+            serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
+                max_capacity=1,
+                min_capacity=0.5,
+            ))
+        example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
+            cluster_identifier=example_cluster.id,
+            instance_class="db.serverless",
+            engine=example_cluster.engine,
+            engine_version=example_cluster.engine_version)
+        ```
 
         ## Import
 
@@ -1927,6 +1955,34 @@ class Cluster(pulumi.CustomResource):
             master_password="mustbeeightcharaters",
             master_username="test",
             storage_type="io1")
+        ```
+        ### RDS Serverless v2 Cluster
+
+        > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
+
+        To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_cluster = aws.rds.Cluster("exampleCluster",
+            cluster_identifier="example",
+            engine="aurora-postgresql",
+            engine_mode="provisioned",
+            engine_version="13.6",
+            database_name="test",
+            master_username="test",
+            master_password="must_be_eight_characters",
+            serverlessv2_scaling_configuration=aws.rds.ClusterServerlessv2ScalingConfigurationArgs(
+                max_capacity=1,
+                min_capacity=0.5,
+            ))
+        example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
+            cluster_identifier=example_cluster.id,
+            instance_class="db.serverless",
+            engine=example_cluster.engine,
+            engine_version=example_cluster.engine_version)
         ```
 
         ## Import

@@ -167,13 +167,17 @@ export class Ami extends pulumi.CustomResource {
      */
     public readonly sriovNetSupport!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    public readonly tpmSupport!: pulumi.Output<string | undefined>;
     /**
      * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
@@ -223,6 +227,7 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["sriovNetSupport"] = state ? state.sriovNetSupport : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tpmSupport"] = state ? state.tpmSupport : undefined;
             resourceInputs["usageOperation"] = state ? state.usageOperation : undefined;
             resourceInputs["virtualizationType"] = state ? state.virtualizationType : undefined;
         } else {
@@ -241,6 +246,7 @@ export class Ami extends pulumi.CustomResource {
             resourceInputs["rootDeviceName"] = args ? args.rootDeviceName : undefined;
             resourceInputs["sriovNetSupport"] = args ? args.sriovNetSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tpmSupport"] = args ? args.tpmSupport : undefined;
             resourceInputs["virtualizationType"] = args ? args.virtualizationType : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["hypervisor"] = undefined /*out*/;
@@ -360,13 +366,17 @@ export interface AmiState {
      */
     sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    tpmSupport?: pulumi.Input<string>;
     /**
      * The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
      */
@@ -442,9 +452,13 @@ export interface AmiArgs {
      */
     sriovNetSupport?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     */
+    tpmSupport?: pulumi.Input<string>;
     /**
      * Keyword to choose what virtualization mode created instances
      * will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type

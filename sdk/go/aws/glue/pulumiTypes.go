@@ -3695,7 +3695,7 @@ func (o CrawlerMongodbTargetArrayOutput) Index(i pulumi.IntInput) CrawlerMongodb
 }
 
 type CrawlerRecrawlPolicy struct {
-	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+	// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
 	RecrawlBehavior *string `pulumi:"recrawlBehavior"`
 }
 
@@ -3711,7 +3711,7 @@ type CrawlerRecrawlPolicyInput interface {
 }
 
 type CrawlerRecrawlPolicyArgs struct {
-	// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+	// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
 	RecrawlBehavior pulumi.StringPtrInput `pulumi:"recrawlBehavior"`
 }
 
@@ -3792,7 +3792,7 @@ func (o CrawlerRecrawlPolicyOutput) ToCrawlerRecrawlPolicyPtrOutputWithContext(c
 	}).(CrawlerRecrawlPolicyPtrOutput)
 }
 
-// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
 func (o CrawlerRecrawlPolicyOutput) RecrawlBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerRecrawlPolicy) *string { return v.RecrawlBehavior }).(pulumi.StringPtrOutput)
 }
@@ -3821,7 +3821,7 @@ func (o CrawlerRecrawlPolicyPtrOutput) Elem() CrawlerRecrawlPolicyOutput {
 	}).(CrawlerRecrawlPolicyOutput)
 }
 
-// Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run. Valid Values are: `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
+// Specifies whether to crawl the entire dataset again, crawl only folders that were added since the last crawler run, or crawl what S3 notifies the crawler of via SQS. Valid Values are: `CRAWL_EVENT_MODE`, `CRAWL_EVERYTHING` and `CRAWL_NEW_FOLDERS_ONLY`. Default value is `CRAWL_EVERYTHING`.
 func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CrawlerRecrawlPolicy) *string {
 		if v == nil {

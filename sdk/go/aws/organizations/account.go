@@ -72,15 +72,18 @@ type Account struct {
 
 	// The ARN for this account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion pulumi.BoolPtrOutput `pulumi:"closeOnDeletion"`
-	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+	CreateGovcloud  pulumi.BoolPtrOutput `pulumi:"createGovcloud"`
+	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringOutput `pulumi:"email"`
+	// ID for a GovCloud account created with the account.
+	GovcloudId pulumi.StringOutput `pulumi:"govcloudId"`
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
 	IamUserAccessToBilling pulumi.StringPtrOutput `pulumi:"iamUserAccessToBilling"`
 	JoinedMethod           pulumi.StringOutput    `pulumi:"joinedMethod"`
 	JoinedTimestamp        pulumi.StringOutput    `pulumi:"joinedTimestamp"`
-	// A friendly name for the member account.
+	// Friendly name for the member account.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringOutput `pulumi:"parentId"`
@@ -127,15 +130,18 @@ func GetAccount(ctx *pulumi.Context,
 type accountState struct {
 	// The ARN for this account.
 	Arn *string `pulumi:"arn"`
-	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion *bool `pulumi:"closeOnDeletion"`
-	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+	CreateGovcloud  *bool `pulumi:"createGovcloud"`
+	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email *string `pulumi:"email"`
+	// ID for a GovCloud account created with the account.
+	GovcloudId *string `pulumi:"govcloudId"`
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
 	IamUserAccessToBilling *string `pulumi:"iamUserAccessToBilling"`
 	JoinedMethod           *string `pulumi:"joinedMethod"`
 	JoinedTimestamp        *string `pulumi:"joinedTimestamp"`
-	// A friendly name for the member account.
+	// Friendly name for the member account.
 	Name *string `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId *string `pulumi:"parentId"`
@@ -151,15 +157,18 @@ type accountState struct {
 type AccountState struct {
 	// The ARN for this account.
 	Arn pulumi.StringPtrInput
-	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion pulumi.BoolPtrInput
-	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+	CreateGovcloud  pulumi.BoolPtrInput
+	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringPtrInput
+	// ID for a GovCloud account created with the account.
+	GovcloudId pulumi.StringPtrInput
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
 	IamUserAccessToBilling pulumi.StringPtrInput
 	JoinedMethod           pulumi.StringPtrInput
 	JoinedTimestamp        pulumi.StringPtrInput
-	// A friendly name for the member account.
+	// Friendly name for the member account.
 	Name pulumi.StringPtrInput
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringPtrInput
@@ -177,13 +186,14 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion *bool `pulumi:"closeOnDeletion"`
-	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+	CreateGovcloud  *bool `pulumi:"createGovcloud"`
+	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email string `pulumi:"email"`
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
 	IamUserAccessToBilling *string `pulumi:"iamUserAccessToBilling"`
-	// A friendly name for the member account.
+	// Friendly name for the member account.
 	Name *string `pulumi:"name"`
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId *string `pulumi:"parentId"`
@@ -195,13 +205,14 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+	// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 	CloseOnDeletion pulumi.BoolPtrInput
-	// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+	CreateGovcloud  pulumi.BoolPtrInput
+	// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 	Email pulumi.StringInput
 	// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
 	IamUserAccessToBilling pulumi.StringPtrInput
-	// A friendly name for the member account.
+	// Friendly name for the member account.
 	Name pulumi.StringPtrInput
 	// Parent Organizational Unit ID or Root ID for the account. Defaults to the Organization default Root ID. A configuration must be present for this argument to perform drift detection.
 	ParentId pulumi.StringPtrInput
@@ -303,14 +314,23 @@ func (o AccountOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
 func (o AccountOutput) CloseOnDeletion() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.CloseOnDeletion }).(pulumi.BoolPtrOutput)
 }
 
-// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+func (o AccountOutput) CreateGovcloud() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.CreateGovcloud }).(pulumi.BoolPtrOutput)
+}
+
+// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
 func (o AccountOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+}
+
+// ID for a GovCloud account created with the account.
+func (o AccountOutput) GovcloudId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.GovcloudId }).(pulumi.StringOutput)
 }
 
 // If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
@@ -326,7 +346,7 @@ func (o AccountOutput) JoinedTimestamp() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.JoinedTimestamp }).(pulumi.StringOutput)
 }
 
-// A friendly name for the member account.
+// Friendly name for the member account.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
+        /// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+        /// </summary>
+        public readonly Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirements? InstanceRequirements;
+        /// <summary>
         /// Instance type.
         /// </summary>
         public readonly string? InstanceType;
@@ -42,6 +46,8 @@ namespace Pulumi.Aws.Ec2.Outputs
         private FleetLaunchTemplateConfigOverride(
             string? availabilityZone,
 
+            Outputs.FleetLaunchTemplateConfigOverrideInstanceRequirements? instanceRequirements,
+
             string? instanceType,
 
             string? maxPrice,
@@ -53,6 +59,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             double? weightedCapacity)
         {
             AvailabilityZone = availabilityZone;
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             MaxPrice = maxPrice;
             Priority = priority;

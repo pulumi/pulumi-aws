@@ -72,6 +72,10 @@ export interface GetResponseHeadersPolicyResult {
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
     readonly securityHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfig[];
+    /**
+     * (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     */
+    readonly serverTimingHeadersConfigs: outputs.cloudfront.GetResponseHeadersPolicyServerTimingHeadersConfig[];
 }
 
 export function getResponseHeadersPolicyOutput(args?: GetResponseHeadersPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponseHeadersPolicyResult> {

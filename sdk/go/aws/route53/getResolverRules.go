@@ -13,8 +13,7 @@ import (
 // `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
 //
 // ## Example Usage
-//
-// Retrieving the default resolver rule.
+// ### Retrieving the default resolver rule
 //
 // ```go
 // package main
@@ -38,6 +37,7 @@ import (
 // 	})
 // }
 // ```
+// ### Retrieving forward rules shared with me
 //
 // ```go
 // package main
@@ -60,6 +60,30 @@ import (
 // 	})
 // }
 // ```
+// ### Retrieving rules by name regex
+//
+// Resolver rules whose name contains `abc`.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/route53"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := route53.GetResolverRules(ctx, &route53.GetResolverRulesArgs{
+// 			NameRegex: pulumi.StringRef(".*abc.*"),
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func GetResolverRules(ctx *pulumi.Context, args *GetResolverRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverRulesResult, error) {
 	var rv GetResolverRulesResult
 	err := ctx.Invoke("aws:route53/getResolverRules:getResolverRules", args, &rv, opts...)
@@ -71,6 +95,10 @@ func GetResolverRules(ctx *pulumi.Context, args *GetResolverRulesArgs, opts ...p
 
 // A collection of arguments for invoking getResolverRules.
 type GetResolverRulesArgs struct {
+	// A regex string to filter resolver rule names.
+	// The filtering is done locally, so could have a performance impact if the result is large.
+	// This argument should be used along with other arguments to limit the number of results returned.
+	NameRegex *string `pulumi:"nameRegex"`
 	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
 	OwnerId *string `pulumi:"ownerId"`
 	// The ID of the outbound resolver endpoint for the desired resolver rules.
@@ -85,6 +113,7 @@ type GetResolverRulesArgs struct {
 type GetResolverRulesResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id                 string  `pulumi:"id"`
+	NameRegex          *string `pulumi:"nameRegex"`
 	OwnerId            *string `pulumi:"ownerId"`
 	ResolverEndpointId *string `pulumi:"resolverEndpointId"`
 	// The IDs of the matched resolver rules.
@@ -108,6 +137,10 @@ func GetResolverRulesOutput(ctx *pulumi.Context, args GetResolverRulesOutputArgs
 
 // A collection of arguments for invoking getResolverRules.
 type GetResolverRulesOutputArgs struct {
+	// A regex string to filter resolver rule names.
+	// The filtering is done locally, so could have a performance impact if the result is large.
+	// This argument should be used along with other arguments to limit the number of results returned.
+	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
 	// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
 	OwnerId pulumi.StringPtrInput `pulumi:"ownerId"`
 	// The ID of the outbound resolver endpoint for the desired resolver rules.
@@ -140,6 +173,10 @@ func (o GetResolverRulesResultOutput) ToGetResolverRulesResultOutputWithContext(
 // The provider-assigned unique ID for this managed resource.
 func (o GetResolverRulesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResolverRulesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetResolverRulesResultOutput) NameRegex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetResolverRulesResult) *string { return v.NameRegex }).(pulumi.StringPtrOutput)
 }
 
 func (o GetResolverRulesResultOutput) OwnerId() pulumi.StringPtrOutput {

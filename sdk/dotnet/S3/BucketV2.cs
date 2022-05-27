@@ -46,7 +46,7 @@ namespace Pulumi.Aws.S3
     /// or with the deprecated parameter `policy` in the resource `aws.s3.BucketV2`.
     /// Configuring with both will cause inconsistencies and may overwrite configuration.
     /// 
-    /// &gt; **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `aws_s3_bucket_replicaton_configuration`
+    /// &gt; **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `aws.s3.BucketReplicationConfig`
     /// or with the deprecated parameter `replication_configuration` in the resource `aws.s3.BucketV2`.
     /// Configuring with both will cause inconsistencies and may overwrite configuration.
     /// 

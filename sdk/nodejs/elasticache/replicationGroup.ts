@@ -217,7 +217,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * Only supported for engine type `"redis"` and if the engine version is 6 or higher.
      * Defaults to `true`.
      */
-    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    public readonly autoMinorVersionUpgrade!: pulumi.Output<boolean>;
     /**
      * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      */

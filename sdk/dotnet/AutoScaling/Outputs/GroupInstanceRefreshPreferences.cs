@@ -29,6 +29,7 @@ namespace Pulumi.Aws.AutoScaling.Outputs
         /// The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         /// </summary>
         public readonly int? MinHealthyPercentage;
+        public readonly bool? SkipMatching;
 
         [OutputConstructor]
         private GroupInstanceRefreshPreferences(
@@ -38,12 +39,15 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
             string? instanceWarmup,
 
-            int? minHealthyPercentage)
+            int? minHealthyPercentage,
+
+            bool? skipMatching)
         {
             CheckpointDelay = checkpointDelay;
             CheckpointPercentages = checkpointPercentages;
             InstanceWarmup = instanceWarmup;
             MinHealthyPercentage = minHealthyPercentage;
+            SkipMatching = skipMatching;
         }
     }
 }

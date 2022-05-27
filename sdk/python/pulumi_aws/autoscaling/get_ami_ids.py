@@ -79,6 +79,7 @@ class AwaitableGetAmiIdsResult(GetAmiIdsResult):
 
 
 def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs']]] = None,
+                names: Optional[Sequence[str]] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAmiIdsResult:
     """
     The Autoscaling Groups data source allows access to the list of AWS
@@ -113,9 +114,11 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
 
 
     :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[str] names: A list of autoscaling group names
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['names'] = names
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -131,6 +134,7 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
 
 @_utilities.lift_output_func(get_ami_ids)
 def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs']]]]] = None,
+                       names: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiIdsResult]:
     """
     The Autoscaling Groups data source allows access to the list of AWS
@@ -165,5 +169,6 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
 
 
     :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[str] names: A list of autoscaling group names
     """
     ...

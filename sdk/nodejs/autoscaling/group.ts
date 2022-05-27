@@ -155,6 +155,43 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * ### Mixed Instances Policy with Attribute-based Instance Type Selection
+ *
+ * As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLaunchTemplate = new aws.ec2.LaunchTemplate("exampleLaunchTemplate", {
+ *     namePrefix: "example",
+ *     imageId: data.aws_ami.example.id,
+ *     instanceType: "c5.large",
+ * });
+ * const exampleGroup = new aws.autoscaling.Group("exampleGroup", {
+ *     availabilityZones: ["us-east-1a"],
+ *     desiredCapacity: 1,
+ *     maxSize: 1,
+ *     minSize: 1,
+ *     mixedInstancesPolicy: {
+ *         launchTemplate: {
+ *             launchTemplateSpecification: {
+ *                 launchTemplateId: exampleLaunchTemplate.id,
+ *             },
+ *             overrides: [{
+ *                 instanceRequirements: {
+ *                     memoryMib: {
+ *                         min: 1000,
+ *                     },
+ *                     vcpuCount: {
+ *                         min: 4,
+ *                     },
+ *                 },
+ *             }],
+ *         },
+ *     },
+ * });
+ * ```
  * ### Automatically refresh all instances after the group is updated
  *
  * ```typescript
@@ -333,6 +370,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly capacityRebalance!: pulumi.Output<boolean | undefined>;
     /**
+     * Reserved.
+     */
+    public readonly context!: pulumi.Output<string | undefined>;
+    /**
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
     public readonly defaultCooldown!: pulumi.Output<number>;
@@ -509,6 +550,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             resourceInputs["capacityRebalance"] = state ? state.capacityRebalance : undefined;
+            resourceInputs["context"] = state ? state.context : undefined;
             resourceInputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
             resourceInputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
             resourceInputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
@@ -551,6 +593,7 @@ export class Group extends pulumi.CustomResource {
             }
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
+            resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
             resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
             resourceInputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
@@ -606,6 +649,10 @@ export interface GroupState {
      * Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      */
     capacityRebalance?: pulumi.Input<boolean>;
+    /**
+     * Reserved.
+     */
+    context?: pulumi.Input<string>;
     /**
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
@@ -780,6 +827,10 @@ export interface GroupArgs {
      * Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
      */
     capacityRebalance?: pulumi.Input<boolean>;
+    /**
+     * Reserved.
+     */
+    context?: pulumi.Input<string>;
     /**
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */

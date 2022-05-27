@@ -48,6 +48,7 @@ export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pr
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:autoscaling/getAmiIds:getAmiIds", {
         "filters": args.filters,
+        "names": args.names,
     }, opts);
 }
 
@@ -59,6 +60,10 @@ export interface GetAmiIdsArgs {
      * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: inputs.autoscaling.GetAmiIdsFilter[];
+    /**
+     * A list of autoscaling group names
+     */
+    names?: string[];
 }
 
 /**
@@ -92,4 +97,8 @@ export interface GetAmiIdsOutputArgs {
      * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.autoscaling.GetAmiIdsFilterArgs>[]>;
+    /**
+     * A list of autoscaling group names
+     */
+    names?: pulumi.Input<pulumi.Input<string>[]>;
 }

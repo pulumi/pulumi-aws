@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'MapConfigurationArgs',
+    'PlaceIndexDataSourceConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -32,5 +33,28 @@ class MapConfigurationArgs:
     @style.setter
     def style(self, value: pulumi.Input[str]):
         pulumi.set(self, "style", value)
+
+
+@pulumi.input_type
+class PlaceIndexDataSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 intended_use: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] intended_use: Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+        """
+        if intended_use is not None:
+            pulumi.set(__self__, "intended_use", intended_use)
+
+    @property
+    @pulumi.getter(name="intendedUse")
+    def intended_use(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+        """
+        return pulumi.get(self, "intended_use")
+
+    @intended_use.setter
+    def intended_use(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "intended_use", value)
 
 

@@ -14,6 +14,10 @@ namespace Pulumi.Aws.AutoScaling.Outputs
     public sealed class GroupMixedInstancesPolicyLaunchTemplateOverride
     {
         /// <summary>
+        /// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+        /// </summary>
+        public readonly Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements? InstanceRequirements;
+        /// <summary>
         /// Override the instance type in the Launch Template.
         /// </summary>
         public readonly string? InstanceType;
@@ -28,12 +32,15 @@ namespace Pulumi.Aws.AutoScaling.Outputs
 
         [OutputConstructor]
         private GroupMixedInstancesPolicyLaunchTemplateOverride(
+            Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements? instanceRequirements,
+
             string? instanceType,
 
             Outputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification? launchTemplateSpecification,
 
             string? weightedCapacity)
         {
+            InstanceRequirements = instanceRequirements;
             InstanceType = instanceType;
             LaunchTemplateSpecification = launchTemplateSpecification;
             WeightedCapacity = weightedCapacity;

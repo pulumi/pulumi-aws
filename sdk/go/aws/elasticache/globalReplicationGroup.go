@@ -11,53 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides an ElastiCache Global Replication Group resource, which manages replication between two or more Replication Groups in different regions. For more information, see the [ElastiCache User Guide](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Redis-Global-Datastore.html).
-//
-// ## Example Usage
-// ### Global replication group with one secondary replication group
-//
-// The global replication group depends on the primary group existing. Secondary replication groups depend on the global replication group. the provider dependency management will handle this transparently using resource value references.
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/elasticache"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-// 			ReplicationGroupDescription: pulumi.String("primary replication group"),
-// 			Engine:                      pulumi.String("redis"),
-// 			EngineVersion:               pulumi.String("5.0.6"),
-// 			NodeType:                    pulumi.String("cache.m5.large"),
-// 			NumberCacheClusters:         pulumi.Int(1),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example, err := elasticache.NewGlobalReplicationGroup(ctx, "example", &elasticache.GlobalReplicationGroupArgs{
-// 			GlobalReplicationGroupIdSuffix: pulumi.String("example"),
-// 			PrimaryReplicationGroupId:      primary.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
-// 			ReplicationGroupDescription: pulumi.String("secondary replication group"),
-// 			GlobalReplicationGroupId:    example.GlobalReplicationGroupId,
-// 			NumberCacheClusters:         pulumi.Int(1),
-// 		}, pulumi.Provider(aws.Other_region))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
@@ -80,6 +33,14 @@ type GlobalReplicationGroup struct {
 	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
 	// The name of the cache engine to be used for the clusters in this global replication group.
 	Engine pulumi.StringOutput `pulumi:"engine"`
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
 	// A user-created description for the global replication group.
@@ -88,6 +49,11 @@ type GlobalReplicationGroup struct {
 	GlobalReplicationGroupId pulumi.StringOutput `pulumi:"globalReplicationGroupId"`
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix pulumi.StringOutput `pulumi:"globalReplicationGroupIdSuffix"`
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName pulumi.StringPtrOutput `pulumi:"parameterGroupName"`
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId pulumi.StringOutput `pulumi:"primaryReplicationGroupId"`
 	// A flag that indicates whether the encryption in transit is enabled.
@@ -141,6 +107,14 @@ type globalReplicationGroupState struct {
 	ClusterEnabled *bool `pulumi:"clusterEnabled"`
 	// The name of the cache engine to be used for the clusters in this global replication group.
 	Engine *string `pulumi:"engine"`
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion *string `pulumi:"engineVersion"`
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
 	// A user-created description for the global replication group.
@@ -149,6 +123,11 @@ type globalReplicationGroupState struct {
 	GlobalReplicationGroupId *string `pulumi:"globalReplicationGroupId"`
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix *string `pulumi:"globalReplicationGroupIdSuffix"`
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId *string `pulumi:"primaryReplicationGroupId"`
 	// A flag that indicates whether the encryption in transit is enabled.
@@ -168,6 +147,14 @@ type GlobalReplicationGroupState struct {
 	ClusterEnabled pulumi.BoolPtrInput
 	// The name of the cache engine to be used for the clusters in this global replication group.
 	Engine pulumi.StringPtrInput
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion pulumi.StringPtrInput
 	// The full version number of the cache engine running on the members of this global replication group.
 	EngineVersionActual pulumi.StringPtrInput
 	// A user-created description for the global replication group.
@@ -176,6 +163,11 @@ type GlobalReplicationGroupState struct {
 	GlobalReplicationGroupId pulumi.StringPtrInput
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix pulumi.StringPtrInput
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName pulumi.StringPtrInput
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId pulumi.StringPtrInput
 	// A flag that indicates whether the encryption in transit is enabled.
@@ -187,20 +179,46 @@ func (GlobalReplicationGroupState) ElementType() reflect.Type {
 }
 
 type globalReplicationGroupArgs struct {
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion *string `pulumi:"engineVersion"`
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription *string `pulumi:"globalReplicationGroupDescription"`
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix string `pulumi:"globalReplicationGroupIdSuffix"`
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId string `pulumi:"primaryReplicationGroupId"`
 }
 
 // The set of arguments for constructing a GlobalReplicationGroup resource.
 type GlobalReplicationGroupArgs struct {
+	// Redis version to use for the Global Replication Group.
+	// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+	// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+	// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+	// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+	// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+	// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+	EngineVersion pulumi.StringPtrInput
 	// A user-created description for the global replication group.
 	GlobalReplicationGroupDescription pulumi.StringPtrInput
 	// The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 	GlobalReplicationGroupIdSuffix pulumi.StringInput
+	// An ElastiCache Parameter Group to use for the Global Replication Group.
+	// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+	// Specifying without a major version upgrade will fail.
+	// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+	ParameterGroupName pulumi.StringPtrInput
 	// The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.
 	PrimaryReplicationGroupId pulumi.StringInput
 }
@@ -322,6 +340,17 @@ func (o GlobalReplicationGroupOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
+// Redis version to use for the Global Replication Group.
+// When creating, by default the Global Replication Group inherits the version of the primary replication group.
+// If a version is specified, the Global Replication Group and all member replication groups will be upgraded to this version.
+// Cannot be downgraded without replacing the Global Replication Group and all member replication groups.
+// If the version is 6 or higher, the major and minor version can be set, e.g., `6.2`,
+// or the minor version can be unspecified which will use the latest version at creation time, e.g., `6.x`.
+// The actual engine version used is returned in the attribute `engineVersionActual`, see Attributes Reference below.
+func (o GlobalReplicationGroupOutput) EngineVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
+}
+
 // The full version number of the cache engine running on the members of this global replication group.
 func (o GlobalReplicationGroupOutput) EngineVersionActual() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.EngineVersionActual }).(pulumi.StringOutput)
@@ -340,6 +369,14 @@ func (o GlobalReplicationGroupOutput) GlobalReplicationGroupId() pulumi.StringOu
 // The suffix name of a Global Datastore. If `globalReplicationGroupIdSuffix` is changed, creates a new resource.
 func (o GlobalReplicationGroupOutput) GlobalReplicationGroupIdSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringOutput { return v.GlobalReplicationGroupIdSuffix }).(pulumi.StringOutput)
+}
+
+// An ElastiCache Parameter Group to use for the Global Replication Group.
+// Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete.
+// Specifying without a major version upgrade will fail.
+// Note that ElastiCache creates a copy of this parameter group for each member replication group.
+func (o GlobalReplicationGroupOutput) ParameterGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GlobalReplicationGroup) pulumi.StringPtrOutput { return v.ParameterGroupName }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primaryReplicationGroupId` is changed, creates a new resource.

@@ -21,10 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:redshift/authenticationProfile:AuthenticationProfile":
+		r = &AuthenticationProfile{}
 	case "aws:redshift/cluster:Cluster":
 		r = &Cluster{}
+	case "aws:redshift/endpointAccess:EndpointAccess":
+		r = &EndpointAccess{}
 	case "aws:redshift/eventSubscription:EventSubscription":
 		r = &EventSubscription{}
+	case "aws:redshift/hsmClientCertificate:HsmClientCertificate":
+		r = &HsmClientCertificate{}
 	case "aws:redshift/parameterGroup:ParameterGroup":
 		r = &ParameterGroup{}
 	case "aws:redshift/scheduledAction:ScheduledAction":
@@ -39,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SnapshotScheduleAssociation{}
 	case "aws:redshift/subnetGroup:SubnetGroup":
 		r = &SubnetGroup{}
+	case "aws:redshift/usageLimit:UsageLimit":
+		r = &UsageLimit{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -54,12 +62,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"redshift/authenticationProfile",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"redshift/cluster",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"redshift/endpointAccess",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"redshift/eventSubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/hsmClientCertificate",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -95,6 +118,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshift/subnetGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/usageLimit",
 		&module{version},
 	)
 }

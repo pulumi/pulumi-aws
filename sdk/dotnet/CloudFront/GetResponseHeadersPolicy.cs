@@ -135,6 +135,10 @@ namespace Pulumi.Aws.CloudFront
         /// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponseHeadersPolicySecurityHeadersConfigResult> SecurityHeadersConfigs;
+        /// <summary>
+        /// (Optional) A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult> ServerTimingHeadersConfigs;
 
         [OutputConstructor]
         private GetResponseHeadersPolicyResult(
@@ -150,7 +154,9 @@ namespace Pulumi.Aws.CloudFront
 
             string name,
 
-            ImmutableArray<Outputs.GetResponseHeadersPolicySecurityHeadersConfigResult> securityHeadersConfigs)
+            ImmutableArray<Outputs.GetResponseHeadersPolicySecurityHeadersConfigResult> securityHeadersConfigs,
+
+            ImmutableArray<Outputs.GetResponseHeadersPolicyServerTimingHeadersConfigResult> serverTimingHeadersConfigs)
         {
             Comment = comment;
             CorsConfigs = corsConfigs;
@@ -159,6 +165,7 @@ namespace Pulumi.Aws.CloudFront
             Id = id;
             Name = name;
             SecurityHeadersConfigs = securityHeadersConfigs;
+            ServerTimingHeadersConfigs = serverTimingHeadersConfigs;
         }
     }
 }

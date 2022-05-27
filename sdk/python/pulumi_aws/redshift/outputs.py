@@ -13,12 +13,15 @@ __all__ = [
     'ClusterClusterNode',
     'ClusterLogging',
     'ClusterSnapshotCopy',
+    'EndpointAccessVpcEndpoint',
+    'EndpointAccessVpcEndpointNetworkInterface',
     'ParameterGroupParameter',
     'ScheduledActionTargetAction',
     'ScheduledActionTargetActionPauseCluster',
     'ScheduledActionTargetActionResizeCluster',
     'ScheduledActionTargetActionResumeCluster',
     'SecurityGroupIngress',
+    'GetClusterClusterNodeResult',
 ]
 
 @pulumi.output_type
@@ -92,6 +95,10 @@ class ClusterLogging(dict):
         suggest = None
         if key == "bucketName":
             suggest = "bucket_name"
+        elif key == "logDestinationType":
+            suggest = "log_destination_type"
+        elif key == "logExports":
+            suggest = "log_exports"
         elif key == "s3KeyPrefix":
             suggest = "s3_key_prefix"
 
@@ -109,16 +116,24 @@ class ClusterLogging(dict):
     def __init__(__self__, *,
                  enable: bool,
                  bucket_name: Optional[str] = None,
+                 log_destination_type: Optional[str] = None,
+                 log_exports: Optional[Sequence[str]] = None,
                  s3_key_prefix: Optional[str] = None):
         """
         :param bool enable: Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
         :param str bucket_name: The name of an existing S3 bucket where the log files are to be stored. Must be in the same region as the cluster and the cluster must have read bucket and put object permissions.
                For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
+        :param str log_destination_type: The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+        :param Sequence[str] log_exports: The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
         :param str s3_key_prefix: The prefix applied to the log file names.
         """
         pulumi.set(__self__, "enable", enable)
         if bucket_name is not None:
             pulumi.set(__self__, "bucket_name", bucket_name)
+        if log_destination_type is not None:
+            pulumi.set(__self__, "log_destination_type", log_destination_type)
+        if log_exports is not None:
+            pulumi.set(__self__, "log_exports", log_exports)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
 
@@ -138,6 +153,22 @@ class ClusterLogging(dict):
         For more information on the permissions required for the bucket, please read the AWS [documentation](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
         """
         return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="logDestinationType")
+    def log_destination_type(self) -> Optional[str]:
+        """
+        The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+        """
+        return pulumi.get(self, "log_destination_type")
+
+    @property
+    @pulumi.getter(name="logExports")
+    def log_exports(self) -> Optional[Sequence[str]]:
+        """
+        The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+        """
+        return pulumi.get(self, "log_exports")
 
     @property
     @pulumi.getter(name="s3KeyPrefix")
@@ -209,6 +240,148 @@ class ClusterSnapshotCopy(dict):
         The number of days to retain automated snapshots in the destination region after they are copied from the source region. Defaults to `7`.
         """
         return pulumi.get(self, "retention_period")
+
+
+@pulumi.output_type
+class EndpointAccessVpcEndpoint(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkInterfaces":
+            suggest = "network_interfaces"
+        elif key == "vpcEndpointId":
+            suggest = "vpc_endpoint_id"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointAccessVpcEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointAccessVpcEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointAccessVpcEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_interfaces: Optional[Sequence['outputs.EndpointAccessVpcEndpointNetworkInterface']] = None,
+                 vpc_endpoint_id: Optional[str] = None,
+                 vpc_id: Optional[str] = None):
+        """
+        :param Sequence['EndpointAccessVpcEndpointNetworkInterfaceArgs'] network_interfaces: One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+        :param str vpc_endpoint_id: The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+        :param str vpc_id: The VPC identifier that the endpoint is associated.
+        """
+        if network_interfaces is not None:
+            pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if vpc_endpoint_id is not None:
+            pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="networkInterfaces")
+    def network_interfaces(self) -> Optional[Sequence['outputs.EndpointAccessVpcEndpointNetworkInterface']]:
+        """
+        One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+        """
+        return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> Optional[str]:
+        """
+        The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[str]:
+        """
+        The VPC identifier that the endpoint is associated.
+        """
+        return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class EndpointAccessVpcEndpointNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "networkInterfaceId":
+            suggest = "network_interface_id"
+        elif key == "privateIpAddress":
+            suggest = "private_ip_address"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointAccessVpcEndpointNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointAccessVpcEndpointNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointAccessVpcEndpointNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: Optional[str] = None,
+                 network_interface_id: Optional[str] = None,
+                 private_ip_address: Optional[str] = None,
+                 subnet_id: Optional[str] = None):
+        """
+        :param str availability_zone: The Availability Zone.
+        :param str network_interface_id: The network interface identifier.
+        :param str private_ip_address: The IPv4 address of the network interface within the subnet.
+        :param str subnet_id: The subnet identifier.
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if network_interface_id is not None:
+            pulumi.set(__self__, "network_interface_id", network_interface_id)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[str]:
+        """
+        The Availability Zone.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="networkInterfaceId")
+    def network_interface_id(self) -> Optional[str]:
+        """
+        The network interface identifier.
+        """
+        return pulumi.get(self, "network_interface_id")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> Optional[str]:
+        """
+        The IPv4 address of the network interface within the subnet.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[str]:
+        """
+        The subnet identifier.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -525,5 +698,45 @@ class SecurityGroupIngress(dict):
         by `security_group_name`.
         """
         return pulumi.get(self, "security_group_owner_id")
+
+
+@pulumi.output_type
+class GetClusterClusterNodeResult(dict):
+    def __init__(__self__, *,
+                 node_role: str,
+                 private_ip_address: str,
+                 public_ip_address: str):
+        """
+        :param str node_role: Whether the node is a leader node or a compute node
+        :param str private_ip_address: The private IP address of a node within a cluster
+        :param str public_ip_address: The public IP address of a node within a cluster
+        """
+        pulumi.set(__self__, "node_role", node_role)
+        pulumi.set(__self__, "private_ip_address", private_ip_address)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @property
+    @pulumi.getter(name="nodeRole")
+    def node_role(self) -> str:
+        """
+        Whether the node is a leader node or a compute node
+        """
+        return pulumi.get(self, "node_role")
+
+    @property
+    @pulumi.getter(name="privateIpAddress")
+    def private_ip_address(self) -> str:
+        """
+        The private IP address of a node within a cluster
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @property
+    @pulumi.getter(name="publicIpAddress")
+    def public_ip_address(self) -> str:
+        """
+        The public IP address of a node within a cluster
+        """
+        return pulumi.get(self, "public_ip_address")
 
 

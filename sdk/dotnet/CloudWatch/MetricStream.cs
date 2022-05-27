@@ -13,6 +13,7 @@ namespace Pulumi.Aws.CloudWatch
     /// Provides a CloudWatch Metric Stream resource.
     /// 
     /// ## Example Usage
+    /// ### Filters
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -144,6 +145,60 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
+    /// ### Additional Statistics
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var main = new Aws.CloudWatch.MetricStream("main", new Aws.CloudWatch.MetricStreamArgs
+    ///         {
+    ///             RoleArn = aws_iam_role.Metric_stream_to_firehose.Arn,
+    ///             FirehoseArn = aws_kinesis_firehose_delivery_stream.S3_stream.Arn,
+    ///             OutputFormat = "json",
+    ///             StatisticsConfigurations = 
+    ///             {
+    ///                 new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationArgs
+    ///                 {
+    ///                     AdditionalStatistics = 
+    ///                     {
+    ///                         "p1",
+    ///                         "tm99",
+    ///                     },
+    ///                     IncludeMetrics = 
+    ///                     {
+    ///                         new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs
+    ///                         {
+    ///                             MetricName = "CPUUtilization",
+    ///                             Namespace = "AWS/EC2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationArgs
+    ///                 {
+    ///                     AdditionalStatistics = 
+    ///                     {
+    ///                         "TS(50.5:)",
+    ///                     },
+    ///                     IncludeMetrics = 
+    ///                     {
+    ///                         new Aws.CloudWatch.Inputs.MetricStreamStatisticsConfigurationIncludeMetricArgs
+    ///                         {
+    ///                             MetricName = "CPUUtilization",
+    ///                             Namespace = "AWS/EC2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -218,6 +273,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
+
+        /// <summary>
+        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+        /// </summary>
+        [Output("statisticsConfigurations")]
+        public Output<ImmutableArray<Outputs.MetricStreamStatisticsConfiguration>> StatisticsConfigurations { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -328,6 +389,18 @@ namespace Pulumi.Aws.CloudWatch
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
+        [Input("statisticsConfigurations")]
+        private InputList<Inputs.MetricStreamStatisticsConfigurationArgs>? _statisticsConfigurations;
+
+        /// <summary>
+        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+        /// </summary>
+        public InputList<Inputs.MetricStreamStatisticsConfigurationArgs> StatisticsConfigurations
+        {
+            get => _statisticsConfigurations ?? (_statisticsConfigurations = new InputList<Inputs.MetricStreamStatisticsConfigurationArgs>());
+            set => _statisticsConfigurations = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -421,6 +494,18 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("statisticsConfigurations")]
+        private InputList<Inputs.MetricStreamStatisticsConfigurationGetArgs>? _statisticsConfigurations;
+
+        /// <summary>
+        /// For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `output_format`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+        /// </summary>
+        public InputList<Inputs.MetricStreamStatisticsConfigurationGetArgs> StatisticsConfigurations
+        {
+            get => _statisticsConfigurations ?? (_statisticsConfigurations = new InputList<Inputs.MetricStreamStatisticsConfigurationGetArgs>());
+            set => _statisticsConfigurations = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

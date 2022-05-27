@@ -26,6 +26,24 @@ namespace Pulumi.Aws.RedShift.Inputs
         public Input<bool> Enable { get; set; } = null!;
 
         /// <summary>
+        /// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+        /// </summary>
+        [Input("logDestinationType")]
+        public Input<string>? LogDestinationType { get; set; }
+
+        [Input("logExports")]
+        private InputList<string>? _logExports;
+
+        /// <summary>
+        /// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+        /// </summary>
+        public InputList<string> LogExports
+        {
+            get => _logExports ?? (_logExports = new InputList<string>());
+            set => _logExports = value;
+        }
+
+        /// <summary>
         /// The prefix applied to the log file names.
         /// </summary>
         [Input("s3KeyPrefix")]

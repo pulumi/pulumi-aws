@@ -61,9 +61,17 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
-     * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+     * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
      */
     public readonly allowVersionUpgrade!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     */
+    public readonly applyImmediately!: pulumi.Output<boolean | undefined>;
+    /**
+     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     */
+    public readonly aquaConfigurationStatus!: pulumi.Output<string>;
     /**
      * Amazon Resource Name (ARN) of cluster
      */
@@ -123,6 +131,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly databaseName!: pulumi.Output<string>;
     /**
+     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     */
+    public readonly defaultIamRoleArn!: pulumi.Output<string | undefined>;
+    /**
      * The DNS name of the cluster
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
@@ -159,6 +171,14 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly logging!: pulumi.Output<outputs.redshift.ClusterLogging | undefined>;
     /**
+     * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+     */
+    public readonly maintenanceTrackName!: pulumi.Output<string | undefined>;
+    /**
+     * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+     */
+    public readonly manualSnapshotRetentionPeriod!: pulumi.Output<number | undefined>;
+    /**
      * Password for the master DB user.
      * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
      * contain at least one uppercase letter, one lowercase letter, and one number.
@@ -181,10 +201,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly ownerAccount!: pulumi.Output<string | undefined>;
     /**
-     * The port number on which the cluster accepts incoming connections.
+     * The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
      * The cluster is accessible only via the JDBC and ODBC connection strings.
      * Part of the connection string requires the port on which the cluster will listen for incoming connections.
-     * Default port is 5439.
+     * Default port is `5439`.
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
@@ -239,6 +259,8 @@ export class Cluster extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
             resourceInputs["allowVersionUpgrade"] = state ? state.allowVersionUpgrade : undefined;
+            resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
+            resourceInputs["aquaConfigurationStatus"] = state ? state.aquaConfigurationStatus : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["automatedSnapshotRetentionPeriod"] = state ? state.automatedSnapshotRetentionPeriod : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
@@ -253,6 +275,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterType"] = state ? state.clusterType : undefined;
             resourceInputs["clusterVersion"] = state ? state.clusterVersion : undefined;
             resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["defaultIamRoleArn"] = state ? state.defaultIamRoleArn : undefined;
             resourceInputs["dnsName"] = state ? state.dnsName : undefined;
             resourceInputs["elasticIp"] = state ? state.elasticIp : undefined;
             resourceInputs["encrypted"] = state ? state.encrypted : undefined;
@@ -262,6 +285,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = state ? state.iamRoles : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["logging"] = state ? state.logging : undefined;
+            resourceInputs["maintenanceTrackName"] = state ? state.maintenanceTrackName : undefined;
+            resourceInputs["manualSnapshotRetentionPeriod"] = state ? state.manualSnapshotRetentionPeriod : undefined;
             resourceInputs["masterPassword"] = state ? state.masterPassword : undefined;
             resourceInputs["masterUsername"] = state ? state.masterUsername : undefined;
             resourceInputs["nodeType"] = state ? state.nodeType : undefined;
@@ -286,6 +311,8 @@ export class Cluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'nodeType'");
             }
             resourceInputs["allowVersionUpgrade"] = args ? args.allowVersionUpgrade : undefined;
+            resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
+            resourceInputs["aquaConfigurationStatus"] = args ? args.aquaConfigurationStatus : undefined;
             resourceInputs["automatedSnapshotRetentionPeriod"] = args ? args.automatedSnapshotRetentionPeriod : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["availabilityZoneRelocationEnabled"] = args ? args.availabilityZoneRelocationEnabled : undefined;
@@ -298,6 +325,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["clusterType"] = args ? args.clusterType : undefined;
             resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["defaultIamRoleArn"] = args ? args.defaultIamRoleArn : undefined;
             resourceInputs["elasticIp"] = args ? args.elasticIp : undefined;
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
@@ -306,6 +334,8 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["iamRoles"] = args ? args.iamRoles : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
+            resourceInputs["maintenanceTrackName"] = args ? args.maintenanceTrackName : undefined;
+            resourceInputs["manualSnapshotRetentionPeriod"] = args ? args.manualSnapshotRetentionPeriod : undefined;
             resourceInputs["masterPassword"] = args ? args.masterPassword : undefined;
             resourceInputs["masterUsername"] = args ? args.masterUsername : undefined;
             resourceInputs["nodeType"] = args ? args.nodeType : undefined;
@@ -335,9 +365,17 @@ export class Cluster extends pulumi.CustomResource {
  */
 export interface ClusterState {
     /**
-     * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+     * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
      */
     allowVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     */
+    applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     */
+    aquaConfigurationStatus?: pulumi.Input<string>;
     /**
      * Amazon Resource Name (ARN) of cluster
      */
@@ -397,6 +435,10 @@ export interface ClusterState {
      */
     databaseName?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     */
+    defaultIamRoleArn?: pulumi.Input<string>;
+    /**
      * The DNS name of the cluster
      */
     dnsName?: pulumi.Input<string>;
@@ -433,6 +475,14 @@ export interface ClusterState {
      */
     logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
+     * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+     */
+    maintenanceTrackName?: pulumi.Input<string>;
+    /**
+     * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+     */
+    manualSnapshotRetentionPeriod?: pulumi.Input<number>;
+    /**
      * Password for the master DB user.
      * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
      * contain at least one uppercase letter, one lowercase letter, and one number.
@@ -455,10 +505,10 @@ export interface ClusterState {
      */
     ownerAccount?: pulumi.Input<string>;
     /**
-     * The port number on which the cluster accepts incoming connections.
+     * The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
      * The cluster is accessible only via the JDBC and ODBC connection strings.
      * Part of the connection string requires the port on which the cluster will listen for incoming connections.
-     * Default port is 5439.
+     * Default port is `5439`.
      */
     port?: pulumi.Input<number>;
     /**
@@ -505,9 +555,17 @@ export interface ClusterState {
  */
 export interface ClusterArgs {
     /**
-     * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+     * If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
      */
     allowVersionUpgrade?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+     */
+    applyImmediately?: pulumi.Input<boolean>;
+    /**
+     * The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+     */
+    aquaConfigurationStatus?: pulumi.Input<string>;
     /**
      * The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
      */
@@ -559,6 +617,10 @@ export interface ClusterArgs {
      */
     databaseName?: pulumi.Input<string>;
     /**
+     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     */
+    defaultIamRoleArn?: pulumi.Input<string>;
+    /**
      * The Elastic IP (EIP) address for the cluster.
      */
     elasticIp?: pulumi.Input<string>;
@@ -591,6 +653,14 @@ export interface ClusterArgs {
      */
     logging?: pulumi.Input<inputs.redshift.ClusterLogging>;
     /**
+     * The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+     */
+    maintenanceTrackName?: pulumi.Input<string>;
+    /**
+     * The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+     */
+    manualSnapshotRetentionPeriod?: pulumi.Input<number>;
+    /**
      * Password for the master DB user.
      * Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
      * contain at least one uppercase letter, one lowercase letter, and one number.
@@ -613,10 +683,10 @@ export interface ClusterArgs {
      */
     ownerAccount?: pulumi.Input<string>;
     /**
-     * The port number on which the cluster accepts incoming connections.
+     * The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
      * The cluster is accessible only via the JDBC and ODBC connection strings.
      * Part of the connection string requires the port on which the cluster will listen for incoming connections.
-     * Default port is 5439.
+     * Default port is `5439`.
      */
     port?: pulumi.Input<number>;
     /**

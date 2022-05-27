@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Metric Stream resource.
  *
  * ## Example Usage
+ * ### Filters
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -111,6 +112,37 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * ### Additional Statistics
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const main = new aws.cloudwatch.MetricStream("main", {
+ *     roleArn: aws_iam_role.metric_stream_to_firehose.arn,
+ *     firehoseArn: aws_kinesis_firehose_delivery_stream.s3_stream.arn,
+ *     outputFormat: "json",
+ *     statisticsConfigurations: [
+ *         {
+ *             additionalStatistics: [
+ *                 "p1",
+ *                 "tm99",
+ *             ],
+ *             includeMetrics: [{
+ *                 metricName: "CPUUtilization",
+ *                 namespace: "AWS/EC2",
+ *             }],
+ *         },
+ *         {
+ *             additionalStatistics: ["TS(50.5:)"],
+ *             includeMetrics: [{
+ *                 metricName: "CPUUtilization",
+ *                 namespace: "AWS/EC2",
+ *             }],
+ *         },
+ *     ],
+ * });
+ * ```
  *
  * ## Import
  *
@@ -190,6 +222,10 @@ export class MetricStream extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
+     * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+     */
+    public readonly statisticsConfigurations!: pulumi.Output<outputs.cloudwatch.MetricStreamStatisticsConfiguration[] | undefined>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -222,6 +258,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["outputFormat"] = state ? state.outputFormat : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["statisticsConfigurations"] = state ? state.statisticsConfigurations : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -242,6 +279,7 @@ export class MetricStream extends pulumi.CustomResource {
             resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
             resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["statisticsConfigurations"] = args ? args.statisticsConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
@@ -300,6 +338,10 @@ export interface MetricStreamState {
      */
     state?: pulumi.Input<string>;
     /**
+     * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+     */
+    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsConfiguration>[]>;
+    /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -338,6 +380,10 @@ export interface MetricStreamArgs {
      * ARN of the IAM role that this metric stream will use to access Amazon Kinesis Firehose resources. For more information about role permissions, see [Trust between CloudWatch and Kinesis Data Firehose](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html).
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * For each entry in this array, you specify one or more metrics and the list of additional statistics to stream for those metrics. The additional statistics that you can stream depend on the stream's `outputFormat`. If the OutputFormat is `json`, you can stream any additional statistic that is supported by CloudWatch, listed in [CloudWatch statistics definitions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html). If the OutputFormat is `opentelemetry0.7`, you can stream percentile statistics (p99 etc.). See details below.
+     */
+    statisticsConfigurations?: pulumi.Input<pulumi.Input<inputs.cloudwatch.MetricStreamStatisticsConfiguration>[]>;
     /**
      * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

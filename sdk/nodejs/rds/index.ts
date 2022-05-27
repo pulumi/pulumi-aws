@@ -38,6 +38,7 @@ export * from "./proxyTarget";
 export * from "./roleAssociation";
 export * from "./securityGroup";
 export * from "./snapshot";
+export * from "./snapshotCopy";
 export * from "./storageType";
 export * from "./subnetGroup";
 
@@ -65,6 +66,7 @@ import { ProxyTarget } from "./proxyTarget";
 import { RoleAssociation } from "./roleAssociation";
 import { SecurityGroup } from "./securityGroup";
 import { Snapshot } from "./snapshot";
+import { SnapshotCopy } from "./snapshotCopy";
 import { SubnetGroup } from "./subnetGroup";
 
 const _module = {
@@ -111,6 +113,8 @@ const _module = {
                 return new SecurityGroup(name, <any>undefined, { urn })
             case "aws:rds/snapshot:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
+            case "aws:rds/snapshotCopy:SnapshotCopy":
+                return new SnapshotCopy(name, <any>undefined, { urn })
             case "aws:rds/subnetGroup:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             default:
@@ -138,4 +142,5 @@ pulumi.runtime.registerResourceModule("aws", "rds/proxyTarget", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/roleAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/securityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/snapshot", _module)
+pulumi.runtime.registerResourceModule("aws", "rds/snapshotCopy", _module)
 pulumi.runtime.registerResourceModule("aws", "rds/subnetGroup", _module)

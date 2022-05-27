@@ -111,10 +111,12 @@ type Ami struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrOutput `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	TpmSupport pulumi.StringPtrOutput `pulumi:"tpmSupport"`
 	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation pulumi.StringOutput `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
@@ -203,10 +205,12 @@ type amiState struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	TpmSupport *string `pulumi:"tpmSupport"`
 	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation *string `pulumi:"usageOperation"`
 	// Keyword to choose what virtualization mode created instances
@@ -267,10 +271,12 @@ type AmiState struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	TpmSupport pulumi.StringPtrInput
 	// The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
 	UsageOperation pulumi.StringPtrInput
 	// Keyword to choose what virtualization mode created instances
@@ -316,8 +322,10 @@ type amiArgs struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport *string `pulumi:"sriovNetSupport"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	TpmSupport *string `pulumi:"tpmSupport"`
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
@@ -358,8 +366,10 @@ type AmiArgs struct {
 	// When set to "simple" (the default), enables enhanced networking
 	// for created instances. No other value is supported at this time.
 	SriovNetSupport pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
+	// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+	TpmSupport pulumi.StringPtrInput
 	// Keyword to choose what virtualization mode created instances
 	// will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
 	// changes the set of further arguments that are required, as described below.
@@ -573,7 +583,7 @@ func (o AmiOutput) SriovNetSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.SriovNetSupport }).(pulumi.StringPtrOutput)
 }
 
-// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AmiOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -581,6 +591,11 @@ func (o AmiOutput) Tags() pulumi.StringMapOutput {
 // A map of tags assigned to the resource, including those inherited from the provider .
 func (o AmiOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Ami) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
+}
+
+// If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+func (o AmiOutput) TpmSupport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ami) pulumi.StringPtrOutput { return v.TpmSupport }).(pulumi.StringPtrOutput)
 }
 
 // The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.

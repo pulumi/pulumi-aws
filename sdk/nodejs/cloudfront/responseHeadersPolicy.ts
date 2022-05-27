@@ -61,6 +61,27 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ *     customHeadersConfig: {
+ *         items: [{
+ *             header: "X-Permitted-Cross-Domain-Policies",
+ *             override: true,
+ *             value: "none",
+ *         }],
+ *     },
+ *     serverTimingHeadersConfig: {
+ *         enabled: true,
+ *         samplingRate: 50,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Cloudfront Response Headers Policies can be imported using the `id`, e.g.
@@ -121,6 +142,10 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
     public readonly securityHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig | undefined>;
+    /**
+     * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     */
+    public readonly serverTimingHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig | undefined>;
 
     /**
      * Create a ResponseHeadersPolicy resource with the given unique name, arguments, and options.
@@ -141,6 +166,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
             resourceInputs["etag"] = state ? state.etag : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["securityHeadersConfig"] = state ? state.securityHeadersConfig : undefined;
+            resourceInputs["serverTimingHeadersConfig"] = state ? state.serverTimingHeadersConfig : undefined;
         } else {
             const args = argsOrState as ResponseHeadersPolicyArgs | undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
@@ -149,6 +175,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
             resourceInputs["etag"] = args ? args.etag : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["securityHeadersConfig"] = args ? args.securityHeadersConfig : undefined;
+            resourceInputs["serverTimingHeadersConfig"] = args ? args.serverTimingHeadersConfig : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ResponseHeadersPolicy.__pulumiType, name, resourceInputs, opts);
@@ -183,6 +210,10 @@ export interface ResponseHeadersPolicyState {
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
     securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig>;
+    /**
+     * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     */
+    serverTimingHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig>;
 }
 
 /**
@@ -213,4 +244,8 @@ export interface ResponseHeadersPolicyArgs {
      * A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
      */
     securityHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfig>;
+    /**
+     * A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+     */
+    serverTimingHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyServerTimingHeadersConfig>;
 }

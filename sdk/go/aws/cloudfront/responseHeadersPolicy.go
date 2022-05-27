@@ -95,6 +95,41 @@ import (
 // }
 // ```
 //
+// The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
+// 			CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
+// 				Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
+// 					&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
+// 						Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
+// 						Override: pulumi.Bool(true),
+// 						Value:    pulumi.String("none"),
+// 					},
+// 				},
+// 			},
+// 			ServerTimingHeadersConfig: &cloudfront.ResponseHeadersPolicyServerTimingHeadersConfigArgs{
+// 				Enabled:      pulumi.Bool(true),
+// 				SamplingRate: pulumi.Float64(50),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Cloudfront Response Headers Policies can be imported using the `id`, e.g.
@@ -117,6 +152,8 @@ type ResponseHeadersPolicy struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrOutput `pulumi:"securityHeadersConfig"`
+	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	ServerTimingHeadersConfig ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput `pulumi:"serverTimingHeadersConfig"`
 }
 
 // NewResponseHeadersPolicy registers a new resource with the given unique name, arguments, and options.
@@ -160,6 +197,8 @@ type responseHeadersPolicyState struct {
 	Name *string `pulumi:"name"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig *ResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfig"`
+	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	ServerTimingHeadersConfig *ResponseHeadersPolicyServerTimingHeadersConfig `pulumi:"serverTimingHeadersConfig"`
 }
 
 type ResponseHeadersPolicyState struct {
@@ -175,6 +214,8 @@ type ResponseHeadersPolicyState struct {
 	Name pulumi.StringPtrInput
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrInput
+	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	ServerTimingHeadersConfig ResponseHeadersPolicyServerTimingHeadersConfigPtrInput
 }
 
 func (ResponseHeadersPolicyState) ElementType() reflect.Type {
@@ -194,6 +235,8 @@ type responseHeadersPolicyArgs struct {
 	Name *string `pulumi:"name"`
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig *ResponseHeadersPolicySecurityHeadersConfig `pulumi:"securityHeadersConfig"`
+	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	ServerTimingHeadersConfig *ResponseHeadersPolicyServerTimingHeadersConfig `pulumi:"serverTimingHeadersConfig"`
 }
 
 // The set of arguments for constructing a ResponseHeadersPolicy resource.
@@ -210,6 +253,8 @@ type ResponseHeadersPolicyArgs struct {
 	Name pulumi.StringPtrInput
 	// A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
 	SecurityHeadersConfig ResponseHeadersPolicySecurityHeadersConfigPtrInput
+	// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+	ServerTimingHeadersConfig ResponseHeadersPolicyServerTimingHeadersConfigPtrInput
 }
 
 func (ResponseHeadersPolicyArgs) ElementType() reflect.Type {
@@ -331,6 +376,13 @@ func (o ResponseHeadersPolicyOutput) SecurityHeadersConfig() ResponseHeadersPoli
 	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicySecurityHeadersConfigPtrOutput {
 		return v.SecurityHeadersConfig
 	}).(ResponseHeadersPolicySecurityHeadersConfigPtrOutput)
+}
+
+// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+func (o ResponseHeadersPolicyOutput) ServerTimingHeadersConfig() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+		return v.ServerTimingHeadersConfig
+	}).(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput)
 }
 
 type ResponseHeadersPolicyArrayOutput struct{ *pulumi.OutputState }

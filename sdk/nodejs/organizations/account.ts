@@ -83,13 +83,18 @@ export class Account extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      */
     public readonly closeOnDeletion!: pulumi.Output<boolean | undefined>;
+    public readonly createGovcloud!: pulumi.Output<boolean | undefined>;
     /**
-     * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+     * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
     public readonly email!: pulumi.Output<string>;
+    /**
+     * ID for a GovCloud account created with the account.
+     */
+    public /*out*/ readonly govcloudId!: pulumi.Output<string>;
     /**
      * If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
      */
@@ -97,7 +102,7 @@ export class Account extends pulumi.CustomResource {
     public /*out*/ readonly joinedMethod!: pulumi.Output<string>;
     public /*out*/ readonly joinedTimestamp!: pulumi.Output<string>;
     /**
-     * A friendly name for the member account.
+     * Friendly name for the member account.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -133,7 +138,9 @@ export class Account extends pulumi.CustomResource {
             const state = argsOrState as AccountState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["closeOnDeletion"] = state ? state.closeOnDeletion : undefined;
+            resourceInputs["createGovcloud"] = state ? state.createGovcloud : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["govcloudId"] = state ? state.govcloudId : undefined;
             resourceInputs["iamUserAccessToBilling"] = state ? state.iamUserAccessToBilling : undefined;
             resourceInputs["joinedMethod"] = state ? state.joinedMethod : undefined;
             resourceInputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
@@ -149,6 +156,7 @@ export class Account extends pulumi.CustomResource {
                 throw new Error("Missing required property 'email'");
             }
             resourceInputs["closeOnDeletion"] = args ? args.closeOnDeletion : undefined;
+            resourceInputs["createGovcloud"] = args ? args.createGovcloud : undefined;
             resourceInputs["email"] = args ? args.email : undefined;
             resourceInputs["iamUserAccessToBilling"] = args ? args.iamUserAccessToBilling : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -156,6 +164,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["roleName"] = args ? args.roleName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["govcloudId"] = undefined /*out*/;
             resourceInputs["joinedMethod"] = undefined /*out*/;
             resourceInputs["joinedTimestamp"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -175,13 +184,18 @@ export interface AccountState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      */
     closeOnDeletion?: pulumi.Input<boolean>;
+    createGovcloud?: pulumi.Input<boolean>;
     /**
-     * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+     * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
     email?: pulumi.Input<string>;
+    /**
+     * ID for a GovCloud account created with the account.
+     */
+    govcloudId?: pulumi.Input<string>;
     /**
      * If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
      */
@@ -189,7 +203,7 @@ export interface AccountState {
     joinedMethod?: pulumi.Input<string>;
     joinedTimestamp?: pulumi.Input<string>;
     /**
-     * A friendly name for the member account.
+     * Friendly name for the member account.
      */
     name?: pulumi.Input<string>;
     /**
@@ -216,11 +230,12 @@ export interface AccountState {
  */
 export interface AccountArgs {
     /**
-     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+     * If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
      */
     closeOnDeletion?: pulumi.Input<boolean>;
+    createGovcloud?: pulumi.Input<boolean>;
     /**
-     * The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+     * Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
      */
     email: pulumi.Input<string>;
     /**
@@ -228,7 +243,7 @@ export interface AccountArgs {
      */
     iamUserAccessToBilling?: pulumi.Input<string>;
     /**
-     * A friendly name for the member account.
+     * Friendly name for the member account.
      */
     name?: pulumi.Input<string>;
     /**

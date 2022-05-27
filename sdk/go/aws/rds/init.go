@@ -61,6 +61,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecurityGroup{}
 	case "aws:rds/snapshot:Snapshot":
 		r = &Snapshot{}
+	case "aws:rds/snapshotCopy:SnapshotCopy":
+		r = &SnapshotCopy{}
 	case "aws:rds/subnetGroup:SubnetGroup":
 		r = &SubnetGroup{}
 	default:
@@ -174,6 +176,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"rds/snapshot",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"rds/snapshotCopy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

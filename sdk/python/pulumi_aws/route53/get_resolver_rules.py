@@ -20,10 +20,13 @@ class GetResolverRulesResult:
     """
     A collection of values returned by getResolverRules.
     """
-    def __init__(__self__, id=None, owner_id=None, resolver_endpoint_id=None, resolver_rule_ids=None, rule_type=None, share_status=None):
+    def __init__(__self__, id=None, name_regex=None, owner_id=None, resolver_endpoint_id=None, resolver_rule_ids=None, rule_type=None, share_status=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if name_regex and not isinstance(name_regex, str):
+            raise TypeError("Expected argument 'name_regex' to be a str")
+        pulumi.set(__self__, "name_regex", name_regex)
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
@@ -47,6 +50,11 @@ class GetResolverRulesResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="nameRegex")
+    def name_regex(self) -> Optional[str]:
+        return pulumi.get(self, "name_regex")
 
     @property
     @pulumi.getter(name="ownerId")
@@ -84,6 +92,7 @@ class AwaitableGetResolverRulesResult(GetResolverRulesResult):
             yield self
         return GetResolverRulesResult(
             id=self.id,
+            name_regex=self.name_regex,
             owner_id=self.owner_id,
             resolver_endpoint_id=self.resolver_endpoint_id,
             resolver_rule_ids=self.resolver_rule_ids,
@@ -91,7 +100,8 @@ class AwaitableGetResolverRulesResult(GetResolverRulesResult):
             share_status=self.share_status)
 
 
-def get_resolver_rules(owner_id: Optional[str] = None,
+def get_resolver_rules(name_regex: Optional[str] = None,
+                       owner_id: Optional[str] = None,
                        resolver_endpoint_id: Optional[str] = None,
                        rule_type: Optional[str] = None,
                        share_status: Optional[str] = None,
@@ -100,8 +110,7 @@ def get_resolver_rules(owner_id: Optional[str] = None,
     `route53.get_resolver_rules` provides details about a set of Route53 Resolver rules.
 
     ## Example Usage
-
-    Retrieving the default resolver rule.
+    ### Retrieving the default resolver rule
 
     ```python
     import pulumi
@@ -111,6 +120,7 @@ def get_resolver_rules(owner_id: Optional[str] = None,
         rule_type="RECURSIVE",
         share_status="NOT_SHARED")
     ```
+    ### Retrieving forward rules shared with me
 
     ```python
     import pulumi
@@ -119,14 +129,28 @@ def get_resolver_rules(owner_id: Optional[str] = None,
     example = aws.route53.get_resolver_rules(rule_type="FORWARD",
         share_status="SHARED_WITH_ME")
     ```
+    ### Retrieving rules by name regex
+
+    Resolver rules whose name contains `abc`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(name_regex=".*abc.*")
+    ```
 
 
+    :param str name_regex: A regex string to filter resolver rule names.
+           The filtering is done locally, so could have a performance impact if the result is large.
+           This argument should be used along with other arguments to limit the number of results returned.
     :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
     :param str resolver_endpoint_id: The ID of the outbound resolver endpoint for the desired resolver rules.
     :param str rule_type: The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.
     :param str share_status: Whether the desired resolver rules are shared and, if so, whether the current account is sharing the rules with another account, or another account is sharing the rules with the current account. Valid values are `NOT_SHARED`, `SHARED_BY_ME` or `SHARED_WITH_ME`
     """
     __args__ = dict()
+    __args__['nameRegex'] = name_regex
     __args__['ownerId'] = owner_id
     __args__['resolverEndpointId'] = resolver_endpoint_id
     __args__['ruleType'] = rule_type
@@ -139,6 +163,7 @@ def get_resolver_rules(owner_id: Optional[str] = None,
 
     return AwaitableGetResolverRulesResult(
         id=__ret__.id,
+        name_regex=__ret__.name_regex,
         owner_id=__ret__.owner_id,
         resolver_endpoint_id=__ret__.resolver_endpoint_id,
         resolver_rule_ids=__ret__.resolver_rule_ids,
@@ -147,7 +172,8 @@ def get_resolver_rules(owner_id: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_resolver_rules)
-def get_resolver_rules_output(owner_id: Optional[pulumi.Input[Optional[str]]] = None,
+def get_resolver_rules_output(name_regex: Optional[pulumi.Input[Optional[str]]] = None,
+                              owner_id: Optional[pulumi.Input[Optional[str]]] = None,
                               resolver_endpoint_id: Optional[pulumi.Input[Optional[str]]] = None,
                               rule_type: Optional[pulumi.Input[Optional[str]]] = None,
                               share_status: Optional[pulumi.Input[Optional[str]]] = None,
@@ -156,8 +182,7 @@ def get_resolver_rules_output(owner_id: Optional[pulumi.Input[Optional[str]]] = 
     `route53.get_resolver_rules` provides details about a set of Route53 Resolver rules.
 
     ## Example Usage
-
-    Retrieving the default resolver rule.
+    ### Retrieving the default resolver rule
 
     ```python
     import pulumi
@@ -167,6 +192,7 @@ def get_resolver_rules_output(owner_id: Optional[pulumi.Input[Optional[str]]] = 
         rule_type="RECURSIVE",
         share_status="NOT_SHARED")
     ```
+    ### Retrieving forward rules shared with me
 
     ```python
     import pulumi
@@ -175,8 +201,21 @@ def get_resolver_rules_output(owner_id: Optional[pulumi.Input[Optional[str]]] = 
     example = aws.route53.get_resolver_rules(rule_type="FORWARD",
         share_status="SHARED_WITH_ME")
     ```
+    ### Retrieving rules by name regex
+
+    Resolver rules whose name contains `abc`.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.route53.get_resolver_rules(name_regex=".*abc.*")
+    ```
 
 
+    :param str name_regex: A regex string to filter resolver rule names.
+           The filtering is done locally, so could have a performance impact if the result is large.
+           This argument should be used along with other arguments to limit the number of results returned.
     :param str owner_id: When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
     :param str resolver_endpoint_id: The ID of the outbound resolver endpoint for the desired resolver rules.
     :param str rule_type: The rule type of the desired resolver rules. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`.

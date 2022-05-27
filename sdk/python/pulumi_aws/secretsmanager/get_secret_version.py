@@ -66,7 +66,7 @@ class GetSecretVersionResult:
     @pulumi.getter(name="secretBinary")
     def secret_binary(self) -> str:
         """
-        The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+        The decrypted part of the protected secret information that was originally provided as a binary.
         """
         return pulumi.get(self, "secret_binary")
 

@@ -1168,7 +1168,7 @@ func (o ClusterDefaultCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInp
 type ClusterSetting struct {
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name string `pulumi:"name"`
-	// The value to assign to the setting. Value values are `enabled` and `disabled`.
+	// The value to assign to the setting. Valid values are `enabled` and `disabled`.
 	Value string `pulumi:"value"`
 }
 
@@ -1186,7 +1186,7 @@ type ClusterSettingInput interface {
 type ClusterSettingArgs struct {
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value to assign to the setting. Value values are `enabled` and `disabled`.
+	// The value to assign to the setting. Valid values are `enabled` and `disabled`.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -1246,7 +1246,7 @@ func (o ClusterSettingOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSetting) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value to assign to the setting. Value values are `enabled` and `disabled`.
+// The value to assign to the setting. Valid values are `enabled` and `disabled`.
 func (o ClusterSettingOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterSetting) string { return v.Value }).(pulumi.StringOutput)
 }

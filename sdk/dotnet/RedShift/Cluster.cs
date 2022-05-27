@@ -48,10 +48,22 @@ namespace Pulumi.Aws.RedShift
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
-        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         /// </summary>
         [Output("allowVersionUpgrade")]
         public Output<bool?> AllowVersionUpgrade { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// </summary>
+        [Output("applyImmediately")]
+        public Output<bool?> ApplyImmediately { get; private set; } = null!;
+
+        /// <summary>
+        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        /// </summary>
+        [Output("aquaConfigurationStatus")]
+        public Output<string> AquaConfigurationStatus { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
@@ -140,6 +152,12 @@ namespace Pulumi.Aws.RedShift
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
+        [Output("defaultIamRoleArn")]
+        public Output<string?> DefaultIamRoleArn { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS name of the cluster
         /// </summary>
         [Output("dnsName")]
@@ -194,6 +212,18 @@ namespace Pulumi.Aws.RedShift
         public Output<Outputs.ClusterLogging?> Logging { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        /// </summary>
+        [Output("maintenanceTrackName")]
+        public Output<string?> MaintenanceTrackName { get; private set; } = null!;
+
+        /// <summary>
+        /// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+        /// </summary>
+        [Output("manualSnapshotRetentionPeriod")]
+        public Output<int?> ManualSnapshotRetentionPeriod { get; private set; } = null!;
+
+        /// <summary>
         /// Password for the master DB user.
         /// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
         /// contain at least one uppercase letter, one lowercase letter, and one number.
@@ -226,10 +256,10 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> OwnerAccount { get; private set; } = null!;
 
         /// <summary>
-        /// The port number on which the cluster accepts incoming connections.
+        /// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
         /// The cluster is accessible only via the JDBC and ODBC connection strings.
         /// Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        /// Default port is 5439.
+        /// Default port is `5439`.
         /// </summary>
         [Output("port")]
         public Output<int?> Port { get; private set; } = null!;
@@ -336,10 +366,22 @@ namespace Pulumi.Aws.RedShift
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         /// </summary>
         [Input("allowVersionUpgrade")]
         public Input<bool>? AllowVersionUpgrade { get; set; }
+
+        /// <summary>
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// </summary>
+        [Input("applyImmediately")]
+        public Input<bool>? ApplyImmediately { get; set; }
+
+        /// <summary>
+        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        /// </summary>
+        [Input("aquaConfigurationStatus")]
+        public Input<string>? AquaConfigurationStatus { get; set; }
 
         /// <summary>
         /// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
@@ -422,6 +464,12 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
+        [Input("defaultIamRoleArn")]
+        public Input<string>? DefaultIamRoleArn { get; set; }
+
+        /// <summary>
         /// The Elastic IP (EIP) address for the cluster.
         /// </summary>
         [Input("elasticIp")]
@@ -476,6 +524,18 @@ namespace Pulumi.Aws.RedShift
         public Input<Inputs.ClusterLoggingArgs>? Logging { get; set; }
 
         /// <summary>
+        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        /// </summary>
+        [Input("maintenanceTrackName")]
+        public Input<string>? MaintenanceTrackName { get; set; }
+
+        /// <summary>
+        /// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+        /// </summary>
+        [Input("manualSnapshotRetentionPeriod")]
+        public Input<int>? ManualSnapshotRetentionPeriod { get; set; }
+
+        /// <summary>
         /// Password for the master DB user.
         /// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
         /// contain at least one uppercase letter, one lowercase letter, and one number.
@@ -508,10 +568,10 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? OwnerAccount { get; set; }
 
         /// <summary>
-        /// The port number on which the cluster accepts incoming connections.
+        /// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
         /// The cluster is accessible only via the JDBC and ODBC connection strings.
         /// Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        /// Default port is 5439.
+        /// Default port is `5439`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
@@ -585,10 +645,22 @@ namespace Pulumi.Aws.RedShift
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is true
+        /// If true , major version upgrades can be applied during the maintenance window to the Amazon Redshift engine that is running on the cluster. Default is `true`.
         /// </summary>
         [Input("allowVersionUpgrade")]
         public Input<bool>? AllowVersionUpgrade { get; set; }
+
+        /// <summary>
+        /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        /// </summary>
+        [Input("applyImmediately")]
+        public Input<bool>? ApplyImmediately { get; set; }
+
+        /// <summary>
+        /// The value represents how the cluster is configured to use AQUA (Advanced Query Accelerator) after the cluster is restored. Possible values are `enabled`, `disabled`, and `auto`. Requires Cluster reboot.
+        /// </summary>
+        [Input("aquaConfigurationStatus")]
+        public Input<string>? AquaConfigurationStatus { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of cluster
@@ -689,6 +761,12 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
+        [Input("defaultIamRoleArn")]
+        public Input<string>? DefaultIamRoleArn { get; set; }
+
+        /// <summary>
         /// The DNS name of the cluster
         /// </summary>
         [Input("dnsName")]
@@ -749,6 +827,18 @@ namespace Pulumi.Aws.RedShift
         public Input<Inputs.ClusterLoggingGetArgs>? Logging { get; set; }
 
         /// <summary>
+        /// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
+        /// </summary>
+        [Input("maintenanceTrackName")]
+        public Input<string>? MaintenanceTrackName { get; set; }
+
+        /// <summary>
+        /// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
+        /// </summary>
+        [Input("manualSnapshotRetentionPeriod")]
+        public Input<int>? ManualSnapshotRetentionPeriod { get; set; }
+
+        /// <summary>
         /// Password for the master DB user.
         /// Note that this may show up in logs, and it will be stored in the state file. Password must contain at least 8 chars and
         /// contain at least one uppercase letter, one lowercase letter, and one number.
@@ -781,10 +871,10 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? OwnerAccount { get; set; }
 
         /// <summary>
-        /// The port number on which the cluster accepts incoming connections.
+        /// The port number on which the cluster accepts incoming connections. Valid values are between `1115` and `65535`.
         /// The cluster is accessible only via the JDBC and ODBC connection strings.
         /// Part of the connection string requires the port on which the cluster will listen for incoming connections.
-        /// Default port is 5439.
+        /// Default port is `5439`.
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }

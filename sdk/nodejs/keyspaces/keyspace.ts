@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Use the `name` to import a subnet group. For example
+ * Use the `name` to import a keyspace. For example
  *
  * ```sh
  *  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
@@ -55,7 +55,7 @@ export class Keyspace extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the subnet group.
+     * The ARN of the keyspace.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -105,7 +105,7 @@ export class Keyspace extends pulumi.CustomResource {
  */
 export interface KeyspaceState {
     /**
-     * The ARN of the subnet group.
+     * The ARN of the keyspace.
      */
     arn?: pulumi.Input<string>;
     /**

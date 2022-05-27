@@ -15,6 +15,7 @@ __all__ = [
     'BackupPolicyBackupPolicyArgs',
     'FileSystemLifecyclePolicyArgs',
     'FileSystemSizeInByteArgs',
+    'ReplicationConfigurationDestinationArgs',
 ]
 
 @pulumi.input_type
@@ -275,5 +276,84 @@ class FileSystemSizeInByteArgs:
     @value_in_standard.setter
     def value_in_standard(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "value_in_standard", value)
+
+
+@pulumi.input_type
+class ReplicationConfigurationDestinationArgs:
+    def __init__(__self__, *,
+                 availability_zone_name: Optional[pulumi.Input[str]] = None,
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 kms_key_id: Optional[pulumi.Input[str]] = None,
+                 region: Optional[pulumi.Input[str]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] availability_zone_name: The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
+        :param pulumi.Input[str] kms_key_id: The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
+        :param pulumi.Input[str] region: The region in which the replica should be created.
+        """
+        if availability_zone_name is not None:
+            pulumi.set(__self__, "availability_zone_name", availability_zone_name)
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if region is not None:
+            pulumi.set(__self__, "region", region)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="availabilityZoneName")
+    def availability_zone_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The availability zone in which the replica should be created. If specified, the replica will be created with One Zone storage. If omitted, regional storage will be used.
+        """
+        return pulumi.get(self, "availability_zone_name")
+
+    @availability_zone_name.setter
+    def availability_zone_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "availability_zone_name", value)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Key ID, ARN, alias, or alias ARN of the KMS key that should be used to encrypt the replica file system. If omitted, the default KMS key for EFS `/aws/elasticfilesystem` will be used.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @kms_key_id.setter
+    def kms_key_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_id", value)
+
+    @property
+    @pulumi.getter
+    def region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The region in which the replica should be created.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 

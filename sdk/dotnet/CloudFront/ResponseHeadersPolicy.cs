@@ -98,6 +98,41 @@ namespace Pulumi.Aws.CloudFront
     /// }
     /// ```
     /// 
+    /// The example below creates a CloudFront response headers policy with a custom headers config and server timing headers config.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new Aws.CloudFront.ResponseHeadersPolicyArgs
+    ///         {
+    ///             CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
+    ///             {
+    ///                 Items = 
+    ///                 {
+    ///                     new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
+    ///                     {
+    ///                         Header = "X-Permitted-Cross-Domain-Policies",
+    ///                         Override = true,
+    ///                         Value = "none",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ServerTimingHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 SamplingRate = 50,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cloudfront Response Headers Policies can be imported using the `id`, e.g.
@@ -144,6 +179,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Output("securityHeadersConfig")]
         public Output<Outputs.ResponseHeadersPolicySecurityHeadersConfig?> SecurityHeadersConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        /// </summary>
+        [Output("serverTimingHeadersConfig")]
+        public Output<Outputs.ResponseHeadersPolicyServerTimingHeadersConfig?> ServerTimingHeadersConfig { get; private set; } = null!;
 
 
         /// <summary>
@@ -227,6 +268,12 @@ namespace Pulumi.Aws.CloudFront
         [Input("securityHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigArgs>? SecurityHeadersConfig { get; set; }
 
+        /// <summary>
+        /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        /// </summary>
+        [Input("serverTimingHeadersConfig")]
+        public Input<Inputs.ResponseHeadersPolicyServerTimingHeadersConfigArgs>? ServerTimingHeadersConfig { get; set; }
+
         public ResponseHeadersPolicyArgs()
         {
         }
@@ -269,6 +316,12 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         [Input("securityHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigGetArgs>? SecurityHeadersConfig { get; set; }
+
+        /// <summary>
+        /// A configuration for enabling the Server-Timing header in HTTP responses sent from CloudFront. See Server Timing Headers Config for more information.
+        /// </summary>
+        [Input("serverTimingHeadersConfig")]
+        public Input<Inputs.ResponseHeadersPolicyServerTimingHeadersConfigGetArgs>? ServerTimingHeadersConfig { get; set; }
 
         public ResponseHeadersPolicyState()
         {

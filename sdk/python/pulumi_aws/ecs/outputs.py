@@ -513,7 +513,7 @@ class ClusterSetting(dict):
                  value: str):
         """
         :param str name: Name of the setting to manage. Valid values: `containerInsights`.
-        :param str value: The value to assign to the setting. Value values are `enabled` and `disabled`.
+        :param str value: The value to assign to the setting. Valid values are `enabled` and `disabled`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -530,7 +530,7 @@ class ClusterSetting(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        The value to assign to the setting. Value values are `enabled` and `disabled`.
+        The value to assign to the setting. Valid values are `enabled` and `disabled`.
         """
         return pulumi.get(self, "value")
 

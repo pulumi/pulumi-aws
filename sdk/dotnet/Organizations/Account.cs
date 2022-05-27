@@ -73,16 +73,25 @@ namespace Pulumi.Aws.Organizations
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         /// </summary>
         [Output("closeOnDeletion")]
         public Output<bool?> CloseOnDeletion { get; private set; } = null!;
 
+        [Output("createGovcloud")]
+        public Output<bool?> CreateGovcloud { get; private set; } = null!;
+
         /// <summary>
-        /// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
+
+        /// <summary>
+        /// ID for a GovCloud account created with the account.
+        /// </summary>
+        [Output("govcloudId")]
+        public Output<string> GovcloudId { get; private set; } = null!;
 
         /// <summary>
         /// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
@@ -97,7 +106,7 @@ namespace Pulumi.Aws.Organizations
         public Output<string> JoinedTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// A friendly name for the member account.
+        /// Friendly name for the member account.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -176,13 +185,16 @@ namespace Pulumi.Aws.Organizations
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         /// </summary>
         [Input("closeOnDeletion")]
         public Input<bool>? CloseOnDeletion { get; set; }
 
+        [Input("createGovcloud")]
+        public Input<bool>? CreateGovcloud { get; set; }
+
         /// <summary>
-        /// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
@@ -194,7 +206,7 @@ namespace Pulumi.Aws.Organizations
         public Input<string>? IamUserAccessToBilling { get; set; }
 
         /// <summary>
-        /// A friendly name for the member account.
+        /// Friendly name for the member account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -237,16 +249,25 @@ namespace Pulumi.Aws.Organizations
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization.
+        /// If true, a deletion event will close the account. Otherwise, it will only remove from the organization. This is not supported for GovCloud accounts.
         /// </summary>
         [Input("closeOnDeletion")]
         public Input<bool>? CloseOnDeletion { get; set; }
 
+        [Input("createGovcloud")]
+        public Input<bool>? CreateGovcloud { get; set; }
+
         /// <summary>
-        /// The email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
+        /// Email address of the owner to assign to the new member account. This email address must not already be associated with another AWS account.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }
+
+        /// <summary>
+        /// ID for a GovCloud account created with the account.
+        /// </summary>
+        [Input("govcloudId")]
+        public Input<string>? GovcloudId { get; set; }
 
         /// <summary>
         /// If set to `ALLOW`, the new account enables IAM users to access account billing information if they have the required permissions. If set to `DENY`, then only the root user of the new account can access account billing information.
@@ -261,7 +282,7 @@ namespace Pulumi.Aws.Organizations
         public Input<string>? JoinedTimestamp { get; set; }
 
         /// <summary>
-        /// A friendly name for the member account.
+        /// Friendly name for the member account.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -1530,8 +1530,9 @@ func Provider() tfbridge.ProviderInfo {
 				Tok:                 awsResource(efsMod, "MountTarget"),
 				DeleteBeforeReplace: true, // only 1 mount target per AZ.
 			},
-			"aws_efs_access_point":       {Tok: awsResource(efsMod, "AccessPoint")},
-			"aws_efs_file_system_policy": {Tok: awsResource(efsMod, "FileSystemPolicy")},
+			"aws_efs_access_point":              {Tok: awsResource(efsMod, "AccessPoint")},
+			"aws_efs_file_system_policy":        {Tok: awsResource(efsMod, "FileSystemPolicy")},
+			"aws_efs_replication_configuration": {Tok: awsResource(efsMod, "ReplicationConfiguration")},
 			"aws_efs_backup_policy": {
 				Tok: awsResource(efsMod, "BackupPolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -1965,6 +1966,7 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Keyspaces
 			"aws_keyspaces_keyspace": {Tok: awsResource(keyspacesMod, "Keyspace")},
+			"aws_keyspaces_table":    {Tok: awsResource(keyspacesMod, "Table")},
 			// Kinesis
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsResource(kinesisMod, "FirehoseDeliveryStream")},
 			"aws_kinesis_stream":                   {Tok: awsResource(kinesisMod, "Stream")},
@@ -2093,7 +2095,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lightsail_instance_public_ports": {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
 
 			// Location
-			"aws_location_map": {Tok: awsResource(locationMod, "Map")},
+			"aws_location_map":         {Tok: awsResource(locationMod, "Map")},
+			"aws_location_place_index": {Tok: awsResource(locationMod, "PlaceIndex")},
 
 			// Macie
 			"aws_macie_member_account_association": {Tok: awsResource(macieMod, "MemberAccountAssociation")},
@@ -2331,6 +2334,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_proxy_target":                           {Tok: awsResource(rdsMod, "ProxyTarget")},
 			"aws_db_proxy_endpoint":                         {Tok: awsResource(rdsMod, "ProxyEndpoint")},
 			"aws_db_instance_automated_backups_replication": {Tok: awsResource(rdsMod, "InstanceAutomatedBackupsReplication")},
+			"aws_db_snapshot_copy":                          {Tok: awsResource(rdsMod, "SnapshotCopy")},
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
 			"aws_redshift_scheduled_action":   {Tok: awsResource(redshiftMod, "ScheduledAction")},
@@ -2362,6 +2366,10 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_redshift_snapshot_schedule":             {Tok: awsResource(redshiftMod, "SnapshotSchedule")},
 			"aws_redshift_snapshot_schedule_association": {Tok: awsResource(redshiftMod, "SnapshotScheduleAssociation")},
+			"aws_redshift_authentication_profile":        {Tok: awsResource(redshiftMod, "AuthenticationProfile")},
+			"aws_redshift_endpoint_access":               {Tok: awsResource(redshiftMod, "EndpointAccess")},
+			"aws_redshift_hsm_client_certificate":        {Tok: awsResource(redshiftMod, "HsmClientCertificate")},
+			"aws_redshift_usage_limit":                   {Tok: awsResource(redshiftMod, "UsageLimit")},
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Route53
@@ -2662,7 +2670,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket_request_payment_configuration":        {Tok: awsResource(s3Mod, "BucketRequestPaymentConfigurationV2")},
 			"aws_s3_bucket_server_side_encryption_configuration": {Tok: awsResource(s3Mod, "BucketServerSideEncryptionConfigurationV2")},
 			"aws_s3_bucket_versioning":                           {Tok: awsResource(s3Mod, "BucketVersioningV2")},
-			"aws_s3_bucket_website_configuration":                {Tok: awsResource(s3Mod, "BucketWebsiteConfigurationV2")},
+			"aws_s3_bucket_website_configuration": {
+				Tok: awsResource(s3Mod, "BucketWebsiteConfigurationV2"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"routing_rules": {
+						Name: "routingRuleDetails",
+					},
+					"routing_rule": {
+						Name: "routingRules",
+					},
+				},
+			},
 			"aws_s3_object": {
 				Tok:      awsResource(s3Mod, "BucketObjectv2"),
 				IDFields: []string{"bucket", "key"},
@@ -2687,6 +2705,11 @@ func Provider() tfbridge.ProviderInfo {
 						Asset: &tfbridge.AssetTranslation{
 							Kind: tfbridge.FileAsset,
 						},
+					},
+				},
+				Aliases: []tfbridge.AliasInfo{
+					{
+						Type: stringRef("aws:s3/BucketObject:BucketObject"),
 					},
 				},
 			},
@@ -4648,7 +4671,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_kms_public_key": {Tok: awsDataSource(kmsMod, "getPublicKey")},
 
 			// Location
-			"aws_location_map": {Tok: awsDataSource(locationMod, "getMap")},
+			"aws_location_map":         {Tok: awsDataSource(locationMod, "getMap")},
+			"aws_location_place_index": {Tok: awsDataSource(locationMod, "getPlaceIndex")},
 
 			// Pricing
 			"aws_pricing_product": {Tok: awsDataSource(pricingMod, "getProduct")},
@@ -4669,6 +4693,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_cluster":           {Tok: awsDataSource(redshiftMod, "getCluster")},
 			"aws_redshift_service_account":   {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
 			"aws_redshift_orderable_cluster": {Tok: awsDataSource(redshiftMod, "getOrderableCluster")},
+			"aws_redshift_subnet_group":      {Tok: awsDataSource(redshiftMod, "getSubnetGroup")},
 			// Route53
 			"aws_route53_zone":                    {Tok: awsDataSource(route53Mod, "getZone")},
 			"aws_route53_delegation_set":          {Tok: awsDataSource(route53Mod, "getDelegationSet")},
@@ -4775,16 +4800,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_wafv2_web_acl":           {Tok: awsDataSource(wafV2Mod, "getWebAcl")},
 			"aws_wafv2_rule_group":        {Tok: awsDataSource(wafV2Mod, "getRuleGroup")},
 			// networkmanager
-			"aws_networkmanager_connection":      {Tok: awsDataSource(networkManagerMod, "getConnection")},
-			"aws_networkmanager_connections":     {Tok: awsDataSource(networkManagerMod, "getConnections")},
-			"aws_networkmanager_device":          {Tok: awsDataSource(networkManagerMod, "getDevice")},
-			"aws_networkmanager_devices":         {Tok: awsDataSource(networkManagerMod, "getDevices")},
-			"aws_networkmanager_global_network":  {Tok: awsDataSource(networkManagerMod, "getGlobalNetwork")},
-			"aws_networkmanager_global_networks": {Tok: awsDataSource(networkManagerMod, "getGlobalNetworks")},
-			"aws_networkmanager_link":            {Tok: awsDataSource(networkManagerMod, "getLink")},
-			"aws_networkmanager_links":           {Tok: awsDataSource(networkManagerMod, "getLinks")},
-			"aws_networkmanager_site":            {Tok: awsDataSource(networkManagerMod, "getSite")},
-			"aws_networkmanager_sites":           {Tok: awsDataSource(networkManagerMod, "getSites")},
+			"aws_networkmanager_connection":                   {Tok: awsDataSource(networkManagerMod, "getConnection")},
+			"aws_networkmanager_connections":                  {Tok: awsDataSource(networkManagerMod, "getConnections")},
+			"aws_networkmanager_device":                       {Tok: awsDataSource(networkManagerMod, "getDevice")},
+			"aws_networkmanager_devices":                      {Tok: awsDataSource(networkManagerMod, "getDevices")},
+			"aws_networkmanager_global_network":               {Tok: awsDataSource(networkManagerMod, "getGlobalNetwork")},
+			"aws_networkmanager_global_networks":              {Tok: awsDataSource(networkManagerMod, "getGlobalNetworks")},
+			"aws_networkmanager_link":                         {Tok: awsDataSource(networkManagerMod, "getLink")},
+			"aws_networkmanager_links":                        {Tok: awsDataSource(networkManagerMod, "getLinks")},
+			"aws_networkmanager_site":                         {Tok: awsDataSource(networkManagerMod, "getSite")},
+			"aws_networkmanager_sites":                        {Tok: awsDataSource(networkManagerMod, "getSites")},
+			"aws_networkmanager_core_network_policy_document": {Tok: awsDataSource(networkManagerMod, "getCoreNetworkPolicyDocument")},
 			// OpenSearch
 			"aws_opensearch_domain": {Tok: awsDataSource(opensearchMod, "getDomain")},
 			// Outposts
@@ -4864,6 +4890,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// Service Discovery
 			"aws_service_discovery_dns_namespace": {Tok: awsDataSource(servicediscoveryMod, "getDnsNamespace")},
+
+			// lb mod
+			"aws_lb_hosted_zone_id": {Tok: awsDataSource(lbMod, "getHostedZoneId")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

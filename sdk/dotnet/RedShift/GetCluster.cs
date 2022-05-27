@@ -184,6 +184,14 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public readonly bool AllowVersionUpgrade;
         /// <summary>
+        /// The value represents how the cluster is configured to use AQUA.
+        /// </summary>
+        public readonly string AquaConfigurationStatus;
+        /// <summary>
+        /// Amazon Resource Name (ARN) of cluster.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The backup retention period
         /// </summary>
         public readonly int AutomatedSnapshotRetentionPeriod;
@@ -203,6 +211,10 @@ namespace Pulumi.Aws.RedShift
         /// The cluster identifier
         /// </summary>
         public readonly string ClusterIdentifier;
+        /// <summary>
+        /// The nodes in the cluster. Cluster node blocks are documented below
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterClusterNodeResult> ClusterNodes;
         /// <summary>
         /// The name of the parameter group to be associated with this cluster
         /// </summary>
@@ -232,6 +244,10 @@ namespace Pulumi.Aws.RedShift
         /// The name of the default database in the cluster
         /// </summary>
         public readonly string DatabaseName;
+        /// <summary>
+        /// ∂The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// </summary>
+        public readonly string DefaultIamRoleArn;
         /// <summary>
         /// The Elastic IP of the cluster
         /// </summary>
@@ -264,6 +280,22 @@ namespace Pulumi.Aws.RedShift
         /// The KMS encryption key associated to the cluster
         /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// The log destination type.
+        /// </summary>
+        public readonly string LogDestinationType;
+        /// <summary>
+        /// The collection of exported log types. Log types include the connection log, user log and user activity log.
+        /// </summary>
+        public readonly ImmutableArray<string> LogExports;
+        /// <summary>
+        /// The name of the maintenance track for the restored cluster.
+        /// </summary>
+        public readonly string MaintenanceTrackName;
+        /// <summary>
+        /// (Optional)  The default number of days to retain a manual snapshot.
+        /// </summary>
+        public readonly int ManualSnapshotRetentionPeriod;
         /// <summary>
         /// Username for the master DB user
         /// </summary>
@@ -309,6 +341,10 @@ namespace Pulumi.Aws.RedShift
         private GetClusterResult(
             bool allowVersionUpgrade,
 
+            string aquaConfigurationStatus,
+
+            string arn,
+
             int automatedSnapshotRetentionPeriod,
 
             string availabilityZone,
@@ -318,6 +354,8 @@ namespace Pulumi.Aws.RedShift
             string bucketName,
 
             string clusterIdentifier,
+
+            ImmutableArray<Outputs.GetClusterClusterNodeResult> clusterNodes,
 
             string clusterParameterGroupName,
 
@@ -335,6 +373,8 @@ namespace Pulumi.Aws.RedShift
 
             string databaseName,
 
+            string defaultIamRoleArn,
+
             string elasticIp,
 
             bool enableLogging,
@@ -350,6 +390,14 @@ namespace Pulumi.Aws.RedShift
             string id,
 
             string kmsKeyId,
+
+            string logDestinationType,
+
+            ImmutableArray<string> logExports,
+
+            string maintenanceTrackName,
+
+            int manualSnapshotRetentionPeriod,
 
             string masterUsername,
 
@@ -372,11 +420,14 @@ namespace Pulumi.Aws.RedShift
             ImmutableArray<string> vpcSecurityGroupIds)
         {
             AllowVersionUpgrade = allowVersionUpgrade;
+            AquaConfigurationStatus = aquaConfigurationStatus;
+            Arn = arn;
             AutomatedSnapshotRetentionPeriod = automatedSnapshotRetentionPeriod;
             AvailabilityZone = availabilityZone;
             AvailabilityZoneRelocationEnabled = availabilityZoneRelocationEnabled;
             BucketName = bucketName;
             ClusterIdentifier = clusterIdentifier;
+            ClusterNodes = clusterNodes;
             ClusterParameterGroupName = clusterParameterGroupName;
             ClusterPublicKey = clusterPublicKey;
             ClusterRevisionNumber = clusterRevisionNumber;
@@ -385,6 +436,7 @@ namespace Pulumi.Aws.RedShift
             ClusterType = clusterType;
             ClusterVersion = clusterVersion;
             DatabaseName = databaseName;
+            DefaultIamRoleArn = defaultIamRoleArn;
             ElasticIp = elasticIp;
             EnableLogging = enableLogging;
             Encrypted = encrypted;
@@ -393,6 +445,10 @@ namespace Pulumi.Aws.RedShift
             IamRoles = iamRoles;
             Id = id;
             KmsKeyId = kmsKeyId;
+            LogDestinationType = logDestinationType;
+            LogExports = logExports;
+            MaintenanceTrackName = maintenanceTrackName;
+            ManualSnapshotRetentionPeriod = manualSnapshotRetentionPeriod;
             MasterUsername = masterUsername;
             NodeType = nodeType;
             NumberOfNodes = numberOfNodes;

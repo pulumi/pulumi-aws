@@ -75,7 +75,7 @@ class _KeyspaceState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Keyspace resources.
-        :param pulumi.Input[str] arn: The ARN of the subnet group.
+        :param pulumi.Input[str] arn: The ARN of the keyspace.
         :param pulumi.Input[str] name: The name of the keyspace to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
@@ -93,7 +93,7 @@ class _KeyspaceState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the subnet group.
+        The ARN of the keyspace.
         """
         return pulumi.get(self, "arn")
 
@@ -163,7 +163,7 @@ class Keyspace(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a subnet group. For example
+        Use the `name` to import a keyspace. For example
 
         ```sh
          $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
@@ -197,7 +197,7 @@ class Keyspace(pulumi.CustomResource):
 
         ## Import
 
-        Use the `name` to import a subnet group. For example
+        Use the `name` to import a keyspace. For example
 
         ```sh
          $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
@@ -258,7 +258,7 @@ class Keyspace(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of the subnet group.
+        :param pulumi.Input[str] arn: The ARN of the keyspace.
         :param pulumi.Input[str] name: The name of the keyspace to be created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
@@ -277,7 +277,7 @@ class Keyspace(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the subnet group.
+        The ARN of the keyspace.
         """
         return pulumi.get(self, "arn")
 

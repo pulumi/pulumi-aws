@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Manages AWS Managed Streaming for Kafka cluster
  *
  * ## Example Usage
+ * ### Basic
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -70,12 +71,16 @@ import * as utilities from "../utilities";
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
  *         instanceType: "kafka.m5.large",
- *         ebsVolumeSize: 1000,
  *         clientSubnets: [
  *             subnetAz1.id,
  *             subnetAz2.id,
  *             subnetAz3.id,
  *         ],
+ *         storageInfo: {
+ *             ebsStorageInfo: {
+ *                 volumeSize: 1000,
+ *             },
+ *         },
  *         securityGroups: [sg.id],
  *     },
  *     encryptionInfo: {
@@ -114,6 +119,35 @@ import * as utilities from "../utilities";
  * });
  * export const zookeeperConnectString = example.zookeeperConnectString;
  * export const bootstrapBrokersTls = example.bootstrapBrokersTls;
+ * ```
+ * ### With volumeThroughput argument
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.msk.Cluster("example", {
+ *     kafkaVersion: "2.7.1",
+ *     numberOfBrokerNodes: 3,
+ *     brokerNodeGroupInfo: {
+ *         instanceType: "kafka.m5.4xlarge",
+ *         clientSubnets: [
+ *             aws_subnet.subnet_az1.id,
+ *             aws_subnet.subnet_az2.id,
+ *             aws_subnet.subnet_az3.id,
+ *         ],
+ *         storageInfo: {
+ *             ebsStorageInfo: {
+ *                 provisionedThroughput: {
+ *                     enabled: true,
+ *                     volumeThroughput: 250,
+ *                 },
+ *                 volumeSize: 1000,
+ *             },
+ *         },
+ *         securityGroups: [aws_security_group.sg.id],
+ *     },
+ * });
  * ```
  *
  * ## Import

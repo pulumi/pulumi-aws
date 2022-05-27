@@ -42,6 +42,9 @@ namespace Pulumi.Aws.AutoScaling.Inputs
         [Input("minHealthyPercentage")]
         public Input<int>? MinHealthyPercentage { get; set; }
 
+        [Input("skipMatching")]
+        public Input<bool>? SkipMatching { get; set; }
+
         public GroupInstanceRefreshPreferencesGetArgs()
         {
         }

@@ -147,6 +147,18 @@ namespace Pulumi.Aws.AutoScaling
             set => _filters = value;
         }
 
+        [Input("names")]
+        private List<string>? _names;
+
+        /// <summary>
+        /// A list of autoscaling group names
+        /// </summary>
+        public List<string> Names
+        {
+            get => _names ?? (_names = new List<string>());
+            set => _names = value;
+        }
+
         public GetAmiIdsArgs()
         {
         }
@@ -164,6 +176,18 @@ namespace Pulumi.Aws.AutoScaling
         {
             get => _filters ?? (_filters = new InputList<Inputs.GetAmiIdsFilterInputArgs>());
             set => _filters = value;
+        }
+
+        [Input("names")]
+        private InputList<string>? _names;
+
+        /// <summary>
+        /// A list of autoscaling group names
+        /// </summary>
+        public InputList<string> Names
+        {
+            get => _names ?? (_names = new InputList<string>());
+            set => _names = value;
         }
 
         public GetAmiIdsInvokeArgs()

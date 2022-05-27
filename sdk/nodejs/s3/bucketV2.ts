@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * or with the deprecated parameter `policy` in the resource `aws.s3.BucketV2`.
  * Configuring with both will cause inconsistencies and may overwrite configuration.
  *
- * > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `awsS3BucketReplicatonConfiguration`
+ * > **NOTE on S3 Bucket Replication Configuration:** S3 Bucket Replication can be configured in either the standalone resource `aws.s3.BucketReplicationConfig`
  * or with the deprecated parameter `replicationConfiguration` in the resource `aws.s3.BucketV2`.
  * Configuring with both will cause inconsistencies and may overwrite configuration.
  *

@@ -65,6 +65,10 @@ export class Fleet extends pulumi.CustomResource {
     }
 
     /**
+     * The ARN of the fleet
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Reserved.
      */
     public readonly context!: pulumi.Output<string | undefined>;
@@ -126,6 +130,7 @@ export class Fleet extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["context"] = state ? state.context : undefined;
             resourceInputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
             resourceInputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
@@ -157,6 +162,7 @@ export class Fleet extends pulumi.CustomResource {
             resourceInputs["terminateInstances"] = args ? args.terminateInstances : undefined;
             resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -168,6 +174,10 @@ export class Fleet extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Fleet resources.
  */
 export interface FleetState {
+    /**
+     * The ARN of the fleet
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Reserved.
      */

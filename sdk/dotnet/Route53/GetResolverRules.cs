@@ -17,8 +17,7 @@ namespace Pulumi.Aws.Route53
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
-        /// 
-        /// Retrieving the default resolver rule.
+        /// ### Retrieving the default resolver rule
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -38,6 +37,9 @@ namespace Pulumi.Aws.Route53
         /// 
         /// }
         /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Retrieving forward rules shared with me
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -51,6 +53,28 @@ namespace Pulumi.Aws.Route53
         ///         {
         ///             RuleType = "FORWARD",
         ///             ShareStatus = "SHARED_WITH_ME",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Retrieving rules by name regex
+        /// 
+        /// Resolver rules whose name contains `abc`.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
+        ///         {
+        ///             NameRegex = ".*abc.*",
         ///         }));
         ///     }
         /// 
@@ -68,8 +92,7 @@ namespace Pulumi.Aws.Route53
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
-        /// 
-        /// Retrieving the default resolver rule.
+        /// ### Retrieving the default resolver rule
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -89,6 +112,9 @@ namespace Pulumi.Aws.Route53
         /// 
         /// }
         /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Retrieving forward rules shared with me
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -108,6 +134,28 @@ namespace Pulumi.Aws.Route53
         /// }
         /// ```
         /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Retrieving rules by name regex
+        /// 
+        /// Resolver rules whose name contains `abc`.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Route53.GetResolverRules.InvokeAsync(new Aws.Route53.GetResolverRulesArgs
+        ///         {
+        ///             NameRegex = ".*abc.*",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetResolverRulesResult> Invoke(GetResolverRulesInvokeArgs? args = null, InvokeOptions? options = null)
@@ -117,6 +165,14 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverRulesArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A regex string to filter resolver rule names.
+        /// The filtering is done locally, so could have a performance impact if the result is large.
+        /// This argument should be used along with other arguments to limit the number of results returned.
+        /// </summary>
+        [Input("nameRegex")]
+        public string? NameRegex { get; set; }
+
         /// <summary>
         /// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
         /// </summary>
@@ -148,6 +204,14 @@ namespace Pulumi.Aws.Route53
 
     public sealed class GetResolverRulesInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// A regex string to filter resolver rule names.
+        /// The filtering is done locally, so could have a performance impact if the result is large.
+        /// This argument should be used along with other arguments to limit the number of results returned.
+        /// </summary>
+        [Input("nameRegex")]
+        public Input<string>? NameRegex { get; set; }
+
         /// <summary>
         /// When the desired resolver rules are shared with another AWS account, the account ID of the account that the rules are shared with.
         /// </summary>
@@ -185,6 +249,7 @@ namespace Pulumi.Aws.Route53
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? NameRegex;
         public readonly string? OwnerId;
         public readonly string? ResolverEndpointId;
         /// <summary>
@@ -198,6 +263,8 @@ namespace Pulumi.Aws.Route53
         private GetResolverRulesResult(
             string id,
 
+            string? nameRegex,
+
             string? ownerId,
 
             string? resolverEndpointId,
@@ -209,6 +276,7 @@ namespace Pulumi.Aws.Route53
             string? shareStatus)
         {
             Id = id;
+            NameRegex = nameRegex;
             OwnerId = ownerId;
             ResolverEndpointId = resolverEndpointId;
             ResolverRuleIds = resolverRuleIds;

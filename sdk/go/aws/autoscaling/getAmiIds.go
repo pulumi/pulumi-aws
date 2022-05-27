@@ -74,6 +74,8 @@ func GetAmiIds(ctx *pulumi.Context, args *GetAmiIdsArgs, opts ...pulumi.InvokeOp
 type GetAmiIdsArgs struct {
 	// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters []GetAmiIdsFilter `pulumi:"filters"`
+	// A list of autoscaling group names
+	Names []string `pulumi:"names"`
 }
 
 // A collection of values returned by getAmiIds.
@@ -104,6 +106,8 @@ func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulu
 type GetAmiIdsOutputArgs struct {
 	// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters GetAmiIdsFilterArrayInput `pulumi:"filters"`
+	// A list of autoscaling group names
+	Names pulumi.StringArrayInput `pulumi:"names"`
 }
 
 func (GetAmiIdsOutputArgs) ElementType() reflect.Type {

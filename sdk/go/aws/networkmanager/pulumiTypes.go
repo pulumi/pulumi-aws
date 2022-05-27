@@ -672,6 +672,897 @@ func (o SiteLocationPtrOutput) Longitude() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetCoreNetworkPolicyDocumentAttachmentPolicy struct {
+	// The action to take for the chosen segment. Valid values `create-route` or `share`.
+	Action GetCoreNetworkPolicyDocumentAttachmentPolicyAction `pulumi:"action"`
+	// Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
+	ConditionLogic *string `pulumi:"conditionLogic"`
+	// A block argument. Detailed Below.
+	Conditions []GetCoreNetworkPolicyDocumentAttachmentPolicyCondition `pulumi:"conditions"`
+	// A user-defined string describing the segment action.
+	Description *string `pulumi:"description"`
+	// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
+	RuleNumber int `pulumi:"ruleNumber"`
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentPolicyInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyArgs and GetCoreNetworkPolicyDocumentAttachmentPolicyOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyInput` via:
+//
+//          GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{...}
+type GetCoreNetworkPolicyDocumentAttachmentPolicyInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyArgs struct {
+	// The action to take for the chosen segment. Valid values `create-route` or `share`.
+	Action GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput `pulumi:"action"`
+	// Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
+	ConditionLogic pulumi.StringPtrInput `pulumi:"conditionLogic"`
+	// A block argument. Detailed Below.
+	Conditions GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput `pulumi:"conditions"`
+	// A user-defined string describing the segment action.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
+	RuleNumber pulumi.IntInput `pulumi:"ruleNumber"`
+}
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicy)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArgs) ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArgs) ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyOutput)
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyArray and GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput` via:
+//
+//          GetCoreNetworkPolicyDocumentAttachmentPolicyArray{ GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{...} }
+type GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyArray []GetCoreNetworkPolicyDocumentAttachmentPolicyInput
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentAttachmentPolicy)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArray) ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyArray) ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicy)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyOutput {
+	return o
+}
+
+// The action to take for the chosen segment. Valid values `create-route` or `share`.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) Action() GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicy) GetCoreNetworkPolicyDocumentAttachmentPolicyAction {
+		return v.Action
+	}).(GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput)
+}
+
+// Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `conditionLogic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) ConditionLogic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicy) *string { return v.ConditionLogic }).(pulumi.StringPtrOutput)
+}
+
+// A block argument. Detailed Below.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) Conditions() GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicy) []GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
+		return v.Conditions
+	}).(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput)
+}
+
+// A user-defined string describing the segment action.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyOutput) RuleNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicy) int { return v.RuleNumber }).(pulumi.IntOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentAttachmentPolicy)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentAttachmentPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentAttachmentPolicy {
+		return vs[0].([]GetCoreNetworkPolicyDocumentAttachmentPolicy)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentAttachmentPolicyOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyAction struct {
+	// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
+	AssociationMethod string `pulumi:"associationMethod"`
+	// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
+	RequireAcceptance *bool `pulumi:"requireAcceptance"`
+	// The name of the segment.
+	Segment *string `pulumi:"segment"`
+	// Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
+	TagValueOfKey *string `pulumi:"tagValueOfKey"`
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs and GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput` via:
+//
+//          GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs{...}
+type GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs struct {
+	// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
+	AssociationMethod pulumi.StringInput `pulumi:"associationMethod"`
+	// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
+	RequireAcceptance pulumi.BoolPtrInput `pulumi:"requireAcceptance"`
+	// The name of the segment.
+	Segment pulumi.StringPtrInput `pulumi:"segment"`
+	// Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
+	TagValueOfKey pulumi.StringPtrInput `pulumi:"tagValueOfKey"`
+}
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyAction)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs) ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs) ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyAction)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput {
+	return o
+}
+
+// Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) AssociationMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) string { return v.AssociationMethod }).(pulumi.StringOutput)
+}
+
+// Determines if this mapping should override the segment value for `requireAttachmentAcceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `requireAttachmentAcceptance` set to `false`. If the segment already has the default `requireAttachmentAcceptance`, you can set this to inherit segment’s acceptance value.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) RequireAcceptance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *bool { return v.RequireAcceptance }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the segment.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) Segment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *string { return v.Segment }).(pulumi.StringPtrOutput)
+}
+
+// Maps the attachment to the value of a known key. This is used with the `associationMethod` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput) TagValueOfKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyAction) *string { return v.TagValueOfKey }).(pulumi.StringPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyCondition struct {
+	// string value
+	Key *string `pulumi:"key"`
+	// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+	Operator *string `pulumi:"operator"`
+	// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+	Type string `pulumi:"type"`
+	// string value
+	Value *string `pulumi:"value"`
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs and GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput` via:
+//
+//          GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs{...}
+type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs struct {
+	// string value
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// string value
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyCondition)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput)
+}
+
+// GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray and GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput` via:
+//
+//          GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray{ GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs{...} }
+type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput
+	ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray []GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentAttachmentPolicyCondition)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyCondition)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput {
+	return o
+}
+
+// string value
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyCondition) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyCondition) *string { return v.Operator }).(pulumi.StringPtrOutput)
+}
+
+// Valid values include: `account-id`, `any`, `tag-value`, `tag-exists`, `resource-id`, `region`, `attachment-type`.
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyCondition) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// string value
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentAttachmentPolicyCondition) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentAttachmentPolicyCondition)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput() GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) ToGetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentAttachmentPolicyCondition {
+		return vs[0].([]GetCoreNetworkPolicyDocumentAttachmentPolicyCondition)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput)
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfiguration struct {
+	// List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
+	AsnRanges []string `pulumi:"asnRanges"`
+	// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+	EdgeLocations []GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation `pulumi:"edgeLocations"`
+	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+	// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
+	VpnEcmpSupport *bool `pulumi:"vpnEcmpSupport"`
+}
+
+// GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput` via:
+//
+//          GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{...}
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput
+	ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs struct {
+	// List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
+	AsnRanges pulumi.StringArrayInput `pulumi:"asnRanges"`
+	// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+	EdgeLocations GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput `pulumi:"edgeLocations"`
+	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
+	// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
+	VpnEcmpSupport pulumi.BoolPtrInput `pulumi:"vpnEcmpSupport"`
+}
+
+func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput {
+	return i.ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput)
+}
+
+// GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput` via:
+//
+//          GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{ GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{...} }
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput
+	ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray []GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput
+
+func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentCoreNetworkConfiguration)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput {
+	return o
+}
+
+// List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) AsnRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []string { return v.AsnRanges }).(pulumi.StringArrayOutput)
+}
+
+// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) EdgeLocations() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation {
+		return v.EdgeLocations
+	}).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput)
+}
+
+// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) []string { return v.InsideCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput) VpnEcmpSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfiguration) *bool { return v.VpnEcmpSupport }).(pulumi.BoolPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentCoreNetworkConfiguration)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentCoreNetworkConfiguration {
+		return vs[0].([]GetCoreNetworkPolicyDocumentCoreNetworkConfiguration)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput)
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation struct {
+	// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
+	Asn *int `pulumi:"asn"`
+	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+	InsideCidrBlocks []string `pulumi:"insideCidrBlocks"`
+	Location         string   `pulumi:"location"`
+}
+
+// GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput` via:
+//
+//          GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{...}
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput
+	ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs struct {
+	// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
+	Asn pulumi.IntPtrInput `pulumi:"asn"`
+	// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+	InsideCidrBlocks pulumi.StringArrayInput `pulumi:"insideCidrBlocks"`
+	Location         pulumi.StringInput      `pulumi:"location"`
+}
+
+func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput {
+	return i.ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput)
+}
+
+// GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray and GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput` via:
+//
+//          GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{ GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{...} }
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput
+	ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray []GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput
+
+func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput {
+	return o
+}
+
+// The ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asnRanges`
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) Asn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation) *int { return v.Asn }).(pulumi.IntPtrOutput)
+}
+
+// The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `insideCidrBlocks`.
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) InsideCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation) []string {
+		return v.InsideCidrBlocks
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation) string { return v.Location }).(pulumi.StringOutput)
+}
+
+type GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput() GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput) ToGetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation {
+		return vs[0].([]GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegment struct {
+	// List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
+	AllowFilters []string `pulumi:"allowFilters"`
+	// An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
+	DenyFilters []string `pulumi:"denyFilters"`
+	// A user-defined string describing the segment action.
+	Description *string `pulumi:"description"`
+	// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+	EdgeLocations []string `pulumi:"edgeLocations"`
+	// This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
+	IsolateAttachments *bool `pulumi:"isolateAttachments"`
+	// A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+	Name string `pulumi:"name"`
+	// This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `requireAttachmentAcceptance` is set to `false`.
+	RequireAttachmentAcceptance *bool `pulumi:"requireAttachmentAcceptance"`
+}
+
+// GetCoreNetworkPolicyDocumentSegmentInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentArgs and GetCoreNetworkPolicyDocumentSegmentOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentInput` via:
+//
+//          GetCoreNetworkPolicyDocumentSegmentArgs{...}
+type GetCoreNetworkPolicyDocumentSegmentInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentOutput() GetCoreNetworkPolicyDocumentSegmentOutput
+	ToGetCoreNetworkPolicyDocumentSegmentOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentArgs struct {
+	// List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
+	AllowFilters pulumi.StringArrayInput `pulumi:"allowFilters"`
+	// An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
+	DenyFilters pulumi.StringArrayInput `pulumi:"denyFilters"`
+	// A user-defined string describing the segment action.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+	EdgeLocations pulumi.StringArrayInput `pulumi:"edgeLocations"`
+	// This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
+	IsolateAttachments pulumi.BoolPtrInput `pulumi:"isolateAttachments"`
+	// A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+	Name pulumi.StringInput `pulumi:"name"`
+	// This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `requireAttachmentAcceptance` is set to `false`.
+	RequireAttachmentAcceptance pulumi.BoolPtrInput `pulumi:"requireAttachmentAcceptance"`
+}
+
+func (GetCoreNetworkPolicyDocumentSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegment)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentArgs) ToGetCoreNetworkPolicyDocumentSegmentOutput() GetCoreNetworkPolicyDocumentSegmentOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentArgs) ToGetCoreNetworkPolicyDocumentSegmentOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentOutput)
+}
+
+// GetCoreNetworkPolicyDocumentSegmentArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentArray and GetCoreNetworkPolicyDocumentSegmentArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentArrayInput` via:
+//
+//          GetCoreNetworkPolicyDocumentSegmentArray{ GetCoreNetworkPolicyDocumentSegmentArgs{...} }
+type GetCoreNetworkPolicyDocumentSegmentArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentArrayOutput() GetCoreNetworkPolicyDocumentSegmentArrayOutput
+	ToGetCoreNetworkPolicyDocumentSegmentArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentArray []GetCoreNetworkPolicyDocumentSegmentInput
+
+func (GetCoreNetworkPolicyDocumentSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentSegment)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentArray) ToGetCoreNetworkPolicyDocumentSegmentArrayOutput() GetCoreNetworkPolicyDocumentSegmentArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentArray) ToGetCoreNetworkPolicyDocumentSegmentArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegment)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) ToGetCoreNetworkPolicyDocumentSegmentOutput() GetCoreNetworkPolicyDocumentSegmentOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) ToGetCoreNetworkPolicyDocumentSegmentOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentOutput {
+	return o
+}
+
+// List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allowFilter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segmentActions`. If a segment is listed in `allowFilter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) AllowFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) []string { return v.AllowFilters }).(pulumi.StringArrayOutput)
+}
+
+// An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segmentActions`. If a segment is listed in the `denyFilter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) DenyFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) []string { return v.DenyFilters }).(pulumi.StringArrayOutput)
+}
+
+// A user-defined string describing the segment action.
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edgeLocations` in the `coreNetworkConfiguration`.
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) EdgeLocations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) []string { return v.EdgeLocations }).(pulumi.StringArrayOutput)
+}
+
+// This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) IsolateAttachments() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) *bool { return v.IsolateAttachments }).(pulumi.BoolPtrOutput)
+}
+
+// A unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `requireAttachmentAcceptance` is set to `false`.
+func (o GetCoreNetworkPolicyDocumentSegmentOutput) RequireAttachmentAcceptance() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegment) *bool { return v.RequireAttachmentAcceptance }).(pulumi.BoolPtrOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentSegment)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) ToGetCoreNetworkPolicyDocumentSegmentArrayOutput() GetCoreNetworkPolicyDocumentSegmentArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) ToGetCoreNetworkPolicyDocumentSegmentArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentSegment {
+		return vs[0].([]GetCoreNetworkPolicyDocumentSegment)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentSegmentOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentAction struct {
+	// The action to take for the chosen segment. Valid values `create-route` or `share`.
+	Action string `pulumi:"action"`
+	// A user-defined string describing the segment action.
+	Description *string `pulumi:"description"`
+	// List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
+	DestinationCidrBlocks []string `pulumi:"destinationCidrBlocks"`
+	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+	Destinations []string `pulumi:"destinations"`
+	// A string. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+	Mode *string `pulumi:"mode"`
+	// The name of the segment.
+	Segment string `pulumi:"segment"`
+	// A set subtraction of segments to not share with.
+	ShareWithExcepts []string `pulumi:"shareWithExcepts"`
+	// A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
+	ShareWiths []string `pulumi:"shareWiths"`
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionArgs and GetCoreNetworkPolicyDocumentSegmentActionOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionInput` via:
+//
+//          GetCoreNetworkPolicyDocumentSegmentActionArgs{...}
+type GetCoreNetworkPolicyDocumentSegmentActionInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionOutput() GetCoreNetworkPolicyDocumentSegmentActionOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
+	// The action to take for the chosen segment. Valid values `create-route` or `share`.
+	Action pulumi.StringInput `pulumi:"action"`
+	// A user-defined string describing the segment action.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
+	DestinationCidrBlocks pulumi.StringArrayInput `pulumi:"destinationCidrBlocks"`
+	// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+	Destinations pulumi.StringArrayInput `pulumi:"destinations"`
+	// A string. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// The name of the segment.
+	Segment pulumi.StringInput `pulumi:"segment"`
+	// A set subtraction of segments to not share with.
+	ShareWithExcepts pulumi.StringArrayInput `pulumi:"shareWithExcepts"`
+	// A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
+	ShareWiths pulumi.StringArrayInput `pulumi:"shareWiths"`
+}
+
+func (GetCoreNetworkPolicyDocumentSegmentActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentAction)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionArgs) ToGetCoreNetworkPolicyDocumentSegmentActionOutput() GetCoreNetworkPolicyDocumentSegmentActionOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionArgs) ToGetCoreNetworkPolicyDocumentSegmentActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionOutput)
+}
+
+// GetCoreNetworkPolicyDocumentSegmentActionArrayInput is an input type that accepts GetCoreNetworkPolicyDocumentSegmentActionArray and GetCoreNetworkPolicyDocumentSegmentActionArrayOutput values.
+// You can construct a concrete instance of `GetCoreNetworkPolicyDocumentSegmentActionArrayInput` via:
+//
+//          GetCoreNetworkPolicyDocumentSegmentActionArray{ GetCoreNetworkPolicyDocumentSegmentActionArgs{...} }
+type GetCoreNetworkPolicyDocumentSegmentActionArrayInput interface {
+	pulumi.Input
+
+	ToGetCoreNetworkPolicyDocumentSegmentActionArrayOutput() GetCoreNetworkPolicyDocumentSegmentActionArrayOutput
+	ToGetCoreNetworkPolicyDocumentSegmentActionArrayOutputWithContext(context.Context) GetCoreNetworkPolicyDocumentSegmentActionArrayOutput
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionArray []GetCoreNetworkPolicyDocumentSegmentActionInput
+
+func (GetCoreNetworkPolicyDocumentSegmentActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentSegmentAction)(nil)).Elem()
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionArray) ToGetCoreNetworkPolicyDocumentSegmentActionArrayOutput() GetCoreNetworkPolicyDocumentSegmentActionArrayOutput {
+	return i.ToGetCoreNetworkPolicyDocumentSegmentActionArrayOutputWithContext(context.Background())
+}
+
+func (i GetCoreNetworkPolicyDocumentSegmentActionArray) ToGetCoreNetworkPolicyDocumentSegmentActionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCoreNetworkPolicyDocumentSegmentActionArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentAction)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ToGetCoreNetworkPolicyDocumentSegmentActionOutput() GetCoreNetworkPolicyDocumentSegmentActionOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ToGetCoreNetworkPolicyDocumentSegmentActionOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionOutput {
+	return o
+}
+
+// The action to take for the chosen segment. Valid values `create-route` or `share`.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) string { return v.Action }).(pulumi.StringOutput)
+}
+
+// A user-defined string describing the segment action.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) DestinationCidrBlocks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.DestinationCidrBlocks }).(pulumi.StringArrayOutput)
+}
+
+// A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Destinations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.Destinations }).(pulumi.StringArrayOutput)
+}
+
+// A string. This mode places the attachment and return routes in each of the `shareWith` segments. Valid values include: `attachment-route`.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// The name of the segment.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Segment() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) string { return v.Segment }).(pulumi.StringOutput)
+}
+
+// A set subtraction of segments to not share with.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ShareWithExcepts() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.ShareWithExcepts }).(pulumi.StringArrayOutput)
+}
+
+// A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) ShareWiths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.ShareWiths }).(pulumi.StringArrayOutput)
+}
+
+type GetCoreNetworkPolicyDocumentSegmentActionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCoreNetworkPolicyDocumentSegmentAction)(nil)).Elem()
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) ToGetCoreNetworkPolicyDocumentSegmentActionArrayOutput() GetCoreNetworkPolicyDocumentSegmentActionArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) ToGetCoreNetworkPolicyDocumentSegmentActionArrayOutputWithContext(ctx context.Context) GetCoreNetworkPolicyDocumentSegmentActionArrayOutput {
+	return o
+}
+
+func (o GetCoreNetworkPolicyDocumentSegmentActionArrayOutput) Index(i pulumi.IntInput) GetCoreNetworkPolicyDocumentSegmentActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCoreNetworkPolicyDocumentSegmentAction {
+		return vs[0].([]GetCoreNetworkPolicyDocumentSegmentAction)[vs[1].(int)]
+	}).(GetCoreNetworkPolicyDocumentSegmentActionOutput)
+}
+
 type GetDeviceAwsLocation struct {
 	// The Amazon Resource Name (ARN) of the subnet that the device is located in.
 	SubnetArn string `pulumi:"subnetArn"`
@@ -1123,6 +2014,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthPtrInput)(nil)).Elem(), LinkBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCoreNetworkPolicyDocumentSegmentActionArrayInput)(nil)).Elem(), GetCoreNetworkPolicyDocumentSegmentActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAwsLocationInput)(nil)).Elem(), GetDeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceAwsLocationArrayInput)(nil)).Elem(), GetDeviceAwsLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDeviceLocationInput)(nil)).Elem(), GetDeviceLocationArgs{})
@@ -1139,6 +2043,19 @@ func init() {
 	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})
 	pulumi.RegisterOutputType(SiteLocationPtrOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyActionOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentArrayOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionOutput{})
+	pulumi.RegisterOutputType(GetCoreNetworkPolicyDocumentSegmentActionArrayOutput{})
 	pulumi.RegisterOutputType(GetDeviceAwsLocationOutput{})
 	pulumi.RegisterOutputType(GetDeviceAwsLocationArrayOutput{})
 	pulumi.RegisterOutputType(GetDeviceLocationOutput{})

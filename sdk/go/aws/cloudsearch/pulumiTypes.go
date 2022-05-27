@@ -183,6 +183,8 @@ type DomainIndexField struct {
 	Search *bool `pulumi:"search"`
 	// You can enable the property to be sortable.
 	Sort *bool `pulumi:"sort"`
+	// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+	SourceFields *string `pulumi:"sourceFields"`
 	// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
 	Type string `pulumi:"type"`
 }
@@ -215,6 +217,8 @@ type DomainIndexFieldArgs struct {
 	Search pulumi.BoolPtrInput `pulumi:"search"`
 	// You can enable the property to be sortable.
 	Sort pulumi.BoolPtrInput `pulumi:"sort"`
+	// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+	SourceFields pulumi.StringPtrInput `pulumi:"sourceFields"`
 	// The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -308,6 +312,11 @@ func (o DomainIndexFieldOutput) Search() pulumi.BoolPtrOutput {
 // You can enable the property to be sortable.
 func (o DomainIndexFieldOutput) Sort() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainIndexField) *bool { return v.Sort }).(pulumi.BoolPtrOutput)
+}
+
+// A comma-separated list of source fields to map to the field. Specifying a source field copies data from one field to another, enabling you to use the same source data in different ways by configuring different options for the fields.
+func (o DomainIndexFieldOutput) SourceFields() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainIndexField) *string { return v.SourceFields }).(pulumi.StringPtrOutput)
 }
 
 // The field type. Valid values: `date`, `date-array`, `double`, `double-array`, `int`, `int-array`, `literal`, `literal-array`, `text`, `text-array`.

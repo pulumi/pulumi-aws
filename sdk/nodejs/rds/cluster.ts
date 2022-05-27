@@ -130,6 +130,36 @@ import * as utilities from "../utilities";
  *     storageType: "io1",
  * });
  * ```
+ * ### RDS Serverless v2 Cluster
+ *
+ * > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
+ *
+ * To create a Serverless v2 RDS cluster, you must additionally specify the `engineMode` and `serverlessv2ScalingConfiguration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instanceClass` attribute specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleCluster = new aws.rds.Cluster("exampleCluster", {
+ *     clusterIdentifier: "example",
+ *     engine: "aurora-postgresql",
+ *     engineMode: "provisioned",
+ *     engineVersion: "13.6",
+ *     databaseName: "test",
+ *     masterUsername: "test",
+ *     masterPassword: "must_be_eight_characters",
+ *     serverlessv2ScalingConfiguration: {
+ *         maxCapacity: 1,
+ *         minCapacity: 0.5,
+ *     },
+ * });
+ * const exampleClusterInstance = new aws.rds.ClusterInstance("exampleClusterInstance", {
+ *     clusterIdentifier: exampleCluster.id,
+ *     instanceClass: "db.serverless",
+ *     engine: exampleCluster.engine,
+ *     engineVersion: exampleCluster.engineVersion,
+ * });
+ * ```
  *
  * ## Import
  *

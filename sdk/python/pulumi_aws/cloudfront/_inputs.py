@@ -76,6 +76,7 @@ __all__ = [
     'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs',
     'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs',
     'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs',
+    'ResponseHeadersPolicyServerTimingHeadersConfigArgs',
 ]
 
 @pulumi.input_type
@@ -3633,5 +3634,42 @@ class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs:
     @report_uri.setter
     def report_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "report_uri", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 sampling_rate: pulumi.Input[float]):
+        """
+        :param pulumi.Input[bool] enabled: A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        :param pulumi.Input[float] sampling_rate: A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "sampling_rate", sampling_rate)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="samplingRate")
+    def sampling_rate(self) -> pulumi.Input[float]:
+        """
+        A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+        """
+        return pulumi.get(self, "sampling_rate")
+
+    @sampling_rate.setter
+    def sampling_rate(self, value: pulumi.Input[float]):
+        pulumi.set(self, "sampling_rate", value)
 
 

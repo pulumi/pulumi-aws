@@ -37,7 +37,7 @@ import (
 //
 // ## Import
 //
-// Use the `name` to import a subnet group. For example
+// Use the `name` to import a keyspace. For example
 //
 // ```sh
 //  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
@@ -45,7 +45,7 @@ import (
 type Keyspace struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the subnet group.
+	// The ARN of the keyspace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the keyspace to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -84,7 +84,7 @@ func GetKeyspace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Keyspace resources.
 type keyspaceState struct {
-	// The ARN of the subnet group.
+	// The ARN of the keyspace.
 	Arn *string `pulumi:"arn"`
 	// The name of the keyspace to be created.
 	Name *string `pulumi:"name"`
@@ -95,7 +95,7 @@ type keyspaceState struct {
 }
 
 type KeyspaceState struct {
-	// The ARN of the subnet group.
+	// The ARN of the keyspace.
 	Arn pulumi.StringPtrInput
 	// The name of the keyspace to be created.
 	Name pulumi.StringPtrInput
@@ -215,7 +215,7 @@ func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) Keyspac
 	return o
 }
 
-// The ARN of the subnet group.
+// The ARN of the keyspace.
 func (o KeyspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Keyspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

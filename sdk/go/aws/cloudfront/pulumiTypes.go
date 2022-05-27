@@ -10614,6 +10614,162 @@ func (o ResponseHeadersPolicySecurityHeadersConfigXssProtectionPtrOutput) Report
 	}).(pulumi.StringPtrOutput)
 }
 
+type ResponseHeadersPolicyServerTimingHeadersConfig struct {
+	// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+	Enabled bool `pulumi:"enabled"`
+	// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+	SamplingRate float64 `pulumi:"samplingRate"`
+}
+
+// ResponseHeadersPolicyServerTimingHeadersConfigInput is an input type that accepts ResponseHeadersPolicyServerTimingHeadersConfigArgs and ResponseHeadersPolicyServerTimingHeadersConfigOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyServerTimingHeadersConfigInput` via:
+//
+//          ResponseHeadersPolicyServerTimingHeadersConfigArgs{...}
+type ResponseHeadersPolicyServerTimingHeadersConfigInput interface {
+	pulumi.Input
+
+	ToResponseHeadersPolicyServerTimingHeadersConfigOutput() ResponseHeadersPolicyServerTimingHeadersConfigOutput
+	ToResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(context.Context) ResponseHeadersPolicyServerTimingHeadersConfigOutput
+}
+
+type ResponseHeadersPolicyServerTimingHeadersConfigArgs struct {
+	// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+	SamplingRate pulumi.Float64Input `pulumi:"samplingRate"`
+}
+
+func (ResponseHeadersPolicyServerTimingHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (i ResponseHeadersPolicyServerTimingHeadersConfigArgs) ToResponseHeadersPolicyServerTimingHeadersConfigOutput() ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return i.ToResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i ResponseHeadersPolicyServerTimingHeadersConfigArgs) ToResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyServerTimingHeadersConfigOutput)
+}
+
+func (i ResponseHeadersPolicyServerTimingHeadersConfigArgs) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return i.ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ResponseHeadersPolicyServerTimingHeadersConfigArgs) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyServerTimingHeadersConfigOutput).ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx)
+}
+
+// ResponseHeadersPolicyServerTimingHeadersConfigPtrInput is an input type that accepts ResponseHeadersPolicyServerTimingHeadersConfigArgs, ResponseHeadersPolicyServerTimingHeadersConfigPtr and ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput values.
+// You can construct a concrete instance of `ResponseHeadersPolicyServerTimingHeadersConfigPtrInput` via:
+//
+//          ResponseHeadersPolicyServerTimingHeadersConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ResponseHeadersPolicyServerTimingHeadersConfigPtrInput interface {
+	pulumi.Input
+
+	ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput
+	ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput
+}
+
+type responseHeadersPolicyServerTimingHeadersConfigPtrType ResponseHeadersPolicyServerTimingHeadersConfigArgs
+
+func ResponseHeadersPolicyServerTimingHeadersConfigPtr(v *ResponseHeadersPolicyServerTimingHeadersConfigArgs) ResponseHeadersPolicyServerTimingHeadersConfigPtrInput {
+	return (*responseHeadersPolicyServerTimingHeadersConfigPtrType)(v)
+}
+
+func (*responseHeadersPolicyServerTimingHeadersConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (i *responseHeadersPolicyServerTimingHeadersConfigPtrType) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return i.ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *responseHeadersPolicyServerTimingHeadersConfigPtrType) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput)
+}
+
+type ResponseHeadersPolicyServerTimingHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyServerTimingHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersPolicyServerTimingHeadersConfigOutput() ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o.ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseHeadersPolicyServerTimingHeadersConfig) *ResponseHeadersPolicyServerTimingHeadersConfig {
+		return &v
+	}).(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput)
+}
+
+// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResponseHeadersPolicyServerTimingHeadersConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+func (o ResponseHeadersPolicyServerTimingHeadersConfigOutput) SamplingRate() pulumi.Float64Output {
+	return o.ApplyT(func(v ResponseHeadersPolicyServerTimingHeadersConfig) float64 { return v.SamplingRate }).(pulumi.Float64Output)
+}
+
+type ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutput() ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) ToResponseHeadersPolicyServerTimingHeadersConfigPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput {
+	return o
+}
+
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) Elem() ResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyServerTimingHeadersConfig) ResponseHeadersPolicyServerTimingHeadersConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ResponseHeadersPolicyServerTimingHeadersConfig
+		return ret
+	}).(ResponseHeadersPolicyServerTimingHeadersConfigOutput)
+}
+
+// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyServerTimingHeadersConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to. Valid range: Minimum value of 0.0. Maximum value of 100.0.
+func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) SamplingRate() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ResponseHeadersPolicyServerTimingHeadersConfig) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.SamplingRate
+	}).(pulumi.Float64PtrOutput)
+}
+
 type GetCachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
 	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 	CookiesConfigs []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig `pulumi:"cookiesConfigs"`
@@ -13753,6 +13909,112 @@ func (o GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput) I
 	}).(GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput)
 }
 
+type GetResponseHeadersPolicyServerTimingHeadersConfig struct {
+	// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+	Enabled bool `pulumi:"enabled"`
+	// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
+	SamplingRate float64 `pulumi:"samplingRate"`
+}
+
+// GetResponseHeadersPolicyServerTimingHeadersConfigInput is an input type that accepts GetResponseHeadersPolicyServerTimingHeadersConfigArgs and GetResponseHeadersPolicyServerTimingHeadersConfigOutput values.
+// You can construct a concrete instance of `GetResponseHeadersPolicyServerTimingHeadersConfigInput` via:
+//
+//          GetResponseHeadersPolicyServerTimingHeadersConfigArgs{...}
+type GetResponseHeadersPolicyServerTimingHeadersConfigInput interface {
+	pulumi.Input
+
+	ToGetResponseHeadersPolicyServerTimingHeadersConfigOutput() GetResponseHeadersPolicyServerTimingHeadersConfigOutput
+	ToGetResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(context.Context) GetResponseHeadersPolicyServerTimingHeadersConfigOutput
+}
+
+type GetResponseHeadersPolicyServerTimingHeadersConfigArgs struct {
+	// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
+	SamplingRate pulumi.Float64Input `pulumi:"samplingRate"`
+}
+
+func (GetResponseHeadersPolicyServerTimingHeadersConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (i GetResponseHeadersPolicyServerTimingHeadersConfigArgs) ToGetResponseHeadersPolicyServerTimingHeadersConfigOutput() GetResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return i.ToGetResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(context.Background())
+}
+
+func (i GetResponseHeadersPolicyServerTimingHeadersConfigArgs) ToGetResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(ctx context.Context) GetResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyServerTimingHeadersConfigOutput)
+}
+
+// GetResponseHeadersPolicyServerTimingHeadersConfigArrayInput is an input type that accepts GetResponseHeadersPolicyServerTimingHeadersConfigArray and GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput values.
+// You can construct a concrete instance of `GetResponseHeadersPolicyServerTimingHeadersConfigArrayInput` via:
+//
+//          GetResponseHeadersPolicyServerTimingHeadersConfigArray{ GetResponseHeadersPolicyServerTimingHeadersConfigArgs{...} }
+type GetResponseHeadersPolicyServerTimingHeadersConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput() GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput
+	ToGetResponseHeadersPolicyServerTimingHeadersConfigArrayOutputWithContext(context.Context) GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput
+}
+
+type GetResponseHeadersPolicyServerTimingHeadersConfigArray []GetResponseHeadersPolicyServerTimingHeadersConfigInput
+
+func (GetResponseHeadersPolicyServerTimingHeadersConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (i GetResponseHeadersPolicyServerTimingHeadersConfigArray) ToGetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput() GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput {
+	return i.ToGetResponseHeadersPolicyServerTimingHeadersConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetResponseHeadersPolicyServerTimingHeadersConfigArray) ToGetResponseHeadersPolicyServerTimingHeadersConfigArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput)
+}
+
+type GetResponseHeadersPolicyServerTimingHeadersConfigOutput struct{ *pulumi.OutputState }
+
+func (GetResponseHeadersPolicyServerTimingHeadersConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (o GetResponseHeadersPolicyServerTimingHeadersConfigOutput) ToGetResponseHeadersPolicyServerTimingHeadersConfigOutput() GetResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyServerTimingHeadersConfigOutput) ToGetResponseHeadersPolicyServerTimingHeadersConfigOutputWithContext(ctx context.Context) GetResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return o
+}
+
+// A Boolean that determines whether CloudFront adds the `Server-Timing` header to HTTP responses that it sends in response to requests that match a cache behavior that's associated with this response headers policy.
+func (o GetResponseHeadersPolicyServerTimingHeadersConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetResponseHeadersPolicyServerTimingHeadersConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A number 0–100 (inclusive) that specifies the percentage of responses that you want CloudFront to add the Server-Timing header to.
+func (o GetResponseHeadersPolicyServerTimingHeadersConfigOutput) SamplingRate() pulumi.Float64Output {
+	return o.ApplyT(func(v GetResponseHeadersPolicyServerTimingHeadersConfig) float64 { return v.SamplingRate }).(pulumi.Float64Output)
+}
+
+type GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetResponseHeadersPolicyServerTimingHeadersConfig)(nil)).Elem()
+}
+
+func (o GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput) ToGetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput() GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput) ToGetResponseHeadersPolicyServerTimingHeadersConfigArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput {
+	return o
+}
+
+func (o GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput) Index(i pulumi.IntInput) GetResponseHeadersPolicyServerTimingHeadersConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetResponseHeadersPolicyServerTimingHeadersConfig {
+		return vs[0].([]GetResponseHeadersPolicyServerTimingHeadersConfig)[vs[1].(int)]
+	}).(GetResponseHeadersPolicyServerTimingHeadersConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
@@ -13886,6 +14148,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityPtrInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigXssProtectionInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigXssProtectionPtrInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfigInput)(nil)).Elem(), ResponseHeadersPolicyServerTimingHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyServerTimingHeadersConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicyServerTimingHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{})
@@ -13944,6 +14208,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigXssProtectionInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyServerTimingHeadersConfigInput)(nil)).Elem(), GetResponseHeadersPolicyServerTimingHeadersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyServerTimingHeadersConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicyServerTimingHeadersConfigArray{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput{})
@@ -14076,6 +14342,8 @@ func init() {
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicySecurityHeadersConfigXssProtectionPtrOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyServerTimingHeadersConfigOutput{})
+	pulumi.RegisterOutputType(ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput{})
 	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput{})
@@ -14134,4 +14402,6 @@ func init() {
 	pulumi.RegisterOutputType(GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput{})
 	pulumi.RegisterOutputType(GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput{})
+	pulumi.RegisterOutputType(GetResponseHeadersPolicyServerTimingHeadersConfigOutput{})
+	pulumi.RegisterOutputType(GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput{})
 }

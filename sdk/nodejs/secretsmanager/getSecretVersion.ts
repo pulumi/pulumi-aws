@@ -76,7 +76,7 @@ export interface GetSecretVersionResult {
      */
     readonly id: string;
     /**
-     * The decrypted part of the protected secret information that was originally provided as a binary. Base64 encoded.
+     * The decrypted part of the protected secret information that was originally provided as a binary.
      */
     readonly secretBinary: string;
     readonly secretId: string;

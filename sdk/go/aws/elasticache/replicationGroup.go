@@ -253,7 +253,7 @@ type ReplicationGroup struct {
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
-	AutoMinorVersionUpgrade pulumi.BoolPtrOutput `pulumi:"autoMinorVersionUpgrade"`
+	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
@@ -879,8 +879,8 @@ func (o ReplicationGroupOutput) AuthToken() pulumi.StringPtrOutput {
 // Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 // Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 // Defaults to `true`.
-func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
 
 // Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.

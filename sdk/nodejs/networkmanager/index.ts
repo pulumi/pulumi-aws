@@ -10,6 +10,7 @@ export * from "./customerGatewayAssociation";
 export * from "./device";
 export * from "./getConnection";
 export * from "./getConnections";
+export * from "./getCoreNetworkPolicyDocument";
 export * from "./getDevice";
 export * from "./getDevices";
 export * from "./getGlobalNetwork";

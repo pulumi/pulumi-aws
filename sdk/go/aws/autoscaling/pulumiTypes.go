@@ -326,7 +326,8 @@ type GroupInstanceRefreshPreferences struct {
 	// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup *string `pulumi:"instanceWarmup"`
 	// The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
-	MinHealthyPercentage *int `pulumi:"minHealthyPercentage"`
+	MinHealthyPercentage *int  `pulumi:"minHealthyPercentage"`
+	SkipMatching         *bool `pulumi:"skipMatching"`
 }
 
 // GroupInstanceRefreshPreferencesInput is an input type that accepts GroupInstanceRefreshPreferencesArgs and GroupInstanceRefreshPreferencesOutput values.
@@ -348,7 +349,8 @@ type GroupInstanceRefreshPreferencesArgs struct {
 	// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup pulumi.StringPtrInput `pulumi:"instanceWarmup"`
 	// The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
-	MinHealthyPercentage pulumi.IntPtrInput `pulumi:"minHealthyPercentage"`
+	MinHealthyPercentage pulumi.IntPtrInput  `pulumi:"minHealthyPercentage"`
+	SkipMatching         pulumi.BoolPtrInput `pulumi:"skipMatching"`
 }
 
 func (GroupInstanceRefreshPreferencesArgs) ElementType() reflect.Type {
@@ -448,6 +450,10 @@ func (o GroupInstanceRefreshPreferencesOutput) MinHealthyPercentage() pulumi.Int
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *int { return v.MinHealthyPercentage }).(pulumi.IntPtrOutput)
 }
 
+func (o GroupInstanceRefreshPreferencesOutput) SkipMatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *bool { return v.SkipMatching }).(pulumi.BoolPtrOutput)
+}
+
 type GroupInstanceRefreshPreferencesPtrOutput struct{ *pulumi.OutputState }
 
 func (GroupInstanceRefreshPreferencesPtrOutput) ElementType() reflect.Type {
@@ -510,6 +516,15 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) MinHealthyPercentage() pulumi.
 		}
 		return v.MinHealthyPercentage
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o GroupInstanceRefreshPreferencesPtrOutput) SkipMatching() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SkipMatching
+	}).(pulumi.BoolPtrOutput)
 }
 
 type GroupLaunchTemplate struct {
@@ -1419,6 +1434,8 @@ func (o GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOut
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverride struct {
+	// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+	InstanceRequirements *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements `pulumi:"instanceRequirements"`
 	// Override the instance type in the Launch Template.
 	InstanceType *string `pulumi:"instanceType"`
 	// Override the instance launch template specification in the Launch Template.
@@ -1439,6 +1456,8 @@ type GroupMixedInstancesPolicyLaunchTemplateOverrideInput interface {
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideArgs struct {
+	// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+	InstanceRequirements GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
 	// Override the instance type in the Launch Template.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Override the instance launch template specification in the Launch Template.
@@ -1498,6 +1517,13 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) ToGroupMixedInsta
 	return o
 }
 
+// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceRequirements() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverride) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements {
+		return v.InstanceRequirements
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput)
+}
+
 // Override the instance type in the Launch Template.
 func (o GroupMixedInstancesPolicyLaunchTemplateOverrideOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverride) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
@@ -1533,6 +1559,1845 @@ func (o GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GroupMixedInstancesPolicyLaunchTemplateOverride {
 		return vs[0].([]GroupMixedInstancesPolicyLaunchTemplateOverride)[vs[1].(int)]
 	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements struct {
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	AcceleratorCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
+	// List of accelerator manufacturer names. Default is any manufacturer.
+	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
+	// List of accelerator names. Default is any acclerator.
+	AcceleratorNames []string `pulumi:"acceleratorNames"`
+	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+	AcceleratorTotalMemoryMib *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
+	// List of accelerator types. Default is any accelerator type.
+	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BareMetal *string `pulumi:"bareMetal"`
+	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+	BaselineEbsBandwidthMbps *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BurstablePerformance *string `pulumi:"burstablePerformance"`
+	// List of CPU manufacturer names. Default is any manufacturer.
+	CpuManufacturers []string `pulumi:"cpuManufacturers"`
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// List of instance generation names. Default is any generation.
+	InstanceGenerations []string `pulumi:"instanceGenerations"`
+	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+	LocalStorage *string `pulumi:"localStorage"`
+	// List of local storage type names. Default any storage type.
+	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+	MemoryGibPerVcpu *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
+	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	MemoryMib *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+	NetworkInterfaceCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+	TotalLocalStorageGb *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
+	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+	VcpuCount *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount `pulumi:"vcpuCount"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs struct {
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	AcceleratorCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
+	// List of accelerator manufacturer names. Default is any manufacturer.
+	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
+	// List of accelerator names. Default is any acclerator.
+	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
+	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+	AcceleratorTotalMemoryMib GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
+	// List of accelerator types. Default is any accelerator type.
+	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
+	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+	BaselineEbsBandwidthMbps GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
+	// List of CPU manufacturer names. Default is any manufacturer.
+	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// List of instance generation names. Default is any generation.
+	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
+	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
+	// List of local storage type names. Default any storage type.
+	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+	MemoryGibPerVcpu GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
+	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	MemoryMib GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+	NetworkInterfaceCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+	TotalLocalStorageGb GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
+	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+	VcpuCount GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput `pulumi:"vcpuCount"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput)
+}
+
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
+		return v.AcceleratorCount
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// List of accelerator manufacturer names. Default is any manufacturer.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of accelerator names. Default is any acclerator.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorTotalMemoryMib() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		return v.AcceleratorTotalMemoryMib
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// List of accelerator types. Default is any accelerator type.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
+		return v.BareMetal
+	}).(pulumi.StringPtrOutput)
+}
+
+// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) BaselineEbsBandwidthMbps() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		return v.BaselineEbsBandwidthMbps
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of CPU manufacturer names. Default is any manufacturer.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance generation names. Default is any generation.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of local storage type names. Default any storage type.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) MemoryGibPerVcpu() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
+		return v.MemoryGibPerVcpu
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) MemoryMib() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
+		return v.MemoryMib
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) NetworkInterfaceCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
+		return v.NetworkInterfaceCount
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *bool {
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) TotalLocalStorageGb() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
+		return v.TotalLocalStorageGb
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput) VcpuCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
+		return v.VcpuCount
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput)
+}
+
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorCount
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// List of accelerator manufacturer names. Default is any manufacturer.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of accelerator names. Default is any acclerator.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTotalMemoryMib
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// List of accelerator types. Default is any accelerator type.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BareMetal
+	}).(pulumi.StringPtrOutput)
+}
+
+// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v == nil {
+			return nil
+		}
+		return v.BaselineEbsBandwidthMbps
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of CPU manufacturer names. Default is any manufacturer.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance generation names. Default is any generation.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of local storage type names. Default any storage type.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) MemoryGibPerVcpu() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryGibPerVcpu
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) MemoryMib() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryMib
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) NetworkInterfaceCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceCount
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) TotalLocalStorageGb() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
+		if v == nil {
+			return nil
+		}
+		return v.TotalLocalStorageGb
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput) VcpuCount() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirements) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
+		if v == nil {
+			return nil
+		}
+		return v.VcpuCount
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu struct {
+	// Maximum.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
+	// Maximum.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb struct {
+	// Maximum.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
+	// Maximum.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{...}
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput)
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput).ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx)
+}
+
+// GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput is an input type that accepts GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs, GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtr and GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput values.
+// You can construct a concrete instance of `GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput` via:
+//
+//          GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{...}
+//
+//  or:
+//
+//          nil
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput interface {
+	pulumi.Input
+
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput
+	ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput
+}
+
+type groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrType GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs
+
+func GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtr(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput {
+	return (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrType)(v)
+}
+
+func (*groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i *groupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrType) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
+		return &v
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput struct{ *pulumi.OutputState }
+
+func (GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) ToGroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) Elem() GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount {
+		if v != nil {
+			return *v
+		}
+		var ret GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount
+		return ret
+	}).(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput)
+}
+
+// Maximum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
 }
 
 type GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecification struct {
@@ -6614,6 +8479,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideArrayInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrInput)(nil)).Elem(), GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupTagInput)(nil)).Elem(), GroupTagArgs{})
@@ -6696,6 +8579,24 @@ func init() {
 	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideOutput{})
 	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideArrayOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorCountPtrOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountOutput{})
+	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideInstanceRequirementsVcpuCountPtrOutput{})
 	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationOutput{})
 	pulumi.RegisterOutputType(GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(GroupTagOutput{})

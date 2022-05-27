@@ -2106,6 +2106,8 @@ func (o FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput) Version()
 type FleetLaunchTemplateConfigOverride struct {
 	// Availability Zone in which to launch the instances.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+	InstanceRequirements *FleetLaunchTemplateConfigOverrideInstanceRequirements `pulumi:"instanceRequirements"`
 	// Instance type.
 	InstanceType *string `pulumi:"instanceType"`
 	// Maximum price per unit hour that you are willing to pay for a Spot Instance.
@@ -2132,6 +2134,8 @@ type FleetLaunchTemplateConfigOverrideInput interface {
 type FleetLaunchTemplateConfigOverrideArgs struct {
 	// Availability Zone in which to launch the instances.
 	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+	InstanceRequirements FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
 	// Instance type.
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Maximum price per unit hour that you are willing to pay for a Spot Instance.
@@ -2200,6 +2204,13 @@ func (o FleetLaunchTemplateConfigOverrideOutput) AvailabilityZone() pulumi.Strin
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverride) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+// Override the instance type in the Launch Template with instance types that satisfy the requirements.
+func (o FleetLaunchTemplateConfigOverrideOutput) InstanceRequirements() FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverride) *FleetLaunchTemplateConfigOverrideInstanceRequirements {
+		return v.InstanceRequirements
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput)
+}
+
 // Instance type.
 func (o FleetLaunchTemplateConfigOverrideOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetLaunchTemplateConfigOverride) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
@@ -2245,8 +2256,1807 @@ func (o FleetLaunchTemplateConfigOverrideArrayOutput) Index(i pulumi.IntInput) F
 	}).(FleetLaunchTemplateConfigOverrideOutput)
 }
 
+type FleetLaunchTemplateConfigOverrideInstanceRequirements struct {
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	AcceleratorCount *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount `pulumi:"acceleratorCount"`
+	// List of accelerator manufacturer names. Default is any manufacturer.
+	AcceleratorManufacturers []string `pulumi:"acceleratorManufacturers"`
+	// List of accelerator names. Default is any acclerator.
+	AcceleratorNames []string `pulumi:"acceleratorNames"`
+	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+	AcceleratorTotalMemoryMib *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib `pulumi:"acceleratorTotalMemoryMib"`
+	// List of accelerator types. Default is any accelerator type.
+	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
+	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BareMetal *string `pulumi:"bareMetal"`
+	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+	BaselineEbsBandwidthMbps *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BurstablePerformance *string `pulumi:"burstablePerformance"`
+	// List of CPU manufacturer names. Default is any manufacturer.
+	CpuManufacturers []string `pulumi:"cpuManufacturers"`
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
+	// List of instance generation names. Default is any generation.
+	InstanceGenerations []string `pulumi:"instanceGenerations"`
+	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+	LocalStorage *string `pulumi:"localStorage"`
+	// List of local storage type names. Default any storage type.
+	LocalStorageTypes []string `pulumi:"localStorageTypes"`
+	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+	MemoryGibPerVcpu *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu `pulumi:"memoryGibPerVcpu"`
+	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	MemoryMib FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+	NetworkInterfaceCount *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+	OnDemandMaxPricePercentageOverLowestPrice *int `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+	RequireHibernateSupport *bool `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	SpotMaxPricePercentageOverLowestPrice *int `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+	TotalLocalStorageGb *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb `pulumi:"totalLocalStorageGb"`
+	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+	VcpuCount FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount `pulumi:"vcpuCount"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs struct {
+	// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+	AcceleratorCount FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput `pulumi:"acceleratorCount"`
+	// List of accelerator manufacturer names. Default is any manufacturer.
+	AcceleratorManufacturers pulumi.StringArrayInput `pulumi:"acceleratorManufacturers"`
+	// List of accelerator names. Default is any acclerator.
+	AcceleratorNames pulumi.StringArrayInput `pulumi:"acceleratorNames"`
+	// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+	AcceleratorTotalMemoryMib FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput `pulumi:"acceleratorTotalMemoryMib"`
+	// List of accelerator types. Default is any accelerator type.
+	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
+	// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BareMetal pulumi.StringPtrInput `pulumi:"bareMetal"`
+	// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+	BaselineEbsBandwidthMbps FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+	BurstablePerformance pulumi.StringPtrInput `pulumi:"burstablePerformance"`
+	// List of CPU manufacturer names. Default is any manufacturer.
+	CpuManufacturers pulumi.StringArrayInput `pulumi:"cpuManufacturers"`
+	// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
+	// List of instance generation names. Default is any generation.
+	InstanceGenerations pulumi.StringArrayInput `pulumi:"instanceGenerations"`
+	// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+	LocalStorage pulumi.StringPtrInput `pulumi:"localStorage"`
+	// List of local storage type names. Default any storage type.
+	LocalStorageTypes pulumi.StringArrayInput `pulumi:"localStorageTypes"`
+	// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+	MemoryGibPerVcpu FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput `pulumi:"memoryGibPerVcpu"`
+	// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+	MemoryMib FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput `pulumi:"memoryMib"`
+	// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+	NetworkInterfaceCount FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput `pulumi:"networkInterfaceCount"`
+	// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+	OnDemandMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"onDemandMaxPricePercentageOverLowestPrice"`
+	// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+	RequireHibernateSupport pulumi.BoolPtrInput `pulumi:"requireHibernateSupport"`
+	// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+	SpotMaxPricePercentageOverLowestPrice pulumi.IntPtrInput `pulumi:"spotMaxPricePercentageOverLowestPrice"`
+	// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+	TotalLocalStorageGb FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput `pulumi:"totalLocalStorageGb"`
+	// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+	VcpuCount FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput `pulumi:"vcpuCount"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirements {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput)
+}
+
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorCount() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+		return v.AcceleratorCount
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// List of accelerator manufacturer names. Default is any manufacturer.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of accelerator names. Default is any acclerator.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.AcceleratorNames }).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorTotalMemoryMib() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		return v.AcceleratorTotalMemoryMib
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// List of accelerator types. Default is any accelerator type.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.BareMetal }).(pulumi.StringPtrOutput)
+}
+
+// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) BaselineEbsBandwidthMbps() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		return v.BaselineEbsBandwidthMbps
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.BurstablePerformance }).(pulumi.StringPtrOutput)
+}
+
+// List of CPU manufacturer names. Default is any manufacturer.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.CpuManufacturers }).(pulumi.StringArrayOutput)
+}
+
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
+}
+
+// List of instance generation names. Default is any generation.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.InstanceGenerations }).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *string { return v.LocalStorage }).(pulumi.StringPtrOutput)
+}
+
+// List of local storage type names. Default any storage type.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) []string { return v.LocalStorageTypes }).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) MemoryGibPerVcpu() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+		return v.MemoryGibPerVcpu
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) MemoryMib() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+		return v.MemoryMib
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
+}
+
+// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) NetworkInterfaceCount() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+		return v.NetworkInterfaceCount
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *bool { return v.RequireHibernateSupport }).(pulumi.BoolPtrOutput)
+}
+
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) TotalLocalStorageGb() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+		return v.TotalLocalStorageGb
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput) VcpuCount() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirements) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+		return v.VcpuCount
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirements)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) FleetLaunchTemplateConfigOverrideInstanceRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirements
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput)
+}
+
+// Block describing the minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips). Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorCount() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorCount
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// List of accelerator manufacturer names. Default is any manufacturer.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of accelerator names. Default is any acclerator.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum total memory of the accelerators. Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMib() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTotalMemoryMib
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// List of accelerator types. Default is any accelerator type.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AcceleratorTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether bare metal instace types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BareMetal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BareMetal
+	}).(pulumi.StringPtrOutput)
+}
+
+// Block describing the minimum and maximum baseline EBS bandwidth, in Mbps. Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v == nil {
+			return nil
+		}
+		return v.BaselineEbsBandwidthMbps
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Indicate whether burstable performance instance types should be `included`, `excluded`, or `required`. Default is `excluded`.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) BurstablePerformance() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BurstablePerformance
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of CPU manufacturer names. Default is any manufacturer.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) CpuManufacturers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuManufacturers
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance types to exclude. You can use strings with one or more wild cards, represented by an asterisk (\*). The following are examples: `c5*`, `m5a.*`, `r*`, `*3*`. For example, if you specify `c5*`, you are excluding the entire C5 instance family, which includes all C5a and C5n instance types. If you specify `m5a.*`, you are excluding all the M5a instance types, but not the M5n instance types. Maximum of 400 entries in the list; each entry is limited to 30 characters. Default is no excluded instance types.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedInstanceTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// List of instance generation names. Default is any generation.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) InstanceGenerations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceGenerations
+	}).(pulumi.StringArrayOutput)
+}
+
+// Indicate whether instance types with local storage volumes are `included`, `excluded`, or `required`. Default is `included`.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalStorage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorage
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of local storage type names. Default any storage type.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) LocalStorageTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LocalStorageTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (GiB) per vCPU. Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MemoryGibPerVcpu() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+		if v == nil {
+			return nil
+		}
+		return v.MemoryGibPerVcpu
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Block describing the minimum and maximum amount of memory (MiB). Default is no maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) MemoryMib() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+		if v == nil {
+			return nil
+		}
+		return &v.MemoryMib
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Block describing the minimum and maximum number of network interfaces. Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) NetworkInterfaceCount() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkInterfaceCount
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 20.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) OnDemandMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OnDemandMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Indicate whether instance types must support On-Demand Instance Hibernation, either `true` or `false`. Default is `false`.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) RequireHibernateSupport() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RequireHibernateSupport
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a percentage higher than the cheapest M, C, or R instance type with your specified attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will exclude instance types whose price is higher than your threshold. The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. To turn off price protection, specify a high value, such as 999999. Default is 100.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) SpotMaxPricePercentageOverLowestPrice() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SpotMaxPricePercentageOverLowestPrice
+	}).(pulumi.IntPtrOutput)
+}
+
+// Block describing the minimum and maximum total local storage (GB). Default is no minimum or maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) TotalLocalStorageGb() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+		if v == nil {
+			return nil
+		}
+		return v.TotalLocalStorageGb
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Block describing the minimum and maximum number of vCPUs. Default is no maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput) VcpuCount() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirements) *FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+		if v == nil {
+			return nil
+		}
+		return &v.VcpuCount
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbps) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu struct {
+	// Maximum.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs struct {
+	// Maximum.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Max }).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 { return v.Min }).(pulumi.Float64PtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpu) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min int `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMib) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min *int `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntPtrInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int { return v.Min }).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb struct {
+	// Maximum.
+	Max *float64 `pulumi:"max"`
+	// Minimum.
+	Min *float64 `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs struct {
+	// Maximum.
+	Max pulumi.Float64PtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.Float64PtrInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Max() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput) Min() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGb) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Min
+	}).(pulumi.Float64PtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount struct {
+	// Maximum.
+	Max *int `pulumi:"max"`
+	// Minimum.
+	Min int `pulumi:"min"`
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs and FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{...}
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs struct {
+	// Maximum.
+	Max pulumi.IntPtrInput `pulumi:"max"`
+	// Minimum.
+	Min pulumi.IntInput `pulumi:"min"`
+}
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput)
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput).ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx)
+}
+
+// FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput is an input type that accepts FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs, FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtr and FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput values.
+// You can construct a concrete instance of `FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput` via:
+//
+//          FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{...}
+//
+//  or:
+//
+//          nil
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput interface {
+	pulumi.Input
+
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput
+	ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput
+}
+
+type fleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs
+
+func FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtr(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput {
+	return (*fleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType)(v)
+}
+
+func (*fleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return i.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (i *fleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrType) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(context.Background())
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+		return &v
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int { return v.Max }).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput) Min() pulumi.IntOutput {
+	return o.ApplyT(func(v FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) int { return v.Min }).(pulumi.IntOutput)
+}
+
+type FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput struct{ *pulumi.OutputState }
+
+func (FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount)(nil)).Elem()
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) ToFleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutputWithContext(ctx context.Context) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput {
+	return o
+}
+
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Elem() FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount {
+		if v != nil {
+			return *v
+		}
+		var ret FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount
+		return ret
+	}).(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput)
+}
+
+// Maximum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Max() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Max
+	}).(pulumi.IntPtrOutput)
+}
+
+// Minimum.
+func (o FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput) Min() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCount) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Min
+	}).(pulumi.IntPtrOutput)
+}
+
 type FleetOnDemandOptions struct {
-	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
 }
 
@@ -2262,7 +4072,7 @@ type FleetOnDemandOptionsInput interface {
 }
 
 type FleetOnDemandOptionsArgs struct {
-	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
 }
 
@@ -2343,7 +4153,7 @@ func (o FleetOnDemandOptionsOutput) ToFleetOnDemandOptionsPtrOutputWithContext(c
 	}).(FleetOnDemandOptionsPtrOutput)
 }
 
-// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
 func (o FleetOnDemandOptionsOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetOnDemandOptions) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
@@ -2372,7 +4182,7 @@ func (o FleetOnDemandOptionsPtrOutput) Elem() FleetOnDemandOptionsOutput {
 	}).(FleetOnDemandOptionsOutput)
 }
 
-// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
 func (o FleetOnDemandOptionsPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetOnDemandOptions) *string {
 		if v == nil {
@@ -2383,7 +4193,7 @@ func (o FleetOnDemandOptionsPtrOutput) AllocationStrategy() pulumi.StringPtrOutp
 }
 
 type FleetSpotOptions struct {
-	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
 	AllocationStrategy *string `pulumi:"allocationStrategy"`
 	// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
 	InstanceInterruptionBehavior *string `pulumi:"instanceInterruptionBehavior"`
@@ -2405,7 +4215,7 @@ type FleetSpotOptionsInput interface {
 }
 
 type FleetSpotOptionsArgs struct {
-	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+	// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
 	AllocationStrategy pulumi.StringPtrInput `pulumi:"allocationStrategy"`
 	// Behavior when a Spot Instance is interrupted. Valid values: `hibernate`, `stop`, `terminate`. Default: `terminate`.
 	InstanceInterruptionBehavior pulumi.StringPtrInput `pulumi:"instanceInterruptionBehavior"`
@@ -2492,7 +4302,7 @@ func (o FleetSpotOptionsOutput) ToFleetSpotOptionsPtrOutputWithContext(ctx conte
 	}).(FleetSpotOptionsPtrOutput)
 }
 
-// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
 func (o FleetSpotOptionsOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetSpotOptions) *string { return v.AllocationStrategy }).(pulumi.StringPtrOutput)
 }
@@ -2536,7 +4346,7 @@ func (o FleetSpotOptionsPtrOutput) Elem() FleetSpotOptionsOutput {
 	}).(FleetSpotOptionsOutput)
 }
 
-// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`. Default: `lowestPrice`.
+// How to allocate the target capacity across the Spot pools. Valid values: `diversified`, `lowestPrice`, `capacity-optimized` and `capacity-optimized-prioritized`. Default: `lowestPrice`.
 func (o FleetSpotOptionsPtrOutput) AllocationStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FleetSpotOptions) *string {
 		if v == nil {
@@ -30974,6 +32784,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigLaunchTemplateSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideArrayInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrInput)(nil)).Elem(), FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetOnDemandOptionsInput)(nil)).Elem(), FleetOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetOnDemandOptionsPtrInput)(nil)).Elem(), FleetOnDemandOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetSpotOptionsInput)(nil)).Elem(), FleetSpotOptionsArgs{})
@@ -31413,6 +33241,24 @@ func init() {
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigLaunchTemplateSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideOutput{})
 	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideArrayOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorCountPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsAcceleratorTotalMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsBaselineEbsBandwidthMbpsPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryGibPerVcpuPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsMemoryMibPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsNetworkInterfaceCountPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsTotalLocalStorageGbPtrOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountOutput{})
+	pulumi.RegisterOutputType(FleetLaunchTemplateConfigOverrideInstanceRequirementsVcpuCountPtrOutput{})
 	pulumi.RegisterOutputType(FleetOnDemandOptionsOutput{})
 	pulumi.RegisterOutputType(FleetOnDemandOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FleetSpotOptionsOutput{})

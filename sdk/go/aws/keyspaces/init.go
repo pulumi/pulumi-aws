@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:keyspaces/keyspace:Keyspace":
 		r = &Keyspace{}
+	case "aws:keyspaces/table:Table":
+		r = &Table{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"keyspaces/keyspace",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"keyspaces/table",
 		&module{version},
 	)
 }

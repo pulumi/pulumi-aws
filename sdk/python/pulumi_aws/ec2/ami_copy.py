@@ -45,7 +45,7 @@ class AmiCopyArgs:
                an image during a copy operation. This parameter is only required if you want to use a non-default CMK;
                if this parameter is not specified, the default CMK for EBS is used
         :param pulumi.Input[str] name: A region-unique name for the AMI.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source_ami_id", source_ami_id)
         pulumi.set(__self__, "source_ami_region", source_ami_region)
@@ -199,7 +199,7 @@ class AmiCopyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -241,6 +241,7 @@ class _AmiCopyState:
                  sriov_net_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tpm_support: Optional[pulumi.Input[str]] = None,
                  usage_operation: Optional[pulumi.Input[str]] = None,
                  virtualization_type: Optional[pulumi.Input[str]] = None):
         """
@@ -275,7 +276,8 @@ class _AmiCopyState:
                same as the AWS provider region in order to create a copy within the same region.
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -340,6 +342,8 @@ class _AmiCopyState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if tpm_support is not None:
+            pulumi.set(__self__, "tpm_support", tpm_support)
         if usage_operation is not None:
             pulumi.set(__self__, "usage_operation", usage_operation)
         if virtualization_type is not None:
@@ -669,7 +673,7 @@ class _AmiCopyState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -685,6 +689,18 @@ class _AmiCopyState:
     @tags_all.setter
     def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @property
+    @pulumi.getter(name="tpmSupport")
+    def tpm_support(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "tpm_support")
+
+    @tpm_support.setter
+    def tpm_support(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tpm_support", value)
 
     @property
     @pulumi.getter(name="usageOperation")
@@ -774,7 +790,7 @@ class AmiCopy(pulumi.CustomResource):
                given by `source_ami_region`.
         :param pulumi.Input[str] source_ami_region: The region from which the AMI will be copied. This may be the
                same as the AWS provider region in order to create a copy within the same region.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -882,6 +898,7 @@ class AmiCopy(pulumi.CustomResource):
             __props__.__dict__["root_snapshot_id"] = None
             __props__.__dict__["sriov_net_support"] = None
             __props__.__dict__["tags_all"] = None
+            __props__.__dict__["tpm_support"] = None
             __props__.__dict__["usage_operation"] = None
             __props__.__dict__["virtualization_type"] = None
         super(AmiCopy, __self__).__init__(
@@ -924,6 +941,7 @@ class AmiCopy(pulumi.CustomResource):
             sriov_net_support: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tpm_support: Optional[pulumi.Input[str]] = None,
             usage_operation: Optional[pulumi.Input[str]] = None,
             virtualization_type: Optional[pulumi.Input[str]] = None) -> 'AmiCopy':
         """
@@ -963,7 +981,8 @@ class AmiCopy(pulumi.CustomResource):
                same as the AWS provider region in order to create a copy within the same region.
         :param pulumi.Input[str] sriov_net_support: When set to "simple" (the default), enables enhanced networking
                for created instances. No other value is supported at this time.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] tpm_support: If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
         :param pulumi.Input[str] virtualization_type: Keyword to choose what virtualization mode created instances
                will use. Can be either "paravirtual" (the default) or "hvm". The choice of virtualization type
                changes the set of further arguments that are required, as described below.
@@ -1002,6 +1021,7 @@ class AmiCopy(pulumi.CustomResource):
         __props__.__dict__["sriov_net_support"] = sriov_net_support
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["tpm_support"] = tpm_support
         __props__.__dict__["usage_operation"] = usage_operation
         __props__.__dict__["virtualization_type"] = virtualization_type
         return AmiCopy(resource_name, opts=opts, __props__=__props__)
@@ -1218,7 +1238,7 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -1226,6 +1246,14 @@ class AmiCopy(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "tags_all")
+
+    @property
+    @pulumi.getter(name="tpmSupport")
+    def tpm_support(self) -> pulumi.Output[str]:
+        """
+        If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+        """
+        return pulumi.get(self, "tpm_support")
 
     @property
     @pulumi.getter(name="usageOperation")

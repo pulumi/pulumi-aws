@@ -131,6 +131,10 @@ type ClusterLogging struct {
 	BucketName *string `pulumi:"bucketName"`
 	// Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
 	Enable bool `pulumi:"enable"`
+	// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+	LogDestinationType *string `pulumi:"logDestinationType"`
+	// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`.
+	LogExports []string `pulumi:"logExports"`
 	// The prefix applied to the log file names.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
 }
@@ -152,6 +156,10 @@ type ClusterLoggingArgs struct {
 	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
 	// Enables logging information such as queries and connection attempts, for the specified Amazon Redshift cluster.
 	Enable pulumi.BoolInput `pulumi:"enable"`
+	// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+	LogDestinationType pulumi.StringPtrInput `pulumi:"logDestinationType"`
+	// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`.
+	LogExports pulumi.StringArrayInput `pulumi:"logExports"`
 	// The prefix applied to the log file names.
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
 }
@@ -244,6 +252,16 @@ func (o ClusterLoggingOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v ClusterLogging) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
+// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+func (o ClusterLoggingOutput) LogDestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterLogging) *string { return v.LogDestinationType }).(pulumi.StringPtrOutput)
+}
+
+// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`.
+func (o ClusterLoggingOutput) LogExports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ClusterLogging) []string { return v.LogExports }).(pulumi.StringArrayOutput)
+}
+
 // The prefix applied to the log file names.
 func (o ClusterLoggingOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterLogging) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
@@ -292,6 +310,26 @@ func (o ClusterLoggingPtrOutput) Enable() pulumi.BoolPtrOutput {
 		}
 		return &v.Enable
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The log destination type. An enum with possible values of `s3` and `cloudwatch`.
+func (o ClusterLoggingPtrOutput) LogDestinationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterLogging) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogDestinationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `logDestinationType` is `cloudwatch`.
+func (o ClusterLoggingPtrOutput) LogExports() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ClusterLogging) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LogExports
+	}).(pulumi.StringArrayOutput)
 }
 
 // The prefix applied to the log file names.
@@ -477,6 +515,247 @@ func (o ClusterSnapshotCopyPtrOutput) RetentionPeriod() pulumi.IntPtrOutput {
 		}
 		return v.RetentionPeriod
 	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointAccessVpcEndpoint struct {
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+	NetworkInterfaces []EndpointAccessVpcEndpointNetworkInterface `pulumi:"networkInterfaces"`
+	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+	VpcEndpointId *string `pulumi:"vpcEndpointId"`
+	// The VPC identifier that the endpoint is associated.
+	VpcId *string `pulumi:"vpcId"`
+}
+
+// EndpointAccessVpcEndpointInput is an input type that accepts EndpointAccessVpcEndpointArgs and EndpointAccessVpcEndpointOutput values.
+// You can construct a concrete instance of `EndpointAccessVpcEndpointInput` via:
+//
+//          EndpointAccessVpcEndpointArgs{...}
+type EndpointAccessVpcEndpointInput interface {
+	pulumi.Input
+
+	ToEndpointAccessVpcEndpointOutput() EndpointAccessVpcEndpointOutput
+	ToEndpointAccessVpcEndpointOutputWithContext(context.Context) EndpointAccessVpcEndpointOutput
+}
+
+type EndpointAccessVpcEndpointArgs struct {
+	// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+	NetworkInterfaces EndpointAccessVpcEndpointNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
+	// The VPC identifier that the endpoint is associated.
+	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
+}
+
+func (EndpointAccessVpcEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessVpcEndpoint)(nil)).Elem()
+}
+
+func (i EndpointAccessVpcEndpointArgs) ToEndpointAccessVpcEndpointOutput() EndpointAccessVpcEndpointOutput {
+	return i.ToEndpointAccessVpcEndpointOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessVpcEndpointArgs) ToEndpointAccessVpcEndpointOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcEndpointOutput)
+}
+
+// EndpointAccessVpcEndpointArrayInput is an input type that accepts EndpointAccessVpcEndpointArray and EndpointAccessVpcEndpointArrayOutput values.
+// You can construct a concrete instance of `EndpointAccessVpcEndpointArrayInput` via:
+//
+//          EndpointAccessVpcEndpointArray{ EndpointAccessVpcEndpointArgs{...} }
+type EndpointAccessVpcEndpointArrayInput interface {
+	pulumi.Input
+
+	ToEndpointAccessVpcEndpointArrayOutput() EndpointAccessVpcEndpointArrayOutput
+	ToEndpointAccessVpcEndpointArrayOutputWithContext(context.Context) EndpointAccessVpcEndpointArrayOutput
+}
+
+type EndpointAccessVpcEndpointArray []EndpointAccessVpcEndpointInput
+
+func (EndpointAccessVpcEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAccessVpcEndpoint)(nil)).Elem()
+}
+
+func (i EndpointAccessVpcEndpointArray) ToEndpointAccessVpcEndpointArrayOutput() EndpointAccessVpcEndpointArrayOutput {
+	return i.ToEndpointAccessVpcEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessVpcEndpointArray) ToEndpointAccessVpcEndpointArrayOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcEndpointArrayOutput)
+}
+
+type EndpointAccessVpcEndpointOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessVpcEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessVpcEndpoint)(nil)).Elem()
+}
+
+func (o EndpointAccessVpcEndpointOutput) ToEndpointAccessVpcEndpointOutput() EndpointAccessVpcEndpointOutput {
+	return o
+}
+
+func (o EndpointAccessVpcEndpointOutput) ToEndpointAccessVpcEndpointOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointOutput {
+	return o
+}
+
+// One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+func (o EndpointAccessVpcEndpointOutput) NetworkInterfaces() EndpointAccessVpcEndpointNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v EndpointAccessVpcEndpoint) []EndpointAccessVpcEndpointNetworkInterface {
+		return v.NetworkInterfaces
+	}).(EndpointAccessVpcEndpointNetworkInterfaceArrayOutput)
+}
+
+// The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+func (o EndpointAccessVpcEndpointOutput) VpcEndpointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessVpcEndpoint) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
+}
+
+// The VPC identifier that the endpoint is associated.
+func (o EndpointAccessVpcEndpointOutput) VpcId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessVpcEndpoint) *string { return v.VpcId }).(pulumi.StringPtrOutput)
+}
+
+type EndpointAccessVpcEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessVpcEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAccessVpcEndpoint)(nil)).Elem()
+}
+
+func (o EndpointAccessVpcEndpointArrayOutput) ToEndpointAccessVpcEndpointArrayOutput() EndpointAccessVpcEndpointArrayOutput {
+	return o
+}
+
+func (o EndpointAccessVpcEndpointArrayOutput) ToEndpointAccessVpcEndpointArrayOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointArrayOutput {
+	return o
+}
+
+func (o EndpointAccessVpcEndpointArrayOutput) Index(i pulumi.IntInput) EndpointAccessVpcEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointAccessVpcEndpoint {
+		return vs[0].([]EndpointAccessVpcEndpoint)[vs[1].(int)]
+	}).(EndpointAccessVpcEndpointOutput)
+}
+
+type EndpointAccessVpcEndpointNetworkInterface struct {
+	// The Availability Zone.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The network interface identifier.
+	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The subnet identifier.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// EndpointAccessVpcEndpointNetworkInterfaceInput is an input type that accepts EndpointAccessVpcEndpointNetworkInterfaceArgs and EndpointAccessVpcEndpointNetworkInterfaceOutput values.
+// You can construct a concrete instance of `EndpointAccessVpcEndpointNetworkInterfaceInput` via:
+//
+//          EndpointAccessVpcEndpointNetworkInterfaceArgs{...}
+type EndpointAccessVpcEndpointNetworkInterfaceInput interface {
+	pulumi.Input
+
+	ToEndpointAccessVpcEndpointNetworkInterfaceOutput() EndpointAccessVpcEndpointNetworkInterfaceOutput
+	ToEndpointAccessVpcEndpointNetworkInterfaceOutputWithContext(context.Context) EndpointAccessVpcEndpointNetworkInterfaceOutput
+}
+
+type EndpointAccessVpcEndpointNetworkInterfaceArgs struct {
+	// The Availability Zone.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The network interface identifier.
+	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
+	// The IPv4 address of the network interface within the subnet.
+	PrivateIpAddress pulumi.StringPtrInput `pulumi:"privateIpAddress"`
+	// The subnet identifier.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (EndpointAccessVpcEndpointNetworkInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessVpcEndpointNetworkInterface)(nil)).Elem()
+}
+
+func (i EndpointAccessVpcEndpointNetworkInterfaceArgs) ToEndpointAccessVpcEndpointNetworkInterfaceOutput() EndpointAccessVpcEndpointNetworkInterfaceOutput {
+	return i.ToEndpointAccessVpcEndpointNetworkInterfaceOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessVpcEndpointNetworkInterfaceArgs) ToEndpointAccessVpcEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointNetworkInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcEndpointNetworkInterfaceOutput)
+}
+
+// EndpointAccessVpcEndpointNetworkInterfaceArrayInput is an input type that accepts EndpointAccessVpcEndpointNetworkInterfaceArray and EndpointAccessVpcEndpointNetworkInterfaceArrayOutput values.
+// You can construct a concrete instance of `EndpointAccessVpcEndpointNetworkInterfaceArrayInput` via:
+//
+//          EndpointAccessVpcEndpointNetworkInterfaceArray{ EndpointAccessVpcEndpointNetworkInterfaceArgs{...} }
+type EndpointAccessVpcEndpointNetworkInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutput() EndpointAccessVpcEndpointNetworkInterfaceArrayOutput
+	ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutputWithContext(context.Context) EndpointAccessVpcEndpointNetworkInterfaceArrayOutput
+}
+
+type EndpointAccessVpcEndpointNetworkInterfaceArray []EndpointAccessVpcEndpointNetworkInterfaceInput
+
+func (EndpointAccessVpcEndpointNetworkInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAccessVpcEndpointNetworkInterface)(nil)).Elem()
+}
+
+func (i EndpointAccessVpcEndpointNetworkInterfaceArray) ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutput() EndpointAccessVpcEndpointNetworkInterfaceArrayOutput {
+	return i.ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointAccessVpcEndpointNetworkInterfaceArray) ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointNetworkInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointAccessVpcEndpointNetworkInterfaceArrayOutput)
+}
+
+type EndpointAccessVpcEndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessVpcEndpointNetworkInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointAccessVpcEndpointNetworkInterface)(nil)).Elem()
+}
+
+func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) ToEndpointAccessVpcEndpointNetworkInterfaceOutput() EndpointAccessVpcEndpointNetworkInterfaceOutput {
+	return o
+}
+
+func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) ToEndpointAccessVpcEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointNetworkInterfaceOutput {
+	return o
+}
+
+// The Availability Zone.
+func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The network interface identifier.
+func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.NetworkInterfaceId }).(pulumi.StringPtrOutput)
+}
+
+// The IPv4 address of the network interface within the subnet.
+func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) PrivateIpAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.PrivateIpAddress }).(pulumi.StringPtrOutput)
+}
+
+// The subnet identifier.
+func (o EndpointAccessVpcEndpointNetworkInterfaceOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointAccessVpcEndpointNetworkInterface) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type EndpointAccessVpcEndpointNetworkInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointAccessVpcEndpointNetworkInterface)(nil)).Elem()
+}
+
+func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutput() EndpointAccessVpcEndpointNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) ToEndpointAccessVpcEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointAccessVpcEndpointNetworkInterfaceArrayOutput {
+	return o
+}
+
+func (o EndpointAccessVpcEndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointAccessVpcEndpointNetworkInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointAccessVpcEndpointNetworkInterface {
+		return vs[0].([]EndpointAccessVpcEndpointNetworkInterface)[vs[1].(int)]
+	}).(EndpointAccessVpcEndpointNetworkInterfaceOutput)
 }
 
 type ParameterGroupParameter struct {
@@ -1365,6 +1644,121 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 	}).(SecurityGroupIngressOutput)
 }
 
+type GetClusterClusterNode struct {
+	// Whether the node is a leader node or a compute node
+	NodeRole string `pulumi:"nodeRole"`
+	// The private IP address of a node within a cluster
+	PrivateIpAddress string `pulumi:"privateIpAddress"`
+	// The public IP address of a node within a cluster
+	PublicIpAddress string `pulumi:"publicIpAddress"`
+}
+
+// GetClusterClusterNodeInput is an input type that accepts GetClusterClusterNodeArgs and GetClusterClusterNodeOutput values.
+// You can construct a concrete instance of `GetClusterClusterNodeInput` via:
+//
+//          GetClusterClusterNodeArgs{...}
+type GetClusterClusterNodeInput interface {
+	pulumi.Input
+
+	ToGetClusterClusterNodeOutput() GetClusterClusterNodeOutput
+	ToGetClusterClusterNodeOutputWithContext(context.Context) GetClusterClusterNodeOutput
+}
+
+type GetClusterClusterNodeArgs struct {
+	// Whether the node is a leader node or a compute node
+	NodeRole pulumi.StringInput `pulumi:"nodeRole"`
+	// The private IP address of a node within a cluster
+	PrivateIpAddress pulumi.StringInput `pulumi:"privateIpAddress"`
+	// The public IP address of a node within a cluster
+	PublicIpAddress pulumi.StringInput `pulumi:"publicIpAddress"`
+}
+
+func (GetClusterClusterNodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterClusterNode)(nil)).Elem()
+}
+
+func (i GetClusterClusterNodeArgs) ToGetClusterClusterNodeOutput() GetClusterClusterNodeOutput {
+	return i.ToGetClusterClusterNodeOutputWithContext(context.Background())
+}
+
+func (i GetClusterClusterNodeArgs) ToGetClusterClusterNodeOutputWithContext(ctx context.Context) GetClusterClusterNodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterClusterNodeOutput)
+}
+
+// GetClusterClusterNodeArrayInput is an input type that accepts GetClusterClusterNodeArray and GetClusterClusterNodeArrayOutput values.
+// You can construct a concrete instance of `GetClusterClusterNodeArrayInput` via:
+//
+//          GetClusterClusterNodeArray{ GetClusterClusterNodeArgs{...} }
+type GetClusterClusterNodeArrayInput interface {
+	pulumi.Input
+
+	ToGetClusterClusterNodeArrayOutput() GetClusterClusterNodeArrayOutput
+	ToGetClusterClusterNodeArrayOutputWithContext(context.Context) GetClusterClusterNodeArrayOutput
+}
+
+type GetClusterClusterNodeArray []GetClusterClusterNodeInput
+
+func (GetClusterClusterNodeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterClusterNode)(nil)).Elem()
+}
+
+func (i GetClusterClusterNodeArray) ToGetClusterClusterNodeArrayOutput() GetClusterClusterNodeArrayOutput {
+	return i.ToGetClusterClusterNodeArrayOutputWithContext(context.Background())
+}
+
+func (i GetClusterClusterNodeArray) ToGetClusterClusterNodeArrayOutputWithContext(ctx context.Context) GetClusterClusterNodeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetClusterClusterNodeArrayOutput)
+}
+
+type GetClusterClusterNodeOutput struct{ *pulumi.OutputState }
+
+func (GetClusterClusterNodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClusterClusterNode)(nil)).Elem()
+}
+
+func (o GetClusterClusterNodeOutput) ToGetClusterClusterNodeOutput() GetClusterClusterNodeOutput {
+	return o
+}
+
+func (o GetClusterClusterNodeOutput) ToGetClusterClusterNodeOutputWithContext(ctx context.Context) GetClusterClusterNodeOutput {
+	return o
+}
+
+// Whether the node is a leader node or a compute node
+func (o GetClusterClusterNodeOutput) NodeRole() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterClusterNode) string { return v.NodeRole }).(pulumi.StringOutput)
+}
+
+// The private IP address of a node within a cluster
+func (o GetClusterClusterNodeOutput) PrivateIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterClusterNode) string { return v.PrivateIpAddress }).(pulumi.StringOutput)
+}
+
+// The public IP address of a node within a cluster
+func (o GetClusterClusterNodeOutput) PublicIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClusterClusterNode) string { return v.PublicIpAddress }).(pulumi.StringOutput)
+}
+
+type GetClusterClusterNodeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetClusterClusterNodeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetClusterClusterNode)(nil)).Elem()
+}
+
+func (o GetClusterClusterNodeArrayOutput) ToGetClusterClusterNodeArrayOutput() GetClusterClusterNodeArrayOutput {
+	return o
+}
+
+func (o GetClusterClusterNodeArrayOutput) ToGetClusterClusterNodeArrayOutputWithContext(ctx context.Context) GetClusterClusterNodeArrayOutput {
+	return o
+}
+
+func (o GetClusterClusterNodeArrayOutput) Index(i pulumi.IntInput) GetClusterClusterNodeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetClusterClusterNode {
+		return vs[0].([]GetClusterClusterNode)[vs[1].(int)]
+	}).(GetClusterClusterNodeOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterNodeInput)(nil)).Elem(), ClusterClusterNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterNodeArrayInput)(nil)).Elem(), ClusterClusterNodeArray{})
@@ -1372,6 +1766,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterLoggingPtrInput)(nil)).Elem(), ClusterLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSnapshotCopyInput)(nil)).Elem(), ClusterSnapshotCopyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSnapshotCopyPtrInput)(nil)).Elem(), ClusterSnapshotCopyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointInput)(nil)).Elem(), EndpointAccessVpcEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointArrayInput)(nil)).Elem(), EndpointAccessVpcEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointNetworkInterfaceInput)(nil)).Elem(), EndpointAccessVpcEndpointNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAccessVpcEndpointNetworkInterfaceArrayInput)(nil)).Elem(), EndpointAccessVpcEndpointNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTargetActionInput)(nil)).Elem(), ScheduledActionTargetActionArgs{})
@@ -1384,12 +1782,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionTargetActionResumeClusterPtrInput)(nil)).Elem(), ScheduledActionTargetActionResumeClusterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterNodeInput)(nil)).Elem(), GetClusterClusterNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterNodeArrayInput)(nil)).Elem(), GetClusterClusterNodeArray{})
 	pulumi.RegisterOutputType(ClusterClusterNodeOutput{})
 	pulumi.RegisterOutputType(ClusterClusterNodeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingOutput{})
 	pulumi.RegisterOutputType(ClusterLoggingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSnapshotCopyOutput{})
 	pulumi.RegisterOutputType(ClusterSnapshotCopyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointAccessVpcEndpointOutput{})
+	pulumi.RegisterOutputType(EndpointAccessVpcEndpointArrayOutput{})
+	pulumi.RegisterOutputType(EndpointAccessVpcEndpointNetworkInterfaceOutput{})
+	pulumi.RegisterOutputType(EndpointAccessVpcEndpointNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ScheduledActionTargetActionOutput{})
@@ -1402,4 +1806,6 @@ func init() {
 	pulumi.RegisterOutputType(ScheduledActionTargetActionResumeClusterPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
+	pulumi.RegisterOutputType(GetClusterClusterNodeOutput{})
+	pulumi.RegisterOutputType(GetClusterClusterNodeArrayOutput{})
 }

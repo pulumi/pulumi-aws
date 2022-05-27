@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./getHostedZoneId";
 export * from "./getListener";
 export * from "./getLoadBalancer";
 export * from "./getTargetGroup";
