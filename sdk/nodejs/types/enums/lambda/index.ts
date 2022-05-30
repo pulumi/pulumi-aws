@@ -15,6 +15,7 @@ export const Runtime = {
     NodeJS10dX: "nodejs10.x",
     NodeJS12dX: "nodejs12.x",
     NodeJS14dX: "nodejs14.x",
+    NodeJS16dX: "nodejs16.x",
     Python2d7: "python2.7",
     Python3d6: "python3.6",
     Python3d7: "python3.7",
