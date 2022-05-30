@@ -1,0 +1,3 @@
+name: bucket
+runtime: nodejs
+description: A simple example of using the `Bucket` APIs.
