@@ -18,7 +18,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"log"
 	"os"
@@ -49,9 +48,7 @@ func main() {
 		log.Fatalf("cannot reserialize schema: %v", err)
 	}
 
-	err = ioutil.WriteFile("./schema.go", []byte(fmt.Sprintf(`package main
-var pulumiSchema = %#v
-`, versionedContents)), 0600)
+	err = ioutil.WriteFile("./schema-embed.json", versionedContents, 0600)
 	if err != nil {
 		log.Fatal(err)
 	}
