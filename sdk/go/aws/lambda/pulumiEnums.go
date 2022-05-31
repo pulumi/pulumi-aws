@@ -14,6 +14,7 @@ import (
 type Runtime string
 
 const (
+	// Deprecated: This runtime is now deprecated
 	RuntimeDotnetCore2d1 = Runtime("dotnetcore2.1")
 	RuntimeDotnetCore3d1 = Runtime("dotnetcore3.1")
 	RuntimeDotnet6       = Runtime("dotnet6")
@@ -21,17 +22,22 @@ const (
 	RuntimeJava8         = Runtime("java8")
 	RuntimeJava8AL2      = Runtime("java8.al2")
 	RuntimeJava11        = Runtime("java11")
-	RuntimeRuby2d5       = Runtime("ruby2.5")
-	RuntimeRuby2d7       = Runtime("ruby2.7")
-	RuntimeNodeJS10dX    = Runtime("nodejs10.x")
-	RuntimeNodeJS12dX    = Runtime("nodejs12.x")
-	RuntimeNodeJS14dX    = Runtime("nodejs14.x")
-	RuntimePython2d7     = Runtime("python2.7")
-	RuntimePython3d6     = Runtime("python3.6")
-	RuntimePython3d7     = Runtime("python3.7")
-	RuntimePython3d8     = Runtime("python3.8")
-	RuntimeCustom        = Runtime("provided")
-	RuntimeCustomAL2     = Runtime("provided.al2")
+	// Deprecated: This runtime is now deprecated
+	RuntimeRuby2d5 = Runtime("ruby2.5")
+	RuntimeRuby2d7 = Runtime("ruby2.7")
+	// Deprecated: This runtime is now deprecated
+	RuntimeNodeJS10dX = Runtime("nodejs10.x")
+	RuntimeNodeJS12dX = Runtime("nodejs12.x")
+	RuntimeNodeJS14dX = Runtime("nodejs14.x")
+	RuntimeNodeJS16dX = Runtime("nodejs16.x")
+	// Deprecated: This runtime is now deprecated
+	RuntimePython2d7 = Runtime("python2.7")
+	RuntimePython3d6 = Runtime("python3.6")
+	RuntimePython3d7 = Runtime("python3.7")
+	RuntimePython3d8 = Runtime("python3.8")
+	RuntimePython3d9 = Runtime("python3.9")
+	RuntimeCustom    = Runtime("provided")
+	RuntimeCustomAL2 = Runtime("provided.al2")
 )
 
 func (Runtime) ElementType() reflect.Type {
