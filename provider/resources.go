@@ -15,7 +15,7 @@
 package provider
 
 import (
-	"errors"
+	"context"
 	"fmt"
 	"math/rand"
 	"os"
@@ -23,7 +23,7 @@ import (
 	"strings"
 	"unicode"
 
-	awsbase "github.com/hashicorp/aws-sdk-go-base"
+	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
@@ -271,12 +271,18 @@ func stringRef(s string) *string {
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
+	region := stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"})
+	if region == "" {
+		return fmt.Errorf("unable to find AWS Region for current deployment " +
+			"- see https://pulumi.io/install/aws.html for details on configuration")
+	}
+
 	config := &awsbase.Config{
 		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
 		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
 		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
 		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
-		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
+		Region:    region,
 	}
 
 	sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
@@ -284,10 +290,10 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	if err != nil {
 		return err
 	}
-	config.CredsFilename = credsPath
+	config.SharedCredentialsFiles = []string{credsPath}
 
-	if _, err := awsbase.GetCredentials(config); err != nil {
-		return errors.New("unable to discover AWS AccessKeyID and/or SecretAccessKey " +
+	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
+		return fmt.Errorf("unable to validate AWS AccessKeyID and/or SecretAccessKey " +
 			"- see https://pulumi.io/install/aws.html for details on configuration")
 	}
 
@@ -330,7 +336,15 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"skip_credentials_validation": {
 				Default: &tfbridge.DefaultInfo{
-					Value: true,
+					// This is required to now be false! When this is true, we defer
+					// the AWS credentials validation check to happen at resource
+					// creation time. Although it may be a little slower validating
+					// this upfront, we genuinely need to do this to ensure a good
+					// user experience. If we don't validate upfront, then we can
+					// be in a situation where a user can be waiting for a resource
+					// creation timeout (default up to 30mins) to find out that they
+					// have not got valid credentials
+					Value: false,
 				},
 			},
 			"skip_metadata_api_check": {

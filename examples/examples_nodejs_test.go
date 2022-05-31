@@ -1,4 +1,5 @@
 // Copyright 2016-2017, Pulumi Corporation.  All rights reserved.
+//go:build nodejs || all
 // +build nodejs all
 
 package examples
@@ -24,6 +25,23 @@ func TestAccDedicatedHosts(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 */
+
+// This is a specific test to ensure that we are testing for a missing region and erroring
+func TestAccCredentialsConfigTest(t *testing.T) {
+	base := getBaseOptions()
+	baseJS := base.With(integration.ProgramTestOptions{
+		Config: map[string]string{
+			"aws:region": "INVALID_REGION",
+		},
+		Dependencies: []string{
+			"@pulumi/aws",
+		},
+		Dir:           filepath.Join(getCwd(t), "credentialsConfigTest"),
+		ExpectFailure: true,
+	})
+
+	integration.ProgramTest(t, &baseJS)
+}
 
 func TestAccMinimal(t *testing.T) {
 	test := getJSBaseOptions(t).

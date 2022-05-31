@@ -327,7 +327,7 @@ namespace Pulumi.Aws
         public ProviderArgs()
         {
             Region = Utilities.GetEnv("AWS_REGION", "AWS_DEFAULT_REGION");
-            SkipCredentialsValidation = true;
+            SkipCredentialsValidation = false;
             SkipGetEc2Platforms = true;
             SkipMetadataApiCheck = true;
             SkipRegionValidation = true;
