@@ -3,6 +3,9 @@
 
 
 export const Runtime = {
+    /**
+     * @deprecated This runtime is now deprecated
+     */
     DotnetCore2d1: "dotnetcore2.1",
     DotnetCore3d1: "dotnetcore3.1",
     Dotnet6: "dotnet6",
@@ -10,16 +13,26 @@ export const Runtime = {
     Java8: "java8",
     Java8AL2: "java8.al2",
     Java11: "java11",
+    /**
+     * @deprecated This runtime is now deprecated
+     */
     Ruby2d5: "ruby2.5",
     Ruby2d7: "ruby2.7",
+    /**
+     * @deprecated This runtime is now deprecated
+     */
     NodeJS10dX: "nodejs10.x",
     NodeJS12dX: "nodejs12.x",
     NodeJS14dX: "nodejs14.x",
     NodeJS16dX: "nodejs16.x",
+    /**
+     * @deprecated This runtime is now deprecated
+     */
     Python2d7: "python2.7",
     Python3d6: "python3.6",
     Python3d7: "python3.7",
     Python3d8: "python3.8",
+    Python3d9: "python3.9",
     Custom: "provided",
     CustomAL2: "provided.al2",
 } as const;
