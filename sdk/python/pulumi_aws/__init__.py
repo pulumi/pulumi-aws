@@ -275,6 +275,8 @@ if typing.TYPE_CHECKING:
     rds = __rds
     import pulumi_aws.redshift as __redshift
     redshift = __redshift
+    import pulumi_aws.redshiftdata as __redshiftdata
+    redshiftdata = __redshiftdata
     import pulumi_aws.resourcegroups as __resourcegroups
     resourcegroups = __resourcegroups
     import pulumi_aws.resourcegroupstaggingapi as __resourcegroupstaggingapi
@@ -473,6 +475,7 @@ else:
     ram = _utilities.lazy_import('pulumi_aws.ram')
     rds = _utilities.lazy_import('pulumi_aws.rds')
     redshift = _utilities.lazy_import('pulumi_aws.redshift')
+    redshiftdata = _utilities.lazy_import('pulumi_aws.redshiftdata')
     resourcegroups = _utilities.lazy_import('pulumi_aws.resourcegroups')
     resourcegroupstaggingapi = _utilities.lazy_import('pulumi_aws.resourcegroupstaggingapi')
     route53 = _utilities.lazy_import('pulumi_aws.route53')
@@ -568,6 +571,14 @@ _utilities.register(
   "fqn": "pulumi_aws.acmpca",
   "classes": {
    "aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate": "CertificateAuthorityCertificate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "acmpca/policy",
+  "fqn": "pulumi_aws.acmpca",
+  "classes": {
+   "aws:acmpca/policy:Policy": "Policy"
   }
  },
  {
@@ -6700,6 +6711,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "redshift/clusterIamRoles",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/clusterIamRoles:ClusterIamRoles": "ClusterIamRoles"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "redshift/endpointAccess",
   "fqn": "pulumi_aws.redshift",
   "classes": {
@@ -6720,6 +6739,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/hsmClientCertificate:HsmClientCertificate": "HsmClientCertificate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/hsmConfiguration",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/hsmConfiguration:HsmConfiguration": "HsmConfiguration"
   }
  },
  {
@@ -6784,6 +6811,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/usageLimit:UsageLimit": "UsageLimit"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshiftdata/statement",
+  "fqn": "pulumi_aws.redshiftdata",
+  "classes": {
+   "aws:redshiftdata/statement:Statement": "Statement"
   }
  },
  {

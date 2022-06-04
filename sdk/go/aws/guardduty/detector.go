@@ -28,6 +28,11 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := guardduty.NewDetector(ctx, "myDetector", &guardduty.DetectorArgs{
 // 			Datasources: &guardduty.DetectorDatasourcesArgs{
+// 				Kubernetes: &guardduty.DetectorDatasourcesKubernetesArgs{
+// 					AuditLogs: &guardduty.DetectorDatasourcesKubernetesAuditLogsArgs{
+// 						Enable: pulumi.Bool(false),
+// 					},
+// 				},
 // 				S3Logs: &guardduty.DetectorDatasourcesS3LogsArgs{
 // 					Enable: pulumi.Bool(true),
 // 				},
@@ -58,7 +63,8 @@ type Detector struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
 	Datasources DetectorDatasourcesOutput `pulumi:"datasources"`
-	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable pulumi.BoolPtrOutput `pulumi:"enable"`
 	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
 	FindingPublishingFrequency pulumi.StringOutput `pulumi:"findingPublishingFrequency"`
@@ -103,7 +109,8 @@ type detectorState struct {
 	Arn *string `pulumi:"arn"`
 	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
 	Datasources *DetectorDatasources `pulumi:"datasources"`
-	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable *bool `pulumi:"enable"`
 	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
@@ -120,7 +127,8 @@ type DetectorState struct {
 	Arn pulumi.StringPtrInput
 	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
 	Datasources DetectorDatasourcesPtrInput
-	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable pulumi.BoolPtrInput
 	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
 	FindingPublishingFrequency pulumi.StringPtrInput
@@ -137,7 +145,8 @@ func (DetectorState) ElementType() reflect.Type {
 type detectorArgs struct {
 	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
 	Datasources *DetectorDatasources `pulumi:"datasources"`
-	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable *bool `pulumi:"enable"`
 	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
 	FindingPublishingFrequency *string `pulumi:"findingPublishingFrequency"`
@@ -149,7 +158,8 @@ type detectorArgs struct {
 type DetectorArgs struct {
 	// Describes which data sources will be enabled for the detector. See Data Sources below for more details.
 	Datasources DetectorDatasourcesPtrInput
-	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable pulumi.BoolPtrInput
 	// Specifies the frequency of notifications sent for subsequent finding occurrences. If the detector is a GuardDuty member account, the value is determined by the GuardDuty primary account and cannot be modified, otherwise defaults to `SIX_HOURS`. For standalone and GuardDuty primary accounts, it must be configured in this provider to enable drift detection. Valid values for standalone and primary accounts: `FIFTEEN_MINUTES`, `ONE_HOUR`, `SIX_HOURS`. See [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_findings_cloudwatch.html#guardduty_findings_cloudwatch_notification_frequency) for more information.
 	FindingPublishingFrequency pulumi.StringPtrInput
@@ -259,7 +269,8 @@ func (o DetectorOutput) Datasources() DetectorDatasourcesOutput {
 	return o.ApplyT(func(v *Detector) DetectorDatasourcesOutput { return v.Datasources }).(DetectorDatasourcesOutput)
 }
 
-// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// Defaults to `true`.
 func (o DetectorOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Detector) pulumi.BoolPtrOutput { return v.Enable }).(pulumi.BoolPtrOutput)
 }

@@ -63,6 +63,7 @@ func TestAccExpress(t *testing.T) {
 }
 
 func TestAccBucketWithS3State(t *testing.T) {
+	t.Skip("STACK72: temporary skipping the test while we work out the reason why the times are crazy")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			Dir:           filepath.Join(getCwd(t), "bucket"),

@@ -156,6 +156,7 @@ import * as quicksight from "./quicksight";
 import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
+import * as redshiftdata from "./redshiftdata";
 import * as resourcegroups from "./resourcegroups";
 import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
 import * as route53 from "./route53";
@@ -320,6 +321,7 @@ export {
     ram,
     rds,
     redshift,
+    redshiftdata,
     resourcegroups,
     resourcegroupstaggingapi,
     route53,

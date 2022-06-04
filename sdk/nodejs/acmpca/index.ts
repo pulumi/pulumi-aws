@@ -10,11 +10,13 @@ export * from "./certificateAuthority";
 export * from "./certificateAuthorityCertificate";
 export * from "./getCertificate";
 export * from "./getCertificateAuthority";
+export * from "./policy";
 
 // Import resources to register:
 import { Certificate } from "./certificate";
 import { CertificateAuthority } from "./certificateAuthority";
 import { CertificateAuthorityCertificate } from "./certificateAuthorityCertificate";
+import { Policy } from "./policy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -26,6 +28,8 @@ const _module = {
                 return new CertificateAuthority(name, <any>undefined, { urn })
             case "aws:acmpca/certificateAuthorityCertificate:CertificateAuthorityCertificate":
                 return new CertificateAuthorityCertificate(name, <any>undefined, { urn })
+            case "aws:acmpca/policy:Policy":
+                return new Policy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -34,3 +38,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "acmpca/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "acmpca/certificateAuthority", _module)
 pulumi.runtime.registerResourceModule("aws", "acmpca/certificateAuthorityCertificate", _module)
+pulumi.runtime.registerResourceModule("aws", "acmpca/policy", _module)

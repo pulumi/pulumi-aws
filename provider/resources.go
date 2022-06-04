@@ -161,6 +161,7 @@ const (
 	ramMod                      = "Ram"                      // Resource Access Manager
 	rdsMod                      = "Rds"                      // Relational Database Service (RDS)
 	redshiftMod                 = "RedShift"                 // RedShift
+	redshiftDataMod             = "RedshiftData"             // RedshiftData
 	resourcegroupsMod           = "ResourceGroups"           // Resource Groups
 	resourcegroupsTaggingApiMod = "ResourceGroupsTaggingApi" // Resource Groups Tagging Api
 	route53Mod                  = "Route53"                  // Route 53 (DNS)
@@ -371,6 +372,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			"aws_acmpca_certificate_authority_certificate": {
 				Tok: awsResource(acmpcaMod, "CertificateAuthorityCertificate"),
+			},
+			"aws_acmpca_policy": {
+				Tok: awsResource(acmpcaMod, "Policy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						CSharpName: "PolicyDetails",
+					},
+				},
 			},
 			// Account
 			"aws_account_alternate_contact": {Tok: awsResource(accountMod, "AlternativeContact")},
@@ -2384,6 +2393,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_redshift_endpoint_access":               {Tok: awsResource(redshiftMod, "EndpointAccess")},
 			"aws_redshift_hsm_client_certificate":        {Tok: awsResource(redshiftMod, "HsmClientCertificate")},
 			"aws_redshift_usage_limit":                   {Tok: awsResource(redshiftMod, "UsageLimit")},
+			"aws_redshift_cluster_iam_roles":             {Tok: awsResource(redshiftMod, "ClusterIamRoles")},
+			"aws_redshift_hsm_configuration":             {Tok: awsResource(redshiftMod, "HsmConfiguration")},
+			// RedshiftData
+			"aws_redshiftdata_statement": {Tok: awsResource(redshiftDataMod, "Statement")},
 			// Resource Groups
 			"aws_resourcegroups_group": {Tok: awsResource(resourcegroupsMod, "Group")},
 			// Route53
@@ -4706,10 +4719,11 @@ func Provider() tfbridge.ProviderInfo {
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift
-			"aws_redshift_cluster":           {Tok: awsDataSource(redshiftMod, "getCluster")},
-			"aws_redshift_service_account":   {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
-			"aws_redshift_orderable_cluster": {Tok: awsDataSource(redshiftMod, "getOrderableCluster")},
-			"aws_redshift_subnet_group":      {Tok: awsDataSource(redshiftMod, "getSubnetGroup")},
+			"aws_redshift_cluster":             {Tok: awsDataSource(redshiftMod, "getCluster")},
+			"aws_redshift_service_account":     {Tok: awsDataSource(redshiftMod, "getServiceAccount")},
+			"aws_redshift_orderable_cluster":   {Tok: awsDataSource(redshiftMod, "getOrderableCluster")},
+			"aws_redshift_subnet_group":        {Tok: awsDataSource(redshiftMod, "getSubnetGroup")},
+			"aws_redshift_cluster_credentials": {Tok: awsDataSource(redshiftMod, "getClusterCredentials")},
 			// Route53
 			"aws_route53_zone":                    {Tok: awsDataSource(route53Mod, "getZone")},
 			"aws_route53_delegation_set":          {Tok: awsDataSource(route53Mod, "getDelegationSet")},

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// The Throughput of the volume.
         /// </summary>
-        public readonly bool Throughput;
+        public readonly int Throughput;
         /// <summary>
         /// The Size of the volume.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int iops,
 
-            bool throughput,
+            int throughput,
 
             int volumeSize,
 

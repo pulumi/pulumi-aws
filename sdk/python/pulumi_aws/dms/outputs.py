@@ -13,6 +13,7 @@ __all__ = [
     'EndpointKafkaSettings',
     'EndpointKinesisSettings',
     'EndpointMongodbSettings',
+    'EndpointRedshiftSettings',
     'EndpointS3Settings',
 ]
 
@@ -613,6 +614,98 @@ class EndpointMongodbSettings(dict):
         Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
         """
         return pulumi.get(self, "nesting_level")
+
+
+@pulumi.output_type
+class EndpointRedshiftSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketFolder":
+            suggest = "bucket_folder"
+        elif key == "bucketName":
+            suggest = "bucket_name"
+        elif key == "encryptionMode":
+            suggest = "encryption_mode"
+        elif key == "serverSideEncryptionKmsKeyId":
+            suggest = "server_side_encryption_kms_key_id"
+        elif key == "serviceAccessRoleArn":
+            suggest = "service_access_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointRedshiftSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointRedshiftSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointRedshiftSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_folder: Optional[str] = None,
+                 bucket_name: Optional[str] = None,
+                 encryption_mode: Optional[str] = None,
+                 server_side_encryption_kms_key_id: Optional[str] = None,
+                 service_access_role_arn: Optional[str] = None):
+        """
+        :param str bucket_folder: S3 object prefix.
+        :param str bucket_name: S3 bucket name.
+        :param str encryption_mode: Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+        :param str server_side_encryption_kms_key_id: If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+        :param str service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        """
+        if bucket_folder is not None:
+            pulumi.set(__self__, "bucket_folder", bucket_folder)
+        if bucket_name is not None:
+            pulumi.set(__self__, "bucket_name", bucket_name)
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if server_side_encryption_kms_key_id is not None:
+            pulumi.set(__self__, "server_side_encryption_kms_key_id", server_side_encryption_kms_key_id)
+        if service_access_role_arn is not None:
+            pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
+
+    @property
+    @pulumi.getter(name="bucketFolder")
+    def bucket_folder(self) -> Optional[str]:
+        """
+        S3 object prefix.
+        """
+        return pulumi.get(self, "bucket_folder")
+
+    @property
+    @pulumi.getter(name="bucketName")
+    def bucket_name(self) -> Optional[str]:
+        """
+        S3 bucket name.
+        """
+        return pulumi.get(self, "bucket_name")
+
+    @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> Optional[str]:
+        """
+        Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+        """
+        return pulumi.get(self, "encryption_mode")
+
+    @property
+    @pulumi.getter(name="serverSideEncryptionKmsKeyId")
+    def server_side_encryption_kms_key_id(self) -> Optional[str]:
+        """
+        If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+        """
+        return pulumi.get(self, "server_side_encryption_kms_key_id")
+
+    @property
+    @pulumi.getter(name="serviceAccessRoleArn")
+    def service_access_role_arn(self) -> Optional[str]:
+        """
+        ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+        """
+        return pulumi.get(self, "service_access_role_arn")
 
 
 @pulumi.output_type

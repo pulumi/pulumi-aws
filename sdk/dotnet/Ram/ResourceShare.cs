@@ -65,7 +65,13 @@ namespace Pulumi.Aws.Ram
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource share. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        /// </summary>
+        [Output("permissionArns")]
+        public Output<ImmutableArray<string>> PermissionArns { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -134,11 +140,23 @@ namespace Pulumi.Aws.Ram
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("permissionArns")]
+        private InputList<string>? _permissionArns;
+
+        /// <summary>
+        /// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        /// </summary>
+        public InputList<string> PermissionArns
+        {
+            get => _permissionArns ?? (_permissionArns = new InputList<string>());
+            set => _permissionArns = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource share. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -171,11 +189,23 @@ namespace Pulumi.Aws.Ram
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("permissionArns")]
+        private InputList<string>? _permissionArns;
+
+        /// <summary>
+        /// Specifies the Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+        /// </summary>
+        public InputList<string> PermissionArns
+        {
+            get => _permissionArns ?? (_permissionArns = new InputList<string>());
+            set => _permissionArns = value;
+        }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource share. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource share. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

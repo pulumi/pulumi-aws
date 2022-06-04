@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> EndpointType { get; private set; } = null!;
 
         /// <summary>
-        /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         /// </summary>
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
@@ -143,6 +143,12 @@ namespace Pulumi.Aws.Dms
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for Redshift settings. See below.
+        /// </summary>
+        [Output("redshiftSettings")]
+        public Output<Outputs.EndpointRedshiftSettings> RedshiftSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for S3 settings. See below.
         /// </summary>
         [Output("s3Settings")]
@@ -155,7 +161,7 @@ namespace Pulumi.Aws.Dms
         public Output<string?> SecretsManagerAccessRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         /// </summary>
         [Output("secretsManagerArn")]
         public Output<string?> SecretsManagerArn { get; private set; } = null!;
@@ -273,7 +279,7 @@ namespace Pulumi.Aws.Dms
         public Input<string> EndpointType { get; set; } = null!;
 
         /// <summary>
-        /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         /// </summary>
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
@@ -321,6 +327,12 @@ namespace Pulumi.Aws.Dms
         public Input<int>? Port { get; set; }
 
         /// <summary>
+        /// Configuration block for Redshift settings. See below.
+        /// </summary>
+        [Input("redshiftSettings")]
+        public Input<Inputs.EndpointRedshiftSettingsArgs>? RedshiftSettings { get; set; }
+
+        /// <summary>
         /// Configuration block for S3 settings. See below.
         /// </summary>
         [Input("s3Settings")]
@@ -333,7 +345,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         /// </summary>
         [Input("secretsManagerArn")]
         public Input<string>? SecretsManagerArn { get; set; }
@@ -418,7 +430,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? EndpointType { get; set; }
 
         /// <summary>
-        /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        /// Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         /// </summary>
         [Input("engineName")]
         public Input<string>? EngineName { get; set; }
@@ -466,6 +478,12 @@ namespace Pulumi.Aws.Dms
         public Input<int>? Port { get; set; }
 
         /// <summary>
+        /// Configuration block for Redshift settings. See below.
+        /// </summary>
+        [Input("redshiftSettings")]
+        public Input<Inputs.EndpointRedshiftSettingsGetArgs>? RedshiftSettings { get; set; }
+
+        /// <summary>
         /// Configuration block for S3 settings. See below.
         /// </summary>
         [Input("s3Settings")]
@@ -478,7 +496,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? SecretsManagerAccessRoleArn { get; set; }
 
         /// <summary>
-        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        /// Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         /// </summary>
         [Input("secretsManagerArn")]
         public Input<string>? SecretsManagerArn { get; set; }

@@ -24186,7 +24186,7 @@ type GetLaunchConfigurationEbsBlockDevice struct {
 	// The Snapshot ID of the mount.
 	SnapshotId string `pulumi:"snapshotId"`
 	// The Throughput of the volume.
-	Throughput bool `pulumi:"throughput"`
+	Throughput int `pulumi:"throughput"`
 	// The Size of the volume.
 	VolumeSize int `pulumi:"volumeSize"`
 	// The Type of the volume.
@@ -24218,7 +24218,7 @@ type GetLaunchConfigurationEbsBlockDeviceArgs struct {
 	// The Snapshot ID of the mount.
 	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
 	// The Throughput of the volume.
-	Throughput pulumi.BoolInput `pulumi:"throughput"`
+	Throughput pulumi.IntInput `pulumi:"throughput"`
 	// The Size of the volume.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 	// The Type of the volume.
@@ -24307,8 +24307,8 @@ func (o GetLaunchConfigurationEbsBlockDeviceOutput) SnapshotId() pulumi.StringOu
 }
 
 // The Throughput of the volume.
-func (o GetLaunchConfigurationEbsBlockDeviceOutput) Throughput() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) bool { return v.Throughput }).(pulumi.BoolOutput)
+func (o GetLaunchConfigurationEbsBlockDeviceOutput) Throughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchConfigurationEbsBlockDevice) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
 // The Size of the volume.
@@ -24570,7 +24570,7 @@ type GetLaunchConfigurationRootBlockDevice struct {
 	// The provisioned IOPs of the volume.
 	Iops int `pulumi:"iops"`
 	// The Throughput of the volume.
-	Throughput bool `pulumi:"throughput"`
+	Throughput int `pulumi:"throughput"`
 	// The Size of the volume.
 	VolumeSize int `pulumi:"volumeSize"`
 	// The Type of the volume.
@@ -24596,7 +24596,7 @@ type GetLaunchConfigurationRootBlockDeviceArgs struct {
 	// The provisioned IOPs of the volume.
 	Iops pulumi.IntInput `pulumi:"iops"`
 	// The Throughput of the volume.
-	Throughput pulumi.BoolInput `pulumi:"throughput"`
+	Throughput pulumi.IntInput `pulumi:"throughput"`
 	// The Size of the volume.
 	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
 	// The Type of the volume.
@@ -24670,8 +24670,8 @@ func (o GetLaunchConfigurationRootBlockDeviceOutput) Iops() pulumi.IntOutput {
 }
 
 // The Throughput of the volume.
-func (o GetLaunchConfigurationRootBlockDeviceOutput) Throughput() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) bool { return v.Throughput }).(pulumi.BoolOutput)
+func (o GetLaunchConfigurationRootBlockDeviceOutput) Throughput() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchConfigurationRootBlockDevice) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
 // The Size of the volume.

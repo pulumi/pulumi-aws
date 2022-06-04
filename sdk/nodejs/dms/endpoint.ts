@@ -95,7 +95,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly endpointType!: pulumi.Output<string>;
     /**
-     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
      */
     public readonly engineName!: pulumi.Output<string>;
     /**
@@ -127,6 +127,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
+     * Configuration block for Redshift settings. See below.
+     */
+    public readonly redshiftSettings!: pulumi.Output<outputs.dms.EndpointRedshiftSettings>;
+    /**
      * Configuration block for S3 settings. See below.
      */
     public readonly s3Settings!: pulumi.Output<outputs.dms.EndpointS3Settings | undefined>;
@@ -135,7 +139,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly secretsManagerAccessRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
      */
     public readonly secretsManagerArn!: pulumi.Output<string | undefined>;
     /**
@@ -190,6 +194,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["mongodbSettings"] = state ? state.mongodbSettings : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["redshiftSettings"] = state ? state.redshiftSettings : undefined;
             resourceInputs["s3Settings"] = state ? state.s3Settings : undefined;
             resourceInputs["secretsManagerAccessRoleArn"] = state ? state.secretsManagerAccessRoleArn : undefined;
             resourceInputs["secretsManagerArn"] = state ? state.secretsManagerArn : undefined;
@@ -223,6 +228,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
             resourceInputs["password"] = args ? args.password : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["redshiftSettings"] = args ? args.redshiftSettings : undefined;
             resourceInputs["s3Settings"] = args ? args.s3Settings : undefined;
             resourceInputs["secretsManagerAccessRoleArn"] = args ? args.secretsManagerAccessRoleArn : undefined;
             resourceInputs["secretsManagerArn"] = args ? args.secretsManagerArn : undefined;
@@ -268,7 +274,7 @@ export interface EndpointState {
      */
     endpointType?: pulumi.Input<string>;
     /**
-     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
      */
     engineName?: pulumi.Input<string>;
     /**
@@ -300,6 +306,10 @@ export interface EndpointState {
      */
     port?: pulumi.Input<number>;
     /**
+     * Configuration block for Redshift settings. See below.
+     */
+    redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings>;
+    /**
      * Configuration block for S3 settings. See below.
      */
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
@@ -308,7 +318,7 @@ export interface EndpointState {
      */
     secretsManagerAccessRoleArn?: pulumi.Input<string>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
@@ -362,7 +372,7 @@ export interface EndpointArgs {
      */
     endpointType: pulumi.Input<string>;
     /**
-     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+     * Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
      */
     engineName: pulumi.Input<string>;
     /**
@@ -394,6 +404,10 @@ export interface EndpointArgs {
      */
     port?: pulumi.Input<number>;
     /**
+     * Configuration block for Redshift settings. See below.
+     */
+    redshiftSettings?: pulumi.Input<inputs.dms.EndpointRedshiftSettings>;
+    /**
      * Configuration block for S3 settings. See below.
      */
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
@@ -402,7 +416,7 @@ export interface EndpointArgs {
      */
     secretsManagerAccessRoleArn?: pulumi.Input<string>;
     /**
-     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     * Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
      */
     secretsManagerArn?: pulumi.Input<string>;
     /**
