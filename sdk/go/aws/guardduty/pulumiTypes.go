@@ -11,7 +11,11 @@ import (
 )
 
 type DetectorDatasources struct {
-	// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+	// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes and Kubernetes Audit Logs below for more details.
+	Kubernetes *DetectorDatasourcesKubernetes `pulumi:"kubernetes"`
+	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// See S3 Logs below for more details.
 	S3Logs *DetectorDatasourcesS3Logs `pulumi:"s3Logs"`
 }
 
@@ -27,7 +31,11 @@ type DetectorDatasourcesInput interface {
 }
 
 type DetectorDatasourcesArgs struct {
-	// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+	// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes and Kubernetes Audit Logs below for more details.
+	Kubernetes DetectorDatasourcesKubernetesPtrInput `pulumi:"kubernetes"`
+	// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// See S3 Logs below for more details.
 	S3Logs DetectorDatasourcesS3LogsPtrInput `pulumi:"s3Logs"`
 }
 
@@ -108,7 +116,14 @@ func (o DetectorDatasourcesOutput) ToDetectorDatasourcesPtrOutputWithContext(ctx
 	}).(DetectorDatasourcesPtrOutput)
 }
 
-// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes and Kubernetes Audit Logs below for more details.
+func (o DetectorDatasourcesOutput) Kubernetes() DetectorDatasourcesKubernetesPtrOutput {
+	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesKubernetes { return v.Kubernetes }).(DetectorDatasourcesKubernetesPtrOutput)
+}
+
+// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// See S3 Logs below for more details.
 func (o DetectorDatasourcesOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v DetectorDatasources) *DetectorDatasourcesS3Logs { return v.S3Logs }).(DetectorDatasourcesS3LogsPtrOutput)
 }
@@ -137,7 +152,19 @@ func (o DetectorDatasourcesPtrOutput) Elem() DetectorDatasourcesOutput {
 	}).(DetectorDatasourcesOutput)
 }
 
-// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes and Kubernetes Audit Logs below for more details.
+func (o DetectorDatasourcesPtrOutput) Kubernetes() DetectorDatasourcesKubernetesPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesKubernetes {
+		if v == nil {
+			return nil
+		}
+		return v.Kubernetes
+	}).(DetectorDatasourcesKubernetesPtrOutput)
+}
+
+// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// See S3 Logs below for more details.
 func (o DetectorDatasourcesPtrOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasources) *DetectorDatasourcesS3Logs {
 		if v == nil {
@@ -147,8 +174,291 @@ func (o DetectorDatasourcesPtrOutput) S3Logs() DetectorDatasourcesS3LogsPtrOutpu
 	}).(DetectorDatasourcesS3LogsPtrOutput)
 }
 
+type DetectorDatasourcesKubernetes struct {
+	// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes Audit Logs below for more details.
+	AuditLogs DetectorDatasourcesKubernetesAuditLogs `pulumi:"auditLogs"`
+}
+
+// DetectorDatasourcesKubernetesInput is an input type that accepts DetectorDatasourcesKubernetesArgs and DetectorDatasourcesKubernetesOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesKubernetesInput` via:
+//
+//          DetectorDatasourcesKubernetesArgs{...}
+type DetectorDatasourcesKubernetesInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesKubernetesOutput() DetectorDatasourcesKubernetesOutput
+	ToDetectorDatasourcesKubernetesOutputWithContext(context.Context) DetectorDatasourcesKubernetesOutput
+}
+
+type DetectorDatasourcesKubernetesArgs struct {
+	// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// See Kubernetes Audit Logs below for more details.
+	AuditLogs DetectorDatasourcesKubernetesAuditLogsInput `pulumi:"auditLogs"`
+}
+
+func (DetectorDatasourcesKubernetesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesKubernetes)(nil)).Elem()
+}
+
+func (i DetectorDatasourcesKubernetesArgs) ToDetectorDatasourcesKubernetesOutput() DetectorDatasourcesKubernetesOutput {
+	return i.ToDetectorDatasourcesKubernetesOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesKubernetesArgs) ToDetectorDatasourcesKubernetesOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesOutput)
+}
+
+func (i DetectorDatasourcesKubernetesArgs) ToDetectorDatasourcesKubernetesPtrOutput() DetectorDatasourcesKubernetesPtrOutput {
+	return i.ToDetectorDatasourcesKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesKubernetesArgs) ToDetectorDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesOutput).ToDetectorDatasourcesKubernetesPtrOutputWithContext(ctx)
+}
+
+// DetectorDatasourcesKubernetesPtrInput is an input type that accepts DetectorDatasourcesKubernetesArgs, DetectorDatasourcesKubernetesPtr and DetectorDatasourcesKubernetesPtrOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesKubernetesPtrInput` via:
+//
+//          DetectorDatasourcesKubernetesArgs{...}
+//
+//  or:
+//
+//          nil
+type DetectorDatasourcesKubernetesPtrInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesKubernetesPtrOutput() DetectorDatasourcesKubernetesPtrOutput
+	ToDetectorDatasourcesKubernetesPtrOutputWithContext(context.Context) DetectorDatasourcesKubernetesPtrOutput
+}
+
+type detectorDatasourcesKubernetesPtrType DetectorDatasourcesKubernetesArgs
+
+func DetectorDatasourcesKubernetesPtr(v *DetectorDatasourcesKubernetesArgs) DetectorDatasourcesKubernetesPtrInput {
+	return (*detectorDatasourcesKubernetesPtrType)(v)
+}
+
+func (*detectorDatasourcesKubernetesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesKubernetes)(nil)).Elem()
+}
+
+func (i *detectorDatasourcesKubernetesPtrType) ToDetectorDatasourcesKubernetesPtrOutput() DetectorDatasourcesKubernetesPtrOutput {
+	return i.ToDetectorDatasourcesKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorDatasourcesKubernetesPtrType) ToDetectorDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesPtrOutput)
+}
+
+type DetectorDatasourcesKubernetesOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesKubernetesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesKubernetes)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesKubernetesOutput) ToDetectorDatasourcesKubernetesOutput() DetectorDatasourcesKubernetesOutput {
+	return o
+}
+
+func (o DetectorDatasourcesKubernetesOutput) ToDetectorDatasourcesKubernetesOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesOutput {
+	return o
+}
+
+func (o DetectorDatasourcesKubernetesOutput) ToDetectorDatasourcesKubernetesPtrOutput() DetectorDatasourcesKubernetesPtrOutput {
+	return o.ToDetectorDatasourcesKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorDatasourcesKubernetesOutput) ToDetectorDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDatasourcesKubernetes) *DetectorDatasourcesKubernetes {
+		return &v
+	}).(DetectorDatasourcesKubernetesPtrOutput)
+}
+
+// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes Audit Logs below for more details.
+func (o DetectorDatasourcesKubernetesOutput) AuditLogs() DetectorDatasourcesKubernetesAuditLogsOutput {
+	return o.ApplyT(func(v DetectorDatasourcesKubernetes) DetectorDatasourcesKubernetesAuditLogs { return v.AuditLogs }).(DetectorDatasourcesKubernetesAuditLogsOutput)
+}
+
+type DetectorDatasourcesKubernetesPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesKubernetesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesKubernetes)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesKubernetesPtrOutput) ToDetectorDatasourcesKubernetesPtrOutput() DetectorDatasourcesKubernetesPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesKubernetesPtrOutput) ToDetectorDatasourcesKubernetesPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesKubernetesPtrOutput) Elem() DetectorDatasourcesKubernetesOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesKubernetes) DetectorDatasourcesKubernetes {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorDatasourcesKubernetes
+		return ret
+	}).(DetectorDatasourcesKubernetesOutput)
+}
+
+// Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// See Kubernetes Audit Logs below for more details.
+func (o DetectorDatasourcesKubernetesPtrOutput) AuditLogs() DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesKubernetes) *DetectorDatasourcesKubernetesAuditLogs {
+		if v == nil {
+			return nil
+		}
+		return &v.AuditLogs
+	}).(DetectorDatasourcesKubernetesAuditLogsPtrOutput)
+}
+
+type DetectorDatasourcesKubernetesAuditLogs struct {
+	// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// Defaults to `true`.
+	Enable bool `pulumi:"enable"`
+}
+
+// DetectorDatasourcesKubernetesAuditLogsInput is an input type that accepts DetectorDatasourcesKubernetesAuditLogsArgs and DetectorDatasourcesKubernetesAuditLogsOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesKubernetesAuditLogsInput` via:
+//
+//          DetectorDatasourcesKubernetesAuditLogsArgs{...}
+type DetectorDatasourcesKubernetesAuditLogsInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesKubernetesAuditLogsOutput() DetectorDatasourcesKubernetesAuditLogsOutput
+	ToDetectorDatasourcesKubernetesAuditLogsOutputWithContext(context.Context) DetectorDatasourcesKubernetesAuditLogsOutput
+}
+
+type DetectorDatasourcesKubernetesAuditLogsArgs struct {
+	// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+	// Defaults to `true`.
+	Enable pulumi.BoolInput `pulumi:"enable"`
+}
+
+func (DetectorDatasourcesKubernetesAuditLogsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesKubernetesAuditLogs)(nil)).Elem()
+}
+
+func (i DetectorDatasourcesKubernetesAuditLogsArgs) ToDetectorDatasourcesKubernetesAuditLogsOutput() DetectorDatasourcesKubernetesAuditLogsOutput {
+	return i.ToDetectorDatasourcesKubernetesAuditLogsOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesKubernetesAuditLogsArgs) ToDetectorDatasourcesKubernetesAuditLogsOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesAuditLogsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesAuditLogsOutput)
+}
+
+func (i DetectorDatasourcesKubernetesAuditLogsArgs) ToDetectorDatasourcesKubernetesAuditLogsPtrOutput() DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return i.ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Background())
+}
+
+func (i DetectorDatasourcesKubernetesAuditLogsArgs) ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesAuditLogsOutput).ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx)
+}
+
+// DetectorDatasourcesKubernetesAuditLogsPtrInput is an input type that accepts DetectorDatasourcesKubernetesAuditLogsArgs, DetectorDatasourcesKubernetesAuditLogsPtr and DetectorDatasourcesKubernetesAuditLogsPtrOutput values.
+// You can construct a concrete instance of `DetectorDatasourcesKubernetesAuditLogsPtrInput` via:
+//
+//          DetectorDatasourcesKubernetesAuditLogsArgs{...}
+//
+//  or:
+//
+//          nil
+type DetectorDatasourcesKubernetesAuditLogsPtrInput interface {
+	pulumi.Input
+
+	ToDetectorDatasourcesKubernetesAuditLogsPtrOutput() DetectorDatasourcesKubernetesAuditLogsPtrOutput
+	ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Context) DetectorDatasourcesKubernetesAuditLogsPtrOutput
+}
+
+type detectorDatasourcesKubernetesAuditLogsPtrType DetectorDatasourcesKubernetesAuditLogsArgs
+
+func DetectorDatasourcesKubernetesAuditLogsPtr(v *DetectorDatasourcesKubernetesAuditLogsArgs) DetectorDatasourcesKubernetesAuditLogsPtrInput {
+	return (*detectorDatasourcesKubernetesAuditLogsPtrType)(v)
+}
+
+func (*detectorDatasourcesKubernetesAuditLogsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesKubernetesAuditLogs)(nil)).Elem()
+}
+
+func (i *detectorDatasourcesKubernetesAuditLogsPtrType) ToDetectorDatasourcesKubernetesAuditLogsPtrOutput() DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return i.ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Background())
+}
+
+func (i *detectorDatasourcesKubernetesAuditLogsPtrType) ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DetectorDatasourcesKubernetesAuditLogsPtrOutput)
+}
+
+type DetectorDatasourcesKubernetesAuditLogsOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesKubernetesAuditLogsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DetectorDatasourcesKubernetesAuditLogs)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesKubernetesAuditLogsOutput) ToDetectorDatasourcesKubernetesAuditLogsOutput() DetectorDatasourcesKubernetesAuditLogsOutput {
+	return o
+}
+
+func (o DetectorDatasourcesKubernetesAuditLogsOutput) ToDetectorDatasourcesKubernetesAuditLogsOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesAuditLogsOutput {
+	return o
+}
+
+func (o DetectorDatasourcesKubernetesAuditLogsOutput) ToDetectorDatasourcesKubernetesAuditLogsPtrOutput() DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return o.ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(context.Background())
+}
+
+func (o DetectorDatasourcesKubernetesAuditLogsOutput) ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DetectorDatasourcesKubernetesAuditLogs) *DetectorDatasourcesKubernetesAuditLogs {
+		return &v
+	}).(DetectorDatasourcesKubernetesAuditLogsPtrOutput)
+}
+
+// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// Defaults to `true`.
+func (o DetectorDatasourcesKubernetesAuditLogsOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v DetectorDatasourcesKubernetesAuditLogs) bool { return v.Enable }).(pulumi.BoolOutput)
+}
+
+type DetectorDatasourcesKubernetesAuditLogsPtrOutput struct{ *pulumi.OutputState }
+
+func (DetectorDatasourcesKubernetesAuditLogsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DetectorDatasourcesKubernetesAuditLogs)(nil)).Elem()
+}
+
+func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) ToDetectorDatasourcesKubernetesAuditLogsPtrOutput() DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) ToDetectorDatasourcesKubernetesAuditLogsPtrOutputWithContext(ctx context.Context) DetectorDatasourcesKubernetesAuditLogsPtrOutput {
+	return o
+}
+
+func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) Elem() DetectorDatasourcesKubernetesAuditLogsOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesKubernetesAuditLogs) DetectorDatasourcesKubernetesAuditLogs {
+		if v != nil {
+			return *v
+		}
+		var ret DetectorDatasourcesKubernetesAuditLogs
+		return ret
+	}).(DetectorDatasourcesKubernetesAuditLogsOutput)
+}
+
+// If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+// Defaults to `true`.
+func (o DetectorDatasourcesKubernetesAuditLogsPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DetectorDatasourcesKubernetesAuditLogs) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
 type DetectorDatasourcesS3Logs struct {
-	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable bool `pulumi:"enable"`
 }
 
@@ -164,7 +474,8 @@ type DetectorDatasourcesS3LogsInput interface {
 }
 
 type DetectorDatasourcesS3LogsArgs struct {
-	// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+	// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+	// Defaults to `true`.
 	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
@@ -245,7 +556,8 @@ func (o DetectorDatasourcesS3LogsOutput) ToDetectorDatasourcesS3LogsPtrOutputWit
 	}).(DetectorDatasourcesS3LogsPtrOutput)
 }
 
-// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// Defaults to `true`.
 func (o DetectorDatasourcesS3LogsOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v DetectorDatasourcesS3Logs) bool { return v.Enable }).(pulumi.BoolOutput)
 }
@@ -274,7 +586,8 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Elem() DetectorDatasourcesS3LogsOutp
 	}).(DetectorDatasourcesS3LogsOutput)
 }
 
-// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+// Defaults to `true`.
 func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DetectorDatasourcesS3Logs) *bool {
 		if v == nil {
@@ -847,6 +1160,10 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesInput)(nil)).Elem(), DetectorDatasourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesPtrInput)(nil)).Elem(), DetectorDatasourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesKubernetesInput)(nil)).Elem(), DetectorDatasourcesKubernetesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesKubernetesPtrInput)(nil)).Elem(), DetectorDatasourcesKubernetesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesKubernetesAuditLogsInput)(nil)).Elem(), DetectorDatasourcesKubernetesAuditLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesKubernetesAuditLogsPtrInput)(nil)).Elem(), DetectorDatasourcesKubernetesAuditLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesS3LogsInput)(nil)).Elem(), DetectorDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesS3LogsPtrInput)(nil)).Elem(), DetectorDatasourcesS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
@@ -859,6 +1176,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
 	pulumi.RegisterOutputType(DetectorDatasourcesOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesPtrOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesKubernetesOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesKubernetesPtrOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesKubernetesAuditLogsOutput{})
+	pulumi.RegisterOutputType(DetectorDatasourcesKubernetesAuditLogsPtrOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsPtrOutput{})
 	pulumi.RegisterOutputType(FilterFindingCriteriaOutput{})

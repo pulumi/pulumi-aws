@@ -1451,6 +1451,8 @@ class Cluster(pulumi.CustomResource):
         """
         Provides a Redshift Cluster Resource.
 
+        > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
+
         ## Example Usage
 
         ```python
@@ -1533,6 +1535,8 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a Redshift Cluster Resource.
+
+        > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 
         ## Example Usage
 
@@ -1976,7 +1980,7 @@ class Cluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultIamRoleArn")
-    def default_iam_role_arn(self) -> pulumi.Output[Optional[str]]:
+    def default_iam_role_arn(self) -> pulumi.Output[str]:
         """
         The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         """

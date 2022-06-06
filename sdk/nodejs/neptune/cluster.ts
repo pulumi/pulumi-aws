@@ -72,6 +72,10 @@ export class Cluster extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+     */
+    public readonly allowMajorVersionUpgrade!: pulumi.Output<boolean>;
+    /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
     public readonly applyImmediately!: pulumi.Output<boolean>;
@@ -213,6 +217,7 @@ export class Cluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = state ? state.allowMajorVersionUpgrade : undefined;
             resourceInputs["applyImmediately"] = state ? state.applyImmediately : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
@@ -247,6 +252,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = state ? state.vpcSecurityGroupIds : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
+            resourceInputs["allowMajorVersionUpgrade"] = args ? args.allowMajorVersionUpgrade : undefined;
             resourceInputs["applyImmediately"] = args ? args.applyImmediately : undefined;
             resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
@@ -289,6 +295,10 @@ export class Cluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Cluster resources.
  */
 export interface ClusterState {
+    /**
+     * Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+     */
+    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
@@ -423,6 +433,10 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engineVersion` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+     */
+    allowMajorVersionUpgrade?: pulumi.Input<boolean>;
     /**
      * Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */

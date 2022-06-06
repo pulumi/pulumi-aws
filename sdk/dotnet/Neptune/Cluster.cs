@@ -60,6 +60,12 @@ namespace Pulumi.Aws.Neptune
     public partial class Cluster : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// </summary>
+        [Output("allowMajorVersionUpgrade")]
+        public Output<bool> AllowMajorVersionUpgrade { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
         [Output("applyImmediately")]
@@ -298,6 +304,12 @@ namespace Pulumi.Aws.Neptune
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
+
+        /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>
         [Input("applyImmediately")]
@@ -484,6 +496,12 @@ namespace Pulumi.Aws.Neptune
 
     public sealed class ClusterState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether upgrades between different major versions are allowed. You must set it to `true` when providing an `engine_version` parameter that uses a different major version than the DB cluster's current version. Default is `false`.
+        /// </summary>
+        [Input("allowMajorVersionUpgrade")]
+        public Input<bool>? AllowMajorVersionUpgrade { get; set; }
+
         /// <summary>
         /// Specifies whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         /// </summary>

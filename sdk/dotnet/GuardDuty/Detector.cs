@@ -28,6 +28,13 @@ namespace Pulumi.Aws.GuardDuty
     ///         {
     ///             Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
     ///             {
+    ///                 Kubernetes = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesArgs
+    ///                 {
+    ///                     AuditLogs = new Aws.GuardDuty.Inputs.DetectorDatasourcesKubernetesAuditLogsArgs
+    ///                     {
+    ///                         Enable = false,
+    ///                     },
+    ///                 },
     ///                 S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
     ///                 {
     ///                     Enable = true,
@@ -70,7 +77,8 @@ namespace Pulumi.Aws.GuardDuty
         public Output<Outputs.DetectorDatasources> Datasources { get; private set; } = null!;
 
         /// <summary>
-        /// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        /// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        /// Defaults to `true`.
         /// </summary>
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
@@ -146,7 +154,8 @@ namespace Pulumi.Aws.GuardDuty
         public Input<Inputs.DetectorDatasourcesArgs>? Datasources { get; set; }
 
         /// <summary>
-        /// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        /// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        /// Defaults to `true`.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -195,7 +204,8 @@ namespace Pulumi.Aws.GuardDuty
         public Input<Inputs.DetectorDatasourcesGetArgs>? Datasources { get; set; }
 
         /// <summary>
-        /// If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        /// If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        /// Defaults to `true`.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }

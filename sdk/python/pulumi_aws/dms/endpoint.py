@@ -28,6 +28,7 @@ class EndpointArgs:
                  mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[str]] = None,
@@ -40,7 +41,7 @@ class EndpointArgs:
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
-        :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         :param pulumi.Input[str] certificate_arn: ARN for the certificate.
         :param pulumi.Input[str] database_name: Name of the endpoint database.
         :param pulumi.Input['EndpointElasticsearchSettingsArgs'] elasticsearch_settings: Configuration block for OpenSearch settings. See below.
@@ -51,9 +52,10 @@ class EndpointArgs:
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
-        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         :param pulumi.Input[str] server_name: Host name of the server.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
@@ -83,6 +85,8 @@ class EndpointArgs:
             pulumi.set(__self__, "password", password)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if redshift_settings is not None:
+            pulumi.set(__self__, "redshift_settings", redshift_settings)
         if s3_settings is not None:
             pulumi.set(__self__, "s3_settings", s3_settings)
         if secrets_manager_access_role_arn is not None:
@@ -128,7 +132,7 @@ class EndpointArgs:
     @pulumi.getter(name="engineName")
     def engine_name(self) -> pulumi.Input[str]:
         """
-        Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         """
         return pulumi.get(self, "engine_name")
 
@@ -257,6 +261,18 @@ class EndpointArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="redshiftSettings")
+    def redshift_settings(self) -> Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]:
+        """
+        Configuration block for Redshift settings. See below.
+        """
+        return pulumi.get(self, "redshift_settings")
+
+    @redshift_settings.setter
+    def redshift_settings(self, value: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]):
+        pulumi.set(self, "redshift_settings", value)
+
+    @property
     @pulumi.getter(name="s3Settings")
     def s3_settings(self) -> Optional[pulumi.Input['EndpointS3SettingsArgs']]:
         """
@@ -284,7 +300,7 @@ class EndpointArgs:
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         """
         return pulumi.get(self, "secrets_manager_arn")
 
@@ -370,6 +386,7 @@ class _EndpointState:
                  mongodb_settings: Optional[pulumi.Input['EndpointMongodbSettingsArgs']] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 redshift_settings: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[str]] = None,
@@ -387,7 +404,7 @@ class _EndpointState:
         :param pulumi.Input[str] endpoint_arn: ARN for the endpoint.
         :param pulumi.Input[str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
-        :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         :param pulumi.Input['EndpointKafkaSettingsArgs'] kafka_settings: Configuration block for Kafka settings. See below.
         :param pulumi.Input['EndpointKinesisSettingsArgs'] kinesis_settings: Configuration block for Kinesis settings. See below.
@@ -395,9 +412,10 @@ class _EndpointState:
         :param pulumi.Input['EndpointMongodbSettingsArgs'] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
-        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         :param pulumi.Input[str] server_name: Host name of the server.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
@@ -433,6 +451,8 @@ class _EndpointState:
             pulumi.set(__self__, "password", password)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if redshift_settings is not None:
+            pulumi.set(__self__, "redshift_settings", redshift_settings)
         if s3_settings is not None:
             pulumi.set(__self__, "s3_settings", s3_settings)
         if secrets_manager_access_role_arn is not None:
@@ -528,7 +548,7 @@ class _EndpointState:
     @pulumi.getter(name="engineName")
     def engine_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         """
         return pulumi.get(self, "engine_name")
 
@@ -621,6 +641,18 @@ class _EndpointState:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="redshiftSettings")
+    def redshift_settings(self) -> Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]:
+        """
+        Configuration block for Redshift settings. See below.
+        """
+        return pulumi.get(self, "redshift_settings")
+
+    @redshift_settings.setter
+    def redshift_settings(self, value: Optional[pulumi.Input['EndpointRedshiftSettingsArgs']]):
+        pulumi.set(self, "redshift_settings", value)
+
+    @property
     @pulumi.getter(name="s3Settings")
     def s3_settings(self) -> Optional[pulumi.Input['EndpointS3SettingsArgs']]:
         """
@@ -648,7 +680,7 @@ class _EndpointState:
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         """
         return pulumi.get(self, "secrets_manager_arn")
 
@@ -747,6 +779,7 @@ class Endpoint(pulumi.CustomResource):
                  mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[str]] = None,
@@ -799,7 +832,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointElasticsearchSettingsArgs']] elasticsearch_settings: Configuration block for OpenSearch settings. See below.
         :param pulumi.Input[str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
-        :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         :param pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']] kafka_settings: Configuration block for Kafka settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']] kinesis_settings: Configuration block for Kinesis settings. See below.
@@ -807,9 +840,10 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
-        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         :param pulumi.Input[str] server_name: Host name of the server.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
@@ -886,6 +920,7 @@ class Endpoint(pulumi.CustomResource):
                  mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
                  secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
                  secrets_manager_arn: Optional[pulumi.Input[str]] = None,
@@ -925,6 +960,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["mongodb_settings"] = mongodb_settings
             __props__.__dict__["password"] = password
             __props__.__dict__["port"] = port
+            __props__.__dict__["redshift_settings"] = redshift_settings
             __props__.__dict__["s3_settings"] = s3_settings
             __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
             __props__.__dict__["secrets_manager_arn"] = secrets_manager_arn
@@ -959,6 +995,7 @@ class Endpoint(pulumi.CustomResource):
             mongodb_settings: Optional[pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']]] = None,
             password: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
+            redshift_settings: Optional[pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']]] = None,
             s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
             secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
             secrets_manager_arn: Optional[pulumi.Input[str]] = None,
@@ -981,7 +1018,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] endpoint_arn: ARN for the endpoint.
         :param pulumi.Input[str] endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
         :param pulumi.Input[str] endpoint_type: Type of endpoint. Valid values are `source`, `target`.
-        :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        :param pulumi.Input[str] engine_name: Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         :param pulumi.Input[str] extra_connection_attributes: Additional attributes associated with the connection. For available attributes see [Using Extra Connection Attributes with AWS Database Migration Service](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.PostgreSQL.html#CHAP_Source.PostgreSQL.ConnectionAttrib).
         :param pulumi.Input[pulumi.InputType['EndpointKafkaSettingsArgs']] kafka_settings: Configuration block for Kafka settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointKinesisSettingsArgs']] kinesis_settings: Configuration block for Kinesis settings. See below.
@@ -989,9 +1026,10 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointMongodbSettingsArgs']] mongodb_settings: Configuration block for MongoDB settings. See below.
         :param pulumi.Input[str] password: Password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: Port used by the endpoint database.
+        :param pulumi.Input[pulumi.InputType['EndpointRedshiftSettingsArgs']] redshift_settings: Configuration block for Redshift settings. See below.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: Configuration block for S3 settings. See below.
         :param pulumi.Input[str] secrets_manager_access_role_arn: ARN of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
-        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        :param pulumi.Input[str] secrets_manager_arn: Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         :param pulumi.Input[str] server_name: Host name of the server.
         :param pulumi.Input[str] service_access_role: ARN used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: SSL mode to use for the connection. Valid values are `none`, `require`, `verify-ca`, `verify-full`
@@ -1017,6 +1055,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["mongodb_settings"] = mongodb_settings
         __props__.__dict__["password"] = password
         __props__.__dict__["port"] = port
+        __props__.__dict__["redshift_settings"] = redshift_settings
         __props__.__dict__["s3_settings"] = s3_settings
         __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
         __props__.__dict__["secrets_manager_arn"] = secrets_manager_arn
@@ -1080,7 +1119,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="engineName")
     def engine_name(self) -> pulumi.Output[str]:
         """
-        Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`.
+        Type of engine for the endpoint. Valid values are `aurora`, `aurora-postgresql`, `azuredb`, `db2`, `docdb`, `dynamodb`, `elasticsearch`, `kafka`, `kinesis`, `mariadb`, `mongodb`, `mysql`, `opensearch`, `oracle`, `postgres`, `redshift`, `s3`, `sqlserver`, `sybase`. Please note that some of engine names are available only for `target` endpoint type (e.g. `redshift`).
         """
         return pulumi.get(self, "engine_name")
 
@@ -1141,6 +1180,14 @@ class Endpoint(pulumi.CustomResource):
         return pulumi.get(self, "port")
 
     @property
+    @pulumi.getter(name="redshiftSettings")
+    def redshift_settings(self) -> pulumi.Output['outputs.EndpointRedshiftSettings']:
+        """
+        Configuration block for Redshift settings. See below.
+        """
+        return pulumi.get(self, "redshift_settings")
+
+    @property
     @pulumi.getter(name="s3Settings")
     def s3_settings(self) -> pulumi.Output[Optional['outputs.EndpointS3Settings']]:
         """
@@ -1160,7 +1207,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="secretsManagerArn")
     def secrets_manager_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        Full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `aurora`, `aurora-postgresql`, `mariadb`, `mongodb`, `mysql`, `oracle`, `postgres`, `redshift` or `sqlserver`.
         """
         return pulumi.get(self, "secrets_manager_arn")
 

@@ -1185,6 +1185,219 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type EndpointRedshiftSettings struct {
+	// S3 object prefix.
+	BucketFolder *string `pulumi:"bucketFolder"`
+	// S3 bucket name.
+	BucketName *string `pulumi:"bucketName"`
+	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+	EncryptionMode *string `pulumi:"encryptionMode"`
+	// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+	ServerSideEncryptionKmsKeyId *string `pulumi:"serverSideEncryptionKmsKeyId"`
+	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
+}
+
+// EndpointRedshiftSettingsInput is an input type that accepts EndpointRedshiftSettingsArgs and EndpointRedshiftSettingsOutput values.
+// You can construct a concrete instance of `EndpointRedshiftSettingsInput` via:
+//
+//          EndpointRedshiftSettingsArgs{...}
+type EndpointRedshiftSettingsInput interface {
+	pulumi.Input
+
+	ToEndpointRedshiftSettingsOutput() EndpointRedshiftSettingsOutput
+	ToEndpointRedshiftSettingsOutputWithContext(context.Context) EndpointRedshiftSettingsOutput
+}
+
+type EndpointRedshiftSettingsArgs struct {
+	// S3 object prefix.
+	BucketFolder pulumi.StringPtrInput `pulumi:"bucketFolder"`
+	// S3 bucket name.
+	BucketName pulumi.StringPtrInput `pulumi:"bucketName"`
+	// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+	EncryptionMode pulumi.StringPtrInput `pulumi:"encryptionMode"`
+	// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+	ServerSideEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"serverSideEncryptionKmsKeyId"`
+	// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
+}
+
+func (EndpointRedshiftSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRedshiftSettings)(nil)).Elem()
+}
+
+func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsOutput() EndpointRedshiftSettingsOutput {
+	return i.ToEndpointRedshiftSettingsOutputWithContext(context.Background())
+}
+
+func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsOutputWithContext(ctx context.Context) EndpointRedshiftSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsOutput)
+}
+
+func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsPtrOutput() EndpointRedshiftSettingsPtrOutput {
+	return i.ToEndpointRedshiftSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointRedshiftSettingsArgs) ToEndpointRedshiftSettingsPtrOutputWithContext(ctx context.Context) EndpointRedshiftSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsOutput).ToEndpointRedshiftSettingsPtrOutputWithContext(ctx)
+}
+
+// EndpointRedshiftSettingsPtrInput is an input type that accepts EndpointRedshiftSettingsArgs, EndpointRedshiftSettingsPtr and EndpointRedshiftSettingsPtrOutput values.
+// You can construct a concrete instance of `EndpointRedshiftSettingsPtrInput` via:
+//
+//          EndpointRedshiftSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointRedshiftSettingsPtrInput interface {
+	pulumi.Input
+
+	ToEndpointRedshiftSettingsPtrOutput() EndpointRedshiftSettingsPtrOutput
+	ToEndpointRedshiftSettingsPtrOutputWithContext(context.Context) EndpointRedshiftSettingsPtrOutput
+}
+
+type endpointRedshiftSettingsPtrType EndpointRedshiftSettingsArgs
+
+func EndpointRedshiftSettingsPtr(v *EndpointRedshiftSettingsArgs) EndpointRedshiftSettingsPtrInput {
+	return (*endpointRedshiftSettingsPtrType)(v)
+}
+
+func (*endpointRedshiftSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRedshiftSettings)(nil)).Elem()
+}
+
+func (i *endpointRedshiftSettingsPtrType) ToEndpointRedshiftSettingsPtrOutput() EndpointRedshiftSettingsPtrOutput {
+	return i.ToEndpointRedshiftSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointRedshiftSettingsPtrType) ToEndpointRedshiftSettingsPtrOutputWithContext(ctx context.Context) EndpointRedshiftSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointRedshiftSettingsPtrOutput)
+}
+
+type EndpointRedshiftSettingsOutput struct{ *pulumi.OutputState }
+
+func (EndpointRedshiftSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointRedshiftSettings)(nil)).Elem()
+}
+
+func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsOutput() EndpointRedshiftSettingsOutput {
+	return o
+}
+
+func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsOutputWithContext(ctx context.Context) EndpointRedshiftSettingsOutput {
+	return o
+}
+
+func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsPtrOutput() EndpointRedshiftSettingsPtrOutput {
+	return o.ToEndpointRedshiftSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointRedshiftSettingsOutput) ToEndpointRedshiftSettingsPtrOutputWithContext(ctx context.Context) EndpointRedshiftSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointRedshiftSettings) *EndpointRedshiftSettings {
+		return &v
+	}).(EndpointRedshiftSettingsPtrOutput)
+}
+
+// S3 object prefix.
+func (o EndpointRedshiftSettingsOutput) BucketFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketFolder }).(pulumi.StringPtrOutput)
+}
+
+// S3 bucket name.
+func (o EndpointRedshiftSettingsOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.BucketName }).(pulumi.StringPtrOutput)
+}
+
+// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+func (o EndpointRedshiftSettingsOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.EncryptionMode }).(pulumi.StringPtrOutput)
+}
+
+// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+func (o EndpointRedshiftSettingsOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServerSideEncryptionKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+func (o EndpointRedshiftSettingsOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointRedshiftSettings) *string { return v.ServiceAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+type EndpointRedshiftSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointRedshiftSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointRedshiftSettings)(nil)).Elem()
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ToEndpointRedshiftSettingsPtrOutput() EndpointRedshiftSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) ToEndpointRedshiftSettingsPtrOutputWithContext(ctx context.Context) EndpointRedshiftSettingsPtrOutput {
+	return o
+}
+
+func (o EndpointRedshiftSettingsPtrOutput) Elem() EndpointRedshiftSettingsOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) EndpointRedshiftSettings {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointRedshiftSettings
+		return ret
+	}).(EndpointRedshiftSettingsOutput)
+}
+
+// S3 object prefix.
+func (o EndpointRedshiftSettingsPtrOutput) BucketFolder() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketFolder
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 bucket name.
+func (o EndpointRedshiftSettingsPtrOutput) BucketName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Server-side encryption mode that you want to encrypt your .csv or .parquet object files copied to S3. Valid values are `SSE_S3` and `SSE_KMS`. Default is `SSE_S3`.
+func (o EndpointRedshiftSettingsPtrOutput) EncryptionMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// If you set encryptionMode to `SSE_KMS`, set this parameter to the ARN for the AWS KMS key.
+func (o EndpointRedshiftSettingsPtrOutput) ServerSideEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerSideEncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the IAM Role with permissions to read from or write to the S3 Bucket.
+func (o EndpointRedshiftSettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointRedshiftSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type EndpointS3Settings struct {
 	// Whether to add column name information to the .csv output file. Default is `false`.
 	AddColumnName *bool `pulumi:"addColumnName"`
@@ -1996,6 +2209,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKinesisSettingsPtrInput)(nil)).Elem(), EndpointKinesisSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsPtrInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRedshiftSettingsPtrInput)(nil)).Elem(), EndpointRedshiftSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsInput)(nil)).Elem(), EndpointS3SettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsPtrInput)(nil)).Elem(), EndpointS3SettingsArgs{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsOutput{})
@@ -2006,6 +2221,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointKinesisSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointMongodbSettingsPtrOutput{})
+	pulumi.RegisterOutputType(EndpointRedshiftSettingsOutput{})
+	pulumi.RegisterOutputType(EndpointRedshiftSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsOutput{})
 	pulumi.RegisterOutputType(EndpointS3SettingsPtrOutput{})
 }

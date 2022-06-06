@@ -25,12 +25,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AuthenticationProfile{}
 	case "aws:redshift/cluster:Cluster":
 		r = &Cluster{}
+	case "aws:redshift/clusterIamRoles:ClusterIamRoles":
+		r = &ClusterIamRoles{}
 	case "aws:redshift/endpointAccess:EndpointAccess":
 		r = &EndpointAccess{}
 	case "aws:redshift/eventSubscription:EventSubscription":
 		r = &EventSubscription{}
 	case "aws:redshift/hsmClientCertificate:HsmClientCertificate":
 		r = &HsmClientCertificate{}
+	case "aws:redshift/hsmConfiguration:HsmConfiguration":
+		r = &HsmConfiguration{}
 	case "aws:redshift/parameterGroup:ParameterGroup":
 		r = &ParameterGroup{}
 	case "aws:redshift/scheduledAction:ScheduledAction":
@@ -72,6 +76,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"redshift/clusterIamRoles",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"redshift/endpointAccess",
 		&module{version},
 	)
@@ -83,6 +92,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshift/hsmClientCertificate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/hsmConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -13,6 +13,8 @@ import (
 
 // Provides a Redshift Cluster Resource.
 //
+// > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `redshift.ClusterIamRoles` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
+//
 // ## Example Usage
 //
 // ```go
@@ -88,7 +90,7 @@ type Cluster struct {
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-	DefaultIamRoleArn pulumi.StringPtrOutput `pulumi:"defaultIamRoleArn"`
+	DefaultIamRoleArn pulumi.StringOutput `pulumi:"defaultIamRoleArn"`
 	// The DNS name of the cluster
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// The Elastic IP (EIP) address for the cluster.
@@ -743,8 +745,8 @@ func (o ClusterOutput) DatabaseName() pulumi.StringOutput {
 }
 
 // The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
-func (o ClusterOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DefaultIamRoleArn }).(pulumi.StringPtrOutput)
+func (o ClusterOutput) DefaultIamRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }
 
 // The DNS name of the cluster

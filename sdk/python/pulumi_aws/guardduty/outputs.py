@@ -11,6 +11,8 @@ from . import outputs
 
 __all__ = [
     'DetectorDatasources',
+    'DetectorDatasourcesKubernetes',
+    'DetectorDatasourcesKubernetesAuditLogs',
     'DetectorDatasourcesS3Logs',
     'FilterFindingCriteria',
     'FilterFindingCriteriaCriterion',
@@ -38,28 +40,82 @@ class DetectorDatasources(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 kubernetes: Optional['outputs.DetectorDatasourcesKubernetes'] = None,
                  s3_logs: Optional['outputs.DetectorDatasourcesS3Logs'] = None):
         """
-        :param 'DetectorDatasourcesS3LogsArgs' s3_logs: Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+        :param 'DetectorDatasourcesKubernetesArgs' kubernetes: Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+               See Kubernetes and Kubernetes Audit Logs below for more details.
+        :param 'DetectorDatasourcesS3LogsArgs' s3_logs: Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+               See S3 Logs below for more details.
         """
+        if kubernetes is not None:
+            pulumi.set(__self__, "kubernetes", kubernetes)
         if s3_logs is not None:
             pulumi.set(__self__, "s3_logs", s3_logs)
+
+    @property
+    @pulumi.getter
+    def kubernetes(self) -> Optional['outputs.DetectorDatasourcesKubernetes']:
+        """
+        Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        See Kubernetes and Kubernetes Audit Logs below for more details.
+        """
+        return pulumi.get(self, "kubernetes")
 
     @property
     @pulumi.getter(name="s3Logs")
     def s3_logs(self) -> Optional['outputs.DetectorDatasourcesS3Logs']:
         """
-        Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+        Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        See S3 Logs below for more details.
         """
         return pulumi.get(self, "s3_logs")
 
 
 @pulumi.output_type
-class DetectorDatasourcesS3Logs(dict):
+class DetectorDatasourcesKubernetes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "auditLogs":
+            suggest = "audit_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DetectorDatasourcesKubernetes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DetectorDatasourcesKubernetes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DetectorDatasourcesKubernetes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 audit_logs: 'outputs.DetectorDatasourcesKubernetesAuditLogs'):
+        """
+        :param 'DetectorDatasourcesKubernetesAuditLogsArgs' audit_logs: Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+               See Kubernetes Audit Logs below for more details.
+        """
+        pulumi.set(__self__, "audit_logs", audit_logs)
+
+    @property
+    @pulumi.getter(name="auditLogs")
+    def audit_logs(self) -> 'outputs.DetectorDatasourcesKubernetesAuditLogs':
+        """
+        Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        See Kubernetes Audit Logs below for more details.
+        """
+        return pulumi.get(self, "audit_logs")
+
+
+@pulumi.output_type
+class DetectorDatasourcesKubernetesAuditLogs(dict):
     def __init__(__self__, *,
                  enable: bool):
         """
-        :param bool enable: If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        :param bool enable: If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+               Defaults to `true`.
         """
         pulumi.set(__self__, "enable", enable)
 
@@ -67,7 +123,28 @@ class DetectorDatasourcesS3Logs(dict):
     @pulumi.getter
     def enable(self) -> bool:
         """
-        If true, enables [S3 Protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3_detection.html). Defaults to `true`.
+        If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        Defaults to `true`.
+        """
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class DetectorDatasourcesS3Logs(dict):
+    def __init__(__self__, *,
+                 enable: bool):
+        """
+        :param bool enable: If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+               Defaults to `true`.
+        """
+        pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> bool:
+        """
+        If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        Defaults to `true`.
         """
         return pulumi.get(self, "enable")
 

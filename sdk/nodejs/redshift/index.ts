@@ -7,13 +7,16 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./authenticationProfile";
 export * from "./cluster";
+export * from "./clusterIamRoles";
 export * from "./endpointAccess";
 export * from "./eventSubscription";
 export * from "./getCluster";
+export * from "./getClusterCredentials";
 export * from "./getOrderableCluster";
 export * from "./getServiceAccount";
 export * from "./getSubnetGroup";
 export * from "./hsmClientCertificate";
+export * from "./hsmConfiguration";
 export * from "./parameterGroup";
 export * from "./scheduledAction";
 export * from "./securityGroup";
@@ -26,9 +29,11 @@ export * from "./usageLimit";
 // Import resources to register:
 import { AuthenticationProfile } from "./authenticationProfile";
 import { Cluster } from "./cluster";
+import { ClusterIamRoles } from "./clusterIamRoles";
 import { EndpointAccess } from "./endpointAccess";
 import { EventSubscription } from "./eventSubscription";
 import { HsmClientCertificate } from "./hsmClientCertificate";
+import { HsmConfiguration } from "./hsmConfiguration";
 import { ParameterGroup } from "./parameterGroup";
 import { ScheduledAction } from "./scheduledAction";
 import { SecurityGroup } from "./securityGroup";
@@ -46,12 +51,16 @@ const _module = {
                 return new AuthenticationProfile(name, <any>undefined, { urn })
             case "aws:redshift/cluster:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws:redshift/clusterIamRoles:ClusterIamRoles":
+                return new ClusterIamRoles(name, <any>undefined, { urn })
             case "aws:redshift/endpointAccess:EndpointAccess":
                 return new EndpointAccess(name, <any>undefined, { urn })
             case "aws:redshift/eventSubscription:EventSubscription":
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws:redshift/hsmClientCertificate:HsmClientCertificate":
                 return new HsmClientCertificate(name, <any>undefined, { urn })
+            case "aws:redshift/hsmConfiguration:HsmConfiguration":
+                return new HsmConfiguration(name, <any>undefined, { urn })
             case "aws:redshift/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws:redshift/scheduledAction:ScheduledAction":
@@ -75,9 +84,11 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "redshift/authenticationProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/cluster", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/clusterIamRoles", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/endpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/hsmClientCertificate", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/hsmConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/scheduledAction", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/securityGroup", _module)

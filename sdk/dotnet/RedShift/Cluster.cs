@@ -12,6 +12,8 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// Provides a Redshift Cluster Resource.
     /// 
+    /// &gt; **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `aws.redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -155,7 +157,7 @@ namespace Pulumi.Aws.RedShift
         /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Output("defaultIamRoleArn")]
-        public Output<string?> DefaultIamRoleArn { get; private set; } = null!;
+        public Output<string> DefaultIamRoleArn { get; private set; } = null!;
 
         /// <summary>
         /// The DNS name of the cluster

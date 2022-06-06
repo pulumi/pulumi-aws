@@ -13,7 +13,15 @@ namespace Pulumi.Aws.GuardDuty.Inputs
     public sealed class DetectorDatasourcesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes whether S3 data event logs are enabled as a data source. See S3 Logs below for more details.
+        /// Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+        /// See Kubernetes and Kubernetes Audit Logs below for more details.
+        /// </summary>
+        [Input("kubernetes")]
+        public Input<Inputs.DetectorDatasourcesKubernetesGetArgs>? Kubernetes { get; set; }
+
+        /// <summary>
+        /// Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+        /// See S3 Logs below for more details.
         /// </summary>
         [Input("s3Logs")]
         public Input<Inputs.DetectorDatasourcesS3LogsGetArgs>? S3Logs { get; set; }

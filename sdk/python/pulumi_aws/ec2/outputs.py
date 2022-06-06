@@ -10512,7 +10512,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
                  iops: int,
                  no_device: bool,
                  snapshot_id: str,
-                 throughput: bool,
+                 throughput: int,
                  volume_size: int,
                  volume_type: str):
         """
@@ -10522,7 +10522,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
         :param int iops: The provisioned IOPs of the volume.
         :param bool no_device: Whether the device in the block device mapping of the AMI is suppressed.
         :param str snapshot_id: The Snapshot ID of the mount.
-        :param bool throughput: The Throughput of the volume.
+        :param int throughput: The Throughput of the volume.
         :param int volume_size: The Size of the volume.
         :param str volume_type: The Type of the volume.
         """
@@ -10586,7 +10586,7 @@ class GetLaunchConfigurationEbsBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def throughput(self) -> bool:
+    def throughput(self) -> int:
         """
         The Throughput of the volume.
         """
@@ -10684,14 +10684,14 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
                  delete_on_termination: bool,
                  encrypted: bool,
                  iops: int,
-                 throughput: bool,
+                 throughput: int,
                  volume_size: int,
                  volume_type: str):
         """
         :param bool delete_on_termination: Whether the EBS Volume will be deleted on instance termination.
         :param bool encrypted: Whether the volume is Encrypted.
         :param int iops: The provisioned IOPs of the volume.
-        :param bool throughput: The Throughput of the volume.
+        :param int throughput: The Throughput of the volume.
         :param int volume_size: The Size of the volume.
         :param str volume_type: The Type of the volume.
         """
@@ -10728,7 +10728,7 @@ class GetLaunchConfigurationRootBlockDeviceResult(dict):
 
     @property
     @pulumi.getter
-    def throughput(self) -> bool:
+    def throughput(self) -> int:
         """
         The Throughput of the volume.
         """
