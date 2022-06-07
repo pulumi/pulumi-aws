@@ -101,7 +101,7 @@ The following configuration points are available:
   `sessionName`: Session name to use when assuming the role.
   `tags`: Map of assume role session tags.
 - `aws:insecure` - (Optional) Explicitly allow the provider to perform "insecure" SSL requests. If omitted, the default value is `false`.
-- `aws:skipCredentialsValidation` - (Optional) Skip the credentials validation via the STS API. Useful for AWS API implementations that do not have STS available or implemented. Default value is `true`.
+- `aws:skipCredentialsValidation` - (Optional) Skip the credentials validation via the STS API. Useful for AWS API implementations that do not have STS available or implemented. Default value is `false`.
 - `aws:skipGetEc2Platforms` - (Optional) Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions. Default value is `true`.
 - `aws:skipRegionValidation` - (Optional) Skip validation of provided region name. Useful for AWS-like implementations that use their own region names or to bypass the validation for regions that aren't publicly available yet. Default value is `true`.
 - `aws:skipRequestionAccountId` - (Optional) Skip requesting the account ID. Useful for AWS API implementations that do not have the IAM, STS API, or metadata API. Default value is `false`. When specified, the use of ARNs is compromised as there is no accountID available to construct the ARN.

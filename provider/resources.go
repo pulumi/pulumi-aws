@@ -17,6 +17,7 @@ package provider
 import (
 	"context"
 	"fmt"
+	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	"math/rand"
 	"os"
 	"path/filepath"
@@ -272,10 +273,17 @@ func stringRef(s string) *string {
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	region := stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"})
-	if region == "" {
-		return fmt.Errorf("unable to find AWS Region for current deployment " +
-			"- see https://pulumi.io/install/aws.html for details on configuration")
+	var skipCredentialsValidation bool
+	if val, ok := vars["skipCredentialsValidation"]; ok {
+		if val.IsBool() {
+			skipCredentialsValidation = val.BoolValue()
+		}
+	}
+
+	// if we skipCredentialsValidation then we don't need to do anything in
+	// preConfigureCallback as this is an explict operation
+	if skipCredentialsValidation {
+		return nil
 	}
 
 	config := &awsbase.Config{
@@ -283,7 +291,18 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
 		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
 		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
-		Region:    region,
+		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
+	}
+
+	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
+	// if we want to authenticate against the AWS API Metadata Service then the user
+	// will specify that skipMetadataApiCheck: false
+	// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
+	config.EC2MetadataServiceEnableState = imds.ClientDisabled
+	if val, ok := vars["skipMetadataApiCheck"]; ok {
+		if val.IsBool() && !val.BoolValue() {
+			config.EC2MetadataServiceEnableState = imds.ClientEnabled
+		}
 	}
 
 	sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
