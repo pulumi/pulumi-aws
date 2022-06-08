@@ -364,7 +364,10 @@ func Provider() tfbridge.ProviderInfo {
 					// be in a situation where a user can be waiting for a resource
 					// creation timeout (default up to 30mins) to find out that they
 					// have not got valid credentials
-					Value: false,
+
+					// this is temporarily skipped while we look at the cause of
+					// https://github.com/pulumi/pulumi-aws/issues/1995
+					Value: true,
 				},
 			},
 			"skip_metadata_api_check": {
