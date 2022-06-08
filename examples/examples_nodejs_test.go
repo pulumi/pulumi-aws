@@ -28,6 +28,7 @@ func TestAccDedicatedHosts(t *testing.T) {
 
 // This is a specific test to ensure that we are testing for a missing region and erroring
 func TestAccCredentialsConfigTest(t *testing.T) {
+	t.Skip("STACK72: Temp skip until we investigate the cause of https://github.com/pulumi/pulumi-aws/issues/1995")
 	base := getBaseOptions()
 	baseJS := base.With(integration.ProgramTestOptions{
 		Config: map[string]string{

@@ -131,7 +131,7 @@ func GetSkipCredentialsValidation(ctx *pulumi.Context) bool {
 	if err == nil {
 		return v
 	}
-	return false
+	return true
 }
 
 // Skip getting the supported EC2 platforms. Used by users that don't have ec2:DescribeAccountAttributes permissions.

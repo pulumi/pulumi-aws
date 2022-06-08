@@ -245,7 +245,7 @@ namespace Pulumi.Aws
             set => _sharedCredentialsFiles.Set(value);
         }
 
-        private static readonly __Value<bool?> _skipCredentialsValidation = new __Value<bool?>(() => __config.GetBoolean("skipCredentialsValidation") ?? false);
+        private static readonly __Value<bool?> _skipCredentialsValidation = new __Value<bool?>(() => __config.GetBoolean("skipCredentialsValidation") ?? true);
         /// <summary>
         /// Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
         /// available/implemented.

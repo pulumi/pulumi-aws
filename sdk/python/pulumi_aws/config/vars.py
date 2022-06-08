@@ -168,7 +168,7 @@ class _ExportableConfig(types.ModuleType):
         Skip the credentials validation via STS API. Used for AWS API implementations that do not have STS
         available/implemented.
         """
-        return __config__.get_bool('skipCredentialsValidation') or False
+        return __config__.get_bool('skipCredentialsValidation') or True
 
     @property
     def skip_get_ec2_platforms(self) -> bool:

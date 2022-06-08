@@ -58,7 +58,7 @@ func NewProvider(ctx *pulumi.Context,
 		args.Region = pulumi.StringPtr(getEnvOrDefault("", nil, "AWS_REGION", "AWS_DEFAULT_REGION").(string))
 	}
 	if isZero(args.SkipCredentialsValidation) {
-		args.SkipCredentialsValidation = pulumi.BoolPtr(false)
+		args.SkipCredentialsValidation = pulumi.BoolPtr(true)
 	}
 	if isZero(args.SkipGetEc2Platforms) {
 		args.SkipGetEc2Platforms = pulumi.BoolPtr(true)
