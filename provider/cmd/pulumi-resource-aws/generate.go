@@ -12,12 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:build ignore
 // +build ignore
 
 package main
 
 import (
 	"encoding/json"
+	"errors"
+	"io/fs"
 	"io/ioutil"
 	"log"
 	"os"
@@ -46,6 +49,12 @@ func main() {
 	versionedContents, err := json.Marshal(packageSpec)
 	if err != nil {
 		log.Fatalf("cannot reserialize schema: %v", err)
+	}
+
+	// Clean up schema.go as it may be present & gitignored and tolerate an error if the file isn't present.
+	err = os.Remove("./schema.go")
+	if err != nil && !errors.Is(err, fs.ErrNotExist) {
+		log.Fatal(err)
 	}
 
 	err = ioutil.WriteFile("./schema-embed.json", versionedContents, 0600)
