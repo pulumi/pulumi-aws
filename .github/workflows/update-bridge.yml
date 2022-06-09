@@ -78,7 +78,7 @@ jobs:
         dotnetversion:
         - 3.1.301
         goversion:
-        - 1.17.x
+        - 1.18.x
         nodeversion:
         - 14.x
         pythonversion:
