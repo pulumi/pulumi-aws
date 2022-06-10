@@ -38,7 +38,11 @@ class ParameterArgs:
         :param pulumi.Input[str] name: The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        :param pulumi.Input[str] tier: The parameter tier to assign to the parameter.
+               If not specified, will use the default parameter tier for the region.
+               Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+               Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+               For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -186,7 +190,11 @@ class ParameterArgs:
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input[str]]:
         """
-        The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        The parameter tier to assign to the parameter.
+        If not specified, will use the default parameter tier for the region.
+        Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+        Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+        For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         """
         return pulumi.get(self, "tier")
 
@@ -223,7 +231,11 @@ class _ParameterState:
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        :param pulumi.Input[str] tier: The parameter tier to assign to the parameter.
+               If not specified, will use the default parameter tier for the region.
+               Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+               Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+               For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
         :param pulumi.Input[int] version: The version of the parameter.
@@ -368,7 +380,11 @@ class _ParameterState:
     @pulumi.getter
     def tier(self) -> Optional[pulumi.Input[str]]:
         """
-        The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        The parameter tier to assign to the parameter.
+        If not specified, will use the default parameter tier for the region.
+        Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+        Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+        For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         """
         return pulumi.get(self, "tier")
 
@@ -491,7 +507,11 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        :param pulumi.Input[str] tier: The parameter tier to assign to the parameter.
+               If not specified, will use the default parameter tier for the region.
+               Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+               Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+               For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
         """
@@ -646,7 +666,11 @@ class Parameter(pulumi.CustomResource):
         :param pulumi.Input[bool] overwrite: Overwrite an existing parameter. If not specified, will default to `false` if the resource has not been created by this provider to avoid overwrite of existing resource and will default to `true` otherwise (lifecycle rules should then be used to manage the update behavior).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[str] tier: The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        :param pulumi.Input[str] tier: The parameter tier to assign to the parameter.
+               If not specified, will use the default parameter tier for the region.
+               Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+               Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+               For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         :param pulumi.Input[Union[str, 'ParameterType']] type: The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         :param pulumi.Input[str] value: The value of the parameter.
         :param pulumi.Input[int] version: The version of the parameter.
@@ -745,9 +769,13 @@ class Parameter(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tier(self) -> pulumi.Output[Optional[str]]:
+    def tier(self) -> pulumi.Output[str]:
         """
-        The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        The parameter tier to assign to the parameter.
+        If not specified, will use the default parameter tier for the region.
+        Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+        Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+        For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         """
         return pulumi.get(self, "tier")
 

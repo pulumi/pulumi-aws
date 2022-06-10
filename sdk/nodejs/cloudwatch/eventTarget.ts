@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
+ * ### Kinesis Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -47,7 +48,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * ## Example SSM Document Usage
+ * ### SSM Document Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -122,8 +123,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * ## Example RunCommand Usage
+ * ### RunCommand Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -144,8 +144,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- *
- * ## Example API Gateway target
+ * ### API Gateway target
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -173,8 +172,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * ## Example Cross-Account Event Bus target
+ * ### Cross-Account Event Bus target
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -215,8 +213,7 @@ import * as utilities from "../utilities";
  *     roleArn: eventBusInvokeRemoteEventBusRole.arn,
  * });
  * ```
- *
- * ## Example Input Transformer Usage - JSON Object
+ * ### Input Transformer Usage - JSON Object
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -240,8 +237,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
- * ## Example Input Transformer Usage - Simple String
+ * ### Input Transformer Usage - Simple String
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -259,6 +255,52 @@ import * as utilities from "../utilities";
  *         },
  *         inputTemplate: "\"<instance> is in state <status>\"",
  *     },
+ * });
+ * ```
+ * ### Cloudwatch Log Group Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {retentionInDays: 1});
+ * const exampleEventRule = new aws.cloudwatch.EventRule("exampleEventRule", {
+ *     description: "GuardDuty Findings",
+ *     eventPattern: JSON.stringify({
+ *         source: ["aws.guardduty"],
+ *     }),
+ *     tags: {
+ *         Environment: "example",
+ *     },
+ * });
+ * const exampleLogPolicy = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         actions: [
+ *             "logs:CreateLogStream",
+ *             "logs:PutLogEvents",
+ *         ],
+ *         resources: [pulumi.interpolate`${exampleLogGroup.arn}:*`],
+ *         principals: [{
+ *             identifiers: [
+ *                 "events.amazonaws.com",
+ *                 "delivery.logs.amazonaws.com",
+ *             ],
+ *             type: "Service",
+ *         }],
+ *         conditions: [{
+ *             test: "ArnEquals",
+ *             values: [exampleEventRule.arn],
+ *             variable: "aws:SourceArn",
+ *         }],
+ *     }],
+ * });
+ * const exampleLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy", {
+ *     policyDocument: exampleLogPolicy.apply(exampleLogPolicy => exampleLogPolicy.json),
+ *     policyName: "guardduty-log-publishing-policy",
+ * });
+ * const exampleEventTarget = new aws.cloudwatch.EventTarget("exampleEventTarget", {
+ *     rule: exampleEventRule.name,
+ *     arn: exampleLogGroup.arn,
  * });
  * ```
  *

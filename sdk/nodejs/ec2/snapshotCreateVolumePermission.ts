@@ -53,7 +53,7 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
     }
 
     /**
-     * An AWS Account ID to add create volume permissions
+     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
@@ -97,7 +97,7 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
  */
 export interface SnapshotCreateVolumePermissionState {
     /**
-     * An AWS Account ID to add create volume permissions
+     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
      */
     accountId?: pulumi.Input<string>;
     /**
@@ -111,7 +111,7 @@ export interface SnapshotCreateVolumePermissionState {
  */
 export interface SnapshotCreateVolumePermissionArgs {
     /**
-     * An AWS Account ID to add create volume permissions
+     * An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
      */
     accountId: pulumi.Input<string>;
     /**

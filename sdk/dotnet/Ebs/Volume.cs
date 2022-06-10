@@ -68,6 +68,12 @@ namespace Pulumi.Aws.Ebs
         public Output<bool> Encrypted { get; private set; } = null!;
 
         /// <summary>
+        /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+        /// </summary>
+        [Output("finalSnapshot")]
+        public Output<bool?> FinalSnapshot { get; private set; } = null!;
+
+        /// <summary>
         /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Output("iops")]
@@ -183,6 +189,12 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
+        /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+        /// </summary>
+        [Input("finalSnapshot")]
+        public Input<bool>? FinalSnapshot { get; set; }
+
+        /// <summary>
         /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         /// </summary>
         [Input("iops")]
@@ -263,6 +275,12 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         [Input("encrypted")]
         public Input<bool>? Encrypted { get; set; }
+
+        /// <summary>
+        /// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+        /// </summary>
+        [Input("finalSnapshot")]
+        public Input<bool>? FinalSnapshot { get; set; }
 
         /// <summary>
         /// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.

@@ -379,6 +379,7 @@ class ProviderEndpointArgs:
                  elbv2: Optional[pulumi.Input[str]] = None,
                  emr: Optional[pulumi.Input[str]] = None,
                  emrcontainers: Optional[pulumi.Input[str]] = None,
+                 emrserverless: Optional[pulumi.Input[str]] = None,
                  es: Optional[pulumi.Input[str]] = None,
                  eventbridge: Optional[pulumi.Input[str]] = None,
                  events: Optional[pulumi.Input[str]] = None,
@@ -869,6 +870,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "emr", emr)
         if emrcontainers is not None:
             pulumi.set(__self__, "emrcontainers", emrcontainers)
+        if emrserverless is not None:
+            pulumi.set(__self__, "emrserverless", emrserverless)
         if es is not None:
             pulumi.set(__self__, "es", es)
         if eventbridge is not None:
@@ -2494,6 +2497,15 @@ class ProviderEndpointArgs:
     @emrcontainers.setter
     def emrcontainers(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "emrcontainers", value)
+
+    @property
+    @pulumi.getter
+    def emrserverless(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "emrserverless")
+
+    @emrserverless.setter
+    def emrserverless(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "emrserverless", value)
 
     @property
     @pulumi.getter

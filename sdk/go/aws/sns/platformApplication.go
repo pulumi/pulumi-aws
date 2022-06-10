@@ -74,15 +74,15 @@ type PlatformApplication struct {
 
 	// The ARN of the SNS platform application
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 	EventDeliveryFailureTopicArn pulumi.StringPtrOutput `pulumi:"eventDeliveryFailureTopicArn"`
-	// SNS Topic triggered when a new platform endpoint is added to your platform application.
+	// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
 	EventEndpointCreatedTopicArn pulumi.StringPtrOutput `pulumi:"eventEndpointCreatedTopicArn"`
-	// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
 	EventEndpointDeletedTopicArn pulumi.StringPtrOutput `pulumi:"eventEndpointDeletedTopicArn"`
-	// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
 	EventEndpointUpdatedTopicArn pulumi.StringPtrOutput `pulumi:"eventEndpointUpdatedTopicArn"`
-	// The IAM role permitted to receive failure feedback for this application.
+	// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	FailureFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"failureFeedbackRoleArn"`
 	// The friendly name for the SNS platform application
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -92,9 +92,9 @@ type PlatformApplication struct {
 	PlatformCredential pulumi.StringOutput `pulumi:"platformCredential"`
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrOutput `pulumi:"platformPrincipal"`
-	// The IAM role permitted to receive success feedback for this application.
+	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrOutput `pulumi:"successFeedbackRoleArn"`
-	// The percentage of success to sample (0-100)
+	// The sample rate percentage (0-100) of successfully delivered messages.
 	SuccessFeedbackSampleRate pulumi.StringPtrOutput `pulumi:"successFeedbackSampleRate"`
 }
 
@@ -135,15 +135,15 @@ func GetPlatformApplication(ctx *pulumi.Context,
 type platformApplicationState struct {
 	// The ARN of the SNS platform application
 	Arn *string `pulumi:"arn"`
-	// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 	EventDeliveryFailureTopicArn *string `pulumi:"eventDeliveryFailureTopicArn"`
-	// SNS Topic triggered when a new platform endpoint is added to your platform application.
+	// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
 	EventEndpointCreatedTopicArn *string `pulumi:"eventEndpointCreatedTopicArn"`
-	// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
 	EventEndpointDeletedTopicArn *string `pulumi:"eventEndpointDeletedTopicArn"`
-	// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
 	EventEndpointUpdatedTopicArn *string `pulumi:"eventEndpointUpdatedTopicArn"`
-	// The IAM role permitted to receive failure feedback for this application.
+	// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	FailureFeedbackRoleArn *string `pulumi:"failureFeedbackRoleArn"`
 	// The friendly name for the SNS platform application
 	Name *string `pulumi:"name"`
@@ -153,24 +153,24 @@ type platformApplicationState struct {
 	PlatformCredential *string `pulumi:"platformCredential"`
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal *string `pulumi:"platformPrincipal"`
-	// The IAM role permitted to receive success feedback for this application.
+	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
-	// The percentage of success to sample (0-100)
+	// The sample rate percentage (0-100) of successfully delivered messages.
 	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
 }
 
 type PlatformApplicationState struct {
 	// The ARN of the SNS platform application
 	Arn pulumi.StringPtrInput
-	// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 	EventDeliveryFailureTopicArn pulumi.StringPtrInput
-	// SNS Topic triggered when a new platform endpoint is added to your platform application.
+	// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
 	EventEndpointCreatedTopicArn pulumi.StringPtrInput
-	// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
 	EventEndpointDeletedTopicArn pulumi.StringPtrInput
-	// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
 	EventEndpointUpdatedTopicArn pulumi.StringPtrInput
-	// The IAM role permitted to receive failure feedback for this application.
+	// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	FailureFeedbackRoleArn pulumi.StringPtrInput
 	// The friendly name for the SNS platform application
 	Name pulumi.StringPtrInput
@@ -180,9 +180,9 @@ type PlatformApplicationState struct {
 	PlatformCredential pulumi.StringPtrInput
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrInput
-	// The IAM role permitted to receive success feedback for this application.
+	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
-	// The percentage of success to sample (0-100)
+	// The sample rate percentage (0-100) of successfully delivered messages.
 	SuccessFeedbackSampleRate pulumi.StringPtrInput
 }
 
@@ -191,15 +191,15 @@ func (PlatformApplicationState) ElementType() reflect.Type {
 }
 
 type platformApplicationArgs struct {
-	// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 	EventDeliveryFailureTopicArn *string `pulumi:"eventDeliveryFailureTopicArn"`
-	// SNS Topic triggered when a new platform endpoint is added to your platform application.
+	// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
 	EventEndpointCreatedTopicArn *string `pulumi:"eventEndpointCreatedTopicArn"`
-	// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
 	EventEndpointDeletedTopicArn *string `pulumi:"eventEndpointDeletedTopicArn"`
-	// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
 	EventEndpointUpdatedTopicArn *string `pulumi:"eventEndpointUpdatedTopicArn"`
-	// The IAM role permitted to receive failure feedback for this application.
+	// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	FailureFeedbackRoleArn *string `pulumi:"failureFeedbackRoleArn"`
 	// The friendly name for the SNS platform application
 	Name *string `pulumi:"name"`
@@ -209,23 +209,23 @@ type platformApplicationArgs struct {
 	PlatformCredential string `pulumi:"platformCredential"`
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal *string `pulumi:"platformPrincipal"`
-	// The IAM role permitted to receive success feedback for this application.
+	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn *string `pulumi:"successFeedbackRoleArn"`
-	// The percentage of success to sample (0-100)
+	// The sample rate percentage (0-100) of successfully delivered messages.
 	SuccessFeedbackSampleRate *string `pulumi:"successFeedbackSampleRate"`
 }
 
 // The set of arguments for constructing a PlatformApplication resource.
 type PlatformApplicationArgs struct {
-	// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+	// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 	EventDeliveryFailureTopicArn pulumi.StringPtrInput
-	// SNS Topic triggered when a new platform endpoint is added to your platform application.
+	// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
 	EventEndpointCreatedTopicArn pulumi.StringPtrInput
-	// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
 	EventEndpointDeletedTopicArn pulumi.StringPtrInput
-	// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+	// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
 	EventEndpointUpdatedTopicArn pulumi.StringPtrInput
-	// The IAM role permitted to receive failure feedback for this application.
+	// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	FailureFeedbackRoleArn pulumi.StringPtrInput
 	// The friendly name for the SNS platform application
 	Name pulumi.StringPtrInput
@@ -235,9 +235,9 @@ type PlatformApplicationArgs struct {
 	PlatformCredential pulumi.StringInput
 	// Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
 	PlatformPrincipal pulumi.StringPtrInput
-	// The IAM role permitted to receive success feedback for this application.
+	// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 	SuccessFeedbackRoleArn pulumi.StringPtrInput
-	// The percentage of success to sample (0-100)
+	// The sample rate percentage (0-100) of successfully delivered messages.
 	SuccessFeedbackSampleRate pulumi.StringPtrInput
 }
 
@@ -333,27 +333,27 @@ func (o PlatformApplicationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
 func (o PlatformApplicationOutput) EventDeliveryFailureTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.EventDeliveryFailureTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// SNS Topic triggered when a new platform endpoint is added to your platform application.
+// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
 func (o PlatformApplicationOutput) EventEndpointCreatedTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.EventEndpointCreatedTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
 func (o PlatformApplicationOutput) EventEndpointDeletedTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.EventEndpointDeletedTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
 func (o PlatformApplicationOutput) EventEndpointUpdatedTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.EventEndpointUpdatedTopicArn }).(pulumi.StringPtrOutput)
 }
 
-// The IAM role permitted to receive failure feedback for this application.
+// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 func (o PlatformApplicationOutput) FailureFeedbackRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.FailureFeedbackRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -378,12 +378,12 @@ func (o PlatformApplicationOutput) PlatformPrincipal() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.PlatformPrincipal }).(pulumi.StringPtrOutput)
 }
 
-// The IAM role permitted to receive success feedback for this application.
+// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
 func (o PlatformApplicationOutput) SuccessFeedbackRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.SuccessFeedbackRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The percentage of success to sample (0-100)
+// The sample rate percentage (0-100) of successfully delivered messages.
 func (o PlatformApplicationOutput) SuccessFeedbackSampleRate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlatformApplication) pulumi.StringPtrOutput { return v.SuccessFeedbackSampleRate }).(pulumi.StringPtrOutput)
 }

@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Lex
         public Output<int?> IdleSessionTtlInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         /// </summary>
         [Output("intents")]
         public Output<ImmutableArray<Outputs.BotIntent>> Intents { get; private set; } = null!;
@@ -306,7 +306,7 @@ namespace Pulumi.Aws.Lex
         private InputList<Inputs.BotIntentArgs>? _intents;
 
         /// <summary>
-        /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         /// </summary>
         public InputList<Inputs.BotIntentArgs> Intents
         {
@@ -425,7 +425,7 @@ namespace Pulumi.Aws.Lex
         private InputList<Inputs.BotIntentGetArgs>? _intents;
 
         /// <summary>
-        /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        /// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         /// </summary>
         public InputList<Inputs.BotIntentGetArgs> Intents
         {

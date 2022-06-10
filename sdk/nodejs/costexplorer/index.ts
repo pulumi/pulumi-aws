@@ -5,17 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./anomalyMonitor";
 export * from "./costCategory";
 export * from "./getCostCategory";
 export * from "./getTags";
 
 // Import resources to register:
+import { AnomalyMonitor } from "./anomalyMonitor";
 import { CostCategory } from "./costCategory";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:costexplorer/anomalyMonitor:AnomalyMonitor":
+                return new AnomalyMonitor(name, <any>undefined, { urn })
             case "aws:costexplorer/costCategory:CostCategory":
                 return new CostCategory(name, <any>undefined, { urn })
             default:
@@ -23,4 +27,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "costexplorer/anomalyMonitor", _module)
 pulumi.runtime.registerResourceModule("aws", "costexplorer/costCategory", _module)

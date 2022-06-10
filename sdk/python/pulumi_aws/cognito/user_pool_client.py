@@ -23,6 +23,7 @@ class UserPoolClientArgs:
                  analytics_configuration: Optional[pulumi.Input['UserPoolClientAnalyticsConfigurationArgs']] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
+                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
                  enable_token_revocation: Optional[pulumi.Input[bool]] = None,
                  explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  generate_secret: Optional[pulumi.Input[bool]] = None,
@@ -45,6 +46,7 @@ class UserPoolClientArgs:
         :param pulumi.Input['UserPoolClientAnalyticsConfigurationArgs'] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
@@ -73,6 +75,8 @@ class UserPoolClientArgs:
             pulumi.set(__self__, "callback_urls", callback_urls)
         if default_redirect_uri is not None:
             pulumi.set(__self__, "default_redirect_uri", default_redirect_uri)
+        if enable_propagate_additional_user_context_data is not None:
+            pulumi.set(__self__, "enable_propagate_additional_user_context_data", enable_propagate_additional_user_context_data)
         if enable_token_revocation is not None:
             pulumi.set(__self__, "enable_token_revocation", enable_token_revocation)
         if explicit_auth_flows is not None:
@@ -193,6 +197,18 @@ class UserPoolClientArgs:
     @default_redirect_uri.setter
     def default_redirect_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_redirect_uri", value)
+
+    @property
+    @pulumi.getter(name="enablePropagateAdditionalUserContextData")
+    def enable_propagate_additional_user_context_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Activates the propagation of additional user context data.
+        """
+        return pulumi.get(self, "enable_propagate_additional_user_context_data")
+
+    @enable_propagate_additional_user_context_data.setter
+    def enable_propagate_additional_user_context_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_propagate_additional_user_context_data", value)
 
     @property
     @pulumi.getter(name="enableTokenRevocation")
@@ -350,6 +366,7 @@ class _UserPoolClientState:
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
+                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
                  enable_token_revocation: Optional[pulumi.Input[bool]] = None,
                  explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  generate_secret: Optional[pulumi.Input[bool]] = None,
@@ -373,6 +390,7 @@ class _UserPoolClientState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] client_secret: Client secret of the user pool client.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
@@ -403,6 +421,8 @@ class _UserPoolClientState:
             pulumi.set(__self__, "client_secret", client_secret)
         if default_redirect_uri is not None:
             pulumi.set(__self__, "default_redirect_uri", default_redirect_uri)
+        if enable_propagate_additional_user_context_data is not None:
+            pulumi.set(__self__, "enable_propagate_additional_user_context_data", enable_propagate_additional_user_context_data)
         if enable_token_revocation is not None:
             pulumi.set(__self__, "enable_token_revocation", enable_token_revocation)
         if explicit_auth_flows is not None:
@@ -525,6 +545,18 @@ class _UserPoolClientState:
     @default_redirect_uri.setter
     def default_redirect_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "default_redirect_uri", value)
+
+    @property
+    @pulumi.getter(name="enablePropagateAdditionalUserContextData")
+    def enable_propagate_additional_user_context_data(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Activates the propagation of additional user context data.
+        """
+        return pulumi.get(self, "enable_propagate_additional_user_context_data")
+
+    @enable_propagate_additional_user_context_data.setter
+    def enable_propagate_additional_user_context_data(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_propagate_additional_user_context_data", value)
 
     @property
     @pulumi.getter(name="enableTokenRevocation")
@@ -695,6 +727,7 @@ class UserPoolClient(pulumi.CustomResource):
                  analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
+                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
                  enable_token_revocation: Optional[pulumi.Input[bool]] = None,
                  explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  generate_secret: Optional[pulumi.Input[bool]] = None,
@@ -821,6 +854,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']] analytics_configuration: Configuration block for Amazon Pinpoint analytics for collecting metrics for this user pool. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
@@ -966,6 +1000,7 @@ class UserPoolClient(pulumi.CustomResource):
                  analytics_configuration: Optional[pulumi.Input[pulumi.InputType['UserPoolClientAnalyticsConfigurationArgs']]] = None,
                  callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_redirect_uri: Optional[pulumi.Input[str]] = None,
+                 enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
                  enable_token_revocation: Optional[pulumi.Input[bool]] = None,
                  explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  generate_secret: Optional[pulumi.Input[bool]] = None,
@@ -998,6 +1033,7 @@ class UserPoolClient(pulumi.CustomResource):
             __props__.__dict__["analytics_configuration"] = analytics_configuration
             __props__.__dict__["callback_urls"] = callback_urls
             __props__.__dict__["default_redirect_uri"] = default_redirect_uri
+            __props__.__dict__["enable_propagate_additional_user_context_data"] = enable_propagate_additional_user_context_data
             __props__.__dict__["enable_token_revocation"] = enable_token_revocation
             __props__.__dict__["explicit_auth_flows"] = explicit_auth_flows
             __props__.__dict__["generate_secret"] = generate_secret
@@ -1032,6 +1068,7 @@ class UserPoolClient(pulumi.CustomResource):
             callback_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             client_secret: Optional[pulumi.Input[str]] = None,
             default_redirect_uri: Optional[pulumi.Input[str]] = None,
+            enable_propagate_additional_user_context_data: Optional[pulumi.Input[bool]] = None,
             enable_token_revocation: Optional[pulumi.Input[bool]] = None,
             explicit_auth_flows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             generate_secret: Optional[pulumi.Input[bool]] = None,
@@ -1060,6 +1097,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] callback_urls: List of allowed callback URLs for the identity providers.
         :param pulumi.Input[str] client_secret: Client secret of the user pool client.
         :param pulumi.Input[str] default_redirect_uri: Default redirect URI. Must be in the list of callback URLs.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data.
         :param pulumi.Input[bool] enable_token_revocation: Enables or disables token revocation.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
         :param pulumi.Input[bool] generate_secret: Should an application secret be generated.
@@ -1086,6 +1124,7 @@ class UserPoolClient(pulumi.CustomResource):
         __props__.__dict__["callback_urls"] = callback_urls
         __props__.__dict__["client_secret"] = client_secret
         __props__.__dict__["default_redirect_uri"] = default_redirect_uri
+        __props__.__dict__["enable_propagate_additional_user_context_data"] = enable_propagate_additional_user_context_data
         __props__.__dict__["enable_token_revocation"] = enable_token_revocation
         __props__.__dict__["explicit_auth_flows"] = explicit_auth_flows
         __props__.__dict__["generate_secret"] = generate_secret
@@ -1164,6 +1203,14 @@ class UserPoolClient(pulumi.CustomResource):
         Default redirect URI. Must be in the list of callback URLs.
         """
         return pulumi.get(self, "default_redirect_uri")
+
+    @property
+    @pulumi.getter(name="enablePropagateAdditionalUserContextData")
+    def enable_propagate_additional_user_context_data(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Activates the propagation of additional user context data.
+        """
+        return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
     @property
     @pulumi.getter(name="enableTokenRevocation")

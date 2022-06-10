@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetLogGroupsResult> InvokeAsync(GetLogGroupsArgs args, InvokeOptions? options = null)
+        public static Task<GetLogGroupsResult> InvokeAsync(GetLogGroupsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsArgs(), options.WithDefaults());
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.CloudWatch
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Output<GetLogGroupsResult> Invoke(GetLogGroupsInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetLogGroupsResult> Invoke(GetLogGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsInvokeArgs(), options.WithDefaults());
     }
 
@@ -76,8 +76,8 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// The group prefix of the Cloudwatch log groups to list
         /// </summary>
-        [Input("logGroupNamePrefix", required: true)]
-        public string LogGroupNamePrefix { get; set; } = null!;
+        [Input("logGroupNamePrefix")]
+        public string? LogGroupNamePrefix { get; set; }
 
         public GetLogGroupsArgs()
         {
@@ -89,8 +89,8 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// The group prefix of the Cloudwatch log groups to list
         /// </summary>
-        [Input("logGroupNamePrefix", required: true)]
-        public Input<string> LogGroupNamePrefix { get; set; } = null!;
+        [Input("logGroupNamePrefix")]
+        public Input<string>? LogGroupNamePrefix { get; set; }
 
         public GetLogGroupsInvokeArgs()
         {
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.CloudWatch
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string LogGroupNamePrefix;
+        public readonly string? LogGroupNamePrefix;
         /// <summary>
         /// Set of names of the Cloudwatch log groups
         /// </summary>
@@ -121,7 +121,7 @@ namespace Pulumi.Aws.CloudWatch
 
             string id,
 
-            string logGroupNamePrefix,
+            string? logGroupNamePrefix,
 
             ImmutableArray<string> logGroupNames)
         {

@@ -198,6 +198,8 @@ type UserPoolClient struct {
 	ClientSecret pulumi.StringOutput `pulumi:"clientSecret"`
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri pulumi.StringPtrOutput `pulumi:"defaultRedirectUri"`
+	// Activates the propagation of additional user context data.
+	EnablePropagateAdditionalUserContextData pulumi.BoolPtrOutput `pulumi:"enablePropagateAdditionalUserContextData"`
 	// Enables or disables token revocation.
 	EnableTokenRevocation pulumi.BoolOutput `pulumi:"enableTokenRevocation"`
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
@@ -274,6 +276,8 @@ type userPoolClientState struct {
 	ClientSecret *string `pulumi:"clientSecret"`
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri *string `pulumi:"defaultRedirectUri"`
+	// Activates the propagation of additional user context data.
+	EnablePropagateAdditionalUserContextData *bool `pulumi:"enablePropagateAdditionalUserContextData"`
 	// Enables or disables token revocation.
 	EnableTokenRevocation *bool `pulumi:"enableTokenRevocation"`
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
@@ -319,6 +323,8 @@ type UserPoolClientState struct {
 	ClientSecret pulumi.StringPtrInput
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri pulumi.StringPtrInput
+	// Activates the propagation of additional user context data.
+	EnablePropagateAdditionalUserContextData pulumi.BoolPtrInput
 	// Enables or disables token revocation.
 	EnableTokenRevocation pulumi.BoolPtrInput
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
@@ -366,6 +372,8 @@ type userPoolClientArgs struct {
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri *string `pulumi:"defaultRedirectUri"`
+	// Activates the propagation of additional user context data.
+	EnablePropagateAdditionalUserContextData *bool `pulumi:"enablePropagateAdditionalUserContextData"`
 	// Enables or disables token revocation.
 	EnableTokenRevocation *bool `pulumi:"enableTokenRevocation"`
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
@@ -410,6 +418,8 @@ type UserPoolClientArgs struct {
 	CallbackUrls pulumi.StringArrayInput
 	// Default redirect URI. Must be in the list of callback URLs.
 	DefaultRedirectUri pulumi.StringPtrInput
+	// Activates the propagation of additional user context data.
+	EnablePropagateAdditionalUserContextData pulumi.BoolPtrInput
 	// Enables or disables token revocation.
 	EnableTokenRevocation pulumi.BoolPtrInput
 	// List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
@@ -563,6 +573,11 @@ func (o UserPoolClientOutput) ClientSecret() pulumi.StringOutput {
 // Default redirect URI. Must be in the list of callback URLs.
 func (o UserPoolClientOutput) DefaultRedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolClient) pulumi.StringPtrOutput { return v.DefaultRedirectUri }).(pulumi.StringPtrOutput)
+}
+
+// Activates the propagation of additional user context data.
+func (o UserPoolClientOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *UserPoolClient) pulumi.BoolPtrOutput { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolPtrOutput)
 }
 
 // Enables or disables token revocation.

@@ -179,6 +179,8 @@ if typing.TYPE_CHECKING:
     emr = __emr
     import pulumi_aws.emrcontainers as __emrcontainers
     emrcontainers = __emrcontainers
+    import pulumi_aws.emrserverless as __emrserverless
+    emrserverless = __emrserverless
     import pulumi_aws.fms as __fms
     fms = __fms
     import pulumi_aws.fsx as __fsx
@@ -427,6 +429,7 @@ else:
     elb = _utilities.lazy_import('pulumi_aws.elb')
     emr = _utilities.lazy_import('pulumi_aws.emr')
     emrcontainers = _utilities.lazy_import('pulumi_aws.emrcontainers')
+    emrserverless = _utilities.lazy_import('pulumi_aws.emrserverless')
     fms = _utilities.lazy_import('pulumi_aws.fms')
     fsx = _utilities.lazy_import('pulumi_aws.fsx')
     gamelift = _utilities.lazy_import('pulumi_aws.gamelift')
@@ -2427,6 +2430,14 @@ _utilities.register(
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/userHierarchyStructure:UserHierarchyStructure": "UserHierarchyStructure"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "costexplorer/anomalyMonitor",
+  "fqn": "pulumi_aws.costexplorer",
+  "classes": {
+   "aws:costexplorer/anomalyMonitor:AnomalyMonitor": "AnomalyMonitor"
   }
  },
  {
@@ -4499,6 +4510,14 @@ _utilities.register(
   "fqn": "pulumi_aws.emrcontainers",
   "classes": {
    "aws:emrcontainers/virtualCluster:VirtualCluster": "VirtualCluster"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "emrserverless/application",
+  "fqn": "pulumi_aws.emrserverless",
+  "classes": {
+   "aws:emrserverless/application:Application": "Application"
   }
  },
  {

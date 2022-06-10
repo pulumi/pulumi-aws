@@ -233,6 +233,12 @@ namespace Pulumi.Aws.Cognito
         public Output<string?> DefaultRedirectUri { get; private set; } = null!;
 
         /// <summary>
+        /// Activates the propagation of additional user context data.
+        /// </summary>
+        [Output("enablePropagateAdditionalUserContextData")]
+        public Output<bool?> EnablePropagateAdditionalUserContextData { get; private set; } = null!;
+
+        /// <summary>
         /// Enables or disables token revocation.
         /// </summary>
         [Output("enableTokenRevocation")]
@@ -417,6 +423,12 @@ namespace Pulumi.Aws.Cognito
         public Input<string>? DefaultRedirectUri { get; set; }
 
         /// <summary>
+        /// Activates the propagation of additional user context data.
+        /// </summary>
+        [Input("enablePropagateAdditionalUserContextData")]
+        public Input<bool>? EnablePropagateAdditionalUserContextData { get; set; }
+
+        /// <summary>
         /// Enables or disables token revocation.
         /// </summary>
         [Input("enableTokenRevocation")]
@@ -596,6 +608,12 @@ namespace Pulumi.Aws.Cognito
         /// </summary>
         [Input("defaultRedirectUri")]
         public Input<string>? DefaultRedirectUri { get; set; }
+
+        /// <summary>
+        /// Activates the propagation of additional user context data.
+        /// </summary>
+        [Input("enablePropagateAdditionalUserContextData")]
+        public Input<bool>? EnablePropagateAdditionalUserContextData { get; set; }
 
         /// <summary>
         /// Enables or disables token revocation.

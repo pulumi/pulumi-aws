@@ -374,6 +374,7 @@ type Endpoints struct {
 	Elbv2                               *string `pulumi:"elbv2"`
 	Emr                                 *string `pulumi:"emr"`
 	Emrcontainers                       *string `pulumi:"emrcontainers"`
+	Emrserverless                       *string `pulumi:"emrserverless"`
 	Es                                  *string `pulumi:"es"`
 	Eventbridge                         *string `pulumi:"eventbridge"`
 	Events                              *string `pulumi:"events"`
@@ -749,6 +750,7 @@ type EndpointsArgs struct {
 	Elbv2                               pulumi.StringPtrInput `pulumi:"elbv2"`
 	Emr                                 pulumi.StringPtrInput `pulumi:"emr"`
 	Emrcontainers                       pulumi.StringPtrInput `pulumi:"emrcontainers"`
+	Emrserverless                       pulumi.StringPtrInput `pulumi:"emrserverless"`
 	Es                                  pulumi.StringPtrInput `pulumi:"es"`
 	Eventbridge                         pulumi.StringPtrInput `pulumi:"eventbridge"`
 	Events                              pulumi.StringPtrInput `pulumi:"events"`
@@ -1548,6 +1550,10 @@ func (o EndpointsOutput) Emr() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Emrcontainers() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Emrcontainers }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Emrserverless() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Emrserverless }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Es() pulumi.StringPtrOutput {

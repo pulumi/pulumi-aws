@@ -112,8 +112,12 @@ type Parameter struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-	Tier pulumi.StringPtrOutput `pulumi:"tier"`
+	// The parameter tier to assign to the parameter.
+	// If not specified, will use the default parameter tier for the region.
+	// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+	// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+	// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+	Tier pulumi.StringOutput `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The value of the parameter.
@@ -176,7 +180,11 @@ type parameterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+	// The parameter tier to assign to the parameter.
+	// If not specified, will use the default parameter tier for the region.
+	// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+	// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+	// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier *string `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type *string `pulumi:"type"`
@@ -206,7 +214,11 @@ type ParameterState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
-	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+	// The parameter tier to assign to the parameter.
+	// If not specified, will use the default parameter tier for the region.
+	// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+	// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+	// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier pulumi.StringPtrInput
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type pulumi.StringPtrInput
@@ -238,7 +250,11 @@ type parameterArgs struct {
 	Overwrite *bool `pulumi:"overwrite"`
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+	// The parameter tier to assign to the parameter.
+	// If not specified, will use the default parameter tier for the region.
+	// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+	// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+	// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier *string `pulumi:"tier"`
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type string `pulumi:"type"`
@@ -265,7 +281,11 @@ type ParameterArgs struct {
 	Overwrite pulumi.BoolPtrInput
 	// A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+	// The parameter tier to assign to the parameter.
+	// If not specified, will use the default parameter tier for the region.
+	// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+	// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+	// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
 	Tier pulumi.StringPtrInput
 	// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
 	Type pulumi.StringInput
@@ -406,9 +426,13 @@ func (o ParameterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
-func (o ParameterOutput) Tier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.Tier }).(pulumi.StringPtrOutput)
+// The parameter tier to assign to the parameter.
+// If not specified, will use the default parameter tier for the region.
+// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+func (o ParameterOutput) Tier() pulumi.StringOutput {
+	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Tier }).(pulumi.StringOutput)
 }
 
 // The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.

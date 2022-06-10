@@ -599,6 +599,7 @@ class EventTarget(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+        ### Kinesis Usage
 
         ```python
         import pulumi
@@ -633,7 +634,7 @@ class EventTarget(pulumi.CustomResource):
                 ),
             ])
         ```
-        ## Example SSM Document Usage
+        ### SSM Document Usage
 
         ```python
         import pulumi
@@ -700,8 +701,7 @@ class EventTarget(pulumi.CustomResource):
                 values=["midnight"],
             )])
         ```
-
-        ## Example RunCommand Usage
+        ### RunCommand Usage
 
         ```python
         import pulumi
@@ -720,8 +720,7 @@ class EventTarget(pulumi.CustomResource):
                 values=["midnight"],
             )])
         ```
-
-        ## Example API Gateway target
+        ### API Gateway target
 
         ```python
         import pulumi
@@ -747,8 +746,7 @@ class EventTarget(pulumi.CustomResource):
                 },
             ))
         ```
-
-        ## Example Cross-Account Event Bus target
+        ### Cross-Account Event Bus target
 
         ```python
         import pulumi
@@ -784,8 +782,7 @@ class EventTarget(pulumi.CustomResource):
             rule=stop_instances_event_rule.name,
             role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
-
-        ## Example Input Transformer Usage - JSON Object
+        ### Input Transformer Usage - JSON Object
 
         ```python
         import pulumi
@@ -808,8 +805,7 @@ class EventTarget(pulumi.CustomResource):
         \"\"\",
             ))
         ```
-
-        ## Example Input Transformer Usage - Simple String
+        ### Input Transformer Usage - Simple String
 
         ```python
         import pulumi
@@ -827,6 +823,48 @@ class EventTarget(pulumi.CustomResource):
                 },
                 input_template="\"<instance> is in state <status>\"",
             ))
+        ```
+        ### Cloudwatch Log Group Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=1)
+        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule",
+            description="GuardDuty Findings",
+            event_pattern=json.dumps({
+                "source": ["aws.guardduty"],
+            }),
+            tags={
+                "Environment": "example",
+            })
+        example_log_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=[
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+            ],
+            resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[
+                    "events.amazonaws.com",
+                    "delivery.logs.amazonaws.com",
+                ],
+                type="Service",
+            )],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ArnEquals",
+                values=[example_event_rule.arn],
+                variable="aws:SourceArn",
+            )],
+        )])
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_document=example_log_policy.json,
+            policy_name="guardduty-log-publishing-policy")
+        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
+            rule=example_event_rule.name,
+            arn=example_log_group.arn)
         ```
 
         ## Import
@@ -869,6 +907,7 @@ class EventTarget(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+        ### Kinesis Usage
 
         ```python
         import pulumi
@@ -903,7 +942,7 @@ class EventTarget(pulumi.CustomResource):
                 ),
             ])
         ```
-        ## Example SSM Document Usage
+        ### SSM Document Usage
 
         ```python
         import pulumi
@@ -970,8 +1009,7 @@ class EventTarget(pulumi.CustomResource):
                 values=["midnight"],
             )])
         ```
-
-        ## Example RunCommand Usage
+        ### RunCommand Usage
 
         ```python
         import pulumi
@@ -990,8 +1028,7 @@ class EventTarget(pulumi.CustomResource):
                 values=["midnight"],
             )])
         ```
-
-        ## Example API Gateway target
+        ### API Gateway target
 
         ```python
         import pulumi
@@ -1017,8 +1054,7 @@ class EventTarget(pulumi.CustomResource):
                 },
             ))
         ```
-
-        ## Example Cross-Account Event Bus target
+        ### Cross-Account Event Bus target
 
         ```python
         import pulumi
@@ -1054,8 +1090,7 @@ class EventTarget(pulumi.CustomResource):
             rule=stop_instances_event_rule.name,
             role_arn=event_bus_invoke_remote_event_bus_role.arn)
         ```
-
-        ## Example Input Transformer Usage - JSON Object
+        ### Input Transformer Usage - JSON Object
 
         ```python
         import pulumi
@@ -1078,8 +1113,7 @@ class EventTarget(pulumi.CustomResource):
         \"\"\",
             ))
         ```
-
-        ## Example Input Transformer Usage - Simple String
+        ### Input Transformer Usage - Simple String
 
         ```python
         import pulumi
@@ -1097,6 +1131,48 @@ class EventTarget(pulumi.CustomResource):
                 },
                 input_template="\"<instance> is in state <status>\"",
             ))
+        ```
+        ### Cloudwatch Log Group Usage
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example_log_group = aws.cloudwatch.LogGroup("exampleLogGroup", retention_in_days=1)
+        example_event_rule = aws.cloudwatch.EventRule("exampleEventRule",
+            description="GuardDuty Findings",
+            event_pattern=json.dumps({
+                "source": ["aws.guardduty"],
+            }),
+            tags={
+                "Environment": "example",
+            })
+        example_log_policy = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            actions=[
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+            ],
+            resources=[example_log_group.arn.apply(lambda arn: f"{arn}:*")],
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                identifiers=[
+                    "events.amazonaws.com",
+                    "delivery.logs.amazonaws.com",
+                ],
+                type="Service",
+            )],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ArnEquals",
+                values=[example_event_rule.arn],
+                variable="aws:SourceArn",
+            )],
+        )])
+        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("exampleLogResourcePolicy",
+            policy_document=example_log_policy.json,
+            policy_name="guardduty-log-publishing-policy")
+        example_event_target = aws.cloudwatch.EventTarget("exampleEventTarget",
+            rule=example_event_rule.name,
+            arn=example_log_group.arn)
         ```
 
         ## Import

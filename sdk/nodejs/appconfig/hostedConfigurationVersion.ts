@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * const example = new aws.appconfig.HostedConfigurationVersion("example", {
  *     applicationId: aws_appconfig_application.example.id,
  *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
- *     description: "Example Freeform Hosted Configuration Version",
+ *     description: "Example Feature Flag Configuration Version",
  *     contentType: "application/json",
  *     content: JSON.stringify({
  *         flags: {
@@ -51,6 +51,20 @@ import * as utilities from "../utilities";
  *             },
  *             bar: {
  *                 name: "bar",
+ *                 attributes: {
+ *                     someAttribute: {
+ *                         constraints: {
+ *                             type: "string",
+ *                             required: true,
+ *                         },
+ *                     },
+ *                     someOtherAttribute: {
+ *                         constraints: {
+ *                             type: "number",
+ *                             required: true,
+ *                         },
+ *                     },
+ *                 },
  *             },
  *         },
  *         values: {
@@ -59,6 +73,8 @@ import * as utilities from "../utilities";
  *             },
  *             bar: {
  *                 enabled: "true",
+ *                 someAttribute: "Hello World",
+ *                 someOtherAttribute: 123,
  *             },
  *         },
  *         version: "1",

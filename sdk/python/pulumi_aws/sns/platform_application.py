@@ -28,15 +28,15 @@ class PlatformApplicationArgs:
         The set of arguments for constructing a PlatformApplication resource.
         :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        :param pulumi.Input[str] event_endpoint_created_topic_arn: SNS Topic triggered when a new platform endpoint is added to your platform application.
-        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        :param pulumi.Input[str] event_endpoint_updated_topic_arn: SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role permitted to receive failure feedback for this application.
+        :param pulumi.Input[str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        :param pulumi.Input[str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
+        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        :param pulumi.Input[str] event_endpoint_updated_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] name: The friendly name for the SNS platform application
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
-        :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
+        :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
+        :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
         """
         pulumi.set(__self__, "platform", platform)
         pulumi.set(__self__, "platform_credential", platform_credential)
@@ -87,7 +87,7 @@ class PlatformApplicationArgs:
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
     def event_delivery_failure_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         """
         return pulumi.get(self, "event_delivery_failure_topic_arn")
 
@@ -99,7 +99,7 @@ class PlatformApplicationArgs:
     @pulumi.getter(name="eventEndpointCreatedTopicArn")
     def event_endpoint_created_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        SNS Topic triggered when a new platform endpoint is added to your platform application.
+        The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         """
         return pulumi.get(self, "event_endpoint_created_topic_arn")
 
@@ -111,7 +111,7 @@ class PlatformApplicationArgs:
     @pulumi.getter(name="eventEndpointDeletedTopicArn")
     def event_endpoint_deleted_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         """
         return pulumi.get(self, "event_endpoint_deleted_topic_arn")
 
@@ -123,7 +123,7 @@ class PlatformApplicationArgs:
     @pulumi.getter(name="eventEndpointUpdatedTopicArn")
     def event_endpoint_updated_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         """
         return pulumi.get(self, "event_endpoint_updated_topic_arn")
 
@@ -135,7 +135,7 @@ class PlatformApplicationArgs:
     @pulumi.getter(name="failureFeedbackRoleArn")
     def failure_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM role permitted to receive failure feedback for this application.
+        The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "failure_feedback_role_arn")
 
@@ -171,7 +171,7 @@ class PlatformApplicationArgs:
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM role permitted to receive success feedback for this application.
+        The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "success_feedback_role_arn")
 
@@ -183,7 +183,7 @@ class PlatformApplicationArgs:
     @pulumi.getter(name="successFeedbackSampleRate")
     def success_feedback_sample_rate(self) -> Optional[pulumi.Input[str]]:
         """
-        The percentage of success to sample (0-100)
+        The sample rate percentage (0-100) of successfully delivered messages.
         """
         return pulumi.get(self, "success_feedback_sample_rate")
 
@@ -210,17 +210,17 @@ class _PlatformApplicationState:
         """
         Input properties used for looking up and filtering PlatformApplication resources.
         :param pulumi.Input[str] arn: The ARN of the SNS platform application
-        :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        :param pulumi.Input[str] event_endpoint_created_topic_arn: SNS Topic triggered when a new platform endpoint is added to your platform application.
-        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        :param pulumi.Input[str] event_endpoint_updated_topic_arn: SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role permitted to receive failure feedback for this application.
+        :param pulumi.Input[str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        :param pulumi.Input[str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
+        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        :param pulumi.Input[str] event_endpoint_updated_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] name: The friendly name for the SNS platform application
         :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
-        :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
+        :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
+        :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -263,7 +263,7 @@ class _PlatformApplicationState:
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
     def event_delivery_failure_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         """
         return pulumi.get(self, "event_delivery_failure_topic_arn")
 
@@ -275,7 +275,7 @@ class _PlatformApplicationState:
     @pulumi.getter(name="eventEndpointCreatedTopicArn")
     def event_endpoint_created_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        SNS Topic triggered when a new platform endpoint is added to your platform application.
+        The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         """
         return pulumi.get(self, "event_endpoint_created_topic_arn")
 
@@ -287,7 +287,7 @@ class _PlatformApplicationState:
     @pulumi.getter(name="eventEndpointDeletedTopicArn")
     def event_endpoint_deleted_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         """
         return pulumi.get(self, "event_endpoint_deleted_topic_arn")
 
@@ -299,7 +299,7 @@ class _PlatformApplicationState:
     @pulumi.getter(name="eventEndpointUpdatedTopicArn")
     def event_endpoint_updated_topic_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         """
         return pulumi.get(self, "event_endpoint_updated_topic_arn")
 
@@ -311,7 +311,7 @@ class _PlatformApplicationState:
     @pulumi.getter(name="failureFeedbackRoleArn")
     def failure_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM role permitted to receive failure feedback for this application.
+        The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "failure_feedback_role_arn")
 
@@ -371,7 +371,7 @@ class _PlatformApplicationState:
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The IAM role permitted to receive success feedback for this application.
+        The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "success_feedback_role_arn")
 
@@ -383,7 +383,7 @@ class _PlatformApplicationState:
     @pulumi.getter(name="successFeedbackSampleRate")
     def success_feedback_sample_rate(self) -> Optional[pulumi.Input[str]]:
         """
-        The percentage of success to sample (0-100)
+        The sample rate percentage (0-100) of successfully delivered messages.
         """
         return pulumi.get(self, "success_feedback_sample_rate")
 
@@ -445,17 +445,17 @@ class PlatformApplication(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        :param pulumi.Input[str] event_endpoint_created_topic_arn: SNS Topic triggered when a new platform endpoint is added to your platform application.
-        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        :param pulumi.Input[str] event_endpoint_updated_topic_arn: SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role permitted to receive failure feedback for this application.
+        :param pulumi.Input[str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        :param pulumi.Input[str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
+        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        :param pulumi.Input[str] event_endpoint_updated_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] name: The friendly name for the SNS platform application
         :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
-        :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
+        :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
+        :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
         """
         ...
     @overload
@@ -581,17 +581,17 @@ class PlatformApplication(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the SNS platform application
-        :param pulumi.Input[str] event_delivery_failure_topic_arn: SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
-        :param pulumi.Input[str] event_endpoint_created_topic_arn: SNS Topic triggered when a new platform endpoint is added to your platform application.
-        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
-        :param pulumi.Input[str] event_endpoint_updated_topic_arn: SNS Topic triggered when an existing platform endpoint is changed from your platform application.
-        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role permitted to receive failure feedback for this application.
+        :param pulumi.Input[str] event_delivery_failure_topic_arn: The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        :param pulumi.Input[str] event_endpoint_created_topic_arn: The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
+        :param pulumi.Input[str] event_endpoint_deleted_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        :param pulumi.Input[str] event_endpoint_updated_topic_arn: The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        :param pulumi.Input[str] failure_feedback_role_arn: The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         :param pulumi.Input[str] name: The friendly name for the SNS platform application
         :param pulumi.Input[str] platform: The platform that the app is registered with. See [Platform](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for supported platforms.
         :param pulumi.Input[str] platform_credential: Application Platform credential. See [Credential](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-register.html) for type of credential required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
         :param pulumi.Input[str] platform_principal: Application Platform principal. See [Principal](http://docs.aws.amazon.com/sns/latest/api/API_CreatePlatformApplication.html) for type of principal required for platform. The value of this attribute when stored into the state is only a hash of the real value, so therefore it is not practical to use this as an attribute for other resources.
-        :param pulumi.Input[str] success_feedback_role_arn: The IAM role permitted to receive success feedback for this application.
-        :param pulumi.Input[str] success_feedback_sample_rate: The percentage of success to sample (0-100)
+        :param pulumi.Input[str] success_feedback_role_arn: The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
+        :param pulumi.Input[str] success_feedback_sample_rate: The sample rate percentage (0-100) of successfully delivered messages.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -623,7 +623,7 @@ class PlatformApplication(pulumi.CustomResource):
     @pulumi.getter(name="eventDeliveryFailureTopicArn")
     def event_delivery_failure_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         """
         return pulumi.get(self, "event_delivery_failure_topic_arn")
 
@@ -631,7 +631,7 @@ class PlatformApplication(pulumi.CustomResource):
     @pulumi.getter(name="eventEndpointCreatedTopicArn")
     def event_endpoint_created_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        SNS Topic triggered when a new platform endpoint is added to your platform application.
+        The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         """
         return pulumi.get(self, "event_endpoint_created_topic_arn")
 
@@ -639,7 +639,7 @@ class PlatformApplication(pulumi.CustomResource):
     @pulumi.getter(name="eventEndpointDeletedTopicArn")
     def event_endpoint_deleted_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         """
         return pulumi.get(self, "event_endpoint_deleted_topic_arn")
 
@@ -647,7 +647,7 @@ class PlatformApplication(pulumi.CustomResource):
     @pulumi.getter(name="eventEndpointUpdatedTopicArn")
     def event_endpoint_updated_topic_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         """
         return pulumi.get(self, "event_endpoint_updated_topic_arn")
 
@@ -655,7 +655,7 @@ class PlatformApplication(pulumi.CustomResource):
     @pulumi.getter(name="failureFeedbackRoleArn")
     def failure_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The IAM role permitted to receive failure feedback for this application.
+        The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "failure_feedback_role_arn")
 
@@ -695,7 +695,7 @@ class PlatformApplication(pulumi.CustomResource):
     @pulumi.getter(name="successFeedbackRoleArn")
     def success_feedback_role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The IAM role permitted to receive success feedback for this application.
+        The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         """
         return pulumi.get(self, "success_feedback_role_arn")
 
@@ -703,7 +703,7 @@ class PlatformApplication(pulumi.CustomResource):
     @pulumi.getter(name="successFeedbackSampleRate")
     def success_feedback_sample_rate(self) -> pulumi.Output[Optional[str]]:
         """
-        The percentage of success to sample (0-100)
+        The sample rate percentage (0-100) of successfully delivered messages.
         """
         return pulumi.get(self, "success_feedback_sample_rate")
 

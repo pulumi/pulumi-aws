@@ -21,6 +21,25 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Grant Permissions For A Glue Catalog Database
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lakeformation.Permissions("example", {
+ *     principal: aws_iam_role.workflow_role.arn,
+ *     permissions: [
+ *         "CREATE_TABLE",
+ *         "ALTER",
+ *         "DROP",
+ *     ],
+ *     database: {
+ *         name: aws_glue_catalog_database.example.name,
+ *         catalogId: "110376042874",
+ *     },
+ * });
+ * ```
  */
 export class Permissions extends pulumi.CustomResource {
     /**

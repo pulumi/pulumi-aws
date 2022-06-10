@@ -813,7 +813,7 @@ func (o IpGroupRuleArrayOutput) Index(i pulumi.IntInput) IpGroupRuleOutput {
 }
 
 type WorkspaceWorkspaceProperties struct {
-	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
 	ComputeTypeName *string `pulumi:"computeTypeName"`
 	// The size of the root volume.
 	RootVolumeSizeGib *int `pulumi:"rootVolumeSizeGib"`
@@ -837,7 +837,7 @@ type WorkspaceWorkspacePropertiesInput interface {
 }
 
 type WorkspaceWorkspacePropertiesArgs struct {
-	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
 	ComputeTypeName pulumi.StringPtrInput `pulumi:"computeTypeName"`
 	// The size of the root volume.
 	RootVolumeSizeGib pulumi.IntPtrInput `pulumi:"rootVolumeSizeGib"`
@@ -926,7 +926,7 @@ func (o WorkspaceWorkspacePropertiesOutput) ToWorkspaceWorkspacePropertiesPtrOut
 	}).(WorkspaceWorkspacePropertiesPtrOutput)
 }
 
-// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
 func (o WorkspaceWorkspacePropertiesOutput) ComputeTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkspaceWorkspaceProperties) *string { return v.ComputeTypeName }).(pulumi.StringPtrOutput)
 }
@@ -975,7 +975,7 @@ func (o WorkspaceWorkspacePropertiesPtrOutput) Elem() WorkspaceWorkspaceProperti
 	}).(WorkspaceWorkspacePropertiesOutput)
 }
 
-// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
 func (o WorkspaceWorkspacePropertiesPtrOutput) ComputeTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WorkspaceWorkspaceProperties) *string {
 		if v == nil {

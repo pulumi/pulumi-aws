@@ -18,7 +18,8 @@ import * as utilities from "../utilities";
  * }));
  * ```
  */
-export function getLogGroups(args: GetLogGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupsResult> {
+export function getLogGroups(args?: GetLogGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetLogGroupsResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -36,7 +37,7 @@ export interface GetLogGroupsArgs {
     /**
      * The group prefix of the Cloudwatch log groups to list
      */
-    logGroupNamePrefix: string;
+    logGroupNamePrefix?: string;
 }
 
 /**
@@ -51,14 +52,14 @@ export interface GetLogGroupsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly logGroupNamePrefix: string;
+    readonly logGroupNamePrefix?: string;
     /**
      * Set of names of the Cloudwatch log groups
      */
     readonly logGroupNames: string[];
 }
 
-export function getLogGroupsOutput(args: GetLogGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupsResult> {
+export function getLogGroupsOutput(args?: GetLogGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupsResult> {
     return pulumi.output(args).apply(a => getLogGroups(a, opts))
 }
 
@@ -69,5 +70,5 @@ export interface GetLogGroupsOutputArgs {
     /**
      * The group prefix of the Cloudwatch log groups to list
      */
-    logGroupNamePrefix: pulumi.Input<string>;
+    logGroupNamePrefix?: pulumi.Input<string>;
 }

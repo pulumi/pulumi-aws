@@ -16,6 +16,7 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
+// ### Kinesis Usage
 //
 // ```go
 // package main
@@ -68,7 +69,7 @@ import (
 // 	})
 // }
 // ```
-// ## Example SSM Document Usage
+// ### SSM Document Usage
 //
 // ```go
 // package main
@@ -191,8 +192,7 @@ import (
 // 	})
 // }
 // ```
-//
-// ## Example RunCommand Usage
+// ### RunCommand Usage
 //
 // ```go
 // package main
@@ -234,8 +234,7 @@ import (
 // 	})
 // }
 // ```
-//
-// ## Example API Gateway target
+// ### API Gateway target
 //
 // ```go
 // package main
@@ -288,8 +287,7 @@ import (
 // 	})
 // }
 // ```
-//
-// ## Example Cross-Account Event Bus target
+// ### Cross-Account Event Bus target
 //
 // ```go
 // package main
@@ -359,8 +357,7 @@ import (
 // 	})
 // }
 // ```
-//
-// ## Example Input Transformer Usage - JSON Object
+// ### Input Transformer Usage - JSON Object
 //
 // ```go
 // package main
@@ -396,8 +393,7 @@ import (
 // 	})
 // }
 // ```
-//
-// ## Example Input Transformer Usage - Simple String
+// ### Input Transformer Usage - Simple String
 //
 // ```go
 // package main
@@ -425,6 +421,100 @@ import (
 // 				},
 // 				InputTemplate: pulumi.String("\"<instance> is in state <status>\""),
 // 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Cloudwatch Log Group Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/json"
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/cloudwatch"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleLogGroup, err := cloudwatch.NewLogGroup(ctx, "exampleLogGroup", &cloudwatch.LogGroupArgs{
+// 			RetentionInDays: pulumi.Int(1),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		tmpJSON0, err := json.Marshal(map[string]interface{}{
+// 			"source": []string{
+// 				"aws.guardduty",
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		json0 := string(tmpJSON0)
+// 		exampleEventRule, err := cloudwatch.NewEventRule(ctx, "exampleEventRule", &cloudwatch.EventRuleArgs{
+// 			Description:  pulumi.String("GuardDuty Findings"),
+// 			EventPattern: pulumi.String(json0),
+// 			Tags: pulumi.StringMap{
+// 				"Environment": pulumi.String("example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleLogPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// 			Statements: iam.GetPolicyDocumentStatementArray{
+// 				&iam.GetPolicyDocumentStatementArgs{
+// 					Actions: pulumi.StringArray{
+// 						pulumi.String("logs:CreateLogStream"),
+// 						pulumi.String("logs:PutLogEvents"),
+// 					},
+// 					Resources: pulumi.StringArray{
+// 						exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
+// 							return fmt.Sprintf("%v%v", arn, ":*"), nil
+// 						}).(pulumi.StringOutput),
+// 					},
+// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
+// 							Identifiers: pulumi.StringArray{
+// 								pulumi.String("events.amazonaws.com"),
+// 								pulumi.String("delivery.logs.amazonaws.com"),
+// 							},
+// 							Type: pulumi.String("Service"),
+// 						},
+// 					},
+// 					Conditions: iam.GetPolicyDocumentStatementConditionArray{
+// 						&iam.GetPolicyDocumentStatementConditionArgs{
+// 							Test: pulumi.String("ArnEquals"),
+// 							Values: pulumi.StringArray{
+// 								exampleEventRule.Arn,
+// 							},
+// 							Variable: pulumi.String("aws:SourceArn"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
+// 			PolicyDocument: exampleLogPolicy.ApplyT(func(exampleLogPolicy iam.GetPolicyDocumentResult) (string, error) {
+// 				return exampleLogPolicy.Json, nil
+// 			}).(pulumi.StringOutput),
+// 			PolicyName: pulumi.String("guardduty-log-publishing-policy"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
+// 			Rule: exampleEventRule.Name,
+// 			Arn:  exampleLogGroup.Arn,
 // 		})
 // 		if err != nil {
 // 			return err

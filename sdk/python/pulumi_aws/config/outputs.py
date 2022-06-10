@@ -299,6 +299,7 @@ class Endpoints(dict):
                  elbv2: Optional[str] = None,
                  emr: Optional[str] = None,
                  emrcontainers: Optional[str] = None,
+                 emrserverless: Optional[str] = None,
                  es: Optional[str] = None,
                  eventbridge: Optional[str] = None,
                  events: Optional[str] = None,
@@ -789,6 +790,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "emr", emr)
         if emrcontainers is not None:
             pulumi.set(__self__, "emrcontainers", emrcontainers)
+        if emrserverless is not None:
+            pulumi.set(__self__, "emrserverless", emrserverless)
         if es is not None:
             pulumi.set(__self__, "es", es)
         if eventbridge is not None:
@@ -1898,6 +1901,11 @@ class Endpoints(dict):
     @pulumi.getter
     def emrcontainers(self) -> Optional[str]:
         return pulumi.get(self, "emrcontainers")
+
+    @property
+    @pulumi.getter
+    def emrserverless(self) -> Optional[str]:
+        return pulumi.get(self, "emrserverless")
 
     @property
     @pulumi.getter

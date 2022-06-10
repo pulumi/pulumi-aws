@@ -71,31 +71,31 @@ namespace Pulumi.Aws.Sns
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         /// </summary>
         [Output("eventDeliveryFailureTopicArn")]
         public Output<string?> EventDeliveryFailureTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// SNS Topic triggered when a new platform endpoint is added to your platform application.
+        /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         /// </summary>
         [Output("eventEndpointCreatedTopicArn")]
         public Output<string?> EventEndpointCreatedTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         /// </summary>
         [Output("eventEndpointDeletedTopicArn")]
         public Output<string?> EventEndpointDeletedTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         /// </summary>
         [Output("eventEndpointUpdatedTopicArn")]
         public Output<string?> EventEndpointUpdatedTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM role permitted to receive failure feedback for this application.
+        /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
         [Output("failureFeedbackRoleArn")]
         public Output<string?> FailureFeedbackRoleArn { get; private set; } = null!;
@@ -125,13 +125,13 @@ namespace Pulumi.Aws.Sns
         public Output<string?> PlatformPrincipal { get; private set; } = null!;
 
         /// <summary>
-        /// The IAM role permitted to receive success feedback for this application.
+        /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
         [Output("successFeedbackRoleArn")]
         public Output<string?> SuccessFeedbackRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The percentage of success to sample (0-100)
+        /// The sample rate percentage (0-100) of successfully delivered messages.
         /// </summary>
         [Output("successFeedbackSampleRate")]
         public Output<string?> SuccessFeedbackSampleRate { get; private set; } = null!;
@@ -183,31 +183,31 @@ namespace Pulumi.Aws.Sns
     public sealed class PlatformApplicationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         /// </summary>
         [Input("eventDeliveryFailureTopicArn")]
         public Input<string>? EventDeliveryFailureTopicArn { get; set; }
 
         /// <summary>
-        /// SNS Topic triggered when a new platform endpoint is added to your platform application.
+        /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         /// </summary>
         [Input("eventEndpointCreatedTopicArn")]
         public Input<string>? EventEndpointCreatedTopicArn { get; set; }
 
         /// <summary>
-        /// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         /// </summary>
         [Input("eventEndpointDeletedTopicArn")]
         public Input<string>? EventEndpointDeletedTopicArn { get; set; }
 
         /// <summary>
-        /// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         /// </summary>
         [Input("eventEndpointUpdatedTopicArn")]
         public Input<string>? EventEndpointUpdatedTopicArn { get; set; }
 
         /// <summary>
-        /// The IAM role permitted to receive failure feedback for this application.
+        /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
         [Input("failureFeedbackRoleArn")]
         public Input<string>? FailureFeedbackRoleArn { get; set; }
@@ -237,13 +237,13 @@ namespace Pulumi.Aws.Sns
         public Input<string>? PlatformPrincipal { get; set; }
 
         /// <summary>
-        /// The IAM role permitted to receive success feedback for this application.
+        /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
         [Input("successFeedbackRoleArn")]
         public Input<string>? SuccessFeedbackRoleArn { get; set; }
 
         /// <summary>
-        /// The percentage of success to sample (0-100)
+        /// The sample rate percentage (0-100) of successfully delivered messages.
         /// </summary>
         [Input("successFeedbackSampleRate")]
         public Input<string>? SuccessFeedbackSampleRate { get; set; }
@@ -262,31 +262,31 @@ namespace Pulumi.Aws.Sns
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+        /// The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
         /// </summary>
         [Input("eventDeliveryFailureTopicArn")]
         public Input<string>? EventDeliveryFailureTopicArn { get; set; }
 
         /// <summary>
-        /// SNS Topic triggered when a new platform endpoint is added to your platform application.
+        /// The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
         /// </summary>
         [Input("eventEndpointCreatedTopicArn")]
         public Input<string>? EventEndpointCreatedTopicArn { get; set; }
 
         /// <summary>
-        /// SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+        /// The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
         /// </summary>
         [Input("eventEndpointDeletedTopicArn")]
         public Input<string>? EventEndpointDeletedTopicArn { get; set; }
 
         /// <summary>
-        /// SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+        /// The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
         /// </summary>
         [Input("eventEndpointUpdatedTopicArn")]
         public Input<string>? EventEndpointUpdatedTopicArn { get; set; }
 
         /// <summary>
-        /// The IAM role permitted to receive failure feedback for this application.
+        /// The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
         [Input("failureFeedbackRoleArn")]
         public Input<string>? FailureFeedbackRoleArn { get; set; }
@@ -316,13 +316,13 @@ namespace Pulumi.Aws.Sns
         public Input<string>? PlatformPrincipal { get; set; }
 
         /// <summary>
-        /// The IAM role permitted to receive success feedback for this application.
+        /// The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
         /// </summary>
         [Input("successFeedbackRoleArn")]
         public Input<string>? SuccessFeedbackRoleArn { get; set; }
 
         /// <summary>
-        /// The percentage of success to sample (0-100)
+        /// The sample rate percentage (0-100) of successfully delivered messages.
         /// </summary>
         [Input("successFeedbackSampleRate")]
         public Input<string>? SuccessFeedbackSampleRate { get; set; }

@@ -37,12 +37,12 @@ import (
 // 								pulumi.String("123456789012"),
 // 							},
 // 						},
-// 						LaunchTemplateConfiguration: []map[string]interface{}{
-// 							map[string]interface{}{
-// 								"launchTemplateId": "lt-0aaa1bcde2ff3456",
-// 							},
-// 						},
 // 						Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
+// 					},
+// 					LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
+// 						&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
+// 							LaunchTemplateId: pulumi.String("lt-0aaa1bcde2ff3456"),
+// 						},
 // 					},
 // 					Region: pulumi.String("us-east-1"),
 // 				},

@@ -15,6 +15,7 @@ namespace Pulumi.Aws.CloudWatch
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// ### Kinesis Usage
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -72,7 +73,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
-    /// ## Example SSM Document Usage
+    /// ### SSM Document Usage
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -209,8 +210,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example RunCommand Usage
+    /// ### RunCommand Usage
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -247,8 +247,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example API Gateway target
+    /// ### API Gateway target
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -293,8 +292,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example Cross-Account Event Bus target
+    /// ### Cross-Account Event Bus target
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -362,8 +360,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example Input Transformer Usage - JSON Object
+    /// ### Input Transformer Usage - JSON Object
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -399,8 +396,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example Input Transformer Usage - Simple String
+    /// ### Input Transformer Usage - Simple String
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -427,6 +423,94 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///                 InputTemplate = "\"&lt;instance&gt; is in state &lt;status&gt;\"",
     ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Cloudwatch Log Group Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleLogGroup = new Aws.CloudWatch.LogGroup("exampleLogGroup", new Aws.CloudWatch.LogGroupArgs
+    ///         {
+    ///             RetentionInDays = 1,
+    ///         });
+    ///         var exampleEventRule = new Aws.CloudWatch.EventRule("exampleEventRule", new Aws.CloudWatch.EventRuleArgs
+    ///         {
+    ///             Description = "GuardDuty Findings",
+    ///             EventPattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "source", new[]
+    ///                     {
+    ///                         "aws.guardduty",
+    ///                     }
+    ///                  },
+    ///             }),
+    ///             Tags = 
+    ///             {
+    ///                 { "Environment", "example" },
+    ///             },
+    ///         });
+    ///         var exampleLogPolicy = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
+    ///         {
+    ///             Statements = 
+    ///             {
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         "logs:CreateLogStream",
+    ///                         "logs:PutLogEvents",
+    ///                     },
+    ///                     Resources = 
+    ///                     {
+    ///                         exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
+    ///                     },
+    ///                     Principals = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                         {
+    ///                             Identifiers = 
+    ///                             {
+    ///                                 "events.amazonaws.com",
+    ///                                 "delivery.logs.amazonaws.com",
+    ///                             },
+    ///                             Type = "Service",
+    ///                         },
+    ///                     },
+    ///                     Conditions = 
+    ///                     {
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                         {
+    ///                             Test = "ArnEquals",
+    ///                             Values = 
+    ///                             {
+    ///                                 exampleEventRule.Arn,
+    ///                             },
+    ///                             Variable = "aws:SourceArn",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///         var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("exampleLogResourcePolicy", new Aws.CloudWatch.LogResourcePolicyArgs
+    ///         {
+    ///             PolicyDocument = exampleLogPolicy.Apply(exampleLogPolicy =&gt; exampleLogPolicy.Json),
+    ///             PolicyName = "guardduty-log-publishing-policy",
+    ///         });
+    ///         var exampleEventTarget = new Aws.CloudWatch.EventTarget("exampleEventTarget", new Aws.CloudWatch.EventTargetArgs
+    ///         {
+    ///             Rule = exampleEventRule.Name,
+    ///             Arn = exampleLogGroup.Arn,
     ///         });
     ///     }
     /// 

@@ -154,10 +154,16 @@ namespace Pulumi.Aws.Ram
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
+        /// The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
         /// </summary>
         [Input("resourceOwner", required: true)]
         public string ResourceOwner { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+        /// </summary>
+        [Input("resourceShareStatus")]
+        public string? ResourceShareStatus { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -197,10 +203,16 @@ namespace Pulumi.Aws.Ram
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
+        /// The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
         /// </summary>
         [Input("resourceOwner", required: true)]
         public Input<string> ResourceOwner { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+        /// </summary>
+        [Input("resourceShareStatus")]
+        public Input<string>? ResourceShareStatus { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -238,6 +250,7 @@ namespace Pulumi.Aws.Ram
         /// </summary>
         public readonly string OwningAccountId;
         public readonly string ResourceOwner;
+        public readonly string? ResourceShareStatus;
         /// <summary>
         /// The Status of the RAM share.
         /// </summary>
@@ -261,6 +274,8 @@ namespace Pulumi.Aws.Ram
 
             string resourceOwner,
 
+            string? resourceShareStatus,
+
             string status,
 
             ImmutableDictionary<string, string> tags)
@@ -271,6 +286,7 @@ namespace Pulumi.Aws.Ram
             Name = name;
             OwningAccountId = owningAccountId;
             ResourceOwner = resourceOwner;
+            ResourceShareStatus = resourceShareStatus;
             Status = status;
             Tags = tags;
         }

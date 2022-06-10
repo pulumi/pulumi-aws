@@ -15,18 +15,14 @@
 package provider
 
 import (
-	"context"
 	"fmt"
-	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	"math/rand"
 	"os"
 	"path/filepath"
 	"strings"
 	"unicode"
 
-	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
-	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -115,6 +111,7 @@ const (
 	lbMod                       = "LB"                       // Elastic Load Balancing (V2: Application and Network)
 	emrMod                      = "Emr"                      // Elastic MapReduce
 	emrContainersMod            = "EmrContainers"            // Elastic MapReduce Containers
+	emrServerlessMod            = "EmrServerless"            // Elastic MapReduce Serverless
 	fmsMod                      = "Fms"                      // FMS
 	fsxMod                      = "Fsx"                      // FSX
 	gameliftMod                 = "GameLift"                 // Gamelift
@@ -273,51 +270,55 @@ func stringRef(s string) *string {
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	var skipCredentialsValidation bool
-	if val, ok := vars["skipCredentialsValidation"]; ok {
-		if val.IsBool() {
-			skipCredentialsValidation = val.BoolValue()
-		}
-	}
-
-	// if we skipCredentialsValidation then we don't need to do anything in
-	// preConfigureCallback as this is an explict operation
-	if skipCredentialsValidation {
-		return nil
-	}
-
-	config := &awsbase.Config{
-		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
-		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
-		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
-		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
-		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
-	}
-
-	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
-	// if we want to authenticate against the AWS API Metadata Service then the user
-	// will specify that skipMetadataApiCheck: false
-	// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
-	config.EC2MetadataServiceEnableState = imds.ClientDisabled
-	if val, ok := vars["skipMetadataApiCheck"]; ok {
-		if val.IsBool() && !val.BoolValue() {
-			config.EC2MetadataServiceEnableState = imds.ClientEnabled
-		}
-	}
-
-	sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
-	credsPath, err := homedir.Expand(sharedCredentialsFile)
-	if err != nil {
-		return err
-	}
-	config.SharedCredentialsFiles = []string{credsPath}
-
-	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
-		return fmt.Errorf("unable to validate AWS AccessKeyID and/or SecretAccessKey " +
-			"- see https://pulumi.io/install/aws.html for details on configuration")
-	}
-
+	// Don't event attempt any credentialsValidation at all while we get to the bottom of
+	// https://github.com/pulumi/pulumi-aws/issues/199
 	return nil
+
+	//var skipCredentialsValidation bool
+	//if val, ok := vars["skipCredentialsValidation"]; ok {
+	//	if val.IsBool() {
+	//		skipCredentialsValidation = val.BoolValue()
+	//	}
+	//}
+	//
+	//// if we skipCredentialsValidation then we don't need to do anything in
+	//// preConfigureCallback as this is an explict operation
+	//if skipCredentialsValidation {
+	//	return nil
+	//}
+	//
+	//config := &awsbase.Config{
+	//	AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
+	//	SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
+	//	Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
+	//	Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
+	//	Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
+	//}
+	//
+	//// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
+	//// if we want to authenticate against the AWS API Metadata Service then the user
+	//// will specify that skipMetadataApiCheck: false
+	//// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
+	//config.EC2MetadataServiceEnableState = imds.ClientDisabled
+	//if val, ok := vars["skipMetadataApiCheck"]; ok {
+	//	if val.IsBool() && !val.BoolValue() {
+	//		config.EC2MetadataServiceEnableState = imds.ClientEnabled
+	//	}
+	//}
+	//
+	//sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
+	//credsPath, err := homedir.Expand(sharedCredentialsFile)
+	//if err != nil {
+	//	return err
+	//}
+	//config.SharedCredentialsFiles = []string{credsPath}
+	//
+	//if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
+	//	return fmt.Errorf("unable to validate AWS AccessKeyID and/or SecretAccessKey " +
+	//		"- see https://pulumi.io/install/aws.html for details on configuration")
+	//}
+	//
+	//return nil
 }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
@@ -1008,7 +1009,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cur_report_definition": {Tok: awsResource(curMod, "ReportDefinition")},
 
 			// CostExplorer
-			"aws_ce_cost_category": {Tok: awsResource(costExplorerMod, "CostCategory")},
+			"aws_ce_cost_category":   {Tok: awsResource(costExplorerMod, "CostCategory")},
+			"aws_ce_anomaly_monitor": {Tok: awsResource(costExplorerMod, "AnomalyMonitor")},
 
 			// DataExchange
 			"aws_dataexchange_data_set": {Tok: awsResource(dataexchangeMod, "DataSet")},
@@ -1668,6 +1670,9 @@ func Provider() tfbridge.ProviderInfo {
 
 			// EMR Containers
 			"aws_emrcontainers_virtual_cluster": {Tok: awsResource(emrContainersMod, "VirtualCluster")},
+
+			// EMR Serverless
+			"aws_emrserverless_application": {Tok: awsResource(emrServerlessMod, "Application")},
 
 			// FSX
 			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},

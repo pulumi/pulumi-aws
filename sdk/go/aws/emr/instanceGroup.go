@@ -48,7 +48,7 @@ import (
 // EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_greoup j-123456ABCDEF/ig-15EK4O09RZLNR
+//  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
 // ```
 type InstanceGroup struct {
 	pulumi.CustomResourceState

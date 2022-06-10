@@ -101,7 +101,7 @@ type Bot struct {
 	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
 	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds pulumi.IntPtrOutput `pulumi:"idleSessionTtlInSeconds"`
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
 	Intents BotIntentArrayOutput `pulumi:"intents"`
 	// The date when the $LATEST version of this bot was updated.
 	LastUpdatedDate pulumi.StringOutput `pulumi:"lastUpdatedDate"`
@@ -186,7 +186,7 @@ type botState struct {
 	FailureReason *string `pulumi:"failureReason"`
 	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
 	Intents []BotIntent `pulumi:"intents"`
 	// The date when the $LATEST version of this bot was updated.
 	LastUpdatedDate *string `pulumi:"lastUpdatedDate"`
@@ -234,7 +234,7 @@ type BotState struct {
 	FailureReason pulumi.StringPtrInput
 	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
 	Intents BotIntentArrayInput
 	// The date when the $LATEST version of this bot was updated.
 	LastUpdatedDate pulumi.StringPtrInput
@@ -278,7 +278,7 @@ type botArgs struct {
 	EnableModelImprovements *bool `pulumi:"enableModelImprovements"`
 	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds *int `pulumi:"idleSessionTtlInSeconds"`
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
 	Intents []BotIntent `pulumi:"intents"`
 	// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
 	Locale *string `pulumi:"locale"`
@@ -310,7 +310,7 @@ type BotArgs struct {
 	EnableModelImprovements pulumi.BoolPtrInput
 	// The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
 	IdleSessionTtlInSeconds pulumi.IntPtrInput
-	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+	// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
 	Intents BotIntentArrayInput
 	// Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
 	Locale pulumi.StringPtrInput
@@ -471,7 +471,7 @@ func (o BotOutput) IdleSessionTtlInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Bot) pulumi.IntPtrOutput { return v.IdleSessionTtlInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+// A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
 func (o BotOutput) Intents() BotIntentArrayOutput {
 	return o.ApplyT(func(v *Bot) BotIntentArrayOutput { return v.Intents }).(BotIntentArrayOutput)
 }

@@ -40,6 +40,37 @@ import (
 // 	})
 // }
 // ```
+// ### Grant Permissions For A Glue Catalog Database
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lakeformation.NewPermissions(ctx, "example", &lakeformation.PermissionsArgs{
+// 			Principal: pulumi.Any(aws_iam_role.Workflow_role.Arn),
+// 			Permissions: pulumi.StringArray{
+// 				pulumi.String("CREATE_TABLE"),
+// 				pulumi.String("ALTER"),
+// 				pulumi.String("DROP"),
+// 			},
+// 			Database: &lakeformation.PermissionsDatabaseArgs{
+// 				Name:      pulumi.Any(aws_glue_catalog_database.Example.Name),
+// 				CatalogId: pulumi.String("110376042874"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Permissions struct {
 	pulumi.CustomResourceState
 

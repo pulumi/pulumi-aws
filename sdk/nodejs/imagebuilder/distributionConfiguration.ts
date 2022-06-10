@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *             launchPermission: {
  *                 userIds: ["123456789012"],
  *             },
- *             launchTemplateConfiguration: [{
- *                 launchTemplateId: "lt-0aaa1bcde2ff3456",
- *             }],
  *             name: "example-{{ imagebuilder:buildDate }}",
  *         },
+ *         launchTemplateConfigurations: [{
+ *             launchTemplateId: "lt-0aaa1bcde2ff3456",
+ *         }],
  *         region: "us-east-1",
  *     }],
  * });

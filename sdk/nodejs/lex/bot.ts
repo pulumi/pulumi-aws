@@ -127,7 +127,7 @@ export class Bot extends pulumi.CustomResource {
      */
     public readonly idleSessionTtlInSeconds!: pulumi.Output<number | undefined>;
     /**
-     * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+     * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      */
     public readonly intents!: pulumi.Output<outputs.lex.BotIntent[]>;
     /**
@@ -289,7 +289,7 @@ export interface BotState {
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+     * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      */
     intents?: pulumi.Input<pulumi.Input<inputs.lex.BotIntent>[]>;
     /**
@@ -366,7 +366,7 @@ export interface BotArgs {
      */
     idleSessionTtlInSeconds?: pulumi.Input<number>;
     /**
-     * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+     * A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
      */
     intents: pulumi.Input<pulumi.Input<inputs.lex.BotIntent>[]>;
     /**
