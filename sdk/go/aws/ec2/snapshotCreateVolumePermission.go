@@ -53,7 +53,7 @@ import (
 type SnapshotCreateVolumePermission struct {
 	pulumi.CustomResourceState
 
-	// An AWS Account ID to add create volume permissions
+	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// A snapshot ID
 	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
@@ -94,14 +94,14 @@ func GetSnapshotCreateVolumePermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.
 type snapshotCreateVolumePermissionState struct {
-	// An AWS Account ID to add create volume permissions
+	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId *string `pulumi:"accountId"`
 	// A snapshot ID
 	SnapshotId *string `pulumi:"snapshotId"`
 }
 
 type SnapshotCreateVolumePermissionState struct {
-	// An AWS Account ID to add create volume permissions
+	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId pulumi.StringPtrInput
 	// A snapshot ID
 	SnapshotId pulumi.StringPtrInput
@@ -112,7 +112,7 @@ func (SnapshotCreateVolumePermissionState) ElementType() reflect.Type {
 }
 
 type snapshotCreateVolumePermissionArgs struct {
-	// An AWS Account ID to add create volume permissions
+	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId string `pulumi:"accountId"`
 	// A snapshot ID
 	SnapshotId string `pulumi:"snapshotId"`
@@ -120,7 +120,7 @@ type snapshotCreateVolumePermissionArgs struct {
 
 // The set of arguments for constructing a SnapshotCreateVolumePermission resource.
 type SnapshotCreateVolumePermissionArgs struct {
-	// An AWS Account ID to add create volume permissions
+	// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 	AccountId pulumi.StringInput
 	// A snapshot ID
 	SnapshotId pulumi.StringInput
@@ -213,7 +213,7 @@ func (o SnapshotCreateVolumePermissionOutput) ToSnapshotCreateVolumePermissionOu
 	return o
 }
 
-// An AWS Account ID to add create volume permissions
+// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
 func (o SnapshotCreateVolumePermissionOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCreateVolumePermission) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

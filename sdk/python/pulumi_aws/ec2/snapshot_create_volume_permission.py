@@ -17,7 +17,7 @@ class SnapshotCreateVolumePermissionArgs:
                  snapshot_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a SnapshotCreateVolumePermission resource.
-        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions
+        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
         pulumi.set(__self__, "account_id", account_id)
@@ -27,7 +27,7 @@ class SnapshotCreateVolumePermissionArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[str]:
         """
-        An AWS Account ID to add create volume permissions
+        An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         """
         return pulumi.get(self, "account_id")
 
@@ -55,7 +55,7 @@ class _SnapshotCreateVolumePermissionState:
                  snapshot_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SnapshotCreateVolumePermission resources.
-        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions
+        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
         if account_id is not None:
@@ -67,7 +67,7 @@ class _SnapshotCreateVolumePermissionState:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        An AWS Account ID to add create volume permissions
+        An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         """
         return pulumi.get(self, "account_id")
 
@@ -116,7 +116,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions
+        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
         ...
@@ -197,7 +197,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions
+        :param pulumi.Input[str] account_id: An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         :param pulumi.Input[str] snapshot_id: A snapshot ID
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -212,7 +212,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[str]:
         """
-        An AWS Account ID to add create volume permissions
+        An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         """
         return pulumi.get(self, "account_id")
 

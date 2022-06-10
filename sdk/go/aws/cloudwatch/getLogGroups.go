@@ -25,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cloudwatch.GetLogGroups(ctx, &cloudwatch.GetLogGroupsArgs{
-// 			LogGroupNamePrefix: "/MyImportantLogs",
+// 			LogGroupNamePrefix: pulumi.StringRef("/MyImportantLogs"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -46,7 +46,7 @@ func GetLogGroups(ctx *pulumi.Context, args *GetLogGroupsArgs, opts ...pulumi.In
 // A collection of arguments for invoking getLogGroups.
 type GetLogGroupsArgs struct {
 	// The group prefix of the Cloudwatch log groups to list
-	LogGroupNamePrefix string `pulumi:"logGroupNamePrefix"`
+	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
 }
 
 // A collection of values returned by getLogGroups.
@@ -54,8 +54,8 @@ type GetLogGroupsResult struct {
 	// Set of ARNs of the Cloudwatch log groups
 	Arns []string `pulumi:"arns"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                 string `pulumi:"id"`
-	LogGroupNamePrefix string `pulumi:"logGroupNamePrefix"`
+	Id                 string  `pulumi:"id"`
+	LogGroupNamePrefix *string `pulumi:"logGroupNamePrefix"`
 	// Set of names of the Cloudwatch log groups
 	LogGroupNames []string `pulumi:"logGroupNames"`
 }
@@ -76,7 +76,7 @@ func GetLogGroupsOutput(ctx *pulumi.Context, args GetLogGroupsOutputArgs, opts .
 // A collection of arguments for invoking getLogGroups.
 type GetLogGroupsOutputArgs struct {
 	// The group prefix of the Cloudwatch log groups to list
-	LogGroupNamePrefix pulumi.StringInput `pulumi:"logGroupNamePrefix"`
+	LogGroupNamePrefix pulumi.StringPtrInput `pulumi:"logGroupNamePrefix"`
 }
 
 func (GetLogGroupsOutputArgs) ElementType() reflect.Type {
@@ -108,8 +108,8 @@ func (o GetLogGroupsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLogGroupsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-func (o GetLogGroupsResultOutput) LogGroupNamePrefix() pulumi.StringOutput {
-	return o.ApplyT(func(v GetLogGroupsResult) string { return v.LogGroupNamePrefix }).(pulumi.StringOutput)
+func (o GetLogGroupsResultOutput) LogGroupNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLogGroupsResult) *string { return v.LogGroupNamePrefix }).(pulumi.StringPtrOutput)
 }
 
 // Set of names of the Cloudwatch log groups

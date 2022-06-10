@@ -33,7 +33,7 @@ class BotArgs:
         The set of arguments for constructing a Bot resource.
         :param pulumi.Input['BotAbortStatementArgs'] abort_statement: The message that Amazon Lex uses to abort a conversation. Attributes are documented under statement.
         :param pulumi.Input[bool] child_directed: By specifying true, you confirm that your use of Amazon Lex is related to a website, program, or other application that is directed or targeted, in whole or in part, to children under age 13 and subject to COPPA. For more information see the [Amazon Lex FAQ](https://aws.amazon.com/lex/faqs#data-security) and the [Amazon Lex PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-childDirected).
-        :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         :param pulumi.Input['BotClarificationPromptArgs'] clarification_prompt: The message that Amazon Lex uses when it doesn't understand the user's request. Attributes are documented under prompt.
         :param pulumi.Input[bool] create_version: Determines if a new bot version is created when the initial resource is created and on each update. Defaults to `false`.
         :param pulumi.Input[str] description: A description of the bot. Must be less than or equal to 200 characters in length.
@@ -100,7 +100,7 @@ class BotArgs:
     @pulumi.getter
     def intents(self) -> pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]:
         """
-        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         """
         return pulumi.get(self, "intents")
 
@@ -279,7 +279,7 @@ class _BotState:
         :param pulumi.Input[bool] enable_model_improvements: Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         :param pulumi.Input[str] failure_reason: If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        :param pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         :param pulumi.Input[str] last_updated_date: The date when the $LATEST version of this bot was updated.
         :param pulumi.Input[str] locale: Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
         :param pulumi.Input[str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
@@ -481,7 +481,7 @@ class _BotState:
     @pulumi.getter
     def intents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BotIntentArgs']]]]:
         """
-        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         """
         return pulumi.get(self, "intents")
 
@@ -665,7 +665,7 @@ class Bot(pulumi.CustomResource):
         :param pulumi.Input[bool] detect_sentiment: When set to true user utterances are sent to Amazon Comprehend for sentiment analysis. If you don't specify detectSentiment, the default is `false`.
         :param pulumi.Input[bool] enable_model_improvements: Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         :param pulumi.Input[int] idle_session_ttl_in_seconds: The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotIntentArgs']]]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotIntentArgs']]]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         :param pulumi.Input[str] locale: Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
         :param pulumi.Input[str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
         :param pulumi.Input[float] nlu_intent_confidence_threshold: Determines the threshold where Amazon Lex will insert the AMAZON.FallbackIntent, AMAZON.KendraSearchIntent, or both when returning alternative intents in a PostContent or PostText response. AMAZON.FallbackIntent and AMAZON.KendraSearchIntent are only inserted if they are configured for the bot. For more information see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-nluIntentConfidenceThreshold) This value requires `enable_model_improvements` to be set to `true` and the default is `0`. Must be a float between 0 and 1.
@@ -842,7 +842,7 @@ class Bot(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_model_improvements: Set to `true` to enable access to natural language understanding improvements. When you set the `enable_model_improvements` parameter to true you can use the `nlu_intent_confidence_threshold` parameter to configure confidence scores. For more information, see [Confidence Scores](https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html). You can only set the `enable_model_improvements` parameter in certain Regions. If you set the parameter to true, your bot has access to accuracy improvements. For more information see the [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements).
         :param pulumi.Input[str] failure_reason: If status is FAILED, Amazon Lex provides the reason that it failed to build the bot.
         :param pulumi.Input[int] idle_session_ttl_in_seconds: The maximum time in seconds that Amazon Lex retains the data gathered in a conversation. Default is `300`. Must be a number between 60 and 86400 (inclusive).
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotIntentArgs']]]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BotIntentArgs']]]] intents: A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         :param pulumi.Input[str] last_updated_date: The date when the $LATEST version of this bot was updated.
         :param pulumi.Input[str] locale: Specifies the target locale for the bot. Any intent used in the bot must be compatible with the locale of the bot. For available locales, see [Amazon Lex Bot PutBot API Docs](https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-locale). Default is `en-US`.
         :param pulumi.Input[str] name: The name of the bot that you want to create, case sensitive. Must be between 2 and 50 characters in length.
@@ -980,7 +980,7 @@ class Bot(pulumi.CustomResource):
     @pulumi.getter
     def intents(self) -> pulumi.Output[Sequence['outputs.BotIntent']]:
         """
-        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 100 Intent objects.
+        A set of Intent objects. Each intent represents a command that a user can express. Attributes are documented under intent. Can have up to 250 Intent objects.
         """
         return pulumi.get(self, "intents")
 

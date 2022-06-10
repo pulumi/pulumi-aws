@@ -15,6 +15,7 @@ class VolumeArgs:
     def __init__(__self__, *,
                  availability_zone: pulumi.Input[str],
                  encrypted: Optional[pulumi.Input[bool]] = None,
+                 final_snapshot: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_attach_enabled: Optional[pulumi.Input[bool]] = None,
@@ -28,6 +29,7 @@ class VolumeArgs:
         The set of arguments for constructing a Volume resource.
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
+        :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
@@ -40,6 +42,8 @@ class VolumeArgs:
         pulumi.set(__self__, "availability_zone", availability_zone)
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
+        if final_snapshot is not None:
+            pulumi.set(__self__, "final_snapshot", final_snapshot)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
@@ -82,6 +86,18 @@ class VolumeArgs:
     @encrypted.setter
     def encrypted(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter(name="finalSnapshot")
+    def final_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+        """
+        return pulumi.get(self, "final_snapshot")
+
+    @final_snapshot.setter
+    def final_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "final_snapshot", value)
 
     @property
     @pulumi.getter
@@ -195,6 +211,7 @@ class _VolumeState:
                  arn: Optional[pulumi.Input[str]] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
+                 final_snapshot: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_attach_enabled: Optional[pulumi.Input[bool]] = None,
@@ -210,6 +227,7 @@ class _VolumeState:
         :param pulumi.Input[str] arn: The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
+        :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
@@ -226,6 +244,8 @@ class _VolumeState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if encrypted is not None:
             pulumi.set(__self__, "encrypted", encrypted)
+        if final_snapshot is not None:
+            pulumi.set(__self__, "final_snapshot", final_snapshot)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
@@ -282,6 +302,18 @@ class _VolumeState:
     @encrypted.setter
     def encrypted(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "encrypted", value)
+
+    @property
+    @pulumi.getter(name="finalSnapshot")
+    def final_snapshot(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+        """
+        return pulumi.get(self, "final_snapshot")
+
+    @final_snapshot.setter
+    def final_snapshot(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "final_snapshot", value)
 
     @property
     @pulumi.getter
@@ -408,6 +440,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
+                 final_snapshot: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_attach_enabled: Optional[pulumi.Input[bool]] = None,
@@ -449,6 +482,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
+        :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
@@ -508,6 +542,7 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: Optional[pulumi.Input[str]] = None,
                  encrypted: Optional[pulumi.Input[bool]] = None,
+                 final_snapshot: Optional[pulumi.Input[bool]] = None,
                  iops: Optional[pulumi.Input[int]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  multi_attach_enabled: Optional[pulumi.Input[bool]] = None,
@@ -533,6 +568,7 @@ class Volume(pulumi.CustomResource):
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["encrypted"] = encrypted
+            __props__.__dict__["final_snapshot"] = final_snapshot
             __props__.__dict__["iops"] = iops
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["multi_attach_enabled"] = multi_attach_enabled
@@ -557,6 +593,7 @@ class Volume(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             availability_zone: Optional[pulumi.Input[str]] = None,
             encrypted: Optional[pulumi.Input[bool]] = None,
+            final_snapshot: Optional[pulumi.Input[bool]] = None,
             iops: Optional[pulumi.Input[int]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             multi_attach_enabled: Optional[pulumi.Input[bool]] = None,
@@ -577,6 +614,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         :param pulumi.Input[str] availability_zone: The AZ where the EBS volume will exist.
         :param pulumi.Input[bool] encrypted: If true, the disk will be encrypted.
+        :param pulumi.Input[bool] final_snapshot: If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
         :param pulumi.Input[int] iops: The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         :param pulumi.Input[bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
@@ -594,6 +632,7 @@ class Volume(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["encrypted"] = encrypted
+        __props__.__dict__["final_snapshot"] = final_snapshot
         __props__.__dict__["iops"] = iops
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["multi_attach_enabled"] = multi_attach_enabled
@@ -629,6 +668,14 @@ class Volume(pulumi.CustomResource):
         If true, the disk will be encrypted.
         """
         return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter(name="finalSnapshot")
+    def final_snapshot(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+        """
+        return pulumi.get(self, "final_snapshot")
 
     @property
     @pulumi.getter

@@ -69,7 +69,8 @@ type LookupUserPoolClientResult struct {
 	ClientId     string   `pulumi:"clientId"`
 	ClientSecret string   `pulumi:"clientSecret"`
 	// (Optional) Default redirect URI. Must be in the list of callback URLs.
-	DefaultRedirectUri string `pulumi:"defaultRedirectUri"`
+	DefaultRedirectUri                       string `pulumi:"defaultRedirectUri"`
+	EnablePropagateAdditionalUserContextData bool   `pulumi:"enablePropagateAdditionalUserContextData"`
 	// (Optional) Enables or disables token revocation.
 	EnableTokenRevocation bool `pulumi:"enableTokenRevocation"`
 	// (Optional) List of authentication flows (ADMIN_NO_SRP_AUTH, CUSTOM_AUTH_FLOW_ONLY, USER_PASSWORD_AUTH, ALLOW_ADMIN_USER_PASSWORD_AUTH, ALLOW_CUSTOM_AUTH, ALLOW_USER_PASSWORD_AUTH, ALLOW_USER_SRP_AUTH, ALLOW_REFRESH_TOKEN_AUTH).
@@ -181,6 +182,10 @@ func (o LookupUserPoolClientResultOutput) ClientSecret() pulumi.StringOutput {
 // (Optional) Default redirect URI. Must be in the list of callback URLs.
 func (o LookupUserPoolClientResultOutput) DefaultRedirectUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) string { return v.DefaultRedirectUri }).(pulumi.StringOutput)
+}
+
+func (o LookupUserPoolClientResultOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupUserPoolClientResult) bool { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolOutput)
 }
 
 // (Optional) Enables or disables token revocation.

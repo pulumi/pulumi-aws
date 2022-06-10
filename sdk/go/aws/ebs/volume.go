@@ -58,6 +58,8 @@ type Volume struct {
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
+	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+	FinalSnapshot pulumi.BoolPtrOutput `pulumi:"finalSnapshot"`
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     pulumi.IntOutput    `pulumi:"iops"`
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -117,6 +119,8 @@ type volumeState struct {
 	AvailabilityZone *string `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
+	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+	FinalSnapshot *bool `pulumi:"finalSnapshot"`
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     *int    `pulumi:"iops"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -145,6 +149,8 @@ type VolumeState struct {
 	AvailabilityZone pulumi.StringPtrInput
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolPtrInput
+	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+	FinalSnapshot pulumi.BoolPtrInput
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     pulumi.IntPtrInput
 	KmsKeyId pulumi.StringPtrInput
@@ -175,6 +181,8 @@ type volumeArgs struct {
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// If true, the disk will be encrypted.
 	Encrypted *bool `pulumi:"encrypted"`
+	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+	FinalSnapshot *bool `pulumi:"finalSnapshot"`
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     *int    `pulumi:"iops"`
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -200,6 +208,8 @@ type VolumeArgs struct {
 	AvailabilityZone pulumi.StringInput
 	// If true, the disk will be encrypted.
 	Encrypted pulumi.BoolPtrInput
+	// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+	FinalSnapshot pulumi.BoolPtrInput
 	// The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
 	Iops     pulumi.IntPtrInput
 	KmsKeyId pulumi.StringPtrInput
@@ -319,6 +329,11 @@ func (o VolumeOutput) AvailabilityZone() pulumi.StringOutput {
 // If true, the disk will be encrypted.
 func (o VolumeOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+func (o VolumeOutput) FinalSnapshot() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.FinalSnapshot }).(pulumi.BoolPtrOutput)
 }
 
 // The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.

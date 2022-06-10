@@ -80,6 +80,7 @@ export interface GetUserPoolClientResult {
      * (Optional) Default redirect URI. Must be in the list of callback URLs.
      */
     readonly defaultRedirectUri: string;
+    readonly enablePropagateAdditionalUserContextData: boolean;
     /**
      * (Optional) Enables or disables token revocation.
      */

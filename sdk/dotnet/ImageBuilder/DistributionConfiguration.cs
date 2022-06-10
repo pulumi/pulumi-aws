@@ -41,14 +41,14 @@ namespace Pulumi.Aws.ImageBuilder
     ///                                 "123456789012",
     ///                             },
     ///                         },
-    ///                         LaunchTemplateConfiguration = 
-    ///                         {
-    ///                             
-    ///                             {
-    ///                                 { "launchTemplateId", "lt-0aaa1bcde2ff3456" },
-    ///                             },
-    ///                         },
     ///                         Name = "example-{{ imagebuilder:buildDate }}",
+    ///                     },
+    ///                     LaunchTemplateConfigurations = 
+    ///                     {
+    ///                         new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs
+    ///                         {
+    ///                             LaunchTemplateId = "lt-0aaa1bcde2ff3456",
+    ///                         },
     ///                     },
     ///                     Region = "us-east-1",
     ///                 },

@@ -45,6 +45,7 @@ export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.Invok
         "filters": args.filters,
         "name": args.name,
         "resourceOwner": args.resourceOwner,
+        "resourceShareStatus": args.resourceShareStatus,
         "tags": args.tags,
     }, opts);
 }
@@ -62,9 +63,13 @@ export interface GetResourceShareArgs {
      */
     name: string;
     /**
-     * The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
+     * The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */
     resourceOwner: string;
+    /**
+     * Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+     */
+    resourceShareStatus?: string;
     /**
      * The Tags attached to the RAM share
      */
@@ -90,6 +95,7 @@ export interface GetResourceShareResult {
      */
     readonly owningAccountId: string;
     readonly resourceOwner: string;
+    readonly resourceShareStatus?: string;
     /**
      * The Status of the RAM share.
      */
@@ -117,9 +123,13 @@ export interface GetResourceShareOutputArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
+     * The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */
     resourceOwner: pulumi.Input<string>;
+    /**
+     * Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
+     */
+    resourceShareStatus?: pulumi.Input<string>;
     /**
      * The Tags attached to the RAM share
      */

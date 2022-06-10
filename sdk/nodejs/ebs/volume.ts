@@ -73,6 +73,10 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly encrypted!: pulumi.Output<boolean>;
     /**
+     * If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+     */
+    public readonly finalSnapshot!: pulumi.Output<boolean | undefined>;
+    /**
      * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
     public readonly iops!: pulumi.Output<number>;
@@ -126,6 +130,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["finalSnapshot"] = state ? state.finalSnapshot : undefined;
             resourceInputs["iops"] = state ? state.iops : undefined;
             resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             resourceInputs["multiAttachEnabled"] = state ? state.multiAttachEnabled : undefined;
@@ -143,6 +148,7 @@ export class Volume extends pulumi.CustomResource {
             }
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["finalSnapshot"] = args ? args.finalSnapshot : undefined;
             resourceInputs["iops"] = args ? args.iops : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["multiAttachEnabled"] = args ? args.multiAttachEnabled : undefined;
@@ -176,6 +182,10 @@ export interface VolumeState {
      * If true, the disk will be encrypted.
      */
     encrypted?: pulumi.Input<boolean>;
+    /**
+     * If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+     */
+    finalSnapshot?: pulumi.Input<boolean>;
     /**
      * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */
@@ -227,6 +237,10 @@ export interface VolumeArgs {
      * If true, the disk will be encrypted.
      */
     encrypted?: pulumi.Input<boolean>;
+    /**
+     * If true, snapshot will be created before volume deletion. Any tags on the volume will be migrated to the snapshot. By default set to false
+     */
+    finalSnapshot?: pulumi.Input<boolean>;
     /**
      * The amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
      */

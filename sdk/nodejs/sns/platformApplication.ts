@@ -73,23 +73,23 @@ export class PlatformApplication extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+     * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
     public readonly eventDeliveryFailureTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * SNS Topic triggered when a new platform endpoint is added to your platform application.
+     * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
     public readonly eventEndpointCreatedTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+     * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
     public readonly eventEndpointDeletedTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+     * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
     public readonly eventEndpointUpdatedTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * The IAM role permitted to receive failure feedback for this application.
+     * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
     public readonly failureFeedbackRoleArn!: pulumi.Output<string | undefined>;
     /**
@@ -109,11 +109,11 @@ export class PlatformApplication extends pulumi.CustomResource {
      */
     public readonly platformPrincipal!: pulumi.Output<string | undefined>;
     /**
-     * The IAM role permitted to receive success feedback for this application.
+     * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
     public readonly successFeedbackRoleArn!: pulumi.Output<string | undefined>;
     /**
-     * The percentage of success to sample (0-100)
+     * The sample rate percentage (0-100) of successfully delivered messages.
      */
     public readonly successFeedbackSampleRate!: pulumi.Output<string | undefined>;
 
@@ -177,23 +177,23 @@ export interface PlatformApplicationState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+     * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
     eventDeliveryFailureTopicArn?: pulumi.Input<string>;
     /**
-     * SNS Topic triggered when a new platform endpoint is added to your platform application.
+     * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
     eventEndpointCreatedTopicArn?: pulumi.Input<string>;
     /**
-     * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+     * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
     eventEndpointDeletedTopicArn?: pulumi.Input<string>;
     /**
-     * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+     * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
     eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
     /**
-     * The IAM role permitted to receive failure feedback for this application.
+     * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
     failureFeedbackRoleArn?: pulumi.Input<string>;
     /**
@@ -213,11 +213,11 @@ export interface PlatformApplicationState {
      */
     platformPrincipal?: pulumi.Input<string>;
     /**
-     * The IAM role permitted to receive success feedback for this application.
+     * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
     successFeedbackRoleArn?: pulumi.Input<string>;
     /**
-     * The percentage of success to sample (0-100)
+     * The sample rate percentage (0-100) of successfully delivered messages.
      */
     successFeedbackSampleRate?: pulumi.Input<string>;
 }
@@ -227,23 +227,23 @@ export interface PlatformApplicationState {
  */
 export interface PlatformApplicationArgs {
     /**
-     * SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
+     * The ARN of the SNS Topic triggered when a delivery to any of the platform endpoints associated with your platform application encounters a permanent failure.
      */
     eventDeliveryFailureTopicArn?: pulumi.Input<string>;
     /**
-     * SNS Topic triggered when a new platform endpoint is added to your platform application.
+     * The ARN of the SNS Topic triggered when a new platform endpoint is added to your platform application.
      */
     eventEndpointCreatedTopicArn?: pulumi.Input<string>;
     /**
-     * SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
+     * The ARN of the SNS Topic triggered when an existing platform endpoint is deleted from your platform application.
      */
     eventEndpointDeletedTopicArn?: pulumi.Input<string>;
     /**
-     * SNS Topic triggered when an existing platform endpoint is changed from your platform application.
+     * The ARN of the SNS Topic triggered when an existing platform endpoint is changed from your platform application.
      */
     eventEndpointUpdatedTopicArn?: pulumi.Input<string>;
     /**
-     * The IAM role permitted to receive failure feedback for this application.
+     * The IAM role ARN permitted to receive failure feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
     failureFeedbackRoleArn?: pulumi.Input<string>;
     /**
@@ -263,11 +263,11 @@ export interface PlatformApplicationArgs {
      */
     platformPrincipal?: pulumi.Input<string>;
     /**
-     * The IAM role permitted to receive success feedback for this application.
+     * The IAM role ARN permitted to receive success feedback for this application and give SNS write access to use CloudWatch logs on your behalf.
      */
     successFeedbackRoleArn?: pulumi.Input<string>;
     /**
-     * The percentage of success to sample (0-100)
+     * The sample rate percentage (0-100) of successfully delivered messages.
      */
     successFeedbackSampleRate?: pulumi.Input<string>;
 }

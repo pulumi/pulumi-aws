@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Workspaces.Inputs
     public sealed class WorkspaceWorkspacePropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
+        /// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO`, `GRAPHICSPRO`, `GRAPHICS_G4DN`, and `GRAPHICSPRO_G4DN`.
         /// </summary>
         [Input("computeTypeName")]
         public Input<string>? ComputeTypeName { get; set; }

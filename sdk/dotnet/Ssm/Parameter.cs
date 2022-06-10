@@ -139,10 +139,14 @@ namespace Pulumi.Aws.Ssm
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        /// The parameter tier to assign to the parameter.
+        /// If not specified, will use the default parameter tier for the region.
+        /// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+        /// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+        /// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         /// </summary>
         [Output("tier")]
-        public Output<string?> Tier { get; private set; } = null!;
+        public Output<string> Tier { get; private set; } = null!;
 
         /// <summary>
         /// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
@@ -264,7 +268,11 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        /// The parameter tier to assign to the parameter.
+        /// If not specified, will use the default parameter tier for the region.
+        /// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+        /// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+        /// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
@@ -356,7 +364,11 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The tier of the parameter. If not specified, will default to `Standard`. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        /// The parameter tier to assign to the parameter.
+        /// If not specified, will use the default parameter tier for the region.
+        /// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
+        /// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
+        /// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }

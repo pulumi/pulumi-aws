@@ -22,7 +22,7 @@ class GetResourceShareResult:
     """
     A collection of values returned by getResourceShare.
     """
-    def __init__(__self__, arn=None, filters=None, id=None, name=None, owning_account_id=None, resource_owner=None, status=None, tags=None):
+    def __init__(__self__, arn=None, filters=None, id=None, name=None, owning_account_id=None, resource_owner=None, resource_share_status=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -41,6 +41,9 @@ class GetResourceShareResult:
         if resource_owner and not isinstance(resource_owner, str):
             raise TypeError("Expected argument 'resource_owner' to be a str")
         pulumi.set(__self__, "resource_owner", resource_owner)
+        if resource_share_status and not isinstance(resource_share_status, str):
+            raise TypeError("Expected argument 'resource_share_status' to be a str")
+        pulumi.set(__self__, "resource_share_status", resource_share_status)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -88,6 +91,11 @@ class GetResourceShareResult:
         return pulumi.get(self, "resource_owner")
 
     @property
+    @pulumi.getter(name="resourceShareStatus")
+    def resource_share_status(self) -> Optional[str]:
+        return pulumi.get(self, "resource_share_status")
+
+    @property
     @pulumi.getter
     def status(self) -> str:
         """
@@ -116,6 +124,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
             name=self.name,
             owning_account_id=self.owning_account_id,
             resource_owner=self.resource_owner,
+            resource_share_status=self.resource_share_status,
             status=self.status,
             tags=self.tags)
 
@@ -123,6 +132,7 @@ class AwaitableGetResourceShareResult(GetResourceShareResult):
 def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceShareFilterArgs']]] = None,
                        name: Optional[str] = None,
                        resource_owner: Optional[str] = None,
+                       resource_share_status: Optional[str] = None,
                        tags: Optional[Mapping[str, str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceShareResult:
     """
@@ -154,13 +164,15 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
 
     :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: The name of the tag key to filter on.
-    :param str resource_owner: The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
+    :param str resource_owner: The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+    :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
     :param Mapping[str, str] tags: The Tags attached to the RAM share
     """
     __args__ = dict()
     __args__['filters'] = filters
     __args__['name'] = name
     __args__['resourceOwner'] = resource_owner
+    __args__['resourceShareStatus'] = resource_share_status
     __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -175,6 +187,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
         name=__ret__.name,
         owning_account_id=__ret__.owning_account_id,
         resource_owner=__ret__.resource_owner,
+        resource_share_status=__ret__.resource_share_status,
         status=__ret__.status,
         tags=__ret__.tags)
 
@@ -183,6 +196,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
 def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetResourceShareFilterArgs']]]]] = None,
                               name: Optional[pulumi.Input[str]] = None,
                               resource_owner: Optional[pulumi.Input[str]] = None,
+                              resource_share_status: Optional[pulumi.Input[Optional[str]]] = None,
                               tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceShareResult]:
     """
@@ -214,7 +228,8 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: The name of the tag key to filter on.
-    :param str resource_owner: The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
+    :param str resource_owner: The owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
+    :param str resource_share_status: Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
     :param Mapping[str, str] tags: The Tags attached to the RAM share
     """
     ...

@@ -261,7 +261,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         example = aws.appconfig.HostedConfigurationVersion("example",
             application_id=aws_appconfig_application["example"]["id"],
             configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Freeform Hosted Configuration Version",
+            description="Example Feature Flag Configuration Version",
             content_type="application/json",
             content=json.dumps({
                 "flags": {
@@ -273,6 +273,20 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                     },
                     "bar": {
                         "name": "bar",
+                        "attributes": {
+                            "someAttribute": {
+                                "constraints": {
+                                    "type": "string",
+                                    "required": True,
+                                },
+                            },
+                            "someOtherAttribute": {
+                                "constraints": {
+                                    "type": "number",
+                                    "required": True,
+                                },
+                            },
+                        },
                     },
                 },
                 "values": {
@@ -281,6 +295,8 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                     },
                     "bar": {
                         "enabled": "true",
+                        "someAttribute": "Hello World",
+                        "someOtherAttribute": 123,
                     },
                 },
                 "version": "1",
@@ -345,7 +361,7 @@ class HostedConfigurationVersion(pulumi.CustomResource):
         example = aws.appconfig.HostedConfigurationVersion("example",
             application_id=aws_appconfig_application["example"]["id"],
             configuration_profile_id=aws_appconfig_configuration_profile["example"]["configuration_profile_id"],
-            description="Example Freeform Hosted Configuration Version",
+            description="Example Feature Flag Configuration Version",
             content_type="application/json",
             content=json.dumps({
                 "flags": {
@@ -357,6 +373,20 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                     },
                     "bar": {
                         "name": "bar",
+                        "attributes": {
+                            "someAttribute": {
+                                "constraints": {
+                                    "type": "string",
+                                    "required": True,
+                                },
+                            },
+                            "someOtherAttribute": {
+                                "constraints": {
+                                    "type": "number",
+                                    "required": True,
+                                },
+                            },
+                        },
                     },
                 },
                 "values": {
@@ -365,6 +395,8 @@ class HostedConfigurationVersion(pulumi.CustomResource):
                     },
                     "bar": {
                         "enabled": "true",
+                        "someAttribute": "Hello World",
+                        "someOtherAttribute": 123,
                     },
                 },
                 "version": "1",

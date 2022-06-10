@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .anomaly_monitor import *
 from .cost_category import *
 from .get_cost_category import *
 from .get_tags import *

@@ -37,6 +37,35 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// }
     /// ```
+    /// ### Grant Permissions For A Glue Catalog Database
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.LakeFormation.Permissions("example", new Aws.LakeFormation.PermissionsArgs
+    ///         {
+    ///             Principal = aws_iam_role.Workflow_role.Arn,
+    ///             Permissions = 
+    ///             {
+    ///                 "CREATE_TABLE",
+    ///                 "ALTER",
+    ///                 "DROP",
+    ///             },
+    ///             Database = new Aws.LakeFormation.Inputs.PermissionsDatabaseArgs
+    ///             {
+    ///                 Name = aws_glue_catalog_database.Example.Name,
+    ///                 CatalogId = "110376042874",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/permissions:Permissions")]
     public partial class Permissions : Pulumi.CustomResource

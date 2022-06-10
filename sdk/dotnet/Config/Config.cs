@@ -500,6 +500,7 @@ namespace Pulumi.Aws
                 public string? Elbv2 { get; set; } = null!;
                 public string? Emr { get; set; } = null!;
                 public string? Emrcontainers { get; set; } = null!;
+                public string? Emrserverless { get; set; } = null!;
                 public string? Es { get; set; } = null!;
                 public string? Eventbridge { get; set; } = null!;
                 public string? Events { get; set; } = null!;

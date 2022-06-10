@@ -64,7 +64,7 @@ namespace Pulumi.Aws.AppConfig
     ///         {
     ///             ApplicationId = aws_appconfig_application.Example.Id,
     ///             ConfigurationProfileId = aws_appconfig_configuration_profile.Example.Configuration_profile_id,
-    ///             Description = "Example Freeform Hosted Configuration Version",
+    ///             Description = "Example Feature Flag Configuration Version",
     ///             ContentType = "application/json",
     ///             Content = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///             {
@@ -81,6 +81,25 @@ namespace Pulumi.Aws.AppConfig
     ///                     { "bar", new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         { "name", "bar" },
+    ///                         { "attributes", new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "someAttribute", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "constraints", new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     { "type", "string" },
+    ///                                     { "required", true },
+    ///                                 } },
+    ///                             } },
+    ///                             { "someOtherAttribute", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "constraints", new Dictionary&lt;string, object?&gt;
+    ///                                 {
+    ///                                     { "type", "number" },
+    ///                                     { "required", true },
+    ///                                 } },
+    ///                             } },
+    ///                         } },
     ///                     } },
     ///                 } },
     ///                 { "values", new Dictionary&lt;string, object?&gt;
@@ -92,6 +111,8 @@ namespace Pulumi.Aws.AppConfig
     ///                     { "bar", new Dictionary&lt;string, object?&gt;
     ///                     {
     ///                         { "enabled", "true" },
+    ///                         { "someAttribute", "Hello World" },
+    ///                         { "someOtherAttribute", 123 },
     ///                     } },
     ///                 } },
     ///                 { "version", "1" },

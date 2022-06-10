@@ -344,6 +344,24 @@ class Permissions(pulumi.CustomResource):
                 arn=aws_lakeformation_resource["example"]["arn"],
             ))
         ```
+        ### Grant Permissions For A Glue Catalog Database
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lakeformation.Permissions("example",
+            principal=aws_iam_role["workflow_role"]["arn"],
+            permissions=[
+                "CREATE_TABLE",
+                "ALTER",
+                "DROP",
+            ],
+            database=aws.lakeformation.PermissionsDatabaseArgs(
+                name=aws_glue_catalog_database["example"]["name"],
+                catalog_id="110376042874",
+            ))
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -376,6 +394,24 @@ class Permissions(pulumi.CustomResource):
             permissions=["ALL"],
             data_location=aws.lakeformation.PermissionsDataLocationArgs(
                 arn=aws_lakeformation_resource["example"]["arn"],
+            ))
+        ```
+        ### Grant Permissions For A Glue Catalog Database
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lakeformation.Permissions("example",
+            principal=aws_iam_role["workflow_role"]["arn"],
+            permissions=[
+                "CREATE_TABLE",
+                "ALTER",
+                "DROP",
+            ],
+            database=aws.lakeformation.PermissionsDatabaseArgs(
+                name=aws_glue_catalog_database["example"]["name"],
+                catalog_id="110376042874",
             ))
         ```
 

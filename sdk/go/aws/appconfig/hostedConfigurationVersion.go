@@ -79,6 +79,20 @@ import (
 // 				},
 // 				"bar": map[string]interface{}{
 // 					"name": "bar",
+// 					"attributes": map[string]interface{}{
+// 						"someAttribute": map[string]interface{}{
+// 							"constraints": map[string]interface{}{
+// 								"type":     "string",
+// 								"required": true,
+// 							},
+// 						},
+// 						"someOtherAttribute": map[string]interface{}{
+// 							"constraints": map[string]interface{}{
+// 								"type":     "number",
+// 								"required": true,
+// 							},
+// 						},
+// 					},
 // 				},
 // 			},
 // 			"values": map[string]interface{}{
@@ -86,7 +100,9 @@ import (
 // 					"enabled": "true",
 // 				},
 // 				"bar": map[string]interface{}{
-// 					"enabled": "true",
+// 					"enabled":            "true",
+// 					"someAttribute":      "Hello World",
+// 					"someOtherAttribute": 123,
 // 				},
 // 			},
 // 			"version": "1",
@@ -98,7 +114,7 @@ import (
 // 		_, err := appconfig.NewHostedConfigurationVersion(ctx, "example", &appconfig.HostedConfigurationVersionArgs{
 // 			ApplicationId:          pulumi.Any(aws_appconfig_application.Example.Id),
 // 			ConfigurationProfileId: pulumi.Any(aws_appconfig_configuration_profile.Example.Configuration_profile_id),
-// 			Description:            pulumi.String("Example Freeform Hosted Configuration Version"),
+// 			Description:            pulumi.String("Example Feature Flag Configuration Version"),
 // 			ContentType:            pulumi.String("application/json"),
 // 			Content:                pulumi.String(json0),
 // 		})

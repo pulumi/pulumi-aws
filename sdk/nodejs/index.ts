@@ -108,6 +108,7 @@ import * as elastictranscoder from "./elastictranscoder";
 import * as elb from "./elb";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
+import * as emrserverless from "./emrserverless";
 import * as fms from "./fms";
 import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
@@ -273,6 +274,7 @@ export {
     elb,
     emr,
     emrcontainers,
+    emrserverless,
     fms,
     fsx,
     gamelift,

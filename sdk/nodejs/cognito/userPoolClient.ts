@@ -173,6 +173,10 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
     /**
+     * Activates the propagation of additional user context data.
+     */
+    public readonly enablePropagateAdditionalUserContextData!: pulumi.Output<boolean | undefined>;
+    /**
      * Enables or disables token revocation.
      */
     public readonly enableTokenRevocation!: pulumi.Output<boolean>;
@@ -246,6 +250,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["callbackUrls"] = state ? state.callbackUrls : undefined;
             resourceInputs["clientSecret"] = state ? state.clientSecret : undefined;
             resourceInputs["defaultRedirectUri"] = state ? state.defaultRedirectUri : undefined;
+            resourceInputs["enablePropagateAdditionalUserContextData"] = state ? state.enablePropagateAdditionalUserContextData : undefined;
             resourceInputs["enableTokenRevocation"] = state ? state.enableTokenRevocation : undefined;
             resourceInputs["explicitAuthFlows"] = state ? state.explicitAuthFlows : undefined;
             resourceInputs["generateSecret"] = state ? state.generateSecret : undefined;
@@ -271,6 +276,7 @@ export class UserPoolClient extends pulumi.CustomResource {
             resourceInputs["analyticsConfiguration"] = args ? args.analyticsConfiguration : undefined;
             resourceInputs["callbackUrls"] = args ? args.callbackUrls : undefined;
             resourceInputs["defaultRedirectUri"] = args ? args.defaultRedirectUri : undefined;
+            resourceInputs["enablePropagateAdditionalUserContextData"] = args ? args.enablePropagateAdditionalUserContextData : undefined;
             resourceInputs["enableTokenRevocation"] = args ? args.enableTokenRevocation : undefined;
             resourceInputs["explicitAuthFlows"] = args ? args.explicitAuthFlows : undefined;
             resourceInputs["generateSecret"] = args ? args.generateSecret : undefined;
@@ -327,6 +333,10 @@ export interface UserPoolClientState {
      * Default redirect URI. Must be in the list of callback URLs.
      */
     defaultRedirectUri?: pulumi.Input<string>;
+    /**
+     * Activates the propagation of additional user context data.
+     */
+    enablePropagateAdditionalUserContextData?: pulumi.Input<boolean>;
     /**
      * Enables or disables token revocation.
      */
@@ -413,6 +423,10 @@ export interface UserPoolClientArgs {
      * Default redirect URI. Must be in the list of callback URLs.
      */
     defaultRedirectUri?: pulumi.Input<string>;
+    /**
+     * Activates the propagation of additional user context data.
+     */
+    enablePropagateAdditionalUserContextData?: pulumi.Input<boolean>;
     /**
      * Enables or disables token revocation.
      */

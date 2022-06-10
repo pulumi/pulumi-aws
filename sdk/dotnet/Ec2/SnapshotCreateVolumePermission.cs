@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2
     public partial class SnapshotCreateVolumePermission : Pulumi.CustomResource
     {
         /// <summary>
-        /// An AWS Account ID to add create volume permissions
+        /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SnapshotCreateVolumePermissionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Account ID to add create volume permissions
+        /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class SnapshotCreateVolumePermissionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An AWS Account ID to add create volume permissions
+        /// An AWS Account ID to add create volume permissions. The AWS Account cannot be the snapshot's owner
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }

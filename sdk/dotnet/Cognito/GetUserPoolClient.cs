@@ -145,6 +145,7 @@ namespace Pulumi.Aws.Cognito
         /// (Optional) Default redirect URI. Must be in the list of callback URLs.
         /// </summary>
         public readonly string DefaultRedirectUri;
+        public readonly bool EnablePropagateAdditionalUserContextData;
         /// <summary>
         /// (Optional) Enables or disables token revocation.
         /// </summary>
@@ -216,6 +217,8 @@ namespace Pulumi.Aws.Cognito
 
             string defaultRedirectUri,
 
+            bool enablePropagateAdditionalUserContextData,
+
             bool enableTokenRevocation,
 
             ImmutableArray<string> explicitAuthFlows,
@@ -253,6 +256,7 @@ namespace Pulumi.Aws.Cognito
             ClientId = clientId;
             ClientSecret = clientSecret;
             DefaultRedirectUri = defaultRedirectUri;
+            EnablePropagateAdditionalUserContextData = enablePropagateAdditionalUserContextData;
             EnableTokenRevocation = enableTokenRevocation;
             ExplicitAuthFlows = explicitAuthFlows;
             GenerateSecret = generateSecret;
