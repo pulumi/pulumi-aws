@@ -15,6 +15,7 @@
 package provider
 
 import (
+	"context"
 	"fmt"
 	"math/rand"
 	"os"
@@ -22,7 +23,10 @@ import (
 	"strings"
 	"unicode"
 
+	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
+	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
+	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v5/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	shim "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim"
@@ -270,55 +274,78 @@ func stringRef(s string) *string {
 // configuration subset of `github.com/terraform-providers/terraform-provider-aws/aws.providerConfigure`.  We do this
 // before passing control to the TF provider to ensure we can report actionable errors.
 func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) error {
-	// Don't event attempt any credentialsValidation at all while we get to the bottom of
-	// https://github.com/pulumi/pulumi-aws/issues/199
-	return nil
+	var skipCredentialsValidation bool
+	if val, ok := vars["skipCredentialsValidation"]; ok {
+		if val.IsBool() {
+			skipCredentialsValidation = val.BoolValue()
+		}
+	}
 
-	//var skipCredentialsValidation bool
-	//if val, ok := vars["skipCredentialsValidation"]; ok {
-	//	if val.IsBool() {
-	//		skipCredentialsValidation = val.BoolValue()
-	//	}
-	//}
-	//
-	//// if we skipCredentialsValidation then we don't need to do anything in
-	//// preConfigureCallback as this is an explict operation
-	//if skipCredentialsValidation {
-	//	return nil
-	//}
-	//
-	//config := &awsbase.Config{
-	//	AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
-	//	SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
-	//	Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
-	//	Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
-	//	Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
-	//}
-	//
-	//// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
-	//// if we want to authenticate against the AWS API Metadata Service then the user
-	//// will specify that skipMetadataApiCheck: false
-	//// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
-	//config.EC2MetadataServiceEnableState = imds.ClientDisabled
-	//if val, ok := vars["skipMetadataApiCheck"]; ok {
-	//	if val.IsBool() && !val.BoolValue() {
-	//		config.EC2MetadataServiceEnableState = imds.ClientEnabled
-	//	}
-	//}
-	//
-	//sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
-	//credsPath, err := homedir.Expand(sharedCredentialsFile)
-	//if err != nil {
-	//	return err
-	//}
-	//config.SharedCredentialsFiles = []string{credsPath}
-	//
-	//if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
-	//	return fmt.Errorf("unable to validate AWS AccessKeyID and/or SecretAccessKey " +
-	//		"- see https://pulumi.io/install/aws.html for details on configuration")
-	//}
-	//
-	//return nil
+	// if we skipCredentialsValidation then we don't need to do anything in
+	// preConfigureCallback as this is an explicit operation
+	if skipCredentialsValidation {
+		return nil
+	}
+
+	config := &awsbase.Config{
+		AccessKey: stringValue(vars, "accessKey", []string{"AWS_ACCESS_KEY_ID"}),
+		SecretKey: stringValue(vars, "secretKey", []string{"AWS_SECRET_ACCESS_KEY"}),
+		Profile:   stringValue(vars, "profile", []string{"AWS_PROFILE"}),
+		Token:     stringValue(vars, "token", []string{"AWS_SESSION_TOKEN"}),
+		Region:    stringValue(vars, "region", []string{"AWS_REGION", "AWS_DEFAULT_REGION"}),
+	}
+
+	if details, ok := vars["assumeRole"]; ok {
+		assumeRoleDetails := resource.NewPropertyMap(details)
+		assumeRole := awsbase.AssumeRole{
+			RoleARN:     stringValue(assumeRoleDetails, "roleArn", []string{}),
+			ExternalID:  stringValue(assumeRoleDetails, "externalId", []string{}),
+			Policy:      stringValue(assumeRoleDetails, "policy", []string{}),
+			SessionName: stringValue(assumeRoleDetails, "sessionName", []string{}),
+		}
+		config.AssumeRole = &assumeRole
+	}
+
+	// By default `skipMetadataApiCheck` is true for Pulumi to speed operations
+	// if we want to authenticate against the AWS API Metadata Service then the user
+	// will specify that skipMetadataApiCheck: false
+	// therefore, if we have skipMetadataApiCheck false, then we are enabling the imds client
+	config.EC2MetadataServiceEnableState = imds.ClientDisabled
+	if val, ok := vars["skipMetadataApiCheck"]; ok {
+		if val.IsBool() && !val.BoolValue() {
+			config.EC2MetadataServiceEnableState = imds.ClientEnabled
+		}
+	}
+
+	// lastly let's set the sharedCreds and sharedConfig file. If these are not found then let's default to the
+	// locations that AWS cli will store these values.
+	sharedCredentialsFile := stringValue(vars, "sharedCredentialsFile", []string{"AWS_SHARED_CREDENTIALS_FILE"})
+	if sharedCredentialsFile == "" {
+		sharedCredentialsFile = "~/.aws/credentials"
+	}
+	credsPath, err := homedir.Expand(sharedCredentialsFile)
+	if err != nil {
+		return err
+	}
+
+	sharedConfigFile := stringValue(vars, "sharedConfigFile", []string{"AWS_SHARED_CONFIG_FILE"})
+	if sharedConfigFile == "" {
+		sharedConfigFile = "~/.aws/config"
+	}
+	configPath, err := homedir.Expand(sharedConfigFile)
+	if err != nil {
+		return err
+	}
+
+	config.SharedCredentialsFiles = []string{credsPath}
+	config.SharedConfigFiles = []string{configPath}
+
+	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
+		return fmt.Errorf("unable to validate AWS credentials " +
+			"- see https://pulumi.io/install/aws.html for details on configuration")
+	}
+
+	return nil
 }
 
 // managedByPulumi is a default used for some managed resources, in the absence of something more meaningful.
@@ -365,10 +392,7 @@ func Provider() tfbridge.ProviderInfo {
 					// be in a situation where a user can be waiting for a resource
 					// creation timeout (default up to 30mins) to find out that they
 					// have not got valid credentials
-
-					// this is temporarily skipped while we look at the cause of
-					// https://github.com/pulumi/pulumi-aws/issues/1995
-					Value: true,
+					Value: false,
 				},
 			},
 			"skip_metadata_api_check": {

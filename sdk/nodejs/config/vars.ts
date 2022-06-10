@@ -252,7 +252,7 @@ Object.defineProperty(exports, "sharedCredentialsFiles", {
 export declare const skipCredentialsValidation: boolean;
 Object.defineProperty(exports, "skipCredentialsValidation", {
     get() {
-        return __config.getObject<boolean>("skipCredentialsValidation") ?? true;
+        return __config.getObject<boolean>("skipCredentialsValidation") ?? false;
     },
     enumerable: true,
 });
