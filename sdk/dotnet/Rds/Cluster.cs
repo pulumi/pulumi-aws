@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Rds
     ///         {
     ///             ClusterIdentifier = exampleCluster.Id,
     ///             InstanceClass = "db.serverless",
-    ///             Engine = exampleCluster.Engine,
+    ///             Engine = exampleCluster.Engine.Apply(System.Enum.Parse&lt;Aws.Rds/EngineType.EngineType&gt;),
     ///             EngineVersion = exampleCluster.EngineVersion,
     ///         });
     ///     }

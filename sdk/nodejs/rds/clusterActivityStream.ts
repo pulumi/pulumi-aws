@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * const defaultClusterInstance = new aws.rds.ClusterInstance("defaultClusterInstance", {
  *     identifier: "aurora-instance-demo",
  *     clusterIdentifier: defaultCluster.clusterIdentifier,
- *     engine: defaultCluster.engine,
+ *     engine: defaultCluster.engine.apply((x) => aws.rds.enginetype.EngineType[x]),
  *     instanceClass: "db.r6g.large",
  * });
  * const defaultKey = new aws.kms.Key("defaultKey", {description: "AWS KMS Key to encrypt Database Activity Stream"});

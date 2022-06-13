@@ -11,65 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/kms"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		defaultCluster, err := rds.NewCluster(ctx, "defaultCluster", &rds.ClusterArgs{
-// 			ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-west-2a"),
-// 				pulumi.String("us-west-2b"),
-// 				pulumi.String("us-west-2c"),
-// 			},
-// 			DatabaseName:   pulumi.String("mydb"),
-// 			MasterUsername: pulumi.String("foo"),
-// 			MasterPassword: pulumi.String("mustbeeightcharaters"),
-// 			Engine:         pulumi.String("aurora-postgresql"),
-// 			EngineVersion:  pulumi.String("13.4"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultClusterInstance, err := rds.NewClusterInstance(ctx, "defaultClusterInstance", &rds.ClusterInstanceArgs{
-// 			Identifier:        pulumi.String("aurora-instance-demo"),
-// 			ClusterIdentifier: defaultCluster.ClusterIdentifier,
-// 			Engine:            defaultCluster.Engine,
-// 			InstanceClass:     pulumi.String("db.r6g.large"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		defaultKey, err := kms.NewKey(ctx, "defaultKey", &kms.KeyArgs{
-// 			Description: pulumi.String("AWS KMS Key to encrypt Database Activity Stream"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = rds.NewClusterActivityStream(ctx, "defaultClusterActivityStream", &rds.ClusterActivityStreamArgs{
-// 			ResourceArn: defaultCluster.Arn,
-// 			Mode:        pulumi.String("async"),
-// 			KmsKeyId:    defaultKey.KeyId,
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			defaultClusterInstance,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // RDS Aurora Cluster Database Activity Streams can be imported using the `resource_arn`, e.g.

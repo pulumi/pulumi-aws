@@ -26,53 +26,6 @@ import (
 //
 // > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
-// 			ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
-// 			AvailabilityZones: pulumi.StringArray{
-// 				pulumi.String("us-west-2a"),
-// 				pulumi.String("us-west-2b"),
-// 				pulumi.String("us-west-2c"),
-// 			},
-// 			DatabaseName:   pulumi.String("mydb"),
-// 			MasterUsername: pulumi.String("foo"),
-// 			MasterPassword: pulumi.String("barbut8chars"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		var clusterInstances []*rds.ClusterInstance
-// 		for key0, val0 := range 2 {
-// 			__res, err := rds.NewClusterInstance(ctx, fmt.Sprintf("clusterInstances-%v", key0), &rds.ClusterInstanceArgs{
-// 				Identifier:        pulumi.String(fmt.Sprintf("%v%v", "aurora-cluster-demo-", val0)),
-// 				ClusterIdentifier: _default.ID(),
-// 				InstanceClass:     pulumi.String("db.r4.large"),
-// 				Engine:            _default.Engine,
-// 				EngineVersion:     _default.EngineVersion,
-// 			})
-// 			if err != nil {
-// 				return err
-// 			}
-// 			clusterInstances = append(clusterInstances, __res)
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // RDS Cluster Instances can be imported using the `identifier`, e.g.,

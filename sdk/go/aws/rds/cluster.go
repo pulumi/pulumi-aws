@@ -194,51 +194,6 @@ import (
 // 	})
 // }
 // ```
-// ### RDS Serverless v2 Cluster
-//
-// > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
-//
-// To create a Serverless v2 RDS cluster, you must additionally specify the `engineMode` and `serverlessv2ScalingConfiguration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instanceClass` attribute specified.
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/rds"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleCluster, err := rds.NewCluster(ctx, "exampleCluster", &rds.ClusterArgs{
-// 			ClusterIdentifier: pulumi.String("example"),
-// 			Engine:            pulumi.String("aurora-postgresql"),
-// 			EngineMode:        pulumi.String("provisioned"),
-// 			EngineVersion:     pulumi.String("13.6"),
-// 			DatabaseName:      pulumi.String("test"),
-// 			MasterUsername:    pulumi.String("test"),
-// 			MasterPassword:    pulumi.String("must_be_eight_characters"),
-// 			Serverlessv2ScalingConfiguration: &rds.ClusterServerlessv2ScalingConfigurationArgs{
-// 				MaxCapacity: pulumi.Float64(1),
-// 				MinCapacity: pulumi.Float64(0.5),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = rds.NewClusterInstance(ctx, "exampleClusterInstance", &rds.ClusterInstanceArgs{
-// 			ClusterIdentifier: exampleCluster.ID(),
-// 			InstanceClass:     pulumi.String("db.serverless"),
-// 			Engine:            exampleCluster.Engine,
-// 			EngineVersion:     exampleCluster.EngineVersion,
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 //
 // ## Import
 //

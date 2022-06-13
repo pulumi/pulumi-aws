@@ -199,7 +199,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         default_cluster_instance = aws.rds.ClusterInstance("defaultClusterInstance",
             identifier="aurora-instance-demo",
             cluster_identifier=default_cluster.cluster_identifier,
-            engine=default_cluster.engine,
+            engine=default_cluster.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             instance_class="db.r6g.large")
         default_key = aws.kms.Key("defaultKey", description="AWS KMS Key to encrypt Database Activity Stream")
         default_cluster_activity_stream = aws.rds.ClusterActivityStream("defaultClusterActivityStream",
@@ -254,7 +254,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         default_cluster_instance = aws.rds.ClusterInstance("defaultClusterInstance",
             identifier="aurora-instance-demo",
             cluster_identifier=default_cluster.cluster_identifier,
-            engine=default_cluster.engine,
+            engine=default_cluster.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             instance_class="db.r6g.large")
         default_key = aws.kms.Key("defaultKey", description="AWS KMS Key to encrypt Database Activity Stream")
         default_cluster_activity_stream = aws.rds.ClusterActivityStream("defaultClusterActivityStream",

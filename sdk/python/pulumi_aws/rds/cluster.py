@@ -1771,7 +1771,7 @@ class Cluster(pulumi.CustomResource):
         example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
             cluster_identifier=example_cluster.id,
             instance_class="db.serverless",
-            engine=example_cluster.engine,
+            engine=example_cluster.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example_cluster.engine_version)
         ```
 
@@ -1981,7 +1981,7 @@ class Cluster(pulumi.CustomResource):
         example_cluster_instance = aws.rds.ClusterInstance("exampleClusterInstance",
             cluster_identifier=example_cluster.id,
             instance_class="db.serverless",
-            engine=example_cluster.engine,
+            engine=example_cluster.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
             engine_version=example_cluster.engine_version)
         ```
 

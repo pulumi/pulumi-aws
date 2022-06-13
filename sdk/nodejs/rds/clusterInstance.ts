@@ -46,7 +46,7 @@ import {EngineType} from "./index";
  *         identifier: `aurora-cluster-demo-${range.value}`,
  *         clusterIdentifier: _default.id,
  *         instanceClass: "db.r4.large",
- *         engine: _default.engine,
+ *         engine: _default.engine.apply((x) => aws.rds.enginetype.EngineType[x]),
  *         engineVersion: _default.engineVersion,
  *     }));
  * }
@@ -374,7 +374,7 @@ export interface ClusterInstanceState {
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
      */
-    engine?: pulumi.Input<EngineType>;
+    engine?: pulumi.Input<EngineType | enums.rds.EngineType>;
     /**
      * The database engine version.
      */
@@ -507,7 +507,7 @@ export interface ClusterInstanceArgs {
      * see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
      * in the Amazon RDS User Guide.
      */
-    engine?: pulumi.Input<EngineType>;
+    engine?: pulumi.Input<EngineType | enums.rds.EngineType>;
     /**
      * The database engine version.
      */

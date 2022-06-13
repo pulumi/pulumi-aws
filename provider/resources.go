@@ -2294,7 +2294,8 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(rdsMod, "ClusterInstance"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"engine": {
-						Type: awsResource(rdsMod, "EngineType"),
+						Type:     awsResource(rdsMod, "EngineType"),
+						AltTypes: []tokens.Type{awsType(rdsMod, "EngineType", "EngineType")},
 					},
 					"instance_class": {
 						Type:     "string",

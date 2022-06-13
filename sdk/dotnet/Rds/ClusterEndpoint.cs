@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Rds
     ///             ClusterIdentifier = @default.Id,
     ///             Identifier = "test1",
     ///             InstanceClass = "db.t2.small",
-    ///             Engine = @default.Engine,
+    ///             Engine = @default.Engine.Apply(System.Enum.Parse&lt;Aws.Rds/EngineType.EngineType&gt;),
     ///             EngineVersion = @default.EngineVersion,
     ///         });
     ///         var test2 = new Aws.Rds.ClusterInstance("test2", new Aws.Rds.ClusterInstanceArgs
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Rds
     ///             ClusterIdentifier = @default.Id,
     ///             Identifier = "test2",
     ///             InstanceClass = "db.t2.small",
-    ///             Engine = @default.Engine,
+    ///             Engine = @default.Engine.Apply(System.Enum.Parse&lt;Aws.Rds/EngineType.EngineType&gt;),
     ///             EngineVersion = @default.EngineVersion,
     ///         });
     ///         var test3 = new Aws.Rds.ClusterInstance("test3", new Aws.Rds.ClusterInstanceArgs
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.Rds
     ///             ClusterIdentifier = @default.Id,
     ///             Identifier = "test3",
     ///             InstanceClass = "db.t2.small",
-    ///             Engine = @default.Engine,
+    ///             Engine = @default.Engine.Apply(System.Enum.Parse&lt;Aws.Rds/EngineType.EngineType&gt;),
     ///             EngineVersion = @default.EngineVersion,
     ///         });
     ///         var eligible = new Aws.Rds.ClusterEndpoint("eligible", new Aws.Rds.ClusterEndpointArgs

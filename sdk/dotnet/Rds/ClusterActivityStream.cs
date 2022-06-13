@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Rds
     ///         {
     ///             Identifier = "aurora-instance-demo",
     ///             ClusterIdentifier = defaultCluster.ClusterIdentifier,
-    ///             Engine = defaultCluster.Engine,
+    ///             Engine = defaultCluster.Engine.Apply(System.Enum.Parse&lt;Aws.Rds/EngineType.EngineType&gt;),
     ///             InstanceClass = "db.r6g.large",
     ///         });
     ///         var defaultKey = new Aws.Kms.Key("defaultKey", new Aws.Kms.KeyArgs

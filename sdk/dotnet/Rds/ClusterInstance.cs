@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Rds
     ///                 Identifier = $"aurora-cluster-demo-{range.Value}",
     ///                 ClusterIdentifier = @default.Id,
     ///                 InstanceClass = "db.r4.large",
-    ///                 Engine = @default.Engine,
+    ///                 Engine = @default.Engine.Apply(System.Enum.Parse&lt;Aws.Rds/EngineType.EngineType&gt;),
     ///                 EngineVersion = @default.EngineVersion,
     ///             }));
     ///         }
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.Rds
         /// in the Amazon RDS User Guide.
         /// </summary>
         [Input("engine")]
-        public Input<string>? Engine { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
         /// The database engine version.
@@ -563,7 +563,7 @@ namespace Pulumi.Aws.Rds
         /// in the Amazon RDS User Guide.
         /// </summary>
         [Input("engine")]
-        public Input<string>? Engine { get; set; }
+        public InputUnion<string, Pulumi.Aws.Rds.EngineType>? Engine { get; set; }
 
         /// <summary>
         /// The database engine version.

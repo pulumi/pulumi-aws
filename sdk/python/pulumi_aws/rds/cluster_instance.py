@@ -23,7 +23,7 @@ class ClusterInstanceArgs:
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
@@ -50,7 +50,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[str] db_parameter_group_name: The name of the DB parameter group to associate with this instance.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
-        :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+        :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
@@ -231,7 +231,7 @@ class ClusterInstanceArgs:
 
     @property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[str]]:
+    def engine(self) -> Optional[pulumi.Input[Union[str, 'EngineType']]]:
         """
         The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
         For information on the difference between the available Aurora MySQL engines
@@ -241,7 +241,7 @@ class ClusterInstanceArgs:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[str]]):
+    def engine(self, value: Optional[pulumi.Input[Union[str, 'EngineType']]]):
         pulumi.set(self, "engine", value)
 
     @property
@@ -421,7 +421,7 @@ class _ClusterInstanceState:
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  dbi_resource_id: Optional[pulumi.Input[str]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
@@ -456,7 +456,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
-        :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+        :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
@@ -688,7 +688,7 @@ class _ClusterInstanceState:
 
     @property
     @pulumi.getter
-    def engine(self) -> Optional[pulumi.Input[str]]:
+    def engine(self) -> Optional[pulumi.Input[Union[str, 'EngineType']]]:
         """
         The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
         For information on the difference between the available Aurora MySQL engines
@@ -698,7 +698,7 @@ class _ClusterInstanceState:
         return pulumi.get(self, "engine")
 
     @engine.setter
-    def engine(self, value: Optional[pulumi.Input[str]]):
+    def engine(self, value: Optional[pulumi.Input[Union[str, 'EngineType']]]):
         pulumi.set(self, "engine", value)
 
     @property
@@ -962,7 +962,7 @@ class ClusterInstance(pulumi.CustomResource):
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
@@ -1016,7 +1016,7 @@ class ClusterInstance(pulumi.CustomResource):
                 identifier=f"aurora-cluster-demo-{range['value']}",
                 cluster_identifier=default.id,
                 instance_class="db.r4.large",
-                engine=default.engine,
+                engine=default.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
                 engine_version=default.engine_version))
         ```
 
@@ -1039,7 +1039,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[str] db_parameter_group_name: The name of the DB parameter group to associate with this instance.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
-        :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+        :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
@@ -1109,7 +1109,7 @@ class ClusterInstance(pulumi.CustomResource):
                 identifier=f"aurora-cluster-demo-{range['value']}",
                 cluster_identifier=default.id,
                 instance_class="db.r4.large",
-                engine=default.engine,
+                engine=default.engine.apply(lambda x: aws.rds/enginetype.EngineType(x)),
                 engine_version=default.engine_version))
         ```
 
@@ -1144,7 +1144,7 @@ class ClusterInstance(pulumi.CustomResource):
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  db_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                 engine: Optional[pulumi.Input[str]] = None,
+                 engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  identifier: Optional[pulumi.Input[str]] = None,
                  identifier_prefix: Optional[pulumi.Input[str]] = None,
@@ -1228,7 +1228,7 @@ class ClusterInstance(pulumi.CustomResource):
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
             dbi_resource_id: Optional[pulumi.Input[str]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
-            engine: Optional[pulumi.Input[str]] = None,
+            engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
             identifier: Optional[pulumi.Input[str]] = None,
@@ -1268,7 +1268,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[str] dbi_resource_id: The region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[str] endpoint: The DNS address for this instance. May not be writable
-        :param pulumi.Input[str] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
+        :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for the RDS instance. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`.
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
