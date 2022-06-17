@@ -207,6 +207,7 @@ class Endpoints(dict):
                  backup: Optional[str] = None,
                  backupgateway: Optional[str] = None,
                  batch: Optional[str] = None,
+                 beanstalk: Optional[str] = None,
                  billingconductor: Optional[str] = None,
                  braket: Optional[str] = None,
                  budgets: Optional[str] = None,
@@ -229,6 +230,7 @@ class Endpoints(dict):
                  cloudwatch: Optional[str] = None,
                  cloudwatchevents: Optional[str] = None,
                  cloudwatchevidently: Optional[str] = None,
+                 cloudwatchlog: Optional[str] = None,
                  cloudwatchlogs: Optional[str] = None,
                  cloudwatchrum: Optional[str] = None,
                  codeartifact: Optional[str] = None,
@@ -367,6 +369,7 @@ class Endpoints(dict):
                  kms: Optional[str] = None,
                  lakeformation: Optional[str] = None,
                  lambda_: Optional[str] = None,
+                 lex: Optional[str] = None,
                  lexmodelbuilding: Optional[str] = None,
                  lexmodelbuildingservice: Optional[str] = None,
                  lexmodels: Optional[str] = None,
@@ -414,6 +417,7 @@ class Endpoints(dict):
                  migrationhubstrategyrecommendations: Optional[str] = None,
                  mobile: Optional[str] = None,
                  mq: Optional[str] = None,
+                 msk: Optional[str] = None,
                  mturk: Optional[str] = None,
                  mwaa: Optional[str] = None,
                  neptune: Optional[str] = None,
@@ -606,6 +610,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "backupgateway", backupgateway)
         if batch is not None:
             pulumi.set(__self__, "batch", batch)
+        if beanstalk is not None:
+            pulumi.set(__self__, "beanstalk", beanstalk)
         if billingconductor is not None:
             pulumi.set(__self__, "billingconductor", billingconductor)
         if braket is not None:
@@ -650,6 +656,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "cloudwatchevents", cloudwatchevents)
         if cloudwatchevidently is not None:
             pulumi.set(__self__, "cloudwatchevidently", cloudwatchevidently)
+        if cloudwatchlog is not None:
+            pulumi.set(__self__, "cloudwatchlog", cloudwatchlog)
         if cloudwatchlogs is not None:
             pulumi.set(__self__, "cloudwatchlogs", cloudwatchlogs)
         if cloudwatchrum is not None:
@@ -926,6 +934,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "lakeformation", lakeformation)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if lex is not None:
+            pulumi.set(__self__, "lex", lex)
         if lexmodelbuilding is not None:
             pulumi.set(__self__, "lexmodelbuilding", lexmodelbuilding)
         if lexmodelbuildingservice is not None:
@@ -1020,6 +1030,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "mobile", mobile)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
+        if msk is not None:
+            pulumi.set(__self__, "msk", msk)
         if mturk is not None:
             pulumi.set(__self__, "mturk", mturk)
         if mwaa is not None:
@@ -1444,6 +1456,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def beanstalk(self) -> Optional[str]:
+        return pulumi.get(self, "beanstalk")
+
+    @property
+    @pulumi.getter
     def billingconductor(self) -> Optional[str]:
         return pulumi.get(self, "billingconductor")
 
@@ -1551,6 +1568,11 @@ class Endpoints(dict):
     @pulumi.getter
     def cloudwatchevidently(self) -> Optional[str]:
         return pulumi.get(self, "cloudwatchevidently")
+
+    @property
+    @pulumi.getter
+    def cloudwatchlog(self) -> Optional[str]:
+        return pulumi.get(self, "cloudwatchlog")
 
     @property
     @pulumi.getter
@@ -2244,6 +2266,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def lex(self) -> Optional[str]:
+        return pulumi.get(self, "lex")
+
+    @property
+    @pulumi.getter
     def lexmodelbuilding(self) -> Optional[str]:
         return pulumi.get(self, "lexmodelbuilding")
 
@@ -2476,6 +2503,11 @@ class Endpoints(dict):
     @pulumi.getter
     def mq(self) -> Optional[str]:
         return pulumi.get(self, "mq")
+
+    @property
+    @pulumi.getter
+    def msk(self) -> Optional[str]:
+        return pulumi.get(self, "msk")
 
     @property
     @pulumi.getter

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly string? Group;
         /// <summary>
-        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
+        /// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
         /// </summary>
         public readonly string? LaunchType;
         /// <summary>

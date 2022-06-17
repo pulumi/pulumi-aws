@@ -171,6 +171,12 @@ namespace Pulumi.Aws.Eks
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+        /// </summary>
+        [Output("defaultAddonsToRemoves")]
+        public Output<ImmutableArray<string>> DefaultAddonsToRemoves { get; private set; } = null!;
+
+        /// <summary>
         /// List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         /// </summary>
         [Output("enabledClusterLogTypes")]
@@ -294,6 +300,18 @@ namespace Pulumi.Aws.Eks
 
     public sealed class ClusterArgs : Pulumi.ResourceArgs
     {
+        [Input("defaultAddonsToRemoves")]
+        private InputList<string>? _defaultAddonsToRemoves;
+
+        /// <summary>
+        /// List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+        /// </summary>
+        public InputList<string> DefaultAddonsToRemoves
+        {
+            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
+            set => _defaultAddonsToRemoves = value;
+        }
+
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;
 
@@ -390,6 +408,18 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
+
+        [Input("defaultAddonsToRemoves")]
+        private InputList<string>? _defaultAddonsToRemoves;
+
+        /// <summary>
+        /// List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+        /// </summary>
+        public InputList<string> DefaultAddonsToRemoves
+        {
+            get => _defaultAddonsToRemoves ?? (_defaultAddonsToRemoves = new InputList<string>());
+            set => _defaultAddonsToRemoves = value;
+        }
 
         [Input("enabledClusterLogTypes")]
         private InputList<string>? _enabledClusterLogTypes;

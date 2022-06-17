@@ -693,7 +693,7 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lambda_example = aws.lb.TargetGroup("lambda-example",
+        alb_example = aws.lb.TargetGroup("alb-example",
             target_type="alb",
             port=80,
             protocol="TCP",
@@ -779,7 +779,7 @@ class TargetGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        lambda_example = aws.lb.TargetGroup("lambda-example",
+        alb_example = aws.lb.TargetGroup("alb-example",
             target_type="alb",
             port=80,
             protocol="TCP",

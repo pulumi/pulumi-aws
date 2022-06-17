@@ -92,7 +92,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     /// {
     ///     public MyStack()
     ///     {
-    ///         var lambda_example = new Aws.LB.TargetGroup("lambda-example", new Aws.LB.TargetGroupArgs
+    ///         var alb_example = new Aws.LB.TargetGroup("alb-example", new Aws.LB.TargetGroupArgs
     ///         {
     ///             TargetType = "alb",
     ///             Port = 80,

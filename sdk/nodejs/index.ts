@@ -122,6 +122,7 @@ import * as identitystore from "./identitystore";
 import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as iot from "./iot";
+import * as kendra from "./kendra";
 import * as keyspaces from "./keyspaces";
 import * as kinesis from "./kinesis";
 import * as kinesisanalyticsv2 from "./kinesisanalyticsv2";
@@ -288,6 +289,7 @@ export {
     imagebuilder,
     inspector,
     iot,
+    kendra,
     keyspaces,
     kinesis,
     kinesisanalyticsv2,

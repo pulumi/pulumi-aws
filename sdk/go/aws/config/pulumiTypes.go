@@ -282,6 +282,7 @@ type Endpoints struct {
 	Backup                              *string `pulumi:"backup"`
 	Backupgateway                       *string `pulumi:"backupgateway"`
 	Batch                               *string `pulumi:"batch"`
+	Beanstalk                           *string `pulumi:"beanstalk"`
 	Billingconductor                    *string `pulumi:"billingconductor"`
 	Braket                              *string `pulumi:"braket"`
 	Budgets                             *string `pulumi:"budgets"`
@@ -304,6 +305,7 @@ type Endpoints struct {
 	Cloudwatch                          *string `pulumi:"cloudwatch"`
 	Cloudwatchevents                    *string `pulumi:"cloudwatchevents"`
 	Cloudwatchevidently                 *string `pulumi:"cloudwatchevidently"`
+	Cloudwatchlog                       *string `pulumi:"cloudwatchlog"`
 	Cloudwatchlogs                      *string `pulumi:"cloudwatchlogs"`
 	Cloudwatchrum                       *string `pulumi:"cloudwatchrum"`
 	Codeartifact                        *string `pulumi:"codeartifact"`
@@ -442,6 +444,7 @@ type Endpoints struct {
 	Kms                                 *string `pulumi:"kms"`
 	Lakeformation                       *string `pulumi:"lakeformation"`
 	Lambda                              *string `pulumi:"lambda"`
+	Lex                                 *string `pulumi:"lex"`
 	Lexmodelbuilding                    *string `pulumi:"lexmodelbuilding"`
 	Lexmodelbuildingservice             *string `pulumi:"lexmodelbuildingservice"`
 	Lexmodels                           *string `pulumi:"lexmodels"`
@@ -489,6 +492,7 @@ type Endpoints struct {
 	Migrationhubstrategyrecommendations *string `pulumi:"migrationhubstrategyrecommendations"`
 	Mobile                              *string `pulumi:"mobile"`
 	Mq                                  *string `pulumi:"mq"`
+	Msk                                 *string `pulumi:"msk"`
 	Mturk                               *string `pulumi:"mturk"`
 	Mwaa                                *string `pulumi:"mwaa"`
 	Neptune                             *string `pulumi:"neptune"`
@@ -658,6 +662,7 @@ type EndpointsArgs struct {
 	Backup                              pulumi.StringPtrInput `pulumi:"backup"`
 	Backupgateway                       pulumi.StringPtrInput `pulumi:"backupgateway"`
 	Batch                               pulumi.StringPtrInput `pulumi:"batch"`
+	Beanstalk                           pulumi.StringPtrInput `pulumi:"beanstalk"`
 	Billingconductor                    pulumi.StringPtrInput `pulumi:"billingconductor"`
 	Braket                              pulumi.StringPtrInput `pulumi:"braket"`
 	Budgets                             pulumi.StringPtrInput `pulumi:"budgets"`
@@ -680,6 +685,7 @@ type EndpointsArgs struct {
 	Cloudwatch                          pulumi.StringPtrInput `pulumi:"cloudwatch"`
 	Cloudwatchevents                    pulumi.StringPtrInput `pulumi:"cloudwatchevents"`
 	Cloudwatchevidently                 pulumi.StringPtrInput `pulumi:"cloudwatchevidently"`
+	Cloudwatchlog                       pulumi.StringPtrInput `pulumi:"cloudwatchlog"`
 	Cloudwatchlogs                      pulumi.StringPtrInput `pulumi:"cloudwatchlogs"`
 	Cloudwatchrum                       pulumi.StringPtrInput `pulumi:"cloudwatchrum"`
 	Codeartifact                        pulumi.StringPtrInput `pulumi:"codeartifact"`
@@ -818,6 +824,7 @@ type EndpointsArgs struct {
 	Kms                                 pulumi.StringPtrInput `pulumi:"kms"`
 	Lakeformation                       pulumi.StringPtrInput `pulumi:"lakeformation"`
 	Lambda                              pulumi.StringPtrInput `pulumi:"lambda"`
+	Lex                                 pulumi.StringPtrInput `pulumi:"lex"`
 	Lexmodelbuilding                    pulumi.StringPtrInput `pulumi:"lexmodelbuilding"`
 	Lexmodelbuildingservice             pulumi.StringPtrInput `pulumi:"lexmodelbuildingservice"`
 	Lexmodels                           pulumi.StringPtrInput `pulumi:"lexmodels"`
@@ -865,6 +872,7 @@ type EndpointsArgs struct {
 	Migrationhubstrategyrecommendations pulumi.StringPtrInput `pulumi:"migrationhubstrategyrecommendations"`
 	Mobile                              pulumi.StringPtrInput `pulumi:"mobile"`
 	Mq                                  pulumi.StringPtrInput `pulumi:"mq"`
+	Msk                                 pulumi.StringPtrInput `pulumi:"msk"`
 	Mturk                               pulumi.StringPtrInput `pulumi:"mturk"`
 	Mwaa                                pulumi.StringPtrInput `pulumi:"mwaa"`
 	Neptune                             pulumi.StringPtrInput `pulumi:"neptune"`
@@ -1184,6 +1192,10 @@ func (o EndpointsOutput) Batch() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Batch }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Beanstalk() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Beanstalk }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Billingconductor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Billingconductor }).(pulumi.StringPtrOutput)
 }
@@ -1270,6 +1282,10 @@ func (o EndpointsOutput) Cloudwatchevents() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Cloudwatchevidently() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchevidently }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Cloudwatchlog() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Cloudwatchlog }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Cloudwatchlogs() pulumi.StringPtrOutput {
@@ -1824,6 +1840,10 @@ func (o EndpointsOutput) Lambda() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lambda }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Lex() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Lex }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Lexmodelbuilding() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Lexmodelbuilding }).(pulumi.StringPtrOutput)
 }
@@ -2010,6 +2030,10 @@ func (o EndpointsOutput) Mobile() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Mq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mq }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Msk() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Msk }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Mturk() pulumi.StringPtrOutput {

@@ -17,6 +17,7 @@ class ClusterArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
                  vpc_config: pulumi.Input['ClusterVpcConfigArgs'],
+                 default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
@@ -27,6 +28,7 @@ class ClusterArgs:
         The set of arguments for constructing a Cluster resource.
         :param pulumi.Input[str] role_arn: ARN of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input['ClusterVpcConfigArgs'] vpc_config: Configuration block for the VPC associated with your cluster. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the Amazon EKS User Guide. Detailed below. Also contains attributes detailed in the Attributes section.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_addons_to_removes: List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
@@ -36,6 +38,8 @@ class ClusterArgs:
         """
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "vpc_config", vpc_config)
+        if default_addons_to_removes is not None:
+            pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
@@ -72,6 +76,18 @@ class ClusterArgs:
     @vpc_config.setter
     def vpc_config(self, value: pulumi.Input['ClusterVpcConfigArgs']):
         pulumi.set(self, "vpc_config", value)
+
+    @property
+    @pulumi.getter(name="defaultAddonsToRemoves")
+    def default_addons_to_removes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+        """
+        return pulumi.get(self, "default_addons_to_removes")
+
+    @default_addons_to_removes.setter
+    def default_addons_to_removes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_addons_to_removes", value)
 
     @property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -153,6 +169,7 @@ class _ClusterState:
                  certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]]] = None,
                  certificate_authority: Optional[pulumi.Input['ClusterCertificateAuthorityArgs']] = None,
                  created_at: Optional[pulumi.Input[str]] = None,
+                 default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input['ClusterEncryptionConfigArgs']] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -172,6 +189,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCertificateAuthorityArgs']]] certificate_authorities: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input['ClusterCertificateAuthorityArgs'] certificate_authority: The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_addons_to_removes: List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input['ClusterEncryptionConfigArgs'] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input[str] endpoint: Endpoint for your Kubernetes API server.
@@ -194,6 +212,8 @@ class _ClusterState:
             pulumi.set(__self__, "certificate_authority", certificate_authority)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
+        if default_addons_to_removes is not None:
+            pulumi.set(__self__, "default_addons_to_removes", default_addons_to_removes)
         if enabled_cluster_log_types is not None:
             pulumi.set(__self__, "enabled_cluster_log_types", enabled_cluster_log_types)
         if encryption_config is not None:
@@ -268,6 +288,18 @@ class _ClusterState:
     @created_at.setter
     def created_at(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="defaultAddonsToRemoves")
+    def default_addons_to_removes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+        """
+        return pulumi.get(self, "default_addons_to_removes")
+
+    @default_addons_to_removes.setter
+    def default_addons_to_removes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "default_addons_to_removes", value)
 
     @property
     @pulumi.getter(name="enabledClusterLogTypes")
@@ -431,6 +463,7 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
@@ -527,6 +560,7 @@ class Cluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_addons_to_removes: List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']] kubernetes_network_config: Configuration block with kubernetes network configuration for the cluster. Detailed below. If removed, this provider will only perform drift detection if a configuration value is provided.
@@ -642,6 +676,7 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[pulumi.InputType['ClusterKubernetesNetworkConfigArgs']]] = None,
@@ -662,6 +697,7 @@ class Cluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
+            __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
             __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
@@ -697,6 +733,7 @@ class Cluster(pulumi.CustomResource):
             certificate_authorities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]]]] = None,
             certificate_authority: Optional[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]] = None,
             created_at: Optional[pulumi.Input[str]] = None,
+            default_addons_to_removes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             enabled_cluster_log_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             encryption_config: Optional[pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
@@ -721,6 +758,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']]]] certificate_authorities: Attribute block containing `certificate-authority-data` for your cluster. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterCertificateAuthorityArgs']] certificate_authority: The first certificate authority. Base64 encoded certificate data required to communicate with your cluster.
         :param pulumi.Input[str] created_at: Unix epoch timestamp in seconds for when the cluster was created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] default_addons_to_removes: List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cluster_log_types: List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
         :param pulumi.Input[pulumi.InputType['ClusterEncryptionConfigArgs']] encryption_config: Configuration block with encryption configuration for the cluster. Only available on Kubernetes 1.13 and above clusters created after March 6, 2020. Detailed below.
         :param pulumi.Input[str] endpoint: Endpoint for your Kubernetes API server.
@@ -743,6 +781,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["certificate_authorities"] = certificate_authorities
         __props__.__dict__["certificate_authority"] = certificate_authority
         __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["default_addons_to_removes"] = default_addons_to_removes
         __props__.__dict__["enabled_cluster_log_types"] = enabled_cluster_log_types
         __props__.__dict__["encryption_config"] = encryption_config
         __props__.__dict__["endpoint"] = endpoint
@@ -789,6 +828,14 @@ class Cluster(pulumi.CustomResource):
         Unix epoch timestamp in seconds for when the cluster was created.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="defaultAddonsToRemoves")
+    def default_addons_to_removes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+        """
+        return pulumi.get(self, "default_addons_to_removes")
 
     @property
     @pulumi.getter(name="enabledClusterLogTypes")

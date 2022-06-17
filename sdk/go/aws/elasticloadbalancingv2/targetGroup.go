@@ -112,7 +112,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := lb.NewTargetGroup(ctx, "lambda-example", &lb.TargetGroupArgs{
+// 		_, err := lb.NewTargetGroup(ctx, "alb-example", &lb.TargetGroupArgs{
 // 			TargetType: pulumi.String("alb"),
 // 			Port:       pulumi.Int(80),
 // 			Protocol:   pulumi.String("TCP"),

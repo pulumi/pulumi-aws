@@ -144,6 +144,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     /**
+     * List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+     */
+    public readonly defaultAddonsToRemoves!: pulumi.Output<string[] | undefined>;
+    /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
     public readonly enabledClusterLogTypes!: pulumi.Output<string[] | undefined>;
@@ -213,6 +217,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["certificateAuthorities"] = state ? state.certificateAuthorities : undefined;
             resourceInputs["certificateAuthority"] = state ? state.certificateAuthority : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["defaultAddonsToRemoves"] = state ? state.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = state ? state.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
@@ -234,6 +239,7 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.vpcConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcConfig'");
             }
+            resourceInputs["defaultAddonsToRemoves"] = args ? args.defaultAddonsToRemoves : undefined;
             resourceInputs["enabledClusterLogTypes"] = args ? args.enabledClusterLogTypes : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
@@ -277,6 +283,10 @@ export interface ClusterState {
      * Unix epoch timestamp in seconds for when the cluster was created.
      */
     createdAt?: pulumi.Input<string>;
+    /**
+     * List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+     */
+    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
@@ -335,6 +345,10 @@ export interface ClusterState {
  * The set of arguments for constructing a Cluster resource.
  */
 export interface ClusterArgs {
+    /**
+     * List of addons to remove upon creation. Any addon listed will be "adopted" and then removed. This allows for the creation of a baremetal cluster where no addon is deployed and direct management of addons via Pulumi Kubernetes resources. Valid entries are `kube-proxy`, `coredns` and `vpc-cni`. **Only** works on first creation of a cluster.
+     */
+    defaultAddonsToRemoves?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of the desired control plane logging to enable. For more information, see [Amazon EKS Control Plane Logging](https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html).
      */
