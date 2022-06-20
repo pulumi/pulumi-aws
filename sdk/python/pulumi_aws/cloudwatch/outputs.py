@@ -967,7 +967,7 @@ class EventTargetEcsTarget(dict):
         :param bool enable_ecs_managed_tags: Specifies whether to enable Amazon ECS managed tags for the task.
         :param bool enable_execute_command: Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
         :param str group: Specifies an ECS task group for the task. The maximum length is 255 characters.
-        :param str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
+        :param str launch_type: Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
         :param 'EventTargetEcsTargetNetworkConfigurationArgs' network_configuration: Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launch_type is FARGATE because the awsvpc mode is required for Fargate tasks.
         :param Sequence['EventTargetEcsTargetPlacementConstraintArgs'] placement_constraints: An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
         :param str platform_version: Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as 1.1.0. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
@@ -1033,7 +1033,7 @@ class EventTargetEcsTarget(dict):
     @pulumi.getter(name="launchType")
     def launch_type(self) -> Optional[str]:
         """
-        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
+        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
         """
         return pulumi.get(self, "launch_type")
 

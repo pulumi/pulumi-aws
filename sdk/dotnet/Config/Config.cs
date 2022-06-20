@@ -408,6 +408,7 @@ namespace Pulumi.Aws
                 public string? Backup { get; set; } = null!;
                 public string? Backupgateway { get; set; } = null!;
                 public string? Batch { get; set; } = null!;
+                public string? Beanstalk { get; set; } = null!;
                 public string? Billingconductor { get; set; } = null!;
                 public string? Braket { get; set; } = null!;
                 public string? Budgets { get; set; } = null!;
@@ -430,6 +431,7 @@ namespace Pulumi.Aws
                 public string? Cloudwatch { get; set; } = null!;
                 public string? Cloudwatchevents { get; set; } = null!;
                 public string? Cloudwatchevidently { get; set; } = null!;
+                public string? Cloudwatchlog { get; set; } = null!;
                 public string? Cloudwatchlogs { get; set; } = null!;
                 public string? Cloudwatchrum { get; set; } = null!;
                 public string? Codeartifact { get; set; } = null!;
@@ -568,6 +570,7 @@ namespace Pulumi.Aws
                 public string? Kms { get; set; } = null!;
                 public string? Lakeformation { get; set; } = null!;
                 public string? Lambda { get; set; } = null!;
+                public string? Lex { get; set; } = null!;
                 public string? Lexmodelbuilding { get; set; } = null!;
                 public string? Lexmodelbuildingservice { get; set; } = null!;
                 public string? Lexmodels { get; set; } = null!;
@@ -615,6 +618,7 @@ namespace Pulumi.Aws
                 public string? Migrationhubstrategyrecommendations { get; set; } = null!;
                 public string? Mobile { get; set; } = null!;
                 public string? Mq { get; set; } = null!;
+                public string? Msk { get; set; } = null!;
                 public string? Mturk { get; set; } = null!;
                 public string? Mwaa { get; set; } = null!;
                 public string? Neptune { get; set; } = null!;

@@ -129,6 +129,7 @@ const (
 	imageBuilderMod             = "ImageBuilder"             // ImageBuilder
 	inspectorMod                = "Inspector"                // Inspector
 	iotMod                      = "Iot"                      // Internet of Things (IoT)
+	kendraMod                   = "Kendra"                   // Kendra
 	keyspacesMod                = "Keyspaces"                // Keyspaces
 	kinesisMod                  = "Kinesis"                  // Kinesis
 	kinesisAnalyticsMod         = "KinesisAnalyticsV2"       // Kinesis Analytics V2
@@ -2038,6 +2039,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iot_provisioning_template":  {Tok: awsResource(iotMod, "ProvisioningTemplate")},
 			"aws_iot_topic_rule_destination": {Tok: awsResource(iotMod, "TopicRuleDestination")},
 
+			// Kendra
+			"aws_kendra_index": {Tok: awsResource(kendraMod, "Index")},
+
 			// Keyspaces
 			"aws_keyspaces_keyspace": {Tok: awsResource(keyspacesMod, "Keyspace")},
 			"aws_keyspaces_table":    {Tok: awsResource(keyspacesMod, "Table")},
@@ -2161,12 +2165,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
 
 			// LightSail
-			"aws_lightsail_domain":                {Tok: awsResource(lightsailMod, "Domain")},
-			"aws_lightsail_instance":              {Tok: awsResource(lightsailMod, "Instance")},
-			"aws_lightsail_key_pair":              {Tok: awsResource(lightsailMod, "KeyPair")},
-			"aws_lightsail_static_ip":             {Tok: awsResource(lightsailMod, "StaticIp")},
-			"aws_lightsail_static_ip_attachment":  {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
-			"aws_lightsail_instance_public_ports": {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
+			"aws_lightsail_domain":                               {Tok: awsResource(lightsailMod, "Domain")},
+			"aws_lightsail_instance":                             {Tok: awsResource(lightsailMod, "Instance")},
+			"aws_lightsail_key_pair":                             {Tok: awsResource(lightsailMod, "KeyPair")},
+			"aws_lightsail_static_ip":                            {Tok: awsResource(lightsailMod, "StaticIp")},
+			"aws_lightsail_static_ip_attachment":                 {Tok: awsResource(lightsailMod, "StaticIpAttachment")},
+			"aws_lightsail_instance_public_ports":                {Tok: awsResource(lightsailMod, "InstancePublicPorts")},
+			"aws_lightsail_container_service":                    {Tok: awsResource(lightsailMod, "ContainerService")},
+			"aws_lightsail_container_service_deployment_version": {Tok: awsResource(lightsailMod, "ContainerServiceDeploymentVersion")},
 
 			// Location
 			"aws_location_map":         {Tok: awsResource(locationMod, "Map")},

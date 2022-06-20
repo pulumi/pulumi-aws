@@ -123,6 +123,9 @@ namespace Pulumi.Aws.Inputs
         [Input("batch")]
         public Input<string>? Batch { get; set; }
 
+        [Input("beanstalk")]
+        public Input<string>? Beanstalk { get; set; }
+
         [Input("billingconductor")]
         public Input<string>? Billingconductor { get; set; }
 
@@ -188,6 +191,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("cloudwatchevidently")]
         public Input<string>? Cloudwatchevidently { get; set; }
+
+        [Input("cloudwatchlog")]
+        public Input<string>? Cloudwatchlog { get; set; }
 
         [Input("cloudwatchlogs")]
         public Input<string>? Cloudwatchlogs { get; set; }
@@ -603,6 +609,9 @@ namespace Pulumi.Aws.Inputs
         [Input("lambda")]
         public Input<string>? Lambda { get; set; }
 
+        [Input("lex")]
+        public Input<string>? Lex { get; set; }
+
         [Input("lexmodelbuilding")]
         public Input<string>? Lexmodelbuilding { get; set; }
 
@@ -743,6 +752,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("mq")]
         public Input<string>? Mq { get; set; }
+
+        [Input("msk")]
+        public Input<string>? Msk { get; set; }
 
         [Input("mturk")]
         public Input<string>? Mturk { get; set; }

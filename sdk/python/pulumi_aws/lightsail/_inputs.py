@@ -9,8 +9,296 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ContainerServiceDeploymentVersionContainerArgs',
+    'ContainerServiceDeploymentVersionPublicEndpointArgs',
+    'ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs',
+    'ContainerServicePublicDomainNamesArgs',
+    'ContainerServicePublicDomainNamesCertificateArgs',
     'InstancePublicPortsPortInfoArgs',
 ]
+
+@pulumi.input_type
+class ContainerServiceDeploymentVersionContainerArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 image: pulumi.Input[str],
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environment: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 ports: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] container_name: The name for the container.
+        :param pulumi.Input[str] image: The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The launch command for the container. A list of string.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] environment: A key-value map of the environment variables of the container.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] ports: A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "image", image)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if ports is not None:
+            pulumi.set(__self__, "ports", ports)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        The name for the container.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        """
+        The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The launch command for the container. A list of string.
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value map of the environment variables of the container.
+        """
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter
+    def ports(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+        """
+        return pulumi.get(self, "ports")
+
+    @ports.setter
+    def ports(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "ports", value)
+
+
+@pulumi.input_type
+class ContainerServiceDeploymentVersionPublicEndpointArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 container_port: pulumi.Input[int],
+                 health_check: pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs']):
+        """
+        :param pulumi.Input[str] container_name: The name of the container for the endpoint.
+        :param pulumi.Input[int] container_port: The port of the container to which traffic is forwarded to.
+        :param pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs'] health_check: A configuration block that describes the health check configuration of the container. Detailed below.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        pulumi.set(__self__, "container_port", container_port)
+        pulumi.set(__self__, "health_check", health_check)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container for the endpoint.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> pulumi.Input[int]:
+        """
+        The port of the container to which traffic is forwarded to.
+        """
+        return pulumi.get(self, "container_port")
+
+    @container_port.setter
+    def container_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "container_port", value)
+
+    @property
+    @pulumi.getter(name="healthCheck")
+    def health_check(self) -> pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs']:
+        """
+        A configuration block that describes the health check configuration of the container. Detailed below.
+        """
+        return pulumi.get(self, "health_check")
+
+    @health_check.setter
+    def health_check(self, value: pulumi.Input['ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs']):
+        pulumi.set(self, "health_check", value)
+
+
+@pulumi.input_type
+class ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs:
+    def __init__(__self__, *,
+                 healthy_threshold: Optional[pulumi.Input[int]] = None,
+                 interval_seconds: Optional[pulumi.Input[int]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 success_codes: Optional[pulumi.Input[str]] = None,
+                 timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 unhealthy_threshold: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] healthy_threshold: The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+        :param pulumi.Input[int] interval_seconds: The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+        :param pulumi.Input[str] path: The path on the container on which to perform the health check. Defaults to "/".
+        :param pulumi.Input[str] success_codes: The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+        :param pulumi.Input[int] timeout_seconds: The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+        :param pulumi.Input[int] unhealthy_threshold: The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+        """
+        if healthy_threshold is not None:
+            pulumi.set(__self__, "healthy_threshold", healthy_threshold)
+        if interval_seconds is not None:
+            pulumi.set(__self__, "interval_seconds", interval_seconds)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if success_codes is not None:
+            pulumi.set(__self__, "success_codes", success_codes)
+        if timeout_seconds is not None:
+            pulumi.set(__self__, "timeout_seconds", timeout_seconds)
+        if unhealthy_threshold is not None:
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+
+    @property
+    @pulumi.getter(name="healthyThreshold")
+    def healthy_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+        """
+        return pulumi.get(self, "healthy_threshold")
+
+    @healthy_threshold.setter
+    def healthy_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "healthy_threshold", value)
+
+    @property
+    @pulumi.getter(name="intervalSeconds")
+    def interval_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+        """
+        return pulumi.get(self, "interval_seconds")
+
+    @interval_seconds.setter
+    def interval_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval_seconds", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path on the container on which to perform the health check. Defaults to "/".
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="successCodes")
+    def success_codes(self) -> Optional[pulumi.Input[str]]:
+        """
+        The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+        """
+        return pulumi.get(self, "success_codes")
+
+    @success_codes.setter
+    def success_codes(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "success_codes", value)
+
+    @property
+    @pulumi.getter(name="timeoutSeconds")
+    def timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+        """
+        return pulumi.get(self, "timeout_seconds")
+
+    @timeout_seconds.setter
+    def timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout_seconds", value)
+
+    @property
+    @pulumi.getter(name="unhealthyThreshold")
+    def unhealthy_threshold(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+        """
+        return pulumi.get(self, "unhealthy_threshold")
+
+    @unhealthy_threshold.setter
+    def unhealthy_threshold(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "unhealthy_threshold", value)
+
+
+@pulumi.input_type
+class ContainerServicePublicDomainNamesArgs:
+    def __init__(__self__, *,
+                 certificates: pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArgs']]]):
+        pulumi.set(__self__, "certificates", certificates)
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArgs']]]:
+        return pulumi.get(self, "certificates")
+
+    @certificates.setter
+    def certificates(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerServicePublicDomainNamesCertificateArgs']]]):
+        pulumi.set(self, "certificates", value)
+
+
+@pulumi.input_type
+class ContainerServicePublicDomainNamesCertificateArgs:
+    def __init__(__self__, *,
+                 certificate_name: pulumi.Input[str],
+                 domain_names: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "domain_names", domain_names)
+
+    @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "certificate_name", value)
+
+    @property
+    @pulumi.getter(name="domainNames")
+    def domain_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "domain_names")
+
+    @domain_names.setter
+    def domain_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "domain_names", value)
+
 
 @pulumi.input_type
 class InstancePublicPortsPortInfoArgs:

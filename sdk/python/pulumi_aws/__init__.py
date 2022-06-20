@@ -207,6 +207,8 @@ if typing.TYPE_CHECKING:
     inspector = __inspector
     import pulumi_aws.iot as __iot
     iot = __iot
+    import pulumi_aws.kendra as __kendra
+    kendra = __kendra
     import pulumi_aws.keyspaces as __keyspaces
     keyspaces = __keyspaces
     import pulumi_aws.kinesis as __kinesis
@@ -443,6 +445,7 @@ else:
     imagebuilder = _utilities.lazy_import('pulumi_aws.imagebuilder')
     inspector = _utilities.lazy_import('pulumi_aws.inspector')
     iot = _utilities.lazy_import('pulumi_aws.iot')
+    kendra = _utilities.lazy_import('pulumi_aws.kendra')
     keyspaces = _utilities.lazy_import('pulumi_aws.keyspaces')
     kinesis = _utilities.lazy_import('pulumi_aws.kinesis')
     kinesisanalyticsv2 = _utilities.lazy_import('pulumi_aws.kinesisanalyticsv2')
@@ -5362,6 +5365,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "kendra/index",
+  "fqn": "pulumi_aws.kendra",
+  "classes": {
+   "aws:kendra/index:Index": "Index"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "keyspaces/keyspace",
   "fqn": "pulumi_aws.keyspaces",
   "classes": {
@@ -5694,6 +5705,22 @@ _utilities.register(
   "fqn": "pulumi_aws.licensemanager",
   "classes": {
    "aws:licensemanager/licenseConfiguration:LicenseConfiguration": "LicenseConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/containerService",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/containerService:ContainerService": "ContainerService"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lightsail/containerServiceDeploymentVersion",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion": "ContainerServiceDeploymentVersion"
   }
  },
  {

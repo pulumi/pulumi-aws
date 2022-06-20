@@ -2437,7 +2437,7 @@ type EventTargetEcsTarget struct {
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
 	Group *string `pulumi:"group"`
-	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
+	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
 	LaunchType *string `pulumi:"launchType"`
 	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration *EventTargetEcsTargetNetworkConfiguration `pulumi:"networkConfiguration"`
@@ -2473,7 +2473,7 @@ type EventTargetEcsTargetArgs struct {
 	EnableExecuteCommand pulumi.BoolPtrInput `pulumi:"enableExecuteCommand"`
 	// Specifies an ECS task group for the task. The maximum length is 255 characters.
 	Group pulumi.StringPtrInput `pulumi:"group"`
-	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
+	// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
 	LaunchType pulumi.StringPtrInput `pulumi:"launchType"`
 	// Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if launchType is FARGATE because the awsvpc mode is required for Fargate tasks.
 	NetworkConfiguration EventTargetEcsTargetNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
@@ -2583,7 +2583,7 @@ func (o EventTargetEcsTargetOutput) Group() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.Group }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
+// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
 func (o EventTargetEcsTargetOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventTargetEcsTarget) *string { return v.LaunchType }).(pulumi.StringPtrOutput)
 }
@@ -2677,7 +2677,7 @@ func (o EventTargetEcsTargetPtrOutput) Group() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: an empty string `""` (to specify no launch type), `EC2`, or `FARGATE`.
+// Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
 func (o EventTargetEcsTargetPtrOutput) LaunchType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetEcsTarget) *string {
 		if v == nil {

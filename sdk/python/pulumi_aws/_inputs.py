@@ -287,6 +287,7 @@ class ProviderEndpointArgs:
                  backup: Optional[pulumi.Input[str]] = None,
                  backupgateway: Optional[pulumi.Input[str]] = None,
                  batch: Optional[pulumi.Input[str]] = None,
+                 beanstalk: Optional[pulumi.Input[str]] = None,
                  billingconductor: Optional[pulumi.Input[str]] = None,
                  braket: Optional[pulumi.Input[str]] = None,
                  budgets: Optional[pulumi.Input[str]] = None,
@@ -309,6 +310,7 @@ class ProviderEndpointArgs:
                  cloudwatch: Optional[pulumi.Input[str]] = None,
                  cloudwatchevents: Optional[pulumi.Input[str]] = None,
                  cloudwatchevidently: Optional[pulumi.Input[str]] = None,
+                 cloudwatchlog: Optional[pulumi.Input[str]] = None,
                  cloudwatchlogs: Optional[pulumi.Input[str]] = None,
                  cloudwatchrum: Optional[pulumi.Input[str]] = None,
                  codeartifact: Optional[pulumi.Input[str]] = None,
@@ -447,6 +449,7 @@ class ProviderEndpointArgs:
                  kms: Optional[pulumi.Input[str]] = None,
                  lakeformation: Optional[pulumi.Input[str]] = None,
                  lambda_: Optional[pulumi.Input[str]] = None,
+                 lex: Optional[pulumi.Input[str]] = None,
                  lexmodelbuilding: Optional[pulumi.Input[str]] = None,
                  lexmodelbuildingservice: Optional[pulumi.Input[str]] = None,
                  lexmodels: Optional[pulumi.Input[str]] = None,
@@ -494,6 +497,7 @@ class ProviderEndpointArgs:
                  migrationhubstrategyrecommendations: Optional[pulumi.Input[str]] = None,
                  mobile: Optional[pulumi.Input[str]] = None,
                  mq: Optional[pulumi.Input[str]] = None,
+                 msk: Optional[pulumi.Input[str]] = None,
                  mturk: Optional[pulumi.Input[str]] = None,
                  mwaa: Optional[pulumi.Input[str]] = None,
                  neptune: Optional[pulumi.Input[str]] = None,
@@ -686,6 +690,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "backupgateway", backupgateway)
         if batch is not None:
             pulumi.set(__self__, "batch", batch)
+        if beanstalk is not None:
+            pulumi.set(__self__, "beanstalk", beanstalk)
         if billingconductor is not None:
             pulumi.set(__self__, "billingconductor", billingconductor)
         if braket is not None:
@@ -730,6 +736,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "cloudwatchevents", cloudwatchevents)
         if cloudwatchevidently is not None:
             pulumi.set(__self__, "cloudwatchevidently", cloudwatchevidently)
+        if cloudwatchlog is not None:
+            pulumi.set(__self__, "cloudwatchlog", cloudwatchlog)
         if cloudwatchlogs is not None:
             pulumi.set(__self__, "cloudwatchlogs", cloudwatchlogs)
         if cloudwatchrum is not None:
@@ -1006,6 +1014,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "lakeformation", lakeformation)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if lex is not None:
+            pulumi.set(__self__, "lex", lex)
         if lexmodelbuilding is not None:
             pulumi.set(__self__, "lexmodelbuilding", lexmodelbuilding)
         if lexmodelbuildingservice is not None:
@@ -1100,6 +1110,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "mobile", mobile)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
+        if msk is not None:
+            pulumi.set(__self__, "msk", msk)
         if mturk is not None:
             pulumi.set(__self__, "mturk", mturk)
         if mwaa is not None:
@@ -1672,6 +1684,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def beanstalk(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "beanstalk")
+
+    @beanstalk.setter
+    def beanstalk(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "beanstalk", value)
+
+    @property
+    @pulumi.getter
     def billingconductor(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "billingconductor")
 
@@ -1867,6 +1888,15 @@ class ProviderEndpointArgs:
     @cloudwatchevidently.setter
     def cloudwatchevidently(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloudwatchevidently", value)
+
+    @property
+    @pulumi.getter
+    def cloudwatchlog(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cloudwatchlog")
+
+    @cloudwatchlog.setter
+    def cloudwatchlog(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudwatchlog", value)
 
     @property
     @pulumi.getter
@@ -3112,6 +3142,15 @@ class ProviderEndpointArgs:
 
     @property
     @pulumi.getter
+    def lex(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "lex")
+
+    @lex.setter
+    def lex(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "lex", value)
+
+    @property
+    @pulumi.getter
     def lexmodelbuilding(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "lexmodelbuilding")
 
@@ -3532,6 +3571,15 @@ class ProviderEndpointArgs:
     @mq.setter
     def mq(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mq", value)
+
+    @property
+    @pulumi.getter
+    def msk(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "msk")
+
+    @msk.setter
+    def msk(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "msk", value)
 
     @property
     @pulumi.getter

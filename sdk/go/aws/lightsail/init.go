@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:lightsail/containerService:ContainerService":
+		r = &ContainerService{}
+	case "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion":
+		r = &ContainerServiceDeploymentVersion{}
 	case "aws:lightsail/domain:Domain":
 		r = &Domain{}
 	case "aws:lightsail/instance:Instance":
@@ -46,6 +50,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/containerService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/containerServiceDeploymentVersion",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/domain",

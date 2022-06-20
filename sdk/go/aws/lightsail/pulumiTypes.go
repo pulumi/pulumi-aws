@@ -10,6 +10,783 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ContainerServiceDeploymentVersionContainer struct {
+	// The launch command for the container. A list of string.
+	Commands []string `pulumi:"commands"`
+	// The name for the container.
+	ContainerName string `pulumi:"containerName"`
+	// A key-value map of the environment variables of the container.
+	Environment map[string]string `pulumi:"environment"`
+	// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+	Image string `pulumi:"image"`
+	// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+	Ports map[string]string `pulumi:"ports"`
+}
+
+// ContainerServiceDeploymentVersionContainerInput is an input type that accepts ContainerServiceDeploymentVersionContainerArgs and ContainerServiceDeploymentVersionContainerOutput values.
+// You can construct a concrete instance of `ContainerServiceDeploymentVersionContainerInput` via:
+//
+//          ContainerServiceDeploymentVersionContainerArgs{...}
+type ContainerServiceDeploymentVersionContainerInput interface {
+	pulumi.Input
+
+	ToContainerServiceDeploymentVersionContainerOutput() ContainerServiceDeploymentVersionContainerOutput
+	ToContainerServiceDeploymentVersionContainerOutputWithContext(context.Context) ContainerServiceDeploymentVersionContainerOutput
+}
+
+type ContainerServiceDeploymentVersionContainerArgs struct {
+	// The launch command for the container. A list of string.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
+	// The name for the container.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// A key-value map of the environment variables of the container.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+	Image pulumi.StringInput `pulumi:"image"`
+	// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+	Ports pulumi.StringMapInput `pulumi:"ports"`
+}
+
+func (ContainerServiceDeploymentVersionContainerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceDeploymentVersionContainer)(nil)).Elem()
+}
+
+func (i ContainerServiceDeploymentVersionContainerArgs) ToContainerServiceDeploymentVersionContainerOutput() ContainerServiceDeploymentVersionContainerOutput {
+	return i.ToContainerServiceDeploymentVersionContainerOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceDeploymentVersionContainerArgs) ToContainerServiceDeploymentVersionContainerOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionContainerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionContainerOutput)
+}
+
+// ContainerServiceDeploymentVersionContainerArrayInput is an input type that accepts ContainerServiceDeploymentVersionContainerArray and ContainerServiceDeploymentVersionContainerArrayOutput values.
+// You can construct a concrete instance of `ContainerServiceDeploymentVersionContainerArrayInput` via:
+//
+//          ContainerServiceDeploymentVersionContainerArray{ ContainerServiceDeploymentVersionContainerArgs{...} }
+type ContainerServiceDeploymentVersionContainerArrayInput interface {
+	pulumi.Input
+
+	ToContainerServiceDeploymentVersionContainerArrayOutput() ContainerServiceDeploymentVersionContainerArrayOutput
+	ToContainerServiceDeploymentVersionContainerArrayOutputWithContext(context.Context) ContainerServiceDeploymentVersionContainerArrayOutput
+}
+
+type ContainerServiceDeploymentVersionContainerArray []ContainerServiceDeploymentVersionContainerInput
+
+func (ContainerServiceDeploymentVersionContainerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServiceDeploymentVersionContainer)(nil)).Elem()
+}
+
+func (i ContainerServiceDeploymentVersionContainerArray) ToContainerServiceDeploymentVersionContainerArrayOutput() ContainerServiceDeploymentVersionContainerArrayOutput {
+	return i.ToContainerServiceDeploymentVersionContainerArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceDeploymentVersionContainerArray) ToContainerServiceDeploymentVersionContainerArrayOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionContainerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionContainerArrayOutput)
+}
+
+type ContainerServiceDeploymentVersionContainerOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceDeploymentVersionContainerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceDeploymentVersionContainer)(nil)).Elem()
+}
+
+func (o ContainerServiceDeploymentVersionContainerOutput) ToContainerServiceDeploymentVersionContainerOutput() ContainerServiceDeploymentVersionContainerOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionContainerOutput) ToContainerServiceDeploymentVersionContainerOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionContainerOutput {
+	return o
+}
+
+// The launch command for the container. A list of string.
+func (o ContainerServiceDeploymentVersionContainerOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+// The name for the container.
+func (o ContainerServiceDeploymentVersionContainerOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// A key-value map of the environment variables of the container.
+func (o ContainerServiceDeploymentVersionContainerOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) map[string]string { return v.Environment }).(pulumi.StringMapOutput)
+}
+
+// The name of the image used for the container. Container images sourced from your Lightsail container service, that are registered and stored on your service, start with a colon (`:`). For example, `:container-service-1.mystaticwebsite.1`. Container images sourced from a public registry like Docker Hub don't start with a colon. For example, `nginx:latest` or `nginx`.
+func (o ContainerServiceDeploymentVersionContainerOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// A key-value map of the open firewall ports of the container. Valid values: `HTTP`, `HTTPS`, `TCP`, `UDP`.
+func (o ContainerServiceDeploymentVersionContainerOutput) Ports() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionContainer) map[string]string { return v.Ports }).(pulumi.StringMapOutput)
+}
+
+type ContainerServiceDeploymentVersionContainerArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceDeploymentVersionContainerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServiceDeploymentVersionContainer)(nil)).Elem()
+}
+
+func (o ContainerServiceDeploymentVersionContainerArrayOutput) ToContainerServiceDeploymentVersionContainerArrayOutput() ContainerServiceDeploymentVersionContainerArrayOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionContainerArrayOutput) ToContainerServiceDeploymentVersionContainerArrayOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionContainerArrayOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionContainerArrayOutput) Index(i pulumi.IntInput) ContainerServiceDeploymentVersionContainerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerServiceDeploymentVersionContainer {
+		return vs[0].([]ContainerServiceDeploymentVersionContainer)[vs[1].(int)]
+	}).(ContainerServiceDeploymentVersionContainerOutput)
+}
+
+type ContainerServiceDeploymentVersionPublicEndpoint struct {
+	// The name of the container for the endpoint.
+	ContainerName string `pulumi:"containerName"`
+	// The port of the container to which traffic is forwarded to.
+	ContainerPort int `pulumi:"containerPort"`
+	// A configuration block that describes the health check configuration of the container. Detailed below.
+	HealthCheck ContainerServiceDeploymentVersionPublicEndpointHealthCheck `pulumi:"healthCheck"`
+}
+
+// ContainerServiceDeploymentVersionPublicEndpointInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointArgs and ContainerServiceDeploymentVersionPublicEndpointOutput values.
+// You can construct a concrete instance of `ContainerServiceDeploymentVersionPublicEndpointInput` via:
+//
+//          ContainerServiceDeploymentVersionPublicEndpointArgs{...}
+type ContainerServiceDeploymentVersionPublicEndpointInput interface {
+	pulumi.Input
+
+	ToContainerServiceDeploymentVersionPublicEndpointOutput() ContainerServiceDeploymentVersionPublicEndpointOutput
+	ToContainerServiceDeploymentVersionPublicEndpointOutputWithContext(context.Context) ContainerServiceDeploymentVersionPublicEndpointOutput
+}
+
+type ContainerServiceDeploymentVersionPublicEndpointArgs struct {
+	// The name of the container for the endpoint.
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The port of the container to which traffic is forwarded to.
+	ContainerPort pulumi.IntInput `pulumi:"containerPort"`
+	// A configuration block that describes the health check configuration of the container. Detailed below.
+	HealthCheck ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput `pulumi:"healthCheck"`
+}
+
+func (ContainerServiceDeploymentVersionPublicEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpoint)(nil)).Elem()
+}
+
+func (i ContainerServiceDeploymentVersionPublicEndpointArgs) ToContainerServiceDeploymentVersionPublicEndpointOutput() ContainerServiceDeploymentVersionPublicEndpointOutput {
+	return i.ToContainerServiceDeploymentVersionPublicEndpointOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceDeploymentVersionPublicEndpointArgs) ToContainerServiceDeploymentVersionPublicEndpointOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointOutput)
+}
+
+func (i ContainerServiceDeploymentVersionPublicEndpointArgs) ToContainerServiceDeploymentVersionPublicEndpointPtrOutput() ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
+	return i.ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceDeploymentVersionPublicEndpointArgs) ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointOutput).ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(ctx)
+}
+
+// ContainerServiceDeploymentVersionPublicEndpointPtrInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointArgs, ContainerServiceDeploymentVersionPublicEndpointPtr and ContainerServiceDeploymentVersionPublicEndpointPtrOutput values.
+// You can construct a concrete instance of `ContainerServiceDeploymentVersionPublicEndpointPtrInput` via:
+//
+//          ContainerServiceDeploymentVersionPublicEndpointArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerServiceDeploymentVersionPublicEndpointPtrInput interface {
+	pulumi.Input
+
+	ToContainerServiceDeploymentVersionPublicEndpointPtrOutput() ContainerServiceDeploymentVersionPublicEndpointPtrOutput
+	ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(context.Context) ContainerServiceDeploymentVersionPublicEndpointPtrOutput
+}
+
+type containerServiceDeploymentVersionPublicEndpointPtrType ContainerServiceDeploymentVersionPublicEndpointArgs
+
+func ContainerServiceDeploymentVersionPublicEndpointPtr(v *ContainerServiceDeploymentVersionPublicEndpointArgs) ContainerServiceDeploymentVersionPublicEndpointPtrInput {
+	return (*containerServiceDeploymentVersionPublicEndpointPtrType)(v)
+}
+
+func (*containerServiceDeploymentVersionPublicEndpointPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceDeploymentVersionPublicEndpoint)(nil)).Elem()
+}
+
+func (i *containerServiceDeploymentVersionPublicEndpointPtrType) ToContainerServiceDeploymentVersionPublicEndpointPtrOutput() ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
+	return i.ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(context.Background())
+}
+
+func (i *containerServiceDeploymentVersionPublicEndpointPtrType) ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointPtrOutput)
+}
+
+type ContainerServiceDeploymentVersionPublicEndpointOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceDeploymentVersionPublicEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpoint)(nil)).Elem()
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ToContainerServiceDeploymentVersionPublicEndpointOutput() ContainerServiceDeploymentVersionPublicEndpointOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ToContainerServiceDeploymentVersionPublicEndpointOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ToContainerServiceDeploymentVersionPublicEndpointPtrOutput() ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
+	return o.ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDeploymentVersionPublicEndpoint) *ContainerServiceDeploymentVersionPublicEndpoint {
+		return &v
+	}).(ContainerServiceDeploymentVersionPublicEndpointPtrOutput)
+}
+
+// The name of the container for the endpoint.
+func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The port of the container to which traffic is forwarded to.
+func (o ContainerServiceDeploymentVersionPublicEndpointOutput) ContainerPort() pulumi.IntOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) int { return v.ContainerPort }).(pulumi.IntOutput)
+}
+
+// A configuration block that describes the health check configuration of the container. Detailed below.
+func (o ContainerServiceDeploymentVersionPublicEndpointOutput) HealthCheck() ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpoint) ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
+		return v.HealthCheck
+	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput)
+}
+
+type ContainerServiceDeploymentVersionPublicEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceDeploymentVersionPublicEndpoint)(nil)).Elem()
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ToContainerServiceDeploymentVersionPublicEndpointPtrOutput() ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ToContainerServiceDeploymentVersionPublicEndpointPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointPtrOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) Elem() ContainerServiceDeploymentVersionPublicEndpointOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) ContainerServiceDeploymentVersionPublicEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceDeploymentVersionPublicEndpoint
+		return ret
+	}).(ContainerServiceDeploymentVersionPublicEndpointOutput)
+}
+
+// The name of the container for the endpoint.
+func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port of the container to which traffic is forwarded to.
+func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.ContainerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// A configuration block that describes the health check configuration of the container. Detailed below.
+func (o ContainerServiceDeploymentVersionPublicEndpointPtrOutput) HealthCheck() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpoint) *ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
+		if v == nil {
+			return nil
+		}
+		return &v.HealthCheck
+	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput)
+}
+
+type ContainerServiceDeploymentVersionPublicEndpointHealthCheck struct {
+	// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+	HealthyThreshold *int `pulumi:"healthyThreshold"`
+	// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+	IntervalSeconds *int `pulumi:"intervalSeconds"`
+	// The path on the container on which to perform the health check. Defaults to "/".
+	Path *string `pulumi:"path"`
+	// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+	SuccessCodes *string `pulumi:"successCodes"`
+	// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
+	// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+	UnhealthyThreshold *int `pulumi:"unhealthyThreshold"`
+}
+
+// ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs and ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput values.
+// You can construct a concrete instance of `ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput` via:
+//
+//          ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{...}
+type ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput interface {
+	pulumi.Input
+
+	ToContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput
+	ToContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputWithContext(context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput
+}
+
+type ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs struct {
+	// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+	HealthyThreshold pulumi.IntPtrInput `pulumi:"healthyThreshold"`
+	// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+	IntervalSeconds pulumi.IntPtrInput `pulumi:"intervalSeconds"`
+	// The path on the container on which to perform the health check. Defaults to "/".
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+	SuccessCodes pulumi.StringPtrInput `pulumi:"successCodes"`
+	// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
+	// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+	UnhealthyThreshold pulumi.IntPtrInput `pulumi:"unhealthyThreshold"`
+}
+
+func (ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointHealthCheck)(nil)).Elem()
+}
+
+func (i ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
+	return i.ToContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput)
+}
+
+func (i ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return i.ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput).ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(ctx)
+}
+
+// ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput is an input type that accepts ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs, ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtr and ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput values.
+// You can construct a concrete instance of `ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput` via:
+//
+//          ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput interface {
+	pulumi.Input
+
+	ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput
+	ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput
+}
+
+type containerServiceDeploymentVersionPublicEndpointHealthCheckPtrType ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs
+
+func ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtr(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs) ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput {
+	return (*containerServiceDeploymentVersionPublicEndpointHealthCheckPtrType)(v)
+}
+
+func (*containerServiceDeploymentVersionPublicEndpointHealthCheckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceDeploymentVersionPublicEndpointHealthCheck)(nil)).Elem()
+}
+
+func (i *containerServiceDeploymentVersionPublicEndpointHealthCheckPtrType) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return i.ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (i *containerServiceDeploymentVersionPublicEndpointHealthCheckPtrType) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput)
+}
+
+type ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointHealthCheck)(nil)).Elem()
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return o.ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
+		return &v
+	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput)
+}
+
+// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.HealthyThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.IntervalSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The path on the container on which to perform the health check. Defaults to "/".
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) SuccessCodes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string { return v.SuccessCodes }).(pulumi.StringPtrOutput)
+}
+
+// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.TimeoutSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int { return v.UnhealthyThreshold }).(pulumi.IntPtrOutput)
+}
+
+type ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServiceDeploymentVersionPublicEndpointHealthCheck)(nil)).Elem()
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput() ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) ToContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutputWithContext(ctx context.Context) ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput {
+	return o
+}
+
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Elem() ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) ContainerServiceDeploymentVersionPublicEndpointHealthCheck {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServiceDeploymentVersionPublicEndpointHealthCheck
+		return ret
+	}).(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput)
+}
+
+// The number of consecutive health checks successes required before moving the container to the Healthy state. Defaults to 2.
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) HealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The approximate interval, in seconds, between health checks of an individual container. You can specify between 5 and 300 seconds. Defaults to 5.
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) IntervalSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IntervalSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The path on the container on which to perform the health check. Defaults to "/".
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The HTTP codes to use when checking for a successful response from a container. You can specify values between 200 and 499. Defaults to "200-499".
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) SuccessCodes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessCodes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The amount of time, in seconds, during which no response means a failed health check. You can specify between 2 and 60 seconds. Defaults to 2.
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) TimeoutSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The number of consecutive health checks failures required before moving the container to the Unhealthy state. Defaults to 2.
+func (o ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput) UnhealthyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ContainerServiceDeploymentVersionPublicEndpointHealthCheck) *int {
+		if v == nil {
+			return nil
+		}
+		return v.UnhealthyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type ContainerServicePublicDomainNames struct {
+	Certificates []ContainerServicePublicDomainNamesCertificate `pulumi:"certificates"`
+}
+
+// ContainerServicePublicDomainNamesInput is an input type that accepts ContainerServicePublicDomainNamesArgs and ContainerServicePublicDomainNamesOutput values.
+// You can construct a concrete instance of `ContainerServicePublicDomainNamesInput` via:
+//
+//          ContainerServicePublicDomainNamesArgs{...}
+type ContainerServicePublicDomainNamesInput interface {
+	pulumi.Input
+
+	ToContainerServicePublicDomainNamesOutput() ContainerServicePublicDomainNamesOutput
+	ToContainerServicePublicDomainNamesOutputWithContext(context.Context) ContainerServicePublicDomainNamesOutput
+}
+
+type ContainerServicePublicDomainNamesArgs struct {
+	Certificates ContainerServicePublicDomainNamesCertificateArrayInput `pulumi:"certificates"`
+}
+
+func (ContainerServicePublicDomainNamesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServicePublicDomainNames)(nil)).Elem()
+}
+
+func (i ContainerServicePublicDomainNamesArgs) ToContainerServicePublicDomainNamesOutput() ContainerServicePublicDomainNamesOutput {
+	return i.ToContainerServicePublicDomainNamesOutputWithContext(context.Background())
+}
+
+func (i ContainerServicePublicDomainNamesArgs) ToContainerServicePublicDomainNamesOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesOutput)
+}
+
+func (i ContainerServicePublicDomainNamesArgs) ToContainerServicePublicDomainNamesPtrOutput() ContainerServicePublicDomainNamesPtrOutput {
+	return i.ToContainerServicePublicDomainNamesPtrOutputWithContext(context.Background())
+}
+
+func (i ContainerServicePublicDomainNamesArgs) ToContainerServicePublicDomainNamesPtrOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesOutput).ToContainerServicePublicDomainNamesPtrOutputWithContext(ctx)
+}
+
+// ContainerServicePublicDomainNamesPtrInput is an input type that accepts ContainerServicePublicDomainNamesArgs, ContainerServicePublicDomainNamesPtr and ContainerServicePublicDomainNamesPtrOutput values.
+// You can construct a concrete instance of `ContainerServicePublicDomainNamesPtrInput` via:
+//
+//          ContainerServicePublicDomainNamesArgs{...}
+//
+//  or:
+//
+//          nil
+type ContainerServicePublicDomainNamesPtrInput interface {
+	pulumi.Input
+
+	ToContainerServicePublicDomainNamesPtrOutput() ContainerServicePublicDomainNamesPtrOutput
+	ToContainerServicePublicDomainNamesPtrOutputWithContext(context.Context) ContainerServicePublicDomainNamesPtrOutput
+}
+
+type containerServicePublicDomainNamesPtrType ContainerServicePublicDomainNamesArgs
+
+func ContainerServicePublicDomainNamesPtr(v *ContainerServicePublicDomainNamesArgs) ContainerServicePublicDomainNamesPtrInput {
+	return (*containerServicePublicDomainNamesPtrType)(v)
+}
+
+func (*containerServicePublicDomainNamesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServicePublicDomainNames)(nil)).Elem()
+}
+
+func (i *containerServicePublicDomainNamesPtrType) ToContainerServicePublicDomainNamesPtrOutput() ContainerServicePublicDomainNamesPtrOutput {
+	return i.ToContainerServicePublicDomainNamesPtrOutputWithContext(context.Background())
+}
+
+func (i *containerServicePublicDomainNamesPtrType) ToContainerServicePublicDomainNamesPtrOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesPtrOutput)
+}
+
+type ContainerServicePublicDomainNamesOutput struct{ *pulumi.OutputState }
+
+func (ContainerServicePublicDomainNamesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServicePublicDomainNames)(nil)).Elem()
+}
+
+func (o ContainerServicePublicDomainNamesOutput) ToContainerServicePublicDomainNamesOutput() ContainerServicePublicDomainNamesOutput {
+	return o
+}
+
+func (o ContainerServicePublicDomainNamesOutput) ToContainerServicePublicDomainNamesOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesOutput {
+	return o
+}
+
+func (o ContainerServicePublicDomainNamesOutput) ToContainerServicePublicDomainNamesPtrOutput() ContainerServicePublicDomainNamesPtrOutput {
+	return o.ToContainerServicePublicDomainNamesPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerServicePublicDomainNamesOutput) ToContainerServicePublicDomainNamesPtrOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerServicePublicDomainNames) *ContainerServicePublicDomainNames {
+		return &v
+	}).(ContainerServicePublicDomainNamesPtrOutput)
+}
+
+func (o ContainerServicePublicDomainNamesOutput) Certificates() ContainerServicePublicDomainNamesCertificateArrayOutput {
+	return o.ApplyT(func(v ContainerServicePublicDomainNames) []ContainerServicePublicDomainNamesCertificate {
+		return v.Certificates
+	}).(ContainerServicePublicDomainNamesCertificateArrayOutput)
+}
+
+type ContainerServicePublicDomainNamesPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerServicePublicDomainNamesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerServicePublicDomainNames)(nil)).Elem()
+}
+
+func (o ContainerServicePublicDomainNamesPtrOutput) ToContainerServicePublicDomainNamesPtrOutput() ContainerServicePublicDomainNamesPtrOutput {
+	return o
+}
+
+func (o ContainerServicePublicDomainNamesPtrOutput) ToContainerServicePublicDomainNamesPtrOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesPtrOutput {
+	return o
+}
+
+func (o ContainerServicePublicDomainNamesPtrOutput) Elem() ContainerServicePublicDomainNamesOutput {
+	return o.ApplyT(func(v *ContainerServicePublicDomainNames) ContainerServicePublicDomainNames {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerServicePublicDomainNames
+		return ret
+	}).(ContainerServicePublicDomainNamesOutput)
+}
+
+func (o ContainerServicePublicDomainNamesPtrOutput) Certificates() ContainerServicePublicDomainNamesCertificateArrayOutput {
+	return o.ApplyT(func(v *ContainerServicePublicDomainNames) []ContainerServicePublicDomainNamesCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.Certificates
+	}).(ContainerServicePublicDomainNamesCertificateArrayOutput)
+}
+
+type ContainerServicePublicDomainNamesCertificate struct {
+	CertificateName string   `pulumi:"certificateName"`
+	DomainNames     []string `pulumi:"domainNames"`
+}
+
+// ContainerServicePublicDomainNamesCertificateInput is an input type that accepts ContainerServicePublicDomainNamesCertificateArgs and ContainerServicePublicDomainNamesCertificateOutput values.
+// You can construct a concrete instance of `ContainerServicePublicDomainNamesCertificateInput` via:
+//
+//          ContainerServicePublicDomainNamesCertificateArgs{...}
+type ContainerServicePublicDomainNamesCertificateInput interface {
+	pulumi.Input
+
+	ToContainerServicePublicDomainNamesCertificateOutput() ContainerServicePublicDomainNamesCertificateOutput
+	ToContainerServicePublicDomainNamesCertificateOutputWithContext(context.Context) ContainerServicePublicDomainNamesCertificateOutput
+}
+
+type ContainerServicePublicDomainNamesCertificateArgs struct {
+	CertificateName pulumi.StringInput      `pulumi:"certificateName"`
+	DomainNames     pulumi.StringArrayInput `pulumi:"domainNames"`
+}
+
+func (ContainerServicePublicDomainNamesCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServicePublicDomainNamesCertificate)(nil)).Elem()
+}
+
+func (i ContainerServicePublicDomainNamesCertificateArgs) ToContainerServicePublicDomainNamesCertificateOutput() ContainerServicePublicDomainNamesCertificateOutput {
+	return i.ToContainerServicePublicDomainNamesCertificateOutputWithContext(context.Background())
+}
+
+func (i ContainerServicePublicDomainNamesCertificateArgs) ToContainerServicePublicDomainNamesCertificateOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesCertificateOutput)
+}
+
+// ContainerServicePublicDomainNamesCertificateArrayInput is an input type that accepts ContainerServicePublicDomainNamesCertificateArray and ContainerServicePublicDomainNamesCertificateArrayOutput values.
+// You can construct a concrete instance of `ContainerServicePublicDomainNamesCertificateArrayInput` via:
+//
+//          ContainerServicePublicDomainNamesCertificateArray{ ContainerServicePublicDomainNamesCertificateArgs{...} }
+type ContainerServicePublicDomainNamesCertificateArrayInput interface {
+	pulumi.Input
+
+	ToContainerServicePublicDomainNamesCertificateArrayOutput() ContainerServicePublicDomainNamesCertificateArrayOutput
+	ToContainerServicePublicDomainNamesCertificateArrayOutputWithContext(context.Context) ContainerServicePublicDomainNamesCertificateArrayOutput
+}
+
+type ContainerServicePublicDomainNamesCertificateArray []ContainerServicePublicDomainNamesCertificateInput
+
+func (ContainerServicePublicDomainNamesCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServicePublicDomainNamesCertificate)(nil)).Elem()
+}
+
+func (i ContainerServicePublicDomainNamesCertificateArray) ToContainerServicePublicDomainNamesCertificateArrayOutput() ContainerServicePublicDomainNamesCertificateArrayOutput {
+	return i.ToContainerServicePublicDomainNamesCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerServicePublicDomainNamesCertificateArray) ToContainerServicePublicDomainNamesCertificateArrayOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerServicePublicDomainNamesCertificateArrayOutput)
+}
+
+type ContainerServicePublicDomainNamesCertificateOutput struct{ *pulumi.OutputState }
+
+func (ContainerServicePublicDomainNamesCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerServicePublicDomainNamesCertificate)(nil)).Elem()
+}
+
+func (o ContainerServicePublicDomainNamesCertificateOutput) ToContainerServicePublicDomainNamesCertificateOutput() ContainerServicePublicDomainNamesCertificateOutput {
+	return o
+}
+
+func (o ContainerServicePublicDomainNamesCertificateOutput) ToContainerServicePublicDomainNamesCertificateOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesCertificateOutput {
+	return o
+}
+
+func (o ContainerServicePublicDomainNamesCertificateOutput) CertificateName() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerServicePublicDomainNamesCertificate) string { return v.CertificateName }).(pulumi.StringOutput)
+}
+
+func (o ContainerServicePublicDomainNamesCertificateOutput) DomainNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ContainerServicePublicDomainNamesCertificate) []string { return v.DomainNames }).(pulumi.StringArrayOutput)
+}
+
+type ContainerServicePublicDomainNamesCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerServicePublicDomainNamesCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerServicePublicDomainNamesCertificate)(nil)).Elem()
+}
+
+func (o ContainerServicePublicDomainNamesCertificateArrayOutput) ToContainerServicePublicDomainNamesCertificateArrayOutput() ContainerServicePublicDomainNamesCertificateArrayOutput {
+	return o
+}
+
+func (o ContainerServicePublicDomainNamesCertificateArrayOutput) ToContainerServicePublicDomainNamesCertificateArrayOutputWithContext(ctx context.Context) ContainerServicePublicDomainNamesCertificateArrayOutput {
+	return o
+}
+
+func (o ContainerServicePublicDomainNamesCertificateArrayOutput) Index(i pulumi.IntInput) ContainerServicePublicDomainNamesCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerServicePublicDomainNamesCertificate {
+		return vs[0].([]ContainerServicePublicDomainNamesCertificate)[vs[1].(int)]
+	}).(ContainerServicePublicDomainNamesCertificateOutput)
+}
+
 type InstancePublicPortsPortInfo struct {
 	// Set of CIDR blocks.
 	Cidrs []string `pulumi:"cidrs"`
@@ -135,8 +912,28 @@ func (o InstancePublicPortsPortInfoArrayOutput) Index(i pulumi.IntInput) Instanc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionContainerInput)(nil)).Elem(), ContainerServiceDeploymentVersionContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionContainerArrayInput)(nil)).Elem(), ContainerServiceDeploymentVersionContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointInput)(nil)).Elem(), ContainerServiceDeploymentVersionPublicEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointPtrInput)(nil)).Elem(), ContainerServiceDeploymentVersionPublicEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointHealthCheckInput)(nil)).Elem(), ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrInput)(nil)).Elem(), ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesInput)(nil)).Elem(), ContainerServicePublicDomainNamesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesPtrInput)(nil)).Elem(), ContainerServicePublicDomainNamesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerServicePublicDomainNamesCertificateArrayInput)(nil)).Elem(), ContainerServicePublicDomainNamesCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoInput)(nil)).Elem(), InstancePublicPortsPortInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoArrayInput)(nil)).Elem(), InstancePublicPortsPortInfoArray{})
+	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionContainerOutput{})
+	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionContainerArrayOutput{})
+	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionPublicEndpointOutput{})
+	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionPublicEndpointPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionPublicEndpointHealthCheckOutput{})
+	pulumi.RegisterOutputType(ContainerServiceDeploymentVersionPublicEndpointHealthCheckPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesOutput{})
+	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesPtrOutput{})
+	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesCertificateOutput{})
+	pulumi.RegisterOutputType(ContainerServicePublicDomainNamesCertificateArrayOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoArrayOutput{})
 }
