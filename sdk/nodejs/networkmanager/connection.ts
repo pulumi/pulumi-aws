@@ -86,7 +86,7 @@ export class Connection extends pulumi.CustomResource {
      */
     public readonly linkId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -128,8 +128,8 @@ export class Connection extends pulumi.CustomResource {
             resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
             resourceInputs["linkId"] = args ? args.linkId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Connection.__pulumiType, name, resourceInputs, opts);
@@ -201,5 +201,4 @@ export interface ConnectionArgs {
      */
     linkId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

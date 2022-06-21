@@ -19,8 +19,7 @@ class ConnectionArgs:
                  connected_link_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  link_id: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[str] connected_device_id: The ID of the second device in the connection.
@@ -41,8 +40,6 @@ class ConnectionArgs:
             pulumi.set(__self__, "link_id", link_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="connectedDeviceId")
@@ -124,15 +121,6 @@ class ConnectionArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -291,7 +279,6 @@ class Connection(pulumi.CustomResource):
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  link_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Creates a connection between two devices.
@@ -378,7 +365,6 @@ class Connection(pulumi.CustomResource):
                  global_network_id: Optional[pulumi.Input[str]] = None,
                  link_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -404,8 +390,8 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["global_network_id"] = global_network_id
             __props__.__dict__["link_id"] = link_id
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(Connection, __self__).__init__(
             'aws:networkmanager/connection:Connection',
             resource_name,

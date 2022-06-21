@@ -309,7 +309,6 @@ type multicastDomainArgs struct {
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport *string           `pulumi:"staticSourcesSupport"`
 	Tags                 map[string]string `pulumi:"tags"`
-	TagsAll              map[string]string `pulumi:"tagsAll"`
 	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -323,7 +322,6 @@ type MulticastDomainArgs struct {
 	// Whether to enable support for statically configuring multicast group sources for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
 	StaticSourcesSupport pulumi.StringPtrInput
 	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
 	// EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
 	TransitGatewayId pulumi.StringInput
 }

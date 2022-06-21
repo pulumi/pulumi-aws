@@ -109,7 +109,6 @@ type connectArgs struct {
 	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
 	Protocol *string           `pulumi:"protocol"`
 	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation *bool `pulumi:"transitGatewayDefaultRouteTableAssociation"`
 	// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
@@ -125,7 +124,6 @@ type ConnectArgs struct {
 	// The tunnel protocol. Valida values: `gre`. Default is `gre`.
 	Protocol pulumi.StringPtrInput
 	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
 	// Boolean whether the Connect should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
 	TransitGatewayDefaultRouteTableAssociation pulumi.BoolPtrInput
 	// Boolean whether the Connect should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.

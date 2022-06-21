@@ -343,7 +343,6 @@ type domainArgs struct {
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions *DomainSnapshotOptions `pulumi:"snapshotOptions"`
 	Tags            map[string]string      `pulumi:"tags"`
-	TagsAll         map[string]string      `pulumi:"tagsAll"`
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions *DomainVpcOptions `pulumi:"vpcOptions"`
 }
@@ -378,7 +377,6 @@ type DomainArgs struct {
 	// Configuration block for snapshot related options. Detailed below. DEPRECATED. For domains running OpenSearch 5.3 and later, Amazon OpenSearch takes hourly automated snapshots, making this setting irrelevant. For domains running earlier versions, OpenSearch takes daily automated snapshots.
 	SnapshotOptions DomainSnapshotOptionsPtrInput
 	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
 	// Configuration block for VPC related options. Adding or removing this configuration forces a new resource ([documentation](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/vpc.html)). Detailed below.
 	VpcOptions DomainVpcOptionsPtrInput
 }

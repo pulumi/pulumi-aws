@@ -90,7 +90,7 @@ export class Device extends pulumi.CustomResource {
      */
     public readonly siteId!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of device.
      */
@@ -138,10 +138,10 @@ export class Device extends pulumi.CustomResource {
             resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
             resourceInputs["siteId"] = args ? args.siteId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vendor"] = args ? args.vendor : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Device.__pulumiType, name, resourceInputs, opts);
@@ -229,7 +229,6 @@ export interface DeviceArgs {
      */
     siteId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of device.
      */

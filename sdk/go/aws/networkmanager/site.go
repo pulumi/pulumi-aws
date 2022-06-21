@@ -131,7 +131,6 @@ type siteArgs struct {
 	// The site location as documented below.
 	Location *SiteLocation     `pulumi:"location"`
 	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Site resource.
@@ -143,7 +142,6 @@ type SiteArgs struct {
 	// The site location as documented below.
 	Location SiteLocationPtrInput
 	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
 }
 
 func (SiteArgs) ElementType() reflect.Type {

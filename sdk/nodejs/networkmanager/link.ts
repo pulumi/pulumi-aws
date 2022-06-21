@@ -86,7 +86,7 @@ export class Link extends pulumi.CustomResource {
      */
     public readonly siteId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the link.
      */
@@ -131,9 +131,9 @@ export class Link extends pulumi.CustomResource {
             resourceInputs["providerName"] = args ? args.providerName : undefined;
             resourceInputs["siteId"] = args ? args.siteId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Link.__pulumiType, name, resourceInputs, opts);
@@ -201,7 +201,6 @@ export interface LinkArgs {
      */
     siteId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the link.
      */

@@ -39,6 +39,7 @@ class ClusterArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
+                 step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
@@ -68,6 +69,7 @@ class ClusterArgs:
         :param pulumi.Input[str] name: Name of the step.
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
+        :param pulumi.Input[int] step_concurrency_level: Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
         :param pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]] steps: List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
@@ -119,6 +121,8 @@ class ClusterArgs:
             pulumi.set(__self__, "scale_down_behavior", scale_down_behavior)
         if security_configuration is not None:
             pulumi.set(__self__, "security_configuration", security_configuration)
+        if step_concurrency_level is not None:
+            pulumi.set(__self__, "step_concurrency_level", step_concurrency_level)
         if steps is not None:
             pulumi.set(__self__, "steps", steps)
         if tags is not None:
@@ -414,6 +418,18 @@ class ClusterArgs:
         pulumi.set(self, "security_configuration", value)
 
     @property
+    @pulumi.getter(name="stepConcurrencyLevel")
+    def step_concurrency_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        """
+        return pulumi.get(self, "step_concurrency_level")
+
+    @step_concurrency_level.setter
+    def step_concurrency_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "step_concurrency_level", value)
+
+    @property
     @pulumi.getter
     def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]]:
         """
@@ -492,6 +508,7 @@ class _ClusterState:
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
+                 step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -523,6 +540,7 @@ class _ClusterState:
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+        :param pulumi.Input[int] step_concurrency_level: Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
         :param pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]] steps: List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -583,6 +601,8 @@ class _ClusterState:
             pulumi.set(__self__, "security_configuration", security_configuration)
         if service_role is not None:
             pulumi.set(__self__, "service_role", service_role)
+        if step_concurrency_level is not None:
+            pulumi.set(__self__, "step_concurrency_level", step_concurrency_level)
         if steps is not None:
             pulumi.set(__self__, "steps", steps)
         if tags is not None:
@@ -910,6 +930,18 @@ class _ClusterState:
         pulumi.set(self, "service_role", value)
 
     @property
+    @pulumi.getter(name="stepConcurrencyLevel")
+    def step_concurrency_level(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        """
+        return pulumi.get(self, "step_concurrency_level")
+
+    @step_concurrency_level.setter
+    def step_concurrency_level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "step_concurrency_level", value)
+
+    @property
     @pulumi.getter
     def steps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterStepArgs']]]]:
         """
@@ -999,6 +1031,7 @@ class Cluster(pulumi.CustomResource):
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
+                 step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
@@ -1541,6 +1574,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+        :param pulumi.Input[int] step_concurrency_level: Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]] steps: List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] termination_protection: Switch on/off termination protection (default is `false`, except when using multiple master nodes). Before attempting to destroy the resource when termination protection is enabled, this configuration must be applied with its value set to `false`.
@@ -2103,6 +2137,7 @@ class Cluster(pulumi.CustomResource):
                  scale_down_behavior: Optional[pulumi.Input[str]] = None,
                  security_configuration: Optional[pulumi.Input[str]] = None,
                  service_role: Optional[pulumi.Input[str]] = None,
+                 step_concurrency_level: Optional[pulumi.Input[int]] = None,
                  steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  termination_protection: Optional[pulumi.Input[bool]] = None,
@@ -2147,6 +2182,7 @@ class Cluster(pulumi.CustomResource):
             if service_role is None and not opts.urn:
                 raise TypeError("Missing required property 'service_role'")
             __props__.__dict__["service_role"] = service_role
+            __props__.__dict__["step_concurrency_level"] = step_concurrency_level
             __props__.__dict__["steps"] = steps
             __props__.__dict__["tags"] = tags
             __props__.__dict__["termination_protection"] = termination_protection
@@ -2192,6 +2228,7 @@ class Cluster(pulumi.CustomResource):
             scale_down_behavior: Optional[pulumi.Input[str]] = None,
             security_configuration: Optional[pulumi.Input[str]] = None,
             service_role: Optional[pulumi.Input[str]] = None,
+            step_concurrency_level: Optional[pulumi.Input[int]] = None,
             steps: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -2228,6 +2265,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
         :param pulumi.Input[str] security_configuration: Security configuration name to attach to the EMR cluster. Only valid for EMR clusters with `release_label` 4.8.0 or greater.
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources.
+        :param pulumi.Input[int] step_concurrency_level: Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterStepArgs']]]] steps: List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -2265,6 +2303,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["scale_down_behavior"] = scale_down_behavior
         __props__.__dict__["security_configuration"] = security_configuration
         __props__.__dict__["service_role"] = service_role
+        __props__.__dict__["step_concurrency_level"] = step_concurrency_level
         __props__.__dict__["steps"] = steps
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -2478,6 +2517,14 @@ class Cluster(pulumi.CustomResource):
         IAM role that will be assumed by the Amazon EMR service to access AWS resources.
         """
         return pulumi.get(self, "service_role")
+
+    @property
+    @pulumi.getter(name="stepConcurrencyLevel")
+    def step_concurrency_level(self) -> pulumi.Output[Optional[int]]:
+        """
+        Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        """
+        return pulumi.get(self, "step_concurrency_level")
 
     @property
     @pulumi.getter

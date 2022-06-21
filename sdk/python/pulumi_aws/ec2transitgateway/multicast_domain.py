@@ -17,8 +17,7 @@ class MulticastDomainArgs:
                  auto_accept_shared_associations: Optional[pulumi.Input[str]] = None,
                  igmpv2_support: Optional[pulumi.Input[str]] = None,
                  static_sources_support: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a MulticastDomain resource.
         :param pulumi.Input[str] transit_gateway_id: EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicast_support` enabled.
@@ -35,8 +34,6 @@ class MulticastDomainArgs:
             pulumi.set(__self__, "static_sources_support", static_sources_support)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="transitGatewayId")
@@ -94,15 +91,6 @@ class MulticastDomainArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -242,7 +230,6 @@ class MulticastDomain(pulumi.CustomResource):
                  igmpv2_support: Optional[pulumi.Input[str]] = None,
                  static_sources_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -477,7 +464,6 @@ class MulticastDomain(pulumi.CustomResource):
                  igmpv2_support: Optional[pulumi.Input[str]] = None,
                  static_sources_support: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -495,12 +481,12 @@ class MulticastDomain(pulumi.CustomResource):
             __props__.__dict__["igmpv2_support"] = igmpv2_support
             __props__.__dict__["static_sources_support"] = static_sources_support
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if transit_gateway_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_id'")
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["owner_id"] = None
+            __props__.__dict__["tags_all"] = None
         super(MulticastDomain, __self__).__init__(
             'aws:ec2transitgateway/multicastDomain:MulticastDomain',
             resource_name,

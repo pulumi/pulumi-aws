@@ -24,8 +24,7 @@ class WorkspaceArgs:
                  organizational_units: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Workspace resource.
         :param pulumi.Input[str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
@@ -40,7 +39,6 @@ class WorkspaceArgs:
         :param pulumi.Input[str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         pulumi.set(__self__, "account_access_type", account_access_type)
         pulumi.set(__self__, "authentication_providers", authentication_providers)
@@ -63,8 +61,6 @@ class WorkspaceArgs:
             pulumi.set(__self__, "stack_set_name", stack_set_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="accountAccessType")
@@ -209,18 +205,6 @@ class WorkspaceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -516,7 +500,6 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an Amazon Managed Grafana workspace resource.
@@ -569,7 +552,6 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The IAM role ARN that the workspace assumes.
         :param pulumi.Input[str] stack_set_name: The AWS CloudFormation stack set name that provisions IAM roles to be used by the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         ...
     @overload
@@ -641,7 +623,6 @@ class Workspace(pulumi.CustomResource):
                  role_arn: Optional[pulumi.Input[str]] = None,
                  stack_set_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -672,11 +653,11 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["stack_set_name"] = stack_set_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["grafana_version"] = None
             __props__.__dict__["saml_configuration_status"] = None
+            __props__.__dict__["tags_all"] = None
         super(Workspace, __self__).__init__(
             'aws:grafana/workspace:Workspace',
             resource_name,

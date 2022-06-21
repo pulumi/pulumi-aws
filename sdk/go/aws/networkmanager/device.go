@@ -171,9 +171,8 @@ type deviceArgs struct {
 	// The serial number of the device.
 	SerialNumber *string `pulumi:"serialNumber"`
 	// The ID of the site.
-	SiteId  *string           `pulumi:"siteId"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	SiteId *string           `pulumi:"siteId"`
+	Tags   map[string]string `pulumi:"tags"`
 	// The type of device.
 	Type *string `pulumi:"type"`
 	// The vendor of the device.
@@ -195,9 +194,8 @@ type DeviceArgs struct {
 	// The serial number of the device.
 	SerialNumber pulumi.StringPtrInput
 	// The ID of the site.
-	SiteId  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	SiteId pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 	// The type of device.
 	Type pulumi.StringPtrInput
 	// The vendor of the device.

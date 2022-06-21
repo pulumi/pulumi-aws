@@ -18,7 +18,6 @@ class ConnectPeerArgs:
                  transit_gateway_attachment_id: pulumi.Input[str],
                  bgp_asn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_address: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ConnectPeer resource.
@@ -35,8 +34,6 @@ class ConnectPeerArgs:
             pulumi.set(__self__, "bgp_asn", bgp_asn)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if transit_gateway_address is not None:
             pulumi.set(__self__, "transit_gateway_address", transit_gateway_address)
 
@@ -96,15 +93,6 @@ class ConnectPeerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="transitGatewayAddress")
@@ -256,7 +244,6 @@ class ConnectPeer(pulumi.CustomResource):
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_address: Optional[pulumi.Input[str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -345,7 +332,6 @@ class ConnectPeer(pulumi.CustomResource):
                  inside_cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  peer_address: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_address: Optional[pulumi.Input[str]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -368,12 +354,12 @@ class ConnectPeer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'peer_address'")
             __props__.__dict__["peer_address"] = peer_address
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["transit_gateway_address"] = transit_gateway_address
             if transit_gateway_attachment_id is None and not opts.urn:
                 raise TypeError("Missing required property 'transit_gateway_attachment_id'")
             __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(ConnectPeer, __self__).__init__(
             'aws:ec2transitgateway/connectPeer:ConnectPeer',
             resource_name,

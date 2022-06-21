@@ -154,7 +154,6 @@ type connectPeerArgs struct {
 	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
 	PeerAddress string            `pulumi:"peerAddress"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
 	// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
 	TransitGatewayAddress *string `pulumi:"transitGatewayAddress"`
 	// The Transit Gateway Connect
@@ -170,7 +169,6 @@ type ConnectPeerArgs struct {
 	// The IP addressed assigned to customer device, which will be used as tunnel endpoint. It can be IPv4 or IPv6 address, but must be the same address family as `transitGatewayAddress`
 	PeerAddress pulumi.StringInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
 	// The IP address assigned to Transit Gateway, which will be used as tunnel endpoint. This address must be from associated Transit Gateway CIDR block. The address must be from the same address family as `peerAddress`. If not set explicitly, it will be selected from associated Transit Gateway CIDR blocks
 	TransitGatewayAddress pulumi.StringPtrInput
 	// The Transit Gateway Connect

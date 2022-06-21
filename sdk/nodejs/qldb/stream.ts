@@ -86,7 +86,7 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly streamName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Stream resource with the given unique name, arguments, and options.
@@ -134,8 +134,8 @@ export class Stream extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["streamName"] = args ? args.streamName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Stream.__pulumiType, name, resourceInputs, opts);
@@ -207,5 +207,4 @@ export interface StreamArgs {
      */
     streamName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

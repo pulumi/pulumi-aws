@@ -862,6 +862,12 @@ namespace Pulumi.Aws.Emr
         public Output<string> ServiceRole { get; private set; } = null!;
 
         /// <summary>
+        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        /// </summary>
+        [Output("stepConcurrencyLevel")]
+        public Output<int?> StepConcurrencyLevel { get; private set; } = null!;
+
+        /// <summary>
         /// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
         /// </summary>
         [Output("steps")]
@@ -1096,6 +1102,12 @@ namespace Pulumi.Aws.Emr
         [Input("serviceRole", required: true)]
         public Input<string> ServiceRole { get; set; } = null!;
 
+        /// <summary>
+        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        /// </summary>
+        [Input("stepConcurrencyLevel")]
+        public Input<int>? StepConcurrencyLevel { get; set; }
+
         [Input("steps")]
         private InputList<Inputs.ClusterStepArgs>? _steps;
 
@@ -1309,6 +1321,12 @@ namespace Pulumi.Aws.Emr
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
+
+        /// <summary>
+        /// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `release_label` 5.28.0 or greater (default is 1).
+        /// </summary>
+        [Input("stepConcurrencyLevel")]
+        public Input<int>? StepConcurrencyLevel { get; set; }
 
         [Input("steps")]
         private InputList<Inputs.ClusterStepGetArgs>? _steps;

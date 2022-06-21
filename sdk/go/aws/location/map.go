@@ -145,7 +145,6 @@ type mapArgs struct {
 	// The name for the map resource.
 	MapName string            `pulumi:"mapName"`
 	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Map resource.
@@ -157,7 +156,6 @@ type MapArgs struct {
 	// The name for the map resource.
 	MapName pulumi.StringInput
 	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
 }
 
 func (MapArgs) ElementType() reflect.Type {

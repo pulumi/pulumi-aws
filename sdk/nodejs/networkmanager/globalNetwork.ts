@@ -63,7 +63,7 @@ export class GlobalNetwork extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a GlobalNetwork resource with the given unique name, arguments, and options.
@@ -86,8 +86,8 @@ export class GlobalNetwork extends pulumi.CustomResource {
             const args = argsOrState as GlobalNetworkArgs | undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(GlobalNetwork.__pulumiType, name, resourceInputs, opts);
@@ -119,5 +119,4 @@ export interface GlobalNetworkArgs {
      */
     description?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

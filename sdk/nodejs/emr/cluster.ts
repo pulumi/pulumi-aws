@@ -658,6 +658,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly serviceRole!: pulumi.Output<string>;
     /**
+     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+     */
+    public readonly stepConcurrencyLevel!: pulumi.Output<number | undefined>;
+    /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
     public readonly steps!: pulumi.Output<outputs.emr.ClusterStep[]>;
@@ -718,6 +722,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["scaleDownBehavior"] = state ? state.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
             resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["stepConcurrencyLevel"] = state ? state.stepConcurrencyLevel : undefined;
             resourceInputs["steps"] = state ? state.steps : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -755,6 +760,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["scaleDownBehavior"] = args ? args.scaleDownBehavior : undefined;
             resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
             resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["stepConcurrencyLevel"] = args ? args.stepConcurrencyLevel : undefined;
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["terminationProtection"] = args ? args.terminationProtection : undefined;
@@ -872,6 +878,10 @@ export interface ClusterState {
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      */
     serviceRole?: pulumi.Input<string>;
+    /**
+     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+     */
+    stepConcurrencyLevel?: pulumi.Input<number>;
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
@@ -991,6 +1001,10 @@ export interface ClusterArgs {
      * IAM role that will be assumed by the Amazon EMR service to access AWS resources.
      */
     serviceRole: pulumi.Input<string>;
+    /**
+     * Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+     */
+    stepConcurrencyLevel?: pulumi.Input<number>;
     /**
      * List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
      */
