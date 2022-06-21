@@ -71,7 +71,7 @@ export class Site extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<outputs.networkmanager.SiteLocation | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Site resource with the given unique name, arguments, and options.
@@ -101,8 +101,8 @@ export class Site extends pulumi.CustomResource {
             resourceInputs["globalNetworkId"] = args ? args.globalNetworkId : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Site.__pulumiType, name, resourceInputs, opts);
@@ -150,5 +150,4 @@ export interface SiteArgs {
      */
     location?: pulumi.Input<inputs.networkmanager.SiteLocation>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

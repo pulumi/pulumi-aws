@@ -151,7 +151,6 @@ type placeIndexArgs struct {
 	// The name of the place index resource.
 	IndexName string            `pulumi:"indexName"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a PlaceIndex resource.
@@ -165,7 +164,6 @@ type PlaceIndexArgs struct {
 	// The name of the place index resource.
 	IndexName pulumi.StringInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
 }
 
 func (PlaceIndexArgs) ElementType() reflect.Type {

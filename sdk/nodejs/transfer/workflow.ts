@@ -81,7 +81,7 @@ export class Workflow extends pulumi.CustomResource {
      * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -111,8 +111,8 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["onExceptionSteps"] = args ? args.onExceptionSteps : undefined;
             resourceInputs["steps"] = args ? args.steps : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Workflow.__pulumiType, name, resourceInputs, opts);
@@ -166,5 +166,4 @@ export interface WorkflowArgs {
      * Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -158,9 +158,8 @@ type connectionArgs struct {
 	// The ID of the global network.
 	GlobalNetworkId string `pulumi:"globalNetworkId"`
 	// The ID of the link for the first device.
-	LinkId  *string           `pulumi:"linkId"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	LinkId *string           `pulumi:"linkId"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -176,9 +175,8 @@ type ConnectionArgs struct {
 	// The ID of the global network.
 	GlobalNetworkId pulumi.StringInput
 	// The ID of the link for the first device.
-	LinkId  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	LinkId pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {

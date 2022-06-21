@@ -141,7 +141,7 @@ export class ContainerService extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The publicly accessible URL of the container service. If no public endpoint is specified in the
      * currentDeployment, this URL returns a 404 response.
@@ -191,7 +191,6 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["publicDomainNames"] = args ? args.publicDomainNames : undefined;
             resourceInputs["scale"] = args ? args.scale : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZone"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -200,6 +199,7 @@ export class ContainerService extends pulumi.CustomResource {
             resourceInputs["privateDomainName"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -311,5 +311,4 @@ export interface ContainerServiceArgs {
      */
     scale: pulumi.Input<number>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

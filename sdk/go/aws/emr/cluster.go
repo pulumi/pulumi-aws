@@ -529,6 +529,8 @@ type Cluster struct {
 	SecurityConfiguration pulumi.StringPtrOutput `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
+	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+	StepConcurrencyLevel pulumi.IntPtrOutput `pulumi:"stepConcurrencyLevel"`
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayOutput `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -627,6 +629,8 @@ type clusterState struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole *string `pulumi:"serviceRole"`
+	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+	StepConcurrencyLevel *int `pulumi:"stepConcurrencyLevel"`
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps []ClusterStep `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -691,6 +695,8 @@ type ClusterState struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole pulumi.StringPtrInput
+	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+	StepConcurrencyLevel pulumi.IntPtrInput
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayInput
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -755,6 +761,8 @@ type clusterArgs struct {
 	SecurityConfiguration *string `pulumi:"securityConfiguration"`
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole string `pulumi:"serviceRole"`
+	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+	StepConcurrencyLevel *int `pulumi:"stepConcurrencyLevel"`
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps []ClusterStep `pulumi:"steps"`
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -814,6 +822,8 @@ type ClusterArgs struct {
 	SecurityConfiguration pulumi.StringPtrInput
 	// IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 	ServiceRole pulumi.StringInput
+	// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+	StepConcurrencyLevel pulumi.IntPtrInput
 	// List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.
 	Steps ClusterStepArrayInput
 	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1041,6 +1051,11 @@ func (o ClusterOutput) SecurityConfiguration() pulumi.StringPtrOutput {
 // IAM role that will be assumed by the Amazon EMR service to access AWS resources.
 func (o ClusterOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)
+}
+
+// Number of steps that can be executed concurrently. You can specify a maximum of 256 steps. Only valid for EMR clusters with `releaseLabel` 5.28.0 or greater (default is 1).
+func (o ClusterOutput) StepConcurrencyLevel() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.StepConcurrencyLevel }).(pulumi.IntPtrOutput)
 }
 
 // List of steps to run when creating the cluster. See below. It is highly recommended to utilize the lifecycle resource options block with `ignoreChanges` if other steps are being managed outside of this provider.

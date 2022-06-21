@@ -159,9 +159,8 @@ type linkArgs struct {
 	// The provider of the link.
 	ProviderName *string `pulumi:"providerName"`
 	// The ID of the site.
-	SiteId  string            `pulumi:"siteId"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	SiteId string            `pulumi:"siteId"`
+	Tags   map[string]string `pulumi:"tags"`
 	// The type of the link.
 	Type *string `pulumi:"type"`
 }
@@ -177,9 +176,8 @@ type LinkArgs struct {
 	// The provider of the link.
 	ProviderName pulumi.StringPtrInput
 	// The ID of the site.
-	SiteId  pulumi.StringInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	SiteId pulumi.StringInput
+	Tags   pulumi.StringMapInput
 	// The type of the link.
 	Type pulumi.StringPtrInput
 }

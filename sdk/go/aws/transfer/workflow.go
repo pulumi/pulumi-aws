@@ -138,8 +138,7 @@ type workflowArgs struct {
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps []WorkflowStep `pulumi:"steps"`
 	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Workflow resource.
@@ -151,8 +150,7 @@ type WorkflowArgs struct {
 	// Specifies the details for the steps that are in the specified workflow. See Workflow Steps below.
 	Steps WorkflowStepArrayInput
 	// Array that contains from 1 to 10 key/value pairs. See S3 Tags below.
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Tags pulumi.StringMapInput
 }
 
 func (WorkflowArgs) ElementType() reflect.Type {

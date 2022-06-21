@@ -276,9 +276,8 @@ type containerServiceArgs struct {
 	PublicDomainNames *ContainerServicePublicDomainNames `pulumi:"publicDomainNames"`
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
-	Scale   int               `pulumi:"scale"`
-	Tags    map[string]string `pulumi:"tags"`
-	TagsAll map[string]string `pulumi:"tagsAll"`
+	Scale int               `pulumi:"scale"`
+	Tags  map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ContainerService resource.
@@ -300,9 +299,8 @@ type ContainerServiceArgs struct {
 	PublicDomainNames ContainerServicePublicDomainNamesPtrInput
 	// The scale specification for the container service. The scale specifies the allocated compute
 	// nodes of the container service.
-	Scale   pulumi.IntInput
-	Tags    pulumi.StringMapInput
-	TagsAll pulumi.StringMapInput
+	Scale pulumi.IntInput
+	Tags  pulumi.StringMapInput
 }
 
 func (ContainerServiceArgs) ElementType() reflect.Type {

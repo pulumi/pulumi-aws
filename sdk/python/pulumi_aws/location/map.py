@@ -18,8 +18,7 @@ class MapArgs:
                  configuration: pulumi.Input['MapConfigurationArgs'],
                  map_name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Map resource.
         :param pulumi.Input['MapConfigurationArgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
@@ -32,8 +31,6 @@ class MapArgs:
             pulumi.set(__self__, "description", description)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -79,15 +76,6 @@ class MapArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -227,7 +215,6 @@ class Map(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Location Service Map.
@@ -308,7 +295,6 @@ class Map(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  map_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -329,9 +315,9 @@ class Map(pulumi.CustomResource):
                 raise TypeError("Missing required property 'map_name'")
             __props__.__dict__["map_name"] = map_name
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["create_time"] = None
             __props__.__dict__["map_arn"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["update_time"] = None
         super(Map, __self__).__init__(
             'aws:location/map:Map',

@@ -172,7 +172,7 @@ export class MulticastDomain extends pulumi.CustomResource {
      */
     public readonly staticSourcesSupport!: pulumi.Output<string | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
      */
@@ -208,10 +208,10 @@ export class MulticastDomain extends pulumi.CustomResource {
             resourceInputs["igmpv2Support"] = args ? args.igmpv2Support : undefined;
             resourceInputs["staticSourcesSupport"] = args ? args.staticSourcesSupport : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(MulticastDomain.__pulumiType, name, resourceInputs, opts);
@@ -267,7 +267,6 @@ export interface MulticastDomainArgs {
      */
     staticSourcesSupport?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * EC2 Transit Gateway identifier. The EC2 Transit Gateway must have `multicastSupport` enabled.
      */

@@ -107,7 +107,6 @@ type globalNetworkArgs struct {
 	// Description of the Global Network.
 	Description *string           `pulumi:"description"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a GlobalNetwork resource.
@@ -115,7 +114,6 @@ type GlobalNetworkArgs struct {
 	// Description of the Global Network.
 	Description pulumi.StringPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
 }
 
 func (GlobalNetworkArgs) ElementType() reflect.Type {

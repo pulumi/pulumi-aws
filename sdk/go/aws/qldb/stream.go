@@ -165,7 +165,6 @@ type streamArgs struct {
 	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
 	StreamName string            `pulumi:"streamName"`
 	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Stream resource.
@@ -183,7 +182,6 @@ type StreamArgs struct {
 	// The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.  Your stream name must be unique among other active streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in the [Amazon QLDB Developer Guide](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming).
 	StreamName pulumi.StringInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {
