@@ -43,7 +43,7 @@ import (
 // 				pulumi.String("CAPABILITY_RESOURCE_POLICY"),
 // 			},
 // 			Parameters: pulumi.StringMap{
-// 				"endpoint":     pulumi.String(fmt.Sprintf("%v%v%v%v", "secretsmanager.", currentRegion.Name, ".", currentPartition.DnsSuffix)),
+// 				"endpoint":     pulumi.String(fmt.Sprintf("secretsmanager.%v.%v", currentRegion.Name, currentPartition.DnsSuffix)),
 // 				"functionName": pulumi.String("func-postgres-rotator"),
 // 			},
 // 		})

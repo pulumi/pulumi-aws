@@ -8,36 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Image Builder Infrastructure Configuration.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.imagebuilder.InfrastructureConfiguration("example", {
- *     description: "example description",
- *     instanceProfileName: aws_iam_instance_profile.example.name,
- *     instanceTypes: [
- *         "t2.nano",
- *         "t3.micro",
- *     ],
- *     keyPair: aws_key_pair.example.key_name,
- *     securityGroupIds: [aws_security_group.example.id],
- *     snsTopicArn: aws_sns_topic.example.arn,
- *     subnetId: aws_subnet.main.id,
- *     terminateInstanceOnFailure: true,
- *     logging: {
- *         s3Logs: {
- *             s3BucketName: aws_s3_bucket.example.bucket,
- *             s3KeyPrefix: "logs",
- *         },
- *     },
- *     tags: {
- *         foo: "bar",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_imagebuilder_infrastructure_configuration` can be imported using the Amazon Resource Name (ARN), e.g.,

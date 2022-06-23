@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an SES domain identity resource
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
- * const exampleAmazonsesVerificationRecord = new aws.route53.Record("exampleAmazonsesVerificationRecord", {
- *     zoneId: "ABCDEFGHIJ123",
- *     name: "_amazonses.example.com",
- *     type: "TXT",
- *     ttl: 600,
- *     records: [example.verificationToken],
- * });
- * ```
- *
  * ## Import
  *
  * SES domain identities can be imported using the domain name.

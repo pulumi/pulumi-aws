@@ -8,52 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Resource.
  *
  * ## Example Usage
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: exampleUserPool.id,
- *     username: "example",
- * });
- * ```
- * ### Setting user attributes
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {schemas: [
- *     {
- *         name: "terraform",
- *         attributeDataType: "Boolean",
- *         mutable: false,
- *         required: false,
- *         developerOnlyAttribute: false,
- *     },
- *     {
- *         name: "foo",
- *         attributeDataType: "String",
- *         mutable: false,
- *         required: false,
- *         developerOnlyAttribute: false,
- *         stringAttributeConstraints: {},
- *     },
- * ]});
- * const exampleUser = new aws.cognito.User("exampleUser", {
- *     userPoolId: exampleUserPool.id,
- *     username: "example",
- *     attributes: {
- *         terraform: "true",
- *         foo: "bar",
- *         email: "no-reply@hashicorp.com",
- *         email_verified: "true",
- *     },
- * });
- * ```
  *
  * ## Import
  *

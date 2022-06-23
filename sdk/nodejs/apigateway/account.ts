@@ -10,51 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const cloudwatchRole = new aws.iam.Role("cloudwatchRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "apigateway.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `});
- * const demo = new aws.apigateway.Account("demo", {cloudwatchRoleArn: cloudwatchRole.arn});
- * const cloudwatchRolePolicy = new aws.iam.RolePolicy("cloudwatchRolePolicy", {
- *     role: cloudwatchRole.id,
- *     policy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Effect": "Allow",
- *             "Action": [
- *                 "logs:CreateLogGroup",
- *                 "logs:CreateLogStream",
- *                 "logs:DescribeLogGroups",
- *                 "logs:DescribeLogStreams",
- *                 "logs:PutLogEvents",
- *                 "logs:GetLogEvents",
- *                 "logs:FilterLogEvents"
- *             ],
- *             "Resource": "*"
- *         }
- *     ]
- * }
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,

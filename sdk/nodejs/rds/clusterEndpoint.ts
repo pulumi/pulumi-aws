@@ -8,69 +8,6 @@ import * as utilities from "../utilities";
  * Manages an RDS Aurora Cluster Endpoint.
  * You can refer to the [User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.Cluster("default", {
- *     clusterIdentifier: "aurora-cluster-demo",
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     databaseName: "mydb",
- *     masterUsername: "foo",
- *     masterPassword: "bar",
- *     backupRetentionPeriod: 5,
- *     preferredBackupWindow: "07:00-09:00",
- * });
- * const test1 = new aws.rds.ClusterInstance("test1", {
- *     applyImmediately: true,
- *     clusterIdentifier: _default.id,
- *     identifier: "test1",
- *     instanceClass: "db.t2.small",
- *     engine: _default.engine,
- *     engineVersion: _default.engineVersion,
- * });
- * const test2 = new aws.rds.ClusterInstance("test2", {
- *     applyImmediately: true,
- *     clusterIdentifier: _default.id,
- *     identifier: "test2",
- *     instanceClass: "db.t2.small",
- *     engine: _default.engine,
- *     engineVersion: _default.engineVersion,
- * });
- * const test3 = new aws.rds.ClusterInstance("test3", {
- *     applyImmediately: true,
- *     clusterIdentifier: _default.id,
- *     identifier: "test3",
- *     instanceClass: "db.t2.small",
- *     engine: _default.engine,
- *     engineVersion: _default.engineVersion,
- * });
- * const eligible = new aws.rds.ClusterEndpoint("eligible", {
- *     clusterIdentifier: _default.id,
- *     clusterEndpointIdentifier: "reader",
- *     customEndpointType: "READER",
- *     excludedMembers: [
- *         test1.id,
- *         test2.id,
- *     ],
- * });
- * const static = new aws.rds.ClusterEndpoint("static", {
- *     clusterIdentifier: _default.id,
- *     clusterEndpointIdentifier: "static",
- *     customEndpointType: "READER",
- *     staticMembers: [
- *         test1.id,
- *         test3.id,
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * RDS Clusters Endpoint can be imported using the `cluster_endpoint_identifier`, e.g.,

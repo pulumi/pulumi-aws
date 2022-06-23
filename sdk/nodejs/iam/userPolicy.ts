@@ -9,27 +9,6 @@ import {PolicyDocument} from "./index";
 /**
  * Provides an IAM policy attached to a user.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const lbUser = new aws.iam.User("lbUser", {path: "/system/"});
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
- *     user: lbUser.name,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
- *         }],
- *     }),
- * });
- * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
- * ```
- *
  * ## Import
  *
  * IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,

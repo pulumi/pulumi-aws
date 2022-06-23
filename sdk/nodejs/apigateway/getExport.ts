@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getExport({
- *     restApiId: aws_api_gateway_stage.example.rest_api_id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
- *     exportType: "oas30",
- * });
- * ```
- */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
     if (!opts) {
         opts = {}

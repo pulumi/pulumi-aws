@@ -27,45 +27,6 @@ import * as utilities from "../utilities";
  * `propagatingVgws`. Omit this argument when defining route propagation using
  * the separate resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: aws_vpc.example.id,
- *     routes: [
- *         {
- *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: aws_internet_gateway.example.id,
- *         },
- *         {
- *             ipv6CidrBlock: "::/0",
- *             egressOnlyGatewayId: aws_egress_only_internet_gateway.example.id,
- *         },
- *     ],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * To subsequently remove all managed routes:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.RouteTable("example", {
- *     vpcId: aws_vpc.example.id,
- *     routes: [],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Route Tables can be imported using the route table `id`. For example, to import route table `rtb-4e616f6d69`, use this command

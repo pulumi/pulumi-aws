@@ -5,21 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * The following example below creates a CloudFront public key.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const example = new aws.cloudfront.PublicKey("example", {
- *     comment: "test public key",
- *     encodedKey: fs.readFileSync("public_key.pem"),
- * });
- * ```
- *
  * ## Import
  *
  * CloudFront Public Key can be imported using the `id`, e.g.,

@@ -14,43 +14,6 @@ import * as utilities from "../utilities";
  * mutually-exclusive. If `aws.autoscaling.Attachment` resources are used, either alone or with inline
  * `loadBalancers` or `targetGroupArns`, the `aws.autoscaling.Group` resource must be configured
  * to [ignore changes](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to the `loadBalancers` and `targetGroupArns` arguments.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new load balancer attachment
- * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
- *     autoscalingGroupName: aws_autoscaling_group.asg.id,
- *     elb: aws_elb.bar.id,
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new ALB Target Group attachment
- * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
- *     autoscalingGroupName: aws_autoscaling_group.asg.id,
- *     lbTargetGroupArn: aws_lb_target_group.test.arn,
- * });
- * ```
- * ## With An AutoScaling Group Resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ... other configuration ...
- * const asg = new aws.autoscaling.Group("asg", {});
- * const asgAttachmentBar = new aws.autoscaling.Attachment("asgAttachmentBar", {
- *     autoscalingGroupName: asg.id,
- *     elb: aws_elb.test.id,
- * });
- * ```
  */
 export class Attachment extends pulumi.CustomResource {
     /**

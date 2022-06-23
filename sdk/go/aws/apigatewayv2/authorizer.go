@@ -60,13 +60,13 @@ import (
 // 			ApiId:          pulumi.Any(aws_apigatewayv2_api.Example.Id),
 // 			AuthorizerType: pulumi.String("JWT"),
 // 			IdentitySources: pulumi.StringArray{
-// 				pulumi.String(fmt.Sprintf("%v%v", "$", "request.header.Authorization")),
+// 				pulumi.String(fmt.Sprintf("$request.header.Authorization")),
 // 			},
 // 			JwtConfiguration: &apigatewayv2.AuthorizerJwtConfigurationArgs{
 // 				Audiences: pulumi.StringArray{
 // 					pulumi.String("example"),
 // 				},
-// 				Issuer: pulumi.String(fmt.Sprintf("%v%v", "https://", aws_cognito_user_pool.Example.Endpoint)),
+// 				Issuer: pulumi.String(fmt.Sprintf("https://%v", aws_cognito_user_pool.Example.Endpoint)),
 // 			},
 // 		})
 // 		if err != nil {

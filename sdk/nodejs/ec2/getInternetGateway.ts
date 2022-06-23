@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * `aws.ec2.InternetGateway` provides details about a specific Internet Gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const vpcId = config.requireObject("vpcId");
- * const default = aws.ec2.getInternetGateway({
- *     filters: [{
- *         name: "attachment.vpc-id",
- *         values: [vpcId],
- *     }],
- * });
- * ```
  */
 export function getInternetGateway(args?: GetInternetGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetInternetGatewayResult> {
     args = args || {};

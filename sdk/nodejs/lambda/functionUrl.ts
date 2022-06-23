@@ -10,37 +10,6 @@ import * as utilities from "../utilities";
  *
  * See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLatest = new aws.lambda.FunctionUrl("testLatest", {
- *     functionName: aws_lambda_function.test.function_name,
- *     authorizationType: "NONE",
- * });
- * const testLive = new aws.lambda.FunctionUrl("testLive", {
- *     functionName: aws_lambda_function.test.function_name,
- *     qualifier: "my_alias",
- *     authorizationType: "AWS_IAM",
- *     cors: {
- *         allowCredentials: true,
- *         allowOrigins: ["*"],
- *         allowMethods: ["*"],
- *         allowHeaders: [
- *             "date",
- *             "keep-alive",
- *         ],
- *         exposeHeaders: [
- *             "keep-alive",
- *             "date",
- *         ],
- *         maxAge: 86400,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Lambda function URLs can be imported using the `function_name` or `function_name/qualifier`, e.g.,

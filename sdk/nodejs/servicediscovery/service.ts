@@ -8,57 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Service Discovery Service resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
- *     cidrBlock: "10.0.0.0/16",
- *     enableDnsSupport: true,
- *     enableDnsHostnames: true,
- * });
- * const examplePrivateDnsNamespace = new aws.servicediscovery.PrivateDnsNamespace("examplePrivateDnsNamespace", {
- *     description: "example",
- *     vpc: exampleVpc.id,
- * });
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
- *     dnsConfig: {
- *         namespaceId: examplePrivateDnsNamespace.id,
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *         routingPolicy: "MULTIVALUE",
- *     },
- *     healthCheckCustomConfig: {
- *         failureThreshold: 1,
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const examplePublicDnsNamespace = new aws.servicediscovery.PublicDnsNamespace("examplePublicDnsNamespace", {description: "example"});
- * const exampleService = new aws.servicediscovery.Service("exampleService", {
- *     dnsConfig: {
- *         namespaceId: examplePublicDnsNamespace.id,
- *         dnsRecords: [{
- *             ttl: 10,
- *             type: "A",
- *         }],
- *     },
- *     healthCheckConfig: {
- *         failureThreshold: 10,
- *         resourcePath: "path",
- *         type: "HTTP",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Service Discovery Service can be imported using the service ID, e.g.,

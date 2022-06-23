@@ -10,19 +10,6 @@ import * as utilities from "../utilities";
  * To help you understand the charges for your Spot instances, Amazon EC2 provides a data feed that describes your Spot instance usage and pricing.
  * This data feed is sent to an Amazon S3 bucket that you specify when you subscribe to the data feed.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultBucketV2 = new aws.s3.BucketV2("defaultBucketV2", {});
- * const defaultSpotDatafeedSubscription = new aws.ec2.SpotDatafeedSubscription("defaultSpotDatafeedSubscription", {
- *     bucket: defaultBucketV2.bucket,
- *     prefix: "my_subdirectory",
- * });
- * ```
- *
  * ## Import
  *
  * A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,

@@ -5,37 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.elasticache.User("default", {
- *     userId: "defaultUserID",
- *     userName: "default",
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- * });
- * const exampleUserGroup = new aws.elasticache.UserGroup("exampleUserGroup", {
- *     engine: "REDIS",
- *     userGroupId: "userGroupId",
- *     userIds: [_default.userId],
- * });
- * const exampleUser = new aws.elasticache.User("exampleUser", {
- *     userId: "exampleUserID",
- *     userName: "exampleuser",
- *     accessString: "on ~app::* -@all +@read +@hash +@bitmap +@geo -setbit -bitfield -hset -hsetnx -hmset -hincrby -hincrbyfloat -hdel -bitop -geoadd -georadius -georadiusbymember",
- *     engine: "REDIS",
- *     passwords: ["password123456789"],
- * });
- * const exampleUserGroupAssociation = new aws.elasticache.UserGroupAssociation("exampleUserGroupAssociation", {
- *     userGroupId: exampleUserGroup.userGroupId,
- *     userId: exampleUser.userId,
- * });
- * ```
- *
  * ## Import
  *
  * ElastiCache user group associations can be imported using the `user_group_id` and `user_id`, e.g.,

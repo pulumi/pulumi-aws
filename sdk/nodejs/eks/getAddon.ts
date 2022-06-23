@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an EKS add-on.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.eks.getAddon({
- *     addonName: "vpc-cni",
- *     clusterName: aws_eks_cluster.example.name,
- * });
- * export const eksAddonOutputs = aws_eks_addon.example;
- * ```
  */
 export function getAddon(args: GetAddonArgs, opts?: pulumi.InvokeOptions): Promise<GetAddonResult> {
     if (!opts) {

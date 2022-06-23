@@ -8,43 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an OpsWorks application resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const foo_app = new aws.opsworks.Application("foo-app", {
- *     shortName: "foobar",
- *     stackId: aws_opsworks_stack.main.id,
- *     type: "rails",
- *     description: "This is a Rails application",
- *     domains: [
- *         "example.com",
- *         "sub.example.com",
- *     ],
- *     environments: [{
- *         key: "key",
- *         value: "value",
- *         secure: false,
- *     }],
- *     appSources: [{
- *         type: "git",
- *         revision: "master",
- *         url: "https://github.com/example.git",
- *     }],
- *     enableSsl: true,
- *     sslConfigurations: [{
- *         privateKey: fs.readFileSync("./foobar.key"),
- *         certificate: fs.readFileSync("./foobar.crt"),
- *     }],
- *     documentRoot: "public",
- *     autoBundleOnDeploy: "true",
- *     railsEnv: "staging",
- * });
- * ```
- *
  * ## Import
  *
  * Opsworks Application can be imported using the `id`, e.g.,

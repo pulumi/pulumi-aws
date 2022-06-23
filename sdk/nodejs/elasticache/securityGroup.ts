@@ -12,16 +12,6 @@ import * as utilities from "../utilities";
  * ElastiCache cluster **outside** of a VPC. If you are using a VPC, see the
  * ElastiCache Subnet Group resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const barSecurityGroup = new aws.ec2.SecurityGroup("barSecurityGroup", {});
- * const barElasticache_securityGroupSecurityGroup = new aws.elasticache.SecurityGroup("barElasticache/securityGroupSecurityGroup", {securityGroupNames: [barSecurityGroup.name]});
- * ```
- *
  * ## Import
  *
  * ElastiCache Security Groups can be imported by name, e.g.,

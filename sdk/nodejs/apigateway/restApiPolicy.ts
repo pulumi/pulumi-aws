@@ -10,36 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRestApi = new aws.apigateway.RestApi("testRestApi", {});
- * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("testRestApiPolicy", {
- *     restApiId: testRestApi.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Effect": "Allow",
- *       "Principal": {
- *         "AWS": "*"
- *       },
- *       "Action": "execute-api:Invoke",
- *       "Resource": "${testRestApi.executionArn}",
- *       "Condition": {
- *         "IpAddress": {
- *           "aws:SourceIp": "123.123.123.123/32"
- *         }
- *       }
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
  *
  * ## Import
  *

@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  *
  * The `aws.ec2.VpcIpv6CidrBlockAssociation` resource allows IPv6 CIDR blocks to be added to the VPC.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testVpc = new aws.ec2.Vpc("testVpc", {cidrBlock: "10.0.0.0/16"});
- * const testVpcIpv6CidrBlockAssociation = new aws.ec2.VpcIpv6CidrBlockAssociation("testVpcIpv6CidrBlockAssociation", {
- *     ipv6IpamPoolId: aws_vpc_ipam_pool.test.id,
- *     vpcId: testVpc.id,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_vpc_ipv6_cidr_block_association` can be imported by using the VPC CIDR Association ID, e.g.,

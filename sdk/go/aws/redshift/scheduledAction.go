@@ -29,13 +29,43 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": [\n", "          \"scheduler.redshift.amazonaws.com\"\n", "        ]\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": [
+//           "scheduler.redshift.amazonaws.com"
+//         ]
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		examplePolicy, err := iam.NewPolicy(ctx, "examplePolicy", &iam.PolicyArgs{
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "      {\n", "          \"Sid\": \"VisualEditor0\",\n", "          \"Effect\": \"Allow\",\n", "          \"Action\": [\n", "              \"redshift:PauseCluster\",\n", "              \"redshift:ResumeCluster\",\n", "              \"redshift:ResizeCluster\"\n", "          ],\n", "          \"Resource\": \"*\"\n", "      }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//       {
+//           "Sid": "VisualEditor0",
+//           "Effect": "Allow",
+//           "Action": [
+//               "redshift:PauseCluster",
+//               "redshift:ResumeCluster",
+//               "redshift:ResizeCluster"
+//           ],
+//           "Resource": "*"
+//       }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

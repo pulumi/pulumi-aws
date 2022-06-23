@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS DataSync FSx Lustre Location.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.LocationFsxLustre("example", {
- *     fsxFilesystemArn: aws_fsx_lustre_file_system.example.arn,
- *     securityGroupArns: [aws_security_group.example.arn],
- * });
- * ```
- *
  * ## Import
  *
  * `aws_datasync_location_fsx_lustre_file_system` can be imported by using the `DataSync-ARN#FSx-Lustre-ARN`, e.g.,

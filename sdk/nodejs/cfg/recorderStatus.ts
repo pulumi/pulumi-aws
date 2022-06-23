@@ -9,57 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Starting Configuration Recorder requires a `Delivery Channel` to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket});
- * const fooRecorderStatus = new aws.cfg.RecorderStatus("fooRecorderStatus", {isEnabled: true}, {
- *     dependsOn: [fooDeliveryChannel],
- * });
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const rolePolicyAttachment = new aws.iam.RolePolicyAttachment("rolePolicyAttachment", {
- *     role: role.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRole",
- * });
- * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${bucketV2.arn}",
- *         "${bucketV2.arn}/*"
- *       ]
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,

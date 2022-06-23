@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a S3 bucket server-side encryption configuration resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mykey = new aws.kms.Key("mykey", {
- *     description: "This key is used to encrypt bucket objects",
- *     deletionWindowInDays: 10,
- * });
- * const mybucket = new aws.s3.BucketV2("mybucket", {});
- * const example = new aws.s3.BucketServerSideEncryptionConfigurationV2("example", {
- *     bucket: mybucket.bucket,
- *     rules: [{
- *         applyServerSideEncryptionByDefault: {
- *             kmsMasterKeyId: mykey.arn,
- *             sseAlgorithm: "aws:kms",
- *         },
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * S3 bucket server-side encryption configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 server-side encryption configuration resource should be imported using the `bucket` e.g.,

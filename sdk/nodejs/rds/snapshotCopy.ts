@@ -7,34 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the [`aws.rds.ClusterSnapshot` resource](https://www.terraform.io/docs/providers/aws/r/db_cluster_snapshot.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleInstance = new aws.rds.Instance("exampleInstance", {
- *     allocatedStorage: 10,
- *     engine: "mysql",
- *     engineVersion: "5.6.21",
- *     instanceClass: "db.t2.micro",
- *     name: "baz",
- *     password: "barbarbarbar",
- *     username: "foo",
- *     maintenanceWindow: "Fri:09:00-Fri:09:30",
- *     backupRetentionPeriod: 0,
- *     parameterGroupName: "default.mysql5.6",
- * });
- * const exampleSnapshot = new aws.rds.Snapshot("exampleSnapshot", {
- *     dbInstanceIdentifier: exampleInstance.id,
- *     dbSnapshotIdentifier: "testsnapshot1234",
- * });
- * const exampleSnapshotCopy = new aws.rds.SnapshotCopy("exampleSnapshotCopy", {
- *     sourceDbSnapshotIdentifier: exampleSnapshot.dbSnapshotArn,
- *     targetDbSnapshotIdentifier: "testsnapshot1234-copy",
- * });
- * ```
- *
  * ## Import
  *
  * `aws_db_snapshot_copy` can be imported by using the snapshot identifier, e.g.,

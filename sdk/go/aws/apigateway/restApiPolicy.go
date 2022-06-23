@@ -37,7 +37,25 @@ import (
 // 		_, err = apigateway.NewRestApiPolicy(ctx, "testRestApiPolicy", &apigateway.RestApiPolicyArgs{
 // 			RestApiId: testRestApi.ID(),
 // 			Policy: testRestApi.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"*\"\n", "      },\n", "      \"Action\": \"execute-api:Invoke\",\n", "      \"Resource\": \"", executionArn, "\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\n", "          \"aws:SourceIp\": \"123.123.123.123/32\"\n", "        }\n", "      }\n", "    }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Principal": {
+//         "AWS": "*"
+//       },
+//       "Action": "execute-api:Invoke",
+//       "Resource": "%v",
+//       "Condition": {
+//         "IpAddress": {
+//           "aws:SourceIp": "123.123.123.123/32"
+//         }
+//       }
+//     }
+//   ]
+// }
+// `, executionArn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

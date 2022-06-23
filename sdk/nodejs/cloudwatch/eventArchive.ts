@@ -9,33 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {eventSourceArn: orderEventBus.arn});
- * ```
- * ## Example all optional arguments
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const orderEventBus = new aws.cloudwatch.EventBus("orderEventBus", {});
- * const orderEventArchive = new aws.cloudwatch.EventArchive("orderEventArchive", {
- *     description: "Archived events from order service",
- *     eventSourceArn: orderEventBus.arn,
- *     retentionDays: 7,
- *     eventPattern: `{
- *   "source": ["company.team.order"]
- * }
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Event Archive can be imported using their name, for example bash

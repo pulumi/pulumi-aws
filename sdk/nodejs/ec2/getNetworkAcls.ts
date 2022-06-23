@@ -5,52 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * The following shows outputing all network ACL ids in a vpc.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleNetworkAcls = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
- * });
- * export const example = exampleNetworkAcls.then(exampleNetworkAcls => exampleNetworkAcls.ids);
- * ```
- *
- * The following example retrieves a list of all network ACL ids in a VPC with a custom
- * tag of `Tier` set to a value of "Private".
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
- *     tags: {
- *         Tier: "Private",
- *     },
- * });
- * ```
- *
- * The following example retrieves a network ACL id in a VPC which associated
- * with specific subnet.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getNetworkAcls({
- *     vpcId: _var.vpc_id,
- *     filters: [{
- *         name: "association.subnet-id",
- *         values: [aws_subnet.test.id],
- *     }],
- * });
- * ```
- */
 export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
     args = args || {};
     if (!opts) {

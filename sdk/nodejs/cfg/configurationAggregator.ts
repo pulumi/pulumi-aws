@@ -22,37 +22,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Organization Based Aggregation
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const organizationRole = new aws.iam.Role("organizationRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Sid": "",
- *       "Effect": "Allow",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Action": "sts:AssumeRole"
- *     }
- *   ]
- * }
- * `});
- * const organizationRolePolicyAttachment = new aws.iam.RolePolicyAttachment("organizationRolePolicyAttachment", {
- *     role: organizationRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
- * });
- * const organizationConfigurationAggregator = new aws.cfg.ConfigurationAggregator("organizationConfigurationAggregator", {organizationAggregationSource: {
- *     allRegions: true,
- *     roleArn: organizationRole.arn,
- * }}, {
- *     dependsOn: [organizationRolePolicyAttachment],
- * });
- * ```
  *
  * ## Import
  *

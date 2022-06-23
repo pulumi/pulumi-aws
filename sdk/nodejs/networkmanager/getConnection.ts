@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a connection.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getConnection({
- *     globalNetworkId: _var.global_network_id,
- *     connectionId: _var.connection_id,
- * });
- * ```
  */
 export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     if (!opts) {

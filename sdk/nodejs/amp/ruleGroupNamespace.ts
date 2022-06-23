@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an Amazon Managed Service for Prometheus (AMP) Rule Group Namespace
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const demoWorkspace = new aws.amp.Workspace("demoWorkspace", {});
- * const demoRuleGroupNamespace = new aws.amp.RuleGroupNamespace("demoRuleGroupNamespace", {
- *     workspaceId: demoWorkspace.id,
- *     data: `groups:
- *   - name: test
- *     rules:
- *     - record: metric:recording_rule
- *       expr: avg(rate(container_cpu_usage_seconds_total[5m]))
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * The prometheus rule group namespace can be imported using the arn, e.g.,

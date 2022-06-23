@@ -23,27 +23,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### VPC Connection
- *
- * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Connection("example", {
- *     connectionProperties: {
- *         JDBC_CONNECTION_URL: `jdbc:mysql://${aws_rds_cluster.example.endpoint}/exampledatabase`,
- *         PASSWORD: "examplepassword",
- *         USERNAME: "exampleusername",
- *     },
- *     physicalConnectionRequirements: {
- *         availabilityZone: aws_subnet.example.availability_zone,
- *         securityGroupIdLists: [aws_security_group.example.id],
- *         subnetId: aws_subnet.example.id,
- *     },
- * });
- * ```
  *
  * ## Import
  *

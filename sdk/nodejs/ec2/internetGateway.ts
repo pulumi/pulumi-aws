@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create a VPC Internet Gateway.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const gw = new aws.ec2.InternetGateway("gw", {
- *     vpcId: aws_vpc.main.id,
- *     tags: {
- *         Name: "main",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Internet Gateways can be imported using the `id`, e.g.,

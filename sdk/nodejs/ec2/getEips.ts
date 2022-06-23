@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a list of Elastic IPs in a region.
- *
- * ## Example Usage
- *
- * The following shows outputing all Elastic IPs with the a specific tag value.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getEips({
- *     tags: {
- *         Env: "dev",
- *     },
- * });
- * export const allocationIds = example.then(example => example.allocationIds);
- * export const publicIps = example.then(example => example.publicIps);
- * ```
  */
 export function getEips(args?: GetEipsArgs, opts?: pulumi.InvokeOptions): Promise<GetEipsResult> {
     args = args || {};

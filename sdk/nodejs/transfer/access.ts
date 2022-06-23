@@ -9,36 +9,6 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer Access resource.
  *
  * ## Example Usage
- * ### Basic S3
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Access("example", {
- *     externalId: "S-1-1-12-1234567890-123456789-1234567890-1234",
- *     serverId: aws_transfer_server.example.id,
- *     role: aws_iam_role.example.arn,
- *     homeDirectory: `/${aws_s3_bucket.example.id}/`,
- * });
- * ```
- * ### Basic EFS
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.transfer.Access("test", {
- *     externalId: "S-1-1-12-1234567890-123456789-1234567890-1234",
- *     serverId: aws_transfer_server.test.id,
- *     role: aws_iam_role.test.arn,
- *     homeDirectory: `/${aws_efs_file_system.test.id}/`,
- *     posixProfile: {
- *         gid: 1000,
- *         uid: 1000,
- *     },
- * });
- * ```
  *
  * ## Import
  *

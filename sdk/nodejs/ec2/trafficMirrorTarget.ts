@@ -8,24 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Traffic mirror target.\
  * Read [limits and considerations](https://docs.aws.amazon.com/vpc/latest/mirroring/traffic-mirroring-considerations.html) for traffic mirroring
  *
- * ## Example Usage
- *
- * To create a basic traffic mirror session
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const nlb = new aws.ec2.TrafficMirrorTarget("nlb", {
- *     description: "NLB target",
- *     networkLoadBalancerArn: aws_lb.lb.arn,
- * });
- * const eni = new aws.ec2.TrafficMirrorTarget("eni", {
- *     description: "ENI target",
- *     networkInterfaceId: aws_instance.test.primary_network_interface_id,
- * });
- * ```
- *
  * ## Import
  *
  * Traffic mirror targets can be imported using the `id`, e.g.,

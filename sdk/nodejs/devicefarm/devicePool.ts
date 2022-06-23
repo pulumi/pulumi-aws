@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage AWS Device Farm Device Pools.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.devicefarm.DevicePool("example", {
- *     projectArn: aws_devicefarm_project.example.arn,
- *     rules: [{
- *         attribute: "OS_VERSION",
- *         operator: "EQUALS",
- *         value: "\"AVAILABLE\"",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * DeviceFarm Device Pools can be imported by their arn

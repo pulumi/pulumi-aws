@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint GCM Channel resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const gcm = new aws.pinpoint.GcmChannel("gcm", {
- *     applicationId: app.applicationId,
- *     apiKey: "api_key",
- * });
- * ```
- *
  * ## Import
  *
  * Pinpoint GCM Channel can be imported using the `application-id`, e.g.,

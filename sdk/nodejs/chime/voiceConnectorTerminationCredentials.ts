@@ -10,34 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", {
- *     disabled: true,
- *     cpsLimit: 1,
- *     cidrAllowLists: ["50.35.78.96/31"],
- *     callingRegions: [
- *         "US",
- *         "CA",
- *     ],
- *     voiceConnectorId: defaultVoiceConnector.id,
- * });
- * const defaultVoiceConnectorTerminationCredentials = new aws.chime.VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", {
- *     voiceConnectorId: defaultVoiceConnector.id,
- *     credentials: [{
- *         username: "test",
- *         password: "test!",
- *     }],
- * }, {
- *     dependsOn: [defaultVoiceConnectorTermination],
- * });
- * ```
- *
  * ## Import
  *
  * Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,

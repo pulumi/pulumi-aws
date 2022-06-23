@@ -32,7 +32,25 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
-// 			Content:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  {\n", "    \"schemaVersion\": \"1.2\",\n", "    \"description\": \"Check ip configuration of a Linux instance.\",\n", "    \"parameters\": {\n", "\n", "    },\n", "    \"runtimeConfig\": {\n", "      \"aws:runShellScript\": {\n", "        \"properties\": [\n", "          {\n", "            \"id\": \"0.aws:runShellScript\",\n", "            \"runCommand\": [\"ifconfig\"]\n", "          }\n", "        ]\n", "      }\n", "    }\n", "  }\n", "\n")),
+// 			Content: pulumi.String(fmt.Sprintf(`  {
+//     "schemaVersion": "1.2",
+//     "description": "Check ip configuration of a Linux instance.",
+//     "parameters": {
+//
+//     },
+//     "runtimeConfig": {
+//       "aws:runShellScript": {
+//         "properties": [
+//           {
+//             "id": "0.aws:runShellScript",
+//             "runCommand": ["ifconfig"]
+//           }
+//         ]
+//       }
+//     }
+//   }
+//
+// `)),
 // 			DocumentType: pulumi.String("Command"),
 // 		})
 // 		if err != nil {
@@ -57,7 +75,17 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ssm.NewDocument(ctx, "foo", &ssm.DocumentArgs{
-// 			Content:        pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "schemaVersion: '1.2'\n", "description: Check ip configuration of a Linux instance.\n", "parameters: {}\n", "runtimeConfig:\n", "  'aws:runShellScript':\n", "    properties:\n", "      - id: '0.aws:runShellScript'\n", "        runCommand:\n", "          - ifconfig\n", "\n")),
+// 			Content: pulumi.String(fmt.Sprintf(`schemaVersion: '1.2'
+// description: Check ip configuration of a Linux instance.
+// parameters: {}
+// runtimeConfig:
+//   'aws:runShellScript':
+//     properties:
+//       - id: '0.aws:runShellScript'
+//         runCommand:
+//           - ifconfig
+//
+// `)),
 // 			DocumentFormat: pulumi.String("YAML"),
 // 			DocumentType:   pulumi.String("Command"),
 // 		})

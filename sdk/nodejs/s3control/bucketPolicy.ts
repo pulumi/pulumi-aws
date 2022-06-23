@@ -9,30 +9,6 @@ import * as utilities from "../utilities";
  *
  * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Policies in an AWS Partition, see the `aws.s3.BucketPolicy` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3control.BucketPolicy("example", {
- *     bucket: aws_s3control_bucket.example.arn,
- *     policy: JSON.stringify({
- *         Id: "testBucketPolicy",
- *         Statement: [{
- *             Action: "s3-outposts:PutBucketLifecycleConfiguration",
- *             Effect: "Deny",
- *             Principal: {
- *                 AWS: "*",
- *             },
- *             Resource: aws_s3control_bucket.example.arn,
- *             Sid: "statement1",
- *         }],
- *         Version: "2012-10-17",
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,

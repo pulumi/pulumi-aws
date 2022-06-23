@@ -16,18 +16,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** You can't share a shared resource, including portfolios that contain a shared product.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.servicecatalog.PortfolioShare("example", {
- *     principalId: "012128675309",
- *     portfolioId: aws_servicecatalog_portfolio.example.id,
- *     type: "ACCOUNT",
- * });
- * ```
  *
  * ## Import
  *

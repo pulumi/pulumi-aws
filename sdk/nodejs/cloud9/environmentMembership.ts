@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an environment member to an AWS Cloud9 development environment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testEnvironmentEC2 = new aws.cloud9.EnvironmentEC2("testEnvironmentEC2", {instanceType: "t2.micro"});
- * const testUser = new aws.iam.User("testUser", {});
- * const testEnvironmentMembership = new aws.cloud9.EnvironmentMembership("testEnvironmentMembership", {
- *     environmentId: testEnvironmentEC2.id,
- *     permissions: "read-only",
- *     userArn: testUser.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Cloud9 environment membership can be imported using the `environment-id#user-arn`, e.g.

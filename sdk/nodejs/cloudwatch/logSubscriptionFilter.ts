@@ -9,21 +9,6 @@ import {LogGroup} from "./index";
 /**
  * Provides a CloudWatch Logs subscription filter resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLambdafunctionLogfilter = new aws.cloudwatch.LogSubscriptionFilter("testLambdafunctionLogfilter", {
- *     roleArn: aws_iam_role.iam_for_lambda.arn,
- *     logGroup: "/aws/lambda/example_lambda_name",
- *     filterPattern: "logtype test",
- *     destinationArn: aws_kinesis_stream.test_logstream.arn,
- *     distribution: "Random",
- * });
- * ```
- *
  * ## Import
  *
  * CloudWatch Logs subscription filter can be imported using the log group name and subscription filter name separated by `|`.

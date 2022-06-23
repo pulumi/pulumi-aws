@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an S3 bucket accelerate configuration resource. See the [Requirements for using Transfer Acceleration](https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html#transfer-acceleration-requirements) for more details.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mybucket = new aws.s3.BucketV2("mybucket", {});
- * const example = new aws.s3.BucketAccelerateConfigurationV2("example", {
- *     bucket: mybucket.bucket,
- *     status: "Enabled",
- * });
- * ```
- *
  * ## Import
  *
  * S3 bucket accelerate configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket accelerate configuration resource should be imported using the `bucket` e.g.,

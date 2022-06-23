@@ -6,34 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Creates a Snapshot of a snapshot.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     size: 40,
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
- *     volumeId: example.id,
- *     tags: {
- *         Name: "HelloWorld_snap",
- *     },
- * });
- * const exampleCopy = new aws.ebs.SnapshotCopy("exampleCopy", {
- *     sourceSnapshotId: exampleSnapshot.id,
- *     sourceRegion: "us-west-2",
- *     tags: {
- *         Name: "HelloWorld_copy_snap",
- *     },
- * });
- * ```
  */
 export class SnapshotCopy extends pulumi.CustomResource {
     /**

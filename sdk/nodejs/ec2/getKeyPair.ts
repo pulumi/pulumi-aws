@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to get information about a specific EC2 Key Pair.
- *
- * ## Example Usage
- *
- * The following example shows how to get a EC2 Key Pair from its name.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2.getKeyPair({
- *     keyName: "test",
- *     filters: [{
- *         name: "tag:Component",
- *         values: ["web"],
- *     }],
- * });
- * export const fingerprint = example.then(example => example.fingerprint);
- * export const name = example.then(example => example.keyName);
- * export const id = example.then(example => example.id);
- * ```
  */
 export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyPairResult> {
     args = args || {};

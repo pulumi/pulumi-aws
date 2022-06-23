@@ -13,63 +13,6 @@ import * as utilities from "../utilities";
  * Be sure to give the data firehose, cloudwatch log group, and/or s3 bucket a name that starts with the prefix `aws-waf-logs-`.
  *
  * ## Example Usage
- * ### With Redacted Fields
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
- *     resourceArn: aws_wafv2_web_acl.example.arn,
- *     redactedFields: [{
- *         singleHeader: {
- *             name: "user-agent",
- *         },
- *     }],
- * });
- * ```
- * ### With Logging Filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [aws_kinesis_firehose_delivery_stream.example.arn],
- *     resourceArn: aws_wafv2_web_acl.example.arn,
- *     loggingFilter: {
- *         defaultBehavior: "KEEP",
- *         filters: [
- *             {
- *                 behavior: "DROP",
- *                 conditions: [
- *                     {
- *                         actionCondition: {
- *                             action: "COUNT",
- *                         },
- *                     },
- *                     {
- *                         labelNameCondition: {
- *                             labelName: "awswaf:111122223333:rulegroup:testRules:LabelNameZ",
- *                         },
- *                     },
- *                 ],
- *                 requirement: "MEETS_ALL",
- *             },
- *             {
- *                 behavior: "KEEP",
- *                 conditions: [{
- *                     actionCondition: {
- *                         action: "ALLOW",
- *                     },
- *                 }],
- *                 requirement: "MEETS_ANY",
- *             },
- *         ],
- *     },
- * });
- * ```
  *
  * ## Import
  *

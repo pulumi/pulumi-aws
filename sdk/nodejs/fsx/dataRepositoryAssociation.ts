@@ -10,46 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleBucketAclV2 = new aws.s3.BucketAclV2("exampleBucketAclV2", {
- *     bucket: exampleBucketV2.id,
- *     acl: "private",
- * });
- * const exampleLustreFileSystem = new aws.fsx.LustreFileSystem("exampleLustreFileSystem", {
- *     storageCapacity: 1200,
- *     subnetIds: [aws_subnet.example.id],
- *     deploymentType: "PERSISTENT_2",
- *     perUnitStorageThroughput: 125,
- * });
- * const exampleDataRepositoryAssociation = new aws.fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation", {
- *     fileSystemId: exampleLustreFileSystem.id,
- *     dataRepositoryPath: pulumi.interpolate`s3://${exampleBucketV2.id}`,
- *     fileSystemPath: "/my-bucket",
- *     s3: {
- *         autoExportPolicy: {
- *             events: [
- *                 "NEW",
- *                 "CHANGED",
- *                 "DELETED",
- *             ],
- *         },
- *         autoImportPolicy: {
- *             events: [
- *                 "NEW",
- *                 "CHANGED",
- *                 "DELETED",
- *             ],
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * FSx Data Repository Associations can be imported using the `id`, e.g.,

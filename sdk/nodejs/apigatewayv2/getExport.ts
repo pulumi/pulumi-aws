@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Exports a definition of an API in a particular output format and specification.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = aws.apigatewayv2.getExport({
- *     apiId: aws_apigatewayv2_route.test.api_id,
- *     specification: "OAS30",
- *     outputType: "JSON",
- * });
- * ```
  */
 export function getExport(args: GetExportArgs, opts?: pulumi.InvokeOptions): Promise<GetExportResult> {
     if (!opts) {

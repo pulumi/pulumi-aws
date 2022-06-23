@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Enables a [Kinesis streaming destination](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/kds.html) for data replication of a DynamoDB table.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleTable = new aws.dynamodb.Table("exampleTable", {
- *     hashKey: "id",
- *     attributes: [{
- *         name: "id",
- *         type: "S",
- *     }],
- * });
- * const exampleStream = new aws.kinesis.Stream("exampleStream", {shardCount: 1});
- * const exampleKinesisStreamingDestination = new aws.dynamodb.KinesisStreamingDestination("exampleKinesisStreamingDestination", {
- *     streamArn: exampleStream.arn,
- *     tableName: exampleTable.name,
- * });
- * ```
- *
  * ## Import
  *
  * DynamoDB Kinesis Streaming Destinations can be imported using the `table_name` and `stream_arn` separated by `,`, e.g.,

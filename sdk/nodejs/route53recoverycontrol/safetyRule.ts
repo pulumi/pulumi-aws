@@ -8,41 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Route 53 Recovery Control Config Safety Rule
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoverycontrol.SafetyRule("example", {
- *     assertedControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
- *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
- *     waitPeriodMs: 5000,
- *     ruleConfig: {
- *         inverted: false,
- *         threshold: 1,
- *         type: "ATLEAST",
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoverycontrol.SafetyRule("example", {
- *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
- *     waitPeriodMs: 5000,
- *     gatingControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
- *     targetControls: [aws_route53recoverycontrolconfig_routing_control.example.arn],
- *     ruleConfig: {
- *         inverted: false,
- *         threshold: 1,
- *         type: "ATLEAST",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Route53 Recovery Control Config Safety Rule can be imported via the safety rule ARN, e.g.,

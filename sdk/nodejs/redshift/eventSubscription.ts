@@ -7,35 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Redshift event subscription resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultCluster = new aws.redshift.Cluster("defaultCluster", {
- *     clusterIdentifier: "default",
- *     databaseName: "default",
- * });
- * // ...
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.redshift.EventSubscription("defaultEventSubscription", {
- *     snsTopicArn: defaultTopic.arn,
- *     sourceType: "cluster",
- *     sourceIds: [defaultCluster.id],
- *     severity: "INFO",
- *     eventCategories: [
- *         "configuration",
- *         "management",
- *         "monitoring",
- *         "security",
- *     ],
- *     tags: {
- *         Name: "default",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Redshift Event Subscriptions can be imported using the `name`, e.g.,

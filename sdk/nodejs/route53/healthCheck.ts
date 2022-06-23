@@ -42,44 +42,6 @@ import * as utilities from "../utilities";
  *     type: "HTTPS_STR_MATCH",
  * });
  * ```
- * ### Aggregate Check
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const parent = new aws.route53.HealthCheck("parent", {
- *     type: "CALCULATED",
- *     childHealthThreshold: 1,
- *     childHealthchecks: [aws_route53_health_check.child.id],
- *     tags: {
- *         Name: "tf-test-calculated-health-check",
- *     },
- * });
- * ```
- * ### CloudWatch Alarm Check
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foobar = new aws.cloudwatch.MetricAlarm("foobar", {
- *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: 2,
- *     metricName: "CPUUtilization",
- *     namespace: "AWS/EC2",
- *     period: 120,
- *     statistic: "Average",
- *     threshold: 80,
- *     alarmDescription: "This metric monitors ec2 cpu utilization",
- * });
- * const foo = new aws.route53.HealthCheck("foo", {
- *     type: "CLOUDWATCH_METRIC",
- *     cloudwatchAlarmName: foobar.name,
- *     cloudwatchAlarmRegion: "us-west-2",
- *     insufficientDataHealthStatus: "Healthy",
- * });
- * ```
  *
  * ## Import
  *

@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker Endpoint resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const endpoint = new aws.sagemaker.Endpoint("endpoint", {
- *     endpointConfigName: aws_sagemaker_endpoint_configuration.ec.name,
- *     tags: {
- *         Name: "foo",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Endpoints can be imported using the `name`, e.g.,

@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS App Mesh gateway route resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appmesh.GatewayRoute("example", {
- *     meshName: "example-service-mesh",
- *     virtualGatewayName: aws_appmesh_virtual_gateway.example.name,
- *     spec: {
- *         httpRoute: {
- *             action: {
- *                 target: {
- *                     virtualService: {
- *                         virtualServiceName: aws_appmesh_virtual_service.example.name,
- *                     },
- *                 },
- *             },
- *             match: {
- *                 prefix: "/",
- *             },
- *         },
- *     },
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * App Mesh gateway routes can be imported using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`, e.g.,

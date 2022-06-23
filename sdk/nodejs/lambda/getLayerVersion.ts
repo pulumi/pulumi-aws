@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Lambda Layer Version.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const layerName = config.require("layerName");
- * const existing = aws.lambda.getLayerVersion({
- *     layerName: layerName,
- * });
- * ```
  */
 export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetLayerVersionResult> {
     if (!opts) {

@@ -9,37 +9,6 @@ import * as utilities from "../utilities";
  *
  * > *NOTE:* If policies are attached to the user via the `aws.iam.PolicyAttachment` resource and you are modifying the user `name` or `path`, the `forceDestroy` argument must be set to `true` and applied before attempting the operation otherwise you will encounter a `DeleteConflict` error. The `aws.iam.UserPolicyAttachment` resource (recommended) does not have this requirement.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const lbUser = new aws.iam.User("lbUser", {
- *     path: "/system/",
- *     tags: {
- *         "tag-key": "tag-value",
- *     },
- * });
- * const lbAccessKey = new aws.iam.AccessKey("lbAccessKey", {user: lbUser.name});
- * const lbRo = new aws.iam.UserPolicy("lbRo", {
- *     user: lbUser.name,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "ec2:Describe*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * IAM Users can be imported using the `name`, e.g.,

@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks ECS Cluster layer resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.opsworks.EcsClusterLayer("example", {
- *     stackId: aws_opsworks_stack.example.id,
- *     ecsClusterArn: aws_ecs_cluster.example.arn,
- * });
- * ```
  */
 export class EcsClusterLayer extends pulumi.CustomResource {
     /**

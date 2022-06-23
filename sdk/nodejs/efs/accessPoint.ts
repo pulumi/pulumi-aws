@@ -8,15 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic File System (EFS) access point.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.efs.AccessPoint("test", {fileSystemId: aws_efs_file_system.foo.id});
- * ```
- *
  * ## Import
  *
  * The EFS access points can be imported using the `id`, e.g.,

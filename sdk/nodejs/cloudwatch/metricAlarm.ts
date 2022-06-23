@@ -28,34 +28,6 @@ import {Topic} from "../sns";
  *     threshold: 80,
  * });
  * ```
- * ## Example in Conjunction with Scaling Policies
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const batPolicy = new aws.autoscaling.Policy("batPolicy", {
- *     scalingAdjustment: 4,
- *     adjustmentType: "ChangeInCapacity",
- *     cooldown: 300,
- *     autoscalingGroupName: aws_autoscaling_group.bar.name,
- * });
- * const batMetricAlarm = new aws.cloudwatch.MetricAlarm("batMetricAlarm", {
- *     comparisonOperator: "GreaterThanOrEqualToThreshold",
- *     evaluationPeriods: 2,
- *     metricName: "CPUUtilization",
- *     namespace: "AWS/EC2",
- *     period: 120,
- *     statistic: "Average",
- *     threshold: 80,
- *     dimensions: {
- *         AutoScalingGroupName: aws_autoscaling_group.bar.name,
- *     },
- *     alarmDescription: "This metric monitors ec2 cpu utilization",
- *     alarmActions: [batPolicy.arn],
- * });
- * ```
- *
  * ## Example with an Expression
  *
  * ```typescript
@@ -139,34 +111,6 @@ import {Topic} from "../sns";
  *     thresholdMetricId: "e1",
  * });
  * ```
- *
- * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const nlbHealthyhosts = new aws.cloudwatch.MetricAlarm("nlbHealthyhosts", {
- *     comparisonOperator: "LessThanThreshold",
- *     evaluationPeriods: 1,
- *     metricName: "HealthyHostCount",
- *     namespace: "AWS/NetworkELB",
- *     period: 60,
- *     statistic: "Average",
- *     threshold: _var.logstash_servers_count,
- *     alarmDescription: "Number of healthy nodes in Target Group",
- *     actionsEnabled: true,
- *     alarmActions: [aws_sns_topic.sns.arn],
- *     okActions: [aws_sns_topic.sns.arn],
- *     dimensions: {
- *         TargetGroup: aws_lb_target_group["lb-tg"].arn_suffix,
- *         LoadBalancer: aws_lb.lb.arn_suffix,
- *     },
- * });
- * ```
- *
- * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
- * You must choose one or the other
  *
  * ## Import
  *

@@ -9,50 +9,6 @@ import * as utilities from "../utilities";
  * Provides an [S3 Intelligent-Tiering](https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html) configuration resource.
  *
  * ## Example Usage
- * ### Add intelligent tiering configuration for entire S3 bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_entire_bucket = new aws.s3.BucketIntelligentTieringConfiguration("example-entire-bucket", {
- *     bucket: example.bucket,
- *     tierings: [
- *         {
- *             accessTier: "DEEP_ARCHIVE_ACCESS",
- *             days: 180,
- *         },
- *         {
- *             accessTier: "ARCHIVE_ACCESS",
- *             days: 125,
- *         },
- *     ],
- * });
- * ```
- * ### Add intelligent tiering configuration with S3 object filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_filtered = new aws.s3.BucketIntelligentTieringConfiguration("example-filtered", {
- *     bucket: example.bucket,
- *     status: "Disabled",
- *     filter: {
- *         prefix: "documents/",
- *         tags: {
- *             priority: "high",
- *             "class": "blue",
- *         },
- *     },
- *     tierings: [{
- *         accessTier: "ARCHIVE_ACCESS",
- *         days: 125,
- *     }],
- * });
- * ```
  *
  * ## Import
  *

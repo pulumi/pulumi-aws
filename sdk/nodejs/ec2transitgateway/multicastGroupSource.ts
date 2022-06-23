@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Registers sources (network interfaces) with the transit gateway multicast group.
  * A multicast source is a network interface attached to a supported instance that sends multicast traffic.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2transitgateway.MulticastGroupSource("example", {
- *     groupIpAddress: "224.0.0.1",
- *     networkInterfaceId: aws_network_interface.example.id,
- *     transitGatewayMulticastDomainId: aws_ec2_transit_gateway_multicast_domain.example.id,
- * });
- * ```
  */
 export class MulticastGroupSource extends pulumi.CustomResource {
     /**

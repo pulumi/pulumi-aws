@@ -10,40 +10,6 @@ import * as utilities from "../utilities";
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) for [WebSocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-develop-routes.html) and [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html) APIs.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleApi = new aws.apigatewayv2.Api("exampleApi", {
- *     protocolType: "WEBSOCKET",
- *     routeSelectionExpression: `$request.body.action`,
- * });
- * const exampleRoute = new aws.apigatewayv2.Route("exampleRoute", {
- *     apiId: exampleApi.id,
- *     routeKey: `$default`,
- * });
- * ```
- * ### HTTP Proxy Integration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleApi = new aws.apigatewayv2.Api("exampleApi", {protocolType: "HTTP"});
- * const exampleIntegration = new aws.apigatewayv2.Integration("exampleIntegration", {
- *     apiId: exampleApi.id,
- *     integrationType: "HTTP_PROXY",
- *     integrationMethod: "ANY",
- *     integrationUri: "https://example.com/{proxy}",
- * });
- * const exampleRoute = new aws.apigatewayv2.Route("exampleRoute", {
- *     apiId: exampleApi.id,
- *     routeKey: "ANY /example/{proxy+}",
- *     target: pulumi.interpolate`integrations/${exampleIntegration.id}`,
- * });
- * ```
  *
  * ## Import
  *

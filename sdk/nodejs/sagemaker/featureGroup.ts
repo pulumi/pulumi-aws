@@ -8,29 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker Feature Group resource.
  *
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.FeatureGroup("example", {
- *     featureGroupName: "example",
- *     recordIdentifierFeatureName: "example",
- *     eventTimeFeatureName: "example",
- *     roleArn: aws_iam_role.test.arn,
- *     featureDefinitions: [{
- *         featureName: "example",
- *         featureType: "String",
- *     }],
- *     onlineStoreConfig: {
- *         enableOnlineStore: true,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Feature Groups can be imported using the `name`, e.g.,

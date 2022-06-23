@@ -37,7 +37,7 @@ import (
 // 			RestApi:     myDemoAPI.ID(),
 // 			Description: pulumi.String("a JSON schema"),
 // 			ContentType: pulumi.String("application/json"),
-// 			Schema:      pulumi.String(fmt.Sprintf("%v%v%v", "{\n", "  \"type\": \"object\"\n", "}\n")),
+// 			Schema:      pulumi.String(fmt.Sprintf("{\n  \"type\": \"object\"\n}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

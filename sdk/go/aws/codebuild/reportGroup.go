@@ -37,7 +37,22 @@ import (
 // 		exampleKey, err := kms.NewKey(ctx, "exampleKey", &kms.KeyArgs{
 // 			Description:          pulumi.String("my test kms key"),
 // 			DeletionWindowInDays: pulumi.Int(7),
-// 			Policy:               pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Id\": \"kms-tf-1\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"Enable IAM User Permissions\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"arn:aws:iam::", current.AccountId, ":root\"\n", "      },\n", "      \"Action\": \"kms:*\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.String(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Id": "kms-tf-1",
+//   "Statement": [
+//     {
+//       "Sid": "Enable IAM User Permissions",
+//       "Effect": "Allow",
+//       "Principal": {
+//         "AWS": "arn:aws:iam::%v:root"
+//       },
+//       "Action": "kms:*",
+//       "Resource": "*"
+//     }
+//   ]
+// }
+// `, current.AccountId)),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -33,46 +33,6 @@ import * as utilities from "../utilities";
  *     type: "STATEFUL",
  * });
  * ```
- * ### Stateful Inspection for permitting packets from a source IP address
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ips = [
- *     "1.1.1.1/32",
- *     "1.0.0.1/32",
- * ];
- * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 50,
- *     description: "Permits http traffic from source",
- *     type: "STATEFUL",
- *     ruleGroup: {
- *         rulesSource: {
- *             dynamic: [{
- *                 forEach: ips,
- *                 content: [{
- *                     action: "PASS",
- *                     header: [{
- *                         destination: "ANY",
- *                         destinationPort: "ANY",
- *                         protocol: "HTTP",
- *                         direction: "ANY",
- *                         sourcePort: "ANY",
- *                         source: stateful_rule.value,
- *                     }],
- *                     ruleOption: [{
- *                         keyword: "sid:1",
- *                     }],
- *                 }],
- *             }],
- *         },
- *     },
- *     tags: {
- *         Name: "permit HTTP from source",
- *     },
- * });
- * ```
  * ### Stateful Inspection for blocking packets from going to an intended destination
  *
  * ```typescript
@@ -104,73 +64,6 @@ import * as utilities from "../utilities";
  *         Tag2: "Value2",
  *     },
  *     type: "STATEFUL",
- * });
- * ```
- * ### Stateful Inspection from rules specifications defined in Suricata flat format
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 100,
- *     type: "STATEFUL",
- *     rules: fs.readFileSync("example.rules"),
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
- * });
- * ```
- * ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const example = new aws.networkfirewall.RuleGroup("example", {
- *     capacity: 100,
- *     type: "STATEFUL",
- *     ruleGroup: {
- *         ruleVariables: {
- *             ipSets: [
- *                 {
- *                     key: "WEBSERVERS_HOSTS",
- *                     ipSet: {
- *                         definitions: [
- *                             "10.0.0.0/16",
- *                             "10.0.1.0/24",
- *                             "192.168.0.0/16",
- *                         ],
- *                     },
- *                 },
- *                 {
- *                     key: "EXTERNAL_HOST",
- *                     ipSet: {
- *                         definitions: ["1.2.3.4/32"],
- *                     },
- *                 },
- *             ],
- *             portSets: [{
- *                 key: "HTTP_PORTS",
- *                 portSet: {
- *                     definitions: [
- *                         "443",
- *                         "80",
- *                     ],
- *                 },
- *             }],
- *         },
- *         rulesSource: {
- *             rulesString: fs.readFileSync("suricata_rules_file"),
- *         },
- *     },
- *     tags: {
- *         Tag1: "Value1",
- *         Tag2: "Value2",
- *     },
  * });
  * ```
  * ### Stateless Inspection with a Custom Action

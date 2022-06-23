@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an EMR Containers (EMR on EKS) Virtual Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.emrcontainers.getVirtualCluster({
- *     virtualClusterId: "example id",
- * });
- * export const name = example.then(example => example.name);
- * export const arn = example.then(example => example.arn);
- * ```
  */
 export function getVirtualCluster(args: GetVirtualClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualClusterResult> {
     if (!opts) {

@@ -9,42 +9,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Workteam resource.
  *
  * ## Example Usage
- * ### Cognito Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Workteam("example", {
- *     workteamName: "example",
- *     workforceName: aws_sagemaker_workforce.example.id,
- *     description: "example",
- *     memberDefinitions: [{
- *         cognitoMemberDefinition: {
- *             clientId: aws_cognito_user_pool_client.example.id,
- *             userPool: aws_cognito_user_pool_domain.example.user_pool_id,
- *             userGroup: aws_cognito_user_group.example.id,
- *         },
- *     }],
- * });
- * ```
- * ### Oidc Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Workteam("example", {
- *     workteamName: "example",
- *     workforceName: aws_sagemaker_workforce.example.id,
- *     description: "example",
- *     memberDefinitions: [{
- *         oidcMemberDefinition: {
- *             groups: ["example"],
- *         },
- *     }],
- * });
- * ```
  *
  * ## Import
  *

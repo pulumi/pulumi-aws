@@ -9,36 +9,6 @@ import {Policy} from "./index";
 
 /**
  * Provides an IoT policy attachment.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const pubsub = new aws.iot.Policy("pubsub", {policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "iot:*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "*"
- *     }
- *   ]
- * }
- * `});
- * const cert = new aws.iot.Certificate("cert", {
- *     csr: fs.readFileSync("csr.pem"),
- *     active: true,
- * });
- * const att = new aws.iot.PolicyAttachment("att", {
- *     policy: pubsub.name,
- *     target: cert.arn,
- * });
- * ```
  */
 export class PolicyAttachment extends pulumi.CustomResource {
     /**

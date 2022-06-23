@@ -39,13 +39,39 @@ import (
 // 			return err
 // 		}
 // 		firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"firehose.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "firehose.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		lambdaIam, err := iam.NewRole(ctx, "lambdaIam", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -73,7 +99,7 @@ import (
 // 								&kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs{
 // 									ParameterName: pulumi.String("LambdaArn"),
 // 									ParameterValue: lambdaProcessor.Arn.ApplyT(func(arn string) (string, error) {
-// 										return fmt.Sprintf("%v%v%v%v", arn, ":", "$", "LATEST"), nil
+// 										return fmt.Sprintf("%v:$LATEST", arn), nil
 // 									}).(pulumi.StringOutput),
 // 								},
 // 							},
@@ -184,7 +210,20 @@ import (
 // 			return err
 // 		}
 // 		firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"firehose.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "firehose.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -243,7 +282,7 @@ import (
 // 				ClusterJdbcurl: pulumi.All(testCluster.Endpoint, testCluster.DatabaseName).ApplyT(func(_args []interface{}) (string, error) {
 // 					endpoint := _args[0].(string)
 // 					databaseName := _args[1].(string)
-// 					return fmt.Sprintf("%v%v%v%v", "jdbc:redshift://", endpoint, "/", databaseName), nil
+// 					return fmt.Sprintf("jdbc:redshift://%v/%v", endpoint, databaseName), nil
 // 				}).(pulumi.StringOutput),
 // 				Username:         pulumi.String("testuser"),
 // 				Password:         pulumi.String("T3stPass"),
@@ -308,7 +347,7 @@ import (
 // 							Parameters: kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArray{
 // 								&kinesis.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationProcessorParameterArgs{
 // 									ParameterName:  pulumi.String("LambdaArn"),
-// 									ParameterValue: pulumi.String(fmt.Sprintf("%v%v%v%v", aws_lambda_function.Lambda_processor.Arn, ":", "$", "LATEST")),
+// 									ParameterValue: pulumi.String(fmt.Sprintf("%v:$LATEST", aws_lambda_function.Lambda_processor.Arn)),
 // 								},
 // 							},
 // 						},
@@ -367,7 +406,38 @@ import (
 // 			Policy: pulumi.All(testCluster.Arn, testCluster.Arn).ApplyT(func(_args []interface{}) (string, error) {
 // 				testClusterArn := _args[0].(string)
 // 				testClusterArn1 := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"es:*\"\n", "      ],\n", "      \"Resource\": [\n", "        \"", testClusterArn, "\",\n", "        \"", testClusterArn1, "/*\"\n", "      ]\n", "        },\n", "        {\n", "          \"Effect\": \"Allow\",\n", "          \"Action\": [\n", "            \"ec2:DescribeVpcs\",\n", "            \"ec2:DescribeVpcAttribute\",\n", "            \"ec2:DescribeSubnets\",\n", "            \"ec2:DescribeSecurityGroups\",\n", "            \"ec2:DescribeNetworkInterfaces\",\n", "            \"ec2:CreateNetworkInterface\",\n", "            \"ec2:CreateNetworkInterfacePermission\",\n", "            \"ec2:DeleteNetworkInterface\"\n", "          ],\n", "          \"Resource\": [\n", "            \"*\"\n", "          ]\n", "        }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Action": [
+//         "es:*"
+//       ],
+//       "Resource": [
+//         "%v",
+//         "%v/*"
+//       ]
+//         },
+//         {
+//           "Effect": "Allow",
+//           "Action": [
+//             "ec2:DescribeVpcs",
+//             "ec2:DescribeVpcAttribute",
+//             "ec2:DescribeSubnets",
+//             "ec2:DescribeSecurityGroups",
+//             "ec2:DescribeNetworkInterfaces",
+//             "ec2:CreateNetworkInterface",
+//             "ec2:CreateNetworkInterfacePermission",
+//             "ec2:DeleteNetworkInterface"
+//           ],
+//           "Resource": [
+//             "*"
+//           ]
+//         }
+//   ]
+// }
+// `, testClusterArn, testClusterArn1), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

@@ -11,36 +11,6 @@ import {PolicyDocument, Role} from "./index";
  *
  * > **NOTE:** For a given role, this resource is incompatible with using the `aws.iam.Role` resource `inlinePolicy` argument. When using that argument and this resource, both will attempt to manage the role's inline policies and the provider will show a permanent difference.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testRole = new aws.iam.Role("testRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "ec2.amazonaws.com",
- *         },
- *     }],
- * })});
- * const testPolicy = new aws.iam.RolePolicy("testPolicy", {
- *     role: testRole.id,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
- *         }],
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,

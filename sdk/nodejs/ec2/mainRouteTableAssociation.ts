@@ -5,17 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mainRouteTableAssociation = new aws.ec2.MainRouteTableAssociation("mainRouteTableAssociation", {
- *     vpcId: aws_vpc.foo.id,
- *     routeTableId: aws_route_table.bar.id,
- * });
- * ```
  * ## Notes
  *
  * On VPC creation, the AWS API always creates an initial Main Route Table. This

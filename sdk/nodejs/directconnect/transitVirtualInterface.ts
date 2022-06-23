@@ -8,22 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Direct Connect transit virtual interface resource.
  * A transit virtual interface is a VLAN that transports traffic from a Direct Connect gateway to one or more transit gateways.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleTransitVirtualInterface = new aws.directconnect.TransitVirtualInterface("exampleTransitVirtualInterface", {
- *     connectionId: aws_dx_connection.example.id,
- *     dxGatewayId: exampleGateway.id,
- *     vlan: 4094,
- *     addressFamily: "ipv4",
- *     bgpAsn: 65352,
- * });
- * ```
- *
  * ## Import
  *
  * Direct Connect transit virtual interfaces can be imported using the `vif id`, e.g.,

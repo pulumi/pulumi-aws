@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Glue Schema resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.glue.Schema("example", {
- *     schemaName: "example",
- *     registryArn: aws_glue_registry.test.arn,
- *     dataFormat: "AVRO",
- *     compatibility: "NONE",
- *     schemaDefinition: "{\"type\": \"record\", \"name\": \"r1\", \"fields\": [ {\"name\": \"f1\", \"type\": \"int\"}, {\"name\": \"f2\", \"type\": \"string\"} ]}",
- * });
- * ```
- *
  * ## Import
  *
  * Glue Registries can be imported using `arn`, e.g.,

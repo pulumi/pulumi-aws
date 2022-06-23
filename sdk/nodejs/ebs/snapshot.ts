@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a Snapshot of an EBS Volume.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.Volume("example", {
- *     availabilityZone: "us-west-2a",
- *     size: 40,
- *     tags: {
- *         Name: "HelloWorld",
- *     },
- * });
- * const exampleSnapshot = new aws.ebs.Snapshot("exampleSnapshot", {
- *     volumeId: example.id,
- *     tags: {
- *         Name: "HelloWorld_snap",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * EBS Snapshot can be imported using the `id`, e.g.,

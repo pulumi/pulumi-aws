@@ -8,39 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create an AWS Firewall Manager policy. You need to be using AWS organizations and have enabled the Firewall Manager administrator account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRuleGroup = new aws.wafregional.RuleGroup("exampleRuleGroup", {metricName: "WAFRuleGroupExample"});
- * const examplePolicy = new aws.fms.Policy("examplePolicy", {
- *     excludeResourceTags: false,
- *     remediationEnabled: false,
- *     resourceTypeLists: ["AWS::ElasticLoadBalancingV2::LoadBalancer"],
- *     securityServicePolicyData: {
- *         type: "WAF",
- *         managedServiceData: exampleRuleGroup.id.apply(id => JSON.stringify({
- *             type: "WAF",
- *             ruleGroups: [{
- *                 id: id,
- *                 overrideAction: {
- *                     type: "COUNT",
- *                 },
- *             }],
- *             defaultAction: {
- *                 type: "BLOCK",
- *             },
- *             overrideCustomerWebACLAssociation: false,
- *         })),
- *     },
- *     tags: {
- *         Name: "example-fms-policy",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Firewall Manager policies can be imported using the policy ID, e.g.,

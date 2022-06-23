@@ -12,63 +12,6 @@ import {RestApi} from "./index";
  *
  * > **NOTE:** It is recommended to use this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
- *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {body: JSON.stringify({
- *     openapi: "3.0.1",
- *     info: {
- *         title: "example",
- *         version: "1.0",
- *     },
- *     paths: {
- *         "/path1": {
- *             get: {
- *                 "x-amazon-apigateway-integration": {
- *                     httpMethod: "GET",
- *                     payloadFormatVersion: "1.0",
- *                     type: "HTTP_PROXY",
- *                     uri: "https://ip-ranges.amazonaws.com/ip-ranges.json",
- *                 },
- *             },
- *         },
- *     },
- * })});
- * const exampleDeployment = new aws.apigateway.Deployment("exampleDeployment", {
- *     restApi: exampleRestApi.id,
- *     triggers: {
- *         redeployment: exampleRestApi.body.apply(body => JSON.stringify(body)).apply(toJSON => crypto.createHash('sha1').update(toJSON).digest('hex')),
- *     },
- * });
- * const exampleStage = new aws.apigateway.Stage("exampleStage", {
- *     deployment: exampleDeployment.id,
- *     restApi: exampleRestApi.id,
- *     stageName: "example",
- * });
- * const all = new aws.apigateway.MethodSettings("all", {
- *     restApi: exampleRestApi.id,
- *     stageName: exampleStage.stageName,
- *     methodPath: "*&#47;*",
- *     settings: {
- *         metricsEnabled: true,
- *         loggingLevel: "ERROR",
- *     },
- * });
- * const pathSpecific = new aws.apigateway.MethodSettings("pathSpecific", {
- *     restApi: exampleRestApi.id,
- *     stageName: exampleStage.stageName,
- *     methodPath: "path1/GET",
- *     settings: {
- *         metricsEnabled: true,
- *         loggingLevel: "INFO",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,

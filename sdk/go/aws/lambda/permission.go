@@ -66,7 +66,7 @@ import (
 // 		testAlias, err := lambda.NewAlias(ctx, "testAlias", &lambda.AliasArgs{
 // 			Description:     pulumi.String("a sample description"),
 // 			FunctionName:    testLambda.Name,
-// 			FunctionVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
+// 			FunctionVersion: pulumi.String(fmt.Sprintf("$LATEST")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -185,7 +185,7 @@ import (
 // 			Function:  pulumi.Any("MyDemoFunction"),
 // 			Principal: pulumi.String("apigateway.amazonaws.com"),
 // 			SourceArn: myDemoAPI.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-// 				return fmt.Sprintf("%v%v", executionArn, "/*/*/*"), nil
+// 				return fmt.Sprintf("%v/*/*/*", executionArn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -217,7 +217,20 @@ import (
 // 			return err
 // 		}
 // 		defaultRole, err := iam.NewRole(ctx, "defaultRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -236,7 +249,7 @@ import (
 // 			Function:  loggingFunction.Name,
 // 			Principal: pulumi.String("logs.eu-west-1.amazonaws.com"),
 // 			SourceArn: defaultLogGroup.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v", arn, ":*"), nil
+// 				return fmt.Sprintf("%v:*", arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

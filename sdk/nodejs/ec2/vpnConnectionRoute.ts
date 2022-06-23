@@ -6,31 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a static route between a VPN connection and a customer gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const vpc = new aws.ec2.Vpc("vpc", {cidrBlock: "10.0.0.0/16"});
- * const vpnGateway = new aws.ec2.VpnGateway("vpnGateway", {vpcId: vpc.id});
- * const customerGateway = new aws.ec2.CustomerGateway("customerGateway", {
- *     bgpAsn: "65000",
- *     ipAddress: "172.0.0.1",
- *     type: "ipsec.1",
- * });
- * const main = new aws.ec2.VpnConnection("main", {
- *     vpnGatewayId: vpnGateway.id,
- *     customerGatewayId: customerGateway.id,
- *     type: "ipsec.1",
- *     staticRoutesOnly: true,
- * });
- * const office = new aws.ec2.VpnConnectionRoute("office", {
- *     destinationCidrBlock: "192.168.10.0/24",
- *     vpnConnectionId: main.id,
- * });
- * ```
  */
 export class VpnConnectionRoute extends pulumi.CustomResource {
     /**

@@ -7,15 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Backup vault resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.backup.Vault("example", {kmsKeyArn: aws_kms_key.example.arn});
- * ```
- *
  * ## Import
  *
  * Backup vault can be imported using the `name`, e.g.,

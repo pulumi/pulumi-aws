@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides a resource to manage [default logging options](https://docs.aws.amazon.com/iot/latest/developerguide/configure-logging.html#configure-logging-console).
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.iot.LoggingOptions("example", {
- *     defaultLogLevel: "WARN",
- *     roleArn: aws_iam_role.example.arn,
- * });
- * ```
  */
 export class LoggingOptions extends pulumi.CustomResource {
     /**

@@ -5,52 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultCluster = new aws.neptune.Cluster("defaultCluster", {
- *     clusterIdentifier: "neptune-cluster-demo",
- *     engine: "neptune",
- *     backupRetentionPeriod: 5,
- *     preferredBackupWindow: "07:00-09:00",
- *     skipFinalSnapshot: true,
- *     iamDatabaseAuthenticationEnabled: true,
- *     applyImmediately: true,
- * });
- * const example = new aws.neptune.ClusterInstance("example", {
- *     clusterIdentifier: defaultCluster.id,
- *     engine: "neptune",
- *     instanceClass: "db.r4.large",
- *     applyImmediately: true,
- * });
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.neptune.EventSubscription("defaultEventSubscription", {
- *     snsTopicArn: defaultTopic.arn,
- *     sourceType: "db-instance",
- *     sourceIds: [example.id],
- *     eventCategories: [
- *         "maintenance",
- *         "availability",
- *         "creation",
- *         "backup",
- *         "restoration",
- *         "recovery",
- *         "deletion",
- *         "failover",
- *         "failure",
- *         "notification",
- *         "configuration change",
- *         "read replica",
- *     ],
- *     tags: {
- *         env: "test",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_neptune_event_subscription` can be imported by using the event subscription name, e.g.,

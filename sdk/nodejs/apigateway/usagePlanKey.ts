@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an API Gateway Usage Plan Key.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.apigateway.RestApi("test", {});
- * // ...
- * const myusageplan = new aws.apigateway.UsagePlan("myusageplan", {apiStages: [{
- *     apiId: test.id,
- *     stage: aws_api_gateway_deployment.foo.stage_name,
- * }]});
- * const mykey = new aws.apigateway.ApiKey("mykey", {});
- * const main = new aws.apigateway.UsagePlanKey("main", {
- *     keyId: mykey.id,
- *     keyType: "API_KEY",
- *     usagePlanId: myusageplan.id,
- * });
- * ```
- *
  * ## Import
  *
  * AWS API Gateway Usage Plan Key can be imported using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`, e.g.,

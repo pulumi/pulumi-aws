@@ -57,7 +57,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
 // 			ConnectionProperties: pulumi.StringMap{
-// 				"JDBC_CONNECTION_URL": pulumi.String(fmt.Sprintf("%v%v%v", "jdbc:mysql://", aws_rds_cluster.Example.Endpoint, "/exampledatabase")),
+// 				"JDBC_CONNECTION_URL": pulumi.String(fmt.Sprintf("jdbc:mysql://%v/exampledatabase", aws_rds_cluster.Example.Endpoint)),
 // 				"PASSWORD":            pulumi.String("examplepassword"),
 // 				"USERNAME":            pulumi.String("exampleusername"),
 // 			},

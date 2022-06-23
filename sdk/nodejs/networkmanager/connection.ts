@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
  * Creates a connection between two devices.
  * The devices can be a physical or virtual appliance that connects to a third-party appliance in a VPC, or a physical appliance that connects to another physical appliance in an on-premises network.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.Connection("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     deviceId: aws_networkmanager_device.example1.id,
- *     connectedDeviceId: aws_networkmanager_device.example2.id,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_networkmanager_connection` can be imported using the connection ARN, e.g.

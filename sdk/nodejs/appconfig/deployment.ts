@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppConfig Deployment resource for an `aws.appconfig.Application` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.Deployment("example", {
- *     applicationId: aws_appconfig_application.example.id,
- *     configurationProfileId: aws_appconfig_configuration_profile.example.configuration_profile_id,
- *     configurationVersion: aws_appconfig_hosted_configuration_version.example.version_number,
- *     deploymentStrategyId: aws_appconfig_deployment_strategy.example.id,
- *     description: "My example deployment",
- *     environmentId: aws_appconfig_environment.example.environment_id,
- *     tags: {
- *         Type: "AppConfig Deployment",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * AppConfig Deployments can be imported by using the application ID, environment ID, and deployment number separated by a slash (`/`), e.g.,

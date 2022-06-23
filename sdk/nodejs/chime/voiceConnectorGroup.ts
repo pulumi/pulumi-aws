@@ -10,32 +10,6 @@ import * as utilities from "../utilities";
  *
  * You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const vc1 = new aws.chime.VoiceConnector("vc1", {
- *     requireEncryption: true,
- *     awsRegion: "us-east-1",
- * });
- * const vc2 = new aws.chime.VoiceConnector("vc2", {
- *     requireEncryption: true,
- *     awsRegion: "us-west-2",
- * });
- * const group = new aws.chime.VoiceConnectorGroup("group", {connectors: [
- *     {
- *         voiceConnectorId: vc1.id,
- *         priority: 1,
- *     },
- *     {
- *         voiceConnectorId: vc2.id,
- *         priority: 3,
- *     },
- * ]});
- * ```
- *
  * ## Import
  *
  * Configuration Recorder can be imported using the name, e.g.,

@@ -43,7 +43,7 @@ import (
 // 		exampleAmazonsesVerificationRecord, err := route53.NewRecord(ctx, "exampleAmazonsesVerificationRecord", &route53.RecordArgs{
 // 			ZoneId: pulumi.Any(aws_route53_zone.Example.Zone_id),
 // 			Name: example.ID().ApplyT(func(id string) (string, error) {
-// 				return fmt.Sprintf("%v%v", "_amazonses.", id), nil
+// 				return fmt.Sprintf("_amazonses.%v", id), nil
 // 			}).(pulumi.StringOutput),
 // 			Type: pulumi.String("TXT"),
 // 			Ttl:  pulumi.Int(600),

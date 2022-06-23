@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about multiple Outposts.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getOutposts({
- *     siteId: data.aws_outposts_site.id,
- * });
- * ```
  */
 export function getOutposts(args?: GetOutpostsArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostsResult> {
     args = args || {};

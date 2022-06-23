@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a SageMaker Human Task UI resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const example = new aws.sagemaker.HumanTaskUI("example", {
- *     humanTaskUiName: "example",
- *     uiTemplate: {
- *         content: fs.readFileSync("sagemaker-human-task-ui-template.html"),
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * SageMaker Human Task UIs can be imported using the `human_task_ui_name`, e.g.,

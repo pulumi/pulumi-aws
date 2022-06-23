@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Athena database.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleDatabase = new aws.athena.Database("exampleDatabase", {
- *     name: "database_name",
- *     bucket: exampleBucketV2.bucket,
- * });
- * ```
- *
  * ## Import
  *
  * Athena Databases can be imported using their name, e.g.,

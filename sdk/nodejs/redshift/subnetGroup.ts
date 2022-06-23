@@ -7,40 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift subnet group. You must provide a list of one or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC) when creating Amazon Redshift subnet group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fooVpc = new aws.ec2.Vpc("fooVpc", {cidrBlock: "10.1.0.0/16"});
- * const fooSubnet = new aws.ec2.Subnet("fooSubnet", {
- *     cidrBlock: "10.1.1.0/24",
- *     availabilityZone: "us-west-2a",
- *     vpcId: fooVpc.id,
- *     tags: {
- *         Name: "tf-dbsubnet-test-1",
- *     },
- * });
- * const bar = new aws.ec2.Subnet("bar", {
- *     cidrBlock: "10.1.2.0/24",
- *     availabilityZone: "us-west-2b",
- *     vpcId: fooVpc.id,
- *     tags: {
- *         Name: "tf-dbsubnet-test-2",
- *     },
- * });
- * const fooSubnetGroup = new aws.redshift.SubnetGroup("fooSubnetGroup", {
- *     subnetIds: [
- *         fooSubnet.id,
- *         bar.id,
- *     ],
- *     tags: {
- *         environment: "Production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Redshift subnet groups can be imported using the `name`, e.g.,

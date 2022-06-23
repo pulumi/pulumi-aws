@@ -6,32 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * ### Using default security group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
- *     subnetId: aws_subnet.example.id,
- * });
- * ```
- * ### Using custom security groups
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2clientvpn.NetworkAssociation("example", {
- *     clientVpnEndpointId: aws_ec2_client_vpn_endpoint.example.id,
- *     subnetId: aws_subnet.example.id,
- *     securityGroups: [
- *         aws_security_group.example1.id,
- *         aws_security_group.example2.id,
- *     ],
- * });
- * ```
  *
  * ## Import
  *

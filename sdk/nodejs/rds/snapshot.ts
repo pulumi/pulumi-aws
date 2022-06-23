@@ -7,30 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an RDS database instance snapshot. For managing RDS database cluster snapshots, see the `aws.rds.ClusterSnapshot` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = new aws.rds.Instance("bar", {
- *     allocatedStorage: 10,
- *     engine: "mysql",
- *     engineVersion: "5.6.21",
- *     instanceClass: "db.t2.micro",
- *     name: "baz",
- *     password: "barbarbarbar",
- *     username: "foo",
- *     maintenanceWindow: "Fri:09:00-Fri:09:30",
- *     backupRetentionPeriod: 0,
- *     parameterGroupName: "default.mysql5.6",
- * });
- * const test = new aws.rds.Snapshot("test", {
- *     dbInstanceIdentifier: bar.id,
- *     dbSnapshotIdentifier: "testsnapshot1234",
- * });
- * ```
- *
  * ## Import
  *
  * `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,

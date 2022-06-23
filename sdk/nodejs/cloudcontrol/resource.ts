@@ -6,24 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Manages a Cloud Control API Resource. The configuration and lifecycle handling of these resources is proxied through Cloud Control API handlers to the backend service.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudcontrol.Resource("example", {
- *     typeName: "AWS::ECS::Cluster",
- *     desiredState: JSON.stringify({
- *         ClusterName: "example",
- *         Tags: [{
- *             Key: "CostCenter",
- *             Value: "IT",
- *         }],
- *     }),
- * });
- * ```
  */
 export class Resource extends pulumi.CustomResource {
     /**

@@ -12,23 +12,6 @@ import {User} from "./index";
  *
  * > **NOTE:** The usage of this resource conflicts with the `aws.iam.PolicyAttachment` resource and will permanently show a difference if both are defined.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const user = new aws.iam.User("user", {});
- * const policy = new aws.iam.Policy("policy", {
- *     description: "A test policy",
- *     policy: "{ ... policy JSON ... }",
- * });
- * const test_attach = new aws.iam.UserPolicyAttachment("test-attach", {
- *     user: user.name,
- *     policyArn: policy.arn,
- * });
- * ```
- *
  * ## Import
  *
  * IAM user policy attachments can be imported using the user name and policy arn separated by `/`.

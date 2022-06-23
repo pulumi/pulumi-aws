@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [AWS Macie Classification Job](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testAccount = new aws.macie2.Account("testAccount", {});
- * const testClassificationJob = new aws.macie2.ClassificationJob("testClassificationJob", {
- *     jobType: "ONE_TIME",
- *     s3JobDefinition: {
- *         bucketDefinitions: [{
- *             accountId: "ACCOUNT ID",
- *             buckets: ["S3 BUCKET NAME"],
- *         }],
- *     },
- * }, {
- *     dependsOn: [testAccount],
- * });
- * ```
- *
  * ## Import
  *
  * `aws_macie2_classification_job` can be imported using the id, e.g.,

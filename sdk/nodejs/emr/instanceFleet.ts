@@ -13,49 +13,6 @@ import * as utilities from "../utilities";
  * web interface. Instance Fleets are destroyed when the EMR Cluster is destroyed.
  * the provider will resize any Instance Fleet to zero when destroying the resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const task = new aws.emr.InstanceFleet("task", {
- *     clusterId: aws_emr_cluster.cluster.id,
- *     instanceTypeConfigs: [
- *         {
- *             bidPriceAsPercentageOfOnDemandPrice: 100,
- *             ebsConfigs: [{
- *                 size: 100,
- *                 type: "gp2",
- *                 volumesPerInstance: 1,
- *             }],
- *             instanceType: "m4.xlarge",
- *             weightedCapacity: 1,
- *         },
- *         {
- *             bidPriceAsPercentageOfOnDemandPrice: 100,
- *             ebsConfigs: [{
- *                 size: 100,
- *                 type: "gp2",
- *                 volumesPerInstance: 1,
- *             }],
- *             instanceType: "m4.2xlarge",
- *             weightedCapacity: 2,
- *         },
- *     ],
- *     launchSpecifications: {
- *         spotSpecifications: [{
- *             allocationStrategy: "capacity-optimized",
- *             blockDurationMinutes: 0,
- *             timeoutAction: "TERMINATE_CLUSTER",
- *             timeoutDurationMinutes: 10,
- *         }],
- *     },
- *     targetOnDemandCapacity: 1,
- *     targetSpotCapacity: 1,
- * });
- * ```
- *
  * ## Import
  *
  * EMR Instance Fleet can be imported with the EMR Cluster identifier and Instance Fleet identifier separated by a forward slash (`/`), e.g., console

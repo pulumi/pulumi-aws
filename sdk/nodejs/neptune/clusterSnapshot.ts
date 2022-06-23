@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a Neptune database cluster snapshot.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.neptune.ClusterSnapshot("example", {
- *     dbClusterIdentifier: aws_neptune_cluster.example.id,
- *     dbClusterSnapshotIdentifier: "resourcetestsnapshot1234",
- * });
- * ```
- *
  * ## Import
  *
  * `aws_neptune_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,

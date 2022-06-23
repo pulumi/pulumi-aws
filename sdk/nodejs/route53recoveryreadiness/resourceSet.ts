@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Route 53 Recovery Readiness Resource Set.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoveryreadiness.ResourceSet("example", {
- *     resourceSetName: my_cw_alarm_set,
- *     resourceSetType: "AWS::CloudWatch::Alarm",
- *     resources: [{
- *         resourceArn: aws_cloudwatch_metric_alarm.example.arn,
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,

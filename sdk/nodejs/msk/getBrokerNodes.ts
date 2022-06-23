@@ -7,17 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Get information on an Amazon MSK Broker Nodes.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.msk.getBrokerNodes({
- *     clusterArn: aws_msk_cluster.example.arn,
- * });
- * ```
  */
 export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerNodesResult> {
     if (!opts) {

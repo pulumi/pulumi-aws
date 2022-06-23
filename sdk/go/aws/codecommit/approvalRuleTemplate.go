@@ -28,7 +28,17 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := codecommit.NewApprovalRuleTemplate(ctx, "example", &codecommit.ApprovalRuleTemplateArgs{
-// 			Content:     pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2018-11-08\",\n", "    \"DestinationReferences\": [\"refs/heads/master\"],\n", "    \"Statements\": [{\n", "        \"Type\": \"Approvers\",\n", "        \"NumberOfApprovalsNeeded\": 2,\n", "        \"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]\n", "    }]\n", "}\n", "\n")),
+// 			Content: pulumi.String(fmt.Sprintf(`{
+//     "Version": "2018-11-08",
+//     "DestinationReferences": ["refs/heads/master"],
+//     "Statements": [{
+//         "Type": "Approvers",
+//         "NumberOfApprovalsNeeded": 2,
+//         "ApprovalPoolMembers": ["arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*"]
+//     }]
+// }
+//
+// `)),
 // 			Description: pulumi.String("This is an example approval rule template"),
 // 		})
 // 		if err != nil {

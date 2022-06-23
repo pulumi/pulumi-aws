@@ -29,7 +29,7 @@ import (
 // 		_, err := ses.NewTemplate(ctx, "myTemplate", &ses.TemplateArgs{
 // 			Html:    pulumi.String("<h1>Hello {{name}},</h1><p>Your favorite animal is {{favoriteanimal}}.</p>"),
 // 			Subject: pulumi.String("Greetings, {{name}}!"),
-// 			Text: pulumi.String(fmt.Sprintf("%v%v", "Hello {{name}},\n", "Your favorite animal is {{favoriteanimal}}.\n")),
+// 			Text: pulumi.String(fmt.Sprintf("Hello {{name}},\nYour favorite animal is {{favoriteanimal}}.\n")),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -8,57 +8,6 @@ import * as utilities from "../utilities";
  * Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
  *
  * ## Example Usage
- * ### For a Firewall Policy resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.ResourcePolicy("example", {
- *     resourceArn: aws_networkfirewall_firewall_policy.example.arn,
- *     policy: JSON.stringify({
- *         Statement: [{
- *             Action: [
- *                 "network-firewall:ListFirewallPolicies",
- *                 "network-firewall:CreateFirewall",
- *                 "network-firewall:UpdateFirewall",
- *                 "network-firewall:AssociateFirewallPolicy",
- *             ],
- *             Effect: "Allow",
- *             Resource: aws_networkfirewall_firewall_policy.example.arn,
- *             Principal: {
- *                 AWS: "arn:aws:iam::123456789012:root",
- *             },
- *         }],
- *         Version: "2012-10-17",
- *     }),
- * });
- * ```
- * ### For a Rule Group resource
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkfirewall.ResourcePolicy("example", {
- *     resourceArn: aws_networkfirewall_rule_group.example.arn,
- *     policy: JSON.stringify({
- *         Statement: [{
- *             Action: [
- *                 "network-firewall:ListRuleGroups",
- *                 "network-firewall:CreateFirewallPolicy",
- *                 "network-firewall:UpdateFirewallPolicy",
- *             ],
- *             Effect: "Allow",
- *             Resource: aws_networkfirewall_rule_group.example.arn,
- *             Principal: {
- *                 AWS: "arn:aws:iam::123456789012:root",
- *             },
- *         }],
- *         Version: "2012-10-17",
- *     }),
- * });
- * ```
  *
  * ## Import
  *

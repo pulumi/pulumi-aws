@@ -30,7 +30,43 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := acmpca.NewPolicy(ctx, "example", &acmpca.PolicyArgs{
 // 			ResourceArn: pulumi.Any(aws_acmpca_certificate_authority.Example.Arn),
-// 			Policy:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{                        \n", "   \"Version\":\"2012-10-17\",\n", "   \"Statement\":[\n", "      {    \n", "         \"Sid\":\"1\",\n", "         \"Effect\":\"Allow\",         \n", "         \"Principal\":{                                                                                                                                               \n", "            \"AWS\":\"", data.Aws_caller_identity.Current.Account_id, "\"                                                                                \n", "         },\n", "         \"Action\":[\n", "            \"acm-pca:DescribeCertificateAuthority\",\n", "            \"acm-pca:GetCertificate\",\n", "            \"acm-pca:GetCertificateAuthorityCertificate\",\n", "            \"acm-pca:ListPermissions\",\n", "            \"acm-pca:ListTags\"                                                                                   \n", "         ],                                                                                              \n", "         \"Resource\":\"", aws_acmpca_certificate_authority.Example.Arn, "\"\n", "      },\n", "      {\n", "         \"Sid\":\"1\",  \n", "         \"Effect\":\"Allow\",\n", "         \"Principal\":{\n", "            \"AWS\":\"", data.Aws_caller_identity.Current.Account_id, "\"\n", "         },\n", "         \"Action\":[\n", "            \"acm-pca:IssueCertificate\"\n", "         ],\n", "         \"Resource\":\"", aws_acmpca_certificate_authority.Example.Arn, "\",\n", "         \"Condition\":{\n", "            \"StringEquals\":{\n", "               \"acm-pca:TemplateArn\":\"arn:aws:acm-pca:::template/EndEntityCertificate/V1\"\n", "            }\n", "         }\n", "      }\n", "   ]\n", "}\n")),
+// 			Policy: pulumi.String(fmt.Sprintf(`{
+//    "Version":"2012-10-17",
+//    "Statement":[
+//       {
+//          "Sid":"1",
+//          "Effect":"Allow",
+//          "Principal":{
+//             "AWS":"%v"
+//          },
+//          "Action":[
+//             "acm-pca:DescribeCertificateAuthority",
+//             "acm-pca:GetCertificate",
+//             "acm-pca:GetCertificateAuthorityCertificate",
+//             "acm-pca:ListPermissions",
+//             "acm-pca:ListTags"
+//          ],
+//          "Resource":"%v"
+//       },
+//       {
+//          "Sid":"1",
+//          "Effect":"Allow",
+//          "Principal":{
+//             "AWS":"%v"
+//          },
+//          "Action":[
+//             "acm-pca:IssueCertificate"
+//          ],
+//          "Resource":"%v",
+//          "Condition":{
+//             "StringEquals":{
+//                "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
+//             }
+//          }
+//       }
+//    ]
+// }
+// `, data.Aws_caller_identity.Current.Account_id, aws_acmpca_certificate_authority.Example.Arn, data.Aws_caller_identity.Current.Account_id, aws_acmpca_certificate_authority.Example.Arn)),
 // 		})
 // 		if err != nil {
 // 			return err

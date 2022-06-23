@@ -34,37 +34,6 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ## Example including a RDS DB instance
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const replica = new aws.Provider("replica", {region: "us-west-2"});
- * const defaultInstance = new aws.rds.Instance("defaultInstance", {
- *     allocatedStorage: 10,
- *     identifier: "mydb",
- *     engine: "postgres",
- *     engineVersion: "13.4",
- *     instanceClass: "db.t3.micro",
- *     name: "mydb",
- *     username: "masterusername",
- *     password: "mustbeeightcharacters",
- *     backupRetentionPeriod: 7,
- *     storageEncrypted: true,
- *     skipFinalSnapshot: true,
- * });
- * const defaultKey = new aws.kms.Key("defaultKey", {description: "Encryption key for automated backups"}, {
- *     provider: "aws.replica",
- * });
- * const defaultInstanceAutomatedBackupsReplication = new aws.rds.InstanceAutomatedBackupsReplication("defaultInstanceAutomatedBackupsReplication", {
- *     sourceDbInstanceArn: defaultInstance.arn,
- *     kmsKeyId: defaultKey.arn,
- * }, {
- *     provider: "aws.replica",
- * });
- * ```
- *
  * ## Import
  *
  * RDS instance automated backups replication can be imported using the `arn`, e.g.,

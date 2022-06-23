@@ -22,30 +22,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### Example with Secret
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {});
- * const exampleSecretVersion = new aws.secretsmanager.SecretVersion("exampleSecretVersion", {
- *     secretId: exampleSecret.id,
- *     secretString: JSON.stringify({
- *         username: "example",
- *         password: "example",
- *     }),
- * });
- * const exampleCodeRepository = new aws.sagemaker.CodeRepository("exampleCodeRepository", {
- *     codeRepositoryName: "example",
- *     gitConfig: {
- *         repositoryUrl: "https://github.com/hashicorp/terraform-provider-aws.git",
- *         secretArn: exampleSecret.arn,
- *     },
- * }, {
- *     dependsOn: [exampleSecretVersion],
- * });
- * ```
  *
  * ## Import
  *

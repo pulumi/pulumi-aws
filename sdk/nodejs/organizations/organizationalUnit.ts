@@ -8,15 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create an organizational unit.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.organizations.OrganizationalUnit("example", {parentId: aws_organizations_organization.example.roots[0].id});
- * ```
- *
  * ## Import
  *
  * AWS Organizations Organizational Units can be imported by using the `id`, e.g.,

@@ -77,7 +77,7 @@ import (
 // 			HttpMethod: myDemoMethod.HttpMethod,
 // 			StatusCode: response200.StatusCode,
 // 			ResponseTemplates: pulumi.StringMap{
-// 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "#set(", "$", "inputRoot = ", "$", "input.path('", "$", "'))\n", "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n", "<message>\n", "    ", "$", "inputRoot.body\n", "</message>\n")),
+// 				"application/xml": pulumi.String(fmt.Sprintf("#set($inputRoot = $input.path('$'))\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<message>\n    $inputRoot.body\n</message>\n")),
 // 			},
 // 		})
 // 		if err != nil {

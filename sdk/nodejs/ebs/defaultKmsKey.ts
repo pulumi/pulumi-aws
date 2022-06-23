@@ -14,15 +14,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Destroying this resource will reset the default CMK to the account's AWS-managed default CMK for EBS.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ebs.DefaultKmsKey("example", {keyArn: aws_kms_key.example.arn});
- * ```
- *
  * ## Import
  *
  * The EBS default KMS CMK can be imported with the KMS key ARN, e.g., console

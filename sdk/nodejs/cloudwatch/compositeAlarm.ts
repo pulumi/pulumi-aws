@@ -9,23 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `dependsOn`, references to alarm names, and two-stage updates.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.cloudwatch.CompositeAlarm("example", {
- *     alarmDescription: "This is a composite alarm!",
- *     alarmName: "example-composite-alarm",
- *     alarmActions: aws_sns_topic.example.arn,
- *     okActions: aws_sns_topic.example.arn,
- *     alarmRule: `ALARM(${aws_cloudwatch_metric_alarm.alpha.alarm_name}) OR
- * ALARM(${aws_cloudwatch_metric_alarm.bravo.alarm_name})
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Use the `alarm_name` to import a CloudWatch Composite Alarm. For example

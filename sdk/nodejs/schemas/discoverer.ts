@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const messenger = new aws.cloudwatch.EventBus("messenger", {});
- * const test = new aws.schemas.Discoverer("test", {
- *     sourceArn: messenger.arn,
- *     description: "Auto discover event schemas",
- * });
- * ```
- *
  * ## Import
  *
  * EventBridge discoverers can be imported using the `id`, e.g., console

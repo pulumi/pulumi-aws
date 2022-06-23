@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a DB event subscription resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCluster = new aws.docdb.Cluster("exampleCluster", {
- *     clusterIdentifier: "example",
- *     availabilityZones: [
- *         data.aws_availability_zones.available.names[0],
- *         data.aws_availability_zones.available.names[1],
- *         data.aws_availability_zones.available.names[2],
- *     ],
- *     masterUsername: "foo",
- *     masterPassword: "mustbeeightcharaters",
- *     skipFinalSnapshot: true,
- * });
- * const exampleTopic = new aws.sns.Topic("exampleTopic", {});
- * const exampleEventSubscription = new aws.docdb.EventSubscription("exampleEventSubscription", {
- *     enabled: true,
- *     eventCategories: [
- *         "creation",
- *         "failure",
- *     ],
- *     sourceType: "db-cluster",
- *     sourceIds: [exampleCluster.id],
- *     snsTopicArn: exampleTopic.arn,
- * });
- * ```
- *
  * ## Import
  *
  * DocDB Event Subscriptions can be imported using the `name`, e.g.,

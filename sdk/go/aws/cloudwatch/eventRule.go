@@ -32,7 +32,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
 // 			Description:  pulumi.String("Capture each AWS Console Sign In"),
-// 			EventPattern: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", "  \"detail-type\": [\n", "    \"AWS Console Sign In via CloudTrail\"\n", "  ]\n", "}\n")),
+// 			EventPattern: pulumi.String(fmt.Sprintf("{\n  \"detail-type\": [\n    \"AWS Console Sign In via CloudTrail\"\n  ]\n}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

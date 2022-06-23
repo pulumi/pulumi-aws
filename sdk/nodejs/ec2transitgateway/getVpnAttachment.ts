@@ -11,17 +11,6 @@ import * as utilities from "../utilities";
  * > EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transitGatewayAttachmentId` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
  *
  * ## Example Usage
- * ### By Transit Gateway and VPN Connection Identifiers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ec2transitgateway.getVpnAttachment({
- *     transitGatewayId: aws_ec2_transit_gateway.example.id,
- *     vpnConnectionId: aws_vpn_connection.example.id,
- * });
- * ```
  * ### Filter
  *
  * ```typescript

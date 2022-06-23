@@ -19,49 +19,6 @@ import * as utilities from "../utilities";
  * For more information about default security groups, see the AWS documentation on [Default Security Groups][aws-default-security-groups]. To manage normal security groups, see the `aws.ec2.SecurityGroup` resource.
  *
  * ## Example Usage
- *
- * The following config gives the default security group the same rules that AWS provides by default but under management by this provider. This means that any ingress or egress rules added or changed will be detected as drift.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const _default = new aws.ec2.DefaultSecurityGroup("default", {
- *     vpcId: mainvpc.id,
- *     ingress: [{
- *         protocol: "-1",
- *         self: true,
- *         fromPort: 0,
- *         toPort: 0,
- *     }],
- *     egress: [{
- *         fromPort: 0,
- *         toPort: 0,
- *         protocol: "-1",
- *         cidrBlocks: ["0.0.0.0/0"],
- *     }],
- * });
- * ```
- * ### Example Config To Deny All Egress Traffic, Allowing Ingress
- *
- * The following denies all Egress traffic by omitting any `egress` rules, while including the default `ingress` rule to allow all traffic.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
- * const _default = new aws.ec2.DefaultSecurityGroup("default", {
- *     vpcId: mainvpc.id,
- *     ingress: [{
- *         protocol: "-1",
- *         self: true,
- *         fromPort: 0,
- *         toPort: 0,
- *     }],
- * });
- * ```
  * ### Removing `aws.ec2.DefaultSecurityGroup` From Your Configuration
  *
  * Removing this resource from your configuration will remove it from your statefile and management, but will not destroy the Security Group. All ingress or egress rules will be left as they are at the time of removal. You can resume managing them via the AWS Console.

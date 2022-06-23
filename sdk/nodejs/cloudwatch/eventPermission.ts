@@ -24,22 +24,6 @@ import * as utilities from "../utilities";
  *     statementId: "DevAccountAccess",
  * });
  * ```
- * ### Organization Access
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const organizationAccess = new aws.cloudwatch.EventPermission("organizationAccess", {
- *     principal: "*",
- *     statementId: "OrganizationAccess",
- *     condition: {
- *         key: "aws:PrincipalOrgID",
- *         type: "StringEquals",
- *         value: aws_organizations_organization.example.id,
- *     },
- * });
- * ```
  *
  * ## Import
  *

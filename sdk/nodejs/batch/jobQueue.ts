@@ -8,45 +8,6 @@ import * as utilities from "../utilities";
  * Provides a Batch Job Queue resource.
  *
  * ## Example Usage
- * ### Basic Job Queue
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testQueue = new aws.batch.JobQueue("testQueue", {
- *     state: "ENABLED",
- *     priority: 1,
- *     computeEnvironments: [
- *         aws_batch_compute_environment.test_environment_1.arn,
- *         aws_batch_compute_environment.test_environment_2.arn,
- *     ],
- * });
- * ```
- * ### Job Queue with a fair share scheduling policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSchedulingPolicy = new aws.batch.SchedulingPolicy("exampleSchedulingPolicy", {fairSharePolicy: {
- *     computeReservation: 1,
- *     shareDecaySeconds: 3600,
- *     shareDistributions: [{
- *         shareIdentifier: "A1*",
- *         weightFactor: 0.1,
- *     }],
- * }});
- * const exampleJobQueue = new aws.batch.JobQueue("exampleJobQueue", {
- *     schedulingPolicyArn: exampleSchedulingPolicy.arn,
- *     state: "ENABLED",
- *     priority: 1,
- *     computeEnvironments: [
- *         aws_batch_compute_environment.test_environment_1.arn,
- *         aws_batch_compute_environment.test_environment_2.arn,
- *     ],
- * });
- * ```
  *
  * ## Import
  *

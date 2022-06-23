@@ -66,7 +66,7 @@ import (
 // 					},
 // 					SlotConstraint:  pulumi.String("Required"),
 // 					SlotType:        pulumi.String("FlowerTypes"),
-// 					SlotTypeVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
+// 					SlotTypeVersion: pulumi.String(fmt.Sprintf("$LATEST")),
 // 					ValueElicitationPrompt: &lex.IntentSlotValueElicitationPromptArgs{
 // 						MaxAttempts: pulumi.Int(2),
 // 						Message: []map[string]interface{}{
@@ -86,7 +86,7 @@ import (
 // 					},
 // 					SlotConstraint:  pulumi.String("Required"),
 // 					SlotType:        pulumi.String("AMAZON.DATE"),
-// 					SlotTypeVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
+// 					SlotTypeVersion: pulumi.String(fmt.Sprintf("$LATEST")),
 // 					ValueElicitationPrompt: &lex.IntentSlotValueElicitationPromptArgs{
 // 						MaxAttempts: pulumi.Int(2),
 // 						Message: []map[string]interface{}{
@@ -106,7 +106,7 @@ import (
 // 					},
 // 					SlotConstraint:  pulumi.String("Required"),
 // 					SlotType:        pulumi.String("AMAZON.TIME"),
-// 					SlotTypeVersion: pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
+// 					SlotTypeVersion: pulumi.String(fmt.Sprintf("$LATEST")),
 // 					ValueElicitationPrompt: &lex.IntentSlotValueElicitationPromptArgs{
 // 						MaxAttempts: pulumi.Int(2),
 // 						Message: []map[string]interface{}{

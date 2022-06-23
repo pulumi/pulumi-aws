@@ -56,7 +56,7 @@ import (
 // 							"Principal": map[string]interface{}{
 // 								"AWS": "*",
 // 							},
-// 							"Resource": fmt.Sprintf("%v%v", arn, "/object/*"),
+// 							"Resource": fmt.Sprintf("%v/object/*", arn),
 // 						},
 // 					},
 // 				})

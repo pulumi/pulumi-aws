@@ -51,7 +51,7 @@ import (
 // 				Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
 // 					RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
 // 						&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
-// 							Mapping: pulumi.String(fmt.Sprintf("%v%v", "$", ".test")),
+// 							Mapping: pulumi.String(fmt.Sprintf("$.test")),
 // 							Name:    pulumi.String("test"),
 // 							SqlType: pulumi.String("VARCHAR(8)"),
 // 						},

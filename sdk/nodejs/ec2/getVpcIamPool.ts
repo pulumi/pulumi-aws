@@ -11,34 +11,6 @@ import * as utilities from "../utilities";
  * This resource can prove useful when an ipam pool was created in another root
  * module and you need the pool's id as an input variable. For example, pools
  * can be shared via RAM and used to create vpcs with CIDRs from that pool.
- *
- * ## Example Usage
- *
- * The following example shows an account that has only 1 pool, perhaps shared
- * via RAM, and using that pool id to create a VPC with a CIDR derived from
- * AWS IPAM.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testVpcIamPool = aws.ec2.getVpcIamPool({
- *     filters: [
- *         {
- *             name: "description",
- *             values: ["*test*"],
- *         },
- *         {
- *             name: "address-family",
- *             values: ["ipv4"],
- *         },
- *     ],
- * });
- * const testVpc = new aws.ec2.Vpc("testVpc", {
- *     ipv4IpamPoolId: testVpcIamPool.then(testVpcIamPool => testVpcIamPool.id),
- *     ipv4NetmaskLength: 28,
- * });
- * ```
  */
 export function getVpcIamPool(args?: GetVpcIamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolResult> {
     args = args || {};

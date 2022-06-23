@@ -4,19 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ec2.NetworkAclAssociation("main", {
- *     networkAclId: aws_network_acl.main.id,
- *     subnetId: aws_subnet.main.id,
- * });
- * ```
- */
 export class NetworkAclAssociation extends pulumi.CustomResource {
     /**
      * Get an existing NetworkAclAssociation resource's state with the given name, ID, and optional extra

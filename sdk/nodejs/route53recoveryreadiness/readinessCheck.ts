@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Route 53 Recovery Readiness Readiness Check.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.route53recoveryreadiness.ReadinessCheck("example", {
- *     readinessCheckName: my_cw_alarm_check,
- *     resourceSetName: my_cw_alarm_set,
- * });
- * ```
- *
  * ## Import
  *
  * Route53 Recovery Readiness readiness checks can be imported via the readiness check name, e.g.,

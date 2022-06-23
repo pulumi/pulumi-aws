@@ -10,24 +10,6 @@ import * as utilities from "../utilities";
  * can be specified when creating a VPC endpoint within the region configured in the provider.
  *
  * ## Example Usage
- * ### AWS Service
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const s3 = aws.ec2.getVpcEndpointService({
- *     service: "s3",
- *     serviceType: "Gateway",
- * });
- * // Create a VPC
- * const foo = new aws.ec2.Vpc("foo", {cidrBlock: "10.0.0.0/16"});
- * // Create a VPC endpoint
- * const ep = new aws.ec2.VpcEndpoint("ep", {
- *     vpcId: foo.id,
- *     serviceName: s3.then(s3 => s3.serviceName),
- * });
- * ```
  * ### Non-AWS Service
  *
  * ```typescript

@@ -10,52 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Delivery Channel requires a `Configuration Recorder` to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bucketV2 = new aws.s3.BucketV2("bucketV2", {forceDestroy: true});
- * const role = new aws.iam.Role("role", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "config.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const fooRecorder = new aws.cfg.Recorder("fooRecorder", {roleArn: role.arn});
- * const fooDeliveryChannel = new aws.cfg.DeliveryChannel("fooDeliveryChannel", {s3BucketName: bucketV2.bucket}, {
- *     dependsOn: [fooRecorder],
- * });
- * const rolePolicy = new aws.iam.RolePolicy("rolePolicy", {
- *     role: role.id,
- *     policy: pulumi.interpolate`{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:*"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": [
- *         "${bucketV2.arn}",
- *         "${bucketV2.arn}/*"
- *       ]
- *     }
- *   ]
- * }
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Delivery Channel can be imported using the name, e.g.,

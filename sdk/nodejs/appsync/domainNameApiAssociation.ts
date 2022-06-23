@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppSync API Association.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.DomainNameApiAssociation("example", {
- *     apiId: aws_appsync_graphql_api.example.id,
- *     domainName: aws_appsync_domain_name.example.domain_name,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_appsync_domain_name_api_association` can be imported using the AppSync domain name, e.g.,

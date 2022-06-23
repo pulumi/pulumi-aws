@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides an OpsWorks User Profile resource.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myProfile = new aws.opsworks.UserProfile("myProfile", {
- *     userArn: aws_iam_user.user.arn,
- *     sshUsername: "my_user",
- * });
- * ```
  */
 export class UserProfile extends pulumi.CustomResource {
     /**

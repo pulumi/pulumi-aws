@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a new Amazon Redshift endpoint access.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshift.EndpointAccess("example", {
- *     endpointName: "example",
- *     subnetGroupName: aws_redshift_subnet_group.example.id,
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- * });
- * ```
- *
  * ## Import
  *
  * Redshift endpoint access can be imported using the `name`, e.g.,

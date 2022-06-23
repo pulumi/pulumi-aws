@@ -29,21 +29,6 @@ import * as utilities from "../utilities";
  *     authenticationType: "AWS_IAM",
  * });
  * ```
- * ### AWS Cognito User Pool Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AMAZON_COGNITO_USER_POOLS",
- *     userPoolConfig: {
- *         awsRegion: data.aws_region.current.name,
- *         defaultAction: "DENY",
- *         userPoolId: aws_cognito_user_pool.example.id,
- *     },
- * });
- * ```
  * ### OpenID Connect Authentication
  *
  * ```typescript
@@ -55,25 +40,6 @@ import * as utilities from "../utilities";
  *     openidConnectConfig: {
  *         issuer: "https://example.com",
  *     },
- * });
- * ```
- * ### AWS Lambda Authorizer Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AWS_LAMBDA",
- *     lambdaAuthorizerConfig: {
- *         authorizerUri: "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
- *     },
- * });
- * const appsyncLambdaAuthorizer = new aws.lambda.Permission("appsyncLambdaAuthorizer", {
- *     action: "lambda:InvokeFunction",
- *     "function": "custom_lambda_authorizer",
- *     principal: "appsync.amazonaws.com",
- *     sourceArn: example.arn,
  * });
  * ```
  * ### With Multiple Authentication Providers
@@ -104,77 +70,6 @@ import * as utilities from "../utilities";
  *   test: Int
  * }
  * `,
- * });
- * ```
- * ### Enabling Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *         "Effect": "Allow",
- *         "Principal": {
- *             "Service": "appsync.amazonaws.com"
- *         },
- *         "Action": "sts:AssumeRole"
- *         }
- *     ]
- * }
- * `});
- * const exampleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("exampleRolePolicyAttachment", {
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs",
- *     role: exampleRole.name,
- * });
- * // ... other configuration ...
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {logConfig: {
- *     cloudwatchLogsRoleArn: exampleRole.arn,
- *     fieldLogLevel: "ERROR",
- * }});
- * ```
- * ### Associate Web ACL (v2)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGraphQLApi = new aws.appsync.GraphQLApi("exampleGraphQLApi", {authenticationType: "API_KEY"});
- * const exampleWebAcl = new aws.wafv2.WebAcl("exampleWebAcl", {
- *     description: "Example of a managed rule.",
- *     scope: "REGIONAL",
- *     defaultAction: {
- *         allow: {},
- *     },
- *     rules: [{
- *         name: "rule-1",
- *         priority: 1,
- *         overrideAction: {
- *             block: [{}],
- *         },
- *         statement: {
- *             managedRuleGroupStatement: {
- *                 name: "AWSManagedRulesCommonRuleSet",
- *                 vendorName: "AWS",
- *             },
- *         },
- *         visibilityConfig: {
- *             cloudwatchMetricsEnabled: false,
- *             metricName: "friendly-rule-metric-name",
- *             sampledRequestsEnabled: false,
- *         },
- *     }],
- *     visibilityConfig: {
- *         cloudwatchMetricsEnabled: false,
- *         metricName: "friendly-metric-name",
- *         sampledRequestsEnabled: false,
- *     },
- * });
- * const exampleWebAclAssociation = new aws.wafv2.WebAclAssociation("exampleWebAclAssociation", {
- *     resourceArn: exampleGraphQLApi.arn,
- *     webAclArn: exampleWebAcl.arn,
  * });
  * ```
  *

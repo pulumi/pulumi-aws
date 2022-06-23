@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const bar = new aws.autoscaling.Group("bar", {
- *     availabilityZones: ["us-east-1a"],
- *     maxSize: 5,
- *     minSize: 2,
- *     healthCheckGracePeriod: 300,
- *     healthCheckType: "ELB",
- *     forceDelete: true,
- *     launchConfiguration: aws_launch_configuration.foo.name,
- * });
- * const bat = new aws.autoscaling.Policy("bat", {
- *     scalingAdjustment: 4,
- *     adjustmentType: "ChangeInCapacity",
- *     cooldown: 300,
- *     autoscalingGroupName: bar.name,
- * });
- * ```
  * ### Create predictive scaling policy using customized metrics
  *
  * ```typescript

@@ -8,55 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage a CloudWatch log resource policy.
  *
  * ## Example Usage
- * ### Elasticsearch Log Publishing
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const elasticsearch-log-publishing-policyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *             "logs:PutLogEventsBatch",
- *         ],
- *         resources: ["arn:aws:logs:*"],
- *         principals: [{
- *             identifiers: ["es.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const elasticsearch_log_publishing_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("elasticsearch-log-publishing-policyLogResourcePolicy", {
- *     policyDocument: elasticsearch_log_publishing_policyPolicyDocument.then(elasticsearch_log_publishing_policyPolicyDocument => elasticsearch_log_publishing_policyPolicyDocument.json),
- *     policyName: "elasticsearch-log-publishing-policy",
- * });
- * ```
- * ### Route53 Query Logging
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const route53-query-logging-policyPolicyDocument = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: [
- *             "logs:CreateLogStream",
- *             "logs:PutLogEvents",
- *         ],
- *         resources: ["arn:aws:logs:*:*:log-group:/aws/route53/*"],
- *         principals: [{
- *             identifiers: ["route53.amazonaws.com"],
- *             type: "Service",
- *         }],
- *     }],
- * });
- * const route53_query_logging_policyLogResourcePolicy = new aws.cloudwatch.LogResourcePolicy("route53-query-logging-policyLogResourcePolicy", {
- *     policyDocument: route53_query_logging_policyPolicyDocument.then(route53_query_logging_policyPolicyDocument => route53_query_logging_policyPolicyDocument.json),
- *     policyName: "route53-query-logging-policy",
- * });
- * ```
  *
  * ## Import
  *

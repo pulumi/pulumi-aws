@@ -9,16 +9,6 @@ import * as utilities from "../utilities";
  * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
  *
  * ## Example Usage
- * ### Retrieve Secret Rotation Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.secretsmanager.getSecretRotation({
- *     secretId: data.aws_secretsmanager_secret.example.id,
- * });
- * ```
  */
 export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretRotationResult> {
     if (!opts) {

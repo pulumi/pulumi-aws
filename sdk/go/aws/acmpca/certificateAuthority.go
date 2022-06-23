@@ -77,7 +77,7 @@ import (
 // 					Resources: pulumi.StringArray{
 // 						exampleBucketV2.Arn,
 // 						exampleBucketV2.Arn.ApplyT(func(arn string) (string, error) {
-// 							return fmt.Sprintf("%v%v", arn, "/*"), nil
+// 							return fmt.Sprintf("%v/*", arn), nil
 // 						}).(pulumi.StringOutput),
 // 					},
 // 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{

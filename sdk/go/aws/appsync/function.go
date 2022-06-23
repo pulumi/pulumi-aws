@@ -29,7 +29,24 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleGraphQLApi, err := appsync.NewGraphQLApi(ctx, "exampleGraphQLApi", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("API_KEY"),
-// 			Schema:             pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "type Mutation {\n", "  putPost(id: ID!, title: String!): Post\n", "}\n", "\n", "type Post {\n", "  id: ID!\n", "  title: String!\n", "}\n", "\n", "type Query {\n", "  singlePost(id: ID!): Post\n", "}\n", "\n", "schema {\n", "  query: Query\n", "  mutation: Mutation\n", "}\n")),
+// 			Schema: pulumi.String(fmt.Sprintf(`type Mutation {
+//   putPost(id: ID!, title: String!): Post
+// }
+//
+// type Post {
+//   id: ID!
+//   title: String!
+// }
+//
+// type Query {
+//   singlePost(id: ID!): Post
+// }
+//
+// schema {
+//   query: Query
+//   mutation: Mutation
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -46,11 +63,19 @@ import (
 // 			return err
 // 		}
 // 		_, err = appsync.NewFunction(ctx, "exampleFunction", &appsync.FunctionArgs{
-// 			ApiId:                   exampleGraphQLApi.ID(),
-// 			DataSource:              exampleDataSource.Name,
-// 			Name:                    pulumi.String("example"),
-// 			RequestMappingTemplate:  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"version\": \"2018-05-29\",\n", "    \"method\": \"GET\",\n", "    \"resourcePath\": \"/\",\n", "    \"params\":{\n", "        \"headers\": ", "$", "utils.http.copyheaders(", "$", "ctx.request.headers)\n", "    }\n", "}\n")),
-// 			ResponseMappingTemplate: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "#if(", "$", "ctx.result.statusCode == 200)\n", "    ", "$", "ctx.result.body\n", "#else\n", "    ", "$", "utils.appendError(", "$", "ctx.result.body, ", "$", "ctx.result.statusCode)\n", "#end\n")),
+// 			ApiId:      exampleGraphQLApi.ID(),
+// 			DataSource: exampleDataSource.Name,
+// 			Name:       pulumi.String("example"),
+// 			RequestMappingTemplate: pulumi.String(fmt.Sprintf(`{
+//     "version": "2018-05-29",
+//     "method": "GET",
+//     "resourcePath": "/",
+//     "params":{
+//         "headers": $utils.http.copyheaders($ctx.request.headers)
+//     }
+// }
+// `)),
+// 			ResponseMappingTemplate: pulumi.String(fmt.Sprintf("#if($ctx.result.statusCode == 200)\n    $ctx.result.body\n#else\n    $utils.appendError($ctx.result.body, $ctx.result.statusCode)\n#end\n")),
 // 		})
 // 		if err != nil {
 // 			return err

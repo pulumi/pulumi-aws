@@ -12,21 +12,6 @@ import {ARN} from "..";
  *
  * > **NOTE:** The EFS File System must have a mounted EFS Mount Target before creating this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.EfsLocation("example", {
- *     efsFileSystemArn: aws_efs_mount_target.example.file_system_arn,
- *     ec2Config: {
- *         securityGroupArns: [aws_security_group.example.arn],
- *         subnetArn: aws_subnet.example.arn,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_datasync_location_efs` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,

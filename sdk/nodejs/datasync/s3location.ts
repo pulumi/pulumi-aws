@@ -10,21 +10,6 @@ import {ARN} from "..";
 /**
  * Manages an S3 Location within AWS DataSync.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.S3Location("example", {
- *     s3BucketArn: aws_s3_bucket.example.arn,
- *     subdirectory: "/example/prefix",
- *     s3Config: {
- *         bucketAccessRoleArn: aws_iam_role.example.arn,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_datasync_location_s3` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,

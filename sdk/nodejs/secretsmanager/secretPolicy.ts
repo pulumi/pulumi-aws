@@ -8,32 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to manage AWS Secrets Manager secret policy.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleSecret = new aws.secretsmanager.Secret("exampleSecret", {});
- * const exampleSecretPolicy = new aws.secretsmanager.SecretPolicy("exampleSecretPolicy", {
- *     secretArn: exampleSecret.arn,
- *     policy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- * 	{
- * 	  "Sid": "EnableAnotherAWSAccountToReadTheSecret",
- * 	  "Effect": "Allow",
- * 	  "Principal": {
- * 		"AWS": "arn:aws:iam::123456789012:root"
- * 	  },
- * 	  "Action": "secretsmanager:GetSecretValue",
- * 	  "Resource": "*"
- * 	}
- *   ]
- * }
- * `,
- * });
- * ```
  *
  * ## Import
  *

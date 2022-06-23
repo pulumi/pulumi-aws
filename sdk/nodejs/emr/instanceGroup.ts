@@ -13,19 +13,6 @@ import * as utilities from "../utilities";
  * web interface. Instance Groups are destroyed when the EMR Cluster is destroyed.
  * this provider will resize any Instance Group to zero when destroying the resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const task = new aws.emr.InstanceGroup("task", {
- *     clusterId: aws_emr_cluster["tf-test-cluster"].id,
- *     instanceCount: 1,
- *     instanceType: "m5.xlarge",
- * });
- * ```
- *
  * ## Import
  *
  * EMR task instance group can be imported using their EMR Cluster id and Instance Group id separated by a forward-slash `/`, e.g.,

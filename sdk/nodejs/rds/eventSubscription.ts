@@ -7,43 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a DB event subscription resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultInstance = new aws.rds.Instance("defaultInstance", {
- *     allocatedStorage: 10,
- *     engine: "mysql",
- *     engineVersion: "5.6.17",
- *     instanceClass: "db.t2.micro",
- *     name: "mydb",
- *     username: "foo",
- *     password: "bar",
- *     dbSubnetGroupName: "my_database_subnet_group",
- *     parameterGroupName: "default.mysql5.6",
- * });
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultEventSubscription = new aws.rds.EventSubscription("defaultEventSubscription", {
- *     snsTopic: defaultTopic.arn,
- *     sourceType: "db-instance",
- *     sourceIds: [defaultInstance.id],
- *     eventCategories: [
- *         "availability",
- *         "deletion",
- *         "failover",
- *         "failure",
- *         "low storage",
- *         "maintenance",
- *         "notification",
- *         "read replica",
- *         "recovery",
- *         "restoration",
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * DB Event Subscriptions can be imported using the `name`, e.g.,

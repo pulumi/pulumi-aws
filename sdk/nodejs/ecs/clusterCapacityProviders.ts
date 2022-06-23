@@ -6,24 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCluster = new aws.ecs.Cluster("exampleCluster", {});
- * const exampleClusterCapacityProviders = new aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", {
- *     clusterName: exampleCluster.name,
- *     capacityProviders: ["FARGATE"],
- *     defaultCapacityProviderStrategies: [{
- *         base: 1,
- *         weight: 100,
- *         capacityProvider: "FARGATE",
- *     }],
- * });
- * ```
- *
  * ## Import
  *
  * ECS cluster capacity providers can be imported using the `cluster_name` attribute. For example

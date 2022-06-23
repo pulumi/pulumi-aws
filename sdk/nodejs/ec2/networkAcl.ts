@@ -6,36 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = new aws.ec2.NetworkAcl("main", {
- *     vpcId: aws_vpc.main.id,
- *     egress: [{
- *         protocol: "tcp",
- *         ruleNo: 200,
- *         action: "allow",
- *         cidrBlock: "10.3.0.0/18",
- *         fromPort: 443,
- *         toPort: 443,
- *     }],
- *     ingress: [{
- *         protocol: "tcp",
- *         ruleNo: 100,
- *         action: "allow",
- *         cidrBlock: "10.3.0.0/18",
- *         fromPort: 80,
- *         toPort: 80,
- *     }],
- *     tags: {
- *         Name: "main",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Network ACLs can be imported using the `id`, e.g.,

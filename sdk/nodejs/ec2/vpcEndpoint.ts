@@ -7,64 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const s3 = new aws.ec2.VpcEndpoint("s3", {
- *     vpcId: aws_vpc.main.id,
- *     serviceName: "com.amazonaws.us-west-2.s3",
- * });
- * ```
- * ### Basic w/ Tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const s3 = new aws.ec2.VpcEndpoint("s3", {
- *     vpcId: aws_vpc.main.id,
- *     serviceName: "com.amazonaws.us-west-2.s3",
- *     tags: {
- *         Environment: "test",
- *     },
- * });
- * ```
- * ### Interface Endpoint Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
- *     vpcId: aws_vpc.main.id,
- *     serviceName: "com.amazonaws.us-west-2.ec2",
- *     vpcEndpointType: "Interface",
- *     securityGroupIds: [aws_security_group.sg1.id],
- *     privateDnsEnabled: true,
- * });
- * ```
- * ### Gateway Load Balancer Endpoint Type
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getCallerIdentity({});
- * const exampleVpcEndpointService = new aws.ec2.VpcEndpointService("exampleVpcEndpointService", {
- *     acceptanceRequired: false,
- *     allowedPrincipals: [current.then(current => current.arn)],
- *     gatewayLoadBalancerArns: [aws_lb.example.arn],
- * });
- * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("exampleVpcEndpoint", {
- *     serviceName: exampleVpcEndpointService.serviceName,
- *     subnetIds: [aws_subnet.example.id],
- *     vpcEndpointType: exampleVpcEndpointService.serviceType,
- *     vpcId: aws_vpc.example.id,
- * });
- * ```
  *
  * ## Import
  *

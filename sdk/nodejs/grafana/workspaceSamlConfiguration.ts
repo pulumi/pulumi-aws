@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Managed Grafana workspace SAML configuration resource.
  *
  * ## Example Usage
- * ### Basic configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assume = new aws.iam.Role("assume", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "grafana.amazonaws.com",
- *         },
- *     }],
- * })});
- * const exampleWorkspace = new aws.grafana.Workspace("exampleWorkspace", {
- *     accountAccessType: "CURRENT_ACCOUNT",
- *     authenticationProviders: ["SAML"],
- *     permissionType: "SERVICE_MANAGED",
- *     roleArn: assume.arn,
- * });
- * const exampleWorkspaceSamlConfiguration = new aws.grafana.WorkspaceSamlConfiguration("exampleWorkspaceSamlConfiguration", {
- *     editorRoleValues: ["editor"],
- *     idpMetadataUrl: "https://my_idp_metadata.url",
- *     workspaceId: exampleWorkspace.id,
- * });
- * ```
  *
  * ## Import
  *

@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a link for a site.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.Link("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     siteId: aws_networkmanager_global_site.example.id,
- *     bandwidth: {
- *         uploadSpeed: 10,
- *         downloadSpeed: 50,
- *     },
- *     providerName: "MegaCorp",
- * });
- * ```
- *
  * ## Import
  *
  * `aws_networkmanager_link` can be imported using the link ARN, e.g.

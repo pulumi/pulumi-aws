@@ -12,37 +12,6 @@ import * as utilities from "../utilities";
  *
  * > This functionality is for managing [S3 on Outposts](https://docs.aws.amazon.com/AmazonS3/latest/dev/S3onOutposts.html). To manage S3 Bucket Lifecycle Configurations in an AWS Partition, see the `aws.s3.BucketV2` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3control.BucketLifecycleConfiguration("example", {
- *     bucket: aws_s3control_bucket.example.arn,
- *     rules: [
- *         {
- *             expiration: {
- *                 days: 365,
- *             },
- *             filter: {
- *                 prefix: "logs/",
- *             },
- *             id: "logs",
- *         },
- *         {
- *             expiration: {
- *                 days: 7,
- *             },
- *             filter: {
- *                 prefix: "temp/",
- *             },
- *             id: "temp",
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * S3 Control Bucket Lifecycle Configurations can be imported using the Amazon Resource Name (ARN), e.g.,

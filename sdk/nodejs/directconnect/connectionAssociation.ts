@@ -6,26 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Associates a Direct Connect Connection with a LAG.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleConnection = new aws.directconnect.Connection("exampleConnection", {
- *     bandwidth: "1Gbps",
- *     location: "EqSe2-EQ",
- * });
- * const exampleLinkAggregationGroup = new aws.directconnect.LinkAggregationGroup("exampleLinkAggregationGroup", {
- *     connectionsBandwidth: "1Gbps",
- *     location: "EqSe2-EQ",
- * });
- * const exampleConnectionAssociation = new aws.directconnect.ConnectionAssociation("exampleConnectionAssociation", {
- *     connectionId: exampleConnection.id,
- *     lagId: exampleLinkAggregationGroup.id,
- * });
- * ```
  */
 export class ConnectionAssociation extends pulumi.CustomResource {
     /**

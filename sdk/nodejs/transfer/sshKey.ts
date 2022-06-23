@@ -7,63 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a AWS Transfer User SSH Key resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleServer = new aws.transfer.Server("exampleServer", {
- *     identityProviderType: "SERVICE_MANAGED",
- *     tags: {
- *         NAME: "tf-acc-test-transfer-server",
- *     },
- * });
- * const exampleRole = new aws.iam.Role("exampleRole", {assumeRolePolicy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 		"Effect": "Allow",
- * 		"Principal": {
- * 			"Service": "transfer.amazonaws.com"
- * 		},
- * 		"Action": "sts:AssumeRole"
- * 		}
- * 	]
- * }
- * `});
- * const exampleUser = new aws.transfer.User("exampleUser", {
- *     serverId: exampleServer.id,
- *     userName: "tftestuser",
- *     role: exampleRole.arn,
- *     tags: {
- *         NAME: "tftestuser",
- *     },
- * });
- * const exampleSshKey = new aws.transfer.SshKey("exampleSshKey", {
- *     serverId: exampleServer.id,
- *     userName: exampleUser.userName,
- *     body: "... SSH key ...",
- * });
- * const exampleRolePolicy = new aws.iam.RolePolicy("exampleRolePolicy", {
- *     role: exampleRole.id,
- *     policy: `{
- * 	"Version": "2012-10-17",
- * 	"Statement": [
- * 		{
- * 			"Sid": "AllowFullAccesstoS3",
- * 			"Effect": "Allow",
- * 			"Action": [
- * 				"s3:*"
- * 			],
- * 			"Resource": "*"
- * 		}
- * 	]
- * }
- * `,
- * });
- * ```
- *
  * ## Import
  *
  * Transfer SSH Public Key can be imported using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`.

@@ -11,24 +11,6 @@ import * as utilities from "../utilities";
  * For information about Lambda and how to use it, see [What is AWS Lambda?](http://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
  * For information about function aliases, see [CreateAlias](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateAlias.html) and [AliasRoutingConfiguration](https://docs.aws.amazon.com/lambda/latest/dg/API_AliasRoutingConfiguration.html) in the API docs.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testLambdaAlias = new aws.lambda.Alias("testLambdaAlias", {
- *     description: "a sample description",
- *     functionName: aws_lambda_function.lambda_function_test.arn,
- *     functionVersion: "1",
- *     routingConfig: {
- *         additionalVersionWeights: {
- *             "2": 0.5,
- *         },
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,

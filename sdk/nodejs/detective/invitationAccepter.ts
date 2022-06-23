@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [Amazon Detective Invitation Accepter](https://docs.aws.amazon.com/detective/latest/APIReference/API_AcceptInvitation.html). Ensure that the accepter is configured to use the AWS account you wish to _accept_ the invitation from the primary graph owner account.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primaryGraph = new aws.detective.Graph("primaryGraph", {});
- * const primaryMember = new aws.detective.Member("primaryMember", {
- *     accountId: "ACCOUNT ID",
- *     emailAddress: "EMAIL",
- *     graphArn: primaryGraph.id,
- *     message: "Message of the invite",
- * });
- * const member = new aws.detective.InvitationAccepter("member", {graphArn: primaryGraph.graphArn}, {
- *     provider: "awsalternate",
- *     dependsOn: [primaryMember],
- * });
- * ```
- *
  * ## Import
  *
  * `aws_detective_invitation_accepter` can be imported using the graph ARN, e.g.

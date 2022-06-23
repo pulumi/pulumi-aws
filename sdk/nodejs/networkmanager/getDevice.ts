@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about a device.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getDevice({
- *     globalNetworkIdId: _var.global_network_id,
- *     deviceId: _var.device_id,
- * });
- * ```
  */
 export function getDevice(args: GetDeviceArgs, opts?: pulumi.InvokeOptions): Promise<GetDeviceResult> {
     if (!opts) {

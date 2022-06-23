@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint APNs VoIP Sandbox Channel resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const apnsVoipSandbox = new aws.pinpoint.ApnsVoipSandboxChannel("apnsVoipSandbox", {
- *     applicationId: app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem"),
- *     privateKey: fs.readFileSync("./private_key.key"),
- * });
- * ```
- *
  * ## Import
  *
  * Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.,

@@ -8,28 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an [Amazon Macie Findings Filter](https://docs.aws.amazon.com/macie/latest/APIReference/findingsfilters-id.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.macie2.Account("example", {});
- * const test = new aws.macie.FindingsFilter("test", {
- *     description: "DESCRIPTION",
- *     position: 1,
- *     action: "ARCHIVE",
- *     findingCriteria: {
- *         criterions: [{
- *             field: "region",
- *             eqs: [data.aws_region.current.name],
- *         }],
- *     },
- * }, {
- *     dependsOn: [aws_macie2_account.test],
- * });
- * ```
- *
  * ## Import
  *
  * `aws_macie2_findings_filter` can be imported using the id, e.g.,

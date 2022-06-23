@@ -31,7 +31,15 @@ import (
 // 		_, err := apigatewayv2.NewModel(ctx, "example", &apigatewayv2.ModelArgs{
 // 			ApiId:       pulumi.Any(aws_apigatewayv2_api.Example.Id),
 // 			ContentType: pulumi.String("application/json"),
-// 			Schema:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"", "$", "schema\": \"http://json-schema.org/draft-04/schema#\",\n", "  \"title\": \"ExampleModel\",\n", "  \"type\": \"object\",\n", "  \"properties\": {\n", "    \"id\": { \"type\": \"string\" }\n", "  }\n", "}\n")),
+// 			Schema: pulumi.String(fmt.Sprintf(`{
+//   "$schema": "http://json-schema.org/draft-04/schema#",
+//   "title": "ExampleModel",
+//   "type": "object",
+//   "properties": {
+//     "id": { "type": "string" }
+//   }
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

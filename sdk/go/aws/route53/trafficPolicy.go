@@ -28,8 +28,20 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := route53.NewTrafficPolicy(ctx, "example", &route53.TrafficPolicyArgs{
-// 			Comment:  pulumi.String("example comment"),
-// 			Document: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"AWSPolicyFormatVersion\": \"2015-10-01\",\n", "  \"RecordType\": \"A\",\n", "  \"Endpoints\": {\n", "    \"endpoint-start-NkPh\": {\n", "      \"Type\": \"value\",\n", "      \"Value\": \"10.0.0.2\"\n", "    }\n", "  },\n", "  \"StartEndpoint\": \"endpoint-start-NkPh\"\n", "}\n", "\n")),
+// 			Comment: pulumi.String("example comment"),
+// 			Document: pulumi.String(fmt.Sprintf(`{
+//   "AWSPolicyFormatVersion": "2015-10-01",
+//   "RecordType": "A",
+//   "Endpoints": {
+//     "endpoint-start-NkPh": {
+//       "Type": "value",
+//       "Value": "10.0.0.2"
+//     }
+//   },
+//   "StartEndpoint": "endpoint-start-NkPh"
+// }
+//
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

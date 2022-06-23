@@ -53,7 +53,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			ParentImage: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "arn:", data.Aws_partition.Current.Partition, ":imagebuilder:", data.Aws_region.Current.Name, ":aws:image/amazon-linux-2-x86/x.x.x")),
+// 			ParentImage: pulumi.String(fmt.Sprintf("arn:%v:imagebuilder:%v:aws:image/amazon-linux-2-x86/x.x.x", data.Aws_partition.Current.Partition, data.Aws_region.Current.Name)),
 // 			Version:     pulumi.String("1.0.0"),
 // 		})
 // 		if err != nil {

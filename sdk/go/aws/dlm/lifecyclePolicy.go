@@ -30,14 +30,51 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		dlmLifecycleRole, err := iam.NewRole(ctx, "dlmLifecycleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"dlm.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "dlm.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "dlmLifecycle", &iam.RolePolicyArgs{
-// 			Role:   dlmLifecycleRole.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "   \"Version\": \"2012-10-17\",\n", "   \"Statement\": [\n", "      {\n", "         \"Effect\": \"Allow\",\n", "         \"Action\": [\n", "            \"ec2:CreateSnapshot\",\n", "            \"ec2:CreateSnapshots\",\n", "            \"ec2:DeleteSnapshot\",\n", "            \"ec2:DescribeInstances\",\n", "            \"ec2:DescribeVolumes\",\n", "            \"ec2:DescribeSnapshots\"\n", "         ],\n", "         \"Resource\": \"*\"\n", "      },\n", "      {\n", "         \"Effect\": \"Allow\",\n", "         \"Action\": [\n", "            \"ec2:CreateTags\"\n", "         ],\n", "         \"Resource\": \"arn:aws:ec2:*::snapshot/*\"\n", "      }\n", "   ]\n", "}\n")),
+// 			Role: dlmLifecycleRole.ID(),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//    "Version": "2012-10-17",
+//    "Statement": [
+//       {
+//          "Effect": "Allow",
+//          "Action": [
+//             "ec2:CreateSnapshot",
+//             "ec2:CreateSnapshots",
+//             "ec2:DeleteSnapshot",
+//             "ec2:DescribeInstances",
+//             "ec2:DescribeVolumes",
+//             "ec2:DescribeSnapshots"
+//          ],
+//          "Resource": "*"
+//       },
+//       {
+//          "Effect": "Allow",
+//          "Action": [
+//             "ec2:CreateTags"
+//          ],
+//          "Resource": "arn:aws:ec2:*::snapshot/*"
+//       }
+//    ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -103,7 +140,22 @@ import (
 // 		}
 // 		dlmCrossRegionCopyCmk, err := kms.NewKey(ctx, "dlmCrossRegionCopyCmk", &kms.KeyArgs{
 // 			Description: pulumi.String("Example Alternate Region KMS Key"),
-// 			Policy:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Id\": \"dlm-cross-region-copy-cmk\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"Enable IAM User Permissions\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"arn:aws:iam::", current.AccountId, ":root\"\n", "      },\n", "      \"Action\": \"kms:*\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.String(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Id": "dlm-cross-region-copy-cmk",
+//   "Statement": [
+//     {
+//       "Sid": "Enable IAM User Permissions",
+//       "Effect": "Allow",
+//       "Principal": {
+//         "AWS": "arn:aws:iam::%v:root"
+//       },
+//       "Action": "kms:*",
+//       "Resource": "*"
+//     }
+//   ]
+// }
+// `, current.AccountId)),
 // 		}, pulumi.Provider(aws.Alternate))
 // 		if err != nil {
 // 			return err

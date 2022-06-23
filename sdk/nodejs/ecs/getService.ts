@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * The ECS Service data source allows access to details of a specific
  * Service within a AWS ECS Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.ecs.getService({
- *     serviceName: "example",
- *     clusterArn: data.aws_ecs_cluster.example.arn,
- * });
- * ```
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     if (!opts) {

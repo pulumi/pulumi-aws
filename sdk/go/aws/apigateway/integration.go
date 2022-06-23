@@ -64,7 +64,7 @@ import (
 // 				"integration.request.header.X-Authorization": pulumi.String("'static'"),
 // 			},
 // 			RequestTemplates: pulumi.StringMap{
-// 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "{\n", "   \"body\" : ", "$", "input.json('", "$", "')\n", "}\n")),
+// 				"application/xml": pulumi.String(fmt.Sprintf("{\n   \"body\" : $input.json('$')\n}\n")),
 // 			},
 // 		})
 // 		if err != nil {
@@ -117,7 +117,20 @@ import (
 // 			return err
 // 		}
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -150,7 +163,7 @@ import (
 // 				id := _args[0].(string)
 // 				httpMethod := _args[1].(string)
 // 				path := _args[2].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "arn:aws:execute-api:", myregion, ":", accountId, ":", id, "/*/", httpMethod, path), nil
+// 				return fmt.Sprintf("arn:aws:execute-api:%v:%v:%v/*/%v%v", myregion, accountId, id, httpMethod, path), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -228,7 +241,7 @@ import (
 // 			HttpMethod: testMethod.HttpMethod,
 // 			RequestTemplates: pulumi.StringMap{
 // 				"application/json": pulumi.String(""),
-// 				"application/xml":  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "#set(", "$", "inputRoot = ", "$", "input.path('", "$", "'))\n{ }")),
+// 				"application/xml":  pulumi.String(fmt.Sprintf("#set($inputRoot = $input.path('$'))\n{ }")),
 // 			},
 // 			RequestParameters: pulumi.StringMap{
 // 				"integration.request.header.X-Authorization": pulumi.String("'static'"),

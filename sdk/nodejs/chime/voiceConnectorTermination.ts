@@ -7,25 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Enable Termination settings to control outbound calling from your SIP infrastructure.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorTermination = new aws.chime.VoiceConnectorTermination("defaultVoiceConnectorTermination", {
- *     disabled: false,
- *     cpsLimit: 1,
- *     cidrAllowLists: ["50.35.78.96/31"],
- *     callingRegions: [
- *         "US",
- *         "CA",
- *     ],
- *     voiceConnectorId: defaultVoiceConnector.id,
- * });
- * ```
- *
  * ## Import
  *
  * Chime Voice Connector Termination can be imported using the `voice_connector_id`, e.g.,

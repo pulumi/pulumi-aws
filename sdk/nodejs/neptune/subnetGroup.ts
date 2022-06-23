@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Neptune subnet group resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.neptune.SubnetGroup("default", {
- *     subnetIds: [
- *         aws_subnet.frontend.id,
- *         aws_subnet.backend.id,
- *     ],
- *     tags: {
- *         Name: "My neptune subnet group",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Neptune Subnet groups can be imported using the `name`, e.g.,

@@ -5,28 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.ManagedPrefixList("example", {
- *     addressFamily: "IPv4",
- *     maxEntries: 5,
- *     tags: {
- *         Env: "live",
- *     },
- * });
- * const entry1 = new aws.ec2.ManagedPrefixListEntry("entry1", {
- *     cidr: aws_vpc.example.cidr_block,
- *     description: "Primary",
- *     prefixListId: aws_ec2_managed_prefix_list.entry.id,
- * });
- * ```
- *
  * ## Import
  *
  * Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,

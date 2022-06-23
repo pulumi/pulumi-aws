@@ -10,21 +10,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** The DataSync Agents must be available before creating this resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.LocationSmb("example", {
- *     serverHostname: "smb.example.com",
- *     subdirectory: "/exported/path",
- *     user: "Guest",
- *     password: "ANotGreatPassword",
- *     agentArns: [aws_datasync_agent.example.arn],
- * });
- * ```
- *
  * ## Import
  *
  * `aws_datasync_location_smb` can be imported by using the Amazon Resource Name (ARN), e.g.,

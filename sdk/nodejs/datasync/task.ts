@@ -10,37 +10,6 @@ import {ARN} from "..";
 /**
  * Manages an AWS DataSync Task, which represents a configuration for synchronization. Starting an execution of these DataSync Tasks (actually synchronizing files) is performed outside of this resource.
  *
- * ## Example Usage
- * ### With Scheduling
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
- *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
- *     schedule: {
- *         scheduleExpression: "cron(0 12 ? * SUN,WED *)",
- *     },
- * });
- * ```
- * ### With Filtering
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.datasync.Task("example", {
- *     destinationLocationArn: aws_datasync_location_s3.destination.arn,
- *     sourceLocationArn: aws_datasync_location_nfs.source.arn,
- *     excludes: {
- *         filterType: "SIMPLE_PATTERN",
- *         value: "/folder1|/folder2",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_datasync_task` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,

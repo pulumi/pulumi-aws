@@ -7,26 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an AppStream Fleet Stack association.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleFleet = new aws.appstream.Fleet("exampleFleet", {
- *     imageName: "Amazon-AppStream2-Sample-Image-02-04-2019",
- *     instanceType: "stream.standard.small",
- *     computeCapacity: {
- *         desiredInstances: 1,
- *     },
- * });
- * const exampleStack = new aws.appstream.Stack("exampleStack", {});
- * const exampleFleetStackAssociation = new aws.appstream.FleetStackAssociation("exampleFleetStackAssociation", {
- *     fleetName: exampleFleet.name,
- *     stackName: exampleStack.name,
- * });
- * ```
- *
  * ## Import
  *
  * AppStream Stack Fleet Association can be imported by using the `fleet_name` and `stack_name` separated by a slash (`/`), e.g.,

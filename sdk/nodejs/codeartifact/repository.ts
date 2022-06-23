@@ -8,59 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a CodeArtifact Repository Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {description: "domain key"});
- * const exampleDomain = new aws.codeartifact.Domain("exampleDomain", {
- *     domain: "example",
- *     encryptionKey: exampleKey.arn,
- * });
- * const test = new aws.codeartifact.Repository("test", {
- *     repository: "example",
- *     domain: exampleDomain.domain,
- * });
- * ```
- * ### With Upstream Repository
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const upstream = new aws.codeartifact.Repository("upstream", {
- *     repository: "upstream",
- *     domain: aws_codeartifact_domain.test.domain,
- * });
- * const test = new aws.codeartifact.Repository("test", {
- *     repository: "example",
- *     domain: aws_codeartifact_domain.example.domain,
- *     upstreams: [{
- *         repositoryName: upstream.repository,
- *     }],
- * });
- * ```
- * ### With External Connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const upstream = new aws.codeartifact.Repository("upstream", {
- *     repository: "upstream",
- *     domain: aws_codeartifact_domain.test.domain,
- * });
- * const test = new aws.codeartifact.Repository("test", {
- *     repository: "example",
- *     domain: aws_codeartifact_domain.example.domain,
- *     externalConnections: {
- *         externalConnectionName: "public:npmjs",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * CodeArtifact Repository can be imported using the CodeArtifact Repository ARN, e.g.,

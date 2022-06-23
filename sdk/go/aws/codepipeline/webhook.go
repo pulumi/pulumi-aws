@@ -94,7 +94,7 @@ import (
 // 			},
 // 			Filters: codepipeline.WebhookFilterArray{
 // 				&codepipeline.WebhookFilterArgs{
-// 					JsonPath:    pulumi.String(fmt.Sprintf("%v%v", "$", ".ref")),
+// 					JsonPath:    pulumi.String(fmt.Sprintf("$.ref")),
 // 					MatchEquals: pulumi.String("refs/heads/{Branch}"),
 // 				},
 // 			},

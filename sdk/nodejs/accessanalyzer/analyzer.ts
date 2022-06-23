@@ -18,20 +18,6 @@ import * as utilities from "../utilities";
  *     analyzerName: "example",
  * });
  * ```
- * ### Organization Analyzer
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {awsServiceAccessPrincipals: ["access-analyzer.amazonaws.com"]});
- * const exampleAnalyzer = new aws.accessanalyzer.Analyzer("exampleAnalyzer", {
- *     analyzerName: "example",
- *     type: "ORGANIZATION",
- * }, {
- *     dependsOn: [exampleOrganization],
- * });
- * ```
  *
  * ## Import
  *

@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
  *
  *  > Note: If you are trying to use SageMaker projects with SageMaker studio you will need to add a tag with the key `sagemaker:studio-visibility` with value `true`. For more on requirements to use projects and permission needed see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-projects-templates-custom.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.Project("example", {
- *     projectName: "example",
- *     serviceCatalogProvisioningDetails: {
- *         productId: aws_servicecatalog_product.example.id,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * SageMaker Projects can be imported using the `project_name`, e.g.,

@@ -39,7 +39,7 @@ import (
 // 				route53.GetTrafficPolicyDocumentEndpoint{
 // 					Id:    "my_elb",
 // 					Type:  pulumi.StringRef("elastic-load-balancer"),
-// 					Value: pulumi.StringRef(fmt.Sprintf("%v%v%v", "elb-111111.", current.Name, ".elb.amazonaws.com")),
+// 					Value: pulumi.StringRef(fmt.Sprintf("elb-111111.%v.elb.amazonaws.com", current.Name)),
 // 				},
 // 				route53.GetTrafficPolicyDocumentEndpoint{
 // 					Id:     "site_down_banner",

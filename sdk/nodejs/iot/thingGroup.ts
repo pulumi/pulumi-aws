@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an AWS IoT Thing Group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const parent = new aws.iot.ThingGroup("parent", {});
- * const example = new aws.iot.ThingGroup("example", {
- *     parentGroupName: parent.name,
- *     properties: {
- *         attributePayload: {
- *             attributes: {
- *                 One: "11111",
- *                 Two: "TwoTwo",
- *             },
- *         },
- *         description: "This is my thing group",
- *     },
- *     tags: {
- *         terraform: "true",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * IoT Things Groups can be imported using the name, e.g.

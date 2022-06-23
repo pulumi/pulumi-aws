@@ -34,7 +34,7 @@ import (
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("foobar-stack"),
 // 			},
-// 			CustomJson: pulumi.String(fmt.Sprintf("%v%v%v%v%v", "{\n", " \"foobar\": {\n", "    \"version\": \"1.0.0\"\n", "  }\n", "}\n")),
+// 			CustomJson: pulumi.String(fmt.Sprintf("{\n \"foobar\": {\n    \"version\": \"1.0.0\"\n  }\n}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

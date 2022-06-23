@@ -9,36 +9,6 @@ import * as utilities from "../utilities";
  * Manages SAML authentication options for an AWS Elasticsearch Domain.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const exampleDomain = new aws.elasticsearch.Domain("exampleDomain", {
- *     elasticsearchVersion: "1.5",
- *     clusterConfig: {
- *         instanceType: "r4.large.elasticsearch",
- *     },
- *     snapshotOptions: {
- *         automatedSnapshotStartHour: 23,
- *     },
- *     tags: {
- *         Domain: "TestDomain",
- *     },
- * });
- * const exampleDomainSamlOptions = new aws.elasticsearch.DomainSamlOptions("exampleDomainSamlOptions", {
- *     domainName: exampleDomain.domainName,
- *     samlOptions: {
- *         enabled: true,
- *         idp: {
- *             entityId: "https://example.com",
- *             metadataContent: fs.readFileSync("./saml-metadata.xml"),
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

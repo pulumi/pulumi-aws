@@ -99,7 +99,20 @@ import (
 // 			return err
 // 		}
 // 		firehoseRole, err := iam.NewRole(ctx, "firehoseRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "\"Version\": \"2012-10-17\",\n", "\"Statement\": [\n", "  {\n", "    \"Action\": \"sts:AssumeRole\",\n", "    \"Principal\": {\n", "      \"Service\": \"firehose.amazonaws.com\"\n", "    },\n", "    \"Effect\": \"Allow\",\n", "    \"Sid\": \"\"\n", "  }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+// "Version": "2012-10-17",
+// "Statement": [
+//   {
+//     "Action": "sts:AssumeRole",
+//     "Principal": {
+//       "Service": "firehose.amazonaws.com"
+//     },
+//     "Effect": "Allow",
+//     "Sid": ""
+//   }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

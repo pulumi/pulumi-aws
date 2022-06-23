@@ -5,41 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultCluster = new aws.rds.Cluster("defaultCluster", {
- *     clusterIdentifier: "aurora-cluster-demo",
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     databaseName: "mydb",
- *     masterUsername: "foo",
- *     masterPassword: "mustbeeightcharaters",
- *     engine: "aurora-postgresql",
- *     engineVersion: "13.4",
- * });
- * const defaultClusterInstance = new aws.rds.ClusterInstance("defaultClusterInstance", {
- *     identifier: "aurora-instance-demo",
- *     clusterIdentifier: defaultCluster.clusterIdentifier,
- *     engine: defaultCluster.engine,
- *     instanceClass: "db.r6g.large",
- * });
- * const defaultKey = new aws.kms.Key("defaultKey", {description: "AWS KMS Key to encrypt Database Activity Stream"});
- * const defaultClusterActivityStream = new aws.rds.ClusterActivityStream("defaultClusterActivityStream", {
- *     resourceArn: defaultCluster.arn,
- *     mode: "async",
- *     kmsKeyId: defaultKey.keyId,
- * }, {
- *     dependsOn: [defaultClusterInstance],
- * });
- * ```
- *
  * ## Import
  *
  * RDS Aurora Cluster Database Activity Streams can be imported using the `resource_arn`, e.g.

@@ -9,32 +9,6 @@ import {Role} from "./index";
 /**
  * Provides an IAM instance profile.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const role = new aws.iam.Role("role", {
- *     path: "/",
- *     assumeRolePolicy: `{
- *     "Version": "2012-10-17",
- *     "Statement": [
- *         {
- *             "Action": "sts:AssumeRole",
- *             "Principal": {
- *                "Service": "ec2.amazonaws.com"
- *             },
- *             "Effect": "Allow",
- *             "Sid": ""
- *         }
- *     ]
- * }
- * `,
- * });
- * const testProfile = new aws.iam.InstanceProfile("testProfile", {role: role.name});
- * ```
- *
  * ## Import
  *
  * Instance Profiles can be imported using the `name`, e.g.,

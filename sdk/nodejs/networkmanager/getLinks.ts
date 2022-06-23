@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about link.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.networkmanager.getLinks({
- *     globalNetworkId: _var.global_network_id,
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * ```
  */
 export function getLinks(args: GetLinksArgs, opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
     if (!opts) {

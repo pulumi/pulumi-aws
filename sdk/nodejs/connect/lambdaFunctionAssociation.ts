@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Connect Lambda Function Association. For more information see
  * [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html) and [Invoke AWS Lambda functions](https://docs.aws.amazon.com/connect/latest/adminguide/connect-lambda-functions.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.connect.LambdaFunctionAssociation("example", {
- *     functionArn: aws_lambda_function.example.arn,
- *     instanceId: aws_connect_instance.example.id,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_connect_lambda_function_association` can be imported using the `instance_id` and `function_arn` separated by a comma (`,`) e.g.,

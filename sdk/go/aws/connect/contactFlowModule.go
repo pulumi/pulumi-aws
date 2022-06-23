@@ -36,7 +36,48 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := connect.NewContactFlowModule(ctx, "example", &connect.ContactFlowModuleArgs{
-// 			Content: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "    {\n", "		\"Version\": \"2019-10-30\",\n", "		\"StartAction\": \"12345678-1234-1234-1234-123456789012\",\n", "		\"Actions\": [\n", "			{\n", "				\"Identifier\": \"12345678-1234-1234-1234-123456789012\",\n", "				\"Parameters\": {\n", "					\"Text\": \"Hello contact flow module\"\n", "				},\n", "				\"Transitions\": {\n", "					\"NextAction\": \"abcdef-abcd-abcd-abcd-abcdefghijkl\",\n", "					\"Errors\": [],\n", "					\"Conditions\": []\n", "				},\n", "				\"Type\": \"MessageParticipant\"\n", "			},\n", "			{\n", "				\"Identifier\": \"abcdef-abcd-abcd-abcd-abcdefghijkl\",\n", "				\"Type\": \"DisconnectParticipant\",\n", "				\"Parameters\": {},\n", "				\"Transitions\": {}\n", "			}\n", "		],\n", "		\"Settings\": {\n", "			\"InputParameters\": [],\n", "			\"OutputParameters\": [],\n", "			\"Transitions\": [\n", "				{\n", "					\"DisplayName\": \"Success\",\n", "					\"ReferenceName\": \"Success\",\n", "					\"Description\": \"\"\n", "				},\n", "				{\n", "					\"DisplayName\": \"Error\",\n", "					\"ReferenceName\": \"Error\",\n", "					\"Description\": \"\"\n", "				}\n", "			]\n", "		}\n", "	}\n", "    \n")),
+// 			Content: pulumi.String(fmt.Sprintf(`    {
+// 		"Version": "2019-10-30",
+// 		"StartAction": "12345678-1234-1234-1234-123456789012",
+// 		"Actions": [
+// 			{
+// 				"Identifier": "12345678-1234-1234-1234-123456789012",
+// 				"Parameters": {
+// 					"Text": "Hello contact flow module"
+// 				},
+// 				"Transitions": {
+// 					"NextAction": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+// 					"Errors": [],
+// 					"Conditions": []
+// 				},
+// 				"Type": "MessageParticipant"
+// 			},
+// 			{
+// 				"Identifier": "abcdef-abcd-abcd-abcd-abcdefghijkl",
+// 				"Type": "DisconnectParticipant",
+// 				"Parameters": {},
+// 				"Transitions": {}
+// 			}
+// 		],
+// 		"Settings": {
+// 			"InputParameters": [],
+// 			"OutputParameters": [],
+// 			"Transitions": [
+// 				{
+// 					"DisplayName": "Success",
+// 					"ReferenceName": "Success",
+// 					"Description": ""
+// 				},
+// 				{
+// 					"DisplayName": "Error",
+// 					"ReferenceName": "Error",
+// 					"Description": ""
+// 				}
+// 			]
+// 		}
+// 	}
+//
+// `)),
 // 			Description: pulumi.String("Example Contact Flow Module Description"),
 // 			InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
 // 			Tags: pulumi.StringMap{

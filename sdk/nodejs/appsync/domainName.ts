@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppSync Domain Name.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.DomainName("example", {
- *     domainName: "api.example.com",
- *     certificateArn: aws_acm_certificate.example.arn,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_appsync_domain_name` can be imported using the AppSync domain name, e.g.,

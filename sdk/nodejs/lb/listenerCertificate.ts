@@ -11,24 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **Note:** `aws.alb.ListenerCertificate` is known as `aws.lb.ListenerCertificate`. The functionality is identical.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCertificate = new aws.acm.Certificate("exampleCertificate", {});
- * // ...
- * const frontEndLoadBalancer = new aws.lb.LoadBalancer("frontEndLoadBalancer", {});
- * // ...
- * const frontEndListener = new aws.lb.Listener("frontEndListener", {});
- * // ...
- * const exampleListenerCertificate = new aws.lb.ListenerCertificate("exampleListenerCertificate", {
- *     listenerArn: frontEndListener.arn,
- *     certificateArn: exampleCertificate.arn,
- * });
- * ```
- *
  * ## Import
  *
  * Listener Certificates can be imported using their id, e.g.,

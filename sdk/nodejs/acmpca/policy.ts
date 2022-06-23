@@ -8,53 +8,6 @@ import * as utilities from "../utilities";
  * Attaches a resource based policy to a private CA.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.acmpca.Policy("example", {
- *     resourceArn: aws_acmpca_certificate_authority.example.arn,
- *     policy: `{                        
- *    "Version":"2012-10-17",
- *    "Statement":[
- *       {    
- *          "Sid":"1",
- *          "Effect":"Allow",         
- *          "Principal":{                                                                                                                                               
- *             "AWS":"${data.aws_caller_identity.current.account_id}"                                                                                
- *          },
- *          "Action":[
- *             "acm-pca:DescribeCertificateAuthority",
- *             "acm-pca:GetCertificate",
- *             "acm-pca:GetCertificateAuthorityCertificate",
- *             "acm-pca:ListPermissions",
- *             "acm-pca:ListTags"                                                                                   
- *          ],                                                                                              
- *          "Resource":"${aws_acmpca_certificate_authority.example.arn}"
- *       },
- *       {
- *          "Sid":"1",  
- *          "Effect":"Allow",
- *          "Principal":{
- *             "AWS":"${data.aws_caller_identity.current.account_id}"
- *          },
- *          "Action":[
- *             "acm-pca:IssueCertificate"
- *          ],
- *          "Resource":"${aws_acmpca_certificate_authority.example.arn}",
- *          "Condition":{
- *             "StringEquals":{
- *                "acm-pca:TemplateArn":"arn:aws:acm-pca:::template/EndEntityCertificate/V1"
- *             }
- *          }
- *       }
- *    ]
- * }
- * `,
- * });
- * ```
  *
  * ## Import
  *

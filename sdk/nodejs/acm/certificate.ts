@@ -51,57 +51,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Existing Certificate Body Import
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as tls from "@pulumi/tls";
- *
- * const examplePrivateKey = new tls.PrivateKey("examplePrivateKey", {algorithm: "RSA"});
- * const exampleSelfSignedCert = new tls.SelfSignedCert("exampleSelfSignedCert", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: examplePrivateKey.privateKeyPem,
- *     subjects: [{
- *         commonName: "example.com",
- *         organization: "ACME Examples, Inc",
- *     }],
- *     validityPeriodHours: 12,
- *     allowedUses: [
- *         "key_encipherment",
- *         "digital_signature",
- *         "server_auth",
- *     ],
- * });
- * const cert = new aws.acm.Certificate("cert", {
- *     privateKey: examplePrivateKey.privateKeyPem,
- *     certificateBody: exampleSelfSignedCert.certPem,
- * });
- * ```
- * ### Referencing domainValidationOptions With forEach Based Resources
- *
- * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example: aws.route53.Record[];
- * for (const range of Object.entries(.reduce((__obj, dvo) => { ...__obj, [dvo.domainName]: {
- *     name: dvo.resourceRecordName,
- *     record: dvo.resourceRecordValue,
- *     type: dvo.resourceRecordType,
- * } })).map(([k, v]) => {key: k, value: v})) {
- *     example.push(new aws.route53.Record(`example-${range.key}`, {
- *         allowOverwrite: true,
- *         name: range.value.name,
- *         records: [range.value.record],
- *         ttl: 60,
- *         type: aws.route53.recordtype.RecordType[range.value.type],
- *         zoneId: aws_route53_zone.example.zone_id,
- *     }));
- * }
- * ```
  *
  * ## Import
  *

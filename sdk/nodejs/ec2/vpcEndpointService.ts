@@ -16,28 +16,6 @@ import * as utilities from "../utilities";
  * and will overwrite the association.
  *
  * ## Example Usage
- * ### Network Load Balancers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.VpcEndpointService("example", {
- *     acceptanceRequired: false,
- *     networkLoadBalancerArns: [aws_lb.example.arn],
- * });
- * ```
- * ### Gateway Load Balancers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.VpcEndpointService("example", {
- *     acceptanceRequired: false,
- *     gatewayLoadBalancerArns: [aws_lb.example.arn],
- * });
- * ```
  *
  * ## Import
  *

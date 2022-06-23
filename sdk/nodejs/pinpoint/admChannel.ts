@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint ADM (Amazon Device Messaging) Channel resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const channel = new aws.pinpoint.AdmChannel("channel", {
- *     applicationId: app.applicationId,
- *     clientId: "",
- *     clientSecret: "",
- *     enabled: true,
- * });
- * ```
- *
  * ## Import
  *
  * Pinpoint ADM Channel can be imported using the `application-id`, e.g.,

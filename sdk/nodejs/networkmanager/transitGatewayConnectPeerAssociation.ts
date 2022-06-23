@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
  * Associates a transit gateway Connect peer with a device, and optionally, with a link.
  * If you specify a link, it must be associated with the specified device.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.TransitGatewayConnectPeerAssociation("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     deviceId: aws_networkmanager_device.example.id,
- *     transitGatewayConnectPeerArn: aws_ec2_transit_gateway_connect_peer.example.arn,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_networkmanager_transit_gateway_connect_peer_association` can be imported using the global network ID and customer gateway ARN, e.g.

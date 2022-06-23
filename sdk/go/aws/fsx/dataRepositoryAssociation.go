@@ -55,7 +55,7 @@ import (
 // 		_, err = fsx.NewDataRepositoryAssociation(ctx, "exampleDataRepositoryAssociation", &fsx.DataRepositoryAssociationArgs{
 // 			FileSystemId: exampleLustreFileSystem.ID(),
 // 			DataRepositoryPath: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
-// 				return fmt.Sprintf("%v%v", "s3://", id), nil
+// 				return fmt.Sprintf("s3://%v", id), nil
 // 			}).(pulumi.StringOutput),
 // 			FileSystemPath: pulumi.String("/my-bucket"),
 // 			S3: &fsx.DataRepositoryAssociationS3Args{

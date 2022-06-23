@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an AppConfig Configuration Profile resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appconfig.ConfigurationProfile("example", {
- *     applicationId: aws_appconfig_application.example.id,
- *     description: "Example Configuration Profile",
- *     locationUri: "hosted",
- *     validators: [{
- *         content: aws_lambda_function.example.arn,
- *         type: "LAMBDA",
- *     }],
- *     tags: {
- *         Type: "AppConfig Configuration Profile",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * AppConfig Configuration Profiles can be imported by using the configuration profile ID and application ID separated by a colon (`:`), e.g.,

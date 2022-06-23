@@ -8,15 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an OpsWorks PHP application layer resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.opsworks.PhpAppLayer("app", {stackId: aws_opsworks_stack.main.id});
- * ```
- *
  * ## Import
  *
  * OpsWorks PHP Application Layers can be imported using the `id`, e.g.,

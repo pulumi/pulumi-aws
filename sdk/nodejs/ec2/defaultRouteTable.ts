@@ -14,45 +14,6 @@ import * as utilities from "../utilities";
  *
  * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in this provider, see `aws.ec2.RouteTable`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.DefaultRouteTable("example", {
- *     defaultRouteTableId: aws_vpc.example.default_route_table_id,
- *     routes: [
- *         {
- *             cidrBlock: "10.0.1.0/24",
- *             gatewayId: aws_internet_gateway.example.id,
- *         },
- *         {
- *             ipv6CidrBlock: "::/0",
- *             egressOnlyGatewayId: aws_egress_only_internet_gateway.example.id,
- *         },
- *     ],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
- * To subsequently remove all managed routes:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.DefaultRouteTable("example", {
- *     defaultRouteTableId: aws_vpc.example.default_route_table_id,
- *     routes: [],
- *     tags: {
- *         Name: "example",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Default VPC route tables can be imported using the `vpc_id`, e.g.,

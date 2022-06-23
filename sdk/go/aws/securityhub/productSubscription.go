@@ -37,7 +37,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = securityhub.NewProductSubscription(ctx, "exampleProductSubscription", &securityhub.ProductSubscriptionArgs{
-// 			ProductArn: pulumi.String(fmt.Sprintf("%v%v%v", "arn:aws:securityhub:", current.Name, ":733251395267:product/alertlogic/althreatmanagement")),
+// 			ProductArn: pulumi.String(fmt.Sprintf("arn:aws:securityhub:%v:733251395267:product/alertlogic/althreatmanagement", current.Name)),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			exampleAccount,
 // 		}))

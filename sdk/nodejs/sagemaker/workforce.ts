@@ -9,29 +9,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Workforce resource.
  *
  * ## Example Usage
- * ### Cognito Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("exampleUserPoolClient", {
- *     generateSecret: true,
- *     userPoolId: exampleUserPool.id,
- * });
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
- *     domain: "example",
- *     userPoolId: exampleUserPool.id,
- * });
- * const exampleWorkforce = new aws.sagemaker.Workforce("exampleWorkforce", {
- *     workforceName: "example",
- *     cognitoConfig: {
- *         clientId: exampleUserPoolClient.id,
- *         userPool: exampleUserPoolDomain.userPoolId,
- *     },
- * });
- * ```
  * ### Oidc Usage
  *
  * ```typescript

@@ -23,35 +23,6 @@ import {EngineType} from "./index";
  *
  * > **NOTE:** Deletion Protection from the RDS service can only be enabled at the cluster level, not for individual cluster instances. You can still add the [`protect` CustomResourceOption](https://www.pulumi.com/docs/intro/concepts/programming-model/#protect) to this resource configuration if you desire protection from accidental deletion.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.Cluster("default", {
- *     clusterIdentifier: "aurora-cluster-demo",
- *     availabilityZones: [
- *         "us-west-2a",
- *         "us-west-2b",
- *         "us-west-2c",
- *     ],
- *     databaseName: "mydb",
- *     masterUsername: "foo",
- *     masterPassword: "barbut8chars",
- * });
- * const clusterInstances: aws.rds.ClusterInstance[];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     clusterInstances.push(new aws.rds.ClusterInstance(`clusterInstances-${range.value}`, {
- *         identifier: `aurora-cluster-demo-${range.value}`,
- *         clusterIdentifier: _default.id,
- *         instanceClass: "db.r4.large",
- *         engine: _default.engine,
- *         engineVersion: _default.engineVersion,
- *     }));
- * }
- * ```
- *
  * ## Import
  *
  * RDS Cluster Instances can be imported using the `identifier`, e.g.,

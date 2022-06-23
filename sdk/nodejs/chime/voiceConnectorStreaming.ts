@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
  * Adds a streaming configuration for the specified Amazon Chime Voice Connector. The streaming configuration specifies whether media streaming is enabled for sending to Amazon Kinesis.
  * It also sets the retention period, in hours, for the Amazon Kinesis data.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultVoiceConnector = new aws.chime.VoiceConnector("defaultVoiceConnector", {requireEncryption: true});
- * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("defaultVoiceConnectorStreaming", {
- *     disabled: false,
- *     voiceConnectorId: defaultVoiceConnector.id,
- *     dataRetention: 7,
- *     streamingNotificationTargets: ["SQS"],
- * });
- * ```
- *
  * ## Import
  *
  * Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,

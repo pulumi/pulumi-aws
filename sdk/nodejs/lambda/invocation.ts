@@ -8,26 +8,6 @@ import * as utilities from "../utilities";
  * Use this resource to invoke a lambda function. The lambda function is invoked with the [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax) invocation type.
  *
  * > **NOTE:** This resource _only_ invokes the function when the arguments call for a create or update. In other words, after an initial invocation on _apply_, if the arguments do not change, a subsequent _apply_ does not invoke the function again. To dynamically invoke the function, see the `triggers` example below. To always invoke a function on each _apply_, see the [`aws.lambda.Invocation`](https://www.terraform.io/docs/providers/aws/d/lambda_invocation.html) data source.
- *
- * ## Example Usage
- * ### Dynamic Invocation Example Using Triggers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as crypto from "crypto";
- *
- * const example = new aws.lambda.Invocation("example", {
- *     functionName: aws_lambda_function.lambda_function_test.function_name,
- *     triggers: {
- *         redeployment: crypto.createHash('sha1').update(JSON.stringify([aws_lambda_function.example.environment])).digest('hex'),
- *     },
- *     input: JSON.stringify({
- *         key1: "value1",
- *         key2: "value2",
- *     }),
- * });
- * ```
  */
 export class Invocation extends pulumi.CustomResource {
     /**

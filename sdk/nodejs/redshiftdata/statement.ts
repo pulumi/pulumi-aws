@@ -8,20 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Executes a Redshift Data Statement.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.redshiftdata.Statement("example", {
- *     clusterIdentifier: aws_redshift_cluster.example.cluster_identifier,
- *     database: aws_redshift_cluster.example.database_name,
- *     dbUser: aws_redshift_cluster.example.master_username,
- *     sql: "CREATE GROUP group_name;",
- * });
- * ```
- *
  * ## Import
  *
  * Redshift Data Statements can be imported using the `id`, e.g.,

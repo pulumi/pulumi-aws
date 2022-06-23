@@ -9,65 +9,6 @@ import * as utilities from "../utilities";
  * Provides an Amazon Kendra Index resource.
  *
  * ## Example Usage
- * ### Basic
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kendra.Index("example", {
- *     description: "example",
- *     edition: "DEVELOPER_EDITION",
- *     roleArn: aws_iam_role["this"].arn,
- *     tags: {
- *         Key1: "Value1",
- *     },
- * });
- * ```
- * ### With capacity units
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kendra.Index("example", {
- *     edition: "DEVELOPER_EDITION",
- *     roleArn: aws_iam_role["this"].arn,
- *     capacityUnits: {
- *         queryCapacityUnits: 2,
- *         storageCapacityUnits: 2,
- *     },
- * });
- * ```
- * ### With server side encryption configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kendra.Index("example", {
- *     roleArn: aws_iam_role["this"].arn,
- *     serverSideEncryptionConfiguration: {
- *         kmsKeyId: data.aws_kms_key["this"].arn,
- *     },
- * });
- * ```
- * ### With JSON token type configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kendra.Index("example", {
- *     roleArn: aws_iam_role["this"].arn,
- *     userTokenConfigurations: {
- *         jsonTokenTypeConfiguration: {
- *             groupAttributeField: "groups",
- *             userNameAttributeField: "username",
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

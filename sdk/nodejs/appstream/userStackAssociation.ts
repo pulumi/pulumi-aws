@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an AppStream User Stack association.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testStack = new aws.appstream.Stack("testStack", {});
- * const testUser = new aws.appstream.User("testUser", {
- *     authenticationType: "USERPOOL",
- *     userName: "EMAIL",
- * });
- * const testUserStackAssociation = new aws.appstream.UserStackAssociation("testUserStackAssociation", {
- *     authenticationType: testUser.authenticationType,
- *     stackName: testStack.name,
- *     userName: testUser.userName,
- * });
- * ```
- *
  * ## Import
  *
  * AppStream User Stack Association can be imported by using the `user_name`, `authentication_type`, and `stack_name`, separated by a slash (`/`), e.g.,

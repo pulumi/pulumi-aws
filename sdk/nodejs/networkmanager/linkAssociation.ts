@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  * A device can be associated to multiple links and a link can be associated to multiple devices.
  * The device and link must be in the same global network and the same site.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.networkmanager.LinkAssociation("example", {
- *     globalNetworkId: aws_networkmanager_global_network.example.id,
- *     linkId: aws_networkmanager_link.example.id,
- *     deviceId: aws_networkmanager_device.example.id,
- * });
- * ```
- *
  * ## Import
  *
  * `aws_networkmanager_link_association` can be imported using the global network ID, link ID and device ID, e.g.

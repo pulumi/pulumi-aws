@@ -10,34 +10,6 @@ import {PolicyDocument} from "../iam";
  * Attaches a policy to an S3 bucket resource.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketV2("example", {});
- * const allowAccessFromAnotherAccountPolicyDocument = aws.iam.getPolicyDocumentOutput({
- *     statements: [{
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["123456789012"],
- *         }],
- *         actions: [
- *             "s3:GetObject",
- *             "s3:ListBucket",
- *         ],
- *         resources: [
- *             example.arn,
- *             pulumi.interpolate`${example.arn}/*`,
- *         ],
- *     }],
- * });
- * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", {
- *     bucket: example.id,
- *     policy: allowAccessFromAnotherAccountPolicyDocument.apply(allowAccessFromAnotherAccountPolicyDocument => allowAccessFromAnotherAccountPolicyDocument.json),
- * });
- * ```
  *
  * ## Import
  *

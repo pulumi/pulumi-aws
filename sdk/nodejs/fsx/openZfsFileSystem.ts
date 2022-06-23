@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
  * Manages an Amazon FSx for OpenZFS file system.
  * See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OpenZfsFileSystem("test", {
- *     storageCapacity: 64,
- *     subnetIds: [aws_subnet.test1.id],
- *     deploymentType: "SINGLE_AZ_1",
- *     throughputCapacity: 64,
- * });
- * ```
- *
  * ## Import
  *
  * FSx File Systems can be imported using the `id`, e.g.,

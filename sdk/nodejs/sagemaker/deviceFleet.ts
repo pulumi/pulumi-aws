@@ -9,20 +9,6 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Device Fleet resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.sagemaker.DeviceFleet("example", {
- *     deviceFleetName: "example",
- *     roleArn: aws_iam_role.test.arn,
- *     outputConfig: {
- *         s3OutputLocation: `s3://${aws_s3_bucket.example.bucket}/prefix/`,
- *     },
- * });
- * ```
  *
  * ## Import
  *

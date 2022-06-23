@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE on Client VPN endpoint target network security groups:** this provider provides both a standalone Client VPN endpoint network association resource with a (deprecated) `securityGroups` argument and a Client VPN endpoint resource with a `securityGroupIds` argument. Do not specify security groups in both resources. Doing so will cause a conflict and will overwrite the target network security group association.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2clientvpn.Endpoint("example", {
- *     description: "clientvpn-example",
- *     serverCertificateArn: aws_acm_certificate.cert.arn,
- *     clientCidrBlock: "10.0.0.0/16",
- *     authenticationOptions: [{
- *         type: "certificate-authentication",
- *         rootCertificateChainArn: aws_acm_certificate.root_cert.arn,
- *     }],
- *     connectionLogOptions: {
- *         enabled: true,
- *         cloudwatchLogGroup: aws_cloudwatch_log_group.lg.name,
- *         cloudwatchLogStream: aws_cloudwatch_log_stream.ls.name,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,

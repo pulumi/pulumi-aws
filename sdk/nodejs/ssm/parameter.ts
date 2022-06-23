@@ -8,48 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an SSM Parameter resource.
  *
- * ## Example Usage
- *
- * To store a basic string parameter:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const foo = new aws.ssm.Parameter("foo", {
- *     type: "String",
- *     value: "bar",
- * });
- * ```
- *
- * To store an encrypted string using the default SSM KMS key:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.rds.Instance("default", {
- *     allocatedStorage: 10,
- *     storageType: "gp2",
- *     engine: "mysql",
- *     engineVersion: "5.7.16",
- *     instanceClass: "db.t2.micro",
- *     name: "mydb",
- *     username: "foo",
- *     password: _var.database_master_password,
- *     dbSubnetGroupName: "my_database_subnet_group",
- *     parameterGroupName: "default.mysql5.7",
- * });
- * const secret = new aws.ssm.Parameter("secret", {
- *     description: "The parameter description",
- *     type: "SecureString",
- *     value: _var.database_master_password,
- *     tags: {
- *         environment: "production",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * SSM Parameters can be imported using the `parameter store name`, e.g.,

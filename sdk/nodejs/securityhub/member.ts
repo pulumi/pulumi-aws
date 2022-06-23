@@ -7,22 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Security Hub member resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleMember = new aws.securityhub.Member("exampleMember", {
- *     accountId: "123456789012",
- *     email: "example@example.com",
- *     invite: true,
- * }, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- *
  * ## Import
  *
  * Security Hub members can be imported using their account ID, e.g.,

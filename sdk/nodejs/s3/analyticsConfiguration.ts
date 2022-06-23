@@ -9,45 +9,6 @@ import * as utilities from "../utilities";
  * Provides a S3 bucket [analytics configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/analytics-storage-class.html) resource.
  *
  * ## Example Usage
- * ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketV2("example", {});
- * const analytics = new aws.s3.BucketV2("analytics", {});
- * const example_entire_bucket = new aws.s3.AnalyticsConfiguration("example-entire-bucket", {
- *     bucket: example.bucket,
- *     storageClassAnalysis: {
- *         dataExport: {
- *             destination: {
- *                 s3BucketDestination: {
- *                     bucketArn: analytics.arn,
- *                 },
- *             },
- *         },
- *     },
- * });
- * ```
- * ### Add analytics configuration with S3 object filter
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketV2("example", {});
- * const example_filtered = new aws.s3.AnalyticsConfiguration("example-filtered", {
- *     bucket: example.bucket,
- *     filter: {
- *         prefix: "documents/",
- *         tags: {
- *             priority: "high",
- *             "class": "blue",
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *

@@ -7,51 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Attaches a load balancer policy to an ELB backend server.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const wu_tang = new aws.elb.LoadBalancer("wu-tang", {
- *     availabilityZones: ["us-east-1a"],
- *     listeners: [{
- *         instancePort: 443,
- *         instanceProtocol: "http",
- *         lbPort: 443,
- *         lbProtocol: "https",
- *         sslCertificateId: "arn:aws:iam::000000000000:server-certificate/wu-tang.net",
- *     }],
- *     tags: {
- *         Name: "wu-tang",
- *     },
- * });
- * const wu_tang_ca_pubkey_policy = new aws.elb.LoadBalancerPolicy("wu-tang-ca-pubkey-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyName: "wu-tang-ca-pubkey-policy",
- *     policyTypeName: "PublicKeyPolicyType",
- *     policyAttributes: [{
- *         name: "PublicKey",
- *         value: fs.readFileSync("wu-tang-pubkey"),
- *     }],
- * });
- * const wu_tang_root_ca_backend_auth_policy = new aws.elb.LoadBalancerPolicy("wu-tang-root-ca-backend-auth-policy", {
- *     loadBalancerName: wu_tang.name,
- *     policyName: "wu-tang-root-ca-backend-auth-policy",
- *     policyTypeName: "BackendServerAuthenticationPolicyType",
- *     policyAttributes: [{
- *         name: "PublicKeyPolicyName",
- *         value: aws_load_balancer_policy["wu-tang-root-ca-pubkey-policy"].policy_name,
- *     }],
- * });
- * const wu_tang_backend_auth_policies_443 = new aws.elb.LoadBalancerBackendServerPolicy("wu-tang-backend-auth-policies-443", {
- *     loadBalancerName: wu_tang.name,
- *     instancePort: 443,
- *     policyNames: [wu_tang_root_ca_backend_auth_policy.policyName],
- * });
- * ```
- *
  * @deprecated aws.elasticloadbalancing.LoadBalancerBackendServerPolicy has been deprecated in favor of aws.elb.LoadBalancerBackendServerPolicy
  */
 export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {

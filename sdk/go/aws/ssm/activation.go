@@ -29,7 +29,15 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		testRole, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v", "  {\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\"Service\": \"ssm.amazonaws.com\"},\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  }\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`  {
+//     "Version": "2012-10-17",
+//     "Statement": {
+//       "Effect": "Allow",
+//       "Principal": {"Service": "ssm.amazonaws.com"},
+//       "Action": "sts:AssumeRole"
+//     }
+//   }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

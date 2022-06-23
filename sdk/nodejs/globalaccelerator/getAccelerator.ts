@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides information about a Global Accelerator accelerator.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const config = new pulumi.Config();
- * const acceleratorArn = config.get("acceleratorArn") || "";
- * const acceleratorName = config.get("acceleratorName") || "";
- * const example = aws.globalaccelerator.getAccelerator({
- *     arn: acceleratorArn,
- *     name: acceleratorName,
- * });
- * ```
  */
 export function getAccelerator(args?: GetAcceleratorArgs, opts?: pulumi.InvokeOptions): Promise<GetAcceleratorResult> {
     args = args || {};

@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a subnet CIDR reservation resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.SubnetCidrReservation("example", {
- *     cidrBlock: "10.0.0.16/28",
- *     reservationType: "prefix",
- *     subnetId: aws_subnet.example.id,
- * });
- * ```
- *
  * ## Import
  *
  * Existing CIDR reservations can be imported using `SUBNET_ID:RESERVATION_ID`, e.g.,

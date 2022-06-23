@@ -11,21 +11,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Every Organization account except those configured in the `excludedAccounts` argument must have a Configuration Recorder with proper IAM permissions before the rule will successfully create or update. See also the `aws.cfg.Recorder` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOrganization = new aws.organizations.Organization("exampleOrganization", {
- *     awsServiceAccessPrincipals: ["config-multiaccountsetup.amazonaws.com"],
- *     featureSet: "ALL",
- * });
- * const exampleOrganizationManagedRule = new aws.cfg.OrganizationManagedRule("exampleOrganizationManagedRule", {ruleIdentifier: "IAM_PASSWORD_POLICY"}, {
- *     dependsOn: [exampleOrganization],
- * });
- * ```
- *
  * ## Import
  *
  * Config Organization Managed Rules can be imported using the name, e.g.,

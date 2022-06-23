@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const testIpamPreviewNextCidr = aws.ec2.getIpamPreviewNextCidr({
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
- *     netmaskLength: 28,
- * });
- * const testVpcIpamPoolCidrAllocation = new aws.ec2.VpcIpamPoolCidrAllocation("testVpcIpamPoolCidrAllocation", {
- *     ipamPoolId: aws_vpc_ipam_pool.test.id,
- *     cidr: testIpamPreviewNextCidr.then(testIpamPreviewNextCidr => testIpamPreviewNextCidr.cidr),
- * });
- * ```
- */
 export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPreviewNextCidrResult> {
     if (!opts) {
         opts = {}

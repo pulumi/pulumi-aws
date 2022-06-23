@@ -9,19 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** AWS currently has limited regional support for Device Farm (e.g., `us-west-2`). See [AWS Device Farm endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/devicefarm.html) for information on supported regions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleProject = new aws.devicefarm.Project("exampleProject", {});
- * const exampleUpload = new aws.devicefarm.Upload("exampleUpload", {
- *     projectArn: exampleProject.arn,
- *     type: "APPIUM_JAVA_TESTNG_TEST_SPEC",
- * });
- * ```
- *
  * ## Import
  *
  * DeviceFarm Uploads can be imported by their arn

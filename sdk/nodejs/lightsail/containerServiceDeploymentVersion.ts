@@ -7,39 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.lightsail.ContainerServiceDeploymentVersion("example", {
- *     containers: [{
- *         containerName: "hello-world",
- *         image: "amazon/amazon-lightsail:hello-world",
- *         commands: [],
- *         environment: {
- *             MY_ENVIRONMENT_VARIABLE: "my_value",
- *         },
- *         ports: {
- *             "80": "HTTP",
- *         },
- *     }],
- *     publicEndpoint: {
- *         containerName: "hello-world",
- *         containerPort: 80,
- *         healthCheck: {
- *             healthyThreshold: 2,
- *             unhealthyThreshold: 2,
- *             timeoutSeconds: 2,
- *             intervalSeconds: 5,
- *             path: "/",
- *             successCodes: "200-499",
- *         },
- *     },
- *     serviceName: aws_lightsail_container_service.example.name,
- * });
- * ```
  *
  * ## Import
  *

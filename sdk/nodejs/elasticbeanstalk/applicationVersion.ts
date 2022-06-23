@@ -19,27 +19,6 @@ import {Application} from "./index";
  * Elastic Beanstalk Environments it is possible that an error may be returned
  * when attempting to delete an Application Version while it is still in use by a different environment.
  * To work around this you can either create each environment in a separate AWS account or create your `aws.elasticbeanstalk.ApplicationVersion` resources with a unique names in your Elastic Beanstalk Application. For example &lt;revision&gt;-&lt;environment&gt;.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultBucketV2 = new aws.s3.BucketV2("defaultBucketV2", {});
- * const defaultBucketObjectv2 = new aws.s3.BucketObjectv2("defaultBucketObjectv2", {
- *     bucket: defaultBucketV2.id,
- *     key: "beanstalk/go-v1.zip",
- *     source: new pulumi.asset.FileAsset("go-v1.zip"),
- * });
- * const defaultApplication = new aws.elasticbeanstalk.Application("defaultApplication", {description: "tf-test-desc"});
- * const defaultApplicationVersion = new aws.elasticbeanstalk.ApplicationVersion("defaultApplicationVersion", {
- *     application: "tf-test-name",
- *     description: "application version",
- *     bucket: defaultBucketV2.id,
- *     key: defaultBucketObjectv2.id,
- * });
- * ```
  */
 export class ApplicationVersion extends pulumi.CustomResource {
     /**

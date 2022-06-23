@@ -10,34 +10,6 @@ import * as utilities from "../utilities";
  * You can simply add neptune instances and Neptune manages the replication. You can use the [count](https://www.terraform.io/docs/configuration/meta-arguments/count.html)
  * meta-parameter to make multiple instances and join them all to the same Neptune Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
  *
- * ## Example Usage
- *
- * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const _default = new aws.neptune.Cluster("default", {
- *     clusterIdentifier: "neptune-cluster-demo",
- *     engine: "neptune",
- *     backupRetentionPeriod: 5,
- *     preferredBackupWindow: "07:00-09:00",
- *     skipFinalSnapshot: true,
- *     iamDatabaseAuthenticationEnabled: true,
- *     applyImmediately: true,
- * });
- * const example: aws.neptune.ClusterInstance[];
- * for (const range = {value: 0}; range.value < 2; range.value++) {
- *     example.push(new aws.neptune.ClusterInstance(`example-${range.value}`, {
- *         clusterIdentifier: _default.id,
- *         engine: "neptune",
- *         instanceClass: "db.r4.large",
- *         applyImmediately: true,
- *     }));
- * }
- * ```
- *
  * ## Import
  *
  * `aws_neptune_cluster_instance` can be imported by using the instance identifier, e.g.,

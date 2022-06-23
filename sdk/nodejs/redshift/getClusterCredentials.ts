@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides redshift subnet group.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshift.getClusterCredentials({
- *     name: aws_redshift_cluster_credentials.example.name,
- * });
- * ```
  */
 export function getClusterCredentials(args: GetClusterCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterCredentialsResult> {
     if (!opts) {

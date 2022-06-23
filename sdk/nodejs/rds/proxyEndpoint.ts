@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html#rds-proxy-endpoints).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.ProxyEndpoint("example", {
- *     dbProxyName: aws_db_proxy.test.name,
- *     dbProxyEndpointName: "example",
- *     vpcSubnetIds: aws_subnet.test.map(__item => __item.id),
- *     targetRole: "READ_ONLY",
- * });
- * ```
- *
  * ## Import
  *
  * DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,

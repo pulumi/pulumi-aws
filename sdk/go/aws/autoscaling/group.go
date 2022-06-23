@@ -44,7 +44,7 @@ import (
 // 			MinSize:         pulumi.Int(1),
 // 			LaunchTemplate: &autoscaling.GroupLaunchTemplateArgs{
 // 				Id:      foobar.ID(),
-// 				Version: pulumi.String(fmt.Sprintf("%v%v", "$", "Latest")),
+// 				Version: pulumi.String(fmt.Sprintf("$Latest")),
 // 			},
 // 		})
 // 		if err != nil {

@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates Security Hub custom action.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleActionTarget = new aws.securityhub.ActionTarget("exampleActionTarget", {
- *     identifier: "SendToChat",
- *     description: "This is custom action sends selected findings to chat",
- * }, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- *
  * ## Import
  *
  * Security Hub custom action can be imported using the action target ARN e.g.,

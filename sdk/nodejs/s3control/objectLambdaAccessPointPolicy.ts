@@ -7,38 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an S3 Object Lambda Access Point resource policy.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
- * const exampleObjectLambdaAccessPoint = new aws.s3control.ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", {configuration: {
- *     supportingAccessPoint: exampleAccessPoint.arn,
- *     transformationConfigurations: [{
- *         actions: ["GetObject"],
- *         contentTransformation: {
- *             awsLambda: {
- *                 functionArn: aws_lambda_function.example.arn,
- *             },
- *         },
- *     }],
- * }});
- * const exampleObjectLambdaAccessPointPolicy = new aws.s3control.ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", {policy: exampleObjectLambdaAccessPoint.arn.apply(arn => JSON.stringify({
- *     Version: "2008-10-17",
- *     Statement: [{
- *         Effect: "Allow",
- *         Action: "s3-object-lambda:GetObject",
- *         Principal: {
- *             AWS: data.aws_caller_identity.current.account_id,
- *         },
- *         Resource: arn,
- *     }],
- * }))});
- * ```
- *
  * ## Import
  *
  * Object Lambda Access Point policies can be imported using the `account_id` and `name`, separated by a colon (`:`), e.g.

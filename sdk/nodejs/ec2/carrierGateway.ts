@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.CarrierGateway("example", {
- *     vpcId: aws_vpc.example.id,
- *     tags: {
- *         Name: "example-carrier-gateway",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.,

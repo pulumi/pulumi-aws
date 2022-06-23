@@ -8,21 +8,6 @@ import * as utilities from "../utilities";
 /**
  * The VPN Gateway data source provides details about
  * a specific VPN gateway.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const selected = aws.ec2.getVpnGateway({
- *     filters: [{
- *         name: "tag:Name",
- *         values: ["vpn-gw"],
- *     }],
- * });
- * export const vpnGatewayId = selected.then(selected => selected.id);
- * ```
  */
 export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     args = args || {};

@@ -12,55 +12,6 @@ import * as utilities from "../utilities";
  * by creating an `aws.directconnect.GatewayAssociation` resource with the `proposalId` and `associatedGatewayOwnerAccountId` attributes set.
  *
  * ## Example Usage
- * ### VPN Gateway Association
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
- * const exampleVpnGateway = new aws.ec2.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
- *     dxGatewayId: exampleGateway.id,
- *     associatedGatewayId: exampleVpnGateway.id,
- * });
- * ```
- * ### Transit Gateway Association
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {});
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
- *     dxGatewayId: exampleGateway.id,
- *     associatedGatewayId: exampleTransitGateway.id,
- *     allowedPrefixes: [
- *         "10.255.255.0/30",
- *         "10.255.255.8/30",
- *     ],
- * });
- * ```
- * ### Allowed Prefixes
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.255.255.0/28"});
- * const exampleVpnGateway = new aws.ec2.VpnGateway("exampleVpnGateway", {vpcId: exampleVpc.id});
- * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
- *     dxGatewayId: exampleGateway.id,
- *     associatedGatewayId: exampleVpnGateway.id,
- *     allowedPrefixes: [
- *         "210.52.109.0/24",
- *         "175.45.176.0/22",
- *     ],
- * });
- * ```
  *
  * ## Import
  *

@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
  * Provides an Elastic network interface (ENI) resource.
  *
  * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.NetworkInterface("test", {
- *     subnetId: aws_subnet.public_a.id,
- *     privateIps: ["10.0.0.50"],
- *     securityGroups: [aws_security_group.web.id],
- *     attachments: [{
- *         instance: aws_instance.test.id,
- *         deviceIndex: 1,
- *     }],
- * });
- * ```
  * ### Example of Managing Multiple IPs on a Network Interface
  *
  * By default, private IPs are managed through the `privateIps` and `privateIpsCount` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.

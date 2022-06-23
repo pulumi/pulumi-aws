@@ -4,21 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const sgEc2 = new aws.ec2.SecurityGroupAssociation("sgEc2", {
- *     vpcEndpointId: aws_vpc_endpoint.ec2.id,
- *     securityGroupId: aws_security_group.sg.id,
- * });
- * ```
- */
 export class SecurityGroupAssociation extends pulumi.CustomResource {
     /**
      * Get an existing SecurityGroupAssociation resource's state with the given name, ID, and optional extra

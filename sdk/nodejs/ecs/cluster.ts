@@ -24,48 +24,6 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Example with Log Configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleKey = new aws.kms.Key("exampleKey", {
- *     description: "example",
- *     deletionWindowInDays: 7,
- * });
- * const exampleLogGroup = new aws.cloudwatch.LogGroup("exampleLogGroup", {});
- * const test = new aws.ecs.Cluster("test", {configuration: {
- *     executeCommandConfiguration: {
- *         kmsKeyId: exampleKey.arn,
- *         logging: "OVERRIDE",
- *         logConfiguration: {
- *             cloudWatchEncryptionEnabled: true,
- *             cloudWatchLogGroupName: exampleLogGroup.name,
- *         },
- *     },
- * }});
- * ```
- * ### Example with Capacity Providers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleCluster = new aws.ecs.Cluster("exampleCluster", {});
- * const exampleCapacityProvider = new aws.ecs.CapacityProvider("exampleCapacityProvider", {autoScalingGroupProvider: {
- *     autoScalingGroupArn: aws_autoscaling_group.example.arn,
- * }});
- * const exampleClusterCapacityProviders = new aws.ecs.ClusterCapacityProviders("exampleClusterCapacityProviders", {
- *     clusterName: exampleCluster.name,
- *     capacityProviders: [exampleCapacityProvider.name],
- *     defaultCapacityProviderStrategies: [{
- *         base: 1,
- *         weight: 100,
- *         capacityProvider: exampleCapacityProvider.name,
- *     }],
- * });
- * ```
  *
  * ## Import
  *

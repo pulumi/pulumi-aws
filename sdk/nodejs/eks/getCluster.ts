@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve information about an EKS Cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * export = async () => {
- *     const example = await aws.eks.getCluster({
- *         name: "example",
- *     });
- *     const endpoint = example.endpoint;
- *     const kubeconfig_certificate_authority_data = example.certificateAuthorities?[0]?.data;
- *     const identity_oidc_issuer = example.identities?[0]?.oidcs?[0]?.issuer;
- *     return {
- *         endpoint: endpoint,
- *         "kubeconfig-certificate-authority-data": kubeconfig_certificate_authority_data,
- *         "identity-oidc-issuer": identity_oidc_issuer,
- *     };
- * }
- * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {

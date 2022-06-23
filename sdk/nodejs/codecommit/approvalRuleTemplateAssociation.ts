@@ -7,18 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Associates a CodeCommit Approval Rule Template with a Repository.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.codecommit.ApprovalRuleTemplateAssociation("example", {
- *     approvalRuleTemplateName: aws_codecommit_approval_rule_template.example.name,
- *     repositoryName: aws_codecommit_repository.example.repository_name,
- * });
- * ```
- *
  * ## Import
  *
  * CodeCommit approval rule template associations can be imported using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`), e.g.

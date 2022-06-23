@@ -31,7 +31,7 @@ import (
 // 				EnforceWorkgroupConfiguration:   pulumi.Bool(true),
 // 				PublishCloudwatchMetricsEnabled: pulumi.Bool(true),
 // 				ResultConfiguration: &athena.WorkgroupConfigurationResultConfigurationArgs{
-// 					OutputLocation: pulumi.String(fmt.Sprintf("%v%v%v", "s3://", aws_s3_bucket.Example.Bucket, "/output/")),
+// 					OutputLocation: pulumi.String(fmt.Sprintf("s3://%v/output/", aws_s3_bucket.Example.Bucket)),
 // 					EncryptionConfiguration: &athena.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{
 // 						EncryptionOption: pulumi.String("SSE_KMS"),
 // 						KmsKeyArn:        pulumi.Any(aws_kms_key.Example.Arn),

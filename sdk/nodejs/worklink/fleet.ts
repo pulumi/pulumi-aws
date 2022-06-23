@@ -6,43 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * Basic usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.worklink.Fleet("example", {});
- * ```
- *
- * Network Configuration Usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.worklink.Fleet("example", {network: {
- *     vpcId: aws_vpc.test.id,
- *     subnetIds: [aws_subnet.test.map(__item => __item.id)],
- *     securityGroupIds: [aws_security_group.test.id],
- * }});
- * ```
- *
- * Identity Provider Configuration Usage:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const test = new aws.worklink.Fleet("test", {identityProvider: {
- *     type: "SAML",
- *     samlMetadata: fs.readFileSync("saml-metadata.xml"),
- * }});
- * ```
- *
  * ## Import
  *
  * WorkLink can be imported using the ARN, e.g.,

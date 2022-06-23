@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to create a VPC VPN Gateway.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const vpnGw = new aws.ec2.VpnGateway("vpnGw", {
- *     vpcId: aws_vpc.main.id,
- *     tags: {
- *         Name: "main",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * VPN Gateways can be imported using the `vpn gateway id`, e.g.,

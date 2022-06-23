@@ -99,8 +99,8 @@ import (
 // 			IntegrationType:    pulumi.String("AWS_PROXY"),
 // 			IntegrationSubtype: pulumi.String("SQS-SendMessage"),
 // 			RequestParameters: pulumi.StringMap{
-// 				"QueueUrl":    pulumi.String(fmt.Sprintf("%v%v", "$", "request.header.queueUrl")),
-// 				"MessageBody": pulumi.String(fmt.Sprintf("%v%v", "$", "request.body.message")),
+// 				"QueueUrl":    pulumi.String(fmt.Sprintf("$request.header.queueUrl")),
+// 				"MessageBody": pulumi.String(fmt.Sprintf("$request.body.message")),
 // 			},
 // 		})
 // 		if err != nil {
@@ -137,14 +137,14 @@ import (
 // 				ServerNameToVerify: pulumi.String("example.com"),
 // 			},
 // 			RequestParameters: pulumi.StringMap{
-// 				"append:header.authforintegration": pulumi.String(fmt.Sprintf("%v%v", "$", "context.authorizer.authorizerResponse")),
+// 				"append:header.authforintegration": pulumi.String(fmt.Sprintf("$context.authorizer.authorizerResponse")),
 // 				"overwrite:path":                   pulumi.String("staticValueForIntegration"),
 // 			},
 // 			ResponseParameters: apigatewayv2.IntegrationResponseParameterArray{
 // 				&apigatewayv2.IntegrationResponseParameterArgs{
 // 					StatusCode: pulumi.String("403"),
 // 					Mappings: pulumi.StringMap{
-// 						"append:header.auth": pulumi.String(fmt.Sprintf("%v%v", "$", "context.authorizer.authorizerResponse")),
+// 						"append:header.auth": pulumi.String(fmt.Sprintf("$context.authorizer.authorizerResponse")),
 // 					},
 // 				},
 // 				&apigatewayv2.IntegrationResponseParameterArgs{

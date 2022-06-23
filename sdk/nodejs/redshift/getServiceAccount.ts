@@ -7,43 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)
  * in a given region for the purpose of allowing Redshift to store audit data in S3.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.redshift.getServiceAccount({});
- * const bucket = new aws.s3.BucketV2("bucket", {forceDestroy: true});
- * const allowAuditLogging = new aws.s3.BucketPolicy("allowAuditLogging", {
- *     bucket: bucket.id,
- *     policy: Promise.all([main, main]).then(([main, main1]) => `{
- * 	"Version": "2008-10-17",
- * 	"Statement": [
- * 		{
- *             "Sid": "Put bucket policy needed for audit logging",
- *             "Effect": "Allow",
- *             "Principal": {
- * 		        "AWS": "${main.arn}"
- *             },
- *             "Action": "s3:PutObject",
- *             "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket/*"
- *         },
- *         {
- *             "Sid": "Get bucket policy needed for audit logging ",
- *             "Effect": "Allow",
- *             "Principal": {
- * 		        "AWS": "${main1.arn}"
- *             },
- *             "Action": "s3:GetBucketAcl",
- *             "Resource": "arn:aws:s3:::tf-redshift-logging-test-bucket"
- *         }
- * 	]
- * }
- * `),
- * });
- * ```
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};

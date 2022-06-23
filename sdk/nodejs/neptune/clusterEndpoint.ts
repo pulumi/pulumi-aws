@@ -7,19 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Neptune Cluster Endpoint Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.neptune.ClusterEndpoint("example", {
- *     clusterIdentifier: aws_neptune_cluster.test.cluster_identifier,
- *     clusterEndpointIdentifier: "example",
- *     endpointType: "READER",
- * });
- * ```
- *
  * ## Import
  *
  * `aws_neptune_cluster_endpoint` can be imported by using the `cluster-identifier:endpoint-identfier`, e.g.,

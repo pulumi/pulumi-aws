@@ -7,28 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a DMS (Data Migration Service) replication task resource. DMS replication tasks can be created, updated, deleted, and imported.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Create a new replication task
- * const test = new aws.dms.ReplicationTask("test", {
- *     cdcStartTime: "1484346880",
- *     migrationType: "full-load",
- *     replicationInstanceArn: aws_dms_replication_instance["test-dms-replication-instance-tf"].replication_instance_arn,
- *     replicationTaskId: "test-dms-replication-task-tf",
- *     replicationTaskSettings: "...",
- *     sourceEndpointArn: aws_dms_endpoint["test-dms-source-endpoint-tf"].endpoint_arn,
- *     tableMappings: `{"rules":[{"rule-type":"selection","rule-id":"1","rule-name":"1","object-locator":{"schema-name":"%","table-name":"%"},"rule-action":"include"}]}`,
- *     tags: {
- *         Name: "test",
- *     },
- *     targetEndpointArn: aws_dms_endpoint["test-dms-target-endpoint-tf"].endpoint_arn,
- * });
- * ```
- *
  * ## Import
  *
  * Replication tasks can be imported using the `replication_task_id`, e.g.,

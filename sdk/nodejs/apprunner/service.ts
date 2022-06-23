@@ -9,46 +9,6 @@ import * as utilities from "../utilities";
  * Manages an App Runner Service.
  *
  * ## Example Usage
- * ### Service with a Code Repository Source
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apprunner.Service("example", {
- *     serviceName: "example",
- *     sourceConfiguration: {
- *         authenticationConfiguration: {
- *             connectionArn: aws_apprunner_connection.example.arn,
- *         },
- *         codeRepository: {
- *             codeConfiguration: {
- *                 codeConfigurationValues: {
- *                     buildCommand: "python setup.py develop",
- *                     port: "8000",
- *                     runtime: "PYTHON_3",
- *                     startCommand: "python runapp.py",
- *                 },
- *                 configurationSource: "API",
- *             },
- *             repositoryUrl: "https://github.com/example/my-example-python-app",
- *             sourceCodeVersion: {
- *                 type: "BRANCH",
- *                 value: "main",
- *             },
- *         },
- *     },
- *     networkConfiguration: {
- *         egressConfiguration: {
- *             egressType: "VPC",
- *             vpcConnectorArn: aws_apprunner_vpc_connector.connector.arn,
- *         },
- *     },
- *     tags: {
- *         Name: "example-apprunner-service",
- *     },
- * });
- * ```
  * ### Service with an Image Repository Source
  *
  * ```typescript

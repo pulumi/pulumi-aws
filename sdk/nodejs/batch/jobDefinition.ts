@@ -50,44 +50,6 @@ import * as utilities from "../utilities";
  *     type: "container",
  * });
  * ```
- * ### Fargate Platform Capability
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const assumeRolePolicy = aws.iam.getPolicyDocument({
- *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["ecs-tasks.amazonaws.com"],
- *         }],
- *     }],
- * });
- * const ecsTaskExecutionRole = new aws.iam.Role("ecsTaskExecutionRole", {assumeRolePolicy: assumeRolePolicy.then(assumeRolePolicy => assumeRolePolicy.json)});
- * const ecsTaskExecutionRolePolicy = new aws.iam.RolePolicyAttachment("ecsTaskExecutionRolePolicy", {
- *     role: ecsTaskExecutionRole.name,
- *     policyArn: "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy",
- * });
- * const test = new aws.batch.JobDefinition("test", {
- *     type: "container",
- *     platformCapabilities: ["FARGATE"],
- *     containerProperties: pulumi.interpolate`{
- *   "command": ["echo", "test"],
- *   "image": "busybox",
- *   "fargatePlatformConfiguration": {
- *     "platformVersion": "LATEST"
- *   },
- *   "resourceRequirements": [
- *     {"type": "VCPU", "value": "0.25"},
- *     {"type": "MEMORY", "value": "512"}
- *   ],
- *   "executionRoleArn": "${ecsTaskExecutionRole.arn}"
- * }
- * `,
- * });
- * ```
  *
  * ## Import
  *

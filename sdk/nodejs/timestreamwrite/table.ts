@@ -9,35 +9,6 @@ import * as utilities from "../utilities";
  * Provides a Timestream table resource.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: aws_timestreamwrite_database.example.database_name,
- *     tableName: "example",
- * });
- * ```
- * ### Full usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.timestreamwrite.Table("example", {
- *     databaseName: aws_timestreamwrite_database.example.database_name,
- *     tableName: "example",
- *     retentionProperties: {
- *         magneticStoreRetentionPeriodInDays: 30,
- *         memoryStoreRetentionPeriodInHours: 8,
- *     },
- *     tags: {
- *         Name: "example-timestream-table",
- *     },
- * });
- * ```
  *
  * ## Import
  *

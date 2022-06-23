@@ -51,7 +51,7 @@ import (
 // 					Resources: pulumi.StringArray{
 // 						example.Arn,
 // 						example.Arn.ApplyT(func(arn string) (string, error) {
-// 							return fmt.Sprintf("%v%v", arn, "/*"), nil
+// 							return fmt.Sprintf("%v/*", arn), nil
 // 						}).(pulumi.StringOutput),
 // 					},
 // 				},

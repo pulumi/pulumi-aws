@@ -5,38 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
- *     bucket: exampleBucketV2.id,
- *     publicAccessBlockConfiguration: {
- *         blockPublicAcls: true,
- *         blockPublicPolicy: false,
- *         ignorePublicAcls: true,
- *         restrictPublicBuckets: false,
- *     },
- * });
- * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("exampleAccessPointPolicy", {
- *     accessPointArn: exampleAccessPoint.arn,
- *     policy: exampleAccessPoint.arn.apply(arn => JSON.stringify({
- *         Version: "2008-10-17",
- *         Statement: [{
- *             Effect: "Allow",
- *             Action: "s3:GetObjectTagging",
- *             Principal: {
- *                 AWS: "*",
- *             },
- *             Resource: `${arn}/object/*`,
- *         }],
- *     })),
- * });
- * ```
- *
  * ## Import
  *
  * Access Point policies can be imported using the `access_point_arn`, e.g.

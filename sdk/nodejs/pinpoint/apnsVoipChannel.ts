@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint APNs VoIP Channel resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const apnsVoip = new aws.pinpoint.ApnsVoipChannel("apnsVoip", {
- *     applicationId: app.applicationId,
- *     certificate: fs.readFileSync("./certificate.pem"),
- *     privateKey: fs.readFileSync("./private_key.key"),
- * });
- * ```
- *
  * ## Import
  *
  * Pinpoint APNs VoIP Channel can be imported using the `application-id`, e.g.,

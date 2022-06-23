@@ -11,19 +11,6 @@ import * as utilities from "../utilities";
  * More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
  *
  * ## Example Usage
- * ### New Global Cluster From Existing DB Cluster
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // ... other configuration ...
- * const exampleCluster = new aws.docdb.Cluster("exampleCluster", {});
- * const exampleGlobalCluster = new aws.docdb.GlobalCluster("exampleGlobalCluster", {
- *     globalClusterIdentifier: "example",
- *     sourceDbClusterIdentifier: exampleCluster.arn,
- * });
- * ```
  *
  * ## Import
  *

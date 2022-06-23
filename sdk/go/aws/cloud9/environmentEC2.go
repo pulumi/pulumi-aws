@@ -70,7 +70,7 @@ import (
 // 			},
 // 		}, nil)
 // 		ctx.Export("cloud9Url", example.ID().ApplyT(func(id string) (string, error) {
-// 			return fmt.Sprintf("%v%v%v%v", "https://", _var.Region, ".console.aws.amazon.com/cloud9/ide/", id), nil
+// 			return fmt.Sprintf("https://%v.console.aws.amazon.com/cloud9/ide/%v", _var.Region, id), nil
 // 		}).(pulumi.StringOutput))
 // 		return nil
 // 	})

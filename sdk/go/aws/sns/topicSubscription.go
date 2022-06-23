@@ -156,7 +156,7 @@ import (
 // 						},
 // 					},
 // 					Resources: []string{
-// 						fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sns:", sns.Region, ":", sns.Account-id, ":", sns.Name),
+// 						fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
 // 					},
 // 					Sid: pulumi.StringRef("__default_statement_ID"),
 // 				},
@@ -170,7 +170,7 @@ import (
 // 							Test:     "StringLike",
 // 							Variable: "SNS:Endpoint",
 // 							Values: []string{
-// 								fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sqs:", sqs.Region, ":", sqs.Account-id, ":", sqs.Name),
+// 								fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.Account-id, sqs.Name),
 // 							},
 // 						},
 // 					},
@@ -184,7 +184,7 @@ import (
 // 						},
 // 					},
 // 					Resources: []string{
-// 						fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sns:", sns.Region, ":", sns.Account-id, ":", sns.Name),
+// 						fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
 // 					},
 // 					Sid: pulumi.StringRef("__console_sub_0"),
 // 				},
@@ -194,7 +194,7 @@ import (
 // 			return err
 // 		}
 // 		sqs_queue_policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
-// 			PolicyId: pulumi.StringRef(fmt.Sprintf("%v%v%v%v%v%v%v", "arn:aws:sqs:", sqs.Region, ":", sqs.Account-id, ":", sqs.Name, "/SQSDefaultPolicy")),
+// 			PolicyId: pulumi.StringRef(fmt.Sprintf("arn:aws:sqs:%v:%v:%v/SQSDefaultPolicy", sqs.Region, sqs.Account-id, sqs.Name)),
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
 // 					Sid:    pulumi.StringRef("example-sns-topic"),
@@ -211,14 +211,14 @@ import (
 // 						"SQS:SendMessage",
 // 					},
 // 					Resources: []string{
-// 						fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sqs:", sqs.Region, ":", sqs.Account-id, ":", sqs.Name),
+// 						fmt.Sprintf("arn:aws:sqs:%v:%v:%v", sqs.Region, sqs.Account-id, sqs.Name),
 // 					},
 // 					Conditions: []iam.GetPolicyDocumentStatementCondition{
 // 						iam.GetPolicyDocumentStatementCondition{
 // 							Test:     "ArnEquals",
 // 							Variable: "aws:SourceArn",
 // 							Values: []string{
-// 								fmt.Sprintf("%v%v%v%v%v%v", "arn:aws:sns:", sns.Region, ":", sns.Account-id, ":", sns.Name),
+// 								fmt.Sprintf("arn:aws:sns:%v:%v:%v", sns.Region, sns.Account-id, sns.Name),
 // 							},
 // 						},
 // 					},
@@ -231,8 +231,8 @@ import (
 // 		_, err = providers.Newaws(ctx, "awsSns", &providers.awsArgs{
 // 			Region: sns.Region,
 // 			AssumeRole: config.AssumeRole{
-// 				RoleArn:     fmt.Sprintf("%v%v%v%v", "arn:aws:iam::", sns.Account-id, ":role/", sns.Role-name),
-// 				SessionName: fmt.Sprintf("%v%v", "sns-", sns.Region),
+// 				RoleArn:     fmt.Sprintf("arn:aws:iam::%v:role/%v", sns.Account-id, sns.Role-name),
+// 				SessionName: fmt.Sprintf("sns-%v", sns.Region),
 // 			},
 // 		})
 // 		if err != nil {
@@ -241,8 +241,8 @@ import (
 // 		_, err = providers.Newaws(ctx, "awsSqs", &providers.awsArgs{
 // 			Region: sqs.Region,
 // 			AssumeRole: config.AssumeRole{
-// 				RoleArn:     fmt.Sprintf("%v%v%v%v", "arn:aws:iam::", sqs.Account-id, ":role/", sqs.Role-name),
-// 				SessionName: fmt.Sprintf("%v%v", "sqs-", sqs.Region),
+// 				RoleArn:     fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.Account-id, sqs.Role-name),
+// 				SessionName: fmt.Sprintf("sqs-%v", sqs.Region),
 // 			},
 // 		})
 // 		if err != nil {
@@ -251,8 +251,8 @@ import (
 // 		_, err = providers.Newaws(ctx, "sns2sqs", &providers.awsArgs{
 // 			Region: sns.Region,
 // 			AssumeRole: config.AssumeRole{
-// 				RoleArn:     fmt.Sprintf("%v%v%v%v", "arn:aws:iam::", sqs.Account-id, ":role/", sqs.Role-name),
-// 				SessionName: fmt.Sprintf("%v%v", "sns2sqs-", sns.Region),
+// 				RoleArn:     fmt.Sprintf("arn:aws:iam::%v:role/%v", sqs.Account-id, sqs.Role-name),
+// 				SessionName: fmt.Sprintf("sns2sqs-%v", sns.Region),
 // 			},
 // 		})
 // 		if err != nil {

@@ -46,7 +46,18 @@ import (
 // 					ParameterValue: pulumi.String("90"),
 // 				},
 // 			},
-// 			TemplateBody: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "Parameters:\n", "  AccessKeysRotatedParameterMaxAccessKeyAge:\n", "    Type: String\n", "Resources:\n", "  IAMPasswordPolicy:\n", "    Properties:\n", "      ConfigRuleName: IAMPasswordPolicy\n", "      Source:\n", "        Owner: AWS\n", "        SourceIdentifier: IAM_PASSWORD_POLICY\n", "    Type: AWS::Config::ConfigRule\n")),
+// 			TemplateBody: pulumi.String(fmt.Sprintf(`Parameters:
+//   AccessKeysRotatedParameterMaxAccessKeyAge:
+//     Type: String
+// Resources:
+//   IAMPasswordPolicy:
+//     Properties:
+//       ConfigRuleName: IAMPasswordPolicy
+//       Source:
+//         Owner: AWS
+//         SourceIdentifier: IAM_PASSWORD_POLICY
+//     Type: AWS::Config::ConfigRule
+// `)),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			aws_config_configuration_recorder.Example,
 // 			exampleOrganization,
@@ -88,9 +99,17 @@ import (
 // 			return err
 // 		}
 // 		exampleBucketObjectv2, err := s3.NewBucketObjectv2(ctx, "exampleBucketObjectv2", &s3.BucketObjectv2Args{
-// 			Bucket:  exampleBucketV2.ID(),
-// 			Key:     pulumi.String("example-key"),
-// 			Content: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v", "Resources:\n", "  IAMPasswordPolicy:\n", "    Properties:\n", "      ConfigRuleName: IAMPasswordPolicy\n", "      Source:\n", "        Owner: AWS\n", "        SourceIdentifier: IAM_PASSWORD_POLICY\n", "    Type: AWS::Config::ConfigRule\n")),
+// 			Bucket: exampleBucketV2.ID(),
+// 			Key:    pulumi.String("example-key"),
+// 			Content: pulumi.String(fmt.Sprintf(`Resources:
+//   IAMPasswordPolicy:
+//     Properties:
+//       ConfigRuleName: IAMPasswordPolicy
+//       Source:
+//         Owner: AWS
+//         SourceIdentifier: IAM_PASSWORD_POLICY
+//     Type: AWS::Config::ConfigRule
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -99,7 +118,7 @@ import (
 // 			TemplateS3Uri: pulumi.All(exampleBucketV2.Bucket, exampleBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 // 				bucket := _args[0].(string)
 // 				key := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v", "s3://", bucket, "/", key), nil
+// 				return fmt.Sprintf("s3://%v/%v", bucket, key), nil
 // 			}).(pulumi.StringOutput),
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			aws_config_configuration_recorder.Example,

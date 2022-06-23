@@ -9,18 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Destroying an `aws.s3.BucketRequestPaymentConfigurationV2` resource resets the bucket's `payer` to the S3 default: the bucket owner.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3.BucketRequestPaymentConfigurationV2("example", {
- *     bucket: aws_s3_bucket.example.bucket,
- *     payer: "Requester",
- * });
- * ```
- *
  * ## Import
  *
  * S3 bucket request payment configuration can be imported in one of two ways. If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, the S3 bucket request payment configuration resource should be imported using the `bucket` e.g.,

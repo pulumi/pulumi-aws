@@ -41,7 +41,19 @@ import (
 // 			return err
 // 		}
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"codebuild.amazonaws.com\"\n", "      },\n", "      \"Action\": \"sts:AssumeRole\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Principal": {
+//         "Service": "codebuild.amazonaws.com"
+//       },
+//       "Action": "sts:AssumeRole"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -51,7 +63,64 @@ import (
 // 			Policy: pulumi.All(exampleBucketV2.Arn, exampleBucketV2.Arn).ApplyT(func(_args []interface{}) (string, error) {
 // 				exampleBucketV2Arn := _args[0].(string)
 // 				exampleBucketV2Arn1 := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"*\"\n", "      ],\n", "      \"Action\": [\n", "        \"logs:CreateLogGroup\",\n", "        \"logs:CreateLogStream\",\n", "        \"logs:PutLogEvents\"\n", "      ]\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"ec2:CreateNetworkInterface\",\n", "        \"ec2:DescribeDhcpOptions\",\n", "        \"ec2:DescribeNetworkInterfaces\",\n", "        \"ec2:DeleteNetworkInterface\",\n", "        \"ec2:DescribeSubnets\",\n", "        \"ec2:DescribeSecurityGroups\",\n", "        \"ec2:DescribeVpcs\"\n", "      ],\n", "      \"Resource\": \"*\"\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"ec2:CreateNetworkInterfacePermission\"\n", "      ],\n", "      \"Resource\": [\n", "        \"arn:aws:ec2:us-east-1:123456789012:network-interface/*\"\n", "      ],\n", "      \"Condition\": {\n", "        \"StringEquals\": {\n", "          \"ec2:Subnet\": [\n", "            \"", aws_subnet.Example1.Arn, "\",\n", "            \"", aws_subnet.Example2.Arn, "\"\n", "          ],\n", "          \"ec2:AuthorizedService\": \"codebuild.amazonaws.com\"\n", "        }\n", "      }\n", "    },\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Action\": [\n", "        \"s3:*\"\n", "      ],\n", "      \"Resource\": [\n", "        \"", exampleBucketV2Arn, "\",\n", "        \"", exampleBucketV2Arn1, "/*\"\n", "      ]\n", "    }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Resource": [
+//         "*"
+//       ],
+//       "Action": [
+//         "logs:CreateLogGroup",
+//         "logs:CreateLogStream",
+//         "logs:PutLogEvents"
+//       ]
+//     },
+//     {
+//       "Effect": "Allow",
+//       "Action": [
+//         "ec2:CreateNetworkInterface",
+//         "ec2:DescribeDhcpOptions",
+//         "ec2:DescribeNetworkInterfaces",
+//         "ec2:DeleteNetworkInterface",
+//         "ec2:DescribeSubnets",
+//         "ec2:DescribeSecurityGroups",
+//         "ec2:DescribeVpcs"
+//       ],
+//       "Resource": "*"
+//     },
+//     {
+//       "Effect": "Allow",
+//       "Action": [
+//         "ec2:CreateNetworkInterfacePermission"
+//       ],
+//       "Resource": [
+//         "arn:aws:ec2:us-east-1:123456789012:network-interface/*"
+//       ],
+//       "Condition": {
+//         "StringEquals": {
+//           "ec2:Subnet": [
+//             "%v",
+//             "%v"
+//           ],
+//           "ec2:AuthorizedService": "codebuild.amazonaws.com"
+//         }
+//       }
+//     },
+//     {
+//       "Effect": "Allow",
+//       "Action": [
+//         "s3:*"
+//       ],
+//       "Resource": [
+//         "%v",
+//         "%v/*"
+//       ]
+//     }
+//   ]
+// }
+// `, aws_subnet.Example1.Arn, aws_subnet.Example2.Arn, exampleBucketV2Arn, exampleBucketV2Arn1), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -93,7 +162,7 @@ import (
 // 				S3Logs: &codebuild.ProjectLogsConfigS3LogsArgs{
 // 					Status: pulumi.String("ENABLED"),
 // 					Location: exampleBucketV2.ID().ApplyT(func(id string) (string, error) {
-// 						return fmt.Sprintf("%v%v", id, "/build-log"), nil
+// 						return fmt.Sprintf("%v/build-log", id), nil
 // 					}).(pulumi.StringOutput),
 // 				},
 // 			},

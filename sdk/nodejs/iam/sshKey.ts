@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Uploads an SSH public key and associates it with the specified IAM user.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const userUser = new aws.iam.User("userUser", {path: "/"});
- * const userSshKey = new aws.iam.SshKey("userSshKey", {
- *     username: userUser.name,
- *     encoding: "SSH",
- *     publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 mytest@mydomain.com",
- * });
- * ```
- *
  * ## Import
  *
  * SSH public keys can be imported using the `username`, `ssh_public_key_id`, and `encoding` e.g.,

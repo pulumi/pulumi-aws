@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Information about Outposts Instance Types.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.outposts.getOutpostInstanceTypes({
- *     arn: data.aws_outposts_outpost.example.arn,
- * });
- * ```
  */
 export function getOutpostInstanceTypes(args: GetOutpostInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypesResult> {
     if (!opts) {

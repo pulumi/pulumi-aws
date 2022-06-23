@@ -8,33 +8,6 @@ import * as utilities from "../utilities";
  * Provides a resource to create a VPC NAT Gateway.
  *
  * ## Example Usage
- * ### Public NAT
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.NatGateway("example", {
- *     allocationId: aws_eip.example.id,
- *     subnetId: aws_subnet.example.id,
- *     tags: {
- *         Name: "gw NAT",
- *     },
- * }, {
- *     dependsOn: [aws_internet_gateway.example],
- * });
- * ```
- * ### Private NAT
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.NatGateway("example", {
- *     connectivityType: "private",
- *     subnetId: aws_subnet.example.id,
- * });
- * ```
  *
  * ## Import
  *

@@ -10,21 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** Amazon API Gateway Version 2 VPC Links enable private integrations that connect HTTP APIs to private resources in a VPC.
  * To enable private integration for REST APIs, use the `Amazon API Gateway Version 1 VPC Link` resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.apigatewayv2.VpcLink("example", {
- *     securityGroupIds: [data.aws_security_group.example.id],
- *     subnetIds: data.aws_subnet_ids.example.ids,
- *     tags: {
- *         Usage: "example",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_apigatewayv2_vpc_link` can be imported by using the VPC Link identifier, e.g.,

@@ -33,64 +33,6 @@ import * as utilities from "../utilities";
  *     securityPolicyName: "TransferSecurityPolicy-2020-06",
  * });
  * ```
- * ### VPC Endpoint
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Server("example", {
- *     endpointType: "VPC",
- *     endpointDetails: {
- *         addressAllocationIds: [aws_eip.example.id],
- *         subnetIds: [aws_subnet.example.id],
- *         vpcId: aws_vpc.example.id,
- *     },
- * });
- * ```
- * ### AWS Directory authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Server("example", {
- *     identityProviderType: "AWS_DIRECTORY_SERVICE",
- *     directoryId: aws_directory_service_directory.example.id,
- * });
- * ```
- * ### AWS Lambda authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Server("example", {
- *     identityProviderType: "AWS_LAMBDA",
- *     "function": aws_lambda_identity_provider.example.arn,
- * });
- * ```
- * ### Protocols
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.transfer.Server("example", {
- *     endpointType: "VPC",
- *     endpointDetails: {
- *         subnetIds: [aws_subnet.example.id],
- *         vpcId: aws_vpc.example.id,
- *     },
- *     protocols: [
- *         "FTP",
- *         "FTPS",
- *     ],
- *     certificate: aws_acm_certificate.example.arn,
- *     identityProviderType: "API_GATEWAY",
- *     url: `${aws_api_gateway_deployment.example.invoke_url}${aws_api_gateway_resource.example.path}`,
- * });
- * ```
  *
  * ## Import
  *

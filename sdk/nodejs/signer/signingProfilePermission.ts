@@ -7,44 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Creates a Signer Signing Profile Permission. That is, a cross-account permission for a signing profile.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const prodSp = new aws.signer.SigningProfile("prodSp", {
- *     platformId: "AWSLambda-SHA384-ECDSA",
- *     namePrefix: "prod_sp_",
- *     signatureValidityPeriod: {
- *         value: 5,
- *         type: "YEARS",
- *     },
- *     tags: {
- *         tag1: "value1",
- *         tag2: "value2",
- *     },
- * });
- * const spPermission1 = new aws.signer.SigningProfilePermission("spPermission1", {
- *     profileName: prodSp.name,
- *     action: "signer:StartSigningJob",
- *     principal: _var.aws_account,
- * });
- * const spPermission2 = new aws.signer.SigningProfilePermission("spPermission2", {
- *     profileName: prodSp.name,
- *     action: "signer:GetSigningProfile",
- *     principal: _var.aws_team_role_arn,
- *     statementId: "ProdAccountStartSigningJob_StatementId",
- * });
- * const spPermission3 = new aws.signer.SigningProfilePermission("spPermission3", {
- *     profileName: prodSp.name,
- *     action: "signer:RevokeSignature",
- *     principal: "123456789012",
- *     profileVersion: prodSp.version,
- *     statementIdPrefix: "version-permission-",
- * });
- * ```
- *
  * ## Import
  *
  * Signer signing profile permission statements can be imported using profile_name/statement_id, e.g.,

@@ -188,7 +188,14 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
 // 			AuthenticationType: pulumi.String("AWS_IAM"),
-// 			Schema: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "schema {\n", "	query: Query\n", "}\n", "type Query {\n", "  test: Int\n", "}\n", "\n")),
+// 			Schema: pulumi.String(fmt.Sprintf(`schema {
+// 	query: Query
+// }
+// type Query {
+//   test: Int
+// }
+//
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -213,7 +220,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleRole, err := iam.NewRole(ctx, "exampleRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "        \"Effect\": \"Allow\",\n", "        \"Principal\": {\n", "            \"Service\": \"appsync.amazonaws.com\"\n", "        },\n", "        \"Action\": \"sts:AssumeRole\"\n", "        }\n", "    ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [
+//         {
+//         "Effect": "Allow",
+//         "Principal": {
+//             "Service": "appsync.amazonaws.com"
+//         },
+//         "Action": "sts:AssumeRole"
+//         }
+//     ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

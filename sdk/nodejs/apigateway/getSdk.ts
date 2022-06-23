@@ -4,26 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.apigateway.getSdk({
- *     restApiId: aws_api_gateway_stage.example.rest_api_id,
- *     stageName: aws_api_gateway_stage.example.stage_name,
- *     sdkType: "android",
- *     parameters: {
- *         groupId: "example",
- *         artifactId: "example",
- *         artifactVersion: "example",
- *         invokerPackage: "example",
- *     },
- * });
- * ```
- */
 export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<GetSdkResult> {
     if (!opts) {
         opts = {}

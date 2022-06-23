@@ -7,40 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Authorizes a VPC in a different account to be associated with a local Route53 Hosted Zone.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const alternate = new aws.Provider("alternate", {});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {
- *     cidrBlock: "10.6.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * });
- * const exampleZone = new aws.route53.Zone("exampleZone", {vpcs: [{
- *     vpcId: exampleVpc.id,
- * }]});
- * const alternateVpc = new aws.ec2.Vpc("alternateVpc", {
- *     cidrBlock: "10.7.0.0/16",
- *     enableDnsHostnames: true,
- *     enableDnsSupport: true,
- * }, {
- *     provider: "aws.alternate",
- * });
- * const exampleVpcAssociationAuthorization = new aws.route53.VpcAssociationAuthorization("exampleVpcAssociationAuthorization", {
- *     vpcId: alternateVpc.id,
- *     zoneId: exampleZone.id,
- * });
- * const exampleZoneAssociation = new aws.route53.ZoneAssociation("exampleZoneAssociation", {
- *     vpcId: exampleVpcAssociationAuthorization.vpcId,
- *     zoneId: exampleVpcAssociationAuthorization.zoneId,
- * }, {
- *     provider: "aws.alternate",
- * });
- * ```
- *
  * ## Import
  *
  * Route 53 VPC Association Authorizations can be imported via the Hosted Zone ID and VPC ID, separated by a colon (`:`), e.g.,

@@ -7,55 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to get the Account ID of the [AWS Elastic Load Balancing Service Account](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html#attach-bucket-policy)
  * in a given region for the purpose of permitting in S3 bucket policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const main = aws.elb.getServiceAccount({});
- * const elbLogs = new aws.s3.BucketV2("elbLogs", {});
- * const elbLogsAcl = new aws.s3.BucketAclV2("elbLogsAcl", {
- *     bucket: elbLogs.id,
- *     acl: "private",
- * });
- * const allowElbLogging = new aws.s3.BucketPolicy("allowElbLogging", {
- *     bucket: elbLogs.id,
- *     policy: main.then(main => `{
- *   "Id": "Policy",
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": [
- *         "s3:PutObject"
- *       ],
- *       "Effect": "Allow",
- *       "Resource": "arn:aws:s3:::my-elb-tf-test-bucket/AWSLogs/*",
- *       "Principal": {
- *         "AWS": [
- *           "${main.arn}"
- *         ]
- *       }
- *     }
- *   ]
- * }
- * `),
- * });
- * const bar = new aws.elb.LoadBalancer("bar", {
- *     availabilityZones: ["us-west-2a"],
- *     accessLogs: {
- *         bucket: elbLogs.bucket,
- *         interval: 5,
- *     },
- *     listeners: [{
- *         instancePort: 8000,
- *         instanceProtocol: "http",
- *         lbPort: 80,
- *         lbProtocol: "http",
- *     }],
- * });
- * ```
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};

@@ -54,11 +54,11 @@ import (
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_database.Source.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Source.Name),
 // 						},
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "table_name",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Source.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Source.Name),
 // 						},
 // 					},
 // 				},
@@ -92,11 +92,11 @@ import (
 // 						},
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_database.Destination.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Destination.Name),
 // 						},
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "table_name",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Destination.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Destination.Name),
 // 						},
 // 					},
 // 				},
@@ -106,11 +106,11 @@ import (
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_database.Destination.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Destination.Name),
 // 						},
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "table_name",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Destination.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Destination.Name),
 // 						},
 // 					},
 // 				},
@@ -165,11 +165,11 @@ import (
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_database.Source.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Source.Name),
 // 						},
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "table_name",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Source.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Source.Name),
 // 						},
 // 					},
 // 				},
@@ -203,11 +203,11 @@ import (
 // 						},
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_database.Destination.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Destination.Name),
 // 						},
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "table_name",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Destination.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Destination.Name),
 // 						},
 // 					},
 // 				},
@@ -217,11 +217,11 @@ import (
 // 					Args: []glue.GetScriptDagNodeArg{
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "database",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_database.Destination.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_database.Destination.Name),
 // 						},
 // 						glue.GetScriptDagNodeArg{
 // 							Name:  "table_name",
-// 							Value: fmt.Sprintf("%v%v%v", "\"", aws_glue_catalog_table.Destination.Name, "\""),
+// 							Value: fmt.Sprintf("\"%v\"", aws_glue_catalog_table.Destination.Name),
 // 						},
 // 					},
 // 				},

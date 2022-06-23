@@ -9,26 +9,6 @@ import {PolicyDocument} from "./index";
 /**
  * Provides an IAM policy attached to a group.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDevelopers = new aws.iam.Group("myDevelopers", {path: "/users/"});
- * const myDeveloperPolicy = new aws.iam.GroupPolicy("myDeveloperPolicy", {
- *     group: myDevelopers.name,
- *     policy: JSON.stringify({
- *         Version: "2012-10-17",
- *         Statement: [{
- *             Action: ["ec2:Describe*"],
- *             Effect: "Allow",
- *             Resource: "*",
- *         }],
- *     }),
- * });
- * ```
- *
  * ## Import
  *
  * IAM Group Policies can be imported using the `group_name:group_policy_name`, e.g.,

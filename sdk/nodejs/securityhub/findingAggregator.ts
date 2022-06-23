@@ -8,57 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
  *
  * ## Example Usage
- * ### All Regions Usage
- *
- * The following example will enable the aggregator for every region.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {linkingMode: "ALL_REGIONS"}, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- * ### All Regions Except Specified Regions Usage
- *
- * The following example will enable the aggregator for every region except those specified in `specifiedRegions`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {
- *     linkingMode: "ALL_REGIONS_EXCEPT_SPECIFIED",
- *     specifiedRegions: [
- *         "eu-west-1",
- *         "eu-west-2",
- *     ],
- * }, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
- * ### Specified Regions Usage
- *
- * The following example will enable the aggregator for every region specified in `specifiedRegions`.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleAccount = new aws.securityhub.Account("exampleAccount", {});
- * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("exampleFindingAggregator", {
- *     linkingMode: "SPECIFIED_REGIONS",
- *     specifiedRegions: [
- *         "eu-west-1",
- *         "eu-west-2",
- *     ],
- * }, {
- *     dependsOn: [exampleAccount],
- * });
- * ```
  *
  * ## Import
  *

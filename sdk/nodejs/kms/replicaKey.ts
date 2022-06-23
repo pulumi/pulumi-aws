@@ -7,27 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages a KMS multi-Region replica key.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.Provider("primary", {region: "us-east-1"});
- * const primaryKey = new aws.kms.Key("primaryKey", {
- *     description: "Multi-Region primary key",
- *     deletionWindowInDays: 30,
- *     multiRegion: true,
- * }, {
- *     provider: aws.primary,
- * });
- * const replica = new aws.kms.ReplicaKey("replica", {
- *     description: "Multi-Region replica key",
- *     deletionWindowInDays: 7,
- *     primaryKeyArn: primaryKey.arn,
- * });
- * ```
- *
  * ## Import
  *
  * KMS multi-Region replica keys can be imported using the `id`, e.g.,

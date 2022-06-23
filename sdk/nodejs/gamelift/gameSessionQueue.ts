@@ -8,30 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an GameLift Game Session Queue resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.gamelift.GameSessionQueue("test", {
- *     destinations: [
- *         aws_gamelift_fleet.us_west_2_fleet.arn,
- *         aws_gamelift_fleet.eu_central_1_fleet.arn,
- *     ],
- *     playerLatencyPolicies: [
- *         {
- *             maximumIndividualPlayerLatencyMilliseconds: 100,
- *             policyDurationSeconds: 5,
- *         },
- *         {
- *             maximumIndividualPlayerLatencyMilliseconds: 200,
- *         },
- *     ],
- *     timeoutInSeconds: 60,
- * });
- * ```
- *
  * ## Import
  *
  * GameLift Game Session Queues can be imported by their `name`, e.g.,

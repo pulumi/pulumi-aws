@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to compose and decompose AWS service DNS names.
  *
  * ## Example Usage
- * ### Get Service DNS Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const test = current.then(current => aws.getService({
- *     region: current.name,
- *     serviceId: "ec2",
- * }));
- * ```
  * ### Use Service Reverse DNS Name to Get Components
  *
  * ```typescript

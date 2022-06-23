@@ -10,44 +10,6 @@ import * as utilities from "../utilities";
  * > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
  *
  * ## Example Usage
- * ### UI customization settings for a single client
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
- *     domain: "example",
- *     userPoolId: exampleUserPool.id,
- * });
- * const exampleUserPoolClient = new aws.cognito.UserPoolClient("exampleUserPoolClient", {userPoolId: exampleUserPool.id});
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization", {
- *     clientId: exampleUserPoolClient.id,
- *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: Buffer.from(fs.readFileSync("logo.png"), 'binary').toString('base64'),
- *     userPoolId: exampleUserPoolDomain.userPoolId,
- * });
- * ```
- * ### UI customization settings for all clients
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const exampleUserPool = new aws.cognito.UserPool("exampleUserPool", {});
- * const exampleUserPoolDomain = new aws.cognito.UserPoolDomain("exampleUserPoolDomain", {
- *     domain: "example",
- *     userPoolId: exampleUserPool.id,
- * });
- * const exampleUserPoolUICustomization = new aws.cognito.UserPoolUICustomization("exampleUserPoolUICustomization", {
- *     css: ".label-customizable {font-weight: 400;}",
- *     imageFile: Buffer.from(fs.readFileSync("logo.png"), 'binary').toString('base64'),
- *     userPoolId: exampleUserPoolDomain.userPoolId,
- * });
- * ```
  *
  * ## Import
  *

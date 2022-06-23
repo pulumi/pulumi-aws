@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
  * Manages a Kinesis Analytics v2 Application Snapshot.
  * Snapshots are the AWS implementation of [Flink Savepoints](https://ci.apache.org/projects/flink/flink-docs-release-1.11/ops/state/savepoints.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.kinesisanalyticsv2.ApplicationSnapshot("example", {
- *     applicationName: aws_kinesisanalyticsv2_application.example.name,
- *     snapshotName: "example-snapshot",
- * });
- * ```
- *
  * ## Import
  *
  * `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,

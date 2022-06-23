@@ -13,30 +13,6 @@ import * as utilities from "../utilities";
  * > Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
  *
  * ## Example Usage
- * ### AWS Partition Bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucketV2.id});
- * ```
- * ### S3 on Outposts Bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucket = new aws.s3control.Bucket("exampleBucket", {bucket: "example"});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
- *     bucket: exampleBucket.arn,
- *     vpcConfiguration: {
- *         vpcId: exampleVpc.id,
- *     },
- * });
- * ```
  *
  * ## Import
  *

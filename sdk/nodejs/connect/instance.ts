@@ -23,20 +23,6 @@ import * as utilities from "../utilities";
  *     outboundCallsEnabled: true,
  * });
  * ```
- * ### With Existing Active Directory
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.connect.Instance("test", {
- *     directoryId: aws_directory_service_directory.test.id,
- *     identityManagementType: "EXISTING_DIRECTORY",
- *     inboundCallsEnabled: true,
- *     instanceAlias: "friendly-name-connect",
- *     outboundCallsEnabled: true,
- * });
- * ```
  * ### With SAML
  *
  * ```typescript

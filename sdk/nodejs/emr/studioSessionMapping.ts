@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic MapReduce Studio Session Mapping.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emr.StudioSessionMapping("example", {
- *     studioId: aws_emr_studio.example.id,
- *     identityType: "USER",
- *     identityId: "example",
- *     sessionPolicyArn: aws_iam_policy.example.arn,
- * });
- * ```
- *
  * ## Import
  *
  * EMR studio session mappings can be imported using the `id`, e.g., `studio-id:identity-type:identity-id`

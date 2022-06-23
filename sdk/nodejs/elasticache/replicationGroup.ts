@@ -28,54 +28,6 @@ import * as utilities from "../utilities";
  * > **Note:** Be aware of the terminology collision around "cluster" for `aws.elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
  *
  * ## Example Usage
- * ### Redis Cluster Mode Disabled
- *
- * To create a single shard primary with single read replica:
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.elasticache.ReplicationGroup("example", {
- *     automaticFailoverEnabled: true,
- *     description: "example description",
- *     nodeType: "cache.m4.large",
- *     numberCacheClusters: 2,
- *     parameterGroupName: "default.redis3.2",
- *     port: 6379,
- *     preferredCacheClusterAzs: [
- *         "us-west-2a",
- *         "us-west-2b",
- *     ],
- * });
- * ```
- *
- * You have two options for adjusting the number of replicas:
- *
- * * Adjusting `numberCacheClusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g. preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
- * * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `aws.elasticache.Cluster` resource and its `replicationGroupId` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `numberCacheCluster` attribute.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.elasticache.ReplicationGroup("example", {
- *     automaticFailoverEnabled: true,
- *     preferredCacheClusterAzs: [
- *         "us-west-2a",
- *         "us-west-2b",
- *     ],
- *     description: "example description",
- *     nodeType: "cache.m4.large",
- *     numberCacheClusters: 2,
- *     parameterGroupName: "default.redis3.2",
- *     port: 6379,
- * });
- * let replica: aws.elasticache.Cluster | undefined;
- * if (1 == true) {
- *     replica = new aws.elasticache.Cluster("replica", {replicationGroupId: example.id});
- * }
- * ```
  * ### Redis Cluster Mode Enabled
  *
  * To create two shards with a primary and a single read replica each:
@@ -92,71 +44,6 @@ import * as utilities from "../utilities";
  *     parameterGroupName: "default.redis3.2.cluster.on",
  *     port: 6379,
  *     replicasPerNodeGroup: 1,
- * });
- * ```
- * ### Redis Log Delivery configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.elasticache.ReplicationGroup("test", {
- *     replicationGroupDescription: "test description",
- *     nodeType: "cache.t3.small",
- *     port: 6379,
- *     applyImmediately: true,
- *     autoMinorVersionUpgrade: false,
- *     maintenanceWindow: "tue:06:30-tue:07:30",
- *     snapshotWindow: "01:00-02:00",
- *     logDeliveryConfigurations: [
- *         {
- *             destination: aws_cloudwatch_log_group.example.name,
- *             destinationType: "cloudwatch-logs",
- *             logFormat: "text",
- *             logType: "slow-log",
- *         },
- *         {
- *             destination: aws_kinesis_firehose_delivery_stream.example.name,
- *             destinationType: "kinesis-firehose",
- *             logFormat: "json",
- *             logType: "engine-log",
- *         },
- *     ],
- * });
- * ```
- *
- * > **Note:** We currently do not support passing a `primaryClusterId` in order to create the Replication Group.
- *
- * > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
- * and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
- * for full details on using Replication Groups.
- * ### Creating a secondary replication group for a global replication group
- *
- * A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const primary = new aws.elasticache.ReplicationGroup("primary", {
- *     description: "primary replication group",
- *     engine: "redis",
- *     engineVersion: "5.0.6",
- *     nodeType: "cache.m5.large",
- *     numberCacheClusters: 1,
- * }, {
- *     provider: aws.other_region,
- * });
- * const example = new aws.elasticache.GlobalReplicationGroup("example", {
- *     globalReplicationGroupIdSuffix: "example",
- *     primaryReplicationGroupId: primary.id,
- * }, {
- *     provider: aws.other_region,
- * });
- * const secondary = new aws.elasticache.ReplicationGroup("secondary", {
- *     description: "secondary replication group",
- *     globalReplicationGroupId: example.globalReplicationGroupId,
- *     numberCacheClusters: 1,
  * });
  * ```
  *

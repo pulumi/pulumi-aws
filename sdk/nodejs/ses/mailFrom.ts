@@ -10,49 +10,6 @@ import * as utilities from "../utilities";
  * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the aws.ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
  *
  * ## Example Usage
- * ### Domain Identity MAIL FROM
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Example SES Domain Identity
- * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
- * const exampleMailFrom = new aws.ses.MailFrom("exampleMailFrom", {
- *     domain: exampleDomainIdentity.domain,
- *     mailFromDomain: pulumi.interpolate`bounce.${exampleDomainIdentity.domain}`,
- * });
- * // Example Route53 MX record
- * const exampleSesDomainMailFromMx = new aws.route53.Record("exampleSesDomainMailFromMx", {
- *     zoneId: aws_route53_zone.example.id,
- *     name: exampleMailFrom.mailFromDomain,
- *     type: "MX",
- *     ttl: 600,
- *     records: ["10 feedback-smtp.us-east-1.amazonses.com"],
- * });
- * // Change to the region in which `aws_ses_domain_identity.example` is created
- * // Example Route53 TXT record for SPF
- * const exampleSesDomainMailFromTxt = new aws.route53.Record("exampleSesDomainMailFromTxt", {
- *     zoneId: aws_route53_zone.example.id,
- *     name: exampleMailFrom.mailFromDomain,
- *     type: "TXT",
- *     ttl: 600,
- *     records: ["v=spf1 include:amazonses.com -all"],
- * });
- * ```
- * ### Email Identity MAIL FROM
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * // Example SES Email Identity
- * const exampleEmailIdentity = new aws.ses.EmailIdentity("exampleEmailIdentity", {email: "user@example.com"});
- * const exampleMailFrom = new aws.ses.MailFrom("exampleMailFrom", {
- *     domain: exampleEmailIdentity.email,
- *     mailFromDomain: "mail.example.com",
- * });
- * ```
  *
  * ## Import
  *

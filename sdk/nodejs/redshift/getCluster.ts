@@ -7,36 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Provides details about a specific redshift cluster.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = aws.redshift.getCluster({
- *     clusterIdentifier: "example-cluster",
- * });
- * const exampleStream = new aws.kinesis.FirehoseDeliveryStream("exampleStream", {
- *     destination: "redshift",
- *     s3Configuration: {
- *         roleArn: aws_iam_role.firehose_role.arn,
- *         bucketArn: aws_s3_bucket.bucket.arn,
- *         bufferSize: 10,
- *         bufferInterval: 400,
- *         compressionFormat: "GZIP",
- *     },
- *     redshiftConfiguration: {
- *         roleArn: aws_iam_role.firehose_role.arn,
- *         clusterJdbcurl: Promise.all([example, example]).then(([example, example1]) => `jdbc:redshift://${example.endpoint}/${example1.databaseName}`),
- *         username: "exampleuser",
- *         password: "Exampl3Pass",
- *         dataTableName: "example-table",
- *         copyOptions: "delimiter '|'",
- *         dataTableColumns: "example-col",
- *     },
- * });
- * ```
  */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
     if (!opts) {

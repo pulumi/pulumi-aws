@@ -13,48 +13,6 @@ import * as utilities from "../utilities";
  * * [MySQL Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MySQL.Options.html)
  * * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.rds.OptionGroup("example", {
- *     optionGroupDescription: "Option Group",
- *     engineName: "sqlserver-ee",
- *     majorEngineVersion: "11.00",
- *     options: [
- *         {
- *             optionName: "Timezone",
- *             optionSettings: [{
- *                 name: "TIME_ZONE",
- *                 value: "UTC",
- *             }],
- *         },
- *         {
- *             optionName: "SQLSERVER_BACKUP_RESTORE",
- *             optionSettings: [{
- *                 name: "IAM_ROLE_ARN",
- *                 value: aws_iam_role.example.arn,
- *             }],
- *         },
- *         {
- *             optionName: "TDE",
- *         },
- *     ],
- * });
- * ```
- *
- * > **Note**: Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
- *
- * > **WARNING:** You can perform a destroy on a `aws.rds.OptionGroup`, as long as it is not associated with any Amazon RDS resource. An option group can be associated with a DB instance, a manual DB snapshot, or an automated DB snapshot.
- *
- * If you try to delete an option group that is associated with an Amazon RDS resource, an error similar to the following is returned:
- *
- * > An error occurred (InvalidOptionGroupStateFault) when calling the DeleteOptionGroup operation: The option group 'optionGroupName' cannot be deleted because it is in use.
- *
- * More information about this can be found [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithOptionGroups.html#USER_WorkingWithOptionGroups.Delete).
- *
  * ## Import
  *
  * DB Option groups can be imported using the `name`, e.g.,

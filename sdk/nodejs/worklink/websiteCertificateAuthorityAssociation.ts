@@ -5,20 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * from "fs";
- *
- * const example = new aws.worklink.Fleet("example", {});
- * const test = new aws.worklink.WebsiteCertificateAuthorityAssociation("test", {
- *     fleetArn: aws_worklink_fleet.test.arn,
- *     certificate: fs.readFileSync("certificate.pem"),
- * });
- * ```
- *
  * ## Import
  *
  * WorkLink Website Certificate Authority can be imported using `FLEET-ARN,WEBSITE-CA-ID`, e.g.,

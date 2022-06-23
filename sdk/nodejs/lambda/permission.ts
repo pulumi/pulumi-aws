@@ -10,78 +10,6 @@ import {Function} from "./index";
  * Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "lambda.amazonaws.com",
- *         },
- *     }],
- * })});
- * const testLambda = new aws.lambda.Function("testLambda", {
- *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
- *     role: iamForLambda.arn,
- *     handler: "exports.handler",
- *     runtime: "nodejs12.x",
- * });
- * const testAlias = new aws.lambda.Alias("testAlias", {
- *     description: "a sample description",
- *     functionName: testLambda.name,
- *     functionVersion: `$LATEST`,
- * });
- * const allowCloudwatch = new aws.lambda.Permission("allowCloudwatch", {
- *     action: "lambda:InvokeFunction",
- *     "function": testLambda.name,
- *     principal: "events.amazonaws.com",
- *     sourceArn: "arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
- *     qualifier: testAlias.name,
- * });
- * ```
- * ### Usage with SNS
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultTopic = new aws.sns.Topic("defaultTopic", {});
- * const defaultRole = new aws.iam.Role("defaultRole", {assumeRolePolicy: JSON.stringify({
- *     Version: "2012-10-17",
- *     Statement: [{
- *         Action: "sts:AssumeRole",
- *         Effect: "Allow",
- *         Sid: "",
- *         Principal: {
- *             Service: "lambda.amazonaws.com",
- *         },
- *     }],
- * })});
- * const func = new aws.lambda.Function("func", {
- *     code: new pulumi.asset.FileArchive("lambdatest.zip"),
- *     role: defaultRole.arn,
- *     handler: "exports.handler",
- *     runtime: "python3.6",
- * });
- * const withSns = new aws.lambda.Permission("withSns", {
- *     action: "lambda:InvokeFunction",
- *     "function": func.name,
- *     principal: "sns.amazonaws.com",
- *     sourceArn: defaultTopic.arn,
- * });
- * const lambda = new aws.sns.TopicSubscription("lambda", {
- *     topic: defaultTopic.arn,
- *     protocol: "lambda",
- *     endpoint: func.arn,
- * });
- * ```
  * ### Specify Lambda permissions for API Gateway REST API
  *
  * ```typescript
@@ -96,47 +24,6 @@ import {Function} from "./index";
  *     function: "MyDemoFunction",
  *     principal: "apigateway.amazonaws.com",
  *     sourceArn: pulumi.interpolate`${myDemoAPI.executionArn}/*&#47;*&#47;*`,
- * });
- * ```
- * ## Usage with CloudWatch log group
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const defaultLogGroup = new aws.cloudwatch.LogGroup("defaultLogGroup", {});
- * const defaultRole = new aws.iam.Role("defaultRole", {assumeRolePolicy: `{
- *   "Version": "2012-10-17",
- *   "Statement": [
- *     {
- *       "Action": "sts:AssumeRole",
- *       "Principal": {
- *         "Service": "lambda.amazonaws.com"
- *       },
- *       "Effect": "Allow",
- *       "Sid": ""
- *     }
- *   ]
- * }
- * `});
- * const loggingFunction = new aws.lambda.Function("loggingFunction", {
- *     code: new pulumi.asset.FileArchive("lamba_logging.zip"),
- *     handler: "exports.handler",
- *     role: defaultRole.arn,
- *     runtime: "python3.6",
- * });
- * const loggingPermission = new aws.lambda.Permission("loggingPermission", {
- *     action: "lambda:InvokeFunction",
- *     "function": loggingFunction.name,
- *     principal: "logs.eu-west-1.amazonaws.com",
- *     sourceArn: pulumi.interpolate`${defaultLogGroup.arn}:*`,
- * });
- * const loggingLogSubscriptionFilter = new aws.cloudwatch.LogSubscriptionFilter("loggingLogSubscriptionFilter", {
- *     destinationArn: loggingFunction.arn,
- *     filterPattern: "",
- *     logGroup: defaultLogGroup.name,
- * }, {
- *     dependsOn: [loggingPermission],
  * });
  * ```
  *

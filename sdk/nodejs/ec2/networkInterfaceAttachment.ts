@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Attach an Elastic network interface (ENI) resource with EC2 instance.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.ec2.NetworkInterfaceAttachment("test", {
- *     instanceId: aws_instance.test.id,
- *     networkInterfaceId: aws_network_interface.test.id,
- *     deviceIndex: 0,
- * });
- * ```
  */
 export class NetworkInterfaceAttachment extends pulumi.CustomResource {
     /**

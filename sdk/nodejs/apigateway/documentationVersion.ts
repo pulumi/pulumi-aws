@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an API Gateway Documentation Version.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleRestApi = new aws.apigateway.RestApi("exampleRestApi", {});
- * const exampleDocumentationPart = new aws.apigateway.DocumentationPart("exampleDocumentationPart", {
- *     location: {
- *         type: "API",
- *     },
- *     properties: "{\"description\":\"Example\"}",
- *     restApiId: exampleRestApi.id,
- * });
- * const exampleDocumentationVersion = new aws.apigateway.DocumentationVersion("exampleDocumentationVersion", {
- *     version: "example_version",
- *     restApiId: exampleRestApi.id,
- *     description: "Example description",
- * }, {
- *     dependsOn: [exampleDocumentationPart],
- * });
- * ```
- *
  * ## Import
  *
  * API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.,

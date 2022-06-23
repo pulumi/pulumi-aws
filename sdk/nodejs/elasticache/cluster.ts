@@ -56,44 +56,6 @@ import * as utilities from "../utilities";
  *     port: 6379,
  * });
  * ```
- * ### Redis Cluster Mode Disabled Read Replica Instance
- *
- * These inherit their settings from the replication group.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const replica = new aws.elasticache.Cluster("replica", {replicationGroupId: aws_elasticache_replication_group.example.id});
- * ```
- * ### Redis Log Delivery configuration
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.elasticache.Cluster("test", {
- *     engine: "redis",
- *     nodeType: "cache.t3.micro",
- *     numCacheNodes: 1,
- *     port: 6379,
- *     applyImmediately: true,
- *     logDeliveryConfigurations: [
- *         {
- *             destination: aws_cloudwatch_log_group.example.name,
- *             destinationType: "cloudwatch-logs",
- *             logFormat: "text",
- *             logType: "slow-log",
- *         },
- *         {
- *             destination: aws_kinesis_firehose_delivery_stream.example.name,
- *             destinationType: "kinesis-firehose",
- *             logFormat: "json",
- *             logType: "engine-log",
- *         },
- *     ],
- * });
- * ```
  *
  * ## Import
  *

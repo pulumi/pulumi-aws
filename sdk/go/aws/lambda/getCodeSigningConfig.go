@@ -29,7 +29,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := lambda.LookupCodeSigningConfig(ctx, &lambda.LookupCodeSigningConfigArgs{
-// 			Arn: fmt.Sprintf("%v%v%v%v%v", "arn:aws:lambda:", _var.Aws_region, ":", _var.Aws_account, ":code-signing-config:csc-0f6c334abcdea4d8b"),
+// 			Arn: fmt.Sprintf("arn:aws:lambda:%v:%v:code-signing-config:csc-0f6c334abcdea4d8b", _var.Aws_region, _var.Aws_account),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

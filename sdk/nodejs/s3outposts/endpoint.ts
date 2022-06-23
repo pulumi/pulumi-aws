@@ -8,19 +8,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a resource to manage an S3 Outposts Endpoint.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.s3outposts.Endpoint("example", {
- *     outpostId: data.aws_outposts_outpost.example.id,
- *     securityGroupId: aws_security_group.example.id,
- *     subnetId: aws_subnet.example.id,
- * });
- * ```
- *
  * ## Import
  *
  * S3 Outposts Endpoints can be imported using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`) e.g.,

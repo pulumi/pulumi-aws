@@ -9,45 +9,6 @@ import * as utilities from "../utilities";
  * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as [`aws.route53.TrafficPolicy`](https://www.terraform.io/docs/providers/aws/r/route53_traffic_policy.html).
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const current = aws.getRegion({});
- * const exampleTrafficPolicyDocument = Promise.all([current, current]).then(([current, current1]) => aws.route53.getTrafficPolicyDocument({
- *     recordType: "A",
- *     startRule: "site_switch",
- *     endpoints: [
- *         {
- *             id: "my_elb",
- *             type: "elastic-load-balancer",
- *             value: `elb-111111.${current.name}.elb.amazonaws.com`,
- *         },
- *         {
- *             id: "site_down_banner",
- *             type: "s3-website",
- *             region: current1.name,
- *             value: "www.example.com",
- *         },
- *     ],
- *     rules: [{
- *         id: "site_switch",
- *         type: "failover",
- *         primary: {
- *             endpointReference: "my_elb",
- *         },
- *         secondary: {
- *             endpointReference: "site_down_banner",
- *         },
- *     }],
- * }));
- * const exampleTrafficPolicy = new aws.route53.TrafficPolicy("exampleTrafficPolicy", {
- *     comment: "example comment",
- *     document: exampleTrafficPolicyDocument.then(exampleTrafficPolicyDocument => exampleTrafficPolicyDocument.json),
- * });
- * ```
  */
 export function getTrafficPolicyDocument(args?: GetTrafficPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficPolicyDocumentResult> {
     args = args || {};

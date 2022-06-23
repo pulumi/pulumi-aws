@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
  * Provides an Elastic File System (EFS) Backup Policy resource.
  * Backup policies turn automatic backups on or off for an existing file system.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const fs = new aws.efs.FileSystem("fs", {});
- * const policy = new aws.efs.BackupPolicy("policy", {
- *     fileSystemId: fs.id,
- *     backupPolicy: {
- *         status: "ENABLED",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * The EFS backup policies can be imported using the `id`, e.g.,

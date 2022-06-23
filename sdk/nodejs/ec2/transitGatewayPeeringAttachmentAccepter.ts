@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages the accepter's side of an EC2 Transit Gateway Peering Attachment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.TransitGatewayPeeringAttachmentAccepter("example", {
- *     transitGatewayAttachmentId: aws_ec2_transit_gateway_peering_attachment.example.id,
- *     tags: {
- *         Name: "Example cross-account attachment",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * `aws_ec2_transit_gateway_peering_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,

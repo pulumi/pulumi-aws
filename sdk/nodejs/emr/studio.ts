@@ -7,24 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides an Elastic MapReduce Studio.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.emr.Studio("example", {
- *     authMode: "SSO",
- *     defaultS3Location: `s3://${aws_s3_bucket.test.bucket}/test`,
- *     engineSecurityGroupId: aws_security_group.test.id,
- *     serviceRole: aws_iam_role.test.arn,
- *     subnetIds: [aws_subnet.test.id],
- *     userRole: aws_iam_role.test.arn,
- *     vpcId: aws_vpc.test.id,
- *     workspaceSecurityGroupId: aws_security_group.test.id,
- * });
- * ```
- *
  * ## Import
  *
  * EMR studios can be imported using the `id`, e.g.,

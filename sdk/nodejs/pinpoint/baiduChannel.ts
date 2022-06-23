@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a Pinpoint Baidu Channel resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const app = new aws.pinpoint.App("app", {});
- * const channel = new aws.pinpoint.BaiduChannel("channel", {
- *     applicationId: app.applicationId,
- *     apiKey: "",
- *     secretKey: "",
- * });
- * ```
- *
  * ## Import
  *
  * Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,

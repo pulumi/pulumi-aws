@@ -9,24 +9,6 @@ import * as utilities from "../utilities";
  * Manages an Amazon FSx for NetApp ONTAP file system.
  * See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/what-is-fsx-ontap.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const test = new aws.fsx.OntapFileSystem("test", {
- *     storageCapacity: 1024,
- *     subnetIds: [
- *         aws_subnet.test1.id,
- *         aws_subnet.test2.id,
- *     ],
- *     deploymentType: "MULTI_AZ_1",
- *     throughputCapacity: 512,
- *     preferredSubnetId: aws_subnet.test1.id,
- * });
- * ```
- *
  * ## Import
  *
  * FSx File Systems can be imported using the `id`, e.g.,

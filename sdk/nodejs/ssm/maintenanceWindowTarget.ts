@@ -9,48 +9,6 @@ import * as utilities from "../utilities";
  * Provides an SSM Maintenance Window Target resource
  *
  * ## Example Usage
- * ### Instance Target
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const window = new aws.ssm.MaintenanceWindow("window", {
- *     schedule: "cron(0 16 ? * TUE *)",
- *     duration: 3,
- *     cutoff: 1,
- * });
- * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
- *     windowId: window.id,
- *     description: "This is a maintenance window target",
- *     resourceType: "INSTANCE",
- *     targets: [{
- *         key: "tag:Name",
- *         values: ["acceptance_test"],
- *     }],
- * });
- * ```
- * ### Resource Group Target
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const window = new aws.ssm.MaintenanceWindow("window", {
- *     schedule: "cron(0 16 ? * TUE *)",
- *     duration: 3,
- *     cutoff: 1,
- * });
- * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
- *     windowId: window.id,
- *     description: "This is a maintenance window target",
- *     resourceType: "RESOURCE_GROUP",
- *     targets: [{
- *         key: "resource-groups:ResourceTypeFilters",
- *         values: ["AWS::EC2::Instance"],
- *     }],
- * });
- * ```
  *
  * ## Import
  *

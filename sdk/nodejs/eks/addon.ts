@@ -12,18 +12,6 @@ import * as utilities from "../utilities";
  * because add-ons rely on the Server-side Apply Kubernetes feature,
  * which is only available in Kubernetes 1.18 and later.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.eks.Addon("example", {
- *     clusterName: aws_eks_cluster.example.name,
- *     addonName: "vpc-cni",
- * });
- * ```
- *
  * ## Import
  *
  * EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,

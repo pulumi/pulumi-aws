@@ -9,20 +9,6 @@ import {RestApi} from "./index";
 /**
  * Provides an API Gateway Resource.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const myDemoAPI = new aws.apigateway.RestApi("myDemoAPI", {description: "This is my API for demonstration purposes"});
- * const myDemoResource = new aws.apigateway.Resource("myDemoResource", {
- *     restApi: myDemoAPI.id,
- *     parentId: myDemoAPI.rootResourceId,
- *     pathPart: "mydemoresource",
- * });
- * ```
- *
  * ## Import
  *
  * `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.,

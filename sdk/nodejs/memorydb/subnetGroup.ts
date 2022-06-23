@@ -9,21 +9,6 @@ import * as utilities from "../utilities";
  *
  * More information about subnet groups can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/subnetgroups.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleSubnet = new aws.ec2.Subnet("exampleSubnet", {
- *     vpcId: exampleVpc.id,
- *     cidrBlock: "10.0.0.0/24",
- *     availabilityZone: "us-west-2a",
- * });
- * const exampleSubnetGroup = new aws.memorydb.SubnetGroup("exampleSubnetGroup", {subnetIds: [exampleSubnet.id]});
- * ```
- *
  * ## Import
  *
  * Use the `name` to import a subnet group. For example

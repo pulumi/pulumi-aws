@@ -12,56 +12,6 @@ import * as utilities from "../utilities";
  *
  * > Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const us_east_1 = new aws.Provider("us-east-1", {region: "us-east-1"});
- * const us_west_2 = new aws.Provider("us-west-2", {region: "us-west-2"});
- * const us_east_1Table = new aws.dynamodb.Table("us-east-1Table", {
- *     hashKey: "myAttribute",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     readCapacity: 1,
- *     writeCapacity: 1,
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
- * }, {
- *     provider: aws["us-east-1"],
- * });
- * const us_west_2Table = new aws.dynamodb.Table("us-west-2Table", {
- *     hashKey: "myAttribute",
- *     streamEnabled: true,
- *     streamViewType: "NEW_AND_OLD_IMAGES",
- *     readCapacity: 1,
- *     writeCapacity: 1,
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
- * }, {
- *     provider: aws["us-west-2"],
- * });
- * const myTable = new aws.dynamodb.GlobalTable("myTable", {replicas: [
- *     {
- *         regionName: "us-east-1",
- *     },
- *     {
- *         regionName: "us-west-2",
- *     },
- * ]}, {
- *     provider: aws["us-east-1"],
- *     dependsOn: [
- *         us_east_1Table,
- *         us_west_2Table,
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * DynamoDB Global Tables can be imported using the global table name, e.g.,
