@@ -329,7 +329,7 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 		return err
 	}
 
-	sharedConfigFile := stringValue(vars, "sharedConfigFile", []string{"AWS_SHARED_CONFIG_FILE"})
+	sharedConfigFile := stringValue(vars, "sharedConfigFile", []string{"AWS_CONFIG_FILE"})
 	if sharedConfigFile == "" {
 		sharedConfigFile = "~/.aws/config"
 	}
