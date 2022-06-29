@@ -2260,7 +2260,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_networkmanager_transit_gateway_connect_peer_association": {Tok: awsResource(networkManagerMod, "TransitGatewayConnectPeerAssociation")},
 			"aws_networkmanager_transit_gateway_registration":             {Tok: awsResource(networkManagerMod, "TransitGatewayRegistration")},
 			// OpenSearch
-			"aws_opensearch_domain":              {Tok: awsResource(opensearchMod, "Domain")},
+			"aws_opensearch_domain": {
+				Tok: awsResource(opensearchMod, "Domain"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"domain_name": tfbridge.AutoName("domainName", 255, "-"),
+				},
+			},
 			"aws_opensearch_domain_policy":       {Tok: awsResource(opensearchMod, "DomainPolicy")},
 			"aws_opensearch_domain_saml_options": {Tok: awsResource(opensearchMod, "DomainSamlOptions")},
 			// OpsWorks

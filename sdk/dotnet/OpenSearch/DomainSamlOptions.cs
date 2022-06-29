@@ -26,7 +26,6 @@ namespace Pulumi.Aws.OpenSearch
     ///     {
     ///         var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new Aws.OpenSearch.DomainArgs
     ///         {
-    ///             DomainName = "example",
     ///             EngineVersion = "OpenSearch_1.1",
     ///             ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///             {

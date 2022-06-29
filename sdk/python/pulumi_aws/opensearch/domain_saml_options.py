@@ -110,7 +110,6 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_domain = aws.opensearch.Domain("exampleDomain",
-            domain_name="example",
             engine_version="OpenSearch_1.1",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="r4.large.search",
@@ -162,7 +161,6 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_domain = aws.opensearch.Domain("exampleDomain",
-            domain_name="example",
             engine_version="OpenSearch_1.1",
             cluster_config=aws.opensearch.DomainClusterConfigArgs(
                 instance_type="r4.large.search",

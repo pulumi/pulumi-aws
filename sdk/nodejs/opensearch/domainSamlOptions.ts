@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * from "fs";
  *
  * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
- *     domainName: "example",
  *     engineVersion: "OpenSearch_1.1",
  *     clusterConfig: {
  *         instanceType: "r4.large.search",
