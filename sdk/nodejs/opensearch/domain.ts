@@ -36,7 +36,6 @@ import * as utilities from "../utilities";
  *     clusterConfig: {
  *         instanceType: "r4.large.search",
  *     },
- *     domainName: "example",
  *     engineVersion: "Elasticsearch_7.10",
  *     tags: {
  *         Domain: "TestDomain",
@@ -55,9 +54,7 @@ import * as utilities from "../utilities";
  * const domain = config.get("domain") || "tf-test";
  * const currentRegion = aws.getRegion({});
  * const currentCallerIdentity = aws.getCallerIdentity({});
- * const example = new aws.opensearch.Domain("example", {
- *     domainName: domain,
- *     accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
+ * const example = new aws.opensearch.Domain("example", {accessPolicies: Promise.all([currentRegion, currentCallerIdentity]).then(([currentRegion, currentCallerIdentity]) => `{
  *   "Version": "2012-10-17",
  *   "Statement": [
  *     {
@@ -71,8 +68,7 @@ import * as utilities from "../utilities";
  *     }
  *   ]
  * }
- * `),
- * });
+ * `)});
  * ```
  * ### Log Publishing to CloudWatch Logs
  *
@@ -142,7 +138,6 @@ import * as utilities from "../utilities";
  * });
  * const exampleServiceLinkedRole = new aws.iam.ServiceLinkedRole("exampleServiceLinkedRole", {awsServiceName: "opensearchservice.amazonaws.com"});
  * const exampleDomain = new aws.opensearch.Domain("exampleDomain", {
- *     domainName: domain,
  *     engineVersion: "OpenSearch_1.0",
  *     clusterConfig: {
  *         instanceType: "m4.large.search",
@@ -297,7 +292,7 @@ export class Domain extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -326,9 +321,6 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["vpcOptions"] = state ? state.vpcOptions : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
-            if ((!args || args.domainName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'domainName'");
-            }
             resourceInputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             resourceInputs["advancedOptions"] = args ? args.advancedOptions : undefined;
             resourceInputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
@@ -469,7 +461,7 @@ export interface DomainArgs {
     /**
      * Name of the domain.
      */
-    domainName: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
     /**
      * Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
      */

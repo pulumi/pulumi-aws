@@ -24,7 +24,6 @@ namespace Pulumi.Aws.OpenSearch
     ///     {
     ///         var example = new Aws.OpenSearch.Domain("example", new Aws.OpenSearch.DomainArgs
     ///         {
-    ///             DomainName = "tf-test",
     ///             EngineVersion = "OpenSearch_1.1",
     ///         });
     ///         var main = new Aws.OpenSearch.DomainPolicy("main", new Aws.OpenSearch.DomainPolicyArgs

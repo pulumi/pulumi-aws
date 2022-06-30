@@ -46,7 +46,6 @@ namespace Pulumi.Aws.OpenSearch
     ///             {
     ///                 InstanceType = "r4.large.search",
     ///             },
-    ///             DomainName = "example",
     ///             EngineVersion = "Elasticsearch_7.10",
     ///             Tags = 
     ///             {
@@ -75,7 +74,6 @@ namespace Pulumi.Aws.OpenSearch
     ///         var currentCallerIdentity = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
     ///         var example = new Aws.OpenSearch.Domain("example", new Aws.OpenSearch.DomainArgs
     ///         {
-    ///             DomainName = domain,
     ///             AccessPolicies = Output.Tuple(currentRegion, currentCallerIdentity).Apply(values =&gt;
     ///             {
     ///                 var currentRegion = values.Item1;
@@ -206,7 +204,6 @@ namespace Pulumi.Aws.OpenSearch
     ///         });
     ///         var exampleDomain = new Aws.OpenSearch.Domain("exampleDomain", new Aws.OpenSearch.DomainArgs
     ///         {
-    ///             DomainName = domain,
     ///             EngineVersion = "OpenSearch_1.0",
     ///             ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///             {
@@ -398,7 +395,7 @@ namespace Pulumi.Aws.OpenSearch
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Domain(string name, DomainArgs args, CustomResourceOptions? options = null)
+        public Domain(string name, DomainArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:opensearch/domain:Domain", name, args ?? new DomainArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -483,8 +480,8 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Name of the domain.
         /// </summary>
-        [Input("domainName", required: true)]
-        public Input<string> DomainName { get; set; } = null!;
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         /// <summary>
         /// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.

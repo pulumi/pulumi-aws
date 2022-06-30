@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,7 +46,6 @@ import (
 // 			ClusterConfig: &opensearch.DomainClusterConfigArgs{
 // 				InstanceType: pulumi.String("r4.large.search"),
 // 			},
-// 			DomainName:    pulumi.String("example"),
 // 			EngineVersion: pulumi.String("Elasticsearch_7.10"),
 // 			Tags: pulumi.StringMap{
 // 				"Domain": pulumi.String("TestDomain"),
@@ -92,7 +90,6 @@ import (
 // 			return err
 // 		}
 // 		_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-// 			DomainName:     pulumi.String(domain),
 // 			AccessPolicies: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"es:*\",\n", "      \"Principal\": \"*\",\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:es:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":domain/", domain, "/*\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}\n", "      }\n", "    }\n", "  ]\n", "}\n")),
 // 		})
 // 		if err != nil {
@@ -199,12 +196,9 @@ type Domain struct {
 func NewDomain(ctx *pulumi.Context,
 	name string, args *DomainArgs, opts ...pulumi.ResourceOption) (*Domain, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &DomainArgs{}
 	}
 
-	if args.DomainName == nil {
-		return nil, errors.New("invalid value for required argument 'DomainName'")
-	}
 	var resource Domain
 	err := ctx.RegisterResource("aws:opensearch/domain:Domain", name, args, &resource, opts...)
 	if err != nil {
@@ -329,7 +323,7 @@ type domainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions *DomainDomainEndpointOptions `pulumi:"domainEndpointOptions"`
 	// Name of the domain.
-	DomainName string `pulumi:"domainName"`
+	DomainName *string `pulumi:"domainName"`
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions *DomainEbsOptions `pulumi:"ebsOptions"`
 	// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.
@@ -363,7 +357,7 @@ type DomainArgs struct {
 	// Configuration block for domain endpoint HTTP(S) related options. Detailed below.
 	DomainEndpointOptions DomainDomainEndpointOptionsPtrInput
 	// Name of the domain.
-	DomainName pulumi.StringInput
+	DomainName pulumi.StringPtrInput
 	// Configuration block for EBS related options, may be required based on chosen [instance size](https://aws.amazon.com/opensearch-service/pricing/). Detailed below.
 	EbsOptions DomainEbsOptionsPtrInput
 	// Configuration block for encrypt at rest options. Only available for [certain instance types](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/encryption-at-rest.html). Detailed below.

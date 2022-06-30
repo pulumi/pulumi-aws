@@ -105,9 +105,7 @@ class DomainPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.opensearch.Domain("example",
-            domain_name="tf-test",
-            engine_version="OpenSearch_1.1")
+        example = aws.opensearch.Domain("example", engine_version="OpenSearch_1.1")
         main = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=example.arn.apply(lambda arn: f\"\"\"{{
@@ -147,9 +145,7 @@ class DomainPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.opensearch.Domain("example",
-            domain_name="tf-test",
-            engine_version="OpenSearch_1.1")
+        example = aws.opensearch.Domain("example", engine_version="OpenSearch_1.1")
         main = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,
             access_policies=example.arn.apply(lambda arn: f\"\"\"{{

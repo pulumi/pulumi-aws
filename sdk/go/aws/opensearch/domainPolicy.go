@@ -28,7 +28,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		example, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-// 			DomainName:    pulumi.String("tf-test"),
 // 			EngineVersion: pulumi.String("OpenSearch_1.1"),
 // 		})
 // 		if err != nil {

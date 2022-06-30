@@ -37,7 +37,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleDomain, err := opensearch.NewDomain(ctx, "exampleDomain", &opensearch.DomainArgs{
-// 			DomainName:    pulumi.String("example"),
 // 			EngineVersion: pulumi.String("OpenSearch_1.1"),
 // 			ClusterConfig: &opensearch.DomainClusterConfigArgs{
 // 				InstanceType: pulumi.String("r4.large.search"),
