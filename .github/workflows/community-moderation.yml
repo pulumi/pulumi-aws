@@ -18,7 +18,8 @@ jobs:
       uses: dorny/paths-filter@v2
       with:
         filters: "changed: 'sdk/*'"
-    - if: steps.sdk_changed.outputs.changed == 'true'
+    - if: steps.sdk_changed.outputs.changed == 'true' &&
+        github.event.pull_request.head.repo.full_name != github.repository
       name: Send codegen warning as comment on PR
       uses: thollander/actions-comment-pull-request@v1
       with:
