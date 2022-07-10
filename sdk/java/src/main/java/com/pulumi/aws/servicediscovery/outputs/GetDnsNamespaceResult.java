@@ -5,6 +5,7 @@ package com.pulumi.aws.servicediscovery.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -30,6 +31,11 @@ public final class GetDnsNamespaceResult {
      */
     private final String id;
     private final String name;
+    /**
+     * @return A map of tags for the resource.
+     * 
+     */
+    private final Map<String,String> tags;
     private final String type;
 
     @CustomType.Constructor
@@ -39,12 +45,14 @@ public final class GetDnsNamespaceResult {
         @CustomType.Parameter("hostedZone") String hostedZone,
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("name") String name,
+        @CustomType.Parameter("tags") Map<String,String> tags,
         @CustomType.Parameter("type") String type) {
         this.arn = arn;
         this.description = description;
         this.hostedZone = hostedZone;
         this.id = id;
         this.name = name;
+        this.tags = tags;
         this.type = type;
     }
 
@@ -79,6 +87,13 @@ public final class GetDnsNamespaceResult {
     public String name() {
         return this.name;
     }
+    /**
+     * @return A map of tags for the resource.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
     public String type() {
         return this.type;
     }
@@ -97,6 +112,7 @@ public final class GetDnsNamespaceResult {
         private String hostedZone;
         private String id;
         private String name;
+        private Map<String,String> tags;
         private String type;
 
         public Builder() {
@@ -110,6 +126,7 @@ public final class GetDnsNamespaceResult {
     	      this.hostedZone = defaults.hostedZone;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.tags = defaults.tags;
     	      this.type = defaults.type;
         }
 
@@ -133,11 +150,15 @@ public final class GetDnsNamespaceResult {
             this.name = Objects.requireNonNull(name);
             return this;
         }
+        public Builder tags(Map<String,String> tags) {
+            this.tags = Objects.requireNonNull(tags);
+            return this;
+        }
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
         }        public GetDnsNamespaceResult build() {
-            return new GetDnsNamespaceResult(arn, description, hostedZone, id, name, type);
+            return new GetDnsNamespaceResult(arn, description, hostedZone, id, name, tags, type);
         }
     }
 }

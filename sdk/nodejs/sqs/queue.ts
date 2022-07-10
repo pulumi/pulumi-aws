@@ -20,10 +20,6 @@ import * as utilities from "../utilities";
  *         deadLetterTargetArn: aws_sqs_queue.queue_deadletter.arn,
  *         maxReceiveCount: 4,
  *     }),
- *     redriveAllowPolicy: JSON.stringify({
- *         redrivePermission: "byQueue",
- *         sourceQueueArns: [aws_sqs_queue.terraform_queue_deadletter.arn],
- *     }),
  *     tags: {
  *         Environment: "production",
  *     },
@@ -52,6 +48,18 @@ import * as utilities from "../utilities";
  *     fifoQueue: true,
  *     fifoThroughputLimit: "perMessageGroupId",
  * });
+ * ```
+ *
+ * ## Dead-letter queue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const terraformQueueDeadletter = new aws.sqs.Queue("terraformQueueDeadletter", {redriveAllowPolicy: JSON.stringify({
+ *     redrivePermission: "byQueue",
+ *     sourceQueueArns: [aws_sqs_queue.terraform_queue.arn],
+ * })});
  * ```
  *
  * ## Server-side encryption (SSE)

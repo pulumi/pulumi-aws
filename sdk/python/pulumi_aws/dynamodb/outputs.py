@@ -67,8 +67,8 @@ class TableAttribute(dict):
                  name: str,
                  type: str):
         """
-        :param str name: The name of the index
-        :param str type: Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+        :param str name: Name of the index
+        :param str type: Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
@@ -77,7 +77,7 @@ class TableAttribute(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the index
+        Name of the index
         """
         return pulumi.get(self, "name")
 
@@ -85,7 +85,7 @@ class TableAttribute(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+        Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
         """
         return pulumi.get(self, "type")
 
@@ -128,20 +128,13 @@ class TableGlobalSecondaryIndex(dict):
                  read_capacity: Optional[int] = None,
                  write_capacity: Optional[int] = None):
         """
-        :param str hash_key: The name of the hash key in the index; must be
-               defined as an attribute in the resource.
-        :param str name: The name of the index
-        :param str projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-               where `ALL` projects every attribute into the index, `KEYS_ONLY`
-               projects just the hash and range key into the index, and `INCLUDE`
-               projects only the keys specified in the _non_key_attributes_
-               parameter.
-        :param Sequence[str] non_key_attributes: Only required with `INCLUDE` as a
-               projection type; a list of attributes to project into the index. These
-               do not need to be defined as attributes on the table.
-        :param str range_key: The name of the range key; must be defined
-        :param int read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param int write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param str hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param str name: Name of the index
+        :param str projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
+        :param Sequence[str] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+        :param str range_key: Name of the range key.
+        :param int read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param int write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         pulumi.set(__self__, "hash_key", hash_key)
         pulumi.set(__self__, "name", name)
@@ -159,8 +152,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> str:
         """
-        The name of the hash key in the index; must be
-        defined as an attribute in the resource.
+        Name of the hash key in the index; must be defined as an attribute in the resource.
         """
         return pulumi.get(self, "hash_key")
 
@@ -168,7 +160,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the index
+        Name of the index
         """
         return pulumi.get(self, "name")
 
@@ -176,11 +168,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> str:
         """
-        One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        projects just the hash and range key into the index, and `INCLUDE`
-        projects only the keys specified in the _non_key_attributes_
-        parameter.
+        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
         """
         return pulumi.get(self, "projection_type")
 
@@ -188,9 +176,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="nonKeyAttributes")
     def non_key_attributes(self) -> Optional[Sequence[str]]:
         """
-        Only required with `INCLUDE` as a
-        projection type; a list of attributes to project into the index. These
-        do not need to be defined as attributes on the table.
+        Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         """
         return pulumi.get(self, "non_key_attributes")
 
@@ -198,7 +184,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> Optional[str]:
         """
-        The name of the range key; must be defined
+        Name of the range key.
         """
         return pulumi.get(self, "range_key")
 
@@ -206,7 +192,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="readCapacity")
     def read_capacity(self) -> Optional[int]:
         """
-        The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "read_capacity")
 
@@ -214,7 +200,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> Optional[int]:
         """
-        The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "write_capacity")
 
@@ -248,16 +234,10 @@ class TableLocalSecondaryIndex(dict):
                  range_key: str,
                  non_key_attributes: Optional[Sequence[str]] = None):
         """
-        :param str name: The name of the index
-        :param str projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-               where `ALL` projects every attribute into the index, `KEYS_ONLY`
-               projects just the hash and range key into the index, and `INCLUDE`
-               projects only the keys specified in the _non_key_attributes_
-               parameter.
-        :param str range_key: The name of the range key; must be defined
-        :param Sequence[str] non_key_attributes: Only required with `INCLUDE` as a
-               projection type; a list of attributes to project into the index. These
-               do not need to be defined as attributes on the table.
+        :param str name: Name of the index
+        :param str projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
+        :param str range_key: Name of the range key.
+        :param Sequence[str] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "projection_type", projection_type)
@@ -269,7 +249,7 @@ class TableLocalSecondaryIndex(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the index
+        Name of the index
         """
         return pulumi.get(self, "name")
 
@@ -277,11 +257,7 @@ class TableLocalSecondaryIndex(dict):
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> str:
         """
-        One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        projects just the hash and range key into the index, and `INCLUDE`
-        projects only the keys specified in the _non_key_attributes_
-        parameter.
+        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
         """
         return pulumi.get(self, "projection_type")
 
@@ -289,7 +265,7 @@ class TableLocalSecondaryIndex(dict):
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> str:
         """
-        The name of the range key; must be defined
+        Name of the range key.
         """
         return pulumi.get(self, "range_key")
 
@@ -297,9 +273,7 @@ class TableLocalSecondaryIndex(dict):
     @pulumi.getter(name="nonKeyAttributes")
     def non_key_attributes(self) -> Optional[Sequence[str]]:
         """
-        Only required with `INCLUDE` as a
-        projection type; a list of attributes to project into the index. These
-        do not need to be defined as attributes on the table.
+        Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         """
         return pulumi.get(self, "non_key_attributes")
 
@@ -309,7 +283,7 @@ class TablePointInTimeRecovery(dict):
     def __init__(__self__, *,
                  enabled: bool):
         """
-        :param bool enabled: Indicates whether ttl is enabled (true) or disabled (false).
+        :param bool enabled: Whether TTL is enabled.
         """
         pulumi.set(__self__, "enabled", enabled)
 
@@ -317,7 +291,7 @@ class TablePointInTimeRecovery(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Indicates whether ttl is enabled (true) or disabled (false).
+        Whether TTL is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -331,6 +305,8 @@ class TableReplica(dict):
             suggest = "region_name"
         elif key == "kmsKeyArn":
             suggest = "kms_key_arn"
+        elif key == "pointInTimeRecovery":
+            suggest = "point_in_time_recovery"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TableReplica. Access the value via the '{suggest}' property getter instead.")
@@ -345,15 +321,18 @@ class TableReplica(dict):
 
     def __init__(__self__, *,
                  region_name: str,
-                 kms_key_arn: Optional[str] = None):
+                 kms_key_arn: Optional[str] = None,
+                 point_in_time_recovery: Optional[bool] = None):
         """
         :param str region_name: Region name of the replica.
-        :param str kms_key_arn: The ARN of the CMK that should be used for the AWS KMS encryption.
-               This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        :param str kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        :param bool point_in_time_recovery: Whether to enable Point In Time Recovery for the replica.
         """
         pulumi.set(__self__, "region_name", region_name)
         if kms_key_arn is not None:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if point_in_time_recovery is not None:
+            pulumi.set(__self__, "point_in_time_recovery", point_in_time_recovery)
 
     @property
     @pulumi.getter(name="regionName")
@@ -367,10 +346,17 @@ class TableReplica(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         """
-        The ARN of the CMK that should be used for the AWS KMS encryption.
-        This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         """
         return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="pointInTimeRecovery")
+    def point_in_time_recovery(self) -> Optional[bool]:
+        """
+        Whether to enable Point In Time Recovery for the replica.
+        """
+        return pulumi.get(self, "point_in_time_recovery")
 
 
 @pulumi.output_type
@@ -396,9 +382,8 @@ class TableServerSideEncryption(dict):
                  enabled: bool,
                  kms_key_arn: Optional[str] = None):
         """
-        :param bool enabled: Indicates whether ttl is enabled (true) or disabled (false).
-        :param str kms_key_arn: The ARN of the CMK that should be used for the AWS KMS encryption.
-               This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        :param bool enabled: Whether TTL is enabled.
+        :param str kms_key_arn: ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         """
         pulumi.set(__self__, "enabled", enabled)
         if kms_key_arn is not None:
@@ -408,7 +393,7 @@ class TableServerSideEncryption(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Indicates whether ttl is enabled (true) or disabled (false).
+        Whether TTL is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -416,8 +401,7 @@ class TableServerSideEncryption(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[str]:
         """
-        The ARN of the CMK that should be used for the AWS KMS encryption.
-        This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -445,8 +429,8 @@ class TableTtl(dict):
                  attribute_name: str,
                  enabled: Optional[bool] = None):
         """
-        :param str attribute_name: The name of the table attribute to store the TTL timestamp in.
-        :param bool enabled: Indicates whether ttl is enabled (true) or disabled (false).
+        :param str attribute_name: Name of the table attribute to store the TTL timestamp in.
+        :param bool enabled: Whether TTL is enabled.
         """
         pulumi.set(__self__, "attribute_name", attribute_name)
         if enabled is not None:
@@ -456,7 +440,7 @@ class TableTtl(dict):
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> str:
         """
-        The name of the table attribute to store the TTL timestamp in.
+        Name of the table attribute to store the TTL timestamp in.
         """
         return pulumi.get(self, "attribute_name")
 
@@ -464,7 +448,7 @@ class TableTtl(dict):
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
         """
-        Indicates whether ttl is enabled (true) or disabled (false).
+        Whether TTL is enabled.
         """
         return pulumi.get(self, "enabled")
 

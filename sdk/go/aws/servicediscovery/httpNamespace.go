@@ -47,11 +47,13 @@ type HttpNamespace struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of an HTTP namespace.
+	HttpName pulumi.StringOutput `pulumi:"httpName"`
 	// The name of the http namespace.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -88,11 +90,13 @@ type httpNamespaceState struct {
 	Arn *string `pulumi:"arn"`
 	// The description that you specify for the namespace when you create it.
 	Description *string `pulumi:"description"`
+	// The name of an HTTP namespace.
+	HttpName *string `pulumi:"httpName"`
 	// The name of the http namespace.
 	Name *string `pulumi:"name"`
 	// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -101,11 +105,13 @@ type HttpNamespaceState struct {
 	Arn pulumi.StringPtrInput
 	// The description that you specify for the namespace when you create it.
 	Description pulumi.StringPtrInput
+	// The name of an HTTP namespace.
+	HttpName pulumi.StringPtrInput
 	// The name of the http namespace.
 	Name pulumi.StringPtrInput
 	// A map of tags to assign to the namespace. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -229,6 +235,11 @@ func (o HttpNamespaceOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of an HTTP namespace.
+func (o HttpNamespaceOutput) HttpName() pulumi.StringOutput {
+	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.HttpName }).(pulumi.StringOutput)
+}
+
 // The name of the http namespace.
 func (o HttpNamespaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -239,7 +250,7 @@ func (o HttpNamespaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider .
+// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o HttpNamespaceOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HttpNamespace) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

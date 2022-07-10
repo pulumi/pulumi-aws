@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./autoScalingConfigurationVersion";
 export * from "./connection";
 export * from "./customDomainAssociation";
+export * from "./observabilityConfiguration";
 export * from "./service";
 export * from "./vpcConnector";
 
@@ -15,6 +16,7 @@ export * from "./vpcConnector";
 import { AutoScalingConfigurationVersion } from "./autoScalingConfigurationVersion";
 import { Connection } from "./connection";
 import { CustomDomainAssociation } from "./customDomainAssociation";
+import { ObservabilityConfiguration } from "./observabilityConfiguration";
 import { Service } from "./service";
 import { VpcConnector } from "./vpcConnector";
 
@@ -28,6 +30,8 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "aws:apprunner/customDomainAssociation:CustomDomainAssociation":
                 return new CustomDomainAssociation(name, <any>undefined, { urn })
+            case "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration":
+                return new ObservabilityConfiguration(name, <any>undefined, { urn })
             case "aws:apprunner/service:Service":
                 return new Service(name, <any>undefined, { urn })
             case "aws:apprunner/vpcConnector:VpcConnector":
@@ -40,5 +44,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "apprunner/autoScalingConfigurationVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/customDomainAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "apprunner/observabilityConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/service", _module)
 pulumi.runtime.registerResourceModule("aws", "apprunner/vpcConnector", _module)

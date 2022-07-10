@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Acmpca
         public Output<string> CertificateSigningRequest { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        /// Boolean value that specifies whether a custom OCSP responder is enabled.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs> CertificateAuthorityConfiguration { get; set; } = null!;
 
         /// <summary>
-        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        /// Boolean value that specifies whether a custom OCSP responder is enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -352,7 +352,7 @@ namespace Pulumi.Aws.Acmpca
         public Input<string>? CertificateSigningRequest { get; set; }
 
         /// <summary>
-        /// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        /// Boolean value that specifies whether a custom OCSP responder is enabled.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

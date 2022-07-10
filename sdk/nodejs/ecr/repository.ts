@@ -67,6 +67,11 @@ export class Repository extends pulumi.CustomResource {
      */
     public readonly encryptionConfigurations!: pulumi.Output<outputs.ecr.RepositoryEncryptionConfiguration[] | undefined>;
     /**
+     * If `true`, will delete the repository even if it contains images.
+     * Defaults to `false`.
+     */
+    public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      */
     public readonly imageScanningConfiguration!: pulumi.Output<outputs.ecr.RepositoryImageScanningConfiguration | undefined>;
@@ -110,6 +115,7 @@ export class Repository extends pulumi.CustomResource {
             const state = argsOrState as RepositoryState | undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
+            resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
             resourceInputs["imageScanningConfiguration"] = state ? state.imageScanningConfiguration : undefined;
             resourceInputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -120,6 +126,7 @@ export class Repository extends pulumi.CustomResource {
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             resourceInputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
+            resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
             resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
             resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -146,6 +153,11 @@ export interface RepositoryState {
      * Encryption configuration for the repository. See below for schema.
      */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryEncryptionConfiguration>[]>;
+    /**
+     * If `true`, will delete the repository even if it contains images.
+     * Defaults to `false`.
+     */
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      */
@@ -184,6 +196,11 @@ export interface RepositoryArgs {
      * Encryption configuration for the repository. See below for schema.
      */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryEncryptionConfiguration>[]>;
+    /**
+     * If `true`, will delete the repository even if it contains images.
+     * Defaults to `false`.
+     */
+    forceDelete?: pulumi.Input<boolean>;
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
      */

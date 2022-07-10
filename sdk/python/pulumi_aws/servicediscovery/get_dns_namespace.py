@@ -20,7 +20,7 @@ class GetDnsNamespaceResult:
     """
     A collection of values returned by getDnsNamespace.
     """
-    def __init__(__self__, arn=None, description=None, hosted_zone=None, id=None, name=None, type=None):
+    def __init__(__self__, arn=None, description=None, hosted_zone=None, id=None, name=None, tags=None, type=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetDnsNamespaceResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -79,6 +82,14 @@ class GetDnsNamespaceResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        A map of tags for the resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def type(self) -> str:
         return pulumi.get(self, "type")
 
@@ -94,10 +105,12 @@ class AwaitableGetDnsNamespaceResult(GetDnsNamespaceResult):
             hosted_zone=self.hosted_zone,
             id=self.id,
             name=self.name,
+            tags=self.tags,
             type=self.type)
 
 
 def get_dns_namespace(name: Optional[str] = None,
+                      tags: Optional[Mapping[str, str]] = None,
                       type: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDnsNamespaceResult:
     """
@@ -115,10 +128,12 @@ def get_dns_namespace(name: Optional[str] = None,
 
 
     :param str name: The name of the namespace.
+    :param Mapping[str, str] tags: A map of tags for the resource.
     :param str type: The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
     __args__ = dict()
     __args__['name'] = name
+    __args__['tags'] = tags
     __args__['type'] = type
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -132,11 +147,13 @@ def get_dns_namespace(name: Optional[str] = None,
         hosted_zone=__ret__.hosted_zone,
         id=__ret__.id,
         name=__ret__.name,
+        tags=__ret__.tags,
         type=__ret__.type)
 
 
 @_utilities.lift_output_func(get_dns_namespace)
 def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
+                             tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                              type: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDnsNamespaceResult]:
     """
@@ -154,6 +171,7 @@ def get_dns_namespace_output(name: Optional[pulumi.Input[str]] = None,
 
 
     :param str name: The name of the namespace.
+    :param Mapping[str, str] tags: A map of tags for the resource.
     :param str type: The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
     """
     ...

@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetAmiResult> InvokeAsync(GetAmiArgs args, InvokeOptions? options = null)
+        public static Task<GetAmiResult> InvokeAsync(GetAmiArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiArgs(), options.WithDefaults());
 
         /// <summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Ec2
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Output<GetAmiResult> Invoke(GetAmiInvokeArgs args, InvokeOptions? options = null)
+        public static Output<GetAmiResult> Invoke(GetAmiInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAmiResult>("aws:ec2/getAmi:getAmi", args ?? new GetAmiInvokeArgs(), options.WithDefaults());
     }
 
@@ -175,6 +175,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+        /// </summary>
+        [Input("includeDeprecated")]
+        public bool? IncludeDeprecated { get; set; }
+
+        /// <summary>
         /// If more than one result is returned, use the most
         /// recent AMI.
         /// </summary>
@@ -191,11 +197,11 @@ namespace Pulumi.Aws.Ec2
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
 
-        [Input("owners", required: true)]
+        [Input("owners")]
         private List<string>? _owners;
 
         /// <summary>
-        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+        /// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
         /// </summary>
         public List<string> Owners
         {
@@ -252,6 +258,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+        /// </summary>
+        [Input("includeDeprecated")]
+        public Input<bool>? IncludeDeprecated { get; set; }
+
+        /// <summary>
         /// If more than one result is returned, use the most
         /// recent AMI.
         /// </summary>
@@ -268,11 +280,11 @@ namespace Pulumi.Aws.Ec2
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }
 
-        [Input("owners", required: true)]
+        [Input("owners")]
         private InputList<string>? _owners;
 
         /// <summary>
-        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+        /// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
         /// </summary>
         public InputList<string> Owners
         {
@@ -363,6 +375,7 @@ namespace Pulumi.Aws.Ec2
         /// The type of image.
         /// </summary>
         public readonly string ImageType;
+        public readonly bool? IncludeDeprecated;
         /// <summary>
         /// The kernel associated with the image, if any. Only applicable
         /// for machine images.
@@ -484,6 +497,8 @@ namespace Pulumi.Aws.Ec2
 
             string imageType,
 
+            bool? includeDeprecated,
+
             string kernelId,
 
             bool? mostRecent,
@@ -542,6 +557,7 @@ namespace Pulumi.Aws.Ec2
             ImageLocation = imageLocation;
             ImageOwnerAlias = imageOwnerAlias;
             ImageType = imageType;
+            IncludeDeprecated = includeDeprecated;
             KernelId = kernelId;
             MostRecent = mostRecent;
             Name = name;

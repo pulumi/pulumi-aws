@@ -112,6 +112,20 @@ public class Canary extends com.pulumi.resources.CustomResource {
         return this.artifactS3Location;
     }
     /**
+     * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     * 
+     */
+    @Export(name="deleteLambda", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> deleteLambda;
+
+    /**
+     * @return Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> deleteLambda() {
+        return Codegen.optional(this.deleteLambda);
+    }
+    /**
      * ARN of the Lambda function that is used as your canary&#39;s engine.
      * 
      */

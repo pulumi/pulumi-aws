@@ -67,7 +67,7 @@ type OpenZfsVolume struct {
 	StorageCapacityQuotaGib pulumi.IntOutput `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntOutput `pulumi:"storageCapacityReservationGib"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -128,7 +128,7 @@ type openZfsVolumeState struct {
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -158,7 +158,7 @@ type OpenZfsVolumeState struct {
 	StorageCapacityQuotaGib pulumi.IntPtrInput
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -190,7 +190,7 @@ type openZfsVolumeArgs struct {
 	StorageCapacityQuotaGib *int `pulumi:"storageCapacityQuotaGib"`
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib *int `pulumi:"storageCapacityReservationGib"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas []OpenZfsVolumeUserAndGroupQuota `pulumi:"userAndGroupQuotas"`
@@ -217,7 +217,7 @@ type OpenZfsVolumeArgs struct {
 	StorageCapacityQuotaGib pulumi.IntPtrInput
 	// The amount of storage in gibibytes (GiB) to reserve from the parent volume.
 	StorageCapacityReservationGib pulumi.IntPtrInput
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
 	UserAndGroupQuotas OpenZfsVolumeUserAndGroupQuotaArrayInput
@@ -361,7 +361,7 @@ func (o OpenZfsVolumeOutput) StorageCapacityReservationGib() pulumi.IntOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.IntOutput { return v.StorageCapacityReservationGib }).(pulumi.IntOutput)
 }
 
-// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o OpenZfsVolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *OpenZfsVolume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

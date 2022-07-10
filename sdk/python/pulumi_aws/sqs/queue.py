@@ -691,10 +691,6 @@ class Queue(pulumi.CustomResource):
                 "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
                 "maxReceiveCount": 4,
             }),
-            redrive_allow_policy=json.dumps({
-                "redrivePermission": "byQueue",
-                "sourceQueueArns": [aws_sqs_queue["terraform_queue_deadletter"]["arn"]],
-            }),
             tags={
                 "Environment": "production",
             })
@@ -720,6 +716,19 @@ class Queue(pulumi.CustomResource):
             deduplication_scope="messageGroup",
             fifo_queue=True,
             fifo_throughput_limit="perMessageGroupId")
+        ```
+
+        ## Dead-letter queue
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        terraform_queue_deadletter = aws.sqs.Queue("terraformQueueDeadletter", redrive_allow_policy=json.dumps({
+            "redrivePermission": "byQueue",
+            "sourceQueueArns": [aws_sqs_queue["terraform_queue"]["arn"]],
+        }))
         ```
 
         ## Server-side encryption (SSE)
@@ -796,10 +805,6 @@ class Queue(pulumi.CustomResource):
                 "deadLetterTargetArn": aws_sqs_queue["queue_deadletter"]["arn"],
                 "maxReceiveCount": 4,
             }),
-            redrive_allow_policy=json.dumps({
-                "redrivePermission": "byQueue",
-                "sourceQueueArns": [aws_sqs_queue["terraform_queue_deadletter"]["arn"]],
-            }),
             tags={
                 "Environment": "production",
             })
@@ -825,6 +830,19 @@ class Queue(pulumi.CustomResource):
             deduplication_scope="messageGroup",
             fifo_queue=True,
             fifo_throughput_limit="perMessageGroupId")
+        ```
+
+        ## Dead-letter queue
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        terraform_queue_deadletter = aws.sqs.Queue("terraformQueueDeadletter", redrive_allow_policy=json.dumps({
+            "redrivePermission": "byQueue",
+            "sourceQueueArns": [aws_sqs_queue["terraform_queue"]["arn"]],
+        }))
         ```
 
         ## Server-side encryption (SSE)

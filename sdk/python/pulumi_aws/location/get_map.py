@@ -104,7 +104,7 @@ class GetMapResult:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
         """
-        The timestamp for when the map resource was last updated in ISO 8601.
+        The timestamp for when the map resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 

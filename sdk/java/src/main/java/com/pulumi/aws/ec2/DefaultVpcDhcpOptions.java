@@ -11,7 +11,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -94,29 +93,29 @@ public class DefaultVpcDhcpOptions extends com.pulumi.resources.CustomResource {
      * List of NETBIOS name servers.
      * 
      */
-    @Export(name="netbiosNameServers", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> netbiosNameServers;
+    @Export(name="netbiosNameServers", type=String.class, parameters={})
+    private Output<String> netbiosNameServers;
 
     /**
      * @return List of NETBIOS name servers.
      * 
      */
-    public Output<Optional<List<String>>> netbiosNameServers() {
-        return Codegen.optional(this.netbiosNameServers);
+    public Output<String> netbiosNameServers() {
+        return this.netbiosNameServers;
     }
     /**
      * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
     @Export(name="netbiosNodeType", type=String.class, parameters={})
-    private Output</* @Nullable */ String> netbiosNodeType;
+    private Output<String> netbiosNodeType;
 
     /**
      * @return The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
      * 
      */
-    public Output<Optional<String>> netbiosNodeType() {
-        return Codegen.optional(this.netbiosNodeType);
+    public Output<String> netbiosNodeType() {
+        return this.netbiosNodeType;
     }
     @Export(name="ntpServers", type=String.class, parameters={})
     private Output<String> ntpServers;

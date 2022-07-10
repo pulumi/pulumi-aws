@@ -63,6 +63,8 @@ type KeyPair struct {
 	KeyNamePrefix pulumi.StringOutput `pulumi:"keyNamePrefix"`
 	// The key pair ID.
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
+	// The type of key pair.
+	KeyType pulumi.StringOutput `pulumi:"keyType"`
 	// The public key material.
 	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -112,6 +114,8 @@ type keyPairState struct {
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The key pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
+	// The type of key pair.
+	KeyType *string `pulumi:"keyType"`
 	// The public key material.
 	PublicKey *string `pulumi:"publicKey"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -130,6 +134,8 @@ type KeyPairState struct {
 	KeyNamePrefix pulumi.StringPtrInput
 	// The key pair ID.
 	KeyPairId pulumi.StringPtrInput
+	// The type of key pair.
+	KeyType pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -272,6 +278,11 @@ func (o KeyPairOutput) KeyNamePrefix() pulumi.StringOutput {
 // The key pair ID.
 func (o KeyPairOutput) KeyPairId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyPairId }).(pulumi.StringOutput)
+}
+
+// The type of key pair.
+func (o KeyPairOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v *KeyPair) pulumi.StringOutput { return v.KeyType }).(pulumi.StringOutput)
 }
 
 // The public key material.

@@ -6,7 +6,6 @@ package com.pulumi.aws.ec2;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,36 +15,6 @@ import javax.annotation.Nullable;
 public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DefaultVpcDhcpOptionsArgs Empty = new DefaultVpcDhcpOptionsArgs();
-
-    /**
-     * List of NETBIOS name servers.
-     * 
-     */
-    @Import(name="netbiosNameServers")
-    private @Nullable Output<List<String>> netbiosNameServers;
-
-    /**
-     * @return List of NETBIOS name servers.
-     * 
-     */
-    public Optional<Output<List<String>>> netbiosNameServers() {
-        return Optional.ofNullable(this.netbiosNameServers);
-    }
-
-    /**
-     * The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-     * 
-     */
-    @Import(name="netbiosNodeType")
-    private @Nullable Output<String> netbiosNodeType;
-
-    /**
-     * @return The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-     * 
-     */
-    public Optional<Output<String>> netbiosNodeType() {
-        return Optional.ofNullable(this.netbiosNodeType);
-    }
 
     /**
      * The ID of the AWS account that owns the DHCP options set.
@@ -77,13 +46,19 @@ public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="tagsAll")
+    private @Nullable Output<Map<String,String>> tagsAll;
+
+    public Optional<Output<Map<String,String>>> tagsAll() {
+        return Optional.ofNullable(this.tagsAll);
+    }
+
     private DefaultVpcDhcpOptionsArgs() {}
 
     private DefaultVpcDhcpOptionsArgs(DefaultVpcDhcpOptionsArgs $) {
-        this.netbiosNameServers = $.netbiosNameServers;
-        this.netbiosNodeType = $.netbiosNodeType;
         this.ownerId = $.ownerId;
         this.tags = $.tags;
+        this.tagsAll = $.tagsAll;
     }
 
     public static Builder builder() {
@@ -102,58 +77,6 @@ public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.Resour
 
         public Builder(DefaultVpcDhcpOptionsArgs defaults) {
             $ = new DefaultVpcDhcpOptionsArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param netbiosNameServers List of NETBIOS name servers.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder netbiosNameServers(@Nullable Output<List<String>> netbiosNameServers) {
-            $.netbiosNameServers = netbiosNameServers;
-            return this;
-        }
-
-        /**
-         * @param netbiosNameServers List of NETBIOS name servers.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder netbiosNameServers(List<String> netbiosNameServers) {
-            return netbiosNameServers(Output.of(netbiosNameServers));
-        }
-
-        /**
-         * @param netbiosNameServers List of NETBIOS name servers.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder netbiosNameServers(String... netbiosNameServers) {
-            return netbiosNameServers(List.of(netbiosNameServers));
-        }
-
-        /**
-         * @param netbiosNodeType The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder netbiosNodeType(@Nullable Output<String> netbiosNodeType) {
-            $.netbiosNodeType = netbiosNodeType;
-            return this;
-        }
-
-        /**
-         * @param netbiosNodeType The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-         * 
-         * @return builder
-         * 
-         */
-        public Builder netbiosNodeType(String netbiosNodeType) {
-            return netbiosNodeType(Output.of(netbiosNodeType));
         }
 
         /**
@@ -196,6 +119,15 @@ public final class DefaultVpcDhcpOptionsArgs extends com.pulumi.resources.Resour
          */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
+        }
+
+        public Builder tagsAll(@Nullable Output<Map<String,String>> tagsAll) {
+            $.tagsAll = tagsAll;
+            return this;
+        }
+
+        public Builder tagsAll(Map<String,String> tagsAll) {
+            return tagsAll(Output.of(tagsAll));
         }
 
         public DefaultVpcDhcpOptionsArgs build() {

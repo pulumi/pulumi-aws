@@ -75,7 +75,7 @@ export interface GetMapResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The timestamp for when the map resource was last updated in ISO 8601.
+     * The timestamp for when the map resource was last updated in ISO 8601 format.
      */
     readonly updateTime: string;
 }

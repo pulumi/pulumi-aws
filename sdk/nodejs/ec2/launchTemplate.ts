@@ -32,6 +32,7 @@ import * as utilities from "../utilities";
  *     creditSpecification: {
  *         cpuCredits: "standard",
  *     },
+ *     disableApiStop: true,
  *     disableApiTermination: true,
  *     ebsOptimized: "true",
  *     elasticGpuSpecifications: [{
@@ -147,6 +148,10 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * Description of the launch template.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     */
+    public readonly disableApiStop!: pulumi.Output<boolean | undefined>;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -300,6 +305,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["creditSpecification"] = state ? state.creditSpecification : undefined;
             resourceInputs["defaultVersion"] = state ? state.defaultVersion : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disableApiStop"] = state ? state.disableApiStop : undefined;
             resourceInputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
             resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
             resourceInputs["elasticGpuSpecifications"] = state ? state.elasticGpuSpecifications : undefined;
@@ -340,6 +346,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["creditSpecification"] = args ? args.creditSpecification : undefined;
             resourceInputs["defaultVersion"] = args ? args.defaultVersion : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableApiStop"] = args ? args.disableApiStop : undefined;
             resourceInputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
             resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
             resourceInputs["elasticGpuSpecifications"] = args ? args.elasticGpuSpecifications : undefined;
@@ -413,6 +420,10 @@ export interface LaunchTemplateState {
      * Description of the launch template.
      */
     description?: pulumi.Input<string>;
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     */
+    disableApiStop?: pulumi.Input<boolean>;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
@@ -577,6 +588,10 @@ export interface LaunchTemplateArgs {
      * Description of the launch template.
      */
     description?: pulumi.Input<string>;
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     */
+    disableApiStop?: pulumi.Input<boolean>;
     /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)

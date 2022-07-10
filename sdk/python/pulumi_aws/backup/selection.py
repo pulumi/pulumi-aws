@@ -320,6 +320,7 @@ class Selection(pulumi.CustomResource):
         example = aws.backup.Selection("example",
             iam_role_arn=aws_iam_role["example"]["arn"],
             plan_id=aws_backup_plan["example"]["id"],
+            resources=["*"],
             conditions=[aws.backup.SelectionConditionArgs(
                 string_equals=[aws.backup.SelectionConditionStringEqualArgs(
                     key="aws:ResourceTag/Component",
@@ -451,6 +452,7 @@ class Selection(pulumi.CustomResource):
         example = aws.backup.Selection("example",
             iam_role_arn=aws_iam_role["example"]["arn"],
             plan_id=aws_backup_plan["example"]["id"],
+            resources=["*"],
             conditions=[aws.backup.SelectionConditionArgs(
                 string_equals=[aws.backup.SelectionConditionStringEqualArgs(
                     key="aws:ResourceTag/Component",

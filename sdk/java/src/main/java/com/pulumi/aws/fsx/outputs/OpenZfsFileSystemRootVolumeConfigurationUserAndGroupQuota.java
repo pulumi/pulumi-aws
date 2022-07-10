@@ -20,6 +20,10 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
      * 
      */
     private final Integer storageCapacityQuotaGib;
+    /**
+     * @return - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * 
+     */
     private final String type;
 
     @CustomType.Constructor
@@ -46,6 +50,10 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota {
     public Integer storageCapacityQuotaGib() {
         return this.storageCapacityQuotaGib;
     }
+    /**
+     * @return - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * 
+     */
     public String type() {
         return this.type;
     }

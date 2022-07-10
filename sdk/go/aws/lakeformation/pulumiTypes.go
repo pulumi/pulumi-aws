@@ -534,6 +534,462 @@ func (o PermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type PermissionsLfTag struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// The key-name of an LF-Tag.
+	Key string `pulumi:"key"`
+	// A list of possible values of an LF-Tag.
+	Values []string `pulumi:"values"`
+}
+
+// PermissionsLfTagInput is an input type that accepts PermissionsLfTagArgs and PermissionsLfTagOutput values.
+// You can construct a concrete instance of `PermissionsLfTagInput` via:
+//
+//          PermissionsLfTagArgs{...}
+type PermissionsLfTagInput interface {
+	pulumi.Input
+
+	ToPermissionsLfTagOutput() PermissionsLfTagOutput
+	ToPermissionsLfTagOutputWithContext(context.Context) PermissionsLfTagOutput
+}
+
+type PermissionsLfTagArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// The key-name of an LF-Tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A list of possible values of an LF-Tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PermissionsLfTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsLfTag)(nil)).Elem()
+}
+
+func (i PermissionsLfTagArgs) ToPermissionsLfTagOutput() PermissionsLfTagOutput {
+	return i.ToPermissionsLfTagOutputWithContext(context.Background())
+}
+
+func (i PermissionsLfTagArgs) ToPermissionsLfTagOutputWithContext(ctx context.Context) PermissionsLfTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagOutput)
+}
+
+func (i PermissionsLfTagArgs) ToPermissionsLfTagPtrOutput() PermissionsLfTagPtrOutput {
+	return i.ToPermissionsLfTagPtrOutputWithContext(context.Background())
+}
+
+func (i PermissionsLfTagArgs) ToPermissionsLfTagPtrOutputWithContext(ctx context.Context) PermissionsLfTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagOutput).ToPermissionsLfTagPtrOutputWithContext(ctx)
+}
+
+// PermissionsLfTagPtrInput is an input type that accepts PermissionsLfTagArgs, PermissionsLfTagPtr and PermissionsLfTagPtrOutput values.
+// You can construct a concrete instance of `PermissionsLfTagPtrInput` via:
+//
+//          PermissionsLfTagArgs{...}
+//
+//  or:
+//
+//          nil
+type PermissionsLfTagPtrInput interface {
+	pulumi.Input
+
+	ToPermissionsLfTagPtrOutput() PermissionsLfTagPtrOutput
+	ToPermissionsLfTagPtrOutputWithContext(context.Context) PermissionsLfTagPtrOutput
+}
+
+type permissionsLfTagPtrType PermissionsLfTagArgs
+
+func PermissionsLfTagPtr(v *PermissionsLfTagArgs) PermissionsLfTagPtrInput {
+	return (*permissionsLfTagPtrType)(v)
+}
+
+func (*permissionsLfTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsLfTag)(nil)).Elem()
+}
+
+func (i *permissionsLfTagPtrType) ToPermissionsLfTagPtrOutput() PermissionsLfTagPtrOutput {
+	return i.ToPermissionsLfTagPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionsLfTagPtrType) ToPermissionsLfTagPtrOutputWithContext(ctx context.Context) PermissionsLfTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPtrOutput)
+}
+
+type PermissionsLfTagOutput struct{ *pulumi.OutputState }
+
+func (PermissionsLfTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsLfTag)(nil)).Elem()
+}
+
+func (o PermissionsLfTagOutput) ToPermissionsLfTagOutput() PermissionsLfTagOutput {
+	return o
+}
+
+func (o PermissionsLfTagOutput) ToPermissionsLfTagOutputWithContext(ctx context.Context) PermissionsLfTagOutput {
+	return o
+}
+
+func (o PermissionsLfTagOutput) ToPermissionsLfTagPtrOutput() PermissionsLfTagPtrOutput {
+	return o.ToPermissionsLfTagPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionsLfTagOutput) ToPermissionsLfTagPtrOutputWithContext(ctx context.Context) PermissionsLfTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsLfTag) *PermissionsLfTag {
+		return &v
+	}).(PermissionsLfTagPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o PermissionsLfTagOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionsLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// The key-name of an LF-Tag.
+func (o PermissionsLfTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionsLfTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A list of possible values of an LF-Tag.
+func (o PermissionsLfTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionsLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PermissionsLfTagPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionsLfTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsLfTag)(nil)).Elem()
+}
+
+func (o PermissionsLfTagPtrOutput) ToPermissionsLfTagPtrOutput() PermissionsLfTagPtrOutput {
+	return o
+}
+
+func (o PermissionsLfTagPtrOutput) ToPermissionsLfTagPtrOutputWithContext(ctx context.Context) PermissionsLfTagPtrOutput {
+	return o
+}
+
+func (o PermissionsLfTagPtrOutput) Elem() PermissionsLfTagOutput {
+	return o.ApplyT(func(v *PermissionsLfTag) PermissionsLfTag {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsLfTag
+		return ret
+	}).(PermissionsLfTagOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o PermissionsLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key-name of an LF-Tag.
+func (o PermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of possible values of an LF-Tag.
+func (o PermissionsLfTagPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PermissionsLfTag) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type PermissionsLfTagPolicy struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	Expressions []PermissionsLfTagPolicyExpression `pulumi:"expressions"`
+	// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// PermissionsLfTagPolicyInput is an input type that accepts PermissionsLfTagPolicyArgs and PermissionsLfTagPolicyOutput values.
+// You can construct a concrete instance of `PermissionsLfTagPolicyInput` via:
+//
+//          PermissionsLfTagPolicyArgs{...}
+type PermissionsLfTagPolicyInput interface {
+	pulumi.Input
+
+	ToPermissionsLfTagPolicyOutput() PermissionsLfTagPolicyOutput
+	ToPermissionsLfTagPolicyOutputWithContext(context.Context) PermissionsLfTagPolicyOutput
+}
+
+type PermissionsLfTagPolicyArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	Expressions PermissionsLfTagPolicyExpressionArrayInput `pulumi:"expressions"`
+	// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (PermissionsLfTagPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsLfTagPolicy)(nil)).Elem()
+}
+
+func (i PermissionsLfTagPolicyArgs) ToPermissionsLfTagPolicyOutput() PermissionsLfTagPolicyOutput {
+	return i.ToPermissionsLfTagPolicyOutputWithContext(context.Background())
+}
+
+func (i PermissionsLfTagPolicyArgs) ToPermissionsLfTagPolicyOutputWithContext(ctx context.Context) PermissionsLfTagPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyOutput)
+}
+
+func (i PermissionsLfTagPolicyArgs) ToPermissionsLfTagPolicyPtrOutput() PermissionsLfTagPolicyPtrOutput {
+	return i.ToPermissionsLfTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i PermissionsLfTagPolicyArgs) ToPermissionsLfTagPolicyPtrOutputWithContext(ctx context.Context) PermissionsLfTagPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyOutput).ToPermissionsLfTagPolicyPtrOutputWithContext(ctx)
+}
+
+// PermissionsLfTagPolicyPtrInput is an input type that accepts PermissionsLfTagPolicyArgs, PermissionsLfTagPolicyPtr and PermissionsLfTagPolicyPtrOutput values.
+// You can construct a concrete instance of `PermissionsLfTagPolicyPtrInput` via:
+//
+//          PermissionsLfTagPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type PermissionsLfTagPolicyPtrInput interface {
+	pulumi.Input
+
+	ToPermissionsLfTagPolicyPtrOutput() PermissionsLfTagPolicyPtrOutput
+	ToPermissionsLfTagPolicyPtrOutputWithContext(context.Context) PermissionsLfTagPolicyPtrOutput
+}
+
+type permissionsLfTagPolicyPtrType PermissionsLfTagPolicyArgs
+
+func PermissionsLfTagPolicyPtr(v *PermissionsLfTagPolicyArgs) PermissionsLfTagPolicyPtrInput {
+	return (*permissionsLfTagPolicyPtrType)(v)
+}
+
+func (*permissionsLfTagPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsLfTagPolicy)(nil)).Elem()
+}
+
+func (i *permissionsLfTagPolicyPtrType) ToPermissionsLfTagPolicyPtrOutput() PermissionsLfTagPolicyPtrOutput {
+	return i.ToPermissionsLfTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionsLfTagPolicyPtrType) ToPermissionsLfTagPolicyPtrOutputWithContext(ctx context.Context) PermissionsLfTagPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyPtrOutput)
+}
+
+type PermissionsLfTagPolicyOutput struct{ *pulumi.OutputState }
+
+func (PermissionsLfTagPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsLfTagPolicy)(nil)).Elem()
+}
+
+func (o PermissionsLfTagPolicyOutput) ToPermissionsLfTagPolicyOutput() PermissionsLfTagPolicyOutput {
+	return o
+}
+
+func (o PermissionsLfTagPolicyOutput) ToPermissionsLfTagPolicyOutputWithContext(ctx context.Context) PermissionsLfTagPolicyOutput {
+	return o
+}
+
+func (o PermissionsLfTagPolicyOutput) ToPermissionsLfTagPolicyPtrOutput() PermissionsLfTagPolicyPtrOutput {
+	return o.ToPermissionsLfTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionsLfTagPolicyOutput) ToPermissionsLfTagPolicyPtrOutputWithContext(ctx context.Context) PermissionsLfTagPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionsLfTagPolicy) *PermissionsLfTagPolicy {
+		return &v
+	}).(PermissionsLfTagPolicyPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o PermissionsLfTagPolicyOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionsLfTagPolicy) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+func (o PermissionsLfTagPolicyOutput) Expressions() PermissionsLfTagPolicyExpressionArrayOutput {
+	return o.ApplyT(func(v PermissionsLfTagPolicy) []PermissionsLfTagPolicyExpression { return v.Expressions }).(PermissionsLfTagPolicyExpressionArrayOutput)
+}
+
+// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+func (o PermissionsLfTagPolicyOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionsLfTagPolicy) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type PermissionsLfTagPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionsLfTagPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionsLfTagPolicy)(nil)).Elem()
+}
+
+func (o PermissionsLfTagPolicyPtrOutput) ToPermissionsLfTagPolicyPtrOutput() PermissionsLfTagPolicyPtrOutput {
+	return o
+}
+
+func (o PermissionsLfTagPolicyPtrOutput) ToPermissionsLfTagPolicyPtrOutputWithContext(ctx context.Context) PermissionsLfTagPolicyPtrOutput {
+	return o
+}
+
+func (o PermissionsLfTagPolicyPtrOutput) Elem() PermissionsLfTagPolicyOutput {
+	return o.ApplyT(func(v *PermissionsLfTagPolicy) PermissionsLfTagPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionsLfTagPolicy
+		return ret
+	}).(PermissionsLfTagPolicyOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o PermissionsLfTagPolicyPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsLfTagPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+func (o PermissionsLfTagPolicyPtrOutput) Expressions() PermissionsLfTagPolicyExpressionArrayOutput {
+	return o.ApplyT(func(v *PermissionsLfTagPolicy) []PermissionsLfTagPolicyExpression {
+		if v == nil {
+			return nil
+		}
+		return v.Expressions
+	}).(PermissionsLfTagPolicyExpressionArrayOutput)
+}
+
+// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+func (o PermissionsLfTagPolicyPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionsLfTagPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+type PermissionsLfTagPolicyExpression struct {
+	// The key-name of an LF-Tag.
+	Key string `pulumi:"key"`
+	// A list of possible values of an LF-Tag.
+	Values []string `pulumi:"values"`
+}
+
+// PermissionsLfTagPolicyExpressionInput is an input type that accepts PermissionsLfTagPolicyExpressionArgs and PermissionsLfTagPolicyExpressionOutput values.
+// You can construct a concrete instance of `PermissionsLfTagPolicyExpressionInput` via:
+//
+//          PermissionsLfTagPolicyExpressionArgs{...}
+type PermissionsLfTagPolicyExpressionInput interface {
+	pulumi.Input
+
+	ToPermissionsLfTagPolicyExpressionOutput() PermissionsLfTagPolicyExpressionOutput
+	ToPermissionsLfTagPolicyExpressionOutputWithContext(context.Context) PermissionsLfTagPolicyExpressionOutput
+}
+
+type PermissionsLfTagPolicyExpressionArgs struct {
+	// The key-name of an LF-Tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A list of possible values of an LF-Tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (PermissionsLfTagPolicyExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsLfTagPolicyExpression)(nil)).Elem()
+}
+
+func (i PermissionsLfTagPolicyExpressionArgs) ToPermissionsLfTagPolicyExpressionOutput() PermissionsLfTagPolicyExpressionOutput {
+	return i.ToPermissionsLfTagPolicyExpressionOutputWithContext(context.Background())
+}
+
+func (i PermissionsLfTagPolicyExpressionArgs) ToPermissionsLfTagPolicyExpressionOutputWithContext(ctx context.Context) PermissionsLfTagPolicyExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyExpressionOutput)
+}
+
+// PermissionsLfTagPolicyExpressionArrayInput is an input type that accepts PermissionsLfTagPolicyExpressionArray and PermissionsLfTagPolicyExpressionArrayOutput values.
+// You can construct a concrete instance of `PermissionsLfTagPolicyExpressionArrayInput` via:
+//
+//          PermissionsLfTagPolicyExpressionArray{ PermissionsLfTagPolicyExpressionArgs{...} }
+type PermissionsLfTagPolicyExpressionArrayInput interface {
+	pulumi.Input
+
+	ToPermissionsLfTagPolicyExpressionArrayOutput() PermissionsLfTagPolicyExpressionArrayOutput
+	ToPermissionsLfTagPolicyExpressionArrayOutputWithContext(context.Context) PermissionsLfTagPolicyExpressionArrayOutput
+}
+
+type PermissionsLfTagPolicyExpressionArray []PermissionsLfTagPolicyExpressionInput
+
+func (PermissionsLfTagPolicyExpressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionsLfTagPolicyExpression)(nil)).Elem()
+}
+
+func (i PermissionsLfTagPolicyExpressionArray) ToPermissionsLfTagPolicyExpressionArrayOutput() PermissionsLfTagPolicyExpressionArrayOutput {
+	return i.ToPermissionsLfTagPolicyExpressionArrayOutputWithContext(context.Background())
+}
+
+func (i PermissionsLfTagPolicyExpressionArray) ToPermissionsLfTagPolicyExpressionArrayOutputWithContext(ctx context.Context) PermissionsLfTagPolicyExpressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionsLfTagPolicyExpressionArrayOutput)
+}
+
+type PermissionsLfTagPolicyExpressionOutput struct{ *pulumi.OutputState }
+
+func (PermissionsLfTagPolicyExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionsLfTagPolicyExpression)(nil)).Elem()
+}
+
+func (o PermissionsLfTagPolicyExpressionOutput) ToPermissionsLfTagPolicyExpressionOutput() PermissionsLfTagPolicyExpressionOutput {
+	return o
+}
+
+func (o PermissionsLfTagPolicyExpressionOutput) ToPermissionsLfTagPolicyExpressionOutputWithContext(ctx context.Context) PermissionsLfTagPolicyExpressionOutput {
+	return o
+}
+
+// The key-name of an LF-Tag.
+func (o PermissionsLfTagPolicyExpressionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v PermissionsLfTagPolicyExpression) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A list of possible values of an LF-Tag.
+func (o PermissionsLfTagPolicyExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PermissionsLfTagPolicyExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type PermissionsLfTagPolicyExpressionArrayOutput struct{ *pulumi.OutputState }
+
+func (PermissionsLfTagPolicyExpressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PermissionsLfTagPolicyExpression)(nil)).Elem()
+}
+
+func (o PermissionsLfTagPolicyExpressionArrayOutput) ToPermissionsLfTagPolicyExpressionArrayOutput() PermissionsLfTagPolicyExpressionArrayOutput {
+	return o
+}
+
+func (o PermissionsLfTagPolicyExpressionArrayOutput) ToPermissionsLfTagPolicyExpressionArrayOutputWithContext(ctx context.Context) PermissionsLfTagPolicyExpressionArrayOutput {
+	return o
+}
+
+func (o PermissionsLfTagPolicyExpressionArrayOutput) Index(i pulumi.IntInput) PermissionsLfTagPolicyExpressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionsLfTagPolicyExpression {
+		return vs[0].([]PermissionsLfTagPolicyExpression)[vs[1].(int)]
+	}).(PermissionsLfTagPolicyExpressionOutput)
+}
+
 type PermissionsTable struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId *string `pulumi:"catalogId"`
@@ -941,6 +1397,691 @@ func (o PermissionsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 
 func (o PermissionsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *PermissionsTableWithColumns) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Wildcard
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ResourceLfTagsDatabase struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Name of the table resource.
+	Name string `pulumi:"name"`
+}
+
+// ResourceLfTagsDatabaseInput is an input type that accepts ResourceLfTagsDatabaseArgs and ResourceLfTagsDatabaseOutput values.
+// You can construct a concrete instance of `ResourceLfTagsDatabaseInput` via:
+//
+//          ResourceLfTagsDatabaseArgs{...}
+type ResourceLfTagsDatabaseInput interface {
+	pulumi.Input
+
+	ToResourceLfTagsDatabaseOutput() ResourceLfTagsDatabaseOutput
+	ToResourceLfTagsDatabaseOutputWithContext(context.Context) ResourceLfTagsDatabaseOutput
+}
+
+type ResourceLfTagsDatabaseArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Name of the table resource.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (ResourceLfTagsDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagsDatabase)(nil)).Elem()
+}
+
+func (i ResourceLfTagsDatabaseArgs) ToResourceLfTagsDatabaseOutput() ResourceLfTagsDatabaseOutput {
+	return i.ToResourceLfTagsDatabaseOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagsDatabaseArgs) ToResourceLfTagsDatabaseOutputWithContext(ctx context.Context) ResourceLfTagsDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsDatabaseOutput)
+}
+
+func (i ResourceLfTagsDatabaseArgs) ToResourceLfTagsDatabasePtrOutput() ResourceLfTagsDatabasePtrOutput {
+	return i.ToResourceLfTagsDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagsDatabaseArgs) ToResourceLfTagsDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagsDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsDatabaseOutput).ToResourceLfTagsDatabasePtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagsDatabasePtrInput is an input type that accepts ResourceLfTagsDatabaseArgs, ResourceLfTagsDatabasePtr and ResourceLfTagsDatabasePtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagsDatabasePtrInput` via:
+//
+//          ResourceLfTagsDatabaseArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceLfTagsDatabasePtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagsDatabasePtrOutput() ResourceLfTagsDatabasePtrOutput
+	ToResourceLfTagsDatabasePtrOutputWithContext(context.Context) ResourceLfTagsDatabasePtrOutput
+}
+
+type resourceLfTagsDatabasePtrType ResourceLfTagsDatabaseArgs
+
+func ResourceLfTagsDatabasePtr(v *ResourceLfTagsDatabaseArgs) ResourceLfTagsDatabasePtrInput {
+	return (*resourceLfTagsDatabasePtrType)(v)
+}
+
+func (*resourceLfTagsDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagsDatabase)(nil)).Elem()
+}
+
+func (i *resourceLfTagsDatabasePtrType) ToResourceLfTagsDatabasePtrOutput() ResourceLfTagsDatabasePtrOutput {
+	return i.ToResourceLfTagsDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagsDatabasePtrType) ToResourceLfTagsDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagsDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsDatabasePtrOutput)
+}
+
+type ResourceLfTagsDatabaseOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagsDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagsDatabase)(nil)).Elem()
+}
+
+func (o ResourceLfTagsDatabaseOutput) ToResourceLfTagsDatabaseOutput() ResourceLfTagsDatabaseOutput {
+	return o
+}
+
+func (o ResourceLfTagsDatabaseOutput) ToResourceLfTagsDatabaseOutputWithContext(ctx context.Context) ResourceLfTagsDatabaseOutput {
+	return o
+}
+
+func (o ResourceLfTagsDatabaseOutput) ToResourceLfTagsDatabasePtrOutput() ResourceLfTagsDatabasePtrOutput {
+	return o.ToResourceLfTagsDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagsDatabaseOutput) ToResourceLfTagsDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagsDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagsDatabase) *ResourceLfTagsDatabase {
+		return &v
+	}).(ResourceLfTagsDatabasePtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagsDatabaseOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagsDatabase) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the table resource.
+func (o ResourceLfTagsDatabaseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagsDatabase) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type ResourceLfTagsDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagsDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagsDatabase)(nil)).Elem()
+}
+
+func (o ResourceLfTagsDatabasePtrOutput) ToResourceLfTagsDatabasePtrOutput() ResourceLfTagsDatabasePtrOutput {
+	return o
+}
+
+func (o ResourceLfTagsDatabasePtrOutput) ToResourceLfTagsDatabasePtrOutputWithContext(ctx context.Context) ResourceLfTagsDatabasePtrOutput {
+	return o
+}
+
+func (o ResourceLfTagsDatabasePtrOutput) Elem() ResourceLfTagsDatabaseOutput {
+	return o.ApplyT(func(v *ResourceLfTagsDatabase) ResourceLfTagsDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagsDatabase
+		return ret
+	}).(ResourceLfTagsDatabaseOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagsDatabasePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table resource.
+func (o ResourceLfTagsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceLfTagsLfTag struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Key name for an existing LF-tag.
+	Key string `pulumi:"key"`
+	// Value from the possible values for the LF-tag.
+	Value string `pulumi:"value"`
+}
+
+// ResourceLfTagsLfTagInput is an input type that accepts ResourceLfTagsLfTagArgs and ResourceLfTagsLfTagOutput values.
+// You can construct a concrete instance of `ResourceLfTagsLfTagInput` via:
+//
+//          ResourceLfTagsLfTagArgs{...}
+type ResourceLfTagsLfTagInput interface {
+	pulumi.Input
+
+	ToResourceLfTagsLfTagOutput() ResourceLfTagsLfTagOutput
+	ToResourceLfTagsLfTagOutputWithContext(context.Context) ResourceLfTagsLfTagOutput
+}
+
+type ResourceLfTagsLfTagArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Key name for an existing LF-tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// Value from the possible values for the LF-tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ResourceLfTagsLfTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagsLfTag)(nil)).Elem()
+}
+
+func (i ResourceLfTagsLfTagArgs) ToResourceLfTagsLfTagOutput() ResourceLfTagsLfTagOutput {
+	return i.ToResourceLfTagsLfTagOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagsLfTagArgs) ToResourceLfTagsLfTagOutputWithContext(ctx context.Context) ResourceLfTagsLfTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsLfTagOutput)
+}
+
+// ResourceLfTagsLfTagArrayInput is an input type that accepts ResourceLfTagsLfTagArray and ResourceLfTagsLfTagArrayOutput values.
+// You can construct a concrete instance of `ResourceLfTagsLfTagArrayInput` via:
+//
+//          ResourceLfTagsLfTagArray{ ResourceLfTagsLfTagArgs{...} }
+type ResourceLfTagsLfTagArrayInput interface {
+	pulumi.Input
+
+	ToResourceLfTagsLfTagArrayOutput() ResourceLfTagsLfTagArrayOutput
+	ToResourceLfTagsLfTagArrayOutputWithContext(context.Context) ResourceLfTagsLfTagArrayOutput
+}
+
+type ResourceLfTagsLfTagArray []ResourceLfTagsLfTagInput
+
+func (ResourceLfTagsLfTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceLfTagsLfTag)(nil)).Elem()
+}
+
+func (i ResourceLfTagsLfTagArray) ToResourceLfTagsLfTagArrayOutput() ResourceLfTagsLfTagArrayOutput {
+	return i.ToResourceLfTagsLfTagArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagsLfTagArray) ToResourceLfTagsLfTagArrayOutputWithContext(ctx context.Context) ResourceLfTagsLfTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsLfTagArrayOutput)
+}
+
+type ResourceLfTagsLfTagOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagsLfTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagsLfTag)(nil)).Elem()
+}
+
+func (o ResourceLfTagsLfTagOutput) ToResourceLfTagsLfTagOutput() ResourceLfTagsLfTagOutput {
+	return o
+}
+
+func (o ResourceLfTagsLfTagOutput) ToResourceLfTagsLfTagOutputWithContext(ctx context.Context) ResourceLfTagsLfTagOutput {
+	return o
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagsLfTagOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagsLfTag) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Key name for an existing LF-tag.
+func (o ResourceLfTagsLfTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagsLfTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// Value from the possible values for the LF-tag.
+func (o ResourceLfTagsLfTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagsLfTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ResourceLfTagsLfTagArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagsLfTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceLfTagsLfTag)(nil)).Elem()
+}
+
+func (o ResourceLfTagsLfTagArrayOutput) ToResourceLfTagsLfTagArrayOutput() ResourceLfTagsLfTagArrayOutput {
+	return o
+}
+
+func (o ResourceLfTagsLfTagArrayOutput) ToResourceLfTagsLfTagArrayOutputWithContext(ctx context.Context) ResourceLfTagsLfTagArrayOutput {
+	return o
+}
+
+func (o ResourceLfTagsLfTagArrayOutput) Index(i pulumi.IntInput) ResourceLfTagsLfTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceLfTagsLfTag {
+		return vs[0].([]ResourceLfTagsLfTag)[vs[1].(int)]
+	}).(ResourceLfTagsLfTagOutput)
+}
+
+type ResourceLfTagsTable struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	DatabaseName string `pulumi:"databaseName"`
+	// Name of the table resource.
+	Name     *string `pulumi:"name"`
+	Wildcard *bool   `pulumi:"wildcard"`
+}
+
+// ResourceLfTagsTableInput is an input type that accepts ResourceLfTagsTableArgs and ResourceLfTagsTableOutput values.
+// You can construct a concrete instance of `ResourceLfTagsTableInput` via:
+//
+//          ResourceLfTagsTableArgs{...}
+type ResourceLfTagsTableInput interface {
+	pulumi.Input
+
+	ToResourceLfTagsTableOutput() ResourceLfTagsTableOutput
+	ToResourceLfTagsTableOutputWithContext(context.Context) ResourceLfTagsTableOutput
+}
+
+type ResourceLfTagsTableArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	// Name of the table resource.
+	Name     pulumi.StringPtrInput `pulumi:"name"`
+	Wildcard pulumi.BoolPtrInput   `pulumi:"wildcard"`
+}
+
+func (ResourceLfTagsTableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagsTable)(nil)).Elem()
+}
+
+func (i ResourceLfTagsTableArgs) ToResourceLfTagsTableOutput() ResourceLfTagsTableOutput {
+	return i.ToResourceLfTagsTableOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagsTableArgs) ToResourceLfTagsTableOutputWithContext(ctx context.Context) ResourceLfTagsTableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTableOutput)
+}
+
+func (i ResourceLfTagsTableArgs) ToResourceLfTagsTablePtrOutput() ResourceLfTagsTablePtrOutput {
+	return i.ToResourceLfTagsTablePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagsTableArgs) ToResourceLfTagsTablePtrOutputWithContext(ctx context.Context) ResourceLfTagsTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTableOutput).ToResourceLfTagsTablePtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagsTablePtrInput is an input type that accepts ResourceLfTagsTableArgs, ResourceLfTagsTablePtr and ResourceLfTagsTablePtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagsTablePtrInput` via:
+//
+//          ResourceLfTagsTableArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceLfTagsTablePtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagsTablePtrOutput() ResourceLfTagsTablePtrOutput
+	ToResourceLfTagsTablePtrOutputWithContext(context.Context) ResourceLfTagsTablePtrOutput
+}
+
+type resourceLfTagsTablePtrType ResourceLfTagsTableArgs
+
+func ResourceLfTagsTablePtr(v *ResourceLfTagsTableArgs) ResourceLfTagsTablePtrInput {
+	return (*resourceLfTagsTablePtrType)(v)
+}
+
+func (*resourceLfTagsTablePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagsTable)(nil)).Elem()
+}
+
+func (i *resourceLfTagsTablePtrType) ToResourceLfTagsTablePtrOutput() ResourceLfTagsTablePtrOutput {
+	return i.ToResourceLfTagsTablePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagsTablePtrType) ToResourceLfTagsTablePtrOutputWithContext(ctx context.Context) ResourceLfTagsTablePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTablePtrOutput)
+}
+
+type ResourceLfTagsTableOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagsTableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagsTable)(nil)).Elem()
+}
+
+func (o ResourceLfTagsTableOutput) ToResourceLfTagsTableOutput() ResourceLfTagsTableOutput {
+	return o
+}
+
+func (o ResourceLfTagsTableOutput) ToResourceLfTagsTableOutputWithContext(ctx context.Context) ResourceLfTagsTableOutput {
+	return o
+}
+
+func (o ResourceLfTagsTableOutput) ToResourceLfTagsTablePtrOutput() ResourceLfTagsTablePtrOutput {
+	return o.ToResourceLfTagsTablePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagsTableOutput) ToResourceLfTagsTablePtrOutputWithContext(ctx context.Context) ResourceLfTagsTablePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagsTable) *ResourceLfTagsTable {
+		return &v
+	}).(ResourceLfTagsTablePtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagsTableOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagsTable) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Name of the database for the table with columns resource. Unique to the Data Catalog.
+func (o ResourceLfTagsTableOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagsTable) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+// Name of the table resource.
+func (o ResourceLfTagsTableOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagsTable) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceLfTagsTableOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagsTable) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
+}
+
+type ResourceLfTagsTablePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagsTablePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagsTable)(nil)).Elem()
+}
+
+func (o ResourceLfTagsTablePtrOutput) ToResourceLfTagsTablePtrOutput() ResourceLfTagsTablePtrOutput {
+	return o
+}
+
+func (o ResourceLfTagsTablePtrOutput) ToResourceLfTagsTablePtrOutputWithContext(ctx context.Context) ResourceLfTagsTablePtrOutput {
+	return o
+}
+
+func (o ResourceLfTagsTablePtrOutput) Elem() ResourceLfTagsTableOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTable) ResourceLfTagsTable {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagsTable
+		return ret
+	}).(ResourceLfTagsTableOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagsTablePtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the database for the table with columns resource. Unique to the Data Catalog.
+func (o ResourceLfTagsTablePtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTable) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the table resource.
+func (o ResourceLfTagsTablePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTable) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceLfTagsTablePtrOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTable) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Wildcard
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ResourceLfTagsTableWithColumns struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId *string `pulumi:"catalogId"`
+	// Set of column names for the table.
+	ColumnNames []string `pulumi:"columnNames"`
+	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	DatabaseName        string   `pulumi:"databaseName"`
+	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
+	// Name of the table resource.
+	Name     string `pulumi:"name"`
+	Wildcard *bool  `pulumi:"wildcard"`
+}
+
+// ResourceLfTagsTableWithColumnsInput is an input type that accepts ResourceLfTagsTableWithColumnsArgs and ResourceLfTagsTableWithColumnsOutput values.
+// You can construct a concrete instance of `ResourceLfTagsTableWithColumnsInput` via:
+//
+//          ResourceLfTagsTableWithColumnsArgs{...}
+type ResourceLfTagsTableWithColumnsInput interface {
+	pulumi.Input
+
+	ToResourceLfTagsTableWithColumnsOutput() ResourceLfTagsTableWithColumnsOutput
+	ToResourceLfTagsTableWithColumnsOutputWithContext(context.Context) ResourceLfTagsTableWithColumnsOutput
+}
+
+type ResourceLfTagsTableWithColumnsArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
+	// Set of column names for the table.
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+	// Name of the database for the table with columns resource. Unique to the Data Catalog.
+	DatabaseName        pulumi.StringInput      `pulumi:"databaseName"`
+	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
+	// Name of the table resource.
+	Name     pulumi.StringInput  `pulumi:"name"`
+	Wildcard pulumi.BoolPtrInput `pulumi:"wildcard"`
+}
+
+func (ResourceLfTagsTableWithColumnsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagsTableWithColumns)(nil)).Elem()
+}
+
+func (i ResourceLfTagsTableWithColumnsArgs) ToResourceLfTagsTableWithColumnsOutput() ResourceLfTagsTableWithColumnsOutput {
+	return i.ToResourceLfTagsTableWithColumnsOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagsTableWithColumnsArgs) ToResourceLfTagsTableWithColumnsOutputWithContext(ctx context.Context) ResourceLfTagsTableWithColumnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTableWithColumnsOutput)
+}
+
+func (i ResourceLfTagsTableWithColumnsArgs) ToResourceLfTagsTableWithColumnsPtrOutput() ResourceLfTagsTableWithColumnsPtrOutput {
+	return i.ToResourceLfTagsTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceLfTagsTableWithColumnsArgs) ToResourceLfTagsTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagsTableWithColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTableWithColumnsOutput).ToResourceLfTagsTableWithColumnsPtrOutputWithContext(ctx)
+}
+
+// ResourceLfTagsTableWithColumnsPtrInput is an input type that accepts ResourceLfTagsTableWithColumnsArgs, ResourceLfTagsTableWithColumnsPtr and ResourceLfTagsTableWithColumnsPtrOutput values.
+// You can construct a concrete instance of `ResourceLfTagsTableWithColumnsPtrInput` via:
+//
+//          ResourceLfTagsTableWithColumnsArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceLfTagsTableWithColumnsPtrInput interface {
+	pulumi.Input
+
+	ToResourceLfTagsTableWithColumnsPtrOutput() ResourceLfTagsTableWithColumnsPtrOutput
+	ToResourceLfTagsTableWithColumnsPtrOutputWithContext(context.Context) ResourceLfTagsTableWithColumnsPtrOutput
+}
+
+type resourceLfTagsTableWithColumnsPtrType ResourceLfTagsTableWithColumnsArgs
+
+func ResourceLfTagsTableWithColumnsPtr(v *ResourceLfTagsTableWithColumnsArgs) ResourceLfTagsTableWithColumnsPtrInput {
+	return (*resourceLfTagsTableWithColumnsPtrType)(v)
+}
+
+func (*resourceLfTagsTableWithColumnsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagsTableWithColumns)(nil)).Elem()
+}
+
+func (i *resourceLfTagsTableWithColumnsPtrType) ToResourceLfTagsTableWithColumnsPtrOutput() ResourceLfTagsTableWithColumnsPtrOutput {
+	return i.ToResourceLfTagsTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceLfTagsTableWithColumnsPtrType) ToResourceLfTagsTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagsTableWithColumnsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceLfTagsTableWithColumnsPtrOutput)
+}
+
+type ResourceLfTagsTableWithColumnsOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagsTableWithColumnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceLfTagsTableWithColumns)(nil)).Elem()
+}
+
+func (o ResourceLfTagsTableWithColumnsOutput) ToResourceLfTagsTableWithColumnsOutput() ResourceLfTagsTableWithColumnsOutput {
+	return o
+}
+
+func (o ResourceLfTagsTableWithColumnsOutput) ToResourceLfTagsTableWithColumnsOutputWithContext(ctx context.Context) ResourceLfTagsTableWithColumnsOutput {
+	return o
+}
+
+func (o ResourceLfTagsTableWithColumnsOutput) ToResourceLfTagsTableWithColumnsPtrOutput() ResourceLfTagsTableWithColumnsPtrOutput {
+	return o.ToResourceLfTagsTableWithColumnsPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceLfTagsTableWithColumnsOutput) ToResourceLfTagsTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagsTableWithColumnsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceLfTagsTableWithColumns) *ResourceLfTagsTableWithColumns {
+		return &v
+	}).(ResourceLfTagsTableWithColumnsPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagsTableWithColumnsOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) *string { return v.CatalogId }).(pulumi.StringPtrOutput)
+}
+
+// Set of column names for the table.
+func (o ResourceLfTagsTableWithColumnsOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// Name of the database for the table with columns resource. Unique to the Data Catalog.
+func (o ResourceLfTagsTableWithColumnsOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o ResourceLfTagsTableWithColumnsOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
+}
+
+// Name of the table resource.
+func (o ResourceLfTagsTableWithColumnsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ResourceLfTagsTableWithColumnsOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ResourceLfTagsTableWithColumns) *bool { return v.Wildcard }).(pulumi.BoolPtrOutput)
+}
+
+type ResourceLfTagsTableWithColumnsPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceLfTagsTableWithColumnsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceLfTagsTableWithColumns)(nil)).Elem()
+}
+
+func (o ResourceLfTagsTableWithColumnsPtrOutput) ToResourceLfTagsTableWithColumnsPtrOutput() ResourceLfTagsTableWithColumnsPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagsTableWithColumnsPtrOutput) ToResourceLfTagsTableWithColumnsPtrOutputWithContext(ctx context.Context) ResourceLfTagsTableWithColumnsPtrOutput {
+	return o
+}
+
+func (o ResourceLfTagsTableWithColumnsPtrOutput) Elem() ResourceLfTagsTableWithColumnsOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) ResourceLfTagsTableWithColumns {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceLfTagsTableWithColumns
+		return ret
+	}).(ResourceLfTagsTableWithColumnsOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o ResourceLfTagsTableWithColumnsPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set of column names for the table.
+func (o ResourceLfTagsTableWithColumnsPtrOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the database for the table with columns resource. Unique to the Data Catalog.
+func (o ResourceLfTagsTableWithColumnsPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceLfTagsTableWithColumnsPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludedColumnNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Name of the table resource.
+func (o ResourceLfTagsTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceLfTagsTableWithColumnsPtrOutput) Wildcard() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceLfTagsTableWithColumns) *bool {
 		if v == nil {
 			return nil
 		}
@@ -1472,6 +2613,462 @@ func (o GetPermissionsDatabasePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GetPermissionsLfTag struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId string `pulumi:"catalogId"`
+	// The key-name of an LF-Tag.
+	Key string `pulumi:"key"`
+	// A list of possible values of an LF-Tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetPermissionsLfTagInput is an input type that accepts GetPermissionsLfTagArgs and GetPermissionsLfTagOutput values.
+// You can construct a concrete instance of `GetPermissionsLfTagInput` via:
+//
+//          GetPermissionsLfTagArgs{...}
+type GetPermissionsLfTagInput interface {
+	pulumi.Input
+
+	ToGetPermissionsLfTagOutput() GetPermissionsLfTagOutput
+	ToGetPermissionsLfTagOutputWithContext(context.Context) GetPermissionsLfTagOutput
+}
+
+type GetPermissionsLfTagArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// The key-name of an LF-Tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A list of possible values of an LF-Tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPermissionsLfTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsLfTag)(nil)).Elem()
+}
+
+func (i GetPermissionsLfTagArgs) ToGetPermissionsLfTagOutput() GetPermissionsLfTagOutput {
+	return i.ToGetPermissionsLfTagOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsLfTagArgs) ToGetPermissionsLfTagOutputWithContext(ctx context.Context) GetPermissionsLfTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagOutput)
+}
+
+func (i GetPermissionsLfTagArgs) ToGetPermissionsLfTagPtrOutput() GetPermissionsLfTagPtrOutput {
+	return i.ToGetPermissionsLfTagPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsLfTagArgs) ToGetPermissionsLfTagPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagOutput).ToGetPermissionsLfTagPtrOutputWithContext(ctx)
+}
+
+// GetPermissionsLfTagPtrInput is an input type that accepts GetPermissionsLfTagArgs, GetPermissionsLfTagPtr and GetPermissionsLfTagPtrOutput values.
+// You can construct a concrete instance of `GetPermissionsLfTagPtrInput` via:
+//
+//          GetPermissionsLfTagArgs{...}
+//
+//  or:
+//
+//          nil
+type GetPermissionsLfTagPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionsLfTagPtrOutput() GetPermissionsLfTagPtrOutput
+	ToGetPermissionsLfTagPtrOutputWithContext(context.Context) GetPermissionsLfTagPtrOutput
+}
+
+type getPermissionsLfTagPtrType GetPermissionsLfTagArgs
+
+func GetPermissionsLfTagPtr(v *GetPermissionsLfTagArgs) GetPermissionsLfTagPtrInput {
+	return (*getPermissionsLfTagPtrType)(v)
+}
+
+func (*getPermissionsLfTagPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsLfTag)(nil)).Elem()
+}
+
+func (i *getPermissionsLfTagPtrType) ToGetPermissionsLfTagPtrOutput() GetPermissionsLfTagPtrOutput {
+	return i.ToGetPermissionsLfTagPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionsLfTagPtrType) ToGetPermissionsLfTagPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPtrOutput)
+}
+
+type GetPermissionsLfTagOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsLfTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsLfTag)(nil)).Elem()
+}
+
+func (o GetPermissionsLfTagOutput) ToGetPermissionsLfTagOutput() GetPermissionsLfTagOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagOutput) ToGetPermissionsLfTagOutputWithContext(ctx context.Context) GetPermissionsLfTagOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagOutput) ToGetPermissionsLfTagPtrOutput() GetPermissionsLfTagPtrOutput {
+	return o.ToGetPermissionsLfTagPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionsLfTagOutput) ToGetPermissionsLfTagPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionsLfTag) *GetPermissionsLfTag {
+		return &v
+	}).(GetPermissionsLfTagPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o GetPermissionsLfTagOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsLfTag) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+// The key-name of an LF-Tag.
+func (o GetPermissionsLfTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsLfTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A list of possible values of an LF-Tag.
+func (o GetPermissionsLfTagOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionsLfTag) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionsLfTagPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsLfTagPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsLfTag)(nil)).Elem()
+}
+
+func (o GetPermissionsLfTagPtrOutput) ToGetPermissionsLfTagPtrOutput() GetPermissionsLfTagPtrOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPtrOutput) ToGetPermissionsLfTagPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPtrOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPtrOutput) Elem() GetPermissionsLfTagOutput {
+	return o.ApplyT(func(v *GetPermissionsLfTag) GetPermissionsLfTag {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionsLfTag
+		return ret
+	}).(GetPermissionsLfTagOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o GetPermissionsLfTagPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key-name of an LF-Tag.
+func (o GetPermissionsLfTagPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsLfTag) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of possible values of an LF-Tag.
+func (o GetPermissionsLfTagPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *GetPermissionsLfTag) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionsLfTagPolicy struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId string `pulumi:"catalogId"`
+	// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	Expressions []GetPermissionsLfTagPolicyExpression `pulumi:"expressions"`
+	// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetPermissionsLfTagPolicyInput is an input type that accepts GetPermissionsLfTagPolicyArgs and GetPermissionsLfTagPolicyOutput values.
+// You can construct a concrete instance of `GetPermissionsLfTagPolicyInput` via:
+//
+//          GetPermissionsLfTagPolicyArgs{...}
+type GetPermissionsLfTagPolicyInput interface {
+	pulumi.Input
+
+	ToGetPermissionsLfTagPolicyOutput() GetPermissionsLfTagPolicyOutput
+	ToGetPermissionsLfTagPolicyOutputWithContext(context.Context) GetPermissionsLfTagPolicyOutput
+}
+
+type GetPermissionsLfTagPolicyArgs struct {
+	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+	CatalogId pulumi.StringInput `pulumi:"catalogId"`
+	// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+	Expressions GetPermissionsLfTagPolicyExpressionArrayInput `pulumi:"expressions"`
+	// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetPermissionsLfTagPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsLfTagPolicy)(nil)).Elem()
+}
+
+func (i GetPermissionsLfTagPolicyArgs) ToGetPermissionsLfTagPolicyOutput() GetPermissionsLfTagPolicyOutput {
+	return i.ToGetPermissionsLfTagPolicyOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsLfTagPolicyArgs) ToGetPermissionsLfTagPolicyOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyOutput)
+}
+
+func (i GetPermissionsLfTagPolicyArgs) ToGetPermissionsLfTagPolicyPtrOutput() GetPermissionsLfTagPolicyPtrOutput {
+	return i.ToGetPermissionsLfTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsLfTagPolicyArgs) ToGetPermissionsLfTagPolicyPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyOutput).ToGetPermissionsLfTagPolicyPtrOutputWithContext(ctx)
+}
+
+// GetPermissionsLfTagPolicyPtrInput is an input type that accepts GetPermissionsLfTagPolicyArgs, GetPermissionsLfTagPolicyPtr and GetPermissionsLfTagPolicyPtrOutput values.
+// You can construct a concrete instance of `GetPermissionsLfTagPolicyPtrInput` via:
+//
+//          GetPermissionsLfTagPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type GetPermissionsLfTagPolicyPtrInput interface {
+	pulumi.Input
+
+	ToGetPermissionsLfTagPolicyPtrOutput() GetPermissionsLfTagPolicyPtrOutput
+	ToGetPermissionsLfTagPolicyPtrOutputWithContext(context.Context) GetPermissionsLfTagPolicyPtrOutput
+}
+
+type getPermissionsLfTagPolicyPtrType GetPermissionsLfTagPolicyArgs
+
+func GetPermissionsLfTagPolicyPtr(v *GetPermissionsLfTagPolicyArgs) GetPermissionsLfTagPolicyPtrInput {
+	return (*getPermissionsLfTagPolicyPtrType)(v)
+}
+
+func (*getPermissionsLfTagPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsLfTagPolicy)(nil)).Elem()
+}
+
+func (i *getPermissionsLfTagPolicyPtrType) ToGetPermissionsLfTagPolicyPtrOutput() GetPermissionsLfTagPolicyPtrOutput {
+	return i.ToGetPermissionsLfTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *getPermissionsLfTagPolicyPtrType) ToGetPermissionsLfTagPolicyPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyPtrOutput)
+}
+
+type GetPermissionsLfTagPolicyOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsLfTagPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsLfTagPolicy)(nil)).Elem()
+}
+
+func (o GetPermissionsLfTagPolicyOutput) ToGetPermissionsLfTagPolicyOutput() GetPermissionsLfTagPolicyOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPolicyOutput) ToGetPermissionsLfTagPolicyOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPolicyOutput) ToGetPermissionsLfTagPolicyPtrOutput() GetPermissionsLfTagPolicyPtrOutput {
+	return o.ToGetPermissionsLfTagPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o GetPermissionsLfTagPolicyOutput) ToGetPermissionsLfTagPolicyPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetPermissionsLfTagPolicy) *GetPermissionsLfTagPolicy {
+		return &v
+	}).(GetPermissionsLfTagPolicyPtrOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o GetPermissionsLfTagPolicyOutput) CatalogId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsLfTagPolicy) string { return v.CatalogId }).(pulumi.StringOutput)
+}
+
+// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+func (o GetPermissionsLfTagPolicyOutput) Expressions() GetPermissionsLfTagPolicyExpressionArrayOutput {
+	return o.ApplyT(func(v GetPermissionsLfTagPolicy) []GetPermissionsLfTagPolicyExpression { return v.Expressions }).(GetPermissionsLfTagPolicyExpressionArrayOutput)
+}
+
+// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+func (o GetPermissionsLfTagPolicyOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsLfTagPolicy) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetPermissionsLfTagPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsLfTagPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetPermissionsLfTagPolicy)(nil)).Elem()
+}
+
+func (o GetPermissionsLfTagPolicyPtrOutput) ToGetPermissionsLfTagPolicyPtrOutput() GetPermissionsLfTagPolicyPtrOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPolicyPtrOutput) ToGetPermissionsLfTagPolicyPtrOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyPtrOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPolicyPtrOutput) Elem() GetPermissionsLfTagPolicyOutput {
+	return o.ApplyT(func(v *GetPermissionsLfTagPolicy) GetPermissionsLfTagPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret GetPermissionsLfTagPolicy
+		return ret
+	}).(GetPermissionsLfTagPolicyOutput)
+}
+
+// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+func (o GetPermissionsLfTagPolicyPtrOutput) CatalogId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsLfTagPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CatalogId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+func (o GetPermissionsLfTagPolicyPtrOutput) Expressions() GetPermissionsLfTagPolicyExpressionArrayOutput {
+	return o.ApplyT(func(v *GetPermissionsLfTagPolicy) []GetPermissionsLfTagPolicyExpression {
+		if v == nil {
+			return nil
+		}
+		return v.Expressions
+	}).(GetPermissionsLfTagPolicyExpressionArrayOutput)
+}
+
+// The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+func (o GetPermissionsLfTagPolicyPtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetPermissionsLfTagPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetPermissionsLfTagPolicyExpression struct {
+	// The key-name of an LF-Tag.
+	Key string `pulumi:"key"`
+	// A list of possible values of an LF-Tag.
+	Values []string `pulumi:"values"`
+}
+
+// GetPermissionsLfTagPolicyExpressionInput is an input type that accepts GetPermissionsLfTagPolicyExpressionArgs and GetPermissionsLfTagPolicyExpressionOutput values.
+// You can construct a concrete instance of `GetPermissionsLfTagPolicyExpressionInput` via:
+//
+//          GetPermissionsLfTagPolicyExpressionArgs{...}
+type GetPermissionsLfTagPolicyExpressionInput interface {
+	pulumi.Input
+
+	ToGetPermissionsLfTagPolicyExpressionOutput() GetPermissionsLfTagPolicyExpressionOutput
+	ToGetPermissionsLfTagPolicyExpressionOutputWithContext(context.Context) GetPermissionsLfTagPolicyExpressionOutput
+}
+
+type GetPermissionsLfTagPolicyExpressionArgs struct {
+	// The key-name of an LF-Tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// A list of possible values of an LF-Tag.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetPermissionsLfTagPolicyExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsLfTagPolicyExpression)(nil)).Elem()
+}
+
+func (i GetPermissionsLfTagPolicyExpressionArgs) ToGetPermissionsLfTagPolicyExpressionOutput() GetPermissionsLfTagPolicyExpressionOutput {
+	return i.ToGetPermissionsLfTagPolicyExpressionOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsLfTagPolicyExpressionArgs) ToGetPermissionsLfTagPolicyExpressionOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyExpressionOutput)
+}
+
+// GetPermissionsLfTagPolicyExpressionArrayInput is an input type that accepts GetPermissionsLfTagPolicyExpressionArray and GetPermissionsLfTagPolicyExpressionArrayOutput values.
+// You can construct a concrete instance of `GetPermissionsLfTagPolicyExpressionArrayInput` via:
+//
+//          GetPermissionsLfTagPolicyExpressionArray{ GetPermissionsLfTagPolicyExpressionArgs{...} }
+type GetPermissionsLfTagPolicyExpressionArrayInput interface {
+	pulumi.Input
+
+	ToGetPermissionsLfTagPolicyExpressionArrayOutput() GetPermissionsLfTagPolicyExpressionArrayOutput
+	ToGetPermissionsLfTagPolicyExpressionArrayOutputWithContext(context.Context) GetPermissionsLfTagPolicyExpressionArrayOutput
+}
+
+type GetPermissionsLfTagPolicyExpressionArray []GetPermissionsLfTagPolicyExpressionInput
+
+func (GetPermissionsLfTagPolicyExpressionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionsLfTagPolicyExpression)(nil)).Elem()
+}
+
+func (i GetPermissionsLfTagPolicyExpressionArray) ToGetPermissionsLfTagPolicyExpressionArrayOutput() GetPermissionsLfTagPolicyExpressionArrayOutput {
+	return i.ToGetPermissionsLfTagPolicyExpressionArrayOutputWithContext(context.Background())
+}
+
+func (i GetPermissionsLfTagPolicyExpressionArray) ToGetPermissionsLfTagPolicyExpressionArrayOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyExpressionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetPermissionsLfTagPolicyExpressionArrayOutput)
+}
+
+type GetPermissionsLfTagPolicyExpressionOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsLfTagPolicyExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetPermissionsLfTagPolicyExpression)(nil)).Elem()
+}
+
+func (o GetPermissionsLfTagPolicyExpressionOutput) ToGetPermissionsLfTagPolicyExpressionOutput() GetPermissionsLfTagPolicyExpressionOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPolicyExpressionOutput) ToGetPermissionsLfTagPolicyExpressionOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyExpressionOutput {
+	return o
+}
+
+// The key-name of an LF-Tag.
+func (o GetPermissionsLfTagPolicyExpressionOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPermissionsLfTagPolicyExpression) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// A list of possible values of an LF-Tag.
+func (o GetPermissionsLfTagPolicyExpressionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetPermissionsLfTagPolicyExpression) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetPermissionsLfTagPolicyExpressionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetPermissionsLfTagPolicyExpressionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetPermissionsLfTagPolicyExpression)(nil)).Elem()
+}
+
+func (o GetPermissionsLfTagPolicyExpressionArrayOutput) ToGetPermissionsLfTagPolicyExpressionArrayOutput() GetPermissionsLfTagPolicyExpressionArrayOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPolicyExpressionArrayOutput) ToGetPermissionsLfTagPolicyExpressionArrayOutputWithContext(ctx context.Context) GetPermissionsLfTagPolicyExpressionArrayOutput {
+	return o
+}
+
+func (o GetPermissionsLfTagPolicyExpressionArrayOutput) Index(i pulumi.IntInput) GetPermissionsLfTagPolicyExpressionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetPermissionsLfTagPolicyExpression {
+		return vs[0].([]GetPermissionsLfTagPolicyExpression)[vs[1].(int)]
+	}).(GetPermissionsLfTagPolicyExpressionOutput)
+}
+
 type GetPermissionsTable struct {
 	// Identifier for the Data Catalog. By default, it is the account ID of the caller.
 	CatalogId string `pulumi:"catalogId"`
@@ -1907,10 +3504,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDataLocationPtrInput)(nil)).Elem(), PermissionsDataLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDatabaseInput)(nil)).Elem(), PermissionsDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsDatabasePtrInput)(nil)).Elem(), PermissionsDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsLfTagInput)(nil)).Elem(), PermissionsLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsLfTagPtrInput)(nil)).Elem(), PermissionsLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsLfTagPolicyInput)(nil)).Elem(), PermissionsLfTagPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsLfTagPolicyPtrInput)(nil)).Elem(), PermissionsLfTagPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsLfTagPolicyExpressionInput)(nil)).Elem(), PermissionsLfTagPolicyExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsLfTagPolicyExpressionArrayInput)(nil)).Elem(), PermissionsLfTagPolicyExpressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableInput)(nil)).Elem(), PermissionsTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTablePtrInput)(nil)).Elem(), PermissionsTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWithColumnsInput)(nil)).Elem(), PermissionsTableWithColumnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWithColumnsPtrInput)(nil)).Elem(), PermissionsTableWithColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsDatabaseInput)(nil)).Elem(), ResourceLfTagsDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsDatabasePtrInput)(nil)).Elem(), ResourceLfTagsDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsLfTagInput)(nil)).Elem(), ResourceLfTagsLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsLfTagArrayInput)(nil)).Elem(), ResourceLfTagsLfTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsTableInput)(nil)).Elem(), ResourceLfTagsTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsTablePtrInput)(nil)).Elem(), ResourceLfTagsTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsTableWithColumnsInput)(nil)).Elem(), ResourceLfTagsTableWithColumnsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceLfTagsTableWithColumnsPtrInput)(nil)).Elem(), ResourceLfTagsTableWithColumnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateDatabaseDefaultPermissionInput)(nil)).Elem(), GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput)(nil)).Elem(), GetDataLakeSettingsCreateDatabaseDefaultPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateTableDefaultPermissionInput)(nil)).Elem(), GetDataLakeSettingsCreateTableDefaultPermissionArgs{})
@@ -1919,6 +3530,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDataLocationPtrInput)(nil)).Elem(), GetPermissionsDataLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDatabaseInput)(nil)).Elem(), GetPermissionsDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDatabasePtrInput)(nil)).Elem(), GetPermissionsDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsLfTagInput)(nil)).Elem(), GetPermissionsLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsLfTagPtrInput)(nil)).Elem(), GetPermissionsLfTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsLfTagPolicyInput)(nil)).Elem(), GetPermissionsLfTagPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsLfTagPolicyPtrInput)(nil)).Elem(), GetPermissionsLfTagPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsLfTagPolicyExpressionInput)(nil)).Elem(), GetPermissionsLfTagPolicyExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsLfTagPolicyExpressionArrayInput)(nil)).Elem(), GetPermissionsLfTagPolicyExpressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsTableInput)(nil)).Elem(), GetPermissionsTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsTablePtrInput)(nil)).Elem(), GetPermissionsTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsTableWithColumnsInput)(nil)).Elem(), GetPermissionsTableWithColumnsArgs{})
@@ -1931,10 +3548,24 @@ func init() {
 	pulumi.RegisterOutputType(PermissionsDataLocationPtrOutput{})
 	pulumi.RegisterOutputType(PermissionsDatabaseOutput{})
 	pulumi.RegisterOutputType(PermissionsDatabasePtrOutput{})
+	pulumi.RegisterOutputType(PermissionsLfTagOutput{})
+	pulumi.RegisterOutputType(PermissionsLfTagPtrOutput{})
+	pulumi.RegisterOutputType(PermissionsLfTagPolicyOutput{})
+	pulumi.RegisterOutputType(PermissionsLfTagPolicyPtrOutput{})
+	pulumi.RegisterOutputType(PermissionsLfTagPolicyExpressionOutput{})
+	pulumi.RegisterOutputType(PermissionsLfTagPolicyExpressionArrayOutput{})
 	pulumi.RegisterOutputType(PermissionsTableOutput{})
 	pulumi.RegisterOutputType(PermissionsTablePtrOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWithColumnsOutput{})
 	pulumi.RegisterOutputType(PermissionsTableWithColumnsPtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagsDatabaseOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagsDatabasePtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagsLfTagOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagsLfTagArrayOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagsTableOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagsTablePtrOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagsTableWithColumnsOutput{})
+	pulumi.RegisterOutputType(ResourceLfTagsTableWithColumnsPtrOutput{})
 	pulumi.RegisterOutputType(GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput{})
 	pulumi.RegisterOutputType(GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput{})
 	pulumi.RegisterOutputType(GetDataLakeSettingsCreateTableDefaultPermissionOutput{})
@@ -1943,6 +3574,12 @@ func init() {
 	pulumi.RegisterOutputType(GetPermissionsDataLocationPtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionsDatabaseOutput{})
 	pulumi.RegisterOutputType(GetPermissionsDatabasePtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionsLfTagOutput{})
+	pulumi.RegisterOutputType(GetPermissionsLfTagPtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionsLfTagPolicyOutput{})
+	pulumi.RegisterOutputType(GetPermissionsLfTagPolicyPtrOutput{})
+	pulumi.RegisterOutputType(GetPermissionsLfTagPolicyExpressionOutput{})
+	pulumi.RegisterOutputType(GetPermissionsLfTagPolicyExpressionArrayOutput{})
 	pulumi.RegisterOutputType(GetPermissionsTableOutput{})
 	pulumi.RegisterOutputType(GetPermissionsTablePtrOutput{})
 	pulumi.RegisterOutputType(GetPermissionsTableWithColumnsOutput{})

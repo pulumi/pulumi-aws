@@ -17,14 +17,14 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
     public static final TableLocalSecondaryIndexArgs Empty = new TableLocalSecondaryIndexArgs();
 
     /**
-     * The name of the index
+     * Name of the index
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the index
+     * @return Name of the index
      * 
      */
     public Output<String> name() {
@@ -32,18 +32,14 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * Only required with `INCLUDE` as a
-     * projection type; a list of attributes to project into the index. These
-     * do not need to be defined as attributes on the table.
+     * Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
     @Import(name="nonKeyAttributes")
     private @Nullable Output<List<String>> nonKeyAttributes;
 
     /**
-     * @return Only required with `INCLUDE` as a
-     * projection type; a list of attributes to project into the index. These
-     * do not need to be defined as attributes on the table.
+     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
     public Optional<Output<List<String>>> nonKeyAttributes() {
@@ -51,22 +47,14 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-     * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-     * projects just the hash and range key into the index, and `INCLUDE`
-     * projects only the keys specified in the _non_key_attributes_
-     * parameter.
+     * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
      * 
      */
     @Import(name="projectionType", required=true)
     private Output<String> projectionType;
 
     /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-     * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-     * projects just the hash and range key into the index, and `INCLUDE`
-     * projects only the keys specified in the _non_key_attributes_
-     * parameter.
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
      * 
      */
     public Output<String> projectionType() {
@@ -74,14 +62,14 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * The name of the range key; must be defined
+     * Name of the range key.
      * 
      */
     @Import(name="rangeKey", required=true)
     private Output<String> rangeKey;
 
     /**
-     * @return The name of the range key; must be defined
+     * @return Name of the range key.
      * 
      */
     public Output<String> rangeKey() {
@@ -116,7 +104,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the index
+         * @param name Name of the index
          * 
          * @return builder
          * 
@@ -127,7 +115,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param name The name of the index
+         * @param name Name of the index
          * 
          * @return builder
          * 
@@ -137,9 +125,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a
-         * projection type; a list of attributes to project into the index. These
-         * do not need to be defined as attributes on the table.
+         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
          * 
          * @return builder
          * 
@@ -150,9 +136,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a
-         * projection type; a list of attributes to project into the index. These
-         * do not need to be defined as attributes on the table.
+         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
          * 
          * @return builder
          * 
@@ -162,9 +146,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a
-         * projection type; a list of attributes to project into the index. These
-         * do not need to be defined as attributes on the table.
+         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
          * 
          * @return builder
          * 
@@ -174,11 +156,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-         * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-         * projects just the hash and range key into the index, and `INCLUDE`
-         * projects only the keys specified in the _non_key_attributes_
-         * parameter.
+         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
          * 
          * @return builder
          * 
@@ -189,11 +167,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-         * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-         * projects just the hash and range key into the index, and `INCLUDE`
-         * projects only the keys specified in the _non_key_attributes_
-         * parameter.
+         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
          * 
          * @return builder
          * 
@@ -203,7 +177,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rangeKey The name of the range key; must be defined
+         * @param rangeKey Name of the range key.
          * 
          * @return builder
          * 
@@ -214,7 +188,7 @@ public final class TableLocalSecondaryIndexArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param rangeKey The name of the range key; must be defined
+         * @param rangeKey Name of the range key.
          * 
          * @return builder
          * 

@@ -14,6 +14,7 @@ import com.pulumi.aws.ec2.inputs.InstanceLaunchTemplateArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMaintenanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceMetadataOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceNetworkInterfaceArgs;
+import com.pulumi.aws.ec2.inputs.InstancePrivateDnsNameOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceRootBlockDeviceArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
@@ -138,18 +139,33 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
     @Import(name="creditSpecification")
     private @Nullable Output<InstanceCreditSpecificationArgs> creditSpecification;
 
     /**
-     * @return Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     * @return Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
     public Optional<Output<InstanceCreditSpecificationArgs>> creditSpecification() {
         return Optional.ofNullable(this.creditSpecification);
+    }
+
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * 
+     */
+    @Import(name="disableApiStop")
+    private @Nullable Output<Boolean> disableApiStop;
+
+    /**
+     * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * 
+     */
+    public Optional<Output<Boolean>> disableApiStop() {
+        return Optional.ofNullable(this.disableApiStop);
     }
 
     /**
@@ -545,6 +561,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * 
+     */
+    @Import(name="privateDnsNameOptions")
+    private @Nullable Output<InstancePrivateDnsNameOptionsArgs> privateDnsNameOptions;
+
+    /**
+     * @return The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * 
+     */
+    public Optional<Output<InstancePrivateDnsNameOptionsArgs>> privateDnsNameOptions() {
+        return Optional.ofNullable(this.privateDnsNameOptions);
+    }
+
+    /**
      * Private IP address to associate with the instance in a VPC.
      * 
      */
@@ -803,6 +834,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.cpuCoreCount = $.cpuCoreCount;
         this.cpuThreadsPerCore = $.cpuThreadsPerCore;
         this.creditSpecification = $.creditSpecification;
+        this.disableApiStop = $.disableApiStop;
         this.disableApiTermination = $.disableApiTermination;
         this.ebsBlockDevices = $.ebsBlockDevices;
         this.ebsOptimized = $.ebsOptimized;
@@ -829,6 +861,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.placementPartitionNumber = $.placementPartitionNumber;
         this.primaryNetworkInterfaceId = $.primaryNetworkInterfaceId;
         this.privateDns = $.privateDns;
+        this.privateDnsNameOptions = $.privateDnsNameOptions;
         this.privateIp = $.privateIp;
         this.publicDns = $.publicDns;
         this.publicIp = $.publicIp;
@@ -1013,7 +1046,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creditSpecification Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+         * @param creditSpecification Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
          * 
          * @return builder
          * 
@@ -1024,13 +1057,34 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param creditSpecification Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+         * @param creditSpecification Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
          * 
          * @return builder
          * 
          */
         public Builder creditSpecification(InstanceCreditSpecificationArgs creditSpecification) {
             return creditSpecification(Output.of(creditSpecification));
+        }
+
+        /**
+         * @param disableApiStop If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableApiStop(@Nullable Output<Boolean> disableApiStop) {
+            $.disableApiStop = disableApiStop;
+            return this;
+        }
+
+        /**
+         * @param disableApiStop If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableApiStop(Boolean disableApiStop) {
+            return disableApiStop(Output.of(disableApiStop));
         }
 
         /**
@@ -1639,6 +1693,27 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder privateDns(String privateDns) {
             return privateDns(Output.of(privateDns));
+        }
+
+        /**
+         * @param privateDnsNameOptions The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsNameOptions(@Nullable Output<InstancePrivateDnsNameOptionsArgs> privateDnsNameOptions) {
+            $.privateDnsNameOptions = privateDnsNameOptions;
+            return this;
+        }
+
+        /**
+         * @param privateDnsNameOptions The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateDnsNameOptions(InstancePrivateDnsNameOptionsArgs privateDnsNameOptions) {
+            return privateDnsNameOptions(Output.of(privateDnsNameOptions));
         }
 
         /**

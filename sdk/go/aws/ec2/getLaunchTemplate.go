@@ -93,6 +93,7 @@ type LookupLaunchTemplateResult struct {
 	CreditSpecifications              []GetLaunchTemplateCreditSpecification              `pulumi:"creditSpecifications"`
 	DefaultVersion                    int                                                 `pulumi:"defaultVersion"`
 	Description                       string                                              `pulumi:"description"`
+	DisableApiStop                    bool                                                `pulumi:"disableApiStop"`
 	DisableApiTermination             bool                                                `pulumi:"disableApiTermination"`
 	EbsOptimized                      string                                              `pulumi:"ebsOptimized"`
 	ElasticGpuSpecifications          []GetLaunchTemplateElasticGpuSpecification          `pulumi:"elasticGpuSpecifications"`
@@ -201,6 +202,10 @@ func (o LookupLaunchTemplateResultOutput) DefaultVersion() pulumi.IntOutput {
 
 func (o LookupLaunchTemplateResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o LookupLaunchTemplateResultOutput) DisableApiStop() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) bool { return v.DisableApiStop }).(pulumi.BoolOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) DisableApiTermination() pulumi.BoolOutput {

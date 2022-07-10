@@ -12,6 +12,32 @@ namespace Pulumi.Aws.AppSync
     /// <summary>
     /// Provides an AppSync API Cache.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleGraphQLApi = new Aws.AppSync.GraphQLApi("exampleGraphQLApi", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "API_KEY",
+    ///         });
+    ///         var exampleApiCache = new Aws.AppSync.ApiCache("exampleApiCache", new Aws.AppSync.ApiCacheArgs
+    ///         {
+    ///             ApiId = exampleGraphQLApi.Id,
+    ///             ApiCachingBehavior = "FULL_REQUEST_CACHING",
+    ///             Type = "LARGE",
+    ///             Ttl = 900,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,

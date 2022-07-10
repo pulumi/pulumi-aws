@@ -53,6 +53,8 @@ if typing.TYPE_CHECKING:
     appconfig = __appconfig
     import pulumi_aws.appflow as __appflow
     appflow = __appflow
+    import pulumi_aws.applicationinsights as __applicationinsights
+    applicationinsights = __applicationinsights
     import pulumi_aws.applicationloadbalancing as __applicationloadbalancing
     applicationloadbalancing = __applicationloadbalancing
     import pulumi_aws.appmesh as __appmesh
@@ -293,6 +295,8 @@ if typing.TYPE_CHECKING:
     route53recoverycontrol = __route53recoverycontrol
     import pulumi_aws.route53recoveryreadiness as __route53recoveryreadiness
     route53recoveryreadiness = __route53recoveryreadiness
+    import pulumi_aws.rum as __rum
+    rum = __rum
     import pulumi_aws.s3 as __s3
     s3 = __s3
     import pulumi_aws.s3control as __s3control
@@ -341,6 +345,8 @@ if typing.TYPE_CHECKING:
     synthetics = __synthetics
     import pulumi_aws.timestreamwrite as __timestreamwrite
     timestreamwrite = __timestreamwrite
+    import pulumi_aws.transcribe as __transcribe
+    transcribe = __transcribe
     import pulumi_aws.transfer as __transfer
     transfer = __transfer
     import pulumi_aws.waf as __waf
@@ -368,6 +374,7 @@ else:
     appautoscaling = _utilities.lazy_import('pulumi_aws.appautoscaling')
     appconfig = _utilities.lazy_import('pulumi_aws.appconfig')
     appflow = _utilities.lazy_import('pulumi_aws.appflow')
+    applicationinsights = _utilities.lazy_import('pulumi_aws.applicationinsights')
     applicationloadbalancing = _utilities.lazy_import('pulumi_aws.applicationloadbalancing')
     appmesh = _utilities.lazy_import('pulumi_aws.appmesh')
     apprunner = _utilities.lazy_import('pulumi_aws.apprunner')
@@ -488,6 +495,7 @@ else:
     route53domains = _utilities.lazy_import('pulumi_aws.route53domains')
     route53recoverycontrol = _utilities.lazy_import('pulumi_aws.route53recoverycontrol')
     route53recoveryreadiness = _utilities.lazy_import('pulumi_aws.route53recoveryreadiness')
+    rum = _utilities.lazy_import('pulumi_aws.rum')
     s3 = _utilities.lazy_import('pulumi_aws.s3')
     s3control = _utilities.lazy_import('pulumi_aws.s3control')
     s3outposts = _utilities.lazy_import('pulumi_aws.s3outposts')
@@ -512,6 +520,7 @@ else:
     swf = _utilities.lazy_import('pulumi_aws.swf')
     synthetics = _utilities.lazy_import('pulumi_aws.synthetics')
     timestreamwrite = _utilities.lazy_import('pulumi_aws.timestreamwrite')
+    transcribe = _utilities.lazy_import('pulumi_aws.transcribe')
     transfer = _utilities.lazy_import('pulumi_aws.transfer')
     waf = _utilities.lazy_import('pulumi_aws.waf')
     wafregional = _utilities.lazy_import('pulumi_aws.wafregional')
@@ -529,6 +538,14 @@ _utilities.register(
   "fqn": "pulumi_aws.accessanalyzer",
   "classes": {
    "aws:accessanalyzer/analyzer:Analyzer": "Analyzer"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "accessanalyzer/archiveRule",
+  "fqn": "pulumi_aws.accessanalyzer",
+  "classes": {
+   "aws:accessanalyzer/archiveRule:ArchiveRule": "ArchiveRule"
   }
  },
  {
@@ -1085,6 +1102,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "applicationinsights/application",
+  "fqn": "pulumi_aws.applicationinsights",
+  "classes": {
+   "aws:applicationinsights/application:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "applicationloadbalancing/listener",
   "fqn": "pulumi_aws.applicationloadbalancing",
   "classes": {
@@ -1209,6 +1234,14 @@ _utilities.register(
   "fqn": "pulumi_aws.apprunner",
   "classes": {
    "aws:apprunner/customDomainAssociation:CustomDomainAssociation": "CustomDomainAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "apprunner/observabilityConfiguration",
+  "fqn": "pulumi_aws.apprunner",
+  "classes": {
+   "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration": "ObservabilityConfiguration"
   }
  },
  {
@@ -2285,6 +2318,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cognito/riskConfiguration",
+  "fqn": "pulumi_aws.cognito",
+  "classes": {
+   "aws:cognito/riskConfiguration:RiskConfiguration": "RiskConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cognito/user",
   "fqn": "pulumi_aws.cognito",
   "classes": {
@@ -2441,6 +2482,22 @@ _utilities.register(
   "fqn": "pulumi_aws.costexplorer",
   "classes": {
    "aws:costexplorer/anomalyMonitor:AnomalyMonitor": "AnomalyMonitor"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "costexplorer/anomalySubscription",
+  "fqn": "pulumi_aws.costexplorer",
+  "classes": {
+   "aws:costexplorer/anomalySubscription:AnomalySubscription": "AnomalySubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "costexplorer/costAllocationTag",
+  "fqn": "pulumi_aws.costexplorer",
+  "classes": {
+   "aws:costexplorer/costAllocationTag:CostAllocationTag": "CostAllocationTag"
   }
  },
  {
@@ -2833,6 +2890,22 @@ _utilities.register(
   "fqn": "pulumi_aws.directoryservice",
   "classes": {
    "aws:directoryservice/logService:LogService": "LogService"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "directoryservice/sharedDirectory",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/sharedDirectory:SharedDirectory": "SharedDirectory"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "directoryservice/sharedDirectoryAccepter",
+  "fqn": "pulumi_aws.directoryservice",
+  "classes": {
+   "aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter": "SharedDirectoryAccepter"
   }
  },
  {
@@ -5365,10 +5438,42 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "kendra/experience",
+  "fqn": "pulumi_aws.kendra",
+  "classes": {
+   "aws:kendra/experience:Experience": "Experience"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "kendra/faq",
+  "fqn": "pulumi_aws.kendra",
+  "classes": {
+   "aws:kendra/faq:Faq": "Faq"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "kendra/index",
   "fqn": "pulumi_aws.kendra",
   "classes": {
    "aws:kendra/index:Index": "Index"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "kendra/querySuggestionsBlockList",
+  "fqn": "pulumi_aws.kendra",
+  "classes": {
+   "aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList": "QuerySuggestionsBlockList"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "kendra/thesaurus",
+  "fqn": "pulumi_aws.kendra",
+  "classes": {
+   "aws:kendra/thesaurus:Thesaurus": "Thesaurus"
   }
  },
  {
@@ -5509,6 +5614,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lakeformation/lfTag",
+  "fqn": "pulumi_aws.lakeformation",
+  "classes": {
+   "aws:lakeformation/lfTag:LfTag": "LfTag"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lakeformation/permissions",
   "fqn": "pulumi_aws.lakeformation",
   "classes": {
@@ -5521,6 +5634,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lakeformation",
   "classes": {
    "aws:lakeformation/resource:Resource": "Resource"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lakeformation/resourceLfTags",
+  "fqn": "pulumi_aws.lakeformation",
+  "classes": {
+   "aws:lakeformation/resourceLfTags:ResourceLfTags": "ResourceLfTags"
   }
  },
  {
@@ -5725,6 +5846,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lightsail/database",
+  "fqn": "pulumi_aws.lightsail",
+  "classes": {
+   "aws:lightsail/database:Database": "Database"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lightsail/domain",
   "fqn": "pulumi_aws.lightsail",
   "classes": {
@@ -5785,6 +5914,22 @@ _utilities.register(
   "fqn": "pulumi_aws.location",
   "classes": {
    "aws:location/placeIndex:PlaceIndex": "PlaceIndex"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "location/routeCalculation",
+  "fqn": "pulumi_aws.location",
+  "classes": {
+   "aws:location/routeCalculation:RouteCalculation": "RouteCalculation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "location/tracker",
+  "fqn": "pulumi_aws.location",
+  "classes": {
+   "aws:location/tracker:Tracker": "Tracker"
   }
  },
  {
@@ -7125,6 +7270,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "rum/appMonitor",
+  "fqn": "pulumi_aws.rum",
+  "classes": {
+   "aws:rum/appMonitor:AppMonitor": "AppMonitor"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/accessPoint",
   "fqn": "pulumi_aws.s3",
   "classes": {
@@ -8361,6 +8514,14 @@ _utilities.register(
   "fqn": "pulumi_aws.timestreamwrite",
   "classes": {
    "aws:timestreamwrite/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "transcribe/medicalVocabulary",
+  "fqn": "pulumi_aws.transcribe",
+  "classes": {
+   "aws:transcribe/medicalVocabulary:MedicalVocabulary": "MedicalVocabulary"
   }
  },
  {

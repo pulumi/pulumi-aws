@@ -33,15 +33,6 @@ namespace Pulumi.Aws.Sqs
     ///                 { "deadLetterTargetArn", aws_sqs_queue.Queue_deadletter.Arn },
     ///                 { "maxReceiveCount", 4 },
     ///             }),
-    ///             RedriveAllowPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
-    ///             {
-    ///                 { "redrivePermission", "byQueue" },
-    ///                 { "sourceQueueArns", new[]
-    ///                     {
-    ///                         aws_sqs_queue.Terraform_queue_deadletter.Arn,
-    ///                     }
-    ///                  },
-    ///             }),
     ///             Tags = 
     ///             {
     ///                 { "Environment", "production" },
@@ -86,6 +77,35 @@ namespace Pulumi.Aws.Sqs
     ///             DeduplicationScope = "messageGroup",
     ///             FifoQueue = true,
     ///             FifoThroughputLimit = "perMessageGroupId",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Dead-letter queue
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var terraformQueueDeadletter = new Aws.Sqs.Queue("terraformQueueDeadletter", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             RedriveAllowPolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 { "redrivePermission", "byQueue" },
+    ///                 { "sourceQueueArns", new[]
+    ///                     {
+    ///                         aws_sqs_queue.Terraform_queue.Arn,
+    ///                     }
+    ///                  },
+    ///             }),
     ///         });
     ///     }
     /// 

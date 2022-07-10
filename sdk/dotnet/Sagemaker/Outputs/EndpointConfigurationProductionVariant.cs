@@ -20,19 +20,23 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// <summary>
         /// Initial number of instances used for auto-scaling.
         /// </summary>
-        public readonly int InitialInstanceCount;
+        public readonly int? InitialInstanceCount;
         /// <summary>
-        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         /// </summary>
         public readonly double? InitialVariantWeight;
         /// <summary>
         /// The type of instance to start.
         /// </summary>
-        public readonly string InstanceType;
+        public readonly string? InstanceType;
         /// <summary>
         /// The name of the model to use.
         /// </summary>
         public readonly string ModelName;
+        /// <summary>
+        /// Specifies configuration for how an endpoint performs asynchronous inference.
+        /// </summary>
+        public readonly Outputs.EndpointConfigurationProductionVariantServerlessConfig? ServerlessConfig;
         /// <summary>
         /// The name of the variant. If omitted, this provider will assign a random, unique name.
         /// </summary>
@@ -42,13 +46,15 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         private EndpointConfigurationProductionVariant(
             string? acceleratorType,
 
-            int initialInstanceCount,
+            int? initialInstanceCount,
 
             double? initialVariantWeight,
 
-            string instanceType,
+            string? instanceType,
 
             string modelName,
+
+            Outputs.EndpointConfigurationProductionVariantServerlessConfig? serverlessConfig,
 
             string? variantName)
         {
@@ -57,6 +63,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
             InitialVariantWeight = initialVariantWeight;
             InstanceType = instanceType;
             ModelName = modelName;
+            ServerlessConfig = serverlessConfig;
             VariantName = variantName;
         }
     }

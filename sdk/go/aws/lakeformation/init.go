@@ -23,10 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:lakeformation/dataLakeSettings:DataLakeSettings":
 		r = &DataLakeSettings{}
+	case "aws:lakeformation/lfTag:LfTag":
+		r = &LfTag{}
 	case "aws:lakeformation/permissions:Permissions":
 		r = &Permissions{}
 	case "aws:lakeformation/resource:Resource":
 		r = &Resource{}
+	case "aws:lakeformation/resourceLfTags:ResourceLfTags":
+		r = &ResourceLfTags{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -47,12 +51,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"lakeformation/lfTag",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"lakeformation/permissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lakeformation/resource",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lakeformation/resourceLfTags",
 		&module{version},
 	)
 }

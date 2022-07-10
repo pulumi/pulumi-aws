@@ -89,8 +89,10 @@ export interface GetVpcEndpointResult {
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
     readonly dnsEntries: outputs.ec2.GetVpcEndpointDnsEntry[];
+    readonly dnsOptions: outputs.ec2.GetVpcEndpointDnsOption[];
     readonly filters?: outputs.ec2.GetVpcEndpointFilter[];
     readonly id: string;
+    readonly ipAddressType: string;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */

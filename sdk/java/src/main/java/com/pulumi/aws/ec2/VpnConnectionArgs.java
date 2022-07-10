@@ -80,6 +80,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     * 
+     */
+    @Import(name="outsideIpAddressType")
+    private @Nullable Output<String> outsideIpAddressType;
+
+    /**
+     * @return Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     * 
+     */
+    public Optional<Output<String>> outsideIpAddressType() {
+        return Optional.ofNullable(this.outsideIpAddressType);
+    }
+
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
@@ -152,6 +167,21 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> transitGatewayId() {
         return Optional.ofNullable(this.transitGatewayId);
+    }
+
+    /**
+     * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     * 
+     */
+    @Import(name="transportTransitGatewayAttachmentId")
+    private @Nullable Output<String> transportTransitGatewayAttachmentId;
+
+    /**
+     * @return . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     * 
+     */
+    public Optional<Output<String>> transportTransitGatewayAttachmentId() {
+        return Optional.ofNullable(this.transportTransitGatewayAttachmentId);
     }
 
     /**
@@ -746,11 +776,13 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         this.enableAcceleration = $.enableAcceleration;
         this.localIpv4NetworkCidr = $.localIpv4NetworkCidr;
         this.localIpv6NetworkCidr = $.localIpv6NetworkCidr;
+        this.outsideIpAddressType = $.outsideIpAddressType;
         this.remoteIpv4NetworkCidr = $.remoteIpv4NetworkCidr;
         this.remoteIpv6NetworkCidr = $.remoteIpv6NetworkCidr;
         this.staticRoutesOnly = $.staticRoutesOnly;
         this.tags = $.tags;
         this.transitGatewayId = $.transitGatewayId;
+        this.transportTransitGatewayAttachmentId = $.transportTransitGatewayAttachmentId;
         this.tunnel1DpdTimeoutAction = $.tunnel1DpdTimeoutAction;
         this.tunnel1DpdTimeoutSeconds = $.tunnel1DpdTimeoutSeconds;
         this.tunnel1IkeVersions = $.tunnel1IkeVersions;
@@ -895,6 +927,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param outsideIpAddressType Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outsideIpAddressType(@Nullable Output<String> outsideIpAddressType) {
+            $.outsideIpAddressType = outsideIpAddressType;
+            return this;
+        }
+
+        /**
+         * @param outsideIpAddressType Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outsideIpAddressType(String outsideIpAddressType) {
+            return outsideIpAddressType(Output.of(outsideIpAddressType));
+        }
+
+        /**
          * @param remoteIpv4NetworkCidr The IPv4 CIDR on the AWS side of the VPN connection.
          * 
          * @return builder
@@ -997,6 +1050,27 @@ public final class VpnConnectionArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder transitGatewayId(String transitGatewayId) {
             return transitGatewayId(Output.of(transitGatewayId));
+        }
+
+        /**
+         * @param transportTransitGatewayAttachmentId . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transportTransitGatewayAttachmentId(@Nullable Output<String> transportTransitGatewayAttachmentId) {
+            $.transportTransitGatewayAttachmentId = transportTransitGatewayAttachmentId;
+            return this;
+        }
+
+        /**
+         * @param transportTransitGatewayAttachmentId . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transportTransitGatewayAttachmentId(String transportTransitGatewayAttachmentId) {
+            return transportTransitGatewayAttachmentId(Output.of(transportTransitGatewayAttachmentId));
         }
 
         /**

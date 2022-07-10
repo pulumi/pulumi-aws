@@ -22,6 +22,7 @@ class GroupArgs:
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
+                 default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
@@ -59,6 +60,7 @@ class GroupArgs:
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        :param pulumi.Input[int] default_instance_warmup: The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
@@ -131,6 +133,8 @@ class GroupArgs:
             pulumi.set(__self__, "context", context)
         if default_cooldown is not None:
             pulumi.set(__self__, "default_cooldown", default_cooldown)
+        if default_instance_warmup is not None:
+            pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
         if desired_capacity is not None:
             pulumi.set(__self__, "desired_capacity", desired_capacity)
         if enabled_metrics is not None:
@@ -264,6 +268,18 @@ class GroupArgs:
     @default_cooldown.setter
     def default_cooldown(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default_cooldown", value)
+
+    @property
+    @pulumi.getter(name="defaultInstanceWarmup")
+    def default_instance_warmup(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        """
+        return pulumi.get(self, "default_instance_warmup")
+
+    @default_instance_warmup.setter
+    def default_instance_warmup(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_instance_warmup", value)
 
     @property
     @pulumi.getter(name="desiredCapacity")
@@ -652,6 +668,7 @@ class _GroupState:
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
+                 default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
@@ -690,6 +707,7 @@ class _GroupState:
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        :param pulumi.Input[int] default_instance_warmup: The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
@@ -764,6 +782,8 @@ class _GroupState:
             pulumi.set(__self__, "context", context)
         if default_cooldown is not None:
             pulumi.set(__self__, "default_cooldown", default_cooldown)
+        if default_instance_warmup is not None:
+            pulumi.set(__self__, "default_instance_warmup", default_instance_warmup)
         if desired_capacity is not None:
             pulumi.set(__self__, "desired_capacity", desired_capacity)
         if enabled_metrics is not None:
@@ -889,6 +909,18 @@ class _GroupState:
     @default_cooldown.setter
     def default_cooldown(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default_cooldown", value)
+
+    @property
+    @pulumi.getter(name="defaultInstanceWarmup")
+    def default_instance_warmup(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        """
+        return pulumi.get(self, "default_instance_warmup")
+
+    @default_instance_warmup.setter
+    def default_instance_warmup(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "default_instance_warmup", value)
 
     @property
     @pulumi.getter(name="desiredCapacity")
@@ -1302,6 +1334,7 @@ class Group(pulumi.CustomResource):
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
+                 default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
@@ -1644,6 +1677,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        :param pulumi.Input[int] default_instance_warmup: The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
@@ -2037,6 +2071,7 @@ class Group(pulumi.CustomResource):
                  capacity_rebalance: Optional[pulumi.Input[bool]] = None,
                  context: Optional[pulumi.Input[str]] = None,
                  default_cooldown: Optional[pulumi.Input[int]] = None,
+                 default_instance_warmup: Optional[pulumi.Input[int]] = None,
                  desired_capacity: Optional[pulumi.Input[int]] = None,
                  enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  force_delete: Optional[pulumi.Input[bool]] = None,
@@ -2084,6 +2119,7 @@ class Group(pulumi.CustomResource):
             __props__.__dict__["capacity_rebalance"] = capacity_rebalance
             __props__.__dict__["context"] = context
             __props__.__dict__["default_cooldown"] = default_cooldown
+            __props__.__dict__["default_instance_warmup"] = default_instance_warmup
             __props__.__dict__["desired_capacity"] = desired_capacity
             __props__.__dict__["enabled_metrics"] = enabled_metrics
             __props__.__dict__["force_delete"] = force_delete
@@ -2138,6 +2174,7 @@ class Group(pulumi.CustomResource):
             capacity_rebalance: Optional[pulumi.Input[bool]] = None,
             context: Optional[pulumi.Input[str]] = None,
             default_cooldown: Optional[pulumi.Input[int]] = None,
+            default_instance_warmup: Optional[pulumi.Input[int]] = None,
             desired_capacity: Optional[pulumi.Input[int]] = None,
             enabled_metrics: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             force_delete: Optional[pulumi.Input[bool]] = None,
@@ -2181,6 +2218,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[bool] capacity_rebalance: Indicates whether capacity rebalance is enabled. Otherwise, capacity rebalance is disabled.
         :param pulumi.Input[str] context: Reserved.
         :param pulumi.Input[int] default_cooldown: The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
+        :param pulumi.Input[int] default_instance_warmup: The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
@@ -2254,6 +2292,7 @@ class Group(pulumi.CustomResource):
         __props__.__dict__["capacity_rebalance"] = capacity_rebalance
         __props__.__dict__["context"] = context
         __props__.__dict__["default_cooldown"] = default_cooldown
+        __props__.__dict__["default_instance_warmup"] = default_instance_warmup
         __props__.__dict__["desired_capacity"] = desired_capacity
         __props__.__dict__["enabled_metrics"] = enabled_metrics
         __props__.__dict__["force_delete"] = force_delete
@@ -2326,6 +2365,14 @@ class Group(pulumi.CustomResource):
         The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
         """
         return pulumi.get(self, "default_cooldown")
+
+    @property
+    @pulumi.getter(name="defaultInstanceWarmup")
+    def default_instance_warmup(self) -> pulumi.Output[Optional[int]]:
+        """
+        The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        """
+        return pulumi.get(self, "default_instance_warmup")
 
     @property
     @pulumi.getter(name="desiredCapacity")

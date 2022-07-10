@@ -12,6 +12,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +86,22 @@ public class Repository extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<RepositoryEncryptionConfiguration>>> encryptionConfigurations() {
         return Codegen.optional(this.encryptionConfigurations);
+    }
+    /**
+     * If `true`, will delete the repository even if it contains images.
+     * Defaults to `false`.
+     * 
+     */
+    @Export(name="forceDelete", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> forceDelete;
+
+    /**
+     * @return If `true`, will delete the repository even if it contains images.
+     * Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> forceDelete() {
+        return Codegen.optional(this.forceDelete);
     }
     /**
      * Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.

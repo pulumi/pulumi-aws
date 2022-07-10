@@ -80,6 +80,7 @@ export interface GetLaunchTemplateResult {
     readonly creditSpecifications: outputs.ec2.GetLaunchTemplateCreditSpecification[];
     readonly defaultVersion: number;
     readonly description: string;
+    readonly disableApiStop: boolean;
     readonly disableApiTermination: boolean;
     readonly ebsOptimized: string;
     readonly elasticGpuSpecifications: outputs.ec2.GetLaunchTemplateElasticGpuSpecification[];

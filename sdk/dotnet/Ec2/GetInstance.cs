@@ -263,6 +263,13 @@ namespace Pulumi.Aws.Ec2
         /// The credit specification of the Instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetInstanceCreditSpecificationResult> CreditSpecifications;
+        /// <summary>
+        /// Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
+        /// </summary>
+        public readonly bool DisableApiStop;
+        /// <summary>
+        /// Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
+        /// </summary>
         public readonly bool DisableApiTermination;
         /// <summary>
         /// The EBS block device mappings of the Instance.
@@ -355,6 +362,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string PrivateDns;
         /// <summary>
+        /// The options for the instance hostname.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetInstancePrivateDnsNameOptionResult> PrivateDnsNameOptions;
+        /// <summary>
         /// The private IP address assigned to the Instance.
         /// </summary>
         public readonly string PrivateIp;
@@ -420,6 +431,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetInstanceCreditSpecificationResult> creditSpecifications,
 
+            bool disableApiStop,
+
             bool disableApiTermination,
 
             ImmutableArray<Outputs.GetInstanceEbsBlockDeviceResult> ebsBlockDevices,
@@ -472,6 +485,8 @@ namespace Pulumi.Aws.Ec2
 
             string privateDns,
 
+            ImmutableArray<Outputs.GetInstancePrivateDnsNameOptionResult> privateDnsNameOptions,
+
             string privateIp,
 
             string publicDns,
@@ -503,6 +518,7 @@ namespace Pulumi.Aws.Ec2
             AssociatePublicIpAddress = associatePublicIpAddress;
             AvailabilityZone = availabilityZone;
             CreditSpecifications = creditSpecifications;
+            DisableApiStop = disableApiStop;
             DisableApiTermination = disableApiTermination;
             EbsBlockDevices = ebsBlockDevices;
             EbsOptimized = ebsOptimized;
@@ -529,6 +545,7 @@ namespace Pulumi.Aws.Ec2
             PlacementGroup = placementGroup;
             PlacementPartitionNumber = placementPartitionNumber;
             PrivateDns = privateDns;
+            PrivateDnsNameOptions = privateDnsNameOptions;
             PrivateIp = privateIp;
             PublicDns = publicDns;
             PublicIp = publicIp;

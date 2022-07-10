@@ -57,6 +57,11 @@ public final class GetDedicatedHostResult {
      */
     private final String instanceType;
     /**
+     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+     * 
+     */
+    private final String outpostArn;
+    /**
      * @return The ID of the AWS account that owns the Dedicated Host.
      * 
      */
@@ -85,6 +90,7 @@ public final class GetDedicatedHostResult {
         @CustomType.Parameter("id") String id,
         @CustomType.Parameter("instanceFamily") String instanceFamily,
         @CustomType.Parameter("instanceType") String instanceType,
+        @CustomType.Parameter("outpostArn") String outpostArn,
         @CustomType.Parameter("ownerId") String ownerId,
         @CustomType.Parameter("sockets") Integer sockets,
         @CustomType.Parameter("tags") Map<String,String> tags,
@@ -99,6 +105,7 @@ public final class GetDedicatedHostResult {
         this.id = id;
         this.instanceFamily = instanceFamily;
         this.instanceType = instanceType;
+        this.outpostArn = outpostArn;
         this.ownerId = ownerId;
         this.sockets = sockets;
         this.tags = tags;
@@ -168,6 +175,13 @@ public final class GetDedicatedHostResult {
         return this.instanceType;
     }
     /**
+     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+     * 
+     */
+    public String outpostArn() {
+        return this.outpostArn;
+    }
+    /**
      * @return The ID of the AWS account that owns the Dedicated Host.
      * 
      */
@@ -211,6 +225,7 @@ public final class GetDedicatedHostResult {
         private String id;
         private String instanceFamily;
         private String instanceType;
+        private String outpostArn;
         private String ownerId;
         private Integer sockets;
         private Map<String,String> tags;
@@ -232,6 +247,7 @@ public final class GetDedicatedHostResult {
     	      this.id = defaults.id;
     	      this.instanceFamily = defaults.instanceFamily;
     	      this.instanceType = defaults.instanceType;
+    	      this.outpostArn = defaults.outpostArn;
     	      this.ownerId = defaults.ownerId;
     	      this.sockets = defaults.sockets;
     	      this.tags = defaults.tags;
@@ -281,6 +297,10 @@ public final class GetDedicatedHostResult {
             this.instanceType = Objects.requireNonNull(instanceType);
             return this;
         }
+        public Builder outpostArn(String outpostArn) {
+            this.outpostArn = Objects.requireNonNull(outpostArn);
+            return this;
+        }
         public Builder ownerId(String ownerId) {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
@@ -297,7 +317,7 @@ public final class GetDedicatedHostResult {
             this.totalVcpus = Objects.requireNonNull(totalVcpus);
             return this;
         }        public GetDedicatedHostResult build() {
-            return new GetDedicatedHostResult(arn, autoPlacement, availabilityZone, cores, filters, hostId, hostRecovery, id, instanceFamily, instanceType, ownerId, sockets, tags, totalVcpus);
+            return new GetDedicatedHostResult(arn, autoPlacement, availabilityZone, cores, filters, hostId, hostRecovery, id, instanceFamily, instanceType, outpostArn, ownerId, sockets, tags, totalVcpus);
         }
     }
 }

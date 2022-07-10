@@ -55,7 +55,7 @@ type Script struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationOutput `pulumi:"storageLocation"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -100,7 +100,7 @@ type scriptState struct {
 	Name *string `pulumi:"name"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -117,7 +117,7 @@ type ScriptState struct {
 	Name pulumi.StringPtrInput
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -136,7 +136,7 @@ type scriptArgs struct {
 	Name *string `pulumi:"name"`
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation *ScriptStorageLocation `pulumi:"storageLocation"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Version that is associated with this script.
 	Version *string `pulumi:"version"`
@@ -150,7 +150,7 @@ type ScriptArgs struct {
 	Name pulumi.StringPtrInput
 	// Information indicating where your game script files are stored. See below.
 	StorageLocation ScriptStorageLocationPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Version that is associated with this script.
 	Version pulumi.StringPtrInput
@@ -260,7 +260,7 @@ func (o ScriptOutput) StorageLocation() ScriptStorageLocationOutput {
 	return o.ApplyT(func(v *Script) ScriptStorageLocationOutput { return v.StorageLocation }).(ScriptStorageLocationOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ScriptOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Script) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

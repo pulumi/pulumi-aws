@@ -4,6 +4,7 @@
 package com.pulumi.aws.acmpca.outputs;
 
 import com.pulumi.aws.acmpca.outputs.GetCertificateAuthorityRevocationConfigurationCrlConfiguration;
+import com.pulumi.aws.acmpca.outputs.GetCertificateAuthorityRevocationConfigurationOcspConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.List;
 import java.util.Objects;
@@ -11,14 +12,21 @@ import java.util.Objects;
 @CustomType
 public final class GetCertificateAuthorityRevocationConfiguration {
     private final List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations;
+    private final List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations;
 
     @CustomType.Constructor
-    private GetCertificateAuthorityRevocationConfiguration(@CustomType.Parameter("crlConfigurations") List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations) {
+    private GetCertificateAuthorityRevocationConfiguration(
+        @CustomType.Parameter("crlConfigurations") List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations,
+        @CustomType.Parameter("ocspConfigurations") List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations) {
         this.crlConfigurations = crlConfigurations;
+        this.ocspConfigurations = ocspConfigurations;
     }
 
     public List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations() {
         return this.crlConfigurations;
+    }
+    public List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations() {
+        return this.ocspConfigurations;
     }
 
     public static Builder builder() {
@@ -31,6 +39,7 @@ public final class GetCertificateAuthorityRevocationConfiguration {
 
     public static final class Builder {
         private List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations;
+        private List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations;
 
         public Builder() {
     	      // Empty
@@ -39,6 +48,7 @@ public final class GetCertificateAuthorityRevocationConfiguration {
         public Builder(GetCertificateAuthorityRevocationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.crlConfigurations = defaults.crlConfigurations;
+    	      this.ocspConfigurations = defaults.ocspConfigurations;
         }
 
         public Builder crlConfigurations(List<GetCertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfigurations) {
@@ -47,8 +57,15 @@ public final class GetCertificateAuthorityRevocationConfiguration {
         }
         public Builder crlConfigurations(GetCertificateAuthorityRevocationConfigurationCrlConfiguration... crlConfigurations) {
             return crlConfigurations(List.of(crlConfigurations));
+        }
+        public Builder ocspConfigurations(List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations) {
+            this.ocspConfigurations = Objects.requireNonNull(ocspConfigurations);
+            return this;
+        }
+        public Builder ocspConfigurations(GetCertificateAuthorityRevocationConfigurationOcspConfiguration... ocspConfigurations) {
+            return ocspConfigurations(List.of(ocspConfigurations));
         }        public GetCertificateAuthorityRevocationConfiguration build() {
-            return new GetCertificateAuthorityRevocationConfiguration(crlConfigurations);
+            return new GetCertificateAuthorityRevocationConfiguration(crlConfigurations, ocspConfigurations);
         }
     }
 }

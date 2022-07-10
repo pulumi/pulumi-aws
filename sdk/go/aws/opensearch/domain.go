@@ -18,8 +18,8 @@ import (
 //
 // OpenSearch Domain configurations are similar in many ways to Elasticsearch Domain configurations. However, there are important differences including these:
 //
-// * OpenSearch has `engineVersion` while Elasticsearch has `elastisearchVersion`
-// * Versions are specified differently - _e.g._, `Elastisearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
+// * OpenSearch has `engineVersion` while Elasticsearch has `elasticsearchVersion`
+// * Versions are specified differently - _e.g._, `Elasticsearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
 // * `instanceType` argument values end in `search` for OpenSearch vs. `elasticsearch` for Elasticsearch (_e.g._, `t2.micro.search` vs. `t2.micro.elasticsearch`).
 // * The AWS-managed service-linked role for OpenSearch is called `AWSServiceRoleForAmazonOpenSearchService` instead of `AWSServiceRoleForAmazonElasticsearchService` for Elasticsearch.
 //

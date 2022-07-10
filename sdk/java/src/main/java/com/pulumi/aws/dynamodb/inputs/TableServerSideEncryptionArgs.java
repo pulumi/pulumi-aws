@@ -17,14 +17,14 @@ public final class TableServerSideEncryptionArgs extends com.pulumi.resources.Re
     public static final TableServerSideEncryptionArgs Empty = new TableServerSideEncryptionArgs();
 
     /**
-     * Indicates whether ttl is enabled (true) or disabled (false).
+     * Whether TTL is enabled.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether ttl is enabled (true) or disabled (false).
+     * @return Whether TTL is enabled.
      * 
      */
     public Output<Boolean> enabled() {
@@ -32,16 +32,14 @@ public final class TableServerSideEncryptionArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The ARN of the CMK that should be used for the AWS KMS encryption.
-     * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+     * ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the CMK that should be used for the AWS KMS encryption.
-     * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+     * @return ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -74,7 +72,7 @@ public final class TableServerSideEncryptionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Indicates whether ttl is enabled (true) or disabled (false).
+         * @param enabled Whether TTL is enabled.
          * 
          * @return builder
          * 
@@ -85,7 +83,7 @@ public final class TableServerSideEncryptionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param enabled Indicates whether ttl is enabled (true) or disabled (false).
+         * @param enabled Whether TTL is enabled.
          * 
          * @return builder
          * 
@@ -95,8 +93,7 @@ public final class TableServerSideEncryptionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param kmsKeyArn The ARN of the CMK that should be used for the AWS KMS encryption.
-         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
          * 
          * @return builder
          * 
@@ -107,8 +104,7 @@ public final class TableServerSideEncryptionArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param kmsKeyArn The ARN of the CMK that should be used for the AWS KMS encryption.
-         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
          * 
          * @return builder
          * 

@@ -13,13 +13,13 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     public sealed class TableAttributeGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the index
+        /// Name of the index
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+        /// Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

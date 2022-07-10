@@ -31,10 +31,6 @@ public final class GetConnectionResult {
      * 
      */
     private final String name;
-    /**
-     * @return The name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`.
-     * 
-     */
     private final String providerType;
     /**
      * @return Map of key-value resource tags to associate with the resource.
@@ -91,10 +87,6 @@ public final class GetConnectionResult {
     public String name() {
         return this.name;
     }
-    /**
-     * @return The name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`.
-     * 
-     */
     public String providerType() {
         return this.providerType;
     }

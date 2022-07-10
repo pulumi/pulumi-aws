@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.outputs;
 
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionAmiDistributionConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionContainerDistributionConfiguration;
+import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionFastLaunchConfiguration;
 import com.pulumi.aws.imagebuilder.outputs.GetDistributionConfigurationDistributionLaunchTemplateConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
@@ -23,6 +24,11 @@ public final class GetDistributionConfigurationDistribution {
      * 
      */
     private final List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations;
+    /**
+     * @return Nested list of Windows faster-launching configurations to use for AMI distribution.
+     * 
+     */
+    private final List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations;
     /**
      * @return Nested list of launch template configurations.
      * 
@@ -43,11 +49,13 @@ public final class GetDistributionConfigurationDistribution {
     private GetDistributionConfigurationDistribution(
         @CustomType.Parameter("amiDistributionConfigurations") List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations,
         @CustomType.Parameter("containerDistributionConfigurations") List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations,
+        @CustomType.Parameter("fastLaunchConfigurations") List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations,
         @CustomType.Parameter("launchTemplateConfigurations") List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations,
         @CustomType.Parameter("licenseConfigurationArns") List<String> licenseConfigurationArns,
         @CustomType.Parameter("region") String region) {
         this.amiDistributionConfigurations = amiDistributionConfigurations;
         this.containerDistributionConfigurations = containerDistributionConfigurations;
+        this.fastLaunchConfigurations = fastLaunchConfigurations;
         this.launchTemplateConfigurations = launchTemplateConfigurations;
         this.licenseConfigurationArns = licenseConfigurationArns;
         this.region = region;
@@ -66,6 +74,13 @@ public final class GetDistributionConfigurationDistribution {
      */
     public List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations() {
         return this.containerDistributionConfigurations;
+    }
+    /**
+     * @return Nested list of Windows faster-launching configurations to use for AMI distribution.
+     * 
+     */
+    public List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations() {
+        return this.fastLaunchConfigurations;
     }
     /**
      * @return Nested list of launch template configurations.
@@ -100,6 +115,7 @@ public final class GetDistributionConfigurationDistribution {
     public static final class Builder {
         private List<GetDistributionConfigurationDistributionAmiDistributionConfiguration> amiDistributionConfigurations;
         private List<GetDistributionConfigurationDistributionContainerDistributionConfiguration> containerDistributionConfigurations;
+        private List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations;
         private List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
         private List<String> licenseConfigurationArns;
         private String region;
@@ -112,6 +128,7 @@ public final class GetDistributionConfigurationDistribution {
     	      Objects.requireNonNull(defaults);
     	      this.amiDistributionConfigurations = defaults.amiDistributionConfigurations;
     	      this.containerDistributionConfigurations = defaults.containerDistributionConfigurations;
+    	      this.fastLaunchConfigurations = defaults.fastLaunchConfigurations;
     	      this.launchTemplateConfigurations = defaults.launchTemplateConfigurations;
     	      this.licenseConfigurationArns = defaults.licenseConfigurationArns;
     	      this.region = defaults.region;
@@ -131,6 +148,13 @@ public final class GetDistributionConfigurationDistribution {
         public Builder containerDistributionConfigurations(GetDistributionConfigurationDistributionContainerDistributionConfiguration... containerDistributionConfigurations) {
             return containerDistributionConfigurations(List.of(containerDistributionConfigurations));
         }
+        public Builder fastLaunchConfigurations(List<GetDistributionConfigurationDistributionFastLaunchConfiguration> fastLaunchConfigurations) {
+            this.fastLaunchConfigurations = Objects.requireNonNull(fastLaunchConfigurations);
+            return this;
+        }
+        public Builder fastLaunchConfigurations(GetDistributionConfigurationDistributionFastLaunchConfiguration... fastLaunchConfigurations) {
+            return fastLaunchConfigurations(List.of(fastLaunchConfigurations));
+        }
         public Builder launchTemplateConfigurations(List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations) {
             this.launchTemplateConfigurations = Objects.requireNonNull(launchTemplateConfigurations);
             return this;
@@ -149,7 +173,7 @@ public final class GetDistributionConfigurationDistribution {
             this.region = Objects.requireNonNull(region);
             return this;
         }        public GetDistributionConfigurationDistribution build() {
-            return new GetDistributionConfigurationDistribution(amiDistributionConfigurations, containerDistributionConfigurations, launchTemplateConfigurations, licenseConfigurationArns, region);
+            return new GetDistributionConfigurationDistribution(amiDistributionConfigurations, containerDistributionConfigurations, fastLaunchConfigurations, launchTemplateConfigurations, licenseConfigurationArns, region);
         }
     }
 }

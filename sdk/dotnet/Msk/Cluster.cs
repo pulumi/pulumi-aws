@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Msk
     ///         });
     ///         var example = new Aws.Msk.Cluster("example", new Aws.Msk.ClusterArgs
     ///         {
-    ///             KafkaVersion = "2.4.1",
+    ///             KafkaVersion = "3.2.0",
     ///             NumberOfBrokerNodes = 3,
     ///             BrokerNodeGroupInfo = new Aws.Msk.Inputs.ClusterBrokerNodeGroupInfoArgs
     ///             {

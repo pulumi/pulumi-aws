@@ -7,18 +7,29 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'DataLakeSettingsCreateDatabaseDefaultPermission',
     'DataLakeSettingsCreateTableDefaultPermission',
     'PermissionsDataLocation',
     'PermissionsDatabase',
+    'PermissionsLfTag',
+    'PermissionsLfTagPolicy',
+    'PermissionsLfTagPolicyExpression',
     'PermissionsTable',
     'PermissionsTableWithColumns',
+    'ResourceLfTagsDatabase',
+    'ResourceLfTagsLfTag',
+    'ResourceLfTagsTable',
+    'ResourceLfTagsTableWithColumns',
     'GetDataLakeSettingsCreateDatabaseDefaultPermissionResult',
     'GetDataLakeSettingsCreateTableDefaultPermissionResult',
     'GetPermissionsDataLocationResult',
     'GetPermissionsDatabaseResult',
+    'GetPermissionsLfTagResult',
+    'GetPermissionsLfTagPolicyResult',
+    'GetPermissionsLfTagPolicyExpressionResult',
     'GetPermissionsTableResult',
     'GetPermissionsTableWithColumnsResult',
 ]
@@ -180,6 +191,153 @@ class PermissionsDatabase(dict):
 
 
 @pulumi.output_type
+class PermissionsLfTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionsLfTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionsLfTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionsLfTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str],
+                 catalog_id: Optional[str] = None):
+        """
+        :param str key: The key-name of an LF-Tag.
+        :param Sequence[str] values: A list of possible values of an LF-Tag.
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key-name of an LF-Tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of possible values of an LF-Tag.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+
+@pulumi.output_type
+class PermissionsLfTagPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PermissionsLfTagPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PermissionsLfTagPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PermissionsLfTagPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expressions: Sequence['outputs.PermissionsLfTagPolicyExpression'],
+                 resource_type: str,
+                 catalog_id: Optional[str] = None):
+        """
+        :param Sequence['PermissionsLfTagPolicyExpressionArgs'] expressions: A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        :param str resource_type: The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "expressions", expressions)
+        pulumi.set(__self__, "resource_type", resource_type)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def expressions(self) -> Sequence['outputs.PermissionsLfTagPolicyExpression']:
+        """
+        A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        """
+        return pulumi.get(self, "expressions")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+
+@pulumi.output_type
+class PermissionsLfTagPolicyExpression(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: The key-name of an LF-Tag.
+        :param Sequence[str] values: A list of possible values of an LF-Tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key-name of an LF-Tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of possible values of an LF-Tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class PermissionsTable(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -271,6 +429,272 @@ class PermissionsTableWithColumns(dict):
 
     def get(self, key: str, default = None) -> Any:
         PermissionsTableWithColumns.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 name: str,
+                 catalog_id: Optional[str] = None,
+                 column_names: Optional[Sequence[str]] = None,
+                 excluded_column_names: Optional[Sequence[str]] = None,
+                 wildcard: Optional[bool] = None):
+        """
+        :param str database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
+        :param str name: Name of the table resource.
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param Sequence[str] column_names: Set of column names for the table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if excluded_column_names is not None:
+            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+        if wildcard is not None:
+            pulumi.set(__self__, "wildcard", wildcard)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the database for the table with columns resource. Unique to the Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the table resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Optional[Sequence[str]]:
+        """
+        Set of column names for the table.
+        """
+        return pulumi.get(self, "column_names")
+
+    @property
+    @pulumi.getter(name="excludedColumnNames")
+    def excluded_column_names(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "excluded_column_names")
+
+    @property
+    @pulumi.getter
+    def wildcard(self) -> Optional[bool]:
+        return pulumi.get(self, "wildcard")
+
+
+@pulumi.output_type
+class ResourceLfTagsDatabase(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagsDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagsDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagsDatabase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 catalog_id: Optional[str] = None):
+        """
+        :param str name: Name of the table resource.
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "name", name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the table resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+
+@pulumi.output_type
+class ResourceLfTagsLfTag(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagsLfTag. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagsLfTag.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagsLfTag.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key: str,
+                 value: str,
+                 catalog_id: Optional[str] = None):
+        """
+        :param str key: Key name for an existing LF-tag.
+        :param str value: Value from the possible values for the LF-tag.
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Key name for an existing LF-tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value from the possible values for the LF-tag.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+
+@pulumi.output_type
+class ResourceLfTagsTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagsTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagsTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagsTable.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 catalog_id: Optional[str] = None,
+                 name: Optional[str] = None,
+                 wildcard: Optional[bool] = None):
+        """
+        :param str database_name: Name of the database for the table with columns resource. Unique to the Data Catalog.
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param str name: Name of the table resource.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        if catalog_id is not None:
+            pulumi.set(__self__, "catalog_id", catalog_id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if wildcard is not None:
+            pulumi.set(__self__, "wildcard", wildcard)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        Name of the database for the table with columns resource. Unique to the Data Catalog.
+        """
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> Optional[str]:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the table resource.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def wildcard(self) -> Optional[bool]:
+        return pulumi.get(self, "wildcard")
+
+
+@pulumi.output_type
+class ResourceLfTagsTableWithColumns(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "columnNames":
+            suggest = "column_names"
+        elif key == "excludedColumnNames":
+            suggest = "excluded_column_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceLfTagsTableWithColumns. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceLfTagsTableWithColumns.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceLfTagsTableWithColumns.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -454,6 +878,115 @@ class GetPermissionsDatabaseResult(dict):
         Name of the table resource.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetPermissionsLfTagResult(dict):
+    def __init__(__self__, *,
+                 catalog_id: str,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param str key: The key-name of an LF-Tag.
+        :param Sequence[str] values: A list of possible values of an LF-Tag.
+        """
+        pulumi.set(__self__, "catalog_id", catalog_id)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> str:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key-name of an LF-Tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of possible values of an LF-Tag.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetPermissionsLfTagPolicyResult(dict):
+    def __init__(__self__, *,
+                 catalog_id: str,
+                 expressions: Sequence['outputs.GetPermissionsLfTagPolicyExpressionResult'],
+                 resource_type: str):
+        """
+        :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        :param Sequence['GetPermissionsLfTagPolicyExpressionArgs'] expressions: A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        :param str resource_type: The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+        """
+        pulumi.set(__self__, "catalog_id", catalog_id)
+        pulumi.set(__self__, "expressions", expressions)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> str:
+        """
+        Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter
+    def expressions(self) -> Sequence['outputs.GetPermissionsLfTagPolicyExpressionResult']:
+        """
+        A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+        """
+        return pulumi.get(self, "expressions")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> str:
+        """
+        The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
+class GetPermissionsLfTagPolicyExpressionResult(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 values: Sequence[str]):
+        """
+        :param str key: The key-name of an LF-Tag.
+        :param Sequence[str] values: A list of possible values of an LF-Tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key-name of an LF-Tag.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of possible values of an LF-Tag.
+        """
+        return pulumi.get(self, "values")
 
 
 @pulumi.output_type

@@ -57,7 +57,7 @@ type InstanceProfile struct {
 	PackageCleanup pulumi.BoolPtrOutput `pulumi:"packageCleanup"`
 	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
 	RebootAfterUse pulumi.BoolPtrOutput `pulumi:"rebootAfterUse"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -104,7 +104,7 @@ type instanceProfileState struct {
 	PackageCleanup *bool `pulumi:"packageCleanup"`
 	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
 	RebootAfterUse *bool `pulumi:"rebootAfterUse"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -123,7 +123,7 @@ type InstanceProfileState struct {
 	PackageCleanup pulumi.BoolPtrInput
 	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
 	RebootAfterUse pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -144,7 +144,7 @@ type instanceProfileArgs struct {
 	PackageCleanup *bool `pulumi:"packageCleanup"`
 	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
 	RebootAfterUse *bool `pulumi:"rebootAfterUse"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -160,7 +160,7 @@ type InstanceProfileArgs struct {
 	PackageCleanup pulumi.BoolPtrInput
 	// When set to `true`, Device Farm reboots the instance after a test run. The default value is `true`.
 	RebootAfterUse pulumi.BoolPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -281,7 +281,7 @@ func (o InstanceProfileOutput) RebootAfterUse() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.BoolPtrOutput { return v.RebootAfterUse }).(pulumi.BoolPtrOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o InstanceProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -80,8 +80,10 @@ type SpotInstanceRequest struct {
 	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntOutput `pulumi:"cpuThreadsPerCore"`
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolOutput `pulumi:"disableApiStop"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolOutput `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -138,6 +140,8 @@ type SpotInstanceRequest struct {
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
 	PrivateDns pulumi.StringOutput `pulumi:"privateDns"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions SpotInstanceRequestPrivateDnsNameOptionsOutput `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
 	// The public DNS name assigned to the instance. For EC2-VPC, this
@@ -243,8 +247,10 @@ type spotInstanceRequestState struct {
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *SpotInstanceRequestCreditSpecification `pulumi:"creditSpecification"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -301,6 +307,8 @@ type spotInstanceRequestState struct {
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
 	PrivateDns *string `pulumi:"privateDns"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions *SpotInstanceRequestPrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
 	// The public DNS name assigned to the instance. For EC2-VPC, this
@@ -378,8 +386,10 @@ type SpotInstanceRequestState struct {
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntPtrInput
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrInput
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolPtrInput
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -436,6 +446,8 @@ type SpotInstanceRequestState struct {
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC
 	PrivateDns pulumi.StringPtrInput
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions SpotInstanceRequestPrivateDnsNameOptionsPtrInput
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
 	// The public DNS name assigned to the instance. For EC2-VPC, this
@@ -516,8 +528,10 @@ type spotInstanceRequestArgs struct {
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *SpotInstanceRequestCreditSpecification `pulumi:"creditSpecification"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -566,6 +580,8 @@ type spotInstanceRequestArgs struct {
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions *SpotInstanceRequestPrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
@@ -625,8 +641,10 @@ type SpotInstanceRequestArgs struct {
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntPtrInput
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification SpotInstanceRequestCreditSpecificationPtrInput
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolPtrInput
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -675,6 +693,8 @@ type SpotInstanceRequestArgs struct {
 	PlacementGroup pulumi.StringPtrInput
 	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntPtrInput
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions SpotInstanceRequestPrivateDnsNameOptionsPtrInput
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
@@ -846,11 +866,16 @@ func (o SpotInstanceRequestOutput) CpuThreadsPerCore() pulumi.IntOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.IntOutput { return v.CpuThreadsPerCore }).(pulumi.IntOutput)
 }
 
-// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 func (o SpotInstanceRequestOutput) CreditSpecification() SpotInstanceRequestCreditSpecificationPtrOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestCreditSpecificationPtrOutput {
 		return v.CreditSpecification
 	}).(SpotInstanceRequestCreditSpecificationPtrOutput)
+}
+
+// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+func (o SpotInstanceRequestOutput) DisableApiStop() pulumi.BoolOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.BoolOutput { return v.DisableApiStop }).(pulumi.BoolOutput)
 }
 
 // If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -995,6 +1020,13 @@ func (o SpotInstanceRequestOutput) PrimaryNetworkInterfaceId() pulumi.StringOutp
 // for your VPC
 func (o SpotInstanceRequestOutput) PrivateDns() pulumi.StringOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) pulumi.StringOutput { return v.PrivateDns }).(pulumi.StringOutput)
+}
+
+// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+func (o SpotInstanceRequestOutput) PrivateDnsNameOptions() SpotInstanceRequestPrivateDnsNameOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestPrivateDnsNameOptionsOutput {
+		return v.PrivateDnsNameOptions
+	}).(SpotInstanceRequestPrivateDnsNameOptionsOutput)
 }
 
 // Private IP address to associate with the instance in a VPC.

@@ -128,6 +128,10 @@ export class VpcEndpointService extends pulumi.CustomResource {
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
+     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     */
+    public readonly supportedIpAddressTypes!: pulumi.Output<string[]>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -162,6 +166,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["serviceType"] = state ? state.serviceType : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["supportedIpAddressTypes"] = state ? state.supportedIpAddressTypes : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
@@ -174,6 +179,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
             resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
             resourceInputs["privateDnsName"] = args ? args.privateDnsName : undefined;
+            resourceInputs["supportedIpAddressTypes"] = args ? args.supportedIpAddressTypes : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["availabilityZones"] = undefined /*out*/;
@@ -247,6 +253,10 @@ export interface VpcEndpointServiceState {
      */
     state?: pulumi.Input<string>;
     /**
+     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     */
+    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -280,6 +290,10 @@ export interface VpcEndpointServiceArgs {
      * The private DNS name for the service.
      */
     privateDnsName?: pulumi.Input<string>;
+    /**
+     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     */
+    supportedIpAddressTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

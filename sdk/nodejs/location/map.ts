@@ -81,7 +81,7 @@ export class Map extends pulumi.CustomResource {
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The timestamp for when the map resource was last updated in ISO 8601.
+     * The timestamp for when the map resource was last updated in ISO 8601 format.
      */
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
@@ -155,7 +155,7 @@ export interface MapState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The timestamp for when the map resource was last updated in ISO 8601.
+     * The timestamp for when the map resource was last updated in ISO 8601 format.
      */
     updateTime?: pulumi.Input<string>;
 }

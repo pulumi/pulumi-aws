@@ -23,7 +23,12 @@ public final class ClusterCoreInstanceGroupEbsConfig {
      */
     private final Integer size;
     /**
-     * @return Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+     * @return The throughput, in mebibyte per second (MiB/s).
+     * 
+     */
+    private final @Nullable Integer throughput;
+    /**
+     * @return Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
      * 
      */
     private final String type;
@@ -37,10 +42,12 @@ public final class ClusterCoreInstanceGroupEbsConfig {
     private ClusterCoreInstanceGroupEbsConfig(
         @CustomType.Parameter("iops") @Nullable Integer iops,
         @CustomType.Parameter("size") Integer size,
+        @CustomType.Parameter("throughput") @Nullable Integer throughput,
         @CustomType.Parameter("type") String type,
         @CustomType.Parameter("volumesPerInstance") @Nullable Integer volumesPerInstance) {
         this.iops = iops;
         this.size = size;
+        this.throughput = throughput;
         this.type = type;
         this.volumesPerInstance = volumesPerInstance;
     }
@@ -60,7 +67,14 @@ public final class ClusterCoreInstanceGroupEbsConfig {
         return this.size;
     }
     /**
-     * @return Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+     * @return The throughput, in mebibyte per second (MiB/s).
+     * 
+     */
+    public Optional<Integer> throughput() {
+        return Optional.ofNullable(this.throughput);
+    }
+    /**
+     * @return Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
      * 
      */
     public String type() {
@@ -85,6 +99,7 @@ public final class ClusterCoreInstanceGroupEbsConfig {
     public static final class Builder {
         private @Nullable Integer iops;
         private Integer size;
+        private @Nullable Integer throughput;
         private String type;
         private @Nullable Integer volumesPerInstance;
 
@@ -96,6 +111,7 @@ public final class ClusterCoreInstanceGroupEbsConfig {
     	      Objects.requireNonNull(defaults);
     	      this.iops = defaults.iops;
     	      this.size = defaults.size;
+    	      this.throughput = defaults.throughput;
     	      this.type = defaults.type;
     	      this.volumesPerInstance = defaults.volumesPerInstance;
         }
@@ -108,6 +124,10 @@ public final class ClusterCoreInstanceGroupEbsConfig {
             this.size = Objects.requireNonNull(size);
             return this;
         }
+        public Builder throughput(@Nullable Integer throughput) {
+            this.throughput = throughput;
+            return this;
+        }
         public Builder type(String type) {
             this.type = Objects.requireNonNull(type);
             return this;
@@ -116,7 +136,7 @@ public final class ClusterCoreInstanceGroupEbsConfig {
             this.volumesPerInstance = volumesPerInstance;
             return this;
         }        public ClusterCoreInstanceGroupEbsConfig build() {
-            return new ClusterCoreInstanceGroupEbsConfig(iops, size, type, volumesPerInstance);
+            return new ClusterCoreInstanceGroupEbsConfig(iops, size, throughput, type, volumesPerInstance);
         }
     }
 }

@@ -10,6 +10,7 @@ import com.pulumi.aws.apprunner.outputs.ServiceEncryptionConfiguration;
 import com.pulumi.aws.apprunner.outputs.ServiceHealthCheckConfiguration;
 import com.pulumi.aws.apprunner.outputs.ServiceInstanceConfiguration;
 import com.pulumi.aws.apprunner.outputs.ServiceNetworkConfiguration;
+import com.pulumi.aws.apprunner.outputs.ServiceObservabilityConfiguration;
 import com.pulumi.aws.apprunner.outputs.ServiceSourceConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -107,6 +108,50 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Service with Observability Configuration
+ * ```java
+ * package generated_program;
+ * 
+ * import java.util.*;
+ * import java.io.*;
+ * import java.nio.*;
+ * import com.pulumi.*;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleObservabilityConfiguration = new ObservabilityConfiguration(&#34;exampleObservabilityConfiguration&#34;, ObservabilityConfigurationArgs.builder()        
+ *             .observabilityConfigurationName(&#34;example&#34;)
+ *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
+ *                 .vendor(&#34;AWSXRAY&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .serviceName(&#34;example&#34;)
+ *             .observabilityConfiguration(ServiceObservabilityConfigurationArgs.builder()
+ *                 .observabilityConfigurationArn(exampleObservabilityConfiguration.arn())
+ *                 .observabilityEnabled(true)
+ *                 .build())
+ *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
+ *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
+ *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
+ *                         .port(&#34;8000&#34;)
+ *                         .build())
+ *                     .imageIdentifier(&#34;public.ecr.aws/aws-containers/hello-app-runner:latest&#34;)
+ *                     .imageRepositoryType(&#34;ECR_PUBLIC&#34;)
+ *                     .build())
+ *                 .autoDeploymentEnabled(false)
+ *                 .build())
+ *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -190,18 +235,32 @@ public class Service extends com.pulumi.resources.CustomResource {
         return this.instanceConfiguration;
     }
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
     @Export(name="networkConfiguration", type=ServiceNetworkConfiguration.class, parameters={})
     private Output<ServiceNetworkConfiguration> networkConfiguration;
 
     /**
-     * @return Configuration settings related to network traffic of the web application that the App Runner service runs.
+     * @return Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
     public Output<ServiceNetworkConfiguration> networkConfiguration() {
         return this.networkConfiguration;
+    }
+    /**
+     * The observability configuration of your service. See Observability Configuration below for more details.
+     * 
+     */
+    @Export(name="observabilityConfiguration", type=ServiceObservabilityConfiguration.class, parameters={})
+    private Output</* @Nullable */ ServiceObservabilityConfiguration> observabilityConfiguration;
+
+    /**
+     * @return The observability configuration of your service. See Observability Configuration below for more details.
+     * 
+     */
+    public Output<Optional<ServiceObservabilityConfiguration>> observabilityConfiguration() {
+        return Codegen.optional(this.observabilityConfiguration);
     }
     /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.

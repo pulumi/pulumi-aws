@@ -72,6 +72,39 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Service with Observability Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleObservabilityConfiguration = new aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration", {
+ *     observabilityConfigurationName: "example",
+ *     traceConfiguration: {
+ *         vendor: "AWSXRAY",
+ *     },
+ * });
+ * const exampleService = new aws.apprunner.Service("exampleService", {
+ *     serviceName: "example",
+ *     observabilityConfiguration: {
+ *         observabilityConfigurationArn: exampleObservabilityConfiguration.arn,
+ *         observabilityEnabled: true,
+ *     },
+ *     sourceConfiguration: {
+ *         imageRepository: {
+ *             imageConfiguration: {
+ *                 port: "8000",
+ *             },
+ *             imageIdentifier: "public.ecr.aws/aws-containers/hello-app-runner:latest",
+ *             imageRepositoryType: "ECR_PUBLIC",
+ *         },
+ *         autoDeploymentEnabled: false,
+ *     },
+ *     tags: {
+ *         Name: "example-apprunner-service",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -130,9 +163,13 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly instanceConfiguration!: pulumi.Output<outputs.apprunner.ServiceInstanceConfiguration>;
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      */
     public readonly networkConfiguration!: pulumi.Output<outputs.apprunner.ServiceNetworkConfiguration>;
+    /**
+     * The observability configuration of your service. See Observability Configuration below for more details.
+     */
+    public readonly observabilityConfiguration!: pulumi.Output<outputs.apprunner.ServiceObservabilityConfiguration | undefined>;
     /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
@@ -181,6 +218,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["healthCheckConfiguration"] = state ? state.healthCheckConfiguration : undefined;
             resourceInputs["instanceConfiguration"] = state ? state.instanceConfiguration : undefined;
             resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
+            resourceInputs["observabilityConfiguration"] = state ? state.observabilityConfiguration : undefined;
             resourceInputs["serviceId"] = state ? state.serviceId : undefined;
             resourceInputs["serviceName"] = state ? state.serviceName : undefined;
             resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
@@ -201,6 +239,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
             resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["observabilityConfiguration"] = args ? args.observabilityConfiguration : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -240,9 +279,13 @@ export interface ServiceState {
      */
     instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration>;
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      */
     networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfiguration>;
+    /**
+     * The observability configuration of your service. See Observability Configuration below for more details.
+     */
+    observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfiguration>;
     /**
      * An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
      */
@@ -294,9 +337,13 @@ export interface ServiceArgs {
      */
     instanceConfiguration?: pulumi.Input<inputs.apprunner.ServiceInstanceConfiguration>;
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      */
     networkConfiguration?: pulumi.Input<inputs.apprunner.ServiceNetworkConfiguration>;
+    /**
+     * The observability configuration of your service. See Observability Configuration below for more details.
+     */
+    observabilityConfiguration?: pulumi.Input<inputs.apprunner.ServiceObservabilityConfiguration>;
     /**
      * Name of the service.
      */

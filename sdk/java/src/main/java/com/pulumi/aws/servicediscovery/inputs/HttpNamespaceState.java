@@ -47,6 +47,21 @@ public final class HttpNamespaceState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * The name of an HTTP namespace.
+     * 
+     */
+    @Import(name="httpName")
+    private @Nullable Output<String> httpName;
+
+    /**
+     * @return The name of an HTTP namespace.
+     * 
+     */
+    public Optional<Output<String>> httpName() {
+        return Optional.ofNullable(this.httpName);
+    }
+
+    /**
      * The name of the http namespace.
      * 
      */
@@ -77,14 +92,14 @@ public final class HttpNamespaceState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -96,6 +111,7 @@ public final class HttpNamespaceState extends com.pulumi.resources.ResourceArgs 
     private HttpNamespaceState(HttpNamespaceState $) {
         this.arn = $.arn;
         this.description = $.description;
+        this.httpName = $.httpName;
         this.name = $.name;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -162,6 +178,27 @@ public final class HttpNamespaceState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param httpName The name of an HTTP namespace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpName(@Nullable Output<String> httpName) {
+            $.httpName = httpName;
+            return this;
+        }
+
+        /**
+         * @param httpName The name of an HTTP namespace.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpName(String httpName) {
+            return httpName(Output.of(httpName));
+        }
+
+        /**
          * @param name The name of the http namespace.
          * 
          * @return builder
@@ -204,7 +241,7 @@ public final class HttpNamespaceState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -215,7 +252,7 @@ public final class HttpNamespaceState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 

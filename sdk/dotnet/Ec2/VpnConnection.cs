@@ -81,6 +81,69 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// ### AWS Site to Site Private VPN
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleGateway = new Aws.DirectConnect.Gateway("exampleGateway", new Aws.DirectConnect.GatewayArgs
+    ///         {
+    ///             AmazonSideAsn = "64512",
+    ///         });
+    ///         var exampleTransitGateway = new Aws.Ec2TransitGateway.TransitGateway("exampleTransitGateway", new Aws.Ec2TransitGateway.TransitGatewayArgs
+    ///         {
+    ///             AmazonSideAsn = 64513,
+    ///             Description = "terraform_ipsec_vpn_example",
+    ///             TransitGatewayCidrBlocks = 
+    ///             {
+    ///                 "10.0.0.0/24",
+    ///             },
+    ///         });
+    ///         var exampleCustomerGateway = new Aws.Ec2.CustomerGateway("exampleCustomerGateway", new Aws.Ec2.CustomerGatewayArgs
+    ///         {
+    ///             BgpAsn = "64514",
+    ///             IpAddress = "10.0.0.1",
+    ///             Type = "ipsec.1",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "terraform_ipsec_vpn_example" },
+    ///             },
+    ///         });
+    ///         var exampleGatewayAssociation = new Aws.DirectConnect.GatewayAssociation("exampleGatewayAssociation", new Aws.DirectConnect.GatewayAssociationArgs
+    ///         {
+    ///             DxGatewayId = exampleGateway.Id,
+    ///             AssociatedGatewayId = exampleTransitGateway.Id,
+    ///             AllowedPrefixes = 
+    ///             {
+    ///                 "10.0.0.0/8",
+    ///             },
+    ///         });
+    ///         var exampleDirectConnectGatewayAttachment = Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.Invoke(new Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachmentInvokeArgs
+    ///         {
+    ///             TransitGatewayId = exampleTransitGateway.Id,
+    ///             DxGatewayId = exampleGateway.Id,
+    ///         });
+    ///         var exampleVpnConnection = new Aws.Ec2.VpnConnection("exampleVpnConnection", new Aws.Ec2.VpnConnectionArgs
+    ///         {
+    ///             CustomerGatewayId = exampleCustomerGateway.Id,
+    ///             OutsideIpAddressType = "PrivateIpv4",
+    ///             TransitGatewayId = exampleTransitGateway.Id,
+    ///             TransportTransitGatewayAttachmentId = exampleDirectConnectGatewayAttachment.Apply(exampleDirectConnectGatewayAttachment =&gt; exampleDirectConnectGatewayAttachment.Id),
+    ///             Type = "ipsec.1",
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "terraform_ipsec_vpn_example" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -142,6 +205,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> LocalIpv6NetworkCidr { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        /// </summary>
+        [Output("outsideIpAddressType")]
+        public Output<string> OutsideIpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Output("remoteIpv4NetworkCidr")]
@@ -188,6 +257,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("transitGatewayId")]
         public Output<string?> TransitGatewayId { get; private set; } = null!;
+
+        /// <summary>
+        /// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        /// </summary>
+        [Output("transportTransitGatewayAttachmentId")]
+        public Output<string?> TransportTransitGatewayAttachmentId { get; private set; } = null!;
 
         /// <summary>
         /// The public IP address of the first VPN tunnel.
@@ -560,6 +635,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LocalIpv6NetworkCidr { get; set; }
 
         /// <summary>
+        /// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        /// </summary>
+        [Input("outsideIpAddressType")]
+        public Input<string>? OutsideIpAddressType { get; set; }
+
+        /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Input("remoteIpv4NetworkCidr")]
@@ -594,6 +675,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        /// </summary>
+        [Input("transportTransitGatewayAttachmentId")]
+        public Input<string>? TransportTransitGatewayAttachmentId { get; set; }
 
         /// <summary>
         /// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
@@ -969,6 +1056,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LocalIpv6NetworkCidr { get; set; }
 
         /// <summary>
+        /// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        /// </summary>
+        [Input("outsideIpAddressType")]
+        public Input<string>? OutsideIpAddressType { get; set; }
+
+        /// <summary>
         /// The IPv4 CIDR on the AWS side of the VPN connection.
         /// </summary>
         [Input("remoteIpv4NetworkCidr")]
@@ -1033,6 +1126,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("transitGatewayId")]
         public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        /// </summary>
+        [Input("transportTransitGatewayAttachmentId")]
+        public Input<string>? TransportTransitGatewayAttachmentId { get; set; }
 
         /// <summary>
         /// The public IP address of the first VPN tunnel.

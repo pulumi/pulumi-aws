@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class TablePointInTimeRecovery {
     /**
-     * @return Indicates whether ttl is enabled (true) or disabled (false).
+     * @return Whether TTL is enabled.
      * 
      */
     private final Boolean enabled;
@@ -21,7 +21,7 @@ public final class TablePointInTimeRecovery {
     }
 
     /**
-     * @return Indicates whether ttl is enabled (true) or disabled (false).
+     * @return Whether TTL is enabled.
      * 
      */
     public Boolean enabled() {

@@ -200,14 +200,14 @@ public class CertificateAuthority extends com.pulumi.resources.CustomResource {
         return this.certificateSigningRequest;
     }
     /**
-     * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+     * Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
     @Export(name="enabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
     public Output<Optional<Boolean>> enabled() {

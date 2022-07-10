@@ -32,14 +32,14 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Key-value map of resource tags for the map.
+     * Key-value map of resource tags for the place index.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Key-value map of resource tags for the map.
+     * @return Key-value map of resource tags for the place index.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -93,7 +93,7 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags for the map.
+         * @param tags Key-value map of resource tags for the place index.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class GetPlaceIndexArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tags Key-value map of resource tags for the map.
+         * @param tags Key-value map of resource tags for the place index.
          * 
          * @return builder
          * 

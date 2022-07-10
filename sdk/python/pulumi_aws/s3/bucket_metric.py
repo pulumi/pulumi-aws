@@ -22,7 +22,7 @@ class BucketMetricArgs:
         The set of arguments for constructing a BucketMetric resource.
         :param pulumi.Input[str] bucket: The name of the bucket to put metric configuration.
         :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-        :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket.
+        :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         """
         pulumi.set(__self__, "bucket", bucket)
         if filter is not None:
@@ -58,7 +58,7 @@ class BucketMetricArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Unique identifier of the metrics configuration for the bucket.
+        Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -77,7 +77,7 @@ class _BucketMetricState:
         Input properties used for looking up and filtering BucketMetric resources.
         :param pulumi.Input[str] bucket: The name of the bucket to put metric configuration.
         :param pulumi.Input['BucketMetricFilterArgs'] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-        :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket.
+        :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
@@ -114,7 +114,7 @@ class _BucketMetricState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Unique identifier of the metrics configuration for the bucket.
+        Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "name")
 
@@ -175,7 +175,7 @@ class BucketMetric(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket to put metric configuration.
         :param pulumi.Input[pulumi.InputType['BucketMetricFilterArgs']] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-        :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket.
+        :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         """
         ...
     @overload
@@ -279,7 +279,7 @@ class BucketMetric(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bucket: The name of the bucket to put metric configuration.
         :param pulumi.Input[pulumi.InputType['BucketMetricFilterArgs']] filter: [Object filtering](http://docs.aws.amazon.com/AmazonS3/latest/dev/metrics-configurations.html#metrics-configurations-filter) that accepts a prefix, tags, or a logical AND of prefix and tags (documented below).
-        :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket.
+        :param pulumi.Input[str] name: Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -310,7 +310,7 @@ class BucketMetric(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Unique identifier of the metrics configuration for the bucket.
+        Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         """
         return pulumi.get(self, "name")
 

@@ -3,9 +3,12 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.ModelPrimaryContainerImageConfigRepositoryAuthConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ModelPrimaryContainerImageConfig {
@@ -14,10 +17,18 @@ public final class ModelPrimaryContainerImageConfig {
      * 
      */
     private final String repositoryAccessMode;
+    /**
+     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+     * 
+     */
+    private final @Nullable ModelPrimaryContainerImageConfigRepositoryAuthConfig repositoryAuthConfig;
 
     @CustomType.Constructor
-    private ModelPrimaryContainerImageConfig(@CustomType.Parameter("repositoryAccessMode") String repositoryAccessMode) {
+    private ModelPrimaryContainerImageConfig(
+        @CustomType.Parameter("repositoryAccessMode") String repositoryAccessMode,
+        @CustomType.Parameter("repositoryAuthConfig") @Nullable ModelPrimaryContainerImageConfigRepositoryAuthConfig repositoryAuthConfig) {
         this.repositoryAccessMode = repositoryAccessMode;
+        this.repositoryAuthConfig = repositoryAuthConfig;
     }
 
     /**
@@ -26,6 +37,13 @@ public final class ModelPrimaryContainerImageConfig {
      */
     public String repositoryAccessMode() {
         return this.repositoryAccessMode;
+    }
+    /**
+     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+     * 
+     */
+    public Optional<ModelPrimaryContainerImageConfigRepositoryAuthConfig> repositoryAuthConfig() {
+        return Optional.ofNullable(this.repositoryAuthConfig);
     }
 
     public static Builder builder() {
@@ -38,6 +56,7 @@ public final class ModelPrimaryContainerImageConfig {
 
     public static final class Builder {
         private String repositoryAccessMode;
+        private @Nullable ModelPrimaryContainerImageConfigRepositoryAuthConfig repositoryAuthConfig;
 
         public Builder() {
     	      // Empty
@@ -46,13 +65,18 @@ public final class ModelPrimaryContainerImageConfig {
         public Builder(ModelPrimaryContainerImageConfig defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.repositoryAccessMode = defaults.repositoryAccessMode;
+    	      this.repositoryAuthConfig = defaults.repositoryAuthConfig;
         }
 
         public Builder repositoryAccessMode(String repositoryAccessMode) {
             this.repositoryAccessMode = Objects.requireNonNull(repositoryAccessMode);
             return this;
+        }
+        public Builder repositoryAuthConfig(@Nullable ModelPrimaryContainerImageConfigRepositoryAuthConfig repositoryAuthConfig) {
+            this.repositoryAuthConfig = repositoryAuthConfig;
+            return this;
         }        public ModelPrimaryContainerImageConfig build() {
-            return new ModelPrimaryContainerImageConfig(repositoryAccessMode);
+            return new ModelPrimaryContainerImageConfig(repositoryAccessMode, repositoryAuthConfig);
         }
     }
 }

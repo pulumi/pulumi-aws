@@ -228,6 +228,7 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetLaunchTemplateCreditSpecificationResult> CreditSpecifications;
         public readonly int DefaultVersion;
         public readonly string Description;
+        public readonly bool DisableApiStop;
         public readonly bool DisableApiTermination;
         public readonly string EbsOptimized;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateElasticGpuSpecificationResult> ElasticGpuSpecifications;
@@ -278,6 +279,8 @@ namespace Pulumi.Aws.Ec2
             int defaultVersion,
 
             string description,
+
+            bool disableApiStop,
 
             bool disableApiTermination,
 
@@ -348,6 +351,7 @@ namespace Pulumi.Aws.Ec2
             CreditSpecifications = creditSpecifications;
             DefaultVersion = defaultVersion;
             Description = description;
+            DisableApiStop = disableApiStop;
             DisableApiTermination = disableApiTermination;
             EbsOptimized = ebsOptimized;
             ElasticGpuSpecifications = elasticGpuSpecifications;

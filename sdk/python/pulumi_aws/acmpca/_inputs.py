@@ -13,9 +13,11 @@ __all__ = [
     'CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs',
     'CertificateAuthorityRevocationConfigurationArgs',
     'CertificateAuthorityRevocationConfigurationCrlConfigurationArgs',
+    'CertificateAuthorityRevocationConfigurationOcspConfigurationArgs',
     'CertificateValidityArgs',
     'GetCertificateAuthorityRevocationConfigurationArgs',
     'GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs',
+    'GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -288,12 +290,17 @@ class CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs:
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationArgs:
     def __init__(__self__, *,
-                 crl_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']] = None):
+                 crl_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']] = None,
+                 ocsp_configuration: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']] = None):
         """
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs'] crl_configuration: Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
+        :param pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs'] ocsp_configuration: Nested argument containing configuration of
+               the custom OCSP responder endpoint. Defined below.
         """
         if crl_configuration is not None:
             pulumi.set(__self__, "crl_configuration", crl_configuration)
+        if ocsp_configuration is not None:
+            pulumi.set(__self__, "ocsp_configuration", ocsp_configuration)
 
     @property
     @pulumi.getter(name="crlConfiguration")
@@ -307,6 +314,19 @@ class CertificateAuthorityRevocationConfigurationArgs:
     def crl_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationCrlConfigurationArgs']]):
         pulumi.set(self, "crl_configuration", value)
 
+    @property
+    @pulumi.getter(name="ocspConfiguration")
+    def ocsp_configuration(self) -> Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]:
+        """
+        Nested argument containing configuration of
+        the custom OCSP responder endpoint. Defined below.
+        """
+        return pulumi.get(self, "ocsp_configuration")
+
+    @ocsp_configuration.setter
+    def ocsp_configuration(self, value: Optional[pulumi.Input['CertificateAuthorityRevocationConfigurationOcspConfigurationArgs']]):
+        pulumi.set(self, "ocsp_configuration", value)
+
 
 @pulumi.input_type
 class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
@@ -319,7 +339,7 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
         """
         :param pulumi.Input[int] expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
         :param pulumi.Input[str] custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
-        :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
         :param pulumi.Input[str] s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be less than or equal to 255 characters in length.
         :param pulumi.Input[str] s3_object_acl: Determines whether the CRL will be publicly readable or privately held in the CRL Amazon S3 bucket. Defaults to `PUBLIC_READ`.
         """
@@ -361,7 +381,7 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        Boolean value that specifies whether a custom OCSP responder is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -392,6 +412,44 @@ class CertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     @s3_object_acl.setter
     def s3_object_acl(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_object_acl", value)
+
+
+@pulumi.input_type
+class CertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool],
+                 ocsp_custom_cname: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
+        :param pulumi.Input[str] ocsp_custom_cname: A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if ocsp_custom_cname is not None:
+            pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Boolean value that specifies whether a custom OCSP responder is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ocspCustomCname")
+    def ocsp_custom_cname(self) -> Optional[pulumi.Input[str]]:
+        """
+        A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+        """
+        return pulumi.get(self, "ocsp_custom_cname")
+
+    @ocsp_custom_cname.setter
+    def ocsp_custom_cname(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocsp_custom_cname", value)
 
 
 @pulumi.input_type
@@ -434,8 +492,10 @@ class CertificateValidityArgs:
 @pulumi.input_type
 class GetCertificateAuthorityRevocationConfigurationArgs:
     def __init__(__self__, *,
-                 crl_configurations: Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs']):
+                 crl_configurations: Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs'],
+                 ocsp_configurations: Sequence['GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs']):
         pulumi.set(__self__, "crl_configurations", crl_configurations)
+        pulumi.set(__self__, "ocsp_configurations", ocsp_configurations)
 
     @property
     @pulumi.getter(name="crlConfigurations")
@@ -445,6 +505,15 @@ class GetCertificateAuthorityRevocationConfigurationArgs:
     @crl_configurations.setter
     def crl_configurations(self, value: Sequence['GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs']):
         pulumi.set(self, "crl_configurations", value)
+
+    @property
+    @pulumi.getter(name="ocspConfigurations")
+    def ocsp_configurations(self) -> Sequence['GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs']:
+        return pulumi.get(self, "ocsp_configurations")
+
+    @ocsp_configurations.setter
+    def ocsp_configurations(self, value: Sequence['GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs']):
+        pulumi.set(self, "ocsp_configurations", value)
 
 
 @pulumi.input_type
@@ -505,5 +574,32 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs:
     @s3_object_acl.setter
     def s3_object_acl(self, value: str):
         pulumi.set(self, "s3_object_acl", value)
+
+
+@pulumi.input_type
+class GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: bool,
+                 ocsp_custom_cname: str):
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "ocsp_custom_cname", ocsp_custom_cname)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: bool):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="ocspCustomCname")
+    def ocsp_custom_cname(self) -> str:
+        return pulumi.get(self, "ocsp_custom_cname")
+
+    @ocsp_custom_cname.setter
+    def ocsp_custom_cname(self, value: str):
+        pulumi.set(self, "ocsp_custom_cname", value)
 
 

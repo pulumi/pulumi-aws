@@ -11,11 +11,13 @@ from . import outputs
 
 __all__ = [
     'CustomDomainAssociationCertificateValidationRecord',
+    'ObservabilityConfigurationTraceConfiguration',
     'ServiceEncryptionConfiguration',
     'ServiceHealthCheckConfiguration',
     'ServiceInstanceConfiguration',
     'ServiceNetworkConfiguration',
     'ServiceNetworkConfigurationEgressConfiguration',
+    'ServiceObservabilityConfiguration',
     'ServiceSourceConfiguration',
     'ServiceSourceConfigurationAuthenticationConfiguration',
     'ServiceSourceConfigurationCodeRepository',
@@ -79,6 +81,25 @@ class CustomDomainAssociationCertificateValidationRecord(dict):
         The certificate CNAME record value.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ObservabilityConfigurationTraceConfiguration(dict):
+    def __init__(__self__, *,
+                 vendor: Optional[str] = None):
+        """
+        :param str vendor: The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+        """
+        if vendor is not None:
+            pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter
+    def vendor(self) -> Optional[str]:
+        """
+        The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+        """
+        return pulumi.get(self, "vendor")
 
 
 @pulumi.output_type
@@ -358,6 +379,54 @@ class ServiceNetworkConfigurationEgressConfiguration(dict):
         The Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when EgressType = VPC.
         """
         return pulumi.get(self, "vpc_connector_arn")
+
+
+@pulumi.output_type
+class ServiceObservabilityConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "observabilityConfigurationArn":
+            suggest = "observability_configuration_arn"
+        elif key == "observabilityEnabled":
+            suggest = "observability_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceObservabilityConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceObservabilityConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceObservabilityConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 observability_configuration_arn: str,
+                 observability_enabled: bool):
+        """
+        :param str observability_configuration_arn: The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+        :param bool observability_enabled: When `true`, an observability configuration resource is associated with the service.
+        """
+        pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
+        pulumi.set(__self__, "observability_enabled", observability_enabled)
+
+    @property
+    @pulumi.getter(name="observabilityConfigurationArn")
+    def observability_configuration_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+        """
+        return pulumi.get(self, "observability_configuration_arn")
+
+    @property
+    @pulumi.getter(name="observabilityEnabled")
+    def observability_enabled(self) -> bool:
+        """
+        When `true`, an observability configuration resource is associated with the service.
+        """
+        return pulumi.get(self, "observability_enabled")
 
 
 @pulumi.output_type

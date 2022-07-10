@@ -33,14 +33,14 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
     }
 
     /**
-     * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+     * Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+     * @return Boolean value that specifies whether a custom OCSP responder is enabled.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -142,7 +142,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
         }
 
         /**
-         * @param enabled Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+         * @param enabled Boolean value that specifies whether a custom OCSP responder is enabled.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
         }
 
         /**
-         * @param enabled Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+         * @param enabled Boolean value that specifies whether a custom OCSP responder is enabled.
          * 
          * @return builder
          * 

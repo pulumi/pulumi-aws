@@ -201,7 +201,7 @@ public final class LakeformationFunctions {
         return Deployment.getInstance().invokeAsync("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", TypeShape.of(GetDataLakeSettingsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
      * 
      * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
      * 
@@ -251,6 +251,42 @@ public final class LakeformationFunctions {
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(aws_glue_catalog_database.test().name())
      *                 .catalogId(&#34;110376042874&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * ### Permissions For Tag-Based Access Control
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
+     *                 .resourceType(&#34;DATABASE&#34;)
+     *                 .expressions(                
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key(&#34;Team&#34;)
+     *                         .values(&#34;Sales&#34;)
+     *                         .build(),
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key(&#34;Environment&#34;)
+     *                         .values(                        
+     *                             &#34;Dev&#34;,
+     *                             &#34;Production&#34;)
+     *                         .build())
      *                 .build())
      *             .build()));
      * 
@@ -263,7 +299,7 @@ public final class LakeformationFunctions {
         return getPermissions(args, InvokeOptions.Empty);
     }
     /**
-     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
      * 
      * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
      * 
@@ -313,6 +349,42 @@ public final class LakeformationFunctions {
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(aws_glue_catalog_database.test().name())
      *                 .catalogId(&#34;110376042874&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * ### Permissions For Tag-Based Access Control
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
+     *                 .resourceType(&#34;DATABASE&#34;)
+     *                 .expressions(                
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key(&#34;Team&#34;)
+     *                         .values(&#34;Sales&#34;)
+     *                         .build(),
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key(&#34;Environment&#34;)
+     *                         .values(                        
+     *                             &#34;Dev&#34;,
+     *                             &#34;Production&#34;)
+     *                         .build())
      *                 .build())
      *             .build()));
      * 
@@ -325,7 +397,7 @@ public final class LakeformationFunctions {
         return getPermissionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
      * 
      * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
      * 
@@ -375,6 +447,42 @@ public final class LakeformationFunctions {
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(aws_glue_catalog_database.test().name())
      *                 .catalogId(&#34;110376042874&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * ### Permissions For Tag-Based Access Control
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
+     *                 .resourceType(&#34;DATABASE&#34;)
+     *                 .expressions(                
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key(&#34;Team&#34;)
+     *                         .values(&#34;Sales&#34;)
+     *                         .build(),
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key(&#34;Environment&#34;)
+     *                         .values(                        
+     *                             &#34;Dev&#34;,
+     *                             &#34;Production&#34;)
+     *                         .build())
      *                 .build())
      *             .build()));
      * 
@@ -387,7 +495,7 @@ public final class LakeformationFunctions {
         return Deployment.getInstance().invoke("aws:lakeformation/getPermissions:getPermissions", TypeShape.of(GetPermissionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+     * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
      * 
      * &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
      * 
@@ -437,6 +545,42 @@ public final class LakeformationFunctions {
      *             .database(GetPermissionsDatabaseArgs.builder()
      *                 .name(aws_glue_catalog_database.test().name())
      *                 .catalogId(&#34;110376042874&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * ### Permissions For Tag-Based Access Control
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(LakeformationFunctions.getPermissions(GetPermissionsArgs.builder()
+     *             .principal(aws_iam_role.workflow_role().arn())
+     *             .lfTagPolicy(GetPermissionsLfTagPolicyArgs.builder()
+     *                 .resourceType(&#34;DATABASE&#34;)
+     *                 .expressions(                
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key(&#34;Team&#34;)
+     *                         .values(&#34;Sales&#34;)
+     *                         .build(),
+     *                     GetPermissionsLfTagPolicyExpressionArgs.builder()
+     *                         .key(&#34;Environment&#34;)
+     *                         .values(                        
+     *                             &#34;Dev&#34;,
+     *                             &#34;Production&#34;)
+     *                         .build())
      *                 .build())
      *             .build()));
      * 

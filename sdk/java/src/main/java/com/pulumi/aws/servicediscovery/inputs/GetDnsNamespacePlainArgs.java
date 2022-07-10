@@ -5,7 +5,10 @@ package com.pulumi.aws.servicediscovery.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -28,6 +31,21 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
+     * A map of tags for the resource.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return A map of tags for the resource.
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
+    /**
      * The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
      * 
      */
@@ -46,6 +64,7 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
 
     private GetDnsNamespacePlainArgs(GetDnsNamespacePlainArgs $) {
         this.name = $.name;
+        this.tags = $.tags;
         this.type = $.type;
     }
 
@@ -75,6 +94,17 @@ public final class GetDnsNamespacePlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder name(String name) {
             $.name = name;
+            return this;
+        }
+
+        /**
+         * @param tags A map of tags for the resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

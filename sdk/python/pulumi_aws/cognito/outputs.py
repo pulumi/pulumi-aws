@@ -14,6 +14,18 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMapping',
     'IdentityPoolRoleAttachmentRoleMappingMappingRule',
     'ResourceServerScope',
+    'RiskConfigurationAccountTakeoverRiskConfiguration',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActions',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail',
+    'RiskConfigurationCompromisedCredentialsRiskConfiguration',
+    'RiskConfigurationCompromisedCredentialsRiskConfigurationActions',
+    'RiskConfigurationRiskExceptionConfiguration',
     'UserPoolAccountRecoverySetting',
     'UserPoolAccountRecoverySettingRecoveryMechanism',
     'UserPoolAdminCreateUserConfig',
@@ -292,6 +304,656 @@ class ResourceServerScope(dict):
         The scope name.
         """
         return pulumi.get(self, "scope_name")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "notifyConfiguration":
+            suggest = "notify_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions',
+                 notify_configuration: 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration'):
+        """
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs' actions: The compromised credentials risk configuration actions. See details below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs' notify_configuration: The notify configuration used to construct email notifications. See details below.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "notify_configuration", notify_configuration)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationActions':
+        """
+        The compromised credentials risk configuration actions. See details below.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="notifyConfiguration")
+    def notify_configuration(self) -> 'outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration':
+        """
+        The notify configuration used to construct email notifications. See details below.
+        """
+        return pulumi.get(self, "notify_configuration")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfigurationActions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "highAction":
+            suggest = "high_action"
+        elif key == "lowAction":
+            suggest = "low_action"
+        elif key == "mediumAction":
+            suggest = "medium_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfigurationActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationActions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 high_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction'] = None,
+                 low_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction'] = None,
+                 medium_action: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction'] = None):
+        """
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs' high_action: Action to take for a high risk. See action block below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs' low_action: Action to take for a low risk. See action block below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs' medium_action: Action to take for a medium risk. See action block below.
+        """
+        if high_action is not None:
+            pulumi.set(__self__, "high_action", high_action)
+        if low_action is not None:
+            pulumi.set(__self__, "low_action", low_action)
+        if medium_action is not None:
+            pulumi.set(__self__, "medium_action", medium_action)
+
+    @property
+    @pulumi.getter(name="highAction")
+    def high_action(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction']:
+        """
+        Action to take for a high risk. See action block below.
+        """
+        return pulumi.get(self, "high_action")
+
+    @property
+    @pulumi.getter(name="lowAction")
+    def low_action(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction']:
+        """
+        Action to take for a low risk. See action block below.
+        """
+        return pulumi.get(self, "low_action")
+
+    @property
+    @pulumi.getter(name="mediumAction")
+    def medium_action(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction']:
+        """
+        Action to take for a medium risk. See action block below.
+        """
+        return pulumi.get(self, "medium_action")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventAction":
+            suggest = "event_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_action: str,
+                 notify: bool):
+        """
+        :param str event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        :param bool notify: Whether to send a notification.
+        """
+        pulumi.set(__self__, "event_action", event_action)
+        pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> str:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        return pulumi.get(self, "event_action")
+
+    @property
+    @pulumi.getter
+    def notify(self) -> bool:
+        """
+        Whether to send a notification.
+        """
+        return pulumi.get(self, "notify")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventAction":
+            suggest = "event_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_action: str,
+                 notify: bool):
+        """
+        :param str event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        :param bool notify: Whether to send a notification.
+        """
+        pulumi.set(__self__, "event_action", event_action)
+        pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> str:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        return pulumi.get(self, "event_action")
+
+    @property
+    @pulumi.getter
+    def notify(self) -> bool:
+        """
+        Whether to send a notification.
+        """
+        return pulumi.get(self, "notify")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventAction":
+            suggest = "event_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_action: str,
+                 notify: bool):
+        """
+        :param str event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        :param bool notify: Whether to send a notification.
+        """
+        pulumi.set(__self__, "event_action", event_action)
+        pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> str:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        return pulumi.get(self, "event_action")
+
+    @property
+    @pulumi.getter
+    def notify(self) -> bool:
+        """
+        Whether to send a notification.
+        """
+        return pulumi.get(self, "notify")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceArn":
+            suggest = "source_arn"
+        elif key == "blockEmail":
+            suggest = "block_email"
+        elif key == "from":
+            suggest = "from_"
+        elif key == "mfaEmail":
+            suggest = "mfa_email"
+        elif key == "noActionEmail":
+            suggest = "no_action_email"
+        elif key == "replyTo":
+            suggest = "reply_to"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_arn: str,
+                 block_email: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail'] = None,
+                 from_: Optional[str] = None,
+                 mfa_email: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail'] = None,
+                 no_action_email: Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail'] = None,
+                 reply_to: Optional[str] = None):
+        """
+        :param str source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs' block_email: Email template used when a detected risk event is blocked. See notify email type below.
+        :param str from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs' mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        :param 'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs' no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
+        :param str reply_to: The destination to which the receiver of an email should reply to.
+        """
+        pulumi.set(__self__, "source_arn", source_arn)
+        if block_email is not None:
+            pulumi.set(__self__, "block_email", block_email)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if mfa_email is not None:
+            pulumi.set(__self__, "mfa_email", mfa_email)
+        if no_action_email is not None:
+            pulumi.set(__self__, "no_action_email", no_action_email)
+        if reply_to is not None:
+            pulumi.set(__self__, "reply_to", reply_to)
+
+    @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        """
+        return pulumi.get(self, "source_arn")
+
+    @property
+    @pulumi.getter(name="blockEmail")
+    def block_email(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail']:
+        """
+        Email template used when a detected risk event is blocked. See notify email type below.
+        """
+        return pulumi.get(self, "block_email")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[str]:
+        """
+        The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        """
+        return pulumi.get(self, "from_")
+
+    @property
+    @pulumi.getter(name="mfaEmail")
+    def mfa_email(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail']:
+        """
+        The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        """
+        return pulumi.get(self, "mfa_email")
+
+    @property
+    @pulumi.getter(name="noActionEmail")
+    def no_action_email(self) -> Optional['outputs.RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail']:
+        """
+        The email template used when a detected risk event is allowed. See notify email type below.
+        """
+        return pulumi.get(self, "no_action_email")
+
+    @property
+    @pulumi.getter(name="replyTo")
+    def reply_to(self) -> Optional[str]:
+        """
+        The destination to which the receiver of an email should reply to.
+        """
+        return pulumi.get(self, "reply_to")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "htmlBody":
+            suggest = "html_body"
+        elif key == "textBody":
+            suggest = "text_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 html_body: str,
+                 subject: str,
+                 text_body: str):
+        """
+        :param str html_body: The email HTML body.
+        :param str subject: The email subject.
+        """
+        pulumi.set(__self__, "html_body", html_body)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "text_body", text_body)
+
+    @property
+    @pulumi.getter(name="htmlBody")
+    def html_body(self) -> str:
+        """
+        The email HTML body.
+        """
+        return pulumi.get(self, "html_body")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        The email subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter(name="textBody")
+    def text_body(self) -> str:
+        return pulumi.get(self, "text_body")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "htmlBody":
+            suggest = "html_body"
+        elif key == "textBody":
+            suggest = "text_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 html_body: str,
+                 subject: str,
+                 text_body: str):
+        """
+        :param str html_body: The email HTML body.
+        :param str subject: The email subject.
+        """
+        pulumi.set(__self__, "html_body", html_body)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "text_body", text_body)
+
+    @property
+    @pulumi.getter(name="htmlBody")
+    def html_body(self) -> str:
+        """
+        The email HTML body.
+        """
+        return pulumi.get(self, "html_body")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        The email subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter(name="textBody")
+    def text_body(self) -> str:
+        return pulumi.get(self, "text_body")
+
+
+@pulumi.output_type
+class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "htmlBody":
+            suggest = "html_body"
+        elif key == "textBody":
+            suggest = "text_body"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 html_body: str,
+                 subject: str,
+                 text_body: str):
+        """
+        :param str html_body: The email HTML body.
+        :param str subject: The email subject.
+        """
+        pulumi.set(__self__, "html_body", html_body)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "text_body", text_body)
+
+    @property
+    @pulumi.getter(name="htmlBody")
+    def html_body(self) -> str:
+        """
+        The email HTML body.
+        """
+        return pulumi.get(self, "html_body")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> str:
+        """
+        The email subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter(name="textBody")
+    def text_body(self) -> str:
+        return pulumi.get(self, "text_body")
+
+
+@pulumi.output_type
+class RiskConfigurationCompromisedCredentialsRiskConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventFilters":
+            suggest = "event_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationCompromisedCredentialsRiskConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationCompromisedCredentialsRiskConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationCompromisedCredentialsRiskConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 actions: 'outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions',
+                 event_filters: Optional[Sequence[str]] = None):
+        """
+        :param 'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs' actions: The compromised credentials risk configuration actions. See details below.
+        :param Sequence[str] event_filters: Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if event_filters is not None:
+            pulumi.set(__self__, "event_filters", event_filters)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> 'outputs.RiskConfigurationCompromisedCredentialsRiskConfigurationActions':
+        """
+        The compromised credentials risk configuration actions. See details below.
+        """
+        return pulumi.get(self, "actions")
+
+    @property
+    @pulumi.getter(name="eventFilters")
+    def event_filters(self) -> Optional[Sequence[str]]:
+        """
+        Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+        """
+        return pulumi.get(self, "event_filters")
+
+
+@pulumi.output_type
+class RiskConfigurationCompromisedCredentialsRiskConfigurationActions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventAction":
+            suggest = "event_action"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationCompromisedCredentialsRiskConfigurationActions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationCompromisedCredentialsRiskConfigurationActions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationCompromisedCredentialsRiskConfigurationActions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_action: str):
+        """
+        :param str event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        pulumi.set(__self__, "event_action", event_action)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> str:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        return pulumi.get(self, "event_action")
+
+
+@pulumi.output_type
+class RiskConfigurationRiskExceptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockedIpRangeLists":
+            suggest = "blocked_ip_range_lists"
+        elif key == "skippedIpRangeLists":
+            suggest = "skipped_ip_range_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RiskConfigurationRiskExceptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RiskConfigurationRiskExceptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RiskConfigurationRiskExceptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blocked_ip_range_lists: Optional[Sequence[str]] = None,
+                 skipped_ip_range_lists: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] blocked_ip_range_lists: Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        :param Sequence[str] skipped_ip_range_lists: Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        """
+        if blocked_ip_range_lists is not None:
+            pulumi.set(__self__, "blocked_ip_range_lists", blocked_ip_range_lists)
+        if skipped_ip_range_lists is not None:
+            pulumi.set(__self__, "skipped_ip_range_lists", skipped_ip_range_lists)
+
+    @property
+    @pulumi.getter(name="blockedIpRangeLists")
+    def blocked_ip_range_lists(self) -> Optional[Sequence[str]]:
+        """
+        Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        """
+        return pulumi.get(self, "blocked_ip_range_lists")
+
+    @property
+    @pulumi.getter(name="skippedIpRangeLists")
+    def skipped_ip_range_lists(self) -> Optional[Sequence[str]]:
+        """
+        Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        """
+        return pulumi.get(self, "skipped_ip_range_lists")
 
 
 @pulumi.output_type

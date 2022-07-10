@@ -138,9 +138,17 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.dnsSupport);
     }
 
+    /**
+     * Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
     @Import(name="multicastSupport")
     private @Nullable Output<String> multicastSupport;
 
+    /**
+     * @return Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
     public Optional<Output<String>> multicastSupport() {
         return Optional.ofNullable(this.multicastSupport);
     }
@@ -441,11 +449,23 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
             return dnsSupport(Output.of(dnsSupport));
         }
 
+        /**
+         * @param multicastSupport Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multicastSupport(@Nullable Output<String> multicastSupport) {
             $.multicastSupport = multicastSupport;
             return this;
         }
 
+        /**
+         * @param multicastSupport Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder multicastSupport(String multicastSupport) {
             return multicastSupport(Output.of(multicastSupport));
         }

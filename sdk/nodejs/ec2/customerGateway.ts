@@ -76,7 +76,7 @@ export class CustomerGateway extends pulumi.CustomResource {
      */
     public readonly deviceName!: pulumi.Output<string | undefined>;
     /**
-     * The IP address of the gateway's Internet-routable external interface.
+     * The IPv4 address for the customer gateway device's outside interface.
      */
     public readonly ipAddress!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface CustomerGatewayState {
      */
     deviceName?: pulumi.Input<string>;
     /**
-     * The IP address of the gateway's Internet-routable external interface.
+     * The IPv4 address for the customer gateway device's outside interface.
      */
     ipAddress?: pulumi.Input<string>;
     /**
@@ -195,7 +195,7 @@ export interface CustomerGatewayArgs {
      */
     deviceName?: pulumi.Input<string>;
     /**
-     * The IP address of the gateway's Internet-routable external interface.
+     * The IPv4 address for the customer gateway device's outside interface.
      */
     ipAddress: pulumi.Input<string>;
     /**

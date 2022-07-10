@@ -115,6 +115,22 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
         return this.placementGroupId;
     }
     /**
+     * Determines how placement groups spread instances. Can only be used
+     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * 
+     */
+    @Export(name="spreadLevel", type=String.class, parameters={})
+    private Output</* @Nullable */ String> spreadLevel;
+
+    /**
+     * @return Determines how placement groups spread instances. Can only be used
+     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * 
+     */
+    public Output<Optional<String>> spreadLevel() {
+        return Codegen.optional(this.spreadLevel);
+    }
+    /**
      * The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
      * 
      */

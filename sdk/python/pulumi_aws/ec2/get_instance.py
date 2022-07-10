@@ -22,7 +22,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_stop=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, maintenance_options=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_dns_name_options=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         pulumi.set(__self__, "ami", ami)
@@ -38,6 +38,9 @@ class GetInstanceResult:
         if credit_specifications and not isinstance(credit_specifications, list):
             raise TypeError("Expected argument 'credit_specifications' to be a list")
         pulumi.set(__self__, "credit_specifications", credit_specifications)
+        if disable_api_stop and not isinstance(disable_api_stop, bool):
+            raise TypeError("Expected argument 'disable_api_stop' to be a bool")
+        pulumi.set(__self__, "disable_api_stop", disable_api_stop)
         if disable_api_termination and not isinstance(disable_api_termination, bool):
             raise TypeError("Expected argument 'disable_api_termination' to be a bool")
         pulumi.set(__self__, "disable_api_termination", disable_api_termination)
@@ -116,6 +119,9 @@ class GetInstanceResult:
         if private_dns and not isinstance(private_dns, str):
             raise TypeError("Expected argument 'private_dns' to be a str")
         pulumi.set(__self__, "private_dns", private_dns)
+        if private_dns_name_options and not isinstance(private_dns_name_options, list):
+            raise TypeError("Expected argument 'private_dns_name_options' to be a list")
+        pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if private_ip and not isinstance(private_ip, str):
             raise TypeError("Expected argument 'private_ip' to be a str")
         pulumi.set(__self__, "private_ip", private_ip)
@@ -197,8 +203,19 @@ class GetInstanceResult:
         return pulumi.get(self, "credit_specifications")
 
     @property
+    @pulumi.getter(name="disableApiStop")
+    def disable_api_stop(self) -> bool:
+        """
+        Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
+        """
+        return pulumi.get(self, "disable_api_stop")
+
+    @property
     @pulumi.getter(name="disableApiTermination")
     def disable_api_termination(self) -> bool:
+        """
+        Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
+        """
         return pulumi.get(self, "disable_api_termination")
 
     @property
@@ -392,6 +409,14 @@ class GetInstanceResult:
         return pulumi.get(self, "private_dns")
 
     @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Sequence['outputs.GetInstancePrivateDnsNameOptionResult']:
+        """
+        The options for the instance hostname.
+        """
+        return pulumi.get(self, "private_dns_name_options")
+
+    @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> str:
         """
@@ -508,6 +533,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             associate_public_ip_address=self.associate_public_ip_address,
             availability_zone=self.availability_zone,
             credit_specifications=self.credit_specifications,
+            disable_api_stop=self.disable_api_stop,
             disable_api_termination=self.disable_api_termination,
             ebs_block_devices=self.ebs_block_devices,
             ebs_optimized=self.ebs_optimized,
@@ -534,6 +560,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             placement_group=self.placement_group,
             placement_partition_number=self.placement_partition_number,
             private_dns=self.private_dns,
+            private_dns_name_options=self.private_dns_name_options,
             private_ip=self.private_ip,
             public_dns=self.public_dns,
             public_ip=self.public_ip,
@@ -609,6 +636,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
         associate_public_ip_address=__ret__.associate_public_ip_address,
         availability_zone=__ret__.availability_zone,
         credit_specifications=__ret__.credit_specifications,
+        disable_api_stop=__ret__.disable_api_stop,
         disable_api_termination=__ret__.disable_api_termination,
         ebs_block_devices=__ret__.ebs_block_devices,
         ebs_optimized=__ret__.ebs_optimized,
@@ -635,6 +663,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
         placement_group=__ret__.placement_group,
         placement_partition_number=__ret__.placement_partition_number,
         private_dns=__ret__.private_dns,
+        private_dns_name_options=__ret__.private_dns_name_options,
         private_ip=__ret__.private_ip,
         public_dns=__ret__.public_dns,
         public_ip=__ret__.public_ip,

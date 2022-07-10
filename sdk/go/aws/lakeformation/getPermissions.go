@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+// Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
 //
 // > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 //
@@ -66,6 +66,46 @@ import (
 // 	})
 // }
 // ```
+// ### Permissions For Tag-Based Access Control
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
+// 			Principal: aws_iam_role.Workflow_role.Arn,
+// 			LfTagPolicy: lakeformation.GetPermissionsLfTagPolicy{
+// 				ResourceType: "DATABASE",
+// 				Expressions: []lakeformation.GetPermissionsLfTagPolicyExpression{
+// 					lakeformation.GetPermissionsLfTagPolicyExpression{
+// 						Key: "Team",
+// 						Values: []string{
+// 							"Sales",
+// 						},
+// 					},
+// 					lakeformation.GetPermissionsLfTagPolicyExpression{
+// 						Key: "Environment",
+// 						Values: []string{
+// 							"Dev",
+// 							"Production",
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupPermissions(ctx *pulumi.Context, args *LookupPermissionsArgs, opts ...pulumi.InvokeOption) (*LookupPermissionsResult, error) {
 	var rv LookupPermissionsResult
 	err := ctx.Invoke("aws:lakeformation/getPermissions:getPermissions", args, &rv, opts...)
@@ -85,6 +125,10 @@ type LookupPermissionsArgs struct {
 	DataLocation *GetPermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
 	Database *GetPermissionsDatabase `pulumi:"database"`
+	// Configuration block for an LF-tag resource. Detailed below.
+	LfTag *GetPermissionsLfTag `pulumi:"lfTag"`
+	// Configuration block for an LF-tag policy resource. Detailed below.
+	LfTagPolicy *GetPermissionsLfTagPolicy `pulumi:"lfTagPolicy"`
 	// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
 	Principal string `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
@@ -100,7 +144,9 @@ type LookupPermissionsResult struct {
 	DataLocation    GetPermissionsDataLocation `pulumi:"dataLocation"`
 	Database        GetPermissionsDatabase     `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id          string                    `pulumi:"id"`
+	LfTag       GetPermissionsLfTag       `pulumi:"lfTag"`
+	LfTagPolicy GetPermissionsLfTagPolicy `pulumi:"lfTagPolicy"`
 	// List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions []string `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
@@ -133,6 +179,10 @@ type LookupPermissionsOutputArgs struct {
 	DataLocation GetPermissionsDataLocationPtrInput `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
 	Database GetPermissionsDatabasePtrInput `pulumi:"database"`
+	// Configuration block for an LF-tag resource. Detailed below.
+	LfTag GetPermissionsLfTagPtrInput `pulumi:"lfTag"`
+	// Configuration block for an LF-tag policy resource. Detailed below.
+	LfTagPolicy GetPermissionsLfTagPolicyPtrInput `pulumi:"lfTagPolicy"`
 	// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
 	Principal pulumi.StringInput `pulumi:"principal"`
 	// Configuration block for a table resource. Detailed below.
@@ -179,6 +229,14 @@ func (o LookupPermissionsResultOutput) Database() GetPermissionsDatabaseOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupPermissionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupPermissionsResultOutput) LfTag() GetPermissionsLfTagOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsLfTag { return v.LfTag }).(GetPermissionsLfTagOutput)
+}
+
+func (o LookupPermissionsResultOutput) LfTagPolicy() GetPermissionsLfTagPolicyOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsLfTagPolicy { return v.LfTagPolicy }).(GetPermissionsLfTagPolicyOutput)
 }
 
 // List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).

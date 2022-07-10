@@ -6555,6 +6555,181 @@ func (o InstanceNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) InstanceNe
 	}).(InstanceNetworkInterfaceOutput)
 }
 
+type InstancePrivateDnsNameOptions struct {
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord *bool `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+	HostnameType *string `pulumi:"hostnameType"`
+}
+
+// InstancePrivateDnsNameOptionsInput is an input type that accepts InstancePrivateDnsNameOptionsArgs and InstancePrivateDnsNameOptionsOutput values.
+// You can construct a concrete instance of `InstancePrivateDnsNameOptionsInput` via:
+//
+//          InstancePrivateDnsNameOptionsArgs{...}
+type InstancePrivateDnsNameOptionsInput interface {
+	pulumi.Input
+
+	ToInstancePrivateDnsNameOptionsOutput() InstancePrivateDnsNameOptionsOutput
+	ToInstancePrivateDnsNameOptionsOutputWithContext(context.Context) InstancePrivateDnsNameOptionsOutput
+}
+
+type InstancePrivateDnsNameOptionsArgs struct {
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+	HostnameType pulumi.StringPtrInput `pulumi:"hostnameType"`
+}
+
+func (InstancePrivateDnsNameOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (i InstancePrivateDnsNameOptionsArgs) ToInstancePrivateDnsNameOptionsOutput() InstancePrivateDnsNameOptionsOutput {
+	return i.ToInstancePrivateDnsNameOptionsOutputWithContext(context.Background())
+}
+
+func (i InstancePrivateDnsNameOptionsArgs) ToInstancePrivateDnsNameOptionsOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateDnsNameOptionsOutput)
+}
+
+func (i InstancePrivateDnsNameOptionsArgs) ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput {
+	return i.ToInstancePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i InstancePrivateDnsNameOptionsArgs) ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateDnsNameOptionsOutput).ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx)
+}
+
+// InstancePrivateDnsNameOptionsPtrInput is an input type that accepts InstancePrivateDnsNameOptionsArgs, InstancePrivateDnsNameOptionsPtr and InstancePrivateDnsNameOptionsPtrOutput values.
+// You can construct a concrete instance of `InstancePrivateDnsNameOptionsPtrInput` via:
+//
+//          InstancePrivateDnsNameOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type InstancePrivateDnsNameOptionsPtrInput interface {
+	pulumi.Input
+
+	ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput
+	ToInstancePrivateDnsNameOptionsPtrOutputWithContext(context.Context) InstancePrivateDnsNameOptionsPtrOutput
+}
+
+type instancePrivateDnsNameOptionsPtrType InstancePrivateDnsNameOptionsArgs
+
+func InstancePrivateDnsNameOptionsPtr(v *InstancePrivateDnsNameOptionsArgs) InstancePrivateDnsNameOptionsPtrInput {
+	return (*instancePrivateDnsNameOptionsPtrType)(v)
+}
+
+func (*instancePrivateDnsNameOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (i *instancePrivateDnsNameOptionsPtrType) ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput {
+	return i.ToInstancePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *instancePrivateDnsNameOptionsPtrType) ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InstancePrivateDnsNameOptionsPtrOutput)
+}
+
+type InstancePrivateDnsNameOptionsOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateDnsNameOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InstancePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsOutput() InstancePrivateDnsNameOptionsOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput {
+	return o.ToInstancePrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o InstancePrivateDnsNameOptionsOutput) ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstancePrivateDnsNameOptions) *InstancePrivateDnsNameOptions {
+		return &v
+	}).(InstancePrivateDnsNameOptionsPtrOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+func (o InstancePrivateDnsNameOptionsOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
+}
+
+// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+func (o InstancePrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstancePrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
+}
+
+type InstancePrivateDnsNameOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (InstancePrivateDnsNameOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InstancePrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) ToInstancePrivateDnsNameOptionsPtrOutput() InstancePrivateDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) ToInstancePrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) InstancePrivateDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o InstancePrivateDnsNameOptionsPtrOutput) Elem() InstancePrivateDnsNameOptionsOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) InstancePrivateDnsNameOptions {
+		if v != nil {
+			return *v
+		}
+		var ret InstancePrivateDnsNameOptions
+		return ret
+	}).(InstancePrivateDnsNameOptionsOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+func (o InstancePrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsAaaaRecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+func (o InstancePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstancePrivateDnsNameOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostnameType
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceRootBlockDevice struct {
 	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
@@ -18822,6 +18997,181 @@ func (o SpotInstanceRequestNetworkInterfaceArrayOutput) Index(i pulumi.IntInput)
 	}).(SpotInstanceRequestNetworkInterfaceOutput)
 }
 
+type SpotInstanceRequestPrivateDnsNameOptions struct {
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord *bool `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord *bool `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+	HostnameType *string `pulumi:"hostnameType"`
+}
+
+// SpotInstanceRequestPrivateDnsNameOptionsInput is an input type that accepts SpotInstanceRequestPrivateDnsNameOptionsArgs and SpotInstanceRequestPrivateDnsNameOptionsOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestPrivateDnsNameOptionsInput` via:
+//
+//          SpotInstanceRequestPrivateDnsNameOptionsArgs{...}
+type SpotInstanceRequestPrivateDnsNameOptionsInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestPrivateDnsNameOptionsOutput() SpotInstanceRequestPrivateDnsNameOptionsOutput
+	ToSpotInstanceRequestPrivateDnsNameOptionsOutputWithContext(context.Context) SpotInstanceRequestPrivateDnsNameOptionsOutput
+}
+
+type SpotInstanceRequestPrivateDnsNameOptionsArgs struct {
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord pulumi.BoolPtrInput `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+	HostnameType pulumi.StringPtrInput `pulumi:"hostnameType"`
+}
+
+func (SpotInstanceRequestPrivateDnsNameOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestPrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (i SpotInstanceRequestPrivateDnsNameOptionsArgs) ToSpotInstanceRequestPrivateDnsNameOptionsOutput() SpotInstanceRequestPrivateDnsNameOptionsOutput {
+	return i.ToSpotInstanceRequestPrivateDnsNameOptionsOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestPrivateDnsNameOptionsArgs) ToSpotInstanceRequestPrivateDnsNameOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestPrivateDnsNameOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestPrivateDnsNameOptionsOutput)
+}
+
+func (i SpotInstanceRequestPrivateDnsNameOptionsArgs) ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutput() SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return i.ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i SpotInstanceRequestPrivateDnsNameOptionsArgs) ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestPrivateDnsNameOptionsOutput).ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(ctx)
+}
+
+// SpotInstanceRequestPrivateDnsNameOptionsPtrInput is an input type that accepts SpotInstanceRequestPrivateDnsNameOptionsArgs, SpotInstanceRequestPrivateDnsNameOptionsPtr and SpotInstanceRequestPrivateDnsNameOptionsPtrOutput values.
+// You can construct a concrete instance of `SpotInstanceRequestPrivateDnsNameOptionsPtrInput` via:
+//
+//          SpotInstanceRequestPrivateDnsNameOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type SpotInstanceRequestPrivateDnsNameOptionsPtrInput interface {
+	pulumi.Input
+
+	ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutput() SpotInstanceRequestPrivateDnsNameOptionsPtrOutput
+	ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(context.Context) SpotInstanceRequestPrivateDnsNameOptionsPtrOutput
+}
+
+type spotInstanceRequestPrivateDnsNameOptionsPtrType SpotInstanceRequestPrivateDnsNameOptionsArgs
+
+func SpotInstanceRequestPrivateDnsNameOptionsPtr(v *SpotInstanceRequestPrivateDnsNameOptionsArgs) SpotInstanceRequestPrivateDnsNameOptionsPtrInput {
+	return (*spotInstanceRequestPrivateDnsNameOptionsPtrType)(v)
+}
+
+func (*spotInstanceRequestPrivateDnsNameOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestPrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (i *spotInstanceRequestPrivateDnsNameOptionsPtrType) ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutput() SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return i.ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *spotInstanceRequestPrivateDnsNameOptionsPtrType) ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotInstanceRequestPrivateDnsNameOptionsPtrOutput)
+}
+
+type SpotInstanceRequestPrivateDnsNameOptionsOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestPrivateDnsNameOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotInstanceRequestPrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) ToSpotInstanceRequestPrivateDnsNameOptionsOutput() SpotInstanceRequestPrivateDnsNameOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) ToSpotInstanceRequestPrivateDnsNameOptionsOutputWithContext(ctx context.Context) SpotInstanceRequestPrivateDnsNameOptionsOutput {
+	return o
+}
+
+func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutput() SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return o.ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotInstanceRequestPrivateDnsNameOptions) *SpotInstanceRequestPrivateDnsNameOptions {
+		return &v
+	}).(SpotInstanceRequestPrivateDnsNameOptionsPtrOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestPrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestPrivateDnsNameOptions) *bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolPtrOutput)
+}
+
+// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+func (o SpotInstanceRequestPrivateDnsNameOptionsOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestPrivateDnsNameOptions) *string { return v.HostnameType }).(pulumi.StringPtrOutput)
+}
+
+type SpotInstanceRequestPrivateDnsNameOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotInstanceRequestPrivateDnsNameOptions)(nil)).Elem()
+}
+
+func (o SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutput() SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) ToSpotInstanceRequestPrivateDnsNameOptionsPtrOutputWithContext(ctx context.Context) SpotInstanceRequestPrivateDnsNameOptionsPtrOutput {
+	return o
+}
+
+func (o SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) Elem() SpotInstanceRequestPrivateDnsNameOptionsOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestPrivateDnsNameOptions) SpotInstanceRequestPrivateDnsNameOptions {
+		if v != nil {
+			return *v
+		}
+		var ret SpotInstanceRequestPrivateDnsNameOptions
+		return ret
+	}).(SpotInstanceRequestPrivateDnsNameOptionsOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+func (o SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsARecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestPrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsARecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+func (o SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestPrivateDnsNameOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableResourceNameDnsAaaaRecord
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+func (o SpotInstanceRequestPrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestPrivateDnsNameOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostnameType
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpotInstanceRequestRootBlockDevice struct {
 	// Whether the volume should be destroyed on instance termination. Defaults to `true`.
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
@@ -19542,6 +19892,143 @@ func (o VpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) VpcEndpointDnsE
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcEndpointDnsEntry {
 		return vs[0].([]VpcEndpointDnsEntry)[vs[1].(int)]
 	}).(VpcEndpointDnsEntryOutput)
+}
+
+type VpcEndpointDnsOptions struct {
+	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+	DnsRecordIpType *string `pulumi:"dnsRecordIpType"`
+}
+
+// VpcEndpointDnsOptionsInput is an input type that accepts VpcEndpointDnsOptionsArgs and VpcEndpointDnsOptionsOutput values.
+// You can construct a concrete instance of `VpcEndpointDnsOptionsInput` via:
+//
+//          VpcEndpointDnsOptionsArgs{...}
+type VpcEndpointDnsOptionsInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsOutput() VpcEndpointDnsOptionsOutput
+	ToVpcEndpointDnsOptionsOutputWithContext(context.Context) VpcEndpointDnsOptionsOutput
+}
+
+type VpcEndpointDnsOptionsArgs struct {
+	// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+	DnsRecordIpType pulumi.StringPtrInput `pulumi:"dnsRecordIpType"`
+}
+
+func (VpcEndpointDnsOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptions)(nil)).Elem()
+}
+
+func (i VpcEndpointDnsOptionsArgs) ToVpcEndpointDnsOptionsOutput() VpcEndpointDnsOptionsOutput {
+	return i.ToVpcEndpointDnsOptionsOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointDnsOptionsArgs) ToVpcEndpointDnsOptionsOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointDnsOptionsOutput)
+}
+
+func (i VpcEndpointDnsOptionsArgs) ToVpcEndpointDnsOptionsPtrOutput() VpcEndpointDnsOptionsPtrOutput {
+	return i.ToVpcEndpointDnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointDnsOptionsArgs) ToVpcEndpointDnsOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointDnsOptionsOutput).ToVpcEndpointDnsOptionsPtrOutputWithContext(ctx)
+}
+
+// VpcEndpointDnsOptionsPtrInput is an input type that accepts VpcEndpointDnsOptionsArgs, VpcEndpointDnsOptionsPtr and VpcEndpointDnsOptionsPtrOutput values.
+// You can construct a concrete instance of `VpcEndpointDnsOptionsPtrInput` via:
+//
+//          VpcEndpointDnsOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type VpcEndpointDnsOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsPtrOutput() VpcEndpointDnsOptionsPtrOutput
+	ToVpcEndpointDnsOptionsPtrOutputWithContext(context.Context) VpcEndpointDnsOptionsPtrOutput
+}
+
+type vpcEndpointDnsOptionsPtrType VpcEndpointDnsOptionsArgs
+
+func VpcEndpointDnsOptionsPtr(v *VpcEndpointDnsOptionsArgs) VpcEndpointDnsOptionsPtrInput {
+	return (*vpcEndpointDnsOptionsPtrType)(v)
+}
+
+func (*vpcEndpointDnsOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointDnsOptions)(nil)).Elem()
+}
+
+func (i *vpcEndpointDnsOptionsPtrType) ToVpcEndpointDnsOptionsPtrOutput() VpcEndpointDnsOptionsPtrOutput {
+	return i.ToVpcEndpointDnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointDnsOptionsPtrType) ToVpcEndpointDnsOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointDnsOptionsPtrOutput)
+}
+
+type VpcEndpointDnsOptionsOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptions)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsOutput) ToVpcEndpointDnsOptionsOutput() VpcEndpointDnsOptionsOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsOutput) ToVpcEndpointDnsOptionsOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsOutput) ToVpcEndpointDnsOptionsPtrOutput() VpcEndpointDnsOptionsPtrOutput {
+	return o.ToVpcEndpointDnsOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsOutput) ToVpcEndpointDnsOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointDnsOptions) *VpcEndpointDnsOptions {
+		return &v
+	}).(VpcEndpointDnsOptionsPtrOutput)
+}
+
+// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+func (o VpcEndpointDnsOptionsOutput) DnsRecordIpType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptions) *string { return v.DnsRecordIpType }).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointDnsOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointDnsOptions)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsPtrOutput) ToVpcEndpointDnsOptionsPtrOutput() VpcEndpointDnsOptionsPtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsPtrOutput) ToVpcEndpointDnsOptionsPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsPtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsPtrOutput) Elem() VpcEndpointDnsOptionsOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptions) VpcEndpointDnsOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointDnsOptions
+		return ret
+	}).(VpcEndpointDnsOptionsOutput)
+}
+
+// The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+func (o VpcEndpointDnsOptionsPtrOutput) DnsRecordIpType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsRecordIpType
+	}).(pulumi.StringPtrOutput)
 }
 
 type VpcEndpointServicePrivateDnsNameConfiguration struct {
@@ -22814,6 +23301,121 @@ func (o GetInstanceMetadataOptionArrayOutput) Index(i pulumi.IntInput) GetInstan
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceMetadataOption {
 		return vs[0].([]GetInstanceMetadataOption)[vs[1].(int)]
 	}).(GetInstanceMetadataOptionOutput)
+}
+
+type GetInstancePrivateDnsNameOption struct {
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord bool `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord bool `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostname for EC2 instances.
+	HostnameType string `pulumi:"hostnameType"`
+}
+
+// GetInstancePrivateDnsNameOptionInput is an input type that accepts GetInstancePrivateDnsNameOptionArgs and GetInstancePrivateDnsNameOptionOutput values.
+// You can construct a concrete instance of `GetInstancePrivateDnsNameOptionInput` via:
+//
+//          GetInstancePrivateDnsNameOptionArgs{...}
+type GetInstancePrivateDnsNameOptionInput interface {
+	pulumi.Input
+
+	ToGetInstancePrivateDnsNameOptionOutput() GetInstancePrivateDnsNameOptionOutput
+	ToGetInstancePrivateDnsNameOptionOutputWithContext(context.Context) GetInstancePrivateDnsNameOptionOutput
+}
+
+type GetInstancePrivateDnsNameOptionArgs struct {
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+	EnableResourceNameDnsARecord pulumi.BoolInput `pulumi:"enableResourceNameDnsARecord"`
+	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+	EnableResourceNameDnsAaaaRecord pulumi.BoolInput `pulumi:"enableResourceNameDnsAaaaRecord"`
+	// The type of hostname for EC2 instances.
+	HostnameType pulumi.StringInput `pulumi:"hostnameType"`
+}
+
+func (GetInstancePrivateDnsNameOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstancePrivateDnsNameOption)(nil)).Elem()
+}
+
+func (i GetInstancePrivateDnsNameOptionArgs) ToGetInstancePrivateDnsNameOptionOutput() GetInstancePrivateDnsNameOptionOutput {
+	return i.ToGetInstancePrivateDnsNameOptionOutputWithContext(context.Background())
+}
+
+func (i GetInstancePrivateDnsNameOptionArgs) ToGetInstancePrivateDnsNameOptionOutputWithContext(ctx context.Context) GetInstancePrivateDnsNameOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstancePrivateDnsNameOptionOutput)
+}
+
+// GetInstancePrivateDnsNameOptionArrayInput is an input type that accepts GetInstancePrivateDnsNameOptionArray and GetInstancePrivateDnsNameOptionArrayOutput values.
+// You can construct a concrete instance of `GetInstancePrivateDnsNameOptionArrayInput` via:
+//
+//          GetInstancePrivateDnsNameOptionArray{ GetInstancePrivateDnsNameOptionArgs{...} }
+type GetInstancePrivateDnsNameOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetInstancePrivateDnsNameOptionArrayOutput() GetInstancePrivateDnsNameOptionArrayOutput
+	ToGetInstancePrivateDnsNameOptionArrayOutputWithContext(context.Context) GetInstancePrivateDnsNameOptionArrayOutput
+}
+
+type GetInstancePrivateDnsNameOptionArray []GetInstancePrivateDnsNameOptionInput
+
+func (GetInstancePrivateDnsNameOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstancePrivateDnsNameOption)(nil)).Elem()
+}
+
+func (i GetInstancePrivateDnsNameOptionArray) ToGetInstancePrivateDnsNameOptionArrayOutput() GetInstancePrivateDnsNameOptionArrayOutput {
+	return i.ToGetInstancePrivateDnsNameOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstancePrivateDnsNameOptionArray) ToGetInstancePrivateDnsNameOptionArrayOutputWithContext(ctx context.Context) GetInstancePrivateDnsNameOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstancePrivateDnsNameOptionArrayOutput)
+}
+
+type GetInstancePrivateDnsNameOptionOutput struct{ *pulumi.OutputState }
+
+func (GetInstancePrivateDnsNameOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstancePrivateDnsNameOption)(nil)).Elem()
+}
+
+func (o GetInstancePrivateDnsNameOptionOutput) ToGetInstancePrivateDnsNameOptionOutput() GetInstancePrivateDnsNameOptionOutput {
+	return o
+}
+
+func (o GetInstancePrivateDnsNameOptionOutput) ToGetInstancePrivateDnsNameOptionOutputWithContext(ctx context.Context) GetInstancePrivateDnsNameOptionOutput {
+	return o
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+func (o GetInstancePrivateDnsNameOptionOutput) EnableResourceNameDnsARecord() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetInstancePrivateDnsNameOption) bool { return v.EnableResourceNameDnsARecord }).(pulumi.BoolOutput)
+}
+
+// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+func (o GetInstancePrivateDnsNameOptionOutput) EnableResourceNameDnsAaaaRecord() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetInstancePrivateDnsNameOption) bool { return v.EnableResourceNameDnsAaaaRecord }).(pulumi.BoolOutput)
+}
+
+// The type of hostname for EC2 instances.
+func (o GetInstancePrivateDnsNameOptionOutput) HostnameType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstancePrivateDnsNameOption) string { return v.HostnameType }).(pulumi.StringOutput)
+}
+
+type GetInstancePrivateDnsNameOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstancePrivateDnsNameOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstancePrivateDnsNameOption)(nil)).Elem()
+}
+
+func (o GetInstancePrivateDnsNameOptionArrayOutput) ToGetInstancePrivateDnsNameOptionArrayOutput() GetInstancePrivateDnsNameOptionArrayOutput {
+	return o
+}
+
+func (o GetInstancePrivateDnsNameOptionArrayOutput) ToGetInstancePrivateDnsNameOptionArrayOutputWithContext(ctx context.Context) GetInstancePrivateDnsNameOptionArrayOutput {
+	return o
+}
+
+func (o GetInstancePrivateDnsNameOptionArrayOutput) Index(i pulumi.IntInput) GetInstancePrivateDnsNameOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstancePrivateDnsNameOption {
+		return vs[0].([]GetInstancePrivateDnsNameOption)[vs[1].(int)]
+	}).(GetInstancePrivateDnsNameOptionOutput)
 }
 
 type GetInstanceRootBlockDevice struct {
@@ -31683,6 +32285,100 @@ func (o GetVpcEndpointDnsEntryArrayOutput) Index(i pulumi.IntInput) GetVpcEndpoi
 	}).(GetVpcEndpointDnsEntryOutput)
 }
 
+type GetVpcEndpointDnsOption struct {
+	DnsRecordIpType string `pulumi:"dnsRecordIpType"`
+}
+
+// GetVpcEndpointDnsOptionInput is an input type that accepts GetVpcEndpointDnsOptionArgs and GetVpcEndpointDnsOptionOutput values.
+// You can construct a concrete instance of `GetVpcEndpointDnsOptionInput` via:
+//
+//          GetVpcEndpointDnsOptionArgs{...}
+type GetVpcEndpointDnsOptionInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointDnsOptionOutput() GetVpcEndpointDnsOptionOutput
+	ToGetVpcEndpointDnsOptionOutputWithContext(context.Context) GetVpcEndpointDnsOptionOutput
+}
+
+type GetVpcEndpointDnsOptionArgs struct {
+	DnsRecordIpType pulumi.StringInput `pulumi:"dnsRecordIpType"`
+}
+
+func (GetVpcEndpointDnsOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointDnsOption)(nil)).Elem()
+}
+
+func (i GetVpcEndpointDnsOptionArgs) ToGetVpcEndpointDnsOptionOutput() GetVpcEndpointDnsOptionOutput {
+	return i.ToGetVpcEndpointDnsOptionOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointDnsOptionArgs) ToGetVpcEndpointDnsOptionOutputWithContext(ctx context.Context) GetVpcEndpointDnsOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointDnsOptionOutput)
+}
+
+// GetVpcEndpointDnsOptionArrayInput is an input type that accepts GetVpcEndpointDnsOptionArray and GetVpcEndpointDnsOptionArrayOutput values.
+// You can construct a concrete instance of `GetVpcEndpointDnsOptionArrayInput` via:
+//
+//          GetVpcEndpointDnsOptionArray{ GetVpcEndpointDnsOptionArgs{...} }
+type GetVpcEndpointDnsOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcEndpointDnsOptionArrayOutput() GetVpcEndpointDnsOptionArrayOutput
+	ToGetVpcEndpointDnsOptionArrayOutputWithContext(context.Context) GetVpcEndpointDnsOptionArrayOutput
+}
+
+type GetVpcEndpointDnsOptionArray []GetVpcEndpointDnsOptionInput
+
+func (GetVpcEndpointDnsOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointDnsOption)(nil)).Elem()
+}
+
+func (i GetVpcEndpointDnsOptionArray) ToGetVpcEndpointDnsOptionArrayOutput() GetVpcEndpointDnsOptionArrayOutput {
+	return i.ToGetVpcEndpointDnsOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcEndpointDnsOptionArray) ToGetVpcEndpointDnsOptionArrayOutputWithContext(ctx context.Context) GetVpcEndpointDnsOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcEndpointDnsOptionArrayOutput)
+}
+
+type GetVpcEndpointDnsOptionOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointDnsOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcEndpointDnsOption)(nil)).Elem()
+}
+
+func (o GetVpcEndpointDnsOptionOutput) ToGetVpcEndpointDnsOptionOutput() GetVpcEndpointDnsOptionOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsOptionOutput) ToGetVpcEndpointDnsOptionOutputWithContext(ctx context.Context) GetVpcEndpointDnsOptionOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsOptionOutput) DnsRecordIpType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcEndpointDnsOption) string { return v.DnsRecordIpType }).(pulumi.StringOutput)
+}
+
+type GetVpcEndpointDnsOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcEndpointDnsOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcEndpointDnsOption)(nil)).Elem()
+}
+
+func (o GetVpcEndpointDnsOptionArrayOutput) ToGetVpcEndpointDnsOptionArrayOutput() GetVpcEndpointDnsOptionArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsOptionArrayOutput) ToGetVpcEndpointDnsOptionArrayOutputWithContext(ctx context.Context) GetVpcEndpointDnsOptionArrayOutput {
+	return o
+}
+
+func (o GetVpcEndpointDnsOptionArrayOutput) Index(i pulumi.IntInput) GetVpcEndpointDnsOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcEndpointDnsOption {
+		return vs[0].([]GetVpcEndpointDnsOption)[vs[1].(int)]
+	}).(GetVpcEndpointDnsOptionOutput)
+}
+
 type GetVpcEndpointFilter struct {
 	// The name of the field to filter by, as defined by
 	// [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpoints.html).
@@ -32834,6 +33530,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMetadataOptionsPtrInput)(nil)).Elem(), InstanceMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceInput)(nil)).Elem(), InstanceNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceNetworkInterfaceArrayInput)(nil)).Elem(), InstanceNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePrivateDnsNameOptionsPtrInput)(nil)).Elem(), InstancePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRootBlockDeviceInput)(nil)).Elem(), InstanceRootBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRootBlockDevicePtrInput)(nil)).Elem(), InstanceRootBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationEbsBlockDeviceInput)(nil)).Elem(), LaunchConfigurationEbsBlockDeviceArgs{})
@@ -32977,6 +33675,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMetadataOptionsPtrInput)(nil)).Elem(), SpotInstanceRequestMetadataOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestNetworkInterfaceInput)(nil)).Elem(), SpotInstanceRequestNetworkInterfaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestNetworkInterfaceArrayInput)(nil)).Elem(), SpotInstanceRequestNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestPrivateDnsNameOptionsInput)(nil)).Elem(), SpotInstanceRequestPrivateDnsNameOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestPrivateDnsNameOptionsPtrInput)(nil)).Elem(), SpotInstanceRequestPrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestRootBlockDeviceInput)(nil)).Elem(), SpotInstanceRequestRootBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestRootBlockDevicePtrInput)(nil)).Elem(), SpotInstanceRequestRootBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleDestinationPortRangeInput)(nil)).Elem(), TrafficMirrorFilterRuleDestinationPortRangeArgs{})
@@ -32985,6 +33685,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterRuleSourcePortRangePtrInput)(nil)).Elem(), TrafficMirrorFilterRuleSourcePortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsEntryInput)(nil)).Elem(), VpcEndpointDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsEntryArrayInput)(nil)).Elem(), VpcEndpointDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsInput)(nil)).Elem(), VpcEndpointDnsOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsPtrInput)(nil)).Elem(), VpcEndpointDnsOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationArrayInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamOperatingRegionInput)(nil)).Elem(), VpcIpamOperatingRegionArgs{})
@@ -33037,6 +33739,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMaintenanceOptionArrayInput)(nil)).Elem(), GetInstanceMaintenanceOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMetadataOptionInput)(nil)).Elem(), GetInstanceMetadataOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMetadataOptionArrayInput)(nil)).Elem(), GetInstanceMetadataOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancePrivateDnsNameOptionInput)(nil)).Elem(), GetInstancePrivateDnsNameOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancePrivateDnsNameOptionArrayInput)(nil)).Elem(), GetInstancePrivateDnsNameOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceRootBlockDeviceInput)(nil)).Elem(), GetInstanceRootBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceRootBlockDeviceArrayInput)(nil)).Elem(), GetInstanceRootBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeFpgaInput)(nil)).Elem(), GetInstanceTypeFpgaArgs{})
@@ -33193,6 +33897,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcDhcpOptionsFilterArrayInput)(nil)).Elem(), GetVpcDhcpOptionsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointDnsEntryInput)(nil)).Elem(), GetVpcEndpointDnsEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointDnsEntryArrayInput)(nil)).Elem(), GetVpcEndpointDnsEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointDnsOptionInput)(nil)).Elem(), GetVpcEndpointDnsOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointDnsOptionArrayInput)(nil)).Elem(), GetVpcEndpointDnsOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointFilterInput)(nil)).Elem(), GetVpcEndpointFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointFilterArrayInput)(nil)).Elem(), GetVpcEndpointFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointServiceFilterInput)(nil)).Elem(), GetVpcEndpointServiceFilterArgs{})
@@ -33291,6 +33997,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(InstanceNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsOutput{})
+	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(InstanceRootBlockDevicePtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationEbsBlockDeviceOutput{})
@@ -33434,6 +34142,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotInstanceRequestMetadataOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestPrivateDnsNameOptionsOutput{})
+	pulumi.RegisterOutputType(SpotInstanceRequestPrivateDnsNameOptionsPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestRootBlockDevicePtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleDestinationPortRangeOutput{})
@@ -33442,6 +34152,8 @@ func init() {
 	pulumi.RegisterOutputType(TrafficMirrorFilterRuleSourcePortRangePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamOperatingRegionOutput{})
@@ -33494,6 +34206,8 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceMaintenanceOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceMetadataOptionOutput{})
 	pulumi.RegisterOutputType(GetInstanceMetadataOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetInstancePrivateDnsNameOptionOutput{})
+	pulumi.RegisterOutputType(GetInstancePrivateDnsNameOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetInstanceRootBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeFpgaOutput{})
@@ -33650,6 +34364,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcDhcpOptionsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointDnsEntryOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointDnsEntryArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointDnsOptionOutput{})
+	pulumi.RegisterOutputType(GetVpcEndpointDnsOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterOutput{})

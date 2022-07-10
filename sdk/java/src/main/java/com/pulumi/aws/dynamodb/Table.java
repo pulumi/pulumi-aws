@@ -30,10 +30,18 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there&#39;s `autoscaling policy` attached to the table.
  * 
+ * ## DynamoDB Table attributes
+ * 
+ * Only define attributes on the table object that are going to be used as:
+ * 
+ * * Table hash key or range key
+ * * LSI or GSI hash key or range key
+ * 
+ * The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table&#39;s range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
+ * 
  * ## Example Usage
  * 
- * The following dynamodb table description models the table and GSI shown
- * in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+ * The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
  * ```java
  * package generated_program;
  * 
@@ -140,28 +148,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:dynamodb/table:Table")
 public class Table extends com.pulumi.resources.CustomResource {
     /**
-     * The arn of the table
+     * ARN of the table
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The arn of the table
+     * @return ARN of the table
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+     * Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
     @Export(name="attributes", type=List.class, parameters={TableAttribute.class})
     private Output<List<TableAttribute>> attributes;
 
     /**
-     * @return List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+     * @return Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
     public Output<List<TableAttribute>> attributes() {
@@ -182,150 +190,140 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.billingMode);
     }
     /**
-     * Describe a GSI for the table;
-     * subject to the normal limits on the number of GSIs, projected
-     * attributes, etc.
+     * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
     @Export(name="globalSecondaryIndexes", type=List.class, parameters={TableGlobalSecondaryIndex.class})
     private Output</* @Nullable */ List<TableGlobalSecondaryIndex>> globalSecondaryIndexes;
 
     /**
-     * @return Describe a GSI for the table;
-     * subject to the normal limits on the number of GSIs, projected
-     * attributes, etc.
+     * @return Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
     public Output<Optional<List<TableGlobalSecondaryIndex>>> globalSecondaryIndexes() {
         return Codegen.optional(this.globalSecondaryIndexes);
     }
     /**
-     * The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
     @Export(name="hashKey", type=String.class, parameters={})
     private Output<String> hashKey;
 
     /**
-     * @return The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
     public Output<String> hashKey() {
         return this.hashKey;
     }
     /**
-     * Describe an LSI on the table;
-     * these can only be allocated *at creation* so you cannot change this
-     * definition after you have created the resource.
+     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
      * 
      */
     @Export(name="localSecondaryIndexes", type=List.class, parameters={TableLocalSecondaryIndex.class})
     private Output</* @Nullable */ List<TableLocalSecondaryIndex>> localSecondaryIndexes;
 
     /**
-     * @return Describe an LSI on the table;
-     * these can only be allocated *at creation* so you cannot change this
-     * definition after you have created the resource.
+     * @return Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
      * 
      */
     public Output<Optional<List<TableLocalSecondaryIndex>>> localSecondaryIndexes() {
         return Codegen.optional(this.localSecondaryIndexes);
     }
     /**
-     * The name of the index
+     * Name of the index
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the index
+     * @return Name of the index
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Enable point-in-time recovery options.
+     * Whether to enable Point In Time Recovery for the replica.
      * 
      */
     @Export(name="pointInTimeRecovery", type=TablePointInTimeRecovery.class, parameters={})
     private Output<TablePointInTimeRecovery> pointInTimeRecovery;
 
     /**
-     * @return Enable point-in-time recovery options.
+     * @return Whether to enable Point In Time Recovery for the replica.
      * 
      */
     public Output<TablePointInTimeRecovery> pointInTimeRecovery() {
         return this.pointInTimeRecovery;
     }
     /**
-     * The name of the range key; must be defined
+     * Name of the range key.
      * 
      */
     @Export(name="rangeKey", type=String.class, parameters={})
     private Output</* @Nullable */ String> rangeKey;
 
     /**
-     * @return The name of the range key; must be defined
+     * @return Name of the range key.
      * 
      */
     public Output<Optional<String>> rangeKey() {
         return Codegen.optional(this.rangeKey);
     }
     /**
-     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     @Export(name="readCapacity", type=Integer.class, parameters={})
     private Output<Integer> readCapacity;
 
     /**
-     * @return The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     public Output<Integer> readCapacity() {
         return this.readCapacity;
     }
     /**
-     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      * 
      */
     @Export(name="replicas", type=List.class, parameters={TableReplica.class})
     private Output</* @Nullable */ List<TableReplica>> replicas;
 
     /**
-     * @return Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     * @return Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      * 
      */
     public Output<Optional<List<TableReplica>>> replicas() {
         return Codegen.optional(this.replicas);
     }
     /**
-     * The time of the point-in-time recovery point to restore.
+     * Time of the point-in-time recovery point to restore.
      * 
      */
     @Export(name="restoreDateTime", type=String.class, parameters={})
     private Output</* @Nullable */ String> restoreDateTime;
 
     /**
-     * @return The time of the point-in-time recovery point to restore.
+     * @return Time of the point-in-time recovery point to restore.
      * 
      */
     public Output<Optional<String>> restoreDateTime() {
         return Codegen.optional(this.restoreDateTime);
     }
     /**
-     * The name of the table to restore. Must match the name of an existing table.
+     * Name of the table to restore. Must match the name of an existing table.
      * 
      */
     @Export(name="restoreSourceName", type=String.class, parameters={})
     private Output</* @Nullable */ String> restoreSourceName;
 
     /**
-     * @return The name of the table to restore. Must match the name of an existing table.
+     * @return Name of the table to restore. Must match the name of an existing table.
      * 
      */
     public Output<Optional<String>> restoreSourceName() {
@@ -346,62 +344,56 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.restoreToLatestTime);
     }
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn&#39;t specified.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
      * 
      */
     @Export(name="serverSideEncryption", type=TableServerSideEncryption.class, parameters={})
     private Output<TableServerSideEncryption> serverSideEncryption;
 
     /**
-     * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn&#39;t specified.
+     * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
      * 
      */
     public Output<TableServerSideEncryption> serverSideEncryption() {
         return this.serverSideEncryption;
     }
     /**
-     * The ARN of the Table Stream. Only available when `stream_enabled = true`
+     * ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
     @Export(name="streamArn", type=String.class, parameters={})
     private Output<String> streamArn;
 
     /**
-     * @return The ARN of the Table Stream. Only available when `stream_enabled = true`
+     * @return ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
     public Output<String> streamArn() {
         return this.streamArn;
     }
     /**
-     * Indicates whether Streams are to be enabled (true) or disabled (false).
+     * Whether Streams are enabled.
      * 
      */
     @Export(name="streamEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> streamEnabled;
 
     /**
-     * @return Indicates whether Streams are to be enabled (true) or disabled (false).
+     * @return Whether Streams are enabled.
      * 
      */
     public Output<Optional<Boolean>> streamEnabled() {
         return Codegen.optional(this.streamEnabled);
     }
     /**
-     * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-     * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-     * table name and this field is guaranteed to be unique.
-     * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
      * 
      */
     @Export(name="streamLabel", type=String.class, parameters={})
     private Output<String> streamLabel;
 
     /**
-     * @return A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-     * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-     * table name and this field is guaranteed to be unique.
-     * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
      * 
      */
     public Output<String> streamLabel() {
@@ -422,14 +414,14 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.streamViewType;
     }
     /**
-     * The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      * 
      */
     @Export(name="tableClass", type=String.class, parameters={})
     private Output</* @Nullable */ String> tableClass;
 
     /**
-     * @return The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * @return Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      * 
      */
     public Output<Optional<String>> tableClass() {
@@ -450,42 +442,42 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Defines ttl, has two properties, and can only be specified once:
+     * Configuration block for TTL. See below.
      * 
      */
     @Export(name="ttl", type=TableTtl.class, parameters={})
     private Output<TableTtl> ttl;
 
     /**
-     * @return Defines ttl, has two properties, and can only be specified once:
+     * @return Configuration block for TTL. See below.
      * 
      */
     public Output<TableTtl> ttl() {
         return this.ttl;
     }
     /**
-     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     @Export(name="writeCapacity", type=Integer.class, parameters={})
     private Output<Integer> writeCapacity;
 
     /**
-     * @return The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     public Output<Integer> writeCapacity() {

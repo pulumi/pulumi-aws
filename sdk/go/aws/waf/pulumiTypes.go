@@ -19,8 +19,8 @@ type ByteMatchSetByteMatchTuple struct {
 	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
 	// for all supported values.
 	PositionalConstraint string `pulumi:"positionalConstraint"`
-	// The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+	// The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
+	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
 	// for all supported values.
 	TargetString *string `pulumi:"targetString"`
 	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
@@ -51,8 +51,8 @@ type ByteMatchSetByteMatchTupleArgs struct {
 	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
 	// for all supported values.
 	PositionalConstraint pulumi.StringInput `pulumi:"positionalConstraint"`
-	// The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-	// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+	// The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
+	// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
 	// for all supported values.
 	TargetString pulumi.StringPtrInput `pulumi:"targetString"`
 	// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
@@ -128,8 +128,8 @@ func (o ByteMatchSetByteMatchTupleOutput) PositionalConstraint() pulumi.StringOu
 	return o.ApplyT(func(v ByteMatchSetByteMatchTuple) string { return v.PositionalConstraint }).(pulumi.StringOutput)
 }
 
-// The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+// The value that you want to search for within the field specified by `fieldToMatch`, e.g., `badrefer1`.
+// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
 // for all supported values.
 func (o ByteMatchSetByteMatchTupleOutput) TargetString() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ByteMatchSetByteMatchTuple) *string { return v.TargetString }).(pulumi.StringPtrOutput)

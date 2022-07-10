@@ -409,6 +409,162 @@ func (o DirectoryVpcSettingsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type SharedDirectoryTarget struct {
+	// Identifier of the directory consumer account.
+	Id string `pulumi:"id"`
+	// Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+	Type *string `pulumi:"type"`
+}
+
+// SharedDirectoryTargetInput is an input type that accepts SharedDirectoryTargetArgs and SharedDirectoryTargetOutput values.
+// You can construct a concrete instance of `SharedDirectoryTargetInput` via:
+//
+//          SharedDirectoryTargetArgs{...}
+type SharedDirectoryTargetInput interface {
+	pulumi.Input
+
+	ToSharedDirectoryTargetOutput() SharedDirectoryTargetOutput
+	ToSharedDirectoryTargetOutputWithContext(context.Context) SharedDirectoryTargetOutput
+}
+
+type SharedDirectoryTargetArgs struct {
+	// Identifier of the directory consumer account.
+	Id pulumi.StringInput `pulumi:"id"`
+	// Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+	Type pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (SharedDirectoryTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedDirectoryTarget)(nil)).Elem()
+}
+
+func (i SharedDirectoryTargetArgs) ToSharedDirectoryTargetOutput() SharedDirectoryTargetOutput {
+	return i.ToSharedDirectoryTargetOutputWithContext(context.Background())
+}
+
+func (i SharedDirectoryTargetArgs) ToSharedDirectoryTargetOutputWithContext(ctx context.Context) SharedDirectoryTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryTargetOutput)
+}
+
+func (i SharedDirectoryTargetArgs) ToSharedDirectoryTargetPtrOutput() SharedDirectoryTargetPtrOutput {
+	return i.ToSharedDirectoryTargetPtrOutputWithContext(context.Background())
+}
+
+func (i SharedDirectoryTargetArgs) ToSharedDirectoryTargetPtrOutputWithContext(ctx context.Context) SharedDirectoryTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryTargetOutput).ToSharedDirectoryTargetPtrOutputWithContext(ctx)
+}
+
+// SharedDirectoryTargetPtrInput is an input type that accepts SharedDirectoryTargetArgs, SharedDirectoryTargetPtr and SharedDirectoryTargetPtrOutput values.
+// You can construct a concrete instance of `SharedDirectoryTargetPtrInput` via:
+//
+//          SharedDirectoryTargetArgs{...}
+//
+//  or:
+//
+//          nil
+type SharedDirectoryTargetPtrInput interface {
+	pulumi.Input
+
+	ToSharedDirectoryTargetPtrOutput() SharedDirectoryTargetPtrOutput
+	ToSharedDirectoryTargetPtrOutputWithContext(context.Context) SharedDirectoryTargetPtrOutput
+}
+
+type sharedDirectoryTargetPtrType SharedDirectoryTargetArgs
+
+func SharedDirectoryTargetPtr(v *SharedDirectoryTargetArgs) SharedDirectoryTargetPtrInput {
+	return (*sharedDirectoryTargetPtrType)(v)
+}
+
+func (*sharedDirectoryTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedDirectoryTarget)(nil)).Elem()
+}
+
+func (i *sharedDirectoryTargetPtrType) ToSharedDirectoryTargetPtrOutput() SharedDirectoryTargetPtrOutput {
+	return i.ToSharedDirectoryTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *sharedDirectoryTargetPtrType) ToSharedDirectoryTargetPtrOutputWithContext(ctx context.Context) SharedDirectoryTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SharedDirectoryTargetPtrOutput)
+}
+
+type SharedDirectoryTargetOutput struct{ *pulumi.OutputState }
+
+func (SharedDirectoryTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SharedDirectoryTarget)(nil)).Elem()
+}
+
+func (o SharedDirectoryTargetOutput) ToSharedDirectoryTargetOutput() SharedDirectoryTargetOutput {
+	return o
+}
+
+func (o SharedDirectoryTargetOutput) ToSharedDirectoryTargetOutputWithContext(ctx context.Context) SharedDirectoryTargetOutput {
+	return o
+}
+
+func (o SharedDirectoryTargetOutput) ToSharedDirectoryTargetPtrOutput() SharedDirectoryTargetPtrOutput {
+	return o.ToSharedDirectoryTargetPtrOutputWithContext(context.Background())
+}
+
+func (o SharedDirectoryTargetOutput) ToSharedDirectoryTargetPtrOutputWithContext(ctx context.Context) SharedDirectoryTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SharedDirectoryTarget) *SharedDirectoryTarget {
+		return &v
+	}).(SharedDirectoryTargetPtrOutput)
+}
+
+// Identifier of the directory consumer account.
+func (o SharedDirectoryTargetOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v SharedDirectoryTarget) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+func (o SharedDirectoryTargetOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SharedDirectoryTarget) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type SharedDirectoryTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (SharedDirectoryTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SharedDirectoryTarget)(nil)).Elem()
+}
+
+func (o SharedDirectoryTargetPtrOutput) ToSharedDirectoryTargetPtrOutput() SharedDirectoryTargetPtrOutput {
+	return o
+}
+
+func (o SharedDirectoryTargetPtrOutput) ToSharedDirectoryTargetPtrOutputWithContext(ctx context.Context) SharedDirectoryTargetPtrOutput {
+	return o
+}
+
+func (o SharedDirectoryTargetPtrOutput) Elem() SharedDirectoryTargetOutput {
+	return o.ApplyT(func(v *SharedDirectoryTarget) SharedDirectoryTarget {
+		if v != nil {
+			return *v
+		}
+		var ret SharedDirectoryTarget
+		return ret
+	}).(SharedDirectoryTargetOutput)
+}
+
+// Identifier of the directory consumer account.
+func (o SharedDirectoryTargetPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedDirectoryTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+func (o SharedDirectoryTargetPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SharedDirectoryTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetDirectoryConnectSetting struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The IP addresses of the AD Connector servers.
@@ -665,6 +821,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConnectSettingsPtrInput)(nil)).Elem(), DirectoryConnectSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsPtrInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedDirectoryTargetInput)(nil)).Elem(), SharedDirectoryTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SharedDirectoryTargetPtrInput)(nil)).Elem(), SharedDirectoryTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryConnectSettingInput)(nil)).Elem(), GetDirectoryConnectSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryConnectSettingArrayInput)(nil)).Elem(), GetDirectoryConnectSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryVpcSettingInput)(nil)).Elem(), GetDirectoryVpcSettingArgs{})
@@ -673,6 +831,8 @@ func init() {
 	pulumi.RegisterOutputType(DirectoryConnectSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsPtrOutput{})
+	pulumi.RegisterOutputType(SharedDirectoryTargetOutput{})
+	pulumi.RegisterOutputType(SharedDirectoryTargetPtrOutput{})
 	pulumi.RegisterOutputType(GetDirectoryConnectSettingOutput{})
 	pulumi.RegisterOutputType(GetDirectoryConnectSettingArrayOutput{})
 	pulumi.RegisterOutputType(GetDirectoryVpcSettingOutput{})

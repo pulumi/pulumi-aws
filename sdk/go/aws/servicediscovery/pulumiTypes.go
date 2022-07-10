@@ -603,6 +603,439 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) FailureThreshold() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetServiceDnsConfig struct {
+	// An array that contains one DnsRecord object for each resource record set.
+	DnsRecords []GetServiceDnsConfigDnsRecord `pulumi:"dnsRecords"`
+	// The ID of the namespace that the service belongs to.
+	NamespaceId string `pulumi:"namespaceId"`
+	// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+	RoutingPolicy string `pulumi:"routingPolicy"`
+}
+
+// GetServiceDnsConfigInput is an input type that accepts GetServiceDnsConfigArgs and GetServiceDnsConfigOutput values.
+// You can construct a concrete instance of `GetServiceDnsConfigInput` via:
+//
+//          GetServiceDnsConfigArgs{...}
+type GetServiceDnsConfigInput interface {
+	pulumi.Input
+
+	ToGetServiceDnsConfigOutput() GetServiceDnsConfigOutput
+	ToGetServiceDnsConfigOutputWithContext(context.Context) GetServiceDnsConfigOutput
+}
+
+type GetServiceDnsConfigArgs struct {
+	// An array that contains one DnsRecord object for each resource record set.
+	DnsRecords GetServiceDnsConfigDnsRecordArrayInput `pulumi:"dnsRecords"`
+	// The ID of the namespace that the service belongs to.
+	NamespaceId pulumi.StringInput `pulumi:"namespaceId"`
+	// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+	RoutingPolicy pulumi.StringInput `pulumi:"routingPolicy"`
+}
+
+func (GetServiceDnsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDnsConfig)(nil)).Elem()
+}
+
+func (i GetServiceDnsConfigArgs) ToGetServiceDnsConfigOutput() GetServiceDnsConfigOutput {
+	return i.ToGetServiceDnsConfigOutputWithContext(context.Background())
+}
+
+func (i GetServiceDnsConfigArgs) ToGetServiceDnsConfigOutputWithContext(ctx context.Context) GetServiceDnsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsConfigOutput)
+}
+
+// GetServiceDnsConfigArrayInput is an input type that accepts GetServiceDnsConfigArray and GetServiceDnsConfigArrayOutput values.
+// You can construct a concrete instance of `GetServiceDnsConfigArrayInput` via:
+//
+//          GetServiceDnsConfigArray{ GetServiceDnsConfigArgs{...} }
+type GetServiceDnsConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDnsConfigArrayOutput() GetServiceDnsConfigArrayOutput
+	ToGetServiceDnsConfigArrayOutputWithContext(context.Context) GetServiceDnsConfigArrayOutput
+}
+
+type GetServiceDnsConfigArray []GetServiceDnsConfigInput
+
+func (GetServiceDnsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDnsConfig)(nil)).Elem()
+}
+
+func (i GetServiceDnsConfigArray) ToGetServiceDnsConfigArrayOutput() GetServiceDnsConfigArrayOutput {
+	return i.ToGetServiceDnsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDnsConfigArray) ToGetServiceDnsConfigArrayOutputWithContext(ctx context.Context) GetServiceDnsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsConfigArrayOutput)
+}
+
+type GetServiceDnsConfigOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDnsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDnsConfig)(nil)).Elem()
+}
+
+func (o GetServiceDnsConfigOutput) ToGetServiceDnsConfigOutput() GetServiceDnsConfigOutput {
+	return o
+}
+
+func (o GetServiceDnsConfigOutput) ToGetServiceDnsConfigOutputWithContext(ctx context.Context) GetServiceDnsConfigOutput {
+	return o
+}
+
+// An array that contains one DnsRecord object for each resource record set.
+func (o GetServiceDnsConfigOutput) DnsRecords() GetServiceDnsConfigDnsRecordArrayOutput {
+	return o.ApplyT(func(v GetServiceDnsConfig) []GetServiceDnsConfigDnsRecord { return v.DnsRecords }).(GetServiceDnsConfigDnsRecordArrayOutput)
+}
+
+// The ID of the namespace that the service belongs to.
+func (o GetServiceDnsConfigOutput) NamespaceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDnsConfig) string { return v.NamespaceId }).(pulumi.StringOutput)
+}
+
+// The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+func (o GetServiceDnsConfigOutput) RoutingPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDnsConfig) string { return v.RoutingPolicy }).(pulumi.StringOutput)
+}
+
+type GetServiceDnsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDnsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDnsConfig)(nil)).Elem()
+}
+
+func (o GetServiceDnsConfigArrayOutput) ToGetServiceDnsConfigArrayOutput() GetServiceDnsConfigArrayOutput {
+	return o
+}
+
+func (o GetServiceDnsConfigArrayOutput) ToGetServiceDnsConfigArrayOutputWithContext(ctx context.Context) GetServiceDnsConfigArrayOutput {
+	return o
+}
+
+func (o GetServiceDnsConfigArrayOutput) Index(i pulumi.IntInput) GetServiceDnsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDnsConfig {
+		return vs[0].([]GetServiceDnsConfig)[vs[1].(int)]
+	}).(GetServiceDnsConfigOutput)
+}
+
+type GetServiceDnsConfigDnsRecord struct {
+	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+	Ttl int `pulumi:"ttl"`
+	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+	Type string `pulumi:"type"`
+}
+
+// GetServiceDnsConfigDnsRecordInput is an input type that accepts GetServiceDnsConfigDnsRecordArgs and GetServiceDnsConfigDnsRecordOutput values.
+// You can construct a concrete instance of `GetServiceDnsConfigDnsRecordInput` via:
+//
+//          GetServiceDnsConfigDnsRecordArgs{...}
+type GetServiceDnsConfigDnsRecordInput interface {
+	pulumi.Input
+
+	ToGetServiceDnsConfigDnsRecordOutput() GetServiceDnsConfigDnsRecordOutput
+	ToGetServiceDnsConfigDnsRecordOutputWithContext(context.Context) GetServiceDnsConfigDnsRecordOutput
+}
+
+type GetServiceDnsConfigDnsRecordArgs struct {
+	// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+	Ttl pulumi.IntInput `pulumi:"ttl"`
+	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceDnsConfigDnsRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDnsConfigDnsRecord)(nil)).Elem()
+}
+
+func (i GetServiceDnsConfigDnsRecordArgs) ToGetServiceDnsConfigDnsRecordOutput() GetServiceDnsConfigDnsRecordOutput {
+	return i.ToGetServiceDnsConfigDnsRecordOutputWithContext(context.Background())
+}
+
+func (i GetServiceDnsConfigDnsRecordArgs) ToGetServiceDnsConfigDnsRecordOutputWithContext(ctx context.Context) GetServiceDnsConfigDnsRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsConfigDnsRecordOutput)
+}
+
+// GetServiceDnsConfigDnsRecordArrayInput is an input type that accepts GetServiceDnsConfigDnsRecordArray and GetServiceDnsConfigDnsRecordArrayOutput values.
+// You can construct a concrete instance of `GetServiceDnsConfigDnsRecordArrayInput` via:
+//
+//          GetServiceDnsConfigDnsRecordArray{ GetServiceDnsConfigDnsRecordArgs{...} }
+type GetServiceDnsConfigDnsRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceDnsConfigDnsRecordArrayOutput() GetServiceDnsConfigDnsRecordArrayOutput
+	ToGetServiceDnsConfigDnsRecordArrayOutputWithContext(context.Context) GetServiceDnsConfigDnsRecordArrayOutput
+}
+
+type GetServiceDnsConfigDnsRecordArray []GetServiceDnsConfigDnsRecordInput
+
+func (GetServiceDnsConfigDnsRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDnsConfigDnsRecord)(nil)).Elem()
+}
+
+func (i GetServiceDnsConfigDnsRecordArray) ToGetServiceDnsConfigDnsRecordArrayOutput() GetServiceDnsConfigDnsRecordArrayOutput {
+	return i.ToGetServiceDnsConfigDnsRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceDnsConfigDnsRecordArray) ToGetServiceDnsConfigDnsRecordArrayOutputWithContext(ctx context.Context) GetServiceDnsConfigDnsRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceDnsConfigDnsRecordArrayOutput)
+}
+
+type GetServiceDnsConfigDnsRecordOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDnsConfigDnsRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceDnsConfigDnsRecord)(nil)).Elem()
+}
+
+func (o GetServiceDnsConfigDnsRecordOutput) ToGetServiceDnsConfigDnsRecordOutput() GetServiceDnsConfigDnsRecordOutput {
+	return o
+}
+
+func (o GetServiceDnsConfigDnsRecordOutput) ToGetServiceDnsConfigDnsRecordOutputWithContext(ctx context.Context) GetServiceDnsConfigDnsRecordOutput {
+	return o
+}
+
+// The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+func (o GetServiceDnsConfigDnsRecordOutput) Ttl() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceDnsConfigDnsRecord) int { return v.Ttl }).(pulumi.IntOutput)
+}
+
+// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+func (o GetServiceDnsConfigDnsRecordOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceDnsConfigDnsRecord) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceDnsConfigDnsRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceDnsConfigDnsRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceDnsConfigDnsRecord)(nil)).Elem()
+}
+
+func (o GetServiceDnsConfigDnsRecordArrayOutput) ToGetServiceDnsConfigDnsRecordArrayOutput() GetServiceDnsConfigDnsRecordArrayOutput {
+	return o
+}
+
+func (o GetServiceDnsConfigDnsRecordArrayOutput) ToGetServiceDnsConfigDnsRecordArrayOutputWithContext(ctx context.Context) GetServiceDnsConfigDnsRecordArrayOutput {
+	return o
+}
+
+func (o GetServiceDnsConfigDnsRecordArrayOutput) Index(i pulumi.IntInput) GetServiceDnsConfigDnsRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceDnsConfigDnsRecord {
+		return vs[0].([]GetServiceDnsConfigDnsRecord)[vs[1].(int)]
+	}).(GetServiceDnsConfigDnsRecordOutput)
+}
+
+type GetServiceHealthCheckConfig struct {
+	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+	FailureThreshold int `pulumi:"failureThreshold"`
+	// The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+	ResourcePath string `pulumi:"resourcePath"`
+	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+	Type string `pulumi:"type"`
+}
+
+// GetServiceHealthCheckConfigInput is an input type that accepts GetServiceHealthCheckConfigArgs and GetServiceHealthCheckConfigOutput values.
+// You can construct a concrete instance of `GetServiceHealthCheckConfigInput` via:
+//
+//          GetServiceHealthCheckConfigArgs{...}
+type GetServiceHealthCheckConfigInput interface {
+	pulumi.Input
+
+	ToGetServiceHealthCheckConfigOutput() GetServiceHealthCheckConfigOutput
+	ToGetServiceHealthCheckConfigOutputWithContext(context.Context) GetServiceHealthCheckConfigOutput
+}
+
+type GetServiceHealthCheckConfigArgs struct {
+	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+	// The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+	ResourcePath pulumi.StringInput `pulumi:"resourcePath"`
+	// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetServiceHealthCheckConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceHealthCheckConfig)(nil)).Elem()
+}
+
+func (i GetServiceHealthCheckConfigArgs) ToGetServiceHealthCheckConfigOutput() GetServiceHealthCheckConfigOutput {
+	return i.ToGetServiceHealthCheckConfigOutputWithContext(context.Background())
+}
+
+func (i GetServiceHealthCheckConfigArgs) ToGetServiceHealthCheckConfigOutputWithContext(ctx context.Context) GetServiceHealthCheckConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHealthCheckConfigOutput)
+}
+
+// GetServiceHealthCheckConfigArrayInput is an input type that accepts GetServiceHealthCheckConfigArray and GetServiceHealthCheckConfigArrayOutput values.
+// You can construct a concrete instance of `GetServiceHealthCheckConfigArrayInput` via:
+//
+//          GetServiceHealthCheckConfigArray{ GetServiceHealthCheckConfigArgs{...} }
+type GetServiceHealthCheckConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceHealthCheckConfigArrayOutput() GetServiceHealthCheckConfigArrayOutput
+	ToGetServiceHealthCheckConfigArrayOutputWithContext(context.Context) GetServiceHealthCheckConfigArrayOutput
+}
+
+type GetServiceHealthCheckConfigArray []GetServiceHealthCheckConfigInput
+
+func (GetServiceHealthCheckConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceHealthCheckConfig)(nil)).Elem()
+}
+
+func (i GetServiceHealthCheckConfigArray) ToGetServiceHealthCheckConfigArrayOutput() GetServiceHealthCheckConfigArrayOutput {
+	return i.ToGetServiceHealthCheckConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceHealthCheckConfigArray) ToGetServiceHealthCheckConfigArrayOutputWithContext(ctx context.Context) GetServiceHealthCheckConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHealthCheckConfigArrayOutput)
+}
+
+type GetServiceHealthCheckConfigOutput struct{ *pulumi.OutputState }
+
+func (GetServiceHealthCheckConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceHealthCheckConfig)(nil)).Elem()
+}
+
+func (o GetServiceHealthCheckConfigOutput) ToGetServiceHealthCheckConfigOutput() GetServiceHealthCheckConfigOutput {
+	return o
+}
+
+func (o GetServiceHealthCheckConfigOutput) ToGetServiceHealthCheckConfigOutputWithContext(ctx context.Context) GetServiceHealthCheckConfigOutput {
+	return o
+}
+
+// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+func (o GetServiceHealthCheckConfigOutput) FailureThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceHealthCheckConfig) int { return v.FailureThreshold }).(pulumi.IntOutput)
+}
+
+// The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+func (o GetServiceHealthCheckConfigOutput) ResourcePath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHealthCheckConfig) string { return v.ResourcePath }).(pulumi.StringOutput)
+}
+
+// The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+func (o GetServiceHealthCheckConfigOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetServiceHealthCheckConfig) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetServiceHealthCheckConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceHealthCheckConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceHealthCheckConfig)(nil)).Elem()
+}
+
+func (o GetServiceHealthCheckConfigArrayOutput) ToGetServiceHealthCheckConfigArrayOutput() GetServiceHealthCheckConfigArrayOutput {
+	return o
+}
+
+func (o GetServiceHealthCheckConfigArrayOutput) ToGetServiceHealthCheckConfigArrayOutputWithContext(ctx context.Context) GetServiceHealthCheckConfigArrayOutput {
+	return o
+}
+
+func (o GetServiceHealthCheckConfigArrayOutput) Index(i pulumi.IntInput) GetServiceHealthCheckConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHealthCheckConfig {
+		return vs[0].([]GetServiceHealthCheckConfig)[vs[1].(int)]
+	}).(GetServiceHealthCheckConfigOutput)
+}
+
+type GetServiceHealthCheckCustomConfig struct {
+	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+	FailureThreshold int `pulumi:"failureThreshold"`
+}
+
+// GetServiceHealthCheckCustomConfigInput is an input type that accepts GetServiceHealthCheckCustomConfigArgs and GetServiceHealthCheckCustomConfigOutput values.
+// You can construct a concrete instance of `GetServiceHealthCheckCustomConfigInput` via:
+//
+//          GetServiceHealthCheckCustomConfigArgs{...}
+type GetServiceHealthCheckCustomConfigInput interface {
+	pulumi.Input
+
+	ToGetServiceHealthCheckCustomConfigOutput() GetServiceHealthCheckCustomConfigOutput
+	ToGetServiceHealthCheckCustomConfigOutputWithContext(context.Context) GetServiceHealthCheckCustomConfigOutput
+}
+
+type GetServiceHealthCheckCustomConfigArgs struct {
+	// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+	FailureThreshold pulumi.IntInput `pulumi:"failureThreshold"`
+}
+
+func (GetServiceHealthCheckCustomConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceHealthCheckCustomConfig)(nil)).Elem()
+}
+
+func (i GetServiceHealthCheckCustomConfigArgs) ToGetServiceHealthCheckCustomConfigOutput() GetServiceHealthCheckCustomConfigOutput {
+	return i.ToGetServiceHealthCheckCustomConfigOutputWithContext(context.Background())
+}
+
+func (i GetServiceHealthCheckCustomConfigArgs) ToGetServiceHealthCheckCustomConfigOutputWithContext(ctx context.Context) GetServiceHealthCheckCustomConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHealthCheckCustomConfigOutput)
+}
+
+// GetServiceHealthCheckCustomConfigArrayInput is an input type that accepts GetServiceHealthCheckCustomConfigArray and GetServiceHealthCheckCustomConfigArrayOutput values.
+// You can construct a concrete instance of `GetServiceHealthCheckCustomConfigArrayInput` via:
+//
+//          GetServiceHealthCheckCustomConfigArray{ GetServiceHealthCheckCustomConfigArgs{...} }
+type GetServiceHealthCheckCustomConfigArrayInput interface {
+	pulumi.Input
+
+	ToGetServiceHealthCheckCustomConfigArrayOutput() GetServiceHealthCheckCustomConfigArrayOutput
+	ToGetServiceHealthCheckCustomConfigArrayOutputWithContext(context.Context) GetServiceHealthCheckCustomConfigArrayOutput
+}
+
+type GetServiceHealthCheckCustomConfigArray []GetServiceHealthCheckCustomConfigInput
+
+func (GetServiceHealthCheckCustomConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceHealthCheckCustomConfig)(nil)).Elem()
+}
+
+func (i GetServiceHealthCheckCustomConfigArray) ToGetServiceHealthCheckCustomConfigArrayOutput() GetServiceHealthCheckCustomConfigArrayOutput {
+	return i.ToGetServiceHealthCheckCustomConfigArrayOutputWithContext(context.Background())
+}
+
+func (i GetServiceHealthCheckCustomConfigArray) ToGetServiceHealthCheckCustomConfigArrayOutputWithContext(ctx context.Context) GetServiceHealthCheckCustomConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetServiceHealthCheckCustomConfigArrayOutput)
+}
+
+type GetServiceHealthCheckCustomConfigOutput struct{ *pulumi.OutputState }
+
+func (GetServiceHealthCheckCustomConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetServiceHealthCheckCustomConfig)(nil)).Elem()
+}
+
+func (o GetServiceHealthCheckCustomConfigOutput) ToGetServiceHealthCheckCustomConfigOutput() GetServiceHealthCheckCustomConfigOutput {
+	return o
+}
+
+func (o GetServiceHealthCheckCustomConfigOutput) ToGetServiceHealthCheckCustomConfigOutputWithContext(ctx context.Context) GetServiceHealthCheckCustomConfigOutput {
+	return o
+}
+
+// The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Maximum value of 10.
+func (o GetServiceHealthCheckCustomConfigOutput) FailureThreshold() pulumi.IntOutput {
+	return o.ApplyT(func(v GetServiceHealthCheckCustomConfig) int { return v.FailureThreshold }).(pulumi.IntOutput)
+}
+
+type GetServiceHealthCheckCustomConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (GetServiceHealthCheckCustomConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetServiceHealthCheckCustomConfig)(nil)).Elem()
+}
+
+func (o GetServiceHealthCheckCustomConfigArrayOutput) ToGetServiceHealthCheckCustomConfigArrayOutput() GetServiceHealthCheckCustomConfigArrayOutput {
+	return o
+}
+
+func (o GetServiceHealthCheckCustomConfigArrayOutput) ToGetServiceHealthCheckCustomConfigArrayOutputWithContext(ctx context.Context) GetServiceHealthCheckCustomConfigArrayOutput {
+	return o
+}
+
+func (o GetServiceHealthCheckCustomConfigArrayOutput) Index(i pulumi.IntInput) GetServiceHealthCheckCustomConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetServiceHealthCheckCustomConfig {
+		return vs[0].([]GetServiceHealthCheckCustomConfig)[vs[1].(int)]
+	}).(GetServiceHealthCheckCustomConfigOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsConfigInput)(nil)).Elem(), ServiceDnsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsConfigPtrInput)(nil)).Elem(), ServiceDnsConfigArgs{})
@@ -612,6 +1045,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigPtrInput)(nil)).Elem(), ServiceHealthCheckConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckCustomConfigInput)(nil)).Elem(), ServiceHealthCheckCustomConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckCustomConfigPtrInput)(nil)).Elem(), ServiceHealthCheckCustomConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsConfigInput)(nil)).Elem(), GetServiceDnsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsConfigArrayInput)(nil)).Elem(), GetServiceDnsConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsConfigDnsRecordInput)(nil)).Elem(), GetServiceDnsConfigDnsRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceDnsConfigDnsRecordArrayInput)(nil)).Elem(), GetServiceDnsConfigDnsRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceHealthCheckConfigInput)(nil)).Elem(), GetServiceHealthCheckConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceHealthCheckConfigArrayInput)(nil)).Elem(), GetServiceHealthCheckConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceHealthCheckCustomConfigInput)(nil)).Elem(), GetServiceHealthCheckCustomConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetServiceHealthCheckCustomConfigArrayInput)(nil)).Elem(), GetServiceHealthCheckCustomConfigArray{})
 	pulumi.RegisterOutputType(ServiceDnsConfigOutput{})
 	pulumi.RegisterOutputType(ServiceDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDnsConfigDnsRecordOutput{})
@@ -620,4 +1061,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceHealthCheckConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceHealthCheckCustomConfigOutput{})
 	pulumi.RegisterOutputType(ServiceHealthCheckCustomConfigPtrOutput{})
+	pulumi.RegisterOutputType(GetServiceDnsConfigOutput{})
+	pulumi.RegisterOutputType(GetServiceDnsConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceDnsConfigDnsRecordOutput{})
+	pulumi.RegisterOutputType(GetServiceDnsConfigDnsRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceHealthCheckConfigOutput{})
+	pulumi.RegisterOutputType(GetServiceHealthCheckConfigArrayOutput{})
+	pulumi.RegisterOutputType(GetServiceHealthCheckCustomConfigOutput{})
+	pulumi.RegisterOutputType(GetServiceHealthCheckCustomConfigArrayOutput{})
 }

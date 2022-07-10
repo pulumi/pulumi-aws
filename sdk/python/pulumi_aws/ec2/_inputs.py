@@ -49,6 +49,7 @@ __all__ = [
     'InstanceMaintenanceOptionsArgs',
     'InstanceMetadataOptionsArgs',
     'InstanceNetworkInterfaceArgs',
+    'InstancePrivateDnsNameOptionsArgs',
     'InstanceRootBlockDeviceArgs',
     'LaunchConfigurationEbsBlockDeviceArgs',
     'LaunchConfigurationEphemeralBlockDeviceArgs',
@@ -121,10 +122,12 @@ __all__ = [
     'SpotInstanceRequestMaintenanceOptionsArgs',
     'SpotInstanceRequestMetadataOptionsArgs',
     'SpotInstanceRequestNetworkInterfaceArgs',
+    'SpotInstanceRequestPrivateDnsNameOptionsArgs',
     'SpotInstanceRequestRootBlockDeviceArgs',
     'TrafficMirrorFilterRuleDestinationPortRangeArgs',
     'TrafficMirrorFilterRuleSourcePortRangeArgs',
     'VpcEndpointDnsEntryArgs',
+    'VpcEndpointDnsOptionsArgs',
     'VpcEndpointServicePrivateDnsNameConfigurationArgs',
     'VpcIpamOperatingRegionArgs',
     'VpcIpamPoolCidrCidrAuthorizationContextArgs',
@@ -143,10 +146,6 @@ __all__ = [
     'GetEipsFilterArgs',
     'GetElasticIpFilterArgs',
     'GetInstanceFilterArgs',
-    'GetInstanceTypeFpgaArgs',
-    'GetInstanceTypeGpusArgs',
-    'GetInstanceTypeInferenceAcceleratorArgs',
-    'GetInstanceTypeInstanceDiskArgs',
     'GetInstanceTypeOfferingFilterArgs',
     'GetInstanceTypeOfferingsFilterArgs',
     'GetInstanceTypesFilterArgs',
@@ -3286,6 +3285,61 @@ class InstanceNetworkInterfaceArgs:
     @network_card_index.setter
     def network_card_index(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "network_card_index", value)
+
+
+@pulumi.input_type
+class InstancePrivateDnsNameOptionsArgs:
+    def __init__(__self__, *,
+                 enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
+                 hostname_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        :param pulumi.Input[str] hostname_type: The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @enable_resource_name_dns_a_record.setter
+    def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        return pulumi.get(self, "hostname_type")
+
+    @hostname_type.setter
+    def hostname_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname_type", value)
 
 
 @pulumi.input_type
@@ -8733,6 +8787,61 @@ class SpotInstanceRequestNetworkInterfaceArgs:
 
 
 @pulumi.input_type
+class SpotInstanceRequestPrivateDnsNameOptionsArgs:
+    def __init__(__self__, *,
+                 enable_resource_name_dns_a_record: Optional[pulumi.Input[bool]] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[pulumi.Input[bool]] = None,
+                 hostname_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param pulumi.Input[bool] enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        :param pulumi.Input[str] hostname_type: The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @enable_resource_name_dns_a_record.setter
+    def enable_resource_name_dns_a_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_a_record", value)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @enable_resource_name_dns_aaaa_record.setter
+    def enable_resource_name_dns_aaaa_record(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_resource_name_dns_aaaa_record", value)
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        return pulumi.get(self, "hostname_type")
+
+    @hostname_type.setter
+    def hostname_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hostname_type", value)
+
+
+@pulumi.input_type
 class SpotInstanceRequestRootBlockDeviceArgs:
     def __init__(__self__, *,
                  delete_on_termination: Optional[pulumi.Input[bool]] = None,
@@ -9010,6 +9119,29 @@ class VpcEndpointDnsEntryArgs:
     @hosted_zone_id.setter
     def hosted_zone_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "hosted_zone_id", value)
+
+
+@pulumi.input_type
+class VpcEndpointDnsOptionsArgs:
+    def __init__(__self__, *,
+                 dns_record_ip_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] dns_record_ip_type: The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        """
+        if dns_record_ip_type is not None:
+            pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+
+    @property
+    @pulumi.getter(name="dnsRecordIpType")
+    def dns_record_ip_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        """
+        return pulumi.get(self, "dns_record_ip_type")
+
+    @dns_record_ip_type.setter
+    def dns_record_ip_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_record_ip_type", value)
 
 
 @pulumi.input_type
@@ -9851,192 +9983,6 @@ class GetInstanceFilterArgs:
     @values.setter
     def values(self, value: Sequence[str]):
         pulumi.set(self, "values", value)
-
-
-@pulumi.input_type
-class GetInstanceTypeFpgaArgs:
-    def __init__(__self__, *,
-                 count: int,
-                 manufacturer: str,
-                 memory_size: int,
-                 name: str):
-        """
-        :param int memory_size: Size of the instance memory, in MiB.
-        """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "memory_size", memory_size)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def count(self) -> int:
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: int):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter
-    def manufacturer(self) -> str:
-        return pulumi.get(self, "manufacturer")
-
-    @manufacturer.setter
-    def manufacturer(self, value: str):
-        pulumi.set(self, "manufacturer", value)
-
-    @property
-    @pulumi.getter(name="memorySize")
-    def memory_size(self) -> int:
-        """
-        Size of the instance memory, in MiB.
-        """
-        return pulumi.get(self, "memory_size")
-
-    @memory_size.setter
-    def memory_size(self, value: int):
-        pulumi.set(self, "memory_size", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class GetInstanceTypeGpusArgs:
-    def __init__(__self__, *,
-                 count: int,
-                 manufacturer: str,
-                 memory_size: int,
-                 name: str):
-        """
-        :param int memory_size: Size of the instance memory, in MiB.
-        """
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "memory_size", memory_size)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def count(self) -> int:
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: int):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter
-    def manufacturer(self) -> str:
-        return pulumi.get(self, "manufacturer")
-
-    @manufacturer.setter
-    def manufacturer(self, value: str):
-        pulumi.set(self, "manufacturer", value)
-
-    @property
-    @pulumi.getter(name="memorySize")
-    def memory_size(self) -> int:
-        """
-        Size of the instance memory, in MiB.
-        """
-        return pulumi.get(self, "memory_size")
-
-    @memory_size.setter
-    def memory_size(self, value: int):
-        pulumi.set(self, "memory_size", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class GetInstanceTypeInferenceAcceleratorArgs:
-    def __init__(__self__, *,
-                 count: int,
-                 manufacturer: str,
-                 name: str):
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "manufacturer", manufacturer)
-        pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def count(self) -> int:
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: int):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter
-    def manufacturer(self) -> str:
-        return pulumi.get(self, "manufacturer")
-
-    @manufacturer.setter
-    def manufacturer(self, value: str):
-        pulumi.set(self, "manufacturer", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: str):
-        pulumi.set(self, "name", value)
-
-
-@pulumi.input_type
-class GetInstanceTypeInstanceDiskArgs:
-    def __init__(__self__, *,
-                 count: int,
-                 size: int,
-                 type: str):
-        pulumi.set(__self__, "count", count)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def count(self) -> int:
-        return pulumi.get(self, "count")
-
-    @count.setter
-    def count(self, value: int):
-        pulumi.set(self, "count", value)
-
-    @property
-    @pulumi.getter
-    def size(self) -> int:
-        return pulumi.get(self, "size")
-
-    @size.setter
-    def size(self, value: int):
-        pulumi.set(self, "size", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> str:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: str):
-        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

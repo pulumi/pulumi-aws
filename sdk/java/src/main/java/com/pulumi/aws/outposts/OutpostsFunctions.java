@@ -4,6 +4,10 @@
 package com.pulumi.aws.outposts;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.outposts.inputs.GetAssetArgs;
+import com.pulumi.aws.outposts.inputs.GetAssetPlainArgs;
+import com.pulumi.aws.outposts.inputs.GetAssetsArgs;
+import com.pulumi.aws.outposts.inputs.GetAssetsPlainArgs;
 import com.pulumi.aws.outposts.inputs.GetOutpostArgs;
 import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypeArgs;
 import com.pulumi.aws.outposts.inputs.GetOutpostInstanceTypePlainArgs;
@@ -14,6 +18,8 @@ import com.pulumi.aws.outposts.inputs.GetOutpostsArgs;
 import com.pulumi.aws.outposts.inputs.GetOutpostsPlainArgs;
 import com.pulumi.aws.outposts.inputs.GetSiteArgs;
 import com.pulumi.aws.outposts.inputs.GetSitePlainArgs;
+import com.pulumi.aws.outposts.outputs.GetAssetResult;
+import com.pulumi.aws.outposts.outputs.GetAssetsResult;
 import com.pulumi.aws.outposts.outputs.GetOutpostInstanceTypeResult;
 import com.pulumi.aws.outposts.outputs.GetOutpostInstanceTypesResult;
 import com.pulumi.aws.outposts.outputs.GetOutpostResult;
@@ -28,6 +34,154 @@ import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OutpostsFunctions {
+    /**
+     * Information about a specific hardware asset in an Outpost.
+     * 
+     */
+    public static Output<GetAssetResult> getAsset(GetAssetArgs args) {
+        return getAsset(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a specific hardware asset in an Outpost.
+     * 
+     */
+    public static CompletableFuture<GetAssetResult> getAssetPlain(GetAssetPlainArgs args) {
+        return getAssetPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about a specific hardware asset in an Outpost.
+     * 
+     */
+    public static Output<GetAssetResult> getAsset(GetAssetArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:outposts/getAsset:getAsset", TypeShape.of(GetAssetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about a specific hardware asset in an Outpost.
+     * 
+     */
+    public static CompletableFuture<GetAssetResult> getAssetPlain(GetAssetPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:outposts/getAsset:getAsset", TypeShape.of(GetAssetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAssetsResult> getAssets(GetAssetsArgs args) {
+        return getAssets(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAssetsResult> getAssetsPlain(GetAssetsPlainArgs args) {
+        return getAssetsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAssetsResult> getAssets(GetAssetsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:outposts/getAssets:getAssets", TypeShape.of(GetAssetsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Information about hardware assets in an Outpost.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(OutpostsFunctions.getAssets(GetAssetsArgs.builder()
+     *             .arn(data.aws_outposts_outpost().example().arn())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAssetsResult> getAssetsPlain(GetAssetsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:outposts/getAssets:getAssets", TypeShape.of(GetAssetsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Provides details about an Outposts Outpost.
      * 

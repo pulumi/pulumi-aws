@@ -71,6 +71,7 @@ class _HttpNamespaceState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 http_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -78,14 +79,17 @@ class _HttpNamespaceState:
         Input properties used for looking up and filtering HttpNamespace resources.
         :param pulumi.Input[str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
+        :param pulumi.Input[str] http_name: The name of an HTTP namespace.
         :param pulumi.Input[str] name: The name of the http namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if http_name is not None:
+            pulumi.set(__self__, "http_name", http_name)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -118,6 +122,18 @@ class _HttpNamespaceState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="httpName")
+    def http_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of an HTTP namespace.
+        """
+        return pulumi.get(self, "http_name")
+
+    @http_name.setter
+    def http_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_name", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -145,7 +161,7 @@ class _HttpNamespaceState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -245,6 +261,7 @@ class HttpNamespace(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["http_name"] = None
             __props__.__dict__["tags_all"] = None
         super(HttpNamespace, __self__).__init__(
             'aws:servicediscovery/httpNamespace:HttpNamespace',
@@ -258,6 +275,7 @@ class HttpNamespace(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            http_name: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'HttpNamespace':
@@ -270,9 +288,10 @@ class HttpNamespace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN that Amazon Route 53 assigns to the namespace when you create it.
         :param pulumi.Input[str] description: The description that you specify for the namespace when you create it.
+        :param pulumi.Input[str] http_name: The name of an HTTP namespace.
         :param pulumi.Input[str] name: The name of the http namespace.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the namespace. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -280,6 +299,7 @@ class HttpNamespace(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["description"] = description
+        __props__.__dict__["http_name"] = http_name
         __props__.__dict__["name"] = name
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -302,6 +322,14 @@ class HttpNamespace(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="httpName")
+    def http_name(self) -> pulumi.Output[str]:
+        """
+        The name of an HTTP namespace.
+        """
+        return pulumi.get(self, "http_name")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
@@ -321,7 +349,7 @@ class HttpNamespace(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -82,7 +82,7 @@ export class BucketMetric extends pulumi.CustomResource {
      */
     public readonly filter!: pulumi.Output<outputs.s3.BucketMetricFilter | undefined>;
     /**
-     * Unique identifier of the metrics configuration for the bucket.
+     * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -129,7 +129,7 @@ export interface BucketMetricState {
      */
     filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
     /**
-     * Unique identifier of the metrics configuration for the bucket.
+     * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
     name?: pulumi.Input<string>;
 }
@@ -147,7 +147,7 @@ export interface BucketMetricArgs {
      */
     filter?: pulumi.Input<inputs.s3.BucketMetricFilter>;
     /**
-     * Unique identifier of the metrics configuration for the bucket.
+     * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      */
     name?: pulumi.Input<string>;
 }

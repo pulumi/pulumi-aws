@@ -23,6 +23,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:costexplorer/anomalyMonitor:AnomalyMonitor":
 		r = &AnomalyMonitor{}
+	case "aws:costexplorer/anomalySubscription:AnomalySubscription":
+		r = &AnomalySubscription{}
+	case "aws:costexplorer/costAllocationTag:CostAllocationTag":
+		r = &CostAllocationTag{}
 	case "aws:costexplorer/costCategory:CostCategory":
 		r = &CostCategory{}
 	default:
@@ -41,6 +45,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"costexplorer/anomalyMonitor",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"costexplorer/anomalySubscription",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"costexplorer/costAllocationTag",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

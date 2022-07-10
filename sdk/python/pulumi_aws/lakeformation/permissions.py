@@ -21,17 +21,21 @@ class PermissionsArgs:
                  catalog_resource: Optional[pulumi.Input[bool]] = None,
                  data_location: Optional[pulumi.Input['PermissionsDataLocationArgs']] = None,
                  database: Optional[pulumi.Input['PermissionsDatabaseArgs']] = None,
+                 lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
+                 lf_tag_policy: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']] = None,
                  permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  table: Optional[pulumi.Input['PermissionsTableArgs']] = None,
                  table_with_columns: Optional[pulumi.Input['PermissionsTableWithColumnsArgs']] = None):
         """
         The set of arguments for constructing a Permissions resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[str] principal: Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input['PermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input['PermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
+        :param pulumi.Input['PermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
+        :param pulumi.Input['PermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
         :param pulumi.Input['PermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
         :param pulumi.Input['PermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
@@ -46,6 +50,10 @@ class PermissionsArgs:
             pulumi.set(__self__, "data_location", data_location)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if lf_tag is not None:
+            pulumi.set(__self__, "lf_tag", lf_tag)
+        if lf_tag_policy is not None:
+            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
         if permissions_with_grant_options is not None:
             pulumi.set(__self__, "permissions_with_grant_options", permissions_with_grant_options)
         if table is not None:
@@ -57,7 +65,7 @@ class PermissionsArgs:
     @pulumi.getter
     def permissions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         """
         return pulumi.get(self, "permissions")
 
@@ -126,6 +134,30 @@ class PermissionsArgs:
         pulumi.set(self, "database", value)
 
     @property
+    @pulumi.getter(name="lfTag")
+    def lf_tag(self) -> Optional[pulumi.Input['PermissionsLfTagArgs']]:
+        """
+        Configuration block for an LF-tag resource. Detailed below.
+        """
+        return pulumi.get(self, "lf_tag")
+
+    @lf_tag.setter
+    def lf_tag(self, value: Optional[pulumi.Input['PermissionsLfTagArgs']]):
+        pulumi.set(self, "lf_tag", value)
+
+    @property
+    @pulumi.getter(name="lfTagPolicy")
+    def lf_tag_policy(self) -> Optional[pulumi.Input['PermissionsLfTagPolicyArgs']]:
+        """
+        Configuration block for an LF-tag policy resource. Detailed below.
+        """
+        return pulumi.get(self, "lf_tag_policy")
+
+    @lf_tag_policy.setter
+    def lf_tag_policy(self, value: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']]):
+        pulumi.set(self, "lf_tag_policy", value)
+
+    @property
     @pulumi.getter(name="permissionsWithGrantOptions")
     def permissions_with_grant_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -169,6 +201,8 @@ class _PermissionsState:
                  catalog_resource: Optional[pulumi.Input[bool]] = None,
                  data_location: Optional[pulumi.Input['PermissionsDataLocationArgs']] = None,
                  database: Optional[pulumi.Input['PermissionsDatabaseArgs']] = None,
+                 lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
+                 lf_tag_policy: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
@@ -180,7 +214,9 @@ class _PermissionsState:
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input['PermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input['PermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        :param pulumi.Input['PermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
+        :param pulumi.Input['PermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
         :param pulumi.Input[str] principal: Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input['PermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
@@ -194,6 +230,10 @@ class _PermissionsState:
             pulumi.set(__self__, "data_location", data_location)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if lf_tag is not None:
+            pulumi.set(__self__, "lf_tag", lf_tag)
+        if lf_tag_policy is not None:
+            pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if permissions_with_grant_options is not None:
@@ -254,10 +294,34 @@ class _PermissionsState:
         pulumi.set(self, "database", value)
 
     @property
+    @pulumi.getter(name="lfTag")
+    def lf_tag(self) -> Optional[pulumi.Input['PermissionsLfTagArgs']]:
+        """
+        Configuration block for an LF-tag resource. Detailed below.
+        """
+        return pulumi.get(self, "lf_tag")
+
+    @lf_tag.setter
+    def lf_tag(self, value: Optional[pulumi.Input['PermissionsLfTagArgs']]):
+        pulumi.set(self, "lf_tag", value)
+
+    @property
+    @pulumi.getter(name="lfTagPolicy")
+    def lf_tag_policy(self) -> Optional[pulumi.Input['PermissionsLfTagPolicyArgs']]:
+        """
+        Configuration block for an LF-tag policy resource. Detailed below.
+        """
+        return pulumi.get(self, "lf_tag_policy")
+
+    @lf_tag_policy.setter
+    def lf_tag_policy(self, value: Optional[pulumi.Input['PermissionsLfTagPolicyArgs']]):
+        pulumi.set(self, "lf_tag_policy", value)
+
+    @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         """
         return pulumi.get(self, "permissions")
 
@@ -323,6 +387,8 @@ class Permissions(pulumi.CustomResource):
                  catalog_resource: Optional[pulumi.Input[bool]] = None,
                  data_location: Optional[pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']]] = None,
                  database: Optional[pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']]] = None,
+                 lf_tag: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']]] = None,
+                 lf_tag_policy: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagPolicyArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
@@ -362,6 +428,36 @@ class Permissions(pulumi.CustomResource):
                 catalog_id="110376042874",
             ))
         ```
+        ### Grant Permissions Using Tag-Based Access Control
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lakeformation.Permissions("test",
+            principal=aws_iam_role["sales_role"]["arn"],
+            permissions=[
+                "CREATE_TABLE",
+                "ALTER",
+                "DROP",
+            ],
+            lf_tag_policy=aws.lakeformation.PermissionsLfTagPolicyArgs(
+                resource_type="DATABASE",
+                expressions=[
+                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
+                        key="Team",
+                        values=["Sales"],
+                    ),
+                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
+                        key="Environment",
+                        values=[
+                            "Dev",
+                            "Production",
+                        ],
+                    ),
+                ],
+            ))
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -369,7 +465,9 @@ class Permissions(pulumi.CustomResource):
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']] database: Configuration block for a database resource. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        :param pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']] lf_tag: Configuration block for an LF-tag resource. Detailed below.
+        :param pulumi.Input[pulumi.InputType['PermissionsLfTagPolicyArgs']] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
         :param pulumi.Input[str] principal: Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[pulumi.InputType['PermissionsTableArgs']] table: Configuration block for a table resource. Detailed below.
@@ -414,6 +512,36 @@ class Permissions(pulumi.CustomResource):
                 catalog_id="110376042874",
             ))
         ```
+        ### Grant Permissions Using Tag-Based Access Control
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.lakeformation.Permissions("test",
+            principal=aws_iam_role["sales_role"]["arn"],
+            permissions=[
+                "CREATE_TABLE",
+                "ALTER",
+                "DROP",
+            ],
+            lf_tag_policy=aws.lakeformation.PermissionsLfTagPolicyArgs(
+                resource_type="DATABASE",
+                expressions=[
+                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
+                        key="Team",
+                        values=["Sales"],
+                    ),
+                    aws.lakeformation.PermissionsLfTagPolicyExpressionArgs(
+                        key="Environment",
+                        values=[
+                            "Dev",
+                            "Production",
+                        ],
+                    ),
+                ],
+            ))
+        ```
 
         :param str resource_name: The name of the resource.
         :param PermissionsArgs args: The arguments to use to populate this resource's properties.
@@ -434,6 +562,8 @@ class Permissions(pulumi.CustomResource):
                  catalog_resource: Optional[pulumi.Input[bool]] = None,
                  data_location: Optional[pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']]] = None,
                  database: Optional[pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']]] = None,
+                 lf_tag: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']]] = None,
+                 lf_tag_policy: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagPolicyArgs']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  principal: Optional[pulumi.Input[str]] = None,
@@ -455,6 +585,8 @@ class Permissions(pulumi.CustomResource):
             __props__.__dict__["catalog_resource"] = catalog_resource
             __props__.__dict__["data_location"] = data_location
             __props__.__dict__["database"] = database
+            __props__.__dict__["lf_tag"] = lf_tag
+            __props__.__dict__["lf_tag_policy"] = lf_tag_policy
             if permissions is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions'")
             __props__.__dict__["permissions"] = permissions
@@ -478,6 +610,8 @@ class Permissions(pulumi.CustomResource):
             catalog_resource: Optional[pulumi.Input[bool]] = None,
             data_location: Optional[pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']]] = None,
             database: Optional[pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']]] = None,
+            lf_tag: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']]] = None,
+            lf_tag_policy: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagPolicyArgs']]] = None,
             permissions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             permissions_with_grant_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             principal: Optional[pulumi.Input[str]] = None,
@@ -494,7 +628,9 @@ class Permissions(pulumi.CustomResource):
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']] database: Configuration block for a database resource. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        :param pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']] lf_tag: Configuration block for an LF-tag resource. Detailed below.
+        :param pulumi.Input[pulumi.InputType['PermissionsLfTagPolicyArgs']] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions: List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] permissions_with_grant_options: Subset of `permissions` which the principal can pass.
         :param pulumi.Input[str] principal: Principal to be granted the permissions on the resource. Supported principals include `IAM_ALLOWED_PRINCIPALS` (see Default Behavior and `IAMAllowedPrincipals` above), IAM roles, users, groups, SAML groups and users, QuickSight groups, OUs, and organizations as well as AWS account IDs for cross-account permissions. For more information, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         :param pulumi.Input[pulumi.InputType['PermissionsTableArgs']] table: Configuration block for a table resource. Detailed below.
@@ -508,6 +644,8 @@ class Permissions(pulumi.CustomResource):
         __props__.__dict__["catalog_resource"] = catalog_resource
         __props__.__dict__["data_location"] = data_location
         __props__.__dict__["database"] = database
+        __props__.__dict__["lf_tag"] = lf_tag
+        __props__.__dict__["lf_tag_policy"] = lf_tag_policy
         __props__.__dict__["permissions"] = permissions
         __props__.__dict__["permissions_with_grant_options"] = permissions_with_grant_options
         __props__.__dict__["principal"] = principal
@@ -548,10 +686,26 @@ class Permissions(pulumi.CustomResource):
         return pulumi.get(self, "database")
 
     @property
+    @pulumi.getter(name="lfTag")
+    def lf_tag(self) -> pulumi.Output['outputs.PermissionsLfTag']:
+        """
+        Configuration block for an LF-tag resource. Detailed below.
+        """
+        return pulumi.get(self, "lf_tag")
+
+    @property
+    @pulumi.getter(name="lfTagPolicy")
+    def lf_tag_policy(self) -> pulumi.Output['outputs.PermissionsLfTagPolicy']:
+        """
+        Configuration block for an LF-tag policy resource. Detailed below.
+        """
+        return pulumi.get(self, "lf_tag_policy")
+
+    @property
     @pulumi.getter
     def permissions(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         """
         return pulumi.get(self, "permissions")
 

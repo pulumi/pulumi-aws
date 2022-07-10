@@ -52,7 +52,7 @@ type HsmClientCertificate struct {
 	HsmClientCertificateIdentifier pulumi.StringOutput `pulumi:"hsmClientCertificateIdentifier"`
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey pulumi.StringOutput `pulumi:"hsmClientCertificatePublicKey"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -96,7 +96,7 @@ type hsmClientCertificateState struct {
 	HsmClientCertificateIdentifier *string `pulumi:"hsmClientCertificateIdentifier"`
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey *string `pulumi:"hsmClientCertificatePublicKey"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -109,7 +109,7 @@ type HsmClientCertificateState struct {
 	HsmClientCertificateIdentifier pulumi.StringPtrInput
 	// The public key that the Amazon Redshift cluster will use to connect to the HSM. You must register the public key in the HSM.
 	HsmClientCertificatePublicKey pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -122,7 +122,7 @@ func (HsmClientCertificateState) ElementType() reflect.Type {
 type hsmClientCertificateArgs struct {
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier string `pulumi:"hsmClientCertificateIdentifier"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -130,7 +130,7 @@ type hsmClientCertificateArgs struct {
 type HsmClientCertificateArgs struct {
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -236,7 +236,7 @@ func (o HsmClientCertificateOutput) HsmClientCertificatePublicKey() pulumi.Strin
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.HsmClientCertificatePublicKey }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HsmClientCertificateOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

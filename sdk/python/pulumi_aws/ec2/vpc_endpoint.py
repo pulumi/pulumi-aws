@@ -18,6 +18,8 @@ class VpcEndpointArgs:
                  service_name: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
                  auto_accept: Optional[pulumi.Input[bool]] = None,
+                 dns_options: Optional[pulumi.Input['VpcEndpointDnsOptionsArgs']] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -30,6 +32,8 @@ class VpcEndpointArgs:
         :param pulumi.Input[str] service_name: The service name. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
         :param pulumi.Input[str] vpc_id: The ID of the VPC in which the endpoint will be used.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        :param pulumi.Input['VpcEndpointDnsOptionsArgs'] dns_options: The DNS options for the endpoint. See dns_options below.
+        :param pulumi.Input[str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
                Defaults to `false`.
@@ -44,6 +48,10 @@ class VpcEndpointArgs:
         pulumi.set(__self__, "vpc_id", vpc_id)
         if auto_accept is not None:
             pulumi.set(__self__, "auto_accept", auto_accept)
+        if dns_options is not None:
+            pulumi.set(__self__, "dns_options", dns_options)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if private_dns_enabled is not None:
@@ -94,6 +102,30 @@ class VpcEndpointArgs:
     @auto_accept.setter
     def auto_accept(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_accept", value)
+
+    @property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> Optional[pulumi.Input['VpcEndpointDnsOptionsArgs']]:
+        """
+        The DNS options for the endpoint. See dns_options below.
+        """
+        return pulumi.get(self, "dns_options")
+
+    @dns_options.setter
+    def dns_options(self, value: Optional[pulumi.Input['VpcEndpointDnsOptionsArgs']]):
+        pulumi.set(self, "dns_options", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter
@@ -189,6 +221,8 @@ class _VpcEndpointState:
                  auto_accept: Optional[pulumi.Input[bool]] = None,
                  cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]]] = None,
+                 dns_options: Optional[pulumi.Input['VpcEndpointDnsOptionsArgs']] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
@@ -210,6 +244,8 @@ class _VpcEndpointState:
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        :param pulumi.Input['VpcEndpointDnsOptionsArgs'] dns_options: The DNS options for the endpoint. See dns_options below.
+        :param pulumi.Input[str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC endpoint.
         :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
@@ -236,6 +272,10 @@ class _VpcEndpointState:
             pulumi.set(__self__, "cidr_blocks", cidr_blocks)
         if dns_entries is not None:
             pulumi.set(__self__, "dns_entries", dns_entries)
+        if dns_options is not None:
+            pulumi.set(__self__, "dns_options", dns_options)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if network_interface_ids is not None:
             pulumi.set(__self__, "network_interface_ids", network_interface_ids)
         if owner_id is not None:
@@ -314,6 +354,30 @@ class _VpcEndpointState:
     @dns_entries.setter
     def dns_entries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcEndpointDnsEntryArgs']]]]):
         pulumi.set(self, "dns_entries", value)
+
+    @property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> Optional[pulumi.Input['VpcEndpointDnsOptionsArgs']]:
+        """
+        The DNS options for the endpoint. See dns_options below.
+        """
+        return pulumi.get(self, "dns_options")
+
+    @dns_options.setter
+    def dns_options(self, value: Optional[pulumi.Input['VpcEndpointDnsOptionsArgs']]):
+        pulumi.set(self, "dns_options", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        """
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
@@ -504,6 +568,8 @@ class VpcEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_accept: Optional[pulumi.Input[bool]] = None,
+                 dns_options: Optional[pulumi.Input[pulumi.InputType['VpcEndpointDnsOptionsArgs']]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -581,6 +647,8 @@ class VpcEndpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
+        :param pulumi.Input[pulumi.InputType['VpcEndpointDnsOptionsArgs']] dns_options: The DNS options for the endpoint. See dns_options below.
+        :param pulumi.Input[str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         :param pulumi.Input[bool] private_dns_enabled: Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
                Defaults to `false`.
@@ -679,6 +747,8 @@ class VpcEndpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_accept: Optional[pulumi.Input[bool]] = None,
+                 dns_options: Optional[pulumi.Input[pulumi.InputType['VpcEndpointDnsOptionsArgs']]] = None,
+                 ip_address_type: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -701,6 +771,8 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__ = VpcEndpointArgs.__new__(VpcEndpointArgs)
 
             __props__.__dict__["auto_accept"] = auto_accept
+            __props__.__dict__["dns_options"] = dns_options
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["policy"] = policy
             __props__.__dict__["private_dns_enabled"] = private_dns_enabled
             __props__.__dict__["route_table_ids"] = route_table_ids
@@ -737,6 +809,8 @@ class VpcEndpoint(pulumi.CustomResource):
             auto_accept: Optional[pulumi.Input[bool]] = None,
             cidr_blocks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             dns_entries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointDnsEntryArgs']]]]] = None,
+            dns_options: Optional[pulumi.Input[pulumi.InputType['VpcEndpointDnsOptionsArgs']]] = None,
+            ip_address_type: Optional[pulumi.Input[str]] = None,
             network_interface_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[str]] = None,
@@ -763,6 +837,8 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_accept: Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cidr_blocks: The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpcEndpointDnsEntryArgs']]]] dns_entries: The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
+        :param pulumi.Input[pulumi.InputType['VpcEndpointDnsOptionsArgs']] dns_options: The DNS options for the endpoint. See dns_options below.
+        :param pulumi.Input[str] ip_address_type: The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC endpoint.
         :param pulumi.Input[str] policy: A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
@@ -789,6 +865,8 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__.__dict__["auto_accept"] = auto_accept
         __props__.__dict__["cidr_blocks"] = cidr_blocks
         __props__.__dict__["dns_entries"] = dns_entries
+        __props__.__dict__["dns_options"] = dns_options
+        __props__.__dict__["ip_address_type"] = ip_address_type
         __props__.__dict__["network_interface_ids"] = network_interface_ids
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["policy"] = policy
@@ -837,6 +915,22 @@ class VpcEndpoint(pulumi.CustomResource):
         The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         """
         return pulumi.get(self, "dns_entries")
+
+    @property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> pulumi.Output['outputs.VpcEndpointDnsOptions']:
+        """
+        The DNS options for the endpoint. See dns_options below.
+        """
+        return pulumi.get(self, "dns_options")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[str]:
+        """
+        The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        """
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="networkInterfaceIds")

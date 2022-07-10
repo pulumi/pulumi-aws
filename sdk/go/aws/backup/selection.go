@@ -101,6 +101,9 @@ import (
 // 		_, err := backup.NewSelection(ctx, "example", &backup.SelectionArgs{
 // 			IamRoleArn: pulumi.Any(aws_iam_role.Example.Arn),
 // 			PlanId:     pulumi.Any(aws_backup_plan.Example.Id),
+// 			Resources: pulumi.StringArray{
+// 				pulumi.String("*"),
+// 			},
 // 			Conditions: backup.SelectionConditionArray{
 // 				&backup.SelectionConditionArgs{
 // 					StringEquals: backup.SelectionConditionStringEqualArray{

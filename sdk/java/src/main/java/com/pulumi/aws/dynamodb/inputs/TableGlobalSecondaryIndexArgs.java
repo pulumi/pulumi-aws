@@ -18,16 +18,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     public static final TableGlobalSecondaryIndexArgs Empty = new TableGlobalSecondaryIndexArgs();
 
     /**
-     * The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
     @Import(name="hashKey", required=true)
     private Output<String> hashKey;
 
     /**
-     * @return The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
     public Output<String> hashKey() {
@@ -35,14 +33,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the index
+     * Name of the index
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the index
+     * @return Name of the index
      * 
      */
     public Output<String> name() {
@@ -50,18 +48,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Only required with `INCLUDE` as a
-     * projection type; a list of attributes to project into the index. These
-     * do not need to be defined as attributes on the table.
+     * Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
     @Import(name="nonKeyAttributes")
     private @Nullable Output<List<String>> nonKeyAttributes;
 
     /**
-     * @return Only required with `INCLUDE` as a
-     * projection type; a list of attributes to project into the index. These
-     * do not need to be defined as attributes on the table.
+     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
     public Optional<Output<List<String>>> nonKeyAttributes() {
@@ -69,22 +63,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-     * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-     * projects just the hash and range key into the index, and `INCLUDE`
-     * projects only the keys specified in the _non_key_attributes_
-     * parameter.
+     * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
      * 
      */
     @Import(name="projectionType", required=true)
     private Output<String> projectionType;
 
     /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-     * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-     * projects just the hash and range key into the index, and `INCLUDE`
-     * projects only the keys specified in the _non_key_attributes_
-     * parameter.
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
      * 
      */
     public Output<String> projectionType() {
@@ -92,14 +78,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The name of the range key; must be defined
+     * Name of the range key.
      * 
      */
     @Import(name="rangeKey")
     private @Nullable Output<String> rangeKey;
 
     /**
-     * @return The name of the range key; must be defined
+     * @return Name of the range key.
      * 
      */
     public Optional<Output<String>> rangeKey() {
@@ -107,14 +93,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     @Import(name="readCapacity")
     private @Nullable Output<Integer> readCapacity;
 
     /**
-     * @return The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     public Optional<Output<Integer>> readCapacity() {
@@ -122,14 +108,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     @Import(name="writeCapacity")
     private @Nullable Output<Integer> writeCapacity;
 
     /**
-     * @return The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     public Optional<Output<Integer>> writeCapacity() {
@@ -167,8 +153,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hashKey The name of the hash key in the index; must be
-         * defined as an attribute in the resource.
+         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource.
          * 
          * @return builder
          * 
@@ -179,8 +164,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hashKey The name of the hash key in the index; must be
-         * defined as an attribute in the resource.
+         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource.
          * 
          * @return builder
          * 
@@ -190,7 +174,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of the index
+         * @param name Name of the index
          * 
          * @return builder
          * 
@@ -201,7 +185,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name The name of the index
+         * @param name Name of the index
          * 
          * @return builder
          * 
@@ -211,9 +195,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a
-         * projection type; a list of attributes to project into the index. These
-         * do not need to be defined as attributes on the table.
+         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
          * 
          * @return builder
          * 
@@ -224,9 +206,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a
-         * projection type; a list of attributes to project into the index. These
-         * do not need to be defined as attributes on the table.
+         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
          * 
          * @return builder
          * 
@@ -236,9 +216,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param nonKeyAttributes Only required with `INCLUDE` as a
-         * projection type; a list of attributes to project into the index. These
-         * do not need to be defined as attributes on the table.
+         * @param nonKeyAttributes Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
          * 
          * @return builder
          * 
@@ -248,11 +226,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-         * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-         * projects just the hash and range key into the index, and `INCLUDE`
-         * projects only the keys specified in the _non_key_attributes_
-         * parameter.
+         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
          * 
          * @return builder
          * 
@@ -263,11 +237,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-         * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-         * projects just the hash and range key into the index, and `INCLUDE`
-         * projects only the keys specified in the _non_key_attributes_
-         * parameter.
+         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
          * 
          * @return builder
          * 
@@ -277,7 +247,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rangeKey The name of the range key; must be defined
+         * @param rangeKey Name of the range key.
          * 
          * @return builder
          * 
@@ -288,7 +258,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rangeKey The name of the range key; must be defined
+         * @param rangeKey Name of the range key.
          * 
          * @return builder
          * 
@@ -298,7 +268,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param readCapacity The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param readCapacity Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -309,7 +279,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param readCapacity The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param readCapacity Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -319,7 +289,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param writeCapacity The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param writeCapacity Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -330,7 +300,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param writeCapacity The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param writeCapacity Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
          * 
          * @return builder
          * 

@@ -60,6 +60,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:datasync/efsLocation:EfsLocation")
 public class EfsLocation extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     * 
+     */
+    @Export(name="accessPointArn", type=String.class, parameters={})
+    private Output</* @Nullable */ String> accessPointArn;
+
+    /**
+     * @return Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     * 
+     */
+    public Output<Optional<String>> accessPointArn() {
+        return Codegen.optional(this.accessPointArn);
+    }
+    /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      * 
      */
@@ -100,6 +114,34 @@ public class EfsLocation extends com.pulumi.resources.CustomResource {
      */
     public Output<String> efsFileSystemArn() {
         return this.efsFileSystemArn;
+    }
+    /**
+     * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+     * 
+     */
+    @Export(name="fileSystemAccessRoleArn", type=String.class, parameters={})
+    private Output</* @Nullable */ String> fileSystemAccessRoleArn;
+
+    /**
+     * @return Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+     * 
+     */
+    public Output<Optional<String>> fileSystemAccessRoleArn() {
+        return Codegen.optional(this.fileSystemAccessRoleArn);
+    }
+    /**
+     * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+     * 
+     */
+    @Export(name="inTransitEncryption", type=String.class, parameters={})
+    private Output</* @Nullable */ String> inTransitEncryption;
+
+    /**
+     * @return Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+     * 
+     */
+    public Output<Optional<String>> inTransitEncryption() {
+        return Codegen.optional(this.inTransitEncryption);
     }
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.

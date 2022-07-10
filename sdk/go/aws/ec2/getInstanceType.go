@@ -45,44 +45,8 @@ func GetInstanceType(ctx *pulumi.Context, args *GetInstanceTypeArgs, opts ...pul
 
 // A collection of arguments for invoking getInstanceType.
 type GetInstanceTypeArgs struct {
-	// The default number of cores for the instance type.
-	DefaultCores *int `pulumi:"defaultCores"`
-	// The  default  number of threads per core for the instance type.
-	DefaultThreadsPerCore *int `pulumi:"defaultThreadsPerCore"`
-	// Describes the FPGA accelerator settings for the instance type.
-	// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
-	// * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-	// * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
-	// * `fpgas.#.name` - The name of the FPGA accelerator.
-	Fpgas []GetInstanceTypeFpga `pulumi:"fpgas"`
-	// Describes the GPU accelerators for the instance type.
-	// * `gpus.#.count` - The number of GPUs for the instance type.
-	// * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-	// * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
-	// * `gpus.#.name` - The name of the GPU accelerator.
-	Gpuses []GetInstanceTypeGpus `pulumi:"gpuses"`
-	// Indicates the hypervisor used for the instance type.
-	// * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
-	// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-	// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-	// * `inference_accelerators.#.name` - The name of the Inference accelerator.
-	Hypervisor            *string                               `pulumi:"hypervisor"`
-	InferenceAccelerators []GetInstanceTypeInferenceAccelerator `pulumi:"inferenceAccelerators"`
-	// Describes the disks for the instance type.
-	// * `instance_disks.#.count` - The number of disks with this configuration.
-	// * `instance_disks.#.size` - The size of the disk in GB.
-	// * `instance_disks.#.type` - The type of disk.
-	InstanceDisks []GetInstanceTypeInstanceDisk `pulumi:"instanceDisks"`
 	// Instance
 	InstanceType string `pulumi:"instanceType"`
-	// The maximum number of IPv6 addresses per network interface.
-	MaximumIpv6AddressesPerInterface *int `pulumi:"maximumIpv6AddressesPerInterface"`
-	// The total memory of all FPGA accelerators for the instance type (in MiB).
-	TotalFpgaMemory *int `pulumi:"totalFpgaMemory"`
-	// The total size of the memory for the GPU accelerators for the instance type (in MiB).
-	TotalGpuMemory *int `pulumi:"totalGpuMemory"`
-	// The total size of the instance disks, in GB.
-	TotalInstanceStorage *int `pulumi:"totalInstanceStorage"`
 }
 
 // A collection of values returned by getInstanceType.
@@ -211,44 +175,8 @@ func GetInstanceTypeOutput(ctx *pulumi.Context, args GetInstanceTypeOutputArgs, 
 
 // A collection of arguments for invoking getInstanceType.
 type GetInstanceTypeOutputArgs struct {
-	// The default number of cores for the instance type.
-	DefaultCores pulumi.IntPtrInput `pulumi:"defaultCores"`
-	// The  default  number of threads per core for the instance type.
-	DefaultThreadsPerCore pulumi.IntPtrInput `pulumi:"defaultThreadsPerCore"`
-	// Describes the FPGA accelerator settings for the instance type.
-	// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
-	// * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
-	// * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
-	// * `fpgas.#.name` - The name of the FPGA accelerator.
-	Fpgas GetInstanceTypeFpgaArrayInput `pulumi:"fpgas"`
-	// Describes the GPU accelerators for the instance type.
-	// * `gpus.#.count` - The number of GPUs for the instance type.
-	// * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
-	// * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
-	// * `gpus.#.name` - The name of the GPU accelerator.
-	Gpuses GetInstanceTypeGpusArrayInput `pulumi:"gpuses"`
-	// Indicates the hypervisor used for the instance type.
-	// * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
-	// * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
-	// * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
-	// * `inference_accelerators.#.name` - The name of the Inference accelerator.
-	Hypervisor            pulumi.StringPtrInput                         `pulumi:"hypervisor"`
-	InferenceAccelerators GetInstanceTypeInferenceAcceleratorArrayInput `pulumi:"inferenceAccelerators"`
-	// Describes the disks for the instance type.
-	// * `instance_disks.#.count` - The number of disks with this configuration.
-	// * `instance_disks.#.size` - The size of the disk in GB.
-	// * `instance_disks.#.type` - The type of disk.
-	InstanceDisks GetInstanceTypeInstanceDiskArrayInput `pulumi:"instanceDisks"`
 	// Instance
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The maximum number of IPv6 addresses per network interface.
-	MaximumIpv6AddressesPerInterface pulumi.IntPtrInput `pulumi:"maximumIpv6AddressesPerInterface"`
-	// The total memory of all FPGA accelerators for the instance type (in MiB).
-	TotalFpgaMemory pulumi.IntPtrInput `pulumi:"totalFpgaMemory"`
-	// The total size of the memory for the GPU accelerators for the instance type (in MiB).
-	TotalGpuMemory pulumi.IntPtrInput `pulumi:"totalGpuMemory"`
-	// The total size of the instance disks, in GB.
-	TotalInstanceStorage pulumi.IntPtrInput `pulumi:"totalInstanceStorage"`
 }
 
 func (GetInstanceTypeOutputArgs) ElementType() reflect.Type {

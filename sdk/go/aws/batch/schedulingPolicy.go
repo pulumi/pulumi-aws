@@ -66,7 +66,7 @@ type SchedulingPolicy struct {
 	FairSharePolicy SchedulingPolicyFairSharePolicyPtrOutput `pulumi:"fairSharePolicy"`
 	// Specifies the name of the scheduling policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -106,7 +106,7 @@ type schedulingPolicyState struct {
 	FairSharePolicy *SchedulingPolicyFairSharePolicy `pulumi:"fairSharePolicy"`
 	// Specifies the name of the scheduling policy.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -118,7 +118,7 @@ type SchedulingPolicyState struct {
 	FairSharePolicy SchedulingPolicyFairSharePolicyPtrInput
 	// Specifies the name of the scheduling policy.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -132,7 +132,7 @@ type schedulingPolicyArgs struct {
 	FairSharePolicy *SchedulingPolicyFairSharePolicy `pulumi:"fairSharePolicy"`
 	// Specifies the name of the scheduling policy.
 	Name *string `pulumi:"name"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -141,7 +141,7 @@ type SchedulingPolicyArgs struct {
 	FairSharePolicy SchedulingPolicyFairSharePolicyPtrInput
 	// Specifies the name of the scheduling policy.
 	Name pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -246,7 +246,7 @@ func (o SchedulingPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SchedulingPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SchedulingPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

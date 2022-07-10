@@ -481,6 +481,2041 @@ func (o ResourceServerScopeArrayOutput) Index(i pulumi.IntInput) ResourceServerS
 	}).(ResourceServerScopeOutput)
 }
 
+type RiskConfigurationAccountTakeoverRiskConfiguration struct {
+	// The compromised credentials risk configuration actions. See details below.
+	Actions RiskConfigurationAccountTakeoverRiskConfigurationActions `pulumi:"actions"`
+	// The notify configuration used to construct email notifications. See details below.
+	NotifyConfiguration RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration `pulumi:"notifyConfiguration"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationArgs and RiskConfigurationAccountTakeoverRiskConfigurationOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationOutput() RiskConfigurationAccountTakeoverRiskConfigurationOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationArgs struct {
+	// The compromised credentials risk configuration actions. See details below.
+	Actions RiskConfigurationAccountTakeoverRiskConfigurationActionsInput `pulumi:"actions"`
+	// The notify configuration used to construct email notifications. See details below.
+	NotifyConfiguration RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationInput `pulumi:"notifyConfiguration"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfiguration)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationOutput() RiskConfigurationAccountTakeoverRiskConfigurationOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationArgs, RiskConfigurationAccountTakeoverRiskConfigurationPtr and RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationPtrType RiskConfigurationAccountTakeoverRiskConfigurationArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationArgs) RiskConfigurationAccountTakeoverRiskConfigurationPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfiguration)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfiguration)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationOutput() RiskConfigurationAccountTakeoverRiskConfigurationOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfiguration) *RiskConfigurationAccountTakeoverRiskConfiguration {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput)
+}
+
+// The compromised credentials risk configuration actions. See details below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) Actions() RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfiguration) RiskConfigurationAccountTakeoverRiskConfigurationActions {
+		return v.Actions
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput)
+}
+
+// The notify configuration used to construct email notifications. See details below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationOutput) NotifyConfiguration() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfiguration) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration {
+		return v.NotifyConfiguration
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfiguration)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfiguration) RiskConfigurationAccountTakeoverRiskConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfiguration
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationOutput)
+}
+
+// The compromised credentials risk configuration actions. See details below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) Actions() RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationActions {
+		if v == nil {
+			return nil
+		}
+		return &v.Actions
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput)
+}
+
+// The notify configuration used to construct email notifications. See details below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput) NotifyConfiguration() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.NotifyConfiguration
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActions struct {
+	// Action to take for a high risk. See action block below.
+	HighAction *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction `pulumi:"highAction"`
+	// Action to take for a low risk. See action block below.
+	LowAction *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction `pulumi:"lowAction"`
+	// Action to take for a medium risk. See action block below.
+	MediumAction *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction `pulumi:"mediumAction"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationActionsInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationActionsInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs struct {
+	// Action to take for a high risk. See action block below.
+	HighAction RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrInput `pulumi:"highAction"`
+	// Action to take for a low risk. See action block below.
+	LowAction RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrInput `pulumi:"lowAction"`
+	// Action to take for a medium risk. See action block below.
+	MediumAction RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrInput `pulumi:"mediumAction"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActions)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs, RiskConfigurationAccountTakeoverRiskConfigurationActionsPtr and RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationActionsPtrType RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationActionsPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs) RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationActionsPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationActions)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationActionsPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationActionsPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActions)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfigurationActions) *RiskConfigurationAccountTakeoverRiskConfigurationActions {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput)
+}
+
+// Action to take for a high risk. See action block below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput) HighAction() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActions) *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction {
+		return v.HighAction
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput)
+}
+
+// Action to take for a low risk. See action block below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput) LowAction() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActions) *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction {
+		return v.LowAction
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput)
+}
+
+// Action to take for a medium risk. See action block below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput) MediumAction() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActions) *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction {
+		return v.MediumAction
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationActions)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActions) RiskConfigurationAccountTakeoverRiskConfigurationActions {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfigurationActions
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput)
+}
+
+// Action to take for a high risk. See action block below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) HighAction() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActions) *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction {
+		if v == nil {
+			return nil
+		}
+		return v.HighAction
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput)
+}
+
+// Action to take for a low risk. See action block below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) LowAction() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActions) *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction {
+		if v == nil {
+			return nil
+		}
+		return v.LowAction
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput)
+}
+
+// Action to take for a medium risk. See action block below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput) MediumAction() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActions) *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction {
+		if v == nil {
+			return nil
+		}
+		return v.MediumAction
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction struct {
+	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	EventAction string `pulumi:"eventAction"`
+	// Whether to send a notification.
+	Notify bool `pulumi:"notify"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs struct {
+	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	EventAction pulumi.StringInput `pulumi:"eventAction"`
+	// Whether to send a notification.
+	Notify pulumi.BoolInput `pulumi:"notify"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs, RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtr and RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrType RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput)
+}
+
+// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) EventAction() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) string {
+		return v.EventAction
+	}).(pulumi.StringOutput)
+}
+
+// Whether to send a notification.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput) Notify() pulumi.BoolOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) bool { return v.Notify }).(pulumi.BoolOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput)
+}
+
+// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to send a notification.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput) Notify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsHighAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Notify
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction struct {
+	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	EventAction string `pulumi:"eventAction"`
+	// Whether to send a notification.
+	Notify bool `pulumi:"notify"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs struct {
+	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	EventAction pulumi.StringInput `pulumi:"eventAction"`
+	// Whether to send a notification.
+	Notify pulumi.BoolInput `pulumi:"notify"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs, RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtr and RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrType RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput)
+}
+
+// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) EventAction() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) string { return v.EventAction }).(pulumi.StringOutput)
+}
+
+// Whether to send a notification.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput) Notify() pulumi.BoolOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) bool { return v.Notify }).(pulumi.BoolOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput)
+}
+
+// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to send a notification.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput) Notify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsLowAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Notify
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction struct {
+	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	EventAction string `pulumi:"eventAction"`
+	// Whether to send a notification.
+	Notify bool `pulumi:"notify"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs and RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs struct {
+	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	EventAction pulumi.StringInput `pulumi:"eventAction"`
+	// Whether to send a notification.
+	Notify pulumi.BoolInput `pulumi:"notify"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs, RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtr and RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrType RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput)
+}
+
+// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) EventAction() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) string {
+		return v.EventAction
+	}).(pulumi.StringOutput)
+}
+
+// Whether to send a notification.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput) Notify() pulumi.BoolOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) bool { return v.Notify }).(pulumi.BoolOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput)
+}
+
+// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to send a notification.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput) Notify() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumAction) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Notify
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration struct {
+	// Email template used when a detected risk event is blocked. See notify email type below.
+	BlockEmail *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail `pulumi:"blockEmail"`
+	// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+	From *string `pulumi:"from"`
+	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+	MfaEmail *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail `pulumi:"mfaEmail"`
+	// The email template used when a detected risk event is allowed. See notify email type below.
+	NoActionEmail *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail `pulumi:"noActionEmail"`
+	// The destination to which the receiver of an email should reply to.
+	ReplyTo *string `pulumi:"replyTo"`
+	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+	SourceArn string `pulumi:"sourceArn"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs and RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs struct {
+	// Email template used when a detected risk event is blocked. See notify email type below.
+	BlockEmail RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrInput `pulumi:"blockEmail"`
+	// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+	From pulumi.StringPtrInput `pulumi:"from"`
+	// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+	MfaEmail RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrInput `pulumi:"mfaEmail"`
+	// The email template used when a detected risk event is allowed. See notify email type below.
+	NoActionEmail RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrInput `pulumi:"noActionEmail"`
+	// The destination to which the receiver of an email should reply to.
+	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
+	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs, RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtr and RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrType RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput)
+}
+
+// Email template used when a detected risk event is blocked. See notify email type below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) BlockEmail() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail {
+		return v.BlockEmail
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput)
+}
+
+// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *string { return v.From }).(pulumi.StringPtrOutput)
+}
+
+// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) MfaEmail() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail {
+		return v.MfaEmail
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput)
+}
+
+// The email template used when a detected risk event is allowed. See notify email type below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) NoActionEmail() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail {
+		return v.NoActionEmail
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput)
+}
+
+// The destination to which the receiver of an email should reply to.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) string {
+		return v.SourceArn
+	}).(pulumi.StringOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput)
+}
+
+// Email template used when a detected risk event is blocked. See notify email type below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) BlockEmail() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail {
+		if v == nil {
+			return nil
+		}
+		return v.BlockEmail
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput)
+}
+
+// The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) From() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.From
+	}).(pulumi.StringPtrOutput)
+}
+
+// The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) MfaEmail() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail {
+		if v == nil {
+			return nil
+		}
+		return v.MfaEmail
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput)
+}
+
+// The email template used when a detected risk event is allowed. See notify email type below.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) NoActionEmail() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail {
+		if v == nil {
+			return nil
+		}
+		return v.NoActionEmail
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput)
+}
+
+// The destination to which the receiver of an email should reply to.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) ReplyTo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplyTo
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail struct {
+	// The email HTML body.
+	HtmlBody string `pulumi:"htmlBody"`
+	// The email subject.
+	Subject  string `pulumi:"subject"`
+	TextBody string `pulumi:"textBody"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs and RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs struct {
+	// The email HTML body.
+	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
+	// The email subject.
+	Subject  pulumi.StringInput `pulumi:"subject"`
+	TextBody pulumi.StringInput `pulumi:"textBody"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs, RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtr and RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrType RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput)
+}
+
+// The email HTML body.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) HtmlBody() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) string {
+		return v.HtmlBody
+	}).(pulumi.StringOutput)
+}
+
+// The email subject.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) string {
+		return v.Subject
+	}).(pulumi.StringOutput)
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput) TextBody() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) string {
+		return v.TextBody
+	}).(pulumi.StringOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput)
+}
+
+// The email HTML body.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) HtmlBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HtmlBody
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email subject.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Subject
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextBody
+	}).(pulumi.StringPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail struct {
+	// The email HTML body.
+	HtmlBody string `pulumi:"htmlBody"`
+	// The email subject.
+	Subject  string `pulumi:"subject"`
+	TextBody string `pulumi:"textBody"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs and RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs struct {
+	// The email HTML body.
+	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
+	// The email subject.
+	Subject  pulumi.StringInput `pulumi:"subject"`
+	TextBody pulumi.StringInput `pulumi:"textBody"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs, RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtr and RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrType RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput)
+}
+
+// The email HTML body.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) HtmlBody() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) string {
+		return v.HtmlBody
+	}).(pulumi.StringOutput)
+}
+
+// The email subject.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) string {
+		return v.Subject
+	}).(pulumi.StringOutput)
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput) TextBody() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) string {
+		return v.TextBody
+	}).(pulumi.StringOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput)
+}
+
+// The email HTML body.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) HtmlBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HtmlBody
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email subject.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Subject
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextBody
+	}).(pulumi.StringPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail struct {
+	// The email HTML body.
+	HtmlBody string `pulumi:"htmlBody"`
+	// The email subject.
+	Subject  string `pulumi:"subject"`
+	TextBody string `pulumi:"textBody"`
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs and RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs{...}
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs struct {
+	// The email HTML body.
+	HtmlBody pulumi.StringInput `pulumi:"htmlBody"`
+	// The email subject.
+	Subject  pulumi.StringInput `pulumi:"subject"`
+	TextBody pulumi.StringInput `pulumi:"textBody"`
+}
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail)(nil)).Elem()
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput)
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput).ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrInput is an input type that accepts RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs, RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtr and RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrInput` via:
+//
+//          RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput
+	ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput
+}
+
+type riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrType RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs
+
+func RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtr(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrInput {
+	return (*riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrType)(v)
+}
+
+func (*riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail)(nil)).Elem()
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return i.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrType) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return o.ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail {
+		return &v
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput)
+}
+
+// The email HTML body.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) HtmlBody() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) string {
+		return v.HtmlBody
+	}).(pulumi.StringOutput)
+}
+
+// The email subject.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) Subject() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) string {
+		return v.Subject
+	}).(pulumi.StringOutput)
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput) TextBody() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) string {
+		return v.TextBody
+	}).(pulumi.StringOutput)
+}
+
+type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail)(nil)).Elem()
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) ToRiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutputWithContext(ctx context.Context) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) Elem() RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail
+		return ret
+	}).(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput)
+}
+
+// The email HTML body.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) HtmlBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.HtmlBody
+	}).(pulumi.StringPtrOutput)
+}
+
+// The email subject.
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) Subject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Subject
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput) TextBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TextBody
+	}).(pulumi.StringPtrOutput)
+}
+
+type RiskConfigurationCompromisedCredentialsRiskConfiguration struct {
+	// The compromised credentials risk configuration actions. See details below.
+	Actions RiskConfigurationCompromisedCredentialsRiskConfigurationActions `pulumi:"actions"`
+	// Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+	EventFilters []string `pulumi:"eventFilters"`
+}
+
+// RiskConfigurationCompromisedCredentialsRiskConfigurationInput is an input type that accepts RiskConfigurationCompromisedCredentialsRiskConfigurationArgs and RiskConfigurationCompromisedCredentialsRiskConfigurationOutput values.
+// You can construct a concrete instance of `RiskConfigurationCompromisedCredentialsRiskConfigurationInput` via:
+//
+//          RiskConfigurationCompromisedCredentialsRiskConfigurationArgs{...}
+type RiskConfigurationCompromisedCredentialsRiskConfigurationInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationCompromisedCredentialsRiskConfigurationOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationOutput
+	ToRiskConfigurationCompromisedCredentialsRiskConfigurationOutputWithContext(context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationOutput
+}
+
+type RiskConfigurationCompromisedCredentialsRiskConfigurationArgs struct {
+	// The compromised credentials risk configuration actions. See details below.
+	Actions RiskConfigurationCompromisedCredentialsRiskConfigurationActionsInput `pulumi:"actions"`
+	// Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+	EventFilters pulumi.StringArrayInput `pulumi:"eventFilters"`
+}
+
+func (RiskConfigurationCompromisedCredentialsRiskConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationCompromisedCredentialsRiskConfiguration)(nil)).Elem()
+}
+
+func (i RiskConfigurationCompromisedCredentialsRiskConfigurationArgs) ToRiskConfigurationCompromisedCredentialsRiskConfigurationOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationOutput {
+	return i.ToRiskConfigurationCompromisedCredentialsRiskConfigurationOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationCompromisedCredentialsRiskConfigurationArgs) ToRiskConfigurationCompromisedCredentialsRiskConfigurationOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationCompromisedCredentialsRiskConfigurationOutput)
+}
+
+func (i RiskConfigurationCompromisedCredentialsRiskConfigurationArgs) ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
+	return i.ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationCompromisedCredentialsRiskConfigurationArgs) ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationCompromisedCredentialsRiskConfigurationOutput).ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput is an input type that accepts RiskConfigurationCompromisedCredentialsRiskConfigurationArgs, RiskConfigurationCompromisedCredentialsRiskConfigurationPtr and RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput` via:
+//
+//          RiskConfigurationCompromisedCredentialsRiskConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput
+	ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput
+}
+
+type riskConfigurationCompromisedCredentialsRiskConfigurationPtrType RiskConfigurationCompromisedCredentialsRiskConfigurationArgs
+
+func RiskConfigurationCompromisedCredentialsRiskConfigurationPtr(v *RiskConfigurationCompromisedCredentialsRiskConfigurationArgs) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput {
+	return (*riskConfigurationCompromisedCredentialsRiskConfigurationPtrType)(v)
+}
+
+func (*riskConfigurationCompromisedCredentialsRiskConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationCompromisedCredentialsRiskConfiguration)(nil)).Elem()
+}
+
+func (i *riskConfigurationCompromisedCredentialsRiskConfigurationPtrType) ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
+	return i.ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationCompromisedCredentialsRiskConfigurationPtrType) ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput)
+}
+
+type RiskConfigurationCompromisedCredentialsRiskConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationCompromisedCredentialsRiskConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationCompromisedCredentialsRiskConfiguration)(nil)).Elem()
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationOutput {
+	return o
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationOutput {
+	return o
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
+	return o.ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationCompromisedCredentialsRiskConfiguration) *RiskConfigurationCompromisedCredentialsRiskConfiguration {
+		return &v
+	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput)
+}
+
+// The compromised credentials risk configuration actions. See details below.
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationOutput) Actions() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput {
+	return o.ApplyT(func(v RiskConfigurationCompromisedCredentialsRiskConfiguration) RiskConfigurationCompromisedCredentialsRiskConfigurationActions {
+		return v.Actions
+	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput)
+}
+
+// Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationOutput) EventFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RiskConfigurationCompromisedCredentialsRiskConfiguration) []string { return v.EventFilters }).(pulumi.StringArrayOutput)
+}
+
+type RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationCompromisedCredentialsRiskConfiguration)(nil)).Elem()
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput) Elem() RiskConfigurationCompromisedCredentialsRiskConfigurationOutput {
+	return o.ApplyT(func(v *RiskConfigurationCompromisedCredentialsRiskConfiguration) RiskConfigurationCompromisedCredentialsRiskConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationCompromisedCredentialsRiskConfiguration
+		return ret
+	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationOutput)
+}
+
+// The compromised credentials risk configuration actions. See details below.
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput) Actions() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationCompromisedCredentialsRiskConfiguration) *RiskConfigurationCompromisedCredentialsRiskConfigurationActions {
+		if v == nil {
+			return nil
+		}
+		return &v.Actions
+	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput)
+}
+
+// Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput) EventFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RiskConfigurationCompromisedCredentialsRiskConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EventFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+type RiskConfigurationCompromisedCredentialsRiskConfigurationActions struct {
+	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	EventAction string `pulumi:"eventAction"`
+}
+
+// RiskConfigurationCompromisedCredentialsRiskConfigurationActionsInput is an input type that accepts RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs and RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput values.
+// You can construct a concrete instance of `RiskConfigurationCompromisedCredentialsRiskConfigurationActionsInput` via:
+//
+//          RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs{...}
+type RiskConfigurationCompromisedCredentialsRiskConfigurationActionsInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput
+	ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutputWithContext(context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput
+}
+
+type RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs struct {
+	// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+	EventAction pulumi.StringInput `pulumi:"eventAction"`
+}
+
+func (RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationCompromisedCredentialsRiskConfigurationActions)(nil)).Elem()
+}
+
+func (i RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput {
+	return i.ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput)
+}
+
+func (i RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return i.ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput).ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrInput is an input type that accepts RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs, RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtr and RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrInput` via:
+//
+//          RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput
+	ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput
+}
+
+type riskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrType RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs
+
+func RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtr(v *RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrInput {
+	return (*riskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrType)(v)
+}
+
+func (*riskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationCompromisedCredentialsRiskConfigurationActions)(nil)).Elem()
+}
+
+func (i *riskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrType) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return i.ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrType) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput)
+}
+
+type RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationCompromisedCredentialsRiskConfigurationActions)(nil)).Elem()
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput {
+	return o
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput {
+	return o
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return o.ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationCompromisedCredentialsRiskConfigurationActions) *RiskConfigurationCompromisedCredentialsRiskConfigurationActions {
+		return &v
+	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput)
+}
+
+// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput) EventAction() pulumi.StringOutput {
+	return o.ApplyT(func(v RiskConfigurationCompromisedCredentialsRiskConfigurationActions) string { return v.EventAction }).(pulumi.StringOutput)
+}
+
+type RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationCompromisedCredentialsRiskConfigurationActions)(nil)).Elem()
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput) ToRiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutputWithContext(ctx context.Context) RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput) Elem() RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput {
+	return o.ApplyT(func(v *RiskConfigurationCompromisedCredentialsRiskConfigurationActions) RiskConfigurationCompromisedCredentialsRiskConfigurationActions {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationCompromisedCredentialsRiskConfigurationActions
+		return ret
+	}).(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput)
+}
+
+// The event action. Valid values are `BLOCK` or `NO_ACTION`.
+func (o RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput) EventAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RiskConfigurationCompromisedCredentialsRiskConfigurationActions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EventAction
+	}).(pulumi.StringPtrOutput)
+}
+
+type RiskConfigurationRiskExceptionConfiguration struct {
+	// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+	BlockedIpRangeLists []string `pulumi:"blockedIpRangeLists"`
+	// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+	SkippedIpRangeLists []string `pulumi:"skippedIpRangeLists"`
+}
+
+// RiskConfigurationRiskExceptionConfigurationInput is an input type that accepts RiskConfigurationRiskExceptionConfigurationArgs and RiskConfigurationRiskExceptionConfigurationOutput values.
+// You can construct a concrete instance of `RiskConfigurationRiskExceptionConfigurationInput` via:
+//
+//          RiskConfigurationRiskExceptionConfigurationArgs{...}
+type RiskConfigurationRiskExceptionConfigurationInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationRiskExceptionConfigurationOutput() RiskConfigurationRiskExceptionConfigurationOutput
+	ToRiskConfigurationRiskExceptionConfigurationOutputWithContext(context.Context) RiskConfigurationRiskExceptionConfigurationOutput
+}
+
+type RiskConfigurationRiskExceptionConfigurationArgs struct {
+	// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+	BlockedIpRangeLists pulumi.StringArrayInput `pulumi:"blockedIpRangeLists"`
+	// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+	SkippedIpRangeLists pulumi.StringArrayInput `pulumi:"skippedIpRangeLists"`
+}
+
+func (RiskConfigurationRiskExceptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationRiskExceptionConfiguration)(nil)).Elem()
+}
+
+func (i RiskConfigurationRiskExceptionConfigurationArgs) ToRiskConfigurationRiskExceptionConfigurationOutput() RiskConfigurationRiskExceptionConfigurationOutput {
+	return i.ToRiskConfigurationRiskExceptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationRiskExceptionConfigurationArgs) ToRiskConfigurationRiskExceptionConfigurationOutputWithContext(ctx context.Context) RiskConfigurationRiskExceptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationRiskExceptionConfigurationOutput)
+}
+
+func (i RiskConfigurationRiskExceptionConfigurationArgs) ToRiskConfigurationRiskExceptionConfigurationPtrOutput() RiskConfigurationRiskExceptionConfigurationPtrOutput {
+	return i.ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RiskConfigurationRiskExceptionConfigurationArgs) ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationRiskExceptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationRiskExceptionConfigurationOutput).ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// RiskConfigurationRiskExceptionConfigurationPtrInput is an input type that accepts RiskConfigurationRiskExceptionConfigurationArgs, RiskConfigurationRiskExceptionConfigurationPtr and RiskConfigurationRiskExceptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `RiskConfigurationRiskExceptionConfigurationPtrInput` via:
+//
+//          RiskConfigurationRiskExceptionConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type RiskConfigurationRiskExceptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRiskConfigurationRiskExceptionConfigurationPtrOutput() RiskConfigurationRiskExceptionConfigurationPtrOutput
+	ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(context.Context) RiskConfigurationRiskExceptionConfigurationPtrOutput
+}
+
+type riskConfigurationRiskExceptionConfigurationPtrType RiskConfigurationRiskExceptionConfigurationArgs
+
+func RiskConfigurationRiskExceptionConfigurationPtr(v *RiskConfigurationRiskExceptionConfigurationArgs) RiskConfigurationRiskExceptionConfigurationPtrInput {
+	return (*riskConfigurationRiskExceptionConfigurationPtrType)(v)
+}
+
+func (*riskConfigurationRiskExceptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationRiskExceptionConfiguration)(nil)).Elem()
+}
+
+func (i *riskConfigurationRiskExceptionConfigurationPtrType) ToRiskConfigurationRiskExceptionConfigurationPtrOutput() RiskConfigurationRiskExceptionConfigurationPtrOutput {
+	return i.ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *riskConfigurationRiskExceptionConfigurationPtrType) ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationRiskExceptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RiskConfigurationRiskExceptionConfigurationPtrOutput)
+}
+
+type RiskConfigurationRiskExceptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationRiskExceptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RiskConfigurationRiskExceptionConfiguration)(nil)).Elem()
+}
+
+func (o RiskConfigurationRiskExceptionConfigurationOutput) ToRiskConfigurationRiskExceptionConfigurationOutput() RiskConfigurationRiskExceptionConfigurationOutput {
+	return o
+}
+
+func (o RiskConfigurationRiskExceptionConfigurationOutput) ToRiskConfigurationRiskExceptionConfigurationOutputWithContext(ctx context.Context) RiskConfigurationRiskExceptionConfigurationOutput {
+	return o
+}
+
+func (o RiskConfigurationRiskExceptionConfigurationOutput) ToRiskConfigurationRiskExceptionConfigurationPtrOutput() RiskConfigurationRiskExceptionConfigurationPtrOutput {
+	return o.ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RiskConfigurationRiskExceptionConfigurationOutput) ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationRiskExceptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RiskConfigurationRiskExceptionConfiguration) *RiskConfigurationRiskExceptionConfiguration {
+		return &v
+	}).(RiskConfigurationRiskExceptionConfigurationPtrOutput)
+}
+
+// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+func (o RiskConfigurationRiskExceptionConfigurationOutput) BlockedIpRangeLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RiskConfigurationRiskExceptionConfiguration) []string { return v.BlockedIpRangeLists }).(pulumi.StringArrayOutput)
+}
+
+// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+func (o RiskConfigurationRiskExceptionConfigurationOutput) SkippedIpRangeLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RiskConfigurationRiskExceptionConfiguration) []string { return v.SkippedIpRangeLists }).(pulumi.StringArrayOutput)
+}
+
+type RiskConfigurationRiskExceptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RiskConfigurationRiskExceptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RiskConfigurationRiskExceptionConfiguration)(nil)).Elem()
+}
+
+func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) ToRiskConfigurationRiskExceptionConfigurationPtrOutput() RiskConfigurationRiskExceptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) ToRiskConfigurationRiskExceptionConfigurationPtrOutputWithContext(ctx context.Context) RiskConfigurationRiskExceptionConfigurationPtrOutput {
+	return o
+}
+
+func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) Elem() RiskConfigurationRiskExceptionConfigurationOutput {
+	return o.ApplyT(func(v *RiskConfigurationRiskExceptionConfiguration) RiskConfigurationRiskExceptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RiskConfigurationRiskExceptionConfiguration
+		return ret
+	}).(RiskConfigurationRiskExceptionConfigurationOutput)
+}
+
+// Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) BlockedIpRangeLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RiskConfigurationRiskExceptionConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.BlockedIpRangeLists
+	}).(pulumi.StringArrayOutput)
+}
+
+// Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+func (o RiskConfigurationRiskExceptionConfigurationPtrOutput) SkippedIpRangeLists() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RiskConfigurationRiskExceptionConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SkippedIpRangeLists
+	}).(pulumi.StringArrayOutput)
+}
+
 type UserPoolAccountRecoverySetting struct {
 	// List of Account Recovery Options of the following structure:
 	RecoveryMechanisms []UserPoolAccountRecoverySettingRecoveryMechanism `pulumi:"recoveryMechanisms"`
@@ -4244,6 +6279,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentRoleMappingMappingRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerScopeInput)(nil)).Elem(), ResourceServerScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerScopeArrayInput)(nil)).Elem(), ResourceServerScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrInput)(nil)).Elem(), RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationCompromisedCredentialsRiskConfigurationInput)(nil)).Elem(), RiskConfigurationCompromisedCredentialsRiskConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationCompromisedCredentialsRiskConfigurationPtrInput)(nil)).Elem(), RiskConfigurationCompromisedCredentialsRiskConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationCompromisedCredentialsRiskConfigurationActionsInput)(nil)).Elem(), RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrInput)(nil)).Elem(), RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationRiskExceptionConfigurationInput)(nil)).Elem(), RiskConfigurationRiskExceptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RiskConfigurationRiskExceptionConfigurationPtrInput)(nil)).Elem(), RiskConfigurationRiskExceptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingInput)(nil)).Elem(), UserPoolAccountRecoverySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingPtrInput)(nil)).Elem(), UserPoolAccountRecoverySettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolAccountRecoverySettingRecoveryMechanismInput)(nil)).Elem(), UserPoolAccountRecoverySettingRecoveryMechanismArgs{})
@@ -4296,6 +6355,30 @@ func init() {
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentRoleMappingMappingRuleArrayOutput{})
 	pulumi.RegisterOutputType(ResourceServerScopeOutput{})
 	pulumi.RegisterOutputType(ResourceServerScopeArrayOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationActionsOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationActionsPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationCompromisedCredentialsRiskConfigurationOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationCompromisedCredentialsRiskConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationCompromisedCredentialsRiskConfigurationActionsPtrOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationRiskExceptionConfigurationOutput{})
+	pulumi.RegisterOutputType(RiskConfigurationRiskExceptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolAccountRecoverySettingRecoveryMechanismOutput{})

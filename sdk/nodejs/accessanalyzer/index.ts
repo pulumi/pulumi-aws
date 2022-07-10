@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./analyzer";
+export * from "./archiveRule";
 
 // Import resources to register:
 import { Analyzer } from "./analyzer";
+import { ArchiveRule } from "./archiveRule";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:accessanalyzer/analyzer:Analyzer":
                 return new Analyzer(name, <any>undefined, { urn })
+            case "aws:accessanalyzer/archiveRule:ArchiveRule":
+                return new ArchiveRule(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "accessanalyzer/analyzer", _module)
+pulumi.runtime.registerResourceModule("aws", "accessanalyzer/archiveRule", _module)

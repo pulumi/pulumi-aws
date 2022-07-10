@@ -104,6 +104,13 @@ export interface GetInstanceResult {
      * The credit specification of the Instance.
      */
     readonly creditSpecifications: outputs.ec2.GetInstanceCreditSpecification[];
+    /**
+     * Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
+     */
+    readonly disableApiStop: boolean;
+    /**
+     * Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
+     */
     readonly disableApiTermination: boolean;
     /**
      * The EBS block device mappings of the Instance.
@@ -195,6 +202,10 @@ export interface GetInstanceResult {
      * for your VPC.
      */
     readonly privateDns: string;
+    /**
+     * The options for the instance hostname.
+     */
+    readonly privateDnsNameOptions: outputs.ec2.GetInstancePrivateDnsNameOption[];
     /**
      * The private IP address assigned to the Instance.
      */

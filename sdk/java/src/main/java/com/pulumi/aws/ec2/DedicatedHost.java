@@ -126,18 +126,32 @@ public class DedicatedHost extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.instanceFamily);
     }
     /**
-     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
     @Export(name="instanceType", type=String.class, parameters={})
     private Output</* @Nullable */ String> instanceType;
 
     /**
-     * @return Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+     * @return Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
     public Output<Optional<String>> instanceType() {
         return Codegen.optional(this.instanceType);
+    }
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * 
+     */
+    @Export(name="outpostArn", type=String.class, parameters={})
+    private Output</* @Nullable */ String> outpostArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * 
+     */
+    public Output<Optional<String>> outpostArn() {
+        return Codegen.optional(this.outpostArn);
     }
     /**
      * The ID of the AWS account that owns the Dedicated Host.

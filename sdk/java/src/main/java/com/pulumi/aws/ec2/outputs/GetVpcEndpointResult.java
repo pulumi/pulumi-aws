@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetVpcEndpointDnsEntry;
+import com.pulumi.aws.ec2.outputs.GetVpcEndpointDnsOption;
 import com.pulumi.aws.ec2.outputs.GetVpcEndpointFilter;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -30,8 +31,10 @@ public final class GetVpcEndpointResult {
      * 
      */
     private final List<GetVpcEndpointDnsEntry> dnsEntries;
+    private final List<GetVpcEndpointDnsOption> dnsOptions;
     private final @Nullable List<GetVpcEndpointFilter> filters;
     private final String id;
+    private final String ipAddressType;
     /**
      * @return One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      * 
@@ -92,8 +95,10 @@ public final class GetVpcEndpointResult {
         @CustomType.Parameter("arn") String arn,
         @CustomType.Parameter("cidrBlocks") List<String> cidrBlocks,
         @CustomType.Parameter("dnsEntries") List<GetVpcEndpointDnsEntry> dnsEntries,
+        @CustomType.Parameter("dnsOptions") List<GetVpcEndpointDnsOption> dnsOptions,
         @CustomType.Parameter("filters") @Nullable List<GetVpcEndpointFilter> filters,
         @CustomType.Parameter("id") String id,
+        @CustomType.Parameter("ipAddressType") String ipAddressType,
         @CustomType.Parameter("networkInterfaceIds") List<String> networkInterfaceIds,
         @CustomType.Parameter("ownerId") String ownerId,
         @CustomType.Parameter("policy") String policy,
@@ -111,8 +116,10 @@ public final class GetVpcEndpointResult {
         this.arn = arn;
         this.cidrBlocks = cidrBlocks;
         this.dnsEntries = dnsEntries;
+        this.dnsOptions = dnsOptions;
         this.filters = filters;
         this.id = id;
+        this.ipAddressType = ipAddressType;
         this.networkInterfaceIds = networkInterfaceIds;
         this.ownerId = ownerId;
         this.policy = policy;
@@ -150,11 +157,17 @@ public final class GetVpcEndpointResult {
     public List<GetVpcEndpointDnsEntry> dnsEntries() {
         return this.dnsEntries;
     }
+    public List<GetVpcEndpointDnsOption> dnsOptions() {
+        return this.dnsOptions;
+    }
     public List<GetVpcEndpointFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
     public String id() {
         return this.id;
+    }
+    public String ipAddressType() {
+        return this.ipAddressType;
     }
     /**
      * @return One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
@@ -251,8 +264,10 @@ public final class GetVpcEndpointResult {
         private String arn;
         private List<String> cidrBlocks;
         private List<GetVpcEndpointDnsEntry> dnsEntries;
+        private List<GetVpcEndpointDnsOption> dnsOptions;
         private @Nullable List<GetVpcEndpointFilter> filters;
         private String id;
+        private String ipAddressType;
         private List<String> networkInterfaceIds;
         private String ownerId;
         private String policy;
@@ -277,8 +292,10 @@ public final class GetVpcEndpointResult {
     	      this.arn = defaults.arn;
     	      this.cidrBlocks = defaults.cidrBlocks;
     	      this.dnsEntries = defaults.dnsEntries;
+    	      this.dnsOptions = defaults.dnsOptions;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.ipAddressType = defaults.ipAddressType;
     	      this.networkInterfaceIds = defaults.networkInterfaceIds;
     	      this.ownerId = defaults.ownerId;
     	      this.policy = defaults.policy;
@@ -313,6 +330,13 @@ public final class GetVpcEndpointResult {
         public Builder dnsEntries(GetVpcEndpointDnsEntry... dnsEntries) {
             return dnsEntries(List.of(dnsEntries));
         }
+        public Builder dnsOptions(List<GetVpcEndpointDnsOption> dnsOptions) {
+            this.dnsOptions = Objects.requireNonNull(dnsOptions);
+            return this;
+        }
+        public Builder dnsOptions(GetVpcEndpointDnsOption... dnsOptions) {
+            return dnsOptions(List.of(dnsOptions));
+        }
         public Builder filters(@Nullable List<GetVpcEndpointFilter> filters) {
             this.filters = filters;
             return this;
@@ -322,6 +346,10 @@ public final class GetVpcEndpointResult {
         }
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        public Builder ipAddressType(String ipAddressType) {
+            this.ipAddressType = Objects.requireNonNull(ipAddressType);
             return this;
         }
         public Builder networkInterfaceIds(List<String> networkInterfaceIds) {
@@ -392,7 +420,7 @@ public final class GetVpcEndpointResult {
             this.vpcId = Objects.requireNonNull(vpcId);
             return this;
         }        public GetVpcEndpointResult build() {
-            return new GetVpcEndpointResult(arn, cidrBlocks, dnsEntries, filters, id, networkInterfaceIds, ownerId, policy, prefixListId, privateDnsEnabled, requesterManaged, routeTableIds, securityGroupIds, serviceName, state, subnetIds, tags, vpcEndpointType, vpcId);
+            return new GetVpcEndpointResult(arn, cidrBlocks, dnsEntries, dnsOptions, filters, id, ipAddressType, networkInterfaceIds, ownerId, policy, prefixListId, privateDnsEnabled, requesterManaged, routeTableIds, securityGroupIds, serviceName, state, subnetIds, tags, vpcEndpointType, vpcId);
         }
     }
 }

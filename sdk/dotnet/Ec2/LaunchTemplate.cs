@@ -54,6 +54,7 @@ namespace Pulumi.Aws.Ec2
     ///             {
     ///                 CpuCredits = "standard",
     ///             },
+    ///             DisableApiStop = true,
     ///             DisableApiTermination = true,
     ///             EbsOptimized = "true",
     ///             ElasticGpuSpecifications = 
@@ -186,6 +187,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// </summary>
+        [Output("disableApiStop")]
+        public Output<bool?> DisableApiStop { get; private set; } = null!;
 
         /// <summary>
         /// If `true`, enables [EC2 Instance
@@ -474,6 +481,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// </summary>
+        [Input("disableApiStop")]
+        public Input<bool>? DisableApiStop { get; set; }
+
+        /// <summary>
         /// If `true`, enables [EC2 Instance
         /// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
         /// </summary>
@@ -755,6 +768,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// </summary>
+        [Input("disableApiStop")]
+        public Input<bool>? DisableApiStop { get; set; }
 
         /// <summary>
         /// If `true`, enables [EC2 Instance

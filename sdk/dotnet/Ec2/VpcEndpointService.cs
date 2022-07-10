@@ -155,6 +155,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
+        /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        /// </summary>
+        [Output("supportedIpAddressTypes")]
+        public Output<ImmutableArray<string>> SupportedIpAddressTypes { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -259,6 +265,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("privateDnsName")]
         public Input<string>? PrivateDnsName { get; set; }
+
+        [Input("supportedIpAddressTypes")]
+        private InputList<string>? _supportedIpAddressTypes;
+
+        /// <summary>
+        /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        /// </summary>
+        public InputList<string> SupportedIpAddressTypes
+        {
+            get => _supportedIpAddressTypes ?? (_supportedIpAddressTypes = new InputList<string>());
+            set => _supportedIpAddressTypes = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -392,6 +410,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        [Input("supportedIpAddressTypes")]
+        private InputList<string>? _supportedIpAddressTypes;
+
+        /// <summary>
+        /// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        /// </summary>
+        public InputList<string> SupportedIpAddressTypes
+        {
+            get => _supportedIpAddressTypes ?? (_supportedIpAddressTypes = new InputList<string>());
+            set => _supportedIpAddressTypes = value;
+        }
 
         [Input("tags")]
         private InputMap<string>? _tags;

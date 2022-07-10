@@ -14,10 +14,13 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableReplica
     {
         /// <summary>
-        /// The ARN of the CMK that should be used for the AWS KMS encryption.
-        /// This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+        /// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
         /// </summary>
         public readonly string? KmsKeyArn;
+        /// <summary>
+        /// Whether to enable Point In Time Recovery for the replica.
+        /// </summary>
+        public readonly bool? PointInTimeRecovery;
         /// <summary>
         /// Region name of the replica.
         /// </summary>
@@ -27,9 +30,12 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         private TableReplica(
             string? kmsKeyArn,
 
+            bool? pointInTimeRecovery,
+
             string regionName)
         {
             KmsKeyArn = kmsKeyArn;
+            PointInTimeRecovery = pointInTimeRecovery;
             RegionName = regionName;
         }
     }

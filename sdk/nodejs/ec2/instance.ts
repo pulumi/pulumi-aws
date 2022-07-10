@@ -144,9 +144,13 @@ export class Instance extends pulumi.CustomResource {
      */
     public readonly cpuThreadsPerCore!: pulumi.Output<number>;
     /**
-     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
     public readonly creditSpecification!: pulumi.Output<outputs.ec2.InstanceCreditSpecification | undefined>;
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     */
+    public readonly disableApiStop!: pulumi.Output<boolean>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      */
@@ -253,6 +257,10 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateDns!: pulumi.Output<string>;
     /**
+     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     */
+    public readonly privateDnsNameOptions!: pulumi.Output<outputs.ec2.InstancePrivateDnsNameOptions>;
+    /**
      * Private IP address to associate with the instance in a VPC.
      */
     public readonly privateIp!: pulumi.Output<string>;
@@ -340,6 +348,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["cpuCoreCount"] = state ? state.cpuCoreCount : undefined;
             resourceInputs["cpuThreadsPerCore"] = state ? state.cpuThreadsPerCore : undefined;
             resourceInputs["creditSpecification"] = state ? state.creditSpecification : undefined;
+            resourceInputs["disableApiStop"] = state ? state.disableApiStop : undefined;
             resourceInputs["disableApiTermination"] = state ? state.disableApiTermination : undefined;
             resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
             resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
@@ -366,6 +375,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["placementPartitionNumber"] = state ? state.placementPartitionNumber : undefined;
             resourceInputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
             resourceInputs["privateDns"] = state ? state.privateDns : undefined;
+            resourceInputs["privateDnsNameOptions"] = state ? state.privateDnsNameOptions : undefined;
             resourceInputs["privateIp"] = state ? state.privateIp : undefined;
             resourceInputs["publicDns"] = state ? state.publicDns : undefined;
             resourceInputs["publicIp"] = state ? state.publicIp : undefined;
@@ -391,6 +401,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["cpuCoreCount"] = args ? args.cpuCoreCount : undefined;
             resourceInputs["cpuThreadsPerCore"] = args ? args.cpuThreadsPerCore : undefined;
             resourceInputs["creditSpecification"] = args ? args.creditSpecification : undefined;
+            resourceInputs["disableApiStop"] = args ? args.disableApiStop : undefined;
             resourceInputs["disableApiTermination"] = args ? args.disableApiTermination : undefined;
             resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
             resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
@@ -412,6 +423,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             resourceInputs["placementGroup"] = args ? args.placementGroup : undefined;
             resourceInputs["placementPartitionNumber"] = args ? args.placementPartitionNumber : undefined;
+            resourceInputs["privateDnsNameOptions"] = args ? args.privateDnsNameOptions : undefined;
             resourceInputs["privateIp"] = args ? args.privateIp : undefined;
             resourceInputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
             resourceInputs["secondaryPrivateIps"] = args ? args.secondaryPrivateIps : undefined;
@@ -473,9 +485,13 @@ export interface InstanceState {
      */
     cpuThreadsPerCore?: pulumi.Input<number>;
     /**
-     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
     creditSpecification?: pulumi.Input<inputs.ec2.InstanceCreditSpecification>;
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     */
+    disableApiStop?: pulumi.Input<boolean>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      */
@@ -582,6 +598,10 @@ export interface InstanceState {
      */
     privateDns?: pulumi.Input<string>;
     /**
+     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     */
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.InstancePrivateDnsNameOptions>;
+    /**
      * Private IP address to associate with the instance in a VPC.
      */
     privateIp?: pulumi.Input<string>;
@@ -678,9 +698,13 @@ export interface InstanceArgs {
      */
     cpuThreadsPerCore?: pulumi.Input<number>;
     /**
-     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      */
     creditSpecification?: pulumi.Input<inputs.ec2.InstanceCreditSpecification>;
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     */
+    disableApiStop?: pulumi.Input<boolean>;
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
      */
@@ -766,6 +790,10 @@ export interface InstanceArgs {
      * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
      */
     placementPartitionNumber?: pulumi.Input<number>;
+    /**
+     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     */
+    privateDnsNameOptions?: pulumi.Input<inputs.ec2.InstancePrivateDnsNameOptions>;
     /**
      * Private IP address to associate with the instance in a VPC.
      */

@@ -196,9 +196,6 @@ namespace Pulumi.Aws.CodeStarConnections
         /// The name of the CodeStar Connection. The name is unique in the calling AWS account.
         /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`.
-        /// </summary>
         public readonly string ProviderType;
         /// <summary>
         /// Map of key-value resource tags to associate with the resource.

@@ -18,6 +18,21 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
     public static final EfsLocationArgs Empty = new EfsLocationArgs();
 
     /**
+     * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     * 
+     */
+    @Import(name="accessPointArn")
+    private @Nullable Output<String> accessPointArn;
+
+    /**
+     * @return Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     * 
+     */
+    public Optional<Output<String>> accessPointArn() {
+        return Optional.ofNullable(this.accessPointArn);
+    }
+
+    /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      * 
      */
@@ -45,6 +60,36 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> efsFileSystemArn() {
         return this.efsFileSystemArn;
+    }
+
+    /**
+     * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+     * 
+     */
+    @Import(name="fileSystemAccessRoleArn")
+    private @Nullable Output<String> fileSystemAccessRoleArn;
+
+    /**
+     * @return Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+     * 
+     */
+    public Optional<Output<String>> fileSystemAccessRoleArn() {
+        return Optional.ofNullable(this.fileSystemAccessRoleArn);
+    }
+
+    /**
+     * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+     * 
+     */
+    @Import(name="inTransitEncryption")
+    private @Nullable Output<String> inTransitEncryption;
+
+    /**
+     * @return Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+     * 
+     */
+    public Optional<Output<String>> inTransitEncryption() {
+        return Optional.ofNullable(this.inTransitEncryption);
     }
 
     /**
@@ -80,8 +125,11 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
     private EfsLocationArgs() {}
 
     private EfsLocationArgs(EfsLocationArgs $) {
+        this.accessPointArn = $.accessPointArn;
         this.ec2Config = $.ec2Config;
         this.efsFileSystemArn = $.efsFileSystemArn;
+        this.fileSystemAccessRoleArn = $.fileSystemAccessRoleArn;
+        this.inTransitEncryption = $.inTransitEncryption;
         this.subdirectory = $.subdirectory;
         this.tags = $.tags;
     }
@@ -102,6 +150,27 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(EfsLocationArgs defaults) {
             $ = new EfsLocationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessPointArn Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPointArn(@Nullable Output<String> accessPointArn) {
+            $.accessPointArn = accessPointArn;
+            return this;
+        }
+
+        /**
+         * @param accessPointArn Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessPointArn(String accessPointArn) {
+            return accessPointArn(Output.of(accessPointArn));
         }
 
         /**
@@ -144,6 +213,48 @@ public final class EfsLocationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder efsFileSystemArn(String efsFileSystemArn) {
             return efsFileSystemArn(Output.of(efsFileSystemArn));
+        }
+
+        /**
+         * @param fileSystemAccessRoleArn Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileSystemAccessRoleArn(@Nullable Output<String> fileSystemAccessRoleArn) {
+            $.fileSystemAccessRoleArn = fileSystemAccessRoleArn;
+            return this;
+        }
+
+        /**
+         * @param fileSystemAccessRoleArn Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fileSystemAccessRoleArn(String fileSystemAccessRoleArn) {
+            return fileSystemAccessRoleArn(Output.of(fileSystemAccessRoleArn));
+        }
+
+        /**
+         * @param inTransitEncryption Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inTransitEncryption(@Nullable Output<String> inTransitEncryption) {
+            $.inTransitEncryption = inTransitEncryption;
+            return this;
+        }
+
+        /**
+         * @param inTransitEncryption Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder inTransitEncryption(String inTransitEncryption) {
+            return inTransitEncryption(Output.of(inTransitEncryption));
         }
 
         /**

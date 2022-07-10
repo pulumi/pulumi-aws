@@ -5,6 +5,8 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_asset import *
+from .get_assets import *
 from .get_outpost import *
 from .get_outpost_instance_type import *
 from .get_outpost_instance_types import *

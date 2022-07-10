@@ -101,6 +101,54 @@ import (
 // 	})
 // }
 // ```
+// ### Service with Observability Configuration
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apprunner"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleObservabilityConfiguration, err := apprunner.NewObservabilityConfiguration(ctx, "exampleObservabilityConfiguration", &apprunner.ObservabilityConfigurationArgs{
+// 			ObservabilityConfigurationName: pulumi.String("example"),
+// 			TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
+// 				Vendor: pulumi.String("AWSXRAY"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = apprunner.NewService(ctx, "exampleService", &apprunner.ServiceArgs{
+// 			ServiceName: pulumi.String("example"),
+// 			ObservabilityConfiguration: &apprunner.ServiceObservabilityConfigurationArgs{
+// 				ObservabilityConfigurationArn: exampleObservabilityConfiguration.Arn,
+// 				ObservabilityEnabled:          pulumi.Bool(true),
+// 			},
+// 			SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
+// 				ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
+// 					ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
+// 						Port: pulumi.String("8000"),
+// 					},
+// 					ImageIdentifier:     pulumi.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
+// 					ImageRepositoryType: pulumi.String("ECR_PUBLIC"),
+// 				},
+// 				AutoDeploymentEnabled: false,
+// 			},
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("example-apprunner-service"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -122,8 +170,10 @@ type Service struct {
 	HealthCheckConfiguration ServiceHealthCheckConfigurationOutput `pulumi:"healthCheckConfiguration"`
 	// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
 	InstanceConfiguration ServiceInstanceConfigurationOutput `pulumi:"instanceConfiguration"`
-	// Configuration settings related to network traffic of the web application that the App Runner service runs.
+	// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
 	NetworkConfiguration ServiceNetworkConfigurationOutput `pulumi:"networkConfiguration"`
+	// The observability configuration of your service. See Observability Configuration below for more details.
+	ObservabilityConfiguration ServiceObservabilityConfigurationPtrOutput `pulumi:"observabilityConfiguration"`
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 	// Name of the service.
@@ -185,8 +235,10 @@ type serviceState struct {
 	HealthCheckConfiguration *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
 	// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
 	InstanceConfiguration *ServiceInstanceConfiguration `pulumi:"instanceConfiguration"`
-	// Configuration settings related to network traffic of the web application that the App Runner service runs.
+	// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The observability configuration of your service. See Observability Configuration below for more details.
+	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId *string `pulumi:"serviceId"`
 	// Name of the service.
@@ -214,8 +266,10 @@ type ServiceState struct {
 	HealthCheckConfiguration ServiceHealthCheckConfigurationPtrInput
 	// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
 	InstanceConfiguration ServiceInstanceConfigurationPtrInput
-	// Configuration settings related to network traffic of the web application that the App Runner service runs.
+	// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
+	// The observability configuration of your service. See Observability Configuration below for more details.
+	ObservabilityConfiguration ServiceObservabilityConfigurationPtrInput
 	// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
 	ServiceId pulumi.StringPtrInput
 	// Name of the service.
@@ -245,8 +299,10 @@ type serviceArgs struct {
 	HealthCheckConfiguration *ServiceHealthCheckConfiguration `pulumi:"healthCheckConfiguration"`
 	// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
 	InstanceConfiguration *ServiceInstanceConfiguration `pulumi:"instanceConfiguration"`
-	// Configuration settings related to network traffic of the web application that the App Runner service runs.
+	// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
 	NetworkConfiguration *ServiceNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The observability configuration of your service. See Observability Configuration below for more details.
+	ObservabilityConfiguration *ServiceObservabilityConfiguration `pulumi:"observabilityConfiguration"`
 	// Name of the service.
 	ServiceName string `pulumi:"serviceName"`
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -265,8 +321,10 @@ type ServiceArgs struct {
 	HealthCheckConfiguration ServiceHealthCheckConfigurationPtrInput
 	// The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
 	InstanceConfiguration ServiceInstanceConfigurationPtrInput
-	// Configuration settings related to network traffic of the web application that the App Runner service runs.
+	// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
 	NetworkConfiguration ServiceNetworkConfigurationPtrInput
+	// The observability configuration of your service. See Observability Configuration below for more details.
+	ObservabilityConfiguration ServiceObservabilityConfigurationPtrInput
 	// Name of the service.
 	ServiceName pulumi.StringInput
 	// The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
@@ -387,9 +445,14 @@ func (o ServiceOutput) InstanceConfiguration() ServiceInstanceConfigurationOutpu
 	return o.ApplyT(func(v *Service) ServiceInstanceConfigurationOutput { return v.InstanceConfiguration }).(ServiceInstanceConfigurationOutput)
 }
 
-// Configuration settings related to network traffic of the web application that the App Runner service runs.
+// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
 func (o ServiceOutput) NetworkConfiguration() ServiceNetworkConfigurationOutput {
 	return o.ApplyT(func(v *Service) ServiceNetworkConfigurationOutput { return v.NetworkConfiguration }).(ServiceNetworkConfigurationOutput)
+}
+
+// The observability configuration of your service. See Observability Configuration below for more details.
+func (o ServiceOutput) ObservabilityConfiguration() ServiceObservabilityConfigurationPtrOutput {
+	return o.ApplyT(func(v *Service) ServiceObservabilityConfigurationPtrOutput { return v.ObservabilityConfiguration }).(ServiceObservabilityConfigurationPtrOutput)
 }
 
 // An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.

@@ -159,8 +159,12 @@ def get_policy(arn: Optional[str] = None,
 
 
     :param str arn: The ARN of the IAM policy.
+           Conflicts with `name` and `path_prefix`.
     :param str name: The name of the IAM policy.
-    :param str path_prefix: The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+           Conflicts with `arn`.
+    :param str path_prefix: The prefix of the path to the IAM policy.
+           Defaults to a slash (`/`).
+           Conflicts with `arn`.
     :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.
     """
     __args__ = dict()
@@ -216,8 +220,12 @@ def get_policy_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
 
     :param str arn: The ARN of the IAM policy.
+           Conflicts with `name` and `path_prefix`.
     :param str name: The name of the IAM policy.
-    :param str path_prefix: The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+           Conflicts with `arn`.
+    :param str path_prefix: The prefix of the path to the IAM policy.
+           Defaults to a slash (`/`).
+           Conflicts with `arn`.
     :param Mapping[str, str] tags: Key-value mapping of tags for the IAM Policy.
     """
     ...

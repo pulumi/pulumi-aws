@@ -47,14 +47,29 @@ public final class ClusterCoreInstanceGroupEbsConfigArgs extends com.pulumi.reso
     }
 
     /**
-     * Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+     * The throughput, in mebibyte per second (MiB/s).
+     * 
+     */
+    @Import(name="throughput")
+    private @Nullable Output<Integer> throughput;
+
+    /**
+     * @return The throughput, in mebibyte per second (MiB/s).
+     * 
+     */
+    public Optional<Output<Integer>> throughput() {
+        return Optional.ofNullable(this.throughput);
+    }
+
+    /**
+     * Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+     * @return Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
      * 
      */
     public Output<String> type() {
@@ -81,6 +96,7 @@ public final class ClusterCoreInstanceGroupEbsConfigArgs extends com.pulumi.reso
     private ClusterCoreInstanceGroupEbsConfigArgs(ClusterCoreInstanceGroupEbsConfigArgs $) {
         this.iops = $.iops;
         this.size = $.size;
+        this.throughput = $.throughput;
         this.type = $.type;
         this.volumesPerInstance = $.volumesPerInstance;
     }
@@ -146,7 +162,28 @@ public final class ClusterCoreInstanceGroupEbsConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * @param throughput The throughput, in mebibyte per second (MiB/s).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughput(@Nullable Output<Integer> throughput) {
+            $.throughput = throughput;
+            return this;
+        }
+
+        /**
+         * @param throughput The throughput, in mebibyte per second (MiB/s).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder throughput(Integer throughput) {
+            return throughput(Output.of(throughput));
+        }
+
+        /**
+         * @param type Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          * 
          * @return builder
          * 
@@ -157,7 +194,7 @@ public final class ClusterCoreInstanceGroupEbsConfigArgs extends com.pulumi.reso
         }
 
         /**
-         * @param type Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * @param type Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          * 
          * @return builder
          * 

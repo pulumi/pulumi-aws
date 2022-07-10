@@ -912,7 +912,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificat
 type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification struct {
 	// The metric type.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// Reserved for future use. Must be less than or equal to 1023 characters in length.
+	// Reserved for future use if the `predefinedMetricType` is not `ALBRequestCountPerTarget`. If the `predefinedMetricType` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
 	ResourceLabel *string `pulumi:"resourceLabel"`
 }
 
@@ -930,7 +930,7 @@ type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification
 type PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs struct {
 	// The metric type.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// Reserved for future use. Must be less than or equal to 1023 characters in length.
+	// Reserved for future use if the `predefinedMetricType` is not `ALBRequestCountPerTarget`. If the `predefinedMetricType` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
 	ResourceLabel pulumi.StringPtrInput `pulumi:"resourceLabel"`
 }
 
@@ -1018,7 +1018,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 	}).(pulumi.StringOutput)
 }
 
-// Reserved for future use. Must be less than or equal to 1023 characters in length.
+// Reserved for future use if the `predefinedMetricType` is not `ALBRequestCountPerTarget`. If the `predefinedMetricType` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *string {
 		return v.ResourceLabel
@@ -1059,7 +1059,7 @@ func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificat
 	}).(pulumi.StringPtrOutput)
 }
 
-// Reserved for future use. Must be less than or equal to 1023 characters in length.
+// Reserved for future use if the `predefinedMetricType` is not `ALBRequestCountPerTarget`. If the `predefinedMetricType` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
 func (o PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput) ResourceLabel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecification) *string {
 		if v == nil {

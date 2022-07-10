@@ -27,14 +27,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     public static final TableState Empty = new TableState();
 
     /**
-     * The arn of the table
+     * ARN of the table
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The arn of the table
+     * @return ARN of the table
      * 
      */
     public Optional<Output<String>> arn() {
@@ -42,14 +42,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+     * Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
     @Import(name="attributes")
     private @Nullable Output<List<TableAttributeArgs>> attributes;
 
     /**
-     * @return List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+     * @return Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
      * 
      */
     public Optional<Output<List<TableAttributeArgs>>> attributes() {
@@ -72,18 +72,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describe a GSI for the table;
-     * subject to the normal limits on the number of GSIs, projected
-     * attributes, etc.
+     * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
     @Import(name="globalSecondaryIndexes")
     private @Nullable Output<List<TableGlobalSecondaryIndexArgs>> globalSecondaryIndexes;
 
     /**
-     * @return Describe a GSI for the table;
-     * subject to the normal limits on the number of GSIs, projected
-     * attributes, etc.
+     * @return Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      * 
      */
     public Optional<Output<List<TableGlobalSecondaryIndexArgs>>> globalSecondaryIndexes() {
@@ -91,16 +87,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
     @Import(name="hashKey")
     private @Nullable Output<String> hashKey;
 
     /**
-     * @return The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
      * 
      */
     public Optional<Output<String>> hashKey() {
@@ -108,18 +102,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Describe an LSI on the table;
-     * these can only be allocated *at creation* so you cannot change this
-     * definition after you have created the resource.
+     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
      * 
      */
     @Import(name="localSecondaryIndexes")
     private @Nullable Output<List<TableLocalSecondaryIndexArgs>> localSecondaryIndexes;
 
     /**
-     * @return Describe an LSI on the table;
-     * these can only be allocated *at creation* so you cannot change this
-     * definition after you have created the resource.
+     * @return Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
      * 
      */
     public Optional<Output<List<TableLocalSecondaryIndexArgs>>> localSecondaryIndexes() {
@@ -127,14 +117,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the index
+     * Name of the index
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the index
+     * @return Name of the index
      * 
      */
     public Optional<Output<String>> name() {
@@ -142,14 +132,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable point-in-time recovery options.
+     * Whether to enable Point In Time Recovery for the replica.
      * 
      */
     @Import(name="pointInTimeRecovery")
     private @Nullable Output<TablePointInTimeRecoveryArgs> pointInTimeRecovery;
 
     /**
-     * @return Enable point-in-time recovery options.
+     * @return Whether to enable Point In Time Recovery for the replica.
      * 
      */
     public Optional<Output<TablePointInTimeRecoveryArgs>> pointInTimeRecovery() {
@@ -157,14 +147,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the range key; must be defined
+     * Name of the range key.
      * 
      */
     @Import(name="rangeKey")
     private @Nullable Output<String> rangeKey;
 
     /**
-     * @return The name of the range key; must be defined
+     * @return Name of the range key.
      * 
      */
     public Optional<Output<String>> rangeKey() {
@@ -172,14 +162,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     @Import(name="readCapacity")
     private @Nullable Output<Integer> readCapacity;
 
     /**
-     * @return The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     public Optional<Output<Integer>> readCapacity() {
@@ -187,14 +177,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      * 
      */
     @Import(name="replicas")
     private @Nullable Output<List<TableReplicaArgs>> replicas;
 
     /**
-     * @return Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     * @return Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      * 
      */
     public Optional<Output<List<TableReplicaArgs>>> replicas() {
@@ -202,14 +192,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time of the point-in-time recovery point to restore.
+     * Time of the point-in-time recovery point to restore.
      * 
      */
     @Import(name="restoreDateTime")
     private @Nullable Output<String> restoreDateTime;
 
     /**
-     * @return The time of the point-in-time recovery point to restore.
+     * @return Time of the point-in-time recovery point to restore.
      * 
      */
     public Optional<Output<String>> restoreDateTime() {
@@ -217,14 +207,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the table to restore. Must match the name of an existing table.
+     * Name of the table to restore. Must match the name of an existing table.
      * 
      */
     @Import(name="restoreSourceName")
     private @Nullable Output<String> restoreSourceName;
 
     /**
-     * @return The name of the table to restore. Must match the name of an existing table.
+     * @return Name of the table to restore. Must match the name of an existing table.
      * 
      */
     public Optional<Output<String>> restoreSourceName() {
@@ -247,14 +237,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn&#39;t specified.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
      * 
      */
     @Import(name="serverSideEncryption")
     private @Nullable Output<TableServerSideEncryptionArgs> serverSideEncryption;
 
     /**
-     * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn&#39;t specified.
+     * @return Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
      * 
      */
     public Optional<Output<TableServerSideEncryptionArgs>> serverSideEncryption() {
@@ -262,14 +252,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the Table Stream. Only available when `stream_enabled = true`
+     * ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
     @Import(name="streamArn")
     private @Nullable Output<String> streamArn;
 
     /**
-     * @return The ARN of the Table Stream. Only available when `stream_enabled = true`
+     * @return ARN of the Table Stream. Only available when `stream_enabled = true`
      * 
      */
     public Optional<Output<String>> streamArn() {
@@ -277,14 +267,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether Streams are to be enabled (true) or disabled (false).
+     * Whether Streams are enabled.
      * 
      */
     @Import(name="streamEnabled")
     private @Nullable Output<Boolean> streamEnabled;
 
     /**
-     * @return Indicates whether Streams are to be enabled (true) or disabled (false).
+     * @return Whether Streams are enabled.
      * 
      */
     public Optional<Output<Boolean>> streamEnabled() {
@@ -292,20 +282,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-     * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-     * table name and this field is guaranteed to be unique.
-     * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
      * 
      */
     @Import(name="streamLabel")
     private @Nullable Output<String> streamLabel;
 
     /**
-     * @return A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-     * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-     * table name and this field is guaranteed to be unique.
-     * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+     * @return Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
      * 
      */
     public Optional<Output<String>> streamLabel() {
@@ -328,14 +312,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      * 
      */
     @Import(name="tableClass")
     private @Nullable Output<String> tableClass;
 
     /**
-     * @return The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * @return Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      * 
      */
     public Optional<Output<String>> tableClass() {
@@ -358,14 +342,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -373,14 +357,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines ttl, has two properties, and can only be specified once:
+     * Configuration block for TTL. See below.
      * 
      */
     @Import(name="ttl")
     private @Nullable Output<TableTtlArgs> ttl;
 
     /**
-     * @return Defines ttl, has two properties, and can only be specified once:
+     * @return Configuration block for TTL. See below.
      * 
      */
     public Optional<Output<TableTtlArgs>> ttl() {
@@ -388,14 +372,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     @Import(name="writeCapacity")
     private @Nullable Output<Integer> writeCapacity;
 
     /**
-     * @return The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+     * @return Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
      * 
      */
     public Optional<Output<Integer>> writeCapacity() {
@@ -450,7 +434,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The arn of the table
+         * @param arn ARN of the table
          * 
          * @return builder
          * 
@@ -461,7 +445,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The arn of the table
+         * @param arn ARN of the table
          * 
          * @return builder
          * 
@@ -471,7 +455,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributes List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+         * @param attributes Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
          * 
          * @return builder
          * 
@@ -482,7 +466,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributes List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+         * @param attributes Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
          * 
          * @return builder
          * 
@@ -492,7 +476,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributes List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+         * @param attributes Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
          * 
          * @return builder
          * 
@@ -523,9 +507,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalSecondaryIndexes Describe a GSI for the table;
-         * subject to the normal limits on the number of GSIs, projected
-         * attributes, etc.
+         * @param globalSecondaryIndexes Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
          * 
          * @return builder
          * 
@@ -536,9 +518,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalSecondaryIndexes Describe a GSI for the table;
-         * subject to the normal limits on the number of GSIs, projected
-         * attributes, etc.
+         * @param globalSecondaryIndexes Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
          * 
          * @return builder
          * 
@@ -548,9 +528,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param globalSecondaryIndexes Describe a GSI for the table;
-         * subject to the normal limits on the number of GSIs, projected
-         * attributes, etc.
+         * @param globalSecondaryIndexes Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
          * 
          * @return builder
          * 
@@ -560,8 +538,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hashKey The name of the hash key in the index; must be
-         * defined as an attribute in the resource.
+         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource.
          * 
          * @return builder
          * 
@@ -572,8 +549,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hashKey The name of the hash key in the index; must be
-         * defined as an attribute in the resource.
+         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource.
          * 
          * @return builder
          * 
@@ -583,9 +559,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table;
-         * these can only be allocated *at creation* so you cannot change this
-         * definition after you have created the resource.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -596,9 +570,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table;
-         * these can only be allocated *at creation* so you cannot change this
-         * definition after you have created the resource.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -608,9 +580,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param localSecondaryIndexes Describe an LSI on the table;
-         * these can only be allocated *at creation* so you cannot change this
-         * definition after you have created the resource.
+         * @param localSecondaryIndexes Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
          * 
          * @return builder
          * 
@@ -620,7 +590,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the index
+         * @param name Name of the index
          * 
          * @return builder
          * 
@@ -631,7 +601,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the index
+         * @param name Name of the index
          * 
          * @return builder
          * 
@@ -641,7 +611,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Enable point-in-time recovery options.
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica.
          * 
          * @return builder
          * 
@@ -652,7 +622,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Enable point-in-time recovery options.
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica.
          * 
          * @return builder
          * 
@@ -662,7 +632,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rangeKey The name of the range key; must be defined
+         * @param rangeKey Name of the range key.
          * 
          * @return builder
          * 
@@ -673,7 +643,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rangeKey The name of the range key; must be defined
+         * @param rangeKey Name of the range key.
          * 
          * @return builder
          * 
@@ -683,7 +653,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readCapacity The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param readCapacity Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -694,7 +664,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param readCapacity The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param readCapacity Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -704,7 +674,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicas Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+         * @param replicas Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
          * 
          * @return builder
          * 
@@ -715,7 +685,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicas Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+         * @param replicas Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
          * 
          * @return builder
          * 
@@ -725,7 +695,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replicas Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+         * @param replicas Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
          * 
          * @return builder
          * 
@@ -735,7 +705,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restoreDateTime The time of the point-in-time recovery point to restore.
+         * @param restoreDateTime Time of the point-in-time recovery point to restore.
          * 
          * @return builder
          * 
@@ -746,7 +716,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restoreDateTime The time of the point-in-time recovery point to restore.
+         * @param restoreDateTime Time of the point-in-time recovery point to restore.
          * 
          * @return builder
          * 
@@ -756,7 +726,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restoreSourceName The name of the table to restore. Must match the name of an existing table.
+         * @param restoreSourceName Name of the table to restore. Must match the name of an existing table.
          * 
          * @return builder
          * 
@@ -767,7 +737,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param restoreSourceName The name of the table to restore. Must match the name of an existing table.
+         * @param restoreSourceName Name of the table to restore. Must match the name of an existing table.
          * 
          * @return builder
          * 
@@ -798,7 +768,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryption Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn&#39;t specified.
+         * @param serverSideEncryption Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
          * 
          * @return builder
          * 
@@ -809,7 +779,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverSideEncryption Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn&#39;t specified.
+         * @param serverSideEncryption Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn&#39;t specified. See below.
          * 
          * @return builder
          * 
@@ -819,7 +789,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamArn The ARN of the Table Stream. Only available when `stream_enabled = true`
+         * @param streamArn ARN of the Table Stream. Only available when `stream_enabled = true`
          * 
          * @return builder
          * 
@@ -830,7 +800,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamArn The ARN of the Table Stream. Only available when `stream_enabled = true`
+         * @param streamArn ARN of the Table Stream. Only available when `stream_enabled = true`
          * 
          * @return builder
          * 
@@ -840,7 +810,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamEnabled Indicates whether Streams are to be enabled (true) or disabled (false).
+         * @param streamEnabled Whether Streams are enabled.
          * 
          * @return builder
          * 
@@ -851,7 +821,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamEnabled Indicates whether Streams are to be enabled (true) or disabled (false).
+         * @param streamEnabled Whether Streams are enabled.
          * 
          * @return builder
          * 
@@ -861,10 +831,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamLabel A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-         * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-         * table name and this field is guaranteed to be unique.
-         * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+         * @param streamLabel Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
          * 
          * @return builder
          * 
@@ -875,10 +842,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamLabel A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-         * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-         * table name and this field is guaranteed to be unique.
-         * It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+         * @param streamLabel Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
          * 
          * @return builder
          * 
@@ -909,7 +873,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableClass The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * @param tableClass Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
          * 
          * @return builder
          * 
@@ -920,7 +884,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableClass The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+         * @param tableClass Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
          * 
          * @return builder
          * 
@@ -951,7 +915,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -962,7 +926,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -972,7 +936,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ttl Defines ttl, has two properties, and can only be specified once:
+         * @param ttl Configuration block for TTL. See below.
          * 
          * @return builder
          * 
@@ -983,7 +947,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ttl Defines ttl, has two properties, and can only be specified once:
+         * @param ttl Configuration block for TTL. See below.
          * 
          * @return builder
          * 
@@ -993,7 +957,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param writeCapacity The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param writeCapacity Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
          * 
          * @return builder
          * 
@@ -1004,7 +968,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param writeCapacity The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+         * @param writeCapacity Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
          * 
          * @return builder
          * 

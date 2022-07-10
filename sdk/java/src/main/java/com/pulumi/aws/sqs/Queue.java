@@ -44,11 +44,6 @@ import javax.annotation.Nullable;
  *                     jsonProperty(&#34;deadLetterTargetArn&#34;, aws_sqs_queue.queue_deadletter().arn()),
  *                     jsonProperty(&#34;maxReceiveCount&#34;, 4)
  *                 )))
- *             .redriveAllowPolicy(serializeJson(
- *                 jsonObject(
- *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
- *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(aws_sqs_queue.terraform_queue_deadletter().arn()))
- *                 )))
  *             .tags(Map.of(&#34;Environment&#34;, &#34;production&#34;))
  *             .build());
  * 
@@ -98,6 +93,34 @@ import javax.annotation.Nullable;
  *             .deduplicationScope(&#34;messageGroup&#34;)
  *             .fifoQueue(true)
  *             .fifoThroughputLimit(&#34;perMessageGroupId&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
+ * ## Dead-letter queue
+ * ```java
+ * package generated_program;
+ * 
+ * import java.util.*;
+ * import java.io.*;
+ * import java.nio.*;
+ * import com.pulumi.*;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var terraformQueueDeadletter = new Queue(&#34;terraformQueueDeadletter&#34;, QueueArgs.builder()        
+ *             .redriveAllowPolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;redrivePermission&#34;, &#34;byQueue&#34;),
+ *                     jsonProperty(&#34;sourceQueueArns&#34;, jsonArray(aws_sqs_queue.terraform_queue().arn()))
+ *                 )))
  *             .build());
  * 
  *     }

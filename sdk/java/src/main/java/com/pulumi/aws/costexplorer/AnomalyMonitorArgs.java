@@ -16,23 +16,47 @@ public final class AnomalyMonitorArgs extends com.pulumi.resources.ResourceArgs 
 
     public static final AnomalyMonitorArgs Empty = new AnomalyMonitorArgs();
 
+    /**
+     * The dimensions to evaluate. Valid values: `SERVICE`.
+     * 
+     */
     @Import(name="monitorDimension")
     private @Nullable Output<String> monitorDimension;
 
+    /**
+     * @return The dimensions to evaluate. Valid values: `SERVICE`.
+     * 
+     */
     public Optional<Output<String>> monitorDimension() {
         return Optional.ofNullable(this.monitorDimension);
     }
 
+    /**
+     * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+     * 
+     */
     @Import(name="monitorSpecification")
     private @Nullable Output<String> monitorSpecification;
 
+    /**
+     * @return A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+     * 
+     */
     public Optional<Output<String>> monitorSpecification() {
         return Optional.ofNullable(this.monitorSpecification);
     }
 
+    /**
+     * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+     * 
+     */
     @Import(name="monitorType", required=true)
     private Output<String> monitorType;
 
+    /**
+     * @return The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+     * 
+     */
     public Output<String> monitorType() {
         return this.monitorType;
     }
@@ -53,14 +77,14 @@ public final class AnomalyMonitorArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -95,29 +119,65 @@ public final class AnomalyMonitorArgs extends com.pulumi.resources.ResourceArgs 
             $ = new AnomalyMonitorArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param monitorDimension The dimensions to evaluate. Valid values: `SERVICE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorDimension(@Nullable Output<String> monitorDimension) {
             $.monitorDimension = monitorDimension;
             return this;
         }
 
+        /**
+         * @param monitorDimension The dimensions to evaluate. Valid values: `SERVICE`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorDimension(String monitorDimension) {
             return monitorDimension(Output.of(monitorDimension));
         }
 
+        /**
+         * @param monitorSpecification A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorSpecification(@Nullable Output<String> monitorSpecification) {
             $.monitorSpecification = monitorSpecification;
             return this;
         }
 
+        /**
+         * @param monitorSpecification A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorSpecification(String monitorSpecification) {
             return monitorSpecification(Output.of(monitorSpecification));
         }
 
+        /**
+         * @param monitorType The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorType(Output<String> monitorType) {
             $.monitorType = monitorType;
             return this;
         }
 
+        /**
+         * @param monitorType The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder monitorType(String monitorType) {
             return monitorType(Output.of(monitorType));
         }
@@ -144,7 +204,7 @@ public final class AnomalyMonitorArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -155,7 +215,7 @@ public final class AnomalyMonitorArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

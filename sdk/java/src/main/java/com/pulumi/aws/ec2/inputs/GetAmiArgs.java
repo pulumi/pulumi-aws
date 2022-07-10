@@ -56,6 +56,21 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+     * 
+     */
+    @Import(name="includeDeprecated")
+    private @Nullable Output<Boolean> includeDeprecated;
+
+    /**
+     * @return If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+     * 
+     */
+    public Optional<Output<Boolean>> includeDeprecated() {
+        return Optional.ofNullable(this.includeDeprecated);
+    }
+
+    /**
      * If more than one result is returned, use the most
      * recent AMI.
      * 
@@ -96,18 +111,18 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+     * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      * 
      */
-    @Import(name="owners", required=true)
-    private Output<List<String>> owners;
+    @Import(name="owners")
+    private @Nullable Output<List<String>> owners;
 
     /**
-     * @return List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+     * @return List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      * 
      */
-    public Output<List<String>> owners() {
-        return this.owners;
+    public Optional<Output<List<String>>> owners() {
+        return Optional.ofNullable(this.owners);
     }
 
     /**
@@ -134,6 +149,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
     private GetAmiArgs(GetAmiArgs $) {
         this.executableUsers = $.executableUsers;
         this.filters = $.filters;
+        this.includeDeprecated = $.includeDeprecated;
         this.mostRecent = $.mostRecent;
         this.nameRegex = $.nameRegex;
         this.owners = $.owners;
@@ -230,6 +246,27 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
+         * @param includeDeprecated If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDeprecated(@Nullable Output<Boolean> includeDeprecated) {
+            $.includeDeprecated = includeDeprecated;
+            return this;
+        }
+
+        /**
+         * @param includeDeprecated If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includeDeprecated(Boolean includeDeprecated) {
+            return includeDeprecated(Output.of(includeDeprecated));
+        }
+
+        /**
          * @param mostRecent If more than one result is returned, use the most
          * recent AMI.
          * 
@@ -282,18 +319,18 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param owners List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+         * @param owners List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
          * 
          * @return builder
          * 
          */
-        public Builder owners(Output<List<String>> owners) {
+        public Builder owners(@Nullable Output<List<String>> owners) {
             $.owners = owners;
             return this;
         }
 
         /**
-         * @param owners List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+         * @param owners List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
          * 
          * @return builder
          * 
@@ -303,7 +340,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param owners List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+         * @param owners List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
          * 
          * @return builder
          * 
@@ -338,7 +375,6 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         public GetAmiArgs build() {
-            $.owners = Objects.requireNonNull($.owners, "expected parameter 'owners' to be non-null");
             return $;
         }
     }

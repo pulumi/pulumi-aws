@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+ * Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
  *
  * > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
  *
@@ -38,6 +38,32 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Permissions For Tag-Based Access Control
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = aws.lakeformation.getPermissions({
+ *     principal: aws_iam_role.workflow_role.arn,
+ *     lfTagPolicy: {
+ *         resourceType: "DATABASE",
+ *         expressions: [
+ *             {
+ *                 key: "Team",
+ *                 values: ["Sales"],
+ *             },
+ *             {
+ *                 key: "Environment",
+ *                 values: [
+ *                     "Dev",
+ *                     "Production",
+ *                 ],
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
  */
 export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOptions): Promise<GetPermissionsResult> {
     if (!opts) {
@@ -50,6 +76,8 @@ export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOpt
         "catalogResource": args.catalogResource,
         "dataLocation": args.dataLocation,
         "database": args.database,
+        "lfTag": args.lfTag,
+        "lfTagPolicy": args.lfTagPolicy,
         "principal": args.principal,
         "table": args.table,
         "tableWithColumns": args.tableWithColumns,
@@ -77,6 +105,14 @@ export interface GetPermissionsArgs {
      */
     database?: inputs.lakeformation.GetPermissionsDatabase;
     /**
+     * Configuration block for an LF-tag resource. Detailed below.
+     */
+    lfTag?: inputs.lakeformation.GetPermissionsLfTag;
+    /**
+     * Configuration block for an LF-tag policy resource. Detailed below.
+     */
+    lfTagPolicy?: inputs.lakeformation.GetPermissionsLfTagPolicy;
+    /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      */
     principal: string;
@@ -102,6 +138,8 @@ export interface GetPermissionsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly lfTag: outputs.lakeformation.GetPermissionsLfTag;
+    readonly lfTagPolicy: outputs.lakeformation.GetPermissionsLfTagPolicy;
     /**
      * List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
@@ -139,6 +177,14 @@ export interface GetPermissionsOutputArgs {
      * Configuration block for a database resource. Detailed below.
      */
     database?: pulumi.Input<inputs.lakeformation.GetPermissionsDatabaseArgs>;
+    /**
+     * Configuration block for an LF-tag resource. Detailed below.
+     */
+    lfTag?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagArgs>;
+    /**
+     * Configuration block for an LF-tag policy resource. Detailed below.
+     */
+    lfTagPolicy?: pulumi.Input<inputs.lakeformation.GetPermissionsLfTagPolicyArgs>;
     /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      */

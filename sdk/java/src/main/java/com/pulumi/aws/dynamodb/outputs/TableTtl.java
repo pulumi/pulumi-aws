@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableTtl {
     /**
-     * @return The name of the table attribute to store the TTL timestamp in.
+     * @return Name of the table attribute to store the TTL timestamp in.
      * 
      */
     private final String attributeName;
     /**
-     * @return Indicates whether ttl is enabled (true) or disabled (false).
+     * @return Whether TTL is enabled.
      * 
      */
     private final @Nullable Boolean enabled;
@@ -32,14 +32,14 @@ public final class TableTtl {
     }
 
     /**
-     * @return The name of the table attribute to store the TTL timestamp in.
+     * @return Name of the table attribute to store the TTL timestamp in.
      * 
      */
     public String attributeName() {
         return this.attributeName;
     }
     /**
-     * @return Indicates whether ttl is enabled (true) or disabled (false).
+     * @return Whether TTL is enabled.
      * 
      */
     public Optional<Boolean> enabled() {

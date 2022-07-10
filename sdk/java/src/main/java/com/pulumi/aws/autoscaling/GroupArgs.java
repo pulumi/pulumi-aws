@@ -88,6 +88,21 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     * 
+     */
+    @Import(name="defaultInstanceWarmup")
+    private @Nullable Output<Integer> defaultInstanceWarmup;
+
+    /**
+     * @return The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     * 
+     */
+    public Optional<Output<Integer>> defaultInstanceWarmup() {
+        return Optional.ofNullable(this.defaultInstanceWarmup);
+    }
+
+    /**
      * The number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for
      * Capacity below.)
@@ -625,6 +640,7 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
         this.capacityRebalance = $.capacityRebalance;
         this.context = $.context;
         this.defaultCooldown = $.defaultCooldown;
+        this.defaultInstanceWarmup = $.defaultInstanceWarmup;
         this.desiredCapacity = $.desiredCapacity;
         this.enabledMetrics = $.enabledMetrics;
         this.forceDelete = $.forceDelete;
@@ -768,6 +784,27 @@ public final class GroupArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder defaultCooldown(Integer defaultCooldown) {
             return defaultCooldown(Output.of(defaultCooldown));
+        }
+
+        /**
+         * @param defaultInstanceWarmup The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultInstanceWarmup(@Nullable Output<Integer> defaultInstanceWarmup) {
+            $.defaultInstanceWarmup = defaultInstanceWarmup;
+            return this;
+        }
+
+        /**
+         * @param defaultInstanceWarmup The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultInstanceWarmup(Integer defaultInstanceWarmup) {
+            return defaultInstanceWarmup(Output.of(defaultInstanceWarmup));
         }
 
         /**

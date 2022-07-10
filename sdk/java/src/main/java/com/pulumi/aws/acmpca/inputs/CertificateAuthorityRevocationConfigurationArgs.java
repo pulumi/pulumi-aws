@@ -4,6 +4,7 @@
 package com.pulumi.aws.acmpca.inputs;
 
 import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs;
+import com.pulumi.aws.acmpca.inputs.CertificateAuthorityRevocationConfigurationOcspConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -30,10 +31,28 @@ public final class CertificateAuthorityRevocationConfigurationArgs extends com.p
         return Optional.ofNullable(this.crlConfiguration);
     }
 
+    /**
+     * Nested argument containing configuration of
+     * the custom OCSP responder endpoint. Defined below.
+     * 
+     */
+    @Import(name="ocspConfiguration")
+    private @Nullable Output<CertificateAuthorityRevocationConfigurationOcspConfigurationArgs> ocspConfiguration;
+
+    /**
+     * @return Nested argument containing configuration of
+     * the custom OCSP responder endpoint. Defined below.
+     * 
+     */
+    public Optional<Output<CertificateAuthorityRevocationConfigurationOcspConfigurationArgs>> ocspConfiguration() {
+        return Optional.ofNullable(this.ocspConfiguration);
+    }
+
     private CertificateAuthorityRevocationConfigurationArgs() {}
 
     private CertificateAuthorityRevocationConfigurationArgs(CertificateAuthorityRevocationConfigurationArgs $) {
         this.crlConfiguration = $.crlConfiguration;
+        this.ocspConfiguration = $.ocspConfiguration;
     }
 
     public static Builder builder() {
@@ -73,6 +92,29 @@ public final class CertificateAuthorityRevocationConfigurationArgs extends com.p
          */
         public Builder crlConfiguration(CertificateAuthorityRevocationConfigurationCrlConfigurationArgs crlConfiguration) {
             return crlConfiguration(Output.of(crlConfiguration));
+        }
+
+        /**
+         * @param ocspConfiguration Nested argument containing configuration of
+         * the custom OCSP responder endpoint. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocspConfiguration(@Nullable Output<CertificateAuthorityRevocationConfigurationOcspConfigurationArgs> ocspConfiguration) {
+            $.ocspConfiguration = ocspConfiguration;
+            return this;
+        }
+
+        /**
+         * @param ocspConfiguration Nested argument containing configuration of
+         * the custom OCSP responder endpoint. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocspConfiguration(CertificateAuthorityRevocationConfigurationOcspConfigurationArgs ocspConfiguration) {
+            return ocspConfiguration(Output.of(ocspConfiguration));
         }
 
         public CertificateAuthorityRevocationConfigurationArgs build() {

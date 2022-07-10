@@ -123,6 +123,20 @@ public class KeyPair extends com.pulumi.resources.CustomResource {
         return this.keyPairId;
     }
     /**
+     * The type of key pair.
+     * 
+     */
+    @Export(name="keyType", type=String.class, parameters={})
+    private Output<String> keyType;
+
+    /**
+     * @return The type of key pair.
+     * 
+     */
+    public Output<String> keyType() {
+        return this.keyType;
+    }
+    /**
      * The public key material.
      * 
      */

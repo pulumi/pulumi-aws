@@ -52,6 +52,9 @@ type Repository struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Encryption configuration for the repository. See below for schema.
 	EncryptionConfigurations RepositoryEncryptionConfigurationArrayOutput `pulumi:"encryptionConfigurations"`
+	// If `true`, will delete the repository even if it contains images.
+	// Defaults to `false`.
+	ForceDelete pulumi.BoolPtrOutput `pulumi:"forceDelete"`
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrOutput `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
@@ -101,6 +104,9 @@ type repositoryState struct {
 	Arn *string `pulumi:"arn"`
 	// Encryption configuration for the repository. See below for schema.
 	EncryptionConfigurations []RepositoryEncryptionConfiguration `pulumi:"encryptionConfigurations"`
+	// If `true`, will delete the repository even if it contains images.
+	// Defaults to `false`.
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
@@ -122,6 +128,9 @@ type RepositoryState struct {
 	Arn pulumi.StringPtrInput
 	// Encryption configuration for the repository. See below for schema.
 	EncryptionConfigurations RepositoryEncryptionConfigurationArrayInput
+	// If `true`, will delete the repository even if it contains images.
+	// Defaults to `false`.
+	ForceDelete pulumi.BoolPtrInput
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
@@ -145,6 +154,9 @@ func (RepositoryState) ElementType() reflect.Type {
 type repositoryArgs struct {
 	// Encryption configuration for the repository. See below for schema.
 	EncryptionConfigurations []RepositoryEncryptionConfiguration `pulumi:"encryptionConfigurations"`
+	// If `true`, will delete the repository even if it contains images.
+	// Defaults to `false`.
+	ForceDelete *bool `pulumi:"forceDelete"`
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration *RepositoryImageScanningConfiguration `pulumi:"imageScanningConfiguration"`
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
@@ -159,6 +171,9 @@ type repositoryArgs struct {
 type RepositoryArgs struct {
 	// Encryption configuration for the repository. See below for schema.
 	EncryptionConfigurations RepositoryEncryptionConfigurationArrayInput
+	// If `true`, will delete the repository even if it contains images.
+	// Defaults to `false`.
+	ForceDelete pulumi.BoolPtrInput
 	// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
 	ImageScanningConfiguration RepositoryImageScanningConfigurationPtrInput
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
@@ -264,6 +279,12 @@ func (o RepositoryOutput) Arn() pulumi.StringOutput {
 // Encryption configuration for the repository. See below for schema.
 func (o RepositoryOutput) EncryptionConfigurations() RepositoryEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v *Repository) RepositoryEncryptionConfigurationArrayOutput { return v.EncryptionConfigurations }).(RepositoryEncryptionConfigurationArrayOutput)
+}
+
+// If `true`, will delete the repository even if it contains images.
+// Defaults to `false`.
+func (o RepositoryOutput) ForceDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Repository) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
 }
 
 // Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.

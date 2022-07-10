@@ -6,6 +6,7 @@ package com.pulumi.aws.cfg.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -60,12 +61,28 @@ public final class RemediationConfigurationParameterArgs extends com.pulumi.reso
         return Optional.ofNullable(this.staticValue);
     }
 
+    /**
+     * List of static values.
+     * 
+     */
+    @Import(name="staticValues")
+    private @Nullable Output<List<String>> staticValues;
+
+    /**
+     * @return List of static values.
+     * 
+     */
+    public Optional<Output<List<String>>> staticValues() {
+        return Optional.ofNullable(this.staticValues);
+    }
+
     private RemediationConfigurationParameterArgs() {}
 
     private RemediationConfigurationParameterArgs(RemediationConfigurationParameterArgs $) {
         this.name = $.name;
         this.resourceValue = $.resourceValue;
         this.staticValue = $.staticValue;
+        this.staticValues = $.staticValues;
     }
 
     public static Builder builder() {
@@ -147,6 +164,37 @@ public final class RemediationConfigurationParameterArgs extends com.pulumi.reso
          */
         public Builder staticValue(String staticValue) {
             return staticValue(Output.of(staticValue));
+        }
+
+        /**
+         * @param staticValues List of static values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staticValues(@Nullable Output<List<String>> staticValues) {
+            $.staticValues = staticValues;
+            return this;
+        }
+
+        /**
+         * @param staticValues List of static values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staticValues(List<String> staticValues) {
+            return staticValues(Output.of(staticValues));
+        }
+
+        /**
+         * @param staticValues List of static values.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder staticValues(String... staticValues) {
+            return staticValues(List.of(staticValues));
         }
 
         public RemediationConfigurationParameterArgs build() {

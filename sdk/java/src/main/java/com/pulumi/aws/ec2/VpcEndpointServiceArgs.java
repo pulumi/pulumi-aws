@@ -94,6 +94,21 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * 
+     */
+    @Import(name="supportedIpAddressTypes")
+    private @Nullable Output<List<String>> supportedIpAddressTypes;
+
+    /**
+     * @return The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * 
+     */
+    public Optional<Output<List<String>>> supportedIpAddressTypes() {
+        return Optional.ofNullable(this.supportedIpAddressTypes);
+    }
+
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -116,6 +131,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         this.gatewayLoadBalancerArns = $.gatewayLoadBalancerArns;
         this.networkLoadBalancerArns = $.networkLoadBalancerArns;
         this.privateDnsName = $.privateDnsName;
+        this.supportedIpAddressTypes = $.supportedIpAddressTypes;
         this.tags = $.tags;
     }
 
@@ -270,6 +286,37 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
          */
         public Builder privateDnsName(String privateDnsName) {
             return privateDnsName(Output.of(privateDnsName));
+        }
+
+        /**
+         * @param supportedIpAddressTypes The supported IP address types. The possible values are `ipv4` and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedIpAddressTypes(@Nullable Output<List<String>> supportedIpAddressTypes) {
+            $.supportedIpAddressTypes = supportedIpAddressTypes;
+            return this;
+        }
+
+        /**
+         * @param supportedIpAddressTypes The supported IP address types. The possible values are `ipv4` and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedIpAddressTypes(List<String> supportedIpAddressTypes) {
+            return supportedIpAddressTypes(Output.of(supportedIpAddressTypes));
+        }
+
+        /**
+         * @param supportedIpAddressTypes The supported IP address types. The possible values are `ipv4` and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder supportedIpAddressTypes(String... supportedIpAddressTypes) {
+            return supportedIpAddressTypes(List.of(supportedIpAddressTypes));
         }
 
         /**

@@ -17,11 +17,20 @@ namespace Pulumi.Aws.Acmpca.Outputs
         /// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
         /// </summary>
         public readonly Outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration? CrlConfiguration;
+        /// <summary>
+        /// Nested argument containing configuration of
+        /// the custom OCSP responder endpoint. Defined below.
+        /// </summary>
+        public readonly Outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration? OcspConfiguration;
 
         [OutputConstructor]
-        private CertificateAuthorityRevocationConfiguration(Outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration? crlConfiguration)
+        private CertificateAuthorityRevocationConfiguration(
+            Outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration? crlConfiguration,
+
+            Outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration? ocspConfiguration)
         {
             CrlConfiguration = crlConfiguration;
+            OcspConfiguration = ocspConfiguration;
         }
     }
 }

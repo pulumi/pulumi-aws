@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['NotebookInstanceArgs', 'NotebookInstance']
 
@@ -15,9 +17,11 @@ class NotebookInstanceArgs:
     def __init__(__self__, *,
                  instance_type: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[str]] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_service_configuration: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,28 +35,34 @@ class NotebookInstanceArgs:
         The set of arguments for constructing a NotebookInstance resource.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
         :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        :param pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs'] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
-        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
         pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "role_arn", role_arn)
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
         if additional_code_repositories is not None:
             pulumi.set(__self__, "additional_code_repositories", additional_code_repositories)
         if default_code_repository is not None:
             pulumi.set(__self__, "default_code_repository", default_code_repository)
         if direct_internet_access is not None:
             pulumi.set(__self__, "direct_internet_access", direct_internet_access)
+        if instance_metadata_service_configuration is not None:
+            pulumi.set(__self__, "instance_metadata_service_configuration", instance_metadata_service_configuration)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if lifecycle_config_name is not None:
@@ -97,6 +107,18 @@ class NotebookInstanceArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+        """
+        return pulumi.get(self, "accelerator_types")
+
+    @accelerator_types.setter
+    def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_types", value)
+
+    @property
     @pulumi.getter(name="additionalCodeRepositories")
     def additional_code_repositories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -132,6 +154,18 @@ class NotebookInstanceArgs:
     @direct_internet_access.setter
     def direct_internet_access(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "direct_internet_access", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataServiceConfiguration")
+    def instance_metadata_service_configuration(self) -> Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]:
+        """
+        Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        """
+        return pulumi.get(self, "instance_metadata_service_configuration")
+
+    @instance_metadata_service_configuration.setter
+    def instance_metadata_service_configuration(self, value: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]):
+        pulumi.set(self, "instance_metadata_service_configuration", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -173,7 +207,7 @@ class NotebookInstanceArgs:
     @pulumi.getter(name="platformIdentifier")
     def platform_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         """
         return pulumi.get(self, "platform_identifier")
 
@@ -221,7 +255,7 @@ class NotebookInstanceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -245,10 +279,12 @@ class NotebookInstanceArgs:
 @pulumi.input_type
 class _NotebookInstanceState:
     def __init__(__self__, *,
+                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  default_code_repository: Optional[pulumi.Input[str]] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_service_configuration: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
@@ -265,26 +301,30 @@ class _NotebookInstanceState:
                  volume_size: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering NotebookInstance resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
         :param pulumi.Input[str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
         :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        :param pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs'] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[str] network_interface_id: The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
-        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] url: The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
         :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
+        if accelerator_types is not None:
+            pulumi.set(__self__, "accelerator_types", accelerator_types)
         if additional_code_repositories is not None:
             pulumi.set(__self__, "additional_code_repositories", additional_code_repositories)
         if arn is not None:
@@ -293,6 +333,8 @@ class _NotebookInstanceState:
             pulumi.set(__self__, "default_code_repository", default_code_repository)
         if direct_internet_access is not None:
             pulumi.set(__self__, "direct_internet_access", direct_internet_access)
+        if instance_metadata_service_configuration is not None:
+            pulumi.set(__self__, "instance_metadata_service_configuration", instance_metadata_service_configuration)
         if instance_type is not None:
             pulumi.set(__self__, "instance_type", instance_type)
         if kms_key_id is not None:
@@ -321,6 +363,18 @@ class _NotebookInstanceState:
             pulumi.set(__self__, "url", url)
         if volume_size is not None:
             pulumi.set(__self__, "volume_size", volume_size)
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+        """
+        return pulumi.get(self, "accelerator_types")
+
+    @accelerator_types.setter
+    def accelerator_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "accelerator_types", value)
 
     @property
     @pulumi.getter(name="additionalCodeRepositories")
@@ -370,6 +424,18 @@ class _NotebookInstanceState:
     @direct_internet_access.setter
     def direct_internet_access(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "direct_internet_access", value)
+
+    @property
+    @pulumi.getter(name="instanceMetadataServiceConfiguration")
+    def instance_metadata_service_configuration(self) -> Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]:
+        """
+        Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        """
+        return pulumi.get(self, "instance_metadata_service_configuration")
+
+    @instance_metadata_service_configuration.setter
+    def instance_metadata_service_configuration(self, value: Optional[pulumi.Input['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]):
+        pulumi.set(self, "instance_metadata_service_configuration", value)
 
     @property
     @pulumi.getter(name="instanceType")
@@ -435,7 +501,7 @@ class _NotebookInstanceState:
     @pulumi.getter(name="platformIdentifier")
     def platform_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         """
         return pulumi.get(self, "platform_identifier")
 
@@ -495,7 +561,7 @@ class _NotebookInstanceState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -545,9 +611,11 @@ class NotebookInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[str]] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_service_configuration: Optional[pulumi.Input[pulumi.InputType['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
@@ -607,20 +675,22 @@ class NotebookInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
         :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        :param pulumi.Input[pulumi.InputType['NotebookInstanceInstanceMetadataServiceConfigurationArgs']] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
-        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
         """
         ...
@@ -689,9 +759,11 @@ class NotebookInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_code_repository: Optional[pulumi.Input[str]] = None,
                  direct_internet_access: Optional[pulumi.Input[str]] = None,
+                 instance_metadata_service_configuration: Optional[pulumi.Input[pulumi.InputType['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  lifecycle_config_name: Optional[pulumi.Input[str]] = None,
@@ -715,9 +787,11 @@ class NotebookInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NotebookInstanceArgs.__new__(NotebookInstanceArgs)
 
+            __props__.__dict__["accelerator_types"] = accelerator_types
             __props__.__dict__["additional_code_repositories"] = additional_code_repositories
             __props__.__dict__["default_code_repository"] = default_code_repository
             __props__.__dict__["direct_internet_access"] = direct_internet_access
+            __props__.__dict__["instance_metadata_service_configuration"] = instance_metadata_service_configuration
             if instance_type is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_type'")
             __props__.__dict__["instance_type"] = instance_type
@@ -747,10 +821,12 @@ class NotebookInstance(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            accelerator_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             additional_code_repositories: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             default_code_repository: Optional[pulumi.Input[str]] = None,
             direct_internet_access: Optional[pulumi.Input[str]] = None,
+            instance_metadata_service_configuration: Optional[pulumi.Input[pulumi.InputType['NotebookInstanceInstanceMetadataServiceConfigurationArgs']]] = None,
             instance_type: Optional[pulumi.Input[str]] = None,
             kms_key_id: Optional[pulumi.Input[str]] = None,
             lifecycle_config_name: Optional[pulumi.Input[str]] = None,
@@ -772,22 +848,24 @@ class NotebookInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_code_repositories: An array of up to three Git repositories to associate with the notebook instance.
                These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this notebook instance.
         :param pulumi.Input[str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository.
         :param pulumi.Input[str] direct_internet_access: Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
+        :param pulumi.Input[pulumi.InputType['NotebookInstanceInstanceMetadataServiceConfigurationArgs']] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
         :param pulumi.Input[str] instance_type: The name of ML compute instance type.
         :param pulumi.Input[str] kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
         :param pulumi.Input[str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
         :param pulumi.Input[str] name: The name of the notebook instance (must be unique).
         :param pulumi.Input[str] network_interface_id: The network interface ID that Amazon SageMaker created at the time of creating the instance. Only available when setting `subnet_id`.
-        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        :param pulumi.Input[str] platform_identifier: The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the notebook instance which allows SageMaker to call other services on your behalf.
         :param pulumi.Input[str] root_access: Whether root access is `Enabled` or `Disabled` for users of the notebook instance. The default value is `Enabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The associated security groups.
         :param pulumi.Input[str] subnet_id: The VPC subnet ID.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] url: The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
         :param pulumi.Input[int] volume_size: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB.
@@ -796,10 +874,12 @@ class NotebookInstance(pulumi.CustomResource):
 
         __props__ = _NotebookInstanceState.__new__(_NotebookInstanceState)
 
+        __props__.__dict__["accelerator_types"] = accelerator_types
         __props__.__dict__["additional_code_repositories"] = additional_code_repositories
         __props__.__dict__["arn"] = arn
         __props__.__dict__["default_code_repository"] = default_code_repository
         __props__.__dict__["direct_internet_access"] = direct_internet_access
+        __props__.__dict__["instance_metadata_service_configuration"] = instance_metadata_service_configuration
         __props__.__dict__["instance_type"] = instance_type
         __props__.__dict__["kms_key_id"] = kms_key_id
         __props__.__dict__["lifecycle_config_name"] = lifecycle_config_name
@@ -815,6 +895,14 @@ class NotebookInstance(pulumi.CustomResource):
         __props__.__dict__["url"] = url
         __props__.__dict__["volume_size"] = volume_size
         return NotebookInstance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="acceleratorTypes")
+    def accelerator_types(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+        """
+        return pulumi.get(self, "accelerator_types")
 
     @property
     @pulumi.getter(name="additionalCodeRepositories")
@@ -848,6 +936,14 @@ class NotebookInstance(pulumi.CustomResource):
         Set to `Disabled` to disable internet access to notebook. Requires `security_groups` and `subnet_id` to be set. Supported values: `Enabled` (Default) or `Disabled`. If set to `Disabled`, the notebook instance will be able to access resources only in your VPC, and will not be able to connect to Amazon SageMaker training and endpoint services unless your configure a NAT Gateway in your VPC.
         """
         return pulumi.get(self, "direct_internet_access")
+
+    @property
+    @pulumi.getter(name="instanceMetadataServiceConfiguration")
+    def instance_metadata_service_configuration(self) -> pulumi.Output[Optional['outputs.NotebookInstanceInstanceMetadataServiceConfiguration']]:
+        """
+        Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        """
+        return pulumi.get(self, "instance_metadata_service_configuration")
 
     @property
     @pulumi.getter(name="instanceType")
@@ -893,7 +989,7 @@ class NotebookInstance(pulumi.CustomResource):
     @pulumi.getter(name="platformIdentifier")
     def platform_identifier(self) -> pulumi.Output[str]:
         """
-        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         """
         return pulumi.get(self, "platform_identifier")
 
@@ -933,7 +1029,7 @@ class NotebookInstance(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

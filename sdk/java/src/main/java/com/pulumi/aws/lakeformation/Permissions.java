@@ -8,6 +8,8 @@ import com.pulumi.aws.lakeformation.PermissionsArgs;
 import com.pulumi.aws.lakeformation.inputs.PermissionsState;
 import com.pulumi.aws.lakeformation.outputs.PermissionsDataLocation;
 import com.pulumi.aws.lakeformation.outputs.PermissionsDatabase;
+import com.pulumi.aws.lakeformation.outputs.PermissionsLfTag;
+import com.pulumi.aws.lakeformation.outputs.PermissionsLfTagPolicy;
 import com.pulumi.aws.lakeformation.outputs.PermissionsTable;
 import com.pulumi.aws.lakeformation.outputs.PermissionsTableWithColumns;
 import com.pulumi.core.Output;
@@ -78,6 +80,46 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Grant Permissions Using Tag-Based Access Control
+ * ```java
+ * package generated_program;
+ * 
+ * import java.util.*;
+ * import java.io.*;
+ * import java.nio.*;
+ * import com.pulumi.*;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new Permissions(&#34;test&#34;, PermissionsArgs.builder()        
+ *             .principal(aws_iam_role.sales_role().arn())
+ *             .permissions(            
+ *                 &#34;CREATE_TABLE&#34;,
+ *                 &#34;ALTER&#34;,
+ *                 &#34;DROP&#34;)
+ *             .lfTagPolicy(PermissionsLfTagPolicyArgs.builder()
+ *                 .resourceType(&#34;DATABASE&#34;)
+ *                 .expressions(                
+ *                     PermissionsLfTagPolicyExpressionArgs.builder()
+ *                         .key(&#34;Team&#34;)
+ *                         .values(&#34;Sales&#34;)
+ *                         .build(),
+ *                     PermissionsLfTagPolicyExpressionArgs.builder()
+ *                         .key(&#34;Environment&#34;)
+ *                         .values(                        
+ *                             &#34;Dev&#34;,
+ *                             &#34;Production&#34;)
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  */
 @ResourceType(type="aws:lakeformation/permissions:Permissions")
@@ -139,14 +181,42 @@ public class Permissions extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     * Configuration block for an LF-tag resource. Detailed below.
+     * 
+     */
+    @Export(name="lfTag", type=PermissionsLfTag.class, parameters={})
+    private Output<PermissionsLfTag> lfTag;
+
+    /**
+     * @return Configuration block for an LF-tag resource. Detailed below.
+     * 
+     */
+    public Output<PermissionsLfTag> lfTag() {
+        return this.lfTag;
+    }
+    /**
+     * Configuration block for an LF-tag policy resource. Detailed below.
+     * 
+     */
+    @Export(name="lfTagPolicy", type=PermissionsLfTagPolicy.class, parameters={})
+    private Output<PermissionsLfTagPolicy> lfTagPolicy;
+
+    /**
+     * @return Configuration block for an LF-tag policy resource. Detailed below.
+     * 
+     */
+    public Output<PermissionsLfTagPolicy> lfTagPolicy() {
+        return this.lfTagPolicy;
+    }
+    /**
+     * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
     @Export(name="permissions", type=List.class, parameters={String.class})
     private Output<List<String>> permissions;
 
     /**
-     * @return List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     * @return List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
      */
     public Output<List<String>> permissions() {

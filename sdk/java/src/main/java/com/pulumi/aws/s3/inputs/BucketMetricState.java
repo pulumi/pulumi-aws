@@ -47,14 +47,14 @@ public final class BucketMetricState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique identifier of the metrics configuration for the bucket.
+     * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Unique identifier of the metrics configuration for the bucket.
+     * @return Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      * 
      */
     public Optional<Output<String>> name() {
@@ -130,7 +130,7 @@ public final class BucketMetricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique identifier of the metrics configuration for the bucket.
+         * @param name Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class BucketMetricState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique identifier of the metrics configuration for the bucket.
+         * @param name Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
          * 
          * @return builder
          * 

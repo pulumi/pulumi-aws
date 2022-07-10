@@ -148,6 +148,21 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * 
+     */
+    @Import(name="disableApiStop")
+    private @Nullable Output<Boolean> disableApiStop;
+
+    /**
+     * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * 
+     */
+    public Optional<Output<Boolean>> disableApiStop() {
+        return Optional.ofNullable(this.disableApiStop);
+    }
+
+    /**
      * If `true`, enables [EC2 Instance
      * Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
      * 
@@ -643,6 +658,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         this.creditSpecification = $.creditSpecification;
         this.defaultVersion = $.defaultVersion;
         this.description = $.description;
+        this.disableApiStop = $.disableApiStop;
         this.disableApiTermination = $.disableApiTermination;
         this.ebsOptimized = $.ebsOptimized;
         this.elasticGpuSpecifications = $.elasticGpuSpecifications;
@@ -855,6 +871,27 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
          */
         public Builder description(String description) {
             return description(Output.of(description));
+        }
+
+        /**
+         * @param disableApiStop If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableApiStop(@Nullable Output<Boolean> disableApiStop) {
+            $.disableApiStop = disableApiStop;
+            return this;
+        }
+
+        /**
+         * @param disableApiStop If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder disableApiStop(Boolean disableApiStop) {
+            return disableApiStop(Output.of(disableApiStop));
         }
 
         /**

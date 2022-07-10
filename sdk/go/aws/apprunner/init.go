@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connection{}
 	case "aws:apprunner/customDomainAssociation:CustomDomainAssociation":
 		r = &CustomDomainAssociation{}
+	case "aws:apprunner/observabilityConfiguration:ObservabilityConfiguration":
+		r = &ObservabilityConfiguration{}
 	case "aws:apprunner/service:Service":
 		r = &Service{}
 	case "aws:apprunner/vpcConnector:VpcConnector":
@@ -57,6 +59,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"apprunner/customDomainAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"apprunner/observabilityConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

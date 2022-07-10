@@ -77,6 +77,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly artifactS3Location!: pulumi.Output<string>;
     /**
+     * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     */
+    public readonly deleteLambda!: pulumi.Output<boolean | undefined>;
+    /**
      * ARN of the Lambda function that is used as your canary's engine.
      */
     public /*out*/ readonly engineArn!: pulumi.Output<string>;
@@ -173,6 +177,7 @@ export class Canary extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["artifactConfig"] = state ? state.artifactConfig : undefined;
             resourceInputs["artifactS3Location"] = state ? state.artifactS3Location : undefined;
+            resourceInputs["deleteLambda"] = state ? state.deleteLambda : undefined;
             resourceInputs["engineArn"] = state ? state.engineArn : undefined;
             resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
             resourceInputs["failureRetentionPeriod"] = state ? state.failureRetentionPeriod : undefined;
@@ -212,6 +217,7 @@ export class Canary extends pulumi.CustomResource {
             }
             resourceInputs["artifactConfig"] = args ? args.artifactConfig : undefined;
             resourceInputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
+            resourceInputs["deleteLambda"] = args ? args.deleteLambda : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
             resourceInputs["handler"] = args ? args.handler : undefined;
@@ -255,6 +261,10 @@ export interface CanaryState {
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
     artifactS3Location?: pulumi.Input<string>;
+    /**
+     * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     */
+    deleteLambda?: pulumi.Input<boolean>;
     /**
      * ARN of the Lambda function that is used as your canary's engine.
      */
@@ -349,6 +359,10 @@ export interface CanaryArgs {
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
     artifactS3Location: pulumi.Input<string>;
+    /**
+     * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     */
+    deleteLambda?: pulumi.Input<boolean>;
     /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
      */

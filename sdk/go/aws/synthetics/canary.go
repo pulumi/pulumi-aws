@@ -61,6 +61,8 @@ type Canary struct {
 	ArtifactConfig CanaryArtifactConfigPtrOutput `pulumi:"artifactConfig"`
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location pulumi.StringOutput `pulumi:"artifactS3Location"`
+	// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+	DeleteLambda pulumi.BoolPtrOutput `pulumi:"deleteLambda"`
 	// ARN of the Lambda function that is used as your canary's engine.
 	EngineArn pulumi.StringOutput `pulumi:"engineArn"`
 	// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
@@ -153,6 +155,8 @@ type canaryState struct {
 	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location *string `pulumi:"artifactS3Location"`
+	// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+	DeleteLambda *bool `pulumi:"deleteLambda"`
 	// ARN of the Lambda function that is used as your canary's engine.
 	EngineArn *string `pulumi:"engineArn"`
 	// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
@@ -202,6 +206,8 @@ type CanaryState struct {
 	ArtifactConfig CanaryArtifactConfigPtrInput
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location pulumi.StringPtrInput
+	// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+	DeleteLambda pulumi.BoolPtrInput
 	// ARN of the Lambda function that is used as your canary's engine.
 	EngineArn pulumi.StringPtrInput
 	// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
@@ -253,6 +259,8 @@ type canaryArgs struct {
 	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location string `pulumi:"artifactS3Location"`
+	// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+	DeleteLambda *bool `pulumi:"deleteLambda"`
 	// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
@@ -291,6 +299,8 @@ type CanaryArgs struct {
 	ArtifactConfig CanaryArtifactConfigPtrInput
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location pulumi.StringInput
+	// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+	DeleteLambda pulumi.BoolPtrInput
 	// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
 	ExecutionRoleArn pulumi.StringInput
 	// Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
@@ -423,6 +433,11 @@ func (o CanaryOutput) ArtifactConfig() CanaryArtifactConfigPtrOutput {
 // Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 func (o CanaryOutput) ArtifactS3Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Canary) pulumi.StringOutput { return v.ArtifactS3Location }).(pulumi.StringOutput)
+}
+
+// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+func (o CanaryOutput) DeleteLambda() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Canary) pulumi.BoolPtrOutput { return v.DeleteLambda }).(pulumi.BoolPtrOutput)
 }
 
 // ARN of the Lambda function that is used as your canary's engine.

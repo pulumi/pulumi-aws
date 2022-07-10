@@ -12,28 +12,22 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableLocalSecondaryIndex {
     /**
-     * @return The name of the index
+     * @return Name of the index
      * 
      */
     private final String name;
     /**
-     * @return Only required with `INCLUDE` as a
-     * projection type; a list of attributes to project into the index. These
-     * do not need to be defined as attributes on the table.
+     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
     private final @Nullable List<String> nonKeyAttributes;
     /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-     * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-     * projects just the hash and range key into the index, and `INCLUDE`
-     * projects only the keys specified in the _non_key_attributes_
-     * parameter.
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
      * 
      */
     private final String projectionType;
     /**
-     * @return The name of the range key; must be defined
+     * @return Name of the range key.
      * 
      */
     private final String rangeKey;
@@ -51,34 +45,28 @@ public final class TableLocalSecondaryIndex {
     }
 
     /**
-     * @return The name of the index
+     * @return Name of the index
      * 
      */
     public String name() {
         return this.name;
     }
     /**
-     * @return Only required with `INCLUDE` as a
-     * projection type; a list of attributes to project into the index. These
-     * do not need to be defined as attributes on the table.
+     * @return Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
      * 
      */
     public List<String> nonKeyAttributes() {
         return this.nonKeyAttributes == null ? List.of() : this.nonKeyAttributes;
     }
     /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-     * where `ALL` projects every attribute into the index, `KEYS_ONLY`
-     * projects just the hash and range key into the index, and `INCLUDE`
-     * projects only the keys specified in the _non_key_attributes_
-     * parameter.
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
      * 
      */
     public String projectionType() {
         return this.projectionType;
     }
     /**
-     * @return The name of the range key; must be defined
+     * @return Name of the range key.
      * 
      */
     public String rangeKey() {

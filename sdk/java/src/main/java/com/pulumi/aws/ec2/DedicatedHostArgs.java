@@ -77,18 +77,33 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
     @Import(name="instanceType")
     private @Nullable Output<String> instanceType;
 
     /**
-     * @return Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+     * @return Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
      * 
      */
     public Optional<Output<String>> instanceType() {
         return Optional.ofNullable(this.instanceType);
+    }
+
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * 
+     */
+    @Import(name="outpostArn")
+    private @Nullable Output<String> outpostArn;
+
+    /**
+     * @return The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * 
+     */
+    public Optional<Output<String>> outpostArn() {
+        return Optional.ofNullable(this.outpostArn);
     }
 
     /**
@@ -114,6 +129,7 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
         this.hostRecovery = $.hostRecovery;
         this.instanceFamily = $.instanceFamily;
         this.instanceType = $.instanceType;
+        this.outpostArn = $.outpostArn;
         this.tags = $.tags;
     }
 
@@ -220,7 +236,7 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+         * @param instanceType Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
          * 
          * @return builder
          * 
@@ -231,13 +247,34 @@ public final class DedicatedHostArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param instanceType Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+         * @param instanceType Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
          * 
          * @return builder
          * 
          */
         public Builder instanceType(String instanceType) {
             return instanceType(Output.of(instanceType));
+        }
+
+        /**
+         * @param outpostArn The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outpostArn(@Nullable Output<String> outpostArn) {
+            $.outpostArn = outpostArn;
+            return this;
+        }
+
+        /**
+         * @param outpostArn The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder outpostArn(String outpostArn) {
+            return outpostArn(Output.of(outpostArn));
         }
 
         /**

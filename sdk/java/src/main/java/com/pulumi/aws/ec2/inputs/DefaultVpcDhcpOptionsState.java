@@ -6,7 +6,6 @@ package com.pulumi.aws.ec2.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -51,13 +50,13 @@ public final class DefaultVpcDhcpOptionsState extends com.pulumi.resources.Resou
      * 
      */
     @Import(name="netbiosNameServers")
-    private @Nullable Output<List<String>> netbiosNameServers;
+    private @Nullable Output<String> netbiosNameServers;
 
     /**
      * @return List of NETBIOS name servers.
      * 
      */
-    public Optional<Output<List<String>>> netbiosNameServers() {
+    public Optional<Output<String>> netbiosNameServers() {
         return Optional.ofNullable(this.netbiosNameServers);
     }
 
@@ -197,7 +196,7 @@ public final class DefaultVpcDhcpOptionsState extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder netbiosNameServers(@Nullable Output<List<String>> netbiosNameServers) {
+        public Builder netbiosNameServers(@Nullable Output<String> netbiosNameServers) {
             $.netbiosNameServers = netbiosNameServers;
             return this;
         }
@@ -208,18 +207,8 @@ public final class DefaultVpcDhcpOptionsState extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder netbiosNameServers(List<String> netbiosNameServers) {
+        public Builder netbiosNameServers(String netbiosNameServers) {
             return netbiosNameServers(Output.of(netbiosNameServers));
-        }
-
-        /**
-         * @param netbiosNameServers List of NETBIOS name servers.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder netbiosNameServers(String... netbiosNameServers) {
-            return netbiosNameServers(List.of(netbiosNameServers));
         }
 
         /**

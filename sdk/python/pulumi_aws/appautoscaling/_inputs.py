@@ -389,7 +389,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
                  resource_label: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] predefined_metric_type: The metric type.
-        :param pulumi.Input[str] resource_label: Reserved for future use. Must be less than or equal to 1023 characters in length.
+        :param pulumi.Input[str] resource_label: Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
@@ -411,7 +411,7 @@ class PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificatio
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[str]]:
         """
-        Reserved for future use. Must be less than or equal to 1023 characters in length.
+        Reserved for future use if the `predefined_metric_type` is not `ALBRequestCountPerTarget`. If the `predefined_metric_type` is `ALBRequestCountPerTarget`, you must specify this argument. Documentation can be found at: [AWS Predefined Scaling Metric Specification](https://docs.aws.amazon.com/autoscaling/plans/APIReference/API_PredefinedScalingMetricSpecification.html). Must be less than or equal to 1023 characters in length.
         """
         return pulumi.get(self, "resource_label")
 

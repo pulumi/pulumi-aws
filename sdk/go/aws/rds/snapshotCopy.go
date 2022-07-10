@@ -103,7 +103,7 @@ type SnapshotCopy struct {
 	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -184,7 +184,7 @@ type snapshotCopyState struct {
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// Specifies the storage type associated with DB snapshot.
 	StorageType *string `pulumi:"storageType"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -231,7 +231,7 @@ type SnapshotCopyState struct {
 	SourceRegion pulumi.StringPtrInput
 	// Specifies the storage type associated with DB snapshot.
 	StorageType pulumi.StringPtrInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -260,7 +260,7 @@ type snapshotCopyArgs struct {
 	PresignedUrl *string `pulumi:"presignedUrl"`
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier string `pulumi:"sourceDbSnapshotIdentifier"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The external custom Availability Zone.
 	TargetCustomAvailabilityZone *string `pulumi:"targetCustomAvailabilityZone"`
@@ -282,7 +282,7 @@ type SnapshotCopyArgs struct {
 	PresignedUrl pulumi.StringPtrInput
 	// Snapshot identifier of the source snapshot.
 	SourceDbSnapshotIdentifier pulumi.StringInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The external custom Availability Zone.
 	TargetCustomAvailabilityZone pulumi.StringPtrInput
@@ -465,7 +465,7 @@ func (o SnapshotCopyOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o SnapshotCopyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotCopy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

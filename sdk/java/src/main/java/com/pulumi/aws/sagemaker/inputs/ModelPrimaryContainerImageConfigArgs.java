@@ -3,10 +3,13 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -28,10 +31,26 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
         return this.repositoryAccessMode;
     }
 
+    /**
+     * Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+     * 
+     */
+    @Import(name="repositoryAuthConfig")
+    private @Nullable Output<ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs> repositoryAuthConfig;
+
+    /**
+     * @return Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+     * 
+     */
+    public Optional<Output<ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs>> repositoryAuthConfig() {
+        return Optional.ofNullable(this.repositoryAuthConfig);
+    }
+
     private ModelPrimaryContainerImageConfigArgs() {}
 
     private ModelPrimaryContainerImageConfigArgs(ModelPrimaryContainerImageConfigArgs $) {
         this.repositoryAccessMode = $.repositoryAccessMode;
+        this.repositoryAuthConfig = $.repositoryAuthConfig;
     }
 
     public static Builder builder() {
@@ -71,6 +90,27 @@ public final class ModelPrimaryContainerImageConfigArgs extends com.pulumi.resou
          */
         public Builder repositoryAccessMode(String repositoryAccessMode) {
             return repositoryAccessMode(Output.of(repositoryAccessMode));
+        }
+
+        /**
+         * @param repositoryAuthConfig Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryAuthConfig(@Nullable Output<ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs> repositoryAuthConfig) {
+            $.repositoryAuthConfig = repositoryAuthConfig;
+            return this;
+        }
+
+        /**
+         * @param repositoryAuthConfig Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder repositoryAuthConfig(ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs repositoryAuthConfig) {
+            return repositoryAuthConfig(Output.of(repositoryAuthConfig));
         }
 
         public ModelPrimaryContainerImageConfigArgs build() {

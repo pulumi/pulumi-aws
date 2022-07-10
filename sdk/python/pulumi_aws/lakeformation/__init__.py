@@ -9,7 +9,9 @@ from .data_lake_settings import *
 from .get_data_lake_settings import *
 from .get_permissions import *
 from .get_resource import *
+from .lf_tag import *
 from .permissions import *
 from .resource import *
+from .resource_lf_tags import *
 from ._inputs import *
 from . import outputs

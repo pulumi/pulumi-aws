@@ -182,6 +182,48 @@ def get_policy_document(override_json: Optional[str] = None,
         path="/",
         policy=example_policy_document.json)
     ```
+    ### Example Multiple Condition Keys and Values
+
+    You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_multiple_condition_keys_and_values = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        actions=[
+            "kms:Decrypt",
+            "kms:GenerateDataKey",
+        ],
+        conditions=[
+            aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ForAnyValue:StringEquals",
+                values=["pi"],
+                variable="kms:EncryptionContext:service",
+            ),
+            aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ForAnyValue:StringEquals",
+                values=["rds"],
+                variable="kms:EncryptionContext:aws:pi:service",
+            ),
+            aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ForAnyValue:StringEquals",
+                values=[
+                    "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+                    "db-EEEEEDDDDDCCCCCBBBBBAAAAA",
+                ],
+                variable="kms:EncryptionContext:aws:rds:db-id",
+            ),
+        ],
+        resources=["*"],
+    )])
+    ```
+
+    `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+
+    ```python
+    import pulumi
+    ```
     ### Example Assume-Role Policy with Multiple Principals
 
     You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
@@ -484,6 +526,48 @@ def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str
     example_policy = aws.iam.Policy("examplePolicy",
         path="/",
         policy=example_policy_document.json)
+    ```
+    ### Example Multiple Condition Keys and Values
+
+    You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example_multiple_condition_keys_and_values = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        actions=[
+            "kms:Decrypt",
+            "kms:GenerateDataKey",
+        ],
+        conditions=[
+            aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ForAnyValue:StringEquals",
+                values=["pi"],
+                variable="kms:EncryptionContext:service",
+            ),
+            aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ForAnyValue:StringEquals",
+                values=["rds"],
+                variable="kms:EncryptionContext:aws:pi:service",
+            ),
+            aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ForAnyValue:StringEquals",
+                values=[
+                    "db-AAAAABBBBBCCCCCDDDDDEEEEE",
+                    "db-EEEEEDDDDDCCCCCBBBBBAAAAA",
+                ],
+                variable="kms:EncryptionContext:aws:rds:db-id",
+            ),
+        ],
+        resources=["*"],
+    )])
+    ```
+
+    `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+
+    ```python
+    import pulumi
     ```
     ### Example Assume-Role Policy with Multiple Principals
 

@@ -21,6 +21,7 @@ class CanaryArgs:
                  runtime_version: pulumi.Input[str],
                  schedule: pulumi.Input['CanaryScheduleArgs'],
                  artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
+                 delete_lambda: Optional[pulumi.Input[bool]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  run_config: Optional[pulumi.Input['CanaryRunConfigArgs']] = None,
@@ -40,6 +41,7 @@ class CanaryArgs:
         :param pulumi.Input[str] runtime_version: Runtime version to use for the canary. Versions change often so consult the [Amazon CloudWatch documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_Library.html) for the latest valid versions. Values include `syn-python-selenium-1.0`, `syn-nodejs-puppeteer-3.0`, `syn-nodejs-2.2`, `syn-nodejs-2.1`, `syn-nodejs-2.0`, and `syn-1.0`.
         :param pulumi.Input['CanaryScheduleArgs'] schedule: Configuration block providing how often the canary is to run and when these test runs are to stop. Detailed below.
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[str] name: Name for this canary. Has a maximum length of 21 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         :param pulumi.Input['CanaryRunConfigArgs'] run_config: Configuration block for individual canary runs. Detailed below.
@@ -59,6 +61,8 @@ class CanaryArgs:
         pulumi.set(__self__, "schedule", schedule)
         if artifact_config is not None:
             pulumi.set(__self__, "artifact_config", artifact_config)
+        if delete_lambda is not None:
+            pulumi.set(__self__, "delete_lambda", delete_lambda)
         if failure_retention_period is not None:
             pulumi.set(__self__, "failure_retention_period", failure_retention_period)
         if name is not None:
@@ -153,6 +157,18 @@ class CanaryArgs:
     @artifact_config.setter
     def artifact_config(self, value: Optional[pulumi.Input['CanaryArtifactConfigArgs']]):
         pulumi.set(self, "artifact_config", value)
+
+    @property
+    @pulumi.getter(name="deleteLambda")
+    def delete_lambda(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+        """
+        return pulumi.get(self, "delete_lambda")
+
+    @delete_lambda.setter
+    def delete_lambda(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_lambda", value)
 
     @property
     @pulumi.getter(name="failureRetentionPeriod")
@@ -293,6 +309,7 @@ class _CanaryState:
                  arn: Optional[pulumi.Input[str]] = None,
                  artifact_config: Optional[pulumi.Input['CanaryArtifactConfigArgs']] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
+                 delete_lambda: Optional[pulumi.Input[bool]] = None,
                  engine_arn: Optional[pulumi.Input[str]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
@@ -318,6 +335,7 @@ class _CanaryState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Canary.
         :param pulumi.Input['CanaryArtifactConfigArgs'] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
+        :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[str] engine_arn: ARN of the Lambda function that is used as your canary's engine.
         :param pulumi.Input[str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
@@ -345,6 +363,8 @@ class _CanaryState:
             pulumi.set(__self__, "artifact_config", artifact_config)
         if artifact_s3_location is not None:
             pulumi.set(__self__, "artifact_s3_location", artifact_s3_location)
+        if delete_lambda is not None:
+            pulumi.set(__self__, "delete_lambda", delete_lambda)
         if engine_arn is not None:
             pulumi.set(__self__, "engine_arn", engine_arn)
         if execution_role_arn is not None:
@@ -421,6 +441,18 @@ class _CanaryState:
     @artifact_s3_location.setter
     def artifact_s3_location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "artifact_s3_location", value)
+
+    @property
+    @pulumi.getter(name="deleteLambda")
+    def delete_lambda(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+        """
+        return pulumi.get(self, "delete_lambda")
+
+    @delete_lambda.setter
+    def delete_lambda(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "delete_lambda", value)
 
     @property
     @pulumi.getter(name="engineArn")
@@ -670,6 +702,7 @@ class Canary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
+                 delete_lambda: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
@@ -720,6 +753,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
+        :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
         :param pulumi.Input[str] handler: Entry point to use for the source code when running the canary. This value must end with the string `.handler` .
@@ -789,6 +823,7 @@ class Canary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
                  artifact_s3_location: Optional[pulumi.Input[str]] = None,
+                 delete_lambda: Optional[pulumi.Input[bool]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  failure_retention_period: Optional[pulumi.Input[int]] = None,
                  handler: Optional[pulumi.Input[str]] = None,
@@ -820,6 +855,7 @@ class Canary(pulumi.CustomResource):
             if artifact_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'artifact_s3_location'")
             __props__.__dict__["artifact_s3_location"] = artifact_s3_location
+            __props__.__dict__["delete_lambda"] = delete_lambda
             if execution_role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'execution_role_arn'")
             __props__.__dict__["execution_role_arn"] = execution_role_arn
@@ -862,6 +898,7 @@ class Canary(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             artifact_config: Optional[pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']]] = None,
             artifact_s3_location: Optional[pulumi.Input[str]] = None,
+            delete_lambda: Optional[pulumi.Input[bool]] = None,
             engine_arn: Optional[pulumi.Input[str]] = None,
             execution_role_arn: Optional[pulumi.Input[str]] = None,
             failure_retention_period: Optional[pulumi.Input[int]] = None,
@@ -892,6 +929,7 @@ class Canary(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Canary.
         :param pulumi.Input[pulumi.InputType['CanaryArtifactConfigArgs']] artifact_config: configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
         :param pulumi.Input[str] artifact_s3_location: Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
+        :param pulumi.Input[bool] delete_lambda: Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
         :param pulumi.Input[str] engine_arn: ARN of the Lambda function that is used as your canary's engine.
         :param pulumi.Input[str] execution_role_arn: ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         :param pulumi.Input[int] failure_retention_period: Number of days to retain data about failed runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
@@ -920,6 +958,7 @@ class Canary(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["artifact_config"] = artifact_config
         __props__.__dict__["artifact_s3_location"] = artifact_s3_location
+        __props__.__dict__["delete_lambda"] = delete_lambda
         __props__.__dict__["engine_arn"] = engine_arn
         __props__.__dict__["execution_role_arn"] = execution_role_arn
         __props__.__dict__["failure_retention_period"] = failure_retention_period
@@ -965,6 +1004,14 @@ class Canary(pulumi.CustomResource):
         Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         """
         return pulumi.get(self, "artifact_s3_location")
+
+    @property
+    @pulumi.getter(name="deleteLambda")
+    def delete_lambda(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+        """
+        return pulumi.get(self, "delete_lambda")
 
     @property
     @pulumi.getter(name="engineArn")

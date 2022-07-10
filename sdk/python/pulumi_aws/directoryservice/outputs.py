@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'DirectoryConnectSettings',
     'DirectoryVpcSettings',
+    'SharedDirectoryTarget',
     'GetDirectoryConnectSettingResult',
     'GetDirectoryVpcSettingResult',
 ]
@@ -169,6 +170,36 @@ class DirectoryVpcSettings(dict):
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "availability_zones")
+
+
+@pulumi.output_type
+class SharedDirectoryTarget(dict):
+    def __init__(__self__, *,
+                 id: str,
+                 type: Optional[str] = None):
+        """
+        :param str id: Identifier of the directory consumer account.
+        :param str type: Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+        """
+        pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Identifier of the directory consumer account.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type

@@ -6,6 +6,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .get_dns_namespace import *
+from .get_http_namespace import *
+from .get_service import *
 from .http_namespace import *
 from .instance import *
 from .private_dns_namespace import *

@@ -84,6 +84,21 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The type of key pair.
+     * 
+     */
+    @Import(name="keyType")
+    private @Nullable Output<String> keyType;
+
+    /**
+     * @return The type of key pair.
+     * 
+     */
+    public Optional<Output<String>> keyType() {
+        return Optional.ofNullable(this.keyType);
+    }
+
+    /**
      * The public key material.
      * 
      */
@@ -136,6 +151,7 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
         this.keyName = $.keyName;
         this.keyNamePrefix = $.keyNamePrefix;
         this.keyPairId = $.keyPairId;
+        this.keyType = $.keyType;
         this.publicKey = $.publicKey;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -250,6 +266,27 @@ public final class KeyPairState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder keyPairId(String keyPairId) {
             return keyPairId(Output.of(keyPairId));
+        }
+
+        /**
+         * @param keyType The type of key pair.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyType(@Nullable Output<String> keyType) {
+            $.keyType = keyType;
+            return this;
+        }
+
+        /**
+         * @param keyType The type of key pair.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keyType(String keyType) {
+            return keyType(Output.of(keyType));
         }
 
         /**

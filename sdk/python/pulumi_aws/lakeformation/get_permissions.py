@@ -22,7 +22,7 @@ class GetPermissionsResult:
     """
     A collection of values returned by getPermissions.
     """
-    def __init__(__self__, catalog_id=None, catalog_resource=None, data_location=None, database=None, id=None, permissions=None, permissions_with_grant_options=None, principal=None, table=None, table_with_columns=None):
+    def __init__(__self__, catalog_id=None, catalog_resource=None, data_location=None, database=None, id=None, lf_tag=None, lf_tag_policy=None, permissions=None, permissions_with_grant_options=None, principal=None, table=None, table_with_columns=None):
         if catalog_id and not isinstance(catalog_id, str):
             raise TypeError("Expected argument 'catalog_id' to be a str")
         pulumi.set(__self__, "catalog_id", catalog_id)
@@ -38,6 +38,12 @@ class GetPermissionsResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if lf_tag and not isinstance(lf_tag, dict):
+            raise TypeError("Expected argument 'lf_tag' to be a dict")
+        pulumi.set(__self__, "lf_tag", lf_tag)
+        if lf_tag_policy and not isinstance(lf_tag_policy, dict):
+            raise TypeError("Expected argument 'lf_tag_policy' to be a dict")
+        pulumi.set(__self__, "lf_tag_policy", lf_tag_policy)
         if permissions and not isinstance(permissions, list):
             raise TypeError("Expected argument 'permissions' to be a list")
         pulumi.set(__self__, "permissions", permissions)
@@ -83,6 +89,16 @@ class GetPermissionsResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="lfTag")
+    def lf_tag(self) -> 'outputs.GetPermissionsLfTagResult':
+        return pulumi.get(self, "lf_tag")
+
+    @property
+    @pulumi.getter(name="lfTagPolicy")
+    def lf_tag_policy(self) -> 'outputs.GetPermissionsLfTagPolicyResult':
+        return pulumi.get(self, "lf_tag_policy")
+
+    @property
     @pulumi.getter
     def permissions(self) -> Sequence[str]:
         """
@@ -125,6 +141,8 @@ class AwaitableGetPermissionsResult(GetPermissionsResult):
             data_location=self.data_location,
             database=self.database,
             id=self.id,
+            lf_tag=self.lf_tag,
+            lf_tag_policy=self.lf_tag_policy,
             permissions=self.permissions,
             permissions_with_grant_options=self.permissions_with_grant_options,
             principal=self.principal,
@@ -136,12 +154,14 @@ def get_permissions(catalog_id: Optional[str] = None,
                     catalog_resource: Optional[bool] = None,
                     data_location: Optional[pulumi.InputType['GetPermissionsDataLocationArgs']] = None,
                     database: Optional[pulumi.InputType['GetPermissionsDatabaseArgs']] = None,
+                    lf_tag: Optional[pulumi.InputType['GetPermissionsLfTagArgs']] = None,
+                    lf_tag_policy: Optional[pulumi.InputType['GetPermissionsLfTagPolicyArgs']] = None,
                     principal: Optional[str] = None,
                     table: Optional[pulumi.InputType['GetPermissionsTableArgs']] = None,
                     table_with_columns: Optional[pulumi.InputType['GetPermissionsTableWithColumnsArgs']] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPermissionsResult:
     """
-    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
 
     > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 
@@ -169,12 +189,38 @@ def get_permissions(catalog_id: Optional[str] = None,
             catalog_id="110376042874",
         ))
     ```
+    ### Permissions For Tag-Based Access Control
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+        lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
+            resource_type="DATABASE",
+            expressions=[
+                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
+                    key="Team",
+                    values=["Sales"],
+                ),
+                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
+                    key="Environment",
+                    values=[
+                        "Dev",
+                        "Production",
+                    ],
+                ),
+            ],
+        ))
+    ```
 
 
     :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
     :param bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
     :param pulumi.InputType['GetPermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
     :param pulumi.InputType['GetPermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
+    :param pulumi.InputType['GetPermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
+    :param pulumi.InputType['GetPermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
     :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
     :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
     :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.
@@ -184,6 +230,8 @@ def get_permissions(catalog_id: Optional[str] = None,
     __args__['catalogResource'] = catalog_resource
     __args__['dataLocation'] = data_location
     __args__['database'] = database
+    __args__['lfTag'] = lf_tag
+    __args__['lfTagPolicy'] = lf_tag_policy
     __args__['principal'] = principal
     __args__['table'] = table
     __args__['tableWithColumns'] = table_with_columns
@@ -199,6 +247,8 @@ def get_permissions(catalog_id: Optional[str] = None,
         data_location=__ret__.data_location,
         database=__ret__.database,
         id=__ret__.id,
+        lf_tag=__ret__.lf_tag,
+        lf_tag_policy=__ret__.lf_tag_policy,
         permissions=__ret__.permissions,
         permissions_with_grant_options=__ret__.permissions_with_grant_options,
         principal=__ret__.principal,
@@ -211,12 +261,14 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
                            catalog_resource: Optional[pulumi.Input[Optional[bool]]] = None,
                            data_location: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsDataLocationArgs']]]] = None,
                            database: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsDatabaseArgs']]]] = None,
+                           lf_tag: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsLfTagArgs']]]] = None,
+                           lf_tag_policy: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsLfTagPolicyArgs']]]] = None,
                            principal: Optional[pulumi.Input[str]] = None,
                            table: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsTableArgs']]]] = None,
                            table_with_columns: Optional[pulumi.Input[Optional[pulumi.InputType['GetPermissionsTableWithColumnsArgs']]]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionsResult]:
     """
-    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+    Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, tables, LF-tags, and LF-tag policies. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
 
     > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 
@@ -244,12 +296,38 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
             catalog_id="110376042874",
         ))
     ```
+    ### Permissions For Tag-Based Access Control
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.lakeformation.get_permissions(principal=aws_iam_role["workflow_role"]["arn"],
+        lf_tag_policy=aws.lakeformation.GetPermissionsLfTagPolicyArgs(
+            resource_type="DATABASE",
+            expressions=[
+                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
+                    key="Team",
+                    values=["Sales"],
+                ),
+                aws.lakeformation.GetPermissionsLfTagPolicyExpressionArgs(
+                    key="Environment",
+                    values=[
+                        "Dev",
+                        "Production",
+                    ],
+                ),
+            ],
+        ))
+    ```
 
 
     :param str catalog_id: Identifier for the Data Catalog. By default, it is the account ID of the caller.
     :param bool catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
     :param pulumi.InputType['GetPermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
     :param pulumi.InputType['GetPermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
+    :param pulumi.InputType['GetPermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
+    :param pulumi.InputType['GetPermissionsLfTagPolicyArgs'] lf_tag_policy: Configuration block for an LF-tag policy resource. Detailed below.
     :param str principal: Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
     :param pulumi.InputType['GetPermissionsTableArgs'] table: Configuration block for a table resource. Detailed below.
     :param pulumi.InputType['GetPermissionsTableWithColumnsArgs'] table_with_columns: Configuration block for a table with columns resource. Detailed below.

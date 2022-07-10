@@ -88,8 +88,11 @@ type LookupInstanceResult struct {
 	// The availability zone of the Instance.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// The credit specification of the Instance.
-	CreditSpecifications  []GetInstanceCreditSpecification `pulumi:"creditSpecifications"`
-	DisableApiTermination bool                             `pulumi:"disableApiTermination"`
+	CreditSpecifications []GetInstanceCreditSpecification `pulumi:"creditSpecifications"`
+	// Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
+	DisableApiStop bool `pulumi:"disableApiStop"`
+	// Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
+	DisableApiTermination bool `pulumi:"disableApiTermination"`
 	// The EBS block device mappings of the Instance.
 	EbsBlockDevices []GetInstanceEbsBlockDevice `pulumi:"ebsBlockDevices"`
 	// Whether the Instance is EBS optimized or not (Boolean).
@@ -140,6 +143,8 @@ type LookupInstanceResult struct {
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC.
 	PrivateDns string `pulumi:"privateDns"`
+	// The options for the instance hostname.
+	PrivateDnsNameOptions []GetInstancePrivateDnsNameOption `pulumi:"privateDnsNameOptions"`
 	// The private IP address assigned to the Instance.
 	PrivateIp string `pulumi:"privateIp"`
 	// The public DNS name assigned to the Instance. For EC2-VPC, this
@@ -245,6 +250,12 @@ func (o LookupInstanceResultOutput) CreditSpecifications() GetInstanceCreditSpec
 	return o.ApplyT(func(v LookupInstanceResult) []GetInstanceCreditSpecification { return v.CreditSpecifications }).(GetInstanceCreditSpecificationArrayOutput)
 }
 
+// Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
+func (o LookupInstanceResultOutput) DisableApiStop() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupInstanceResult) bool { return v.DisableApiStop }).(pulumi.BoolOutput)
+}
+
+// Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
 func (o LookupInstanceResultOutput) DisableApiTermination() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupInstanceResult) bool { return v.DisableApiTermination }).(pulumi.BoolOutput)
 }
@@ -372,6 +383,11 @@ func (o LookupInstanceResultOutput) PlacementPartitionNumber() pulumi.IntOutput 
 // for your VPC.
 func (o LookupInstanceResultOutput) PrivateDns() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.PrivateDns }).(pulumi.StringOutput)
+}
+
+// The options for the instance hostname.
+func (o LookupInstanceResultOutput) PrivateDnsNameOptions() GetInstancePrivateDnsNameOptionArrayOutput {
+	return o.ApplyT(func(v LookupInstanceResult) []GetInstancePrivateDnsNameOption { return v.PrivateDnsNameOptions }).(GetInstancePrivateDnsNameOptionArrayOutput)
 }
 
 // The private IP address assigned to the Instance.

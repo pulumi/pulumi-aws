@@ -80,6 +80,10 @@ export class KeyPair extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyPairId!: pulumi.Output<string>;
     /**
+     * The type of key pair.
+     */
+    public /*out*/ readonly keyType!: pulumi.Output<string>;
+    /**
      * The public key material.
      */
     public readonly publicKey!: pulumi.Output<string>;
@@ -110,6 +114,7 @@ export class KeyPair extends pulumi.CustomResource {
             resourceInputs["keyName"] = state ? state.keyName : undefined;
             resourceInputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
             resourceInputs["keyPairId"] = state ? state.keyPairId : undefined;
+            resourceInputs["keyType"] = state ? state.keyType : undefined;
             resourceInputs["publicKey"] = state ? state.publicKey : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -125,6 +130,7 @@ export class KeyPair extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["fingerprint"] = undefined /*out*/;
             resourceInputs["keyPairId"] = undefined /*out*/;
+            resourceInputs["keyType"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,6 +159,10 @@ export interface KeyPairState {
      * The key pair ID.
      */
     keyPairId?: pulumi.Input<string>;
+    /**
+     * The type of key pair.
+     */
+    keyType?: pulumi.Input<string>;
     /**
      * The public key material.
      */

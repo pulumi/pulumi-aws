@@ -5,6 +5,8 @@ package com.pulumi.aws.lakeformation.outputs;
 
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsDataLocation;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsDatabase;
+import com.pulumi.aws.lakeformation.outputs.GetPermissionsLfTag;
+import com.pulumi.aws.lakeformation.outputs.GetPermissionsLfTagPolicy;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsTable;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsTableWithColumns;
 import com.pulumi.core.annotations.CustomType;
@@ -26,6 +28,8 @@ public final class GetPermissionsResult {
      * 
      */
     private final String id;
+    private final GetPermissionsLfTag lfTag;
+    private final GetPermissionsLfTagPolicy lfTagPolicy;
     /**
      * @return List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      * 
@@ -47,6 +51,8 @@ public final class GetPermissionsResult {
         @CustomType.Parameter("dataLocation") GetPermissionsDataLocation dataLocation,
         @CustomType.Parameter("database") GetPermissionsDatabase database,
         @CustomType.Parameter("id") String id,
+        @CustomType.Parameter("lfTag") GetPermissionsLfTag lfTag,
+        @CustomType.Parameter("lfTagPolicy") GetPermissionsLfTagPolicy lfTagPolicy,
         @CustomType.Parameter("permissions") List<String> permissions,
         @CustomType.Parameter("permissionsWithGrantOptions") List<String> permissionsWithGrantOptions,
         @CustomType.Parameter("principal") String principal,
@@ -57,6 +63,8 @@ public final class GetPermissionsResult {
         this.dataLocation = dataLocation;
         this.database = database;
         this.id = id;
+        this.lfTag = lfTag;
+        this.lfTagPolicy = lfTagPolicy;
         this.permissions = permissions;
         this.permissionsWithGrantOptions = permissionsWithGrantOptions;
         this.principal = principal;
@@ -82,6 +90,12 @@ public final class GetPermissionsResult {
      */
     public String id() {
         return this.id;
+    }
+    public GetPermissionsLfTag lfTag() {
+        return this.lfTag;
+    }
+    public GetPermissionsLfTagPolicy lfTagPolicy() {
+        return this.lfTagPolicy;
     }
     /**
      * @return List of permissions granted to the principal. For details on permissions, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -121,6 +135,8 @@ public final class GetPermissionsResult {
         private GetPermissionsDataLocation dataLocation;
         private GetPermissionsDatabase database;
         private String id;
+        private GetPermissionsLfTag lfTag;
+        private GetPermissionsLfTagPolicy lfTagPolicy;
         private List<String> permissions;
         private List<String> permissionsWithGrantOptions;
         private String principal;
@@ -138,6 +154,8 @@ public final class GetPermissionsResult {
     	      this.dataLocation = defaults.dataLocation;
     	      this.database = defaults.database;
     	      this.id = defaults.id;
+    	      this.lfTag = defaults.lfTag;
+    	      this.lfTagPolicy = defaults.lfTagPolicy;
     	      this.permissions = defaults.permissions;
     	      this.permissionsWithGrantOptions = defaults.permissionsWithGrantOptions;
     	      this.principal = defaults.principal;
@@ -163,6 +181,14 @@ public final class GetPermissionsResult {
         }
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
+            return this;
+        }
+        public Builder lfTag(GetPermissionsLfTag lfTag) {
+            this.lfTag = Objects.requireNonNull(lfTag);
+            return this;
+        }
+        public Builder lfTagPolicy(GetPermissionsLfTagPolicy lfTagPolicy) {
+            this.lfTagPolicy = Objects.requireNonNull(lfTagPolicy);
             return this;
         }
         public Builder permissions(List<String> permissions) {
@@ -191,7 +217,7 @@ public final class GetPermissionsResult {
             this.tableWithColumns = Objects.requireNonNull(tableWithColumns);
             return this;
         }        public GetPermissionsResult build() {
-            return new GetPermissionsResult(catalogId, catalogResource, dataLocation, database, id, permissions, permissionsWithGrantOptions, principal, table, tableWithColumns);
+            return new GetPermissionsResult(catalogId, catalogResource, dataLocation, database, id, lfTag, lfTagPolicy, permissions, permissionsWithGrantOptions, principal, table, tableWithColumns);
         }
     }
 }

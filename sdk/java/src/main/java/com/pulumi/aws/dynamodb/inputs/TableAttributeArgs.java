@@ -14,14 +14,14 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
     public static final TableAttributeArgs Empty = new TableAttributeArgs();
 
     /**
-     * The name of the index
+     * Name of the index
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the index
+     * @return Name of the index
      * 
      */
     public Output<String> name() {
@@ -29,14 +29,14 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+     * Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+     * @return Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
      * 
      */
     public Output<String> type() {
@@ -69,7 +69,7 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the index
+         * @param name Name of the index
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name The name of the index
+         * @param name Name of the index
          * 
          * @return builder
          * 
@@ -90,7 +90,7 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+         * @param type Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class TableAttributeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Attribute type, which must be a scalar type: `S`, `N`, or `B` for (S)tring, (N)umber or (B)inary data
+         * @param type Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
          * 
          * @return builder
          * 

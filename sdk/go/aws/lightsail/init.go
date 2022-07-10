@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ContainerService{}
 	case "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion":
 		r = &ContainerServiceDeploymentVersion{}
+	case "aws:lightsail/database:Database":
+		r = &Database{}
 	case "aws:lightsail/domain:Domain":
 		r = &Domain{}
 	case "aws:lightsail/instance:Instance":
@@ -58,6 +60,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lightsail/containerServiceDeploymentVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lightsail/database",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

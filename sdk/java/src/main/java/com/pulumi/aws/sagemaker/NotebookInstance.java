@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.sagemaker.NotebookInstanceArgs;
 import com.pulumi.aws.sagemaker.inputs.NotebookInstanceState;
+import com.pulumi.aws.sagemaker.outputs.NotebookInstanceInstanceMetadataServiceConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -90,6 +91,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/notebookInstance:NotebookInstance")
 public class NotebookInstance extends com.pulumi.resources.CustomResource {
     /**
+     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+     * 
+     */
+    @Export(name="acceleratorTypes", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> acceleratorTypes;
+
+    /**
+     * @return A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+     * 
+     */
+    public Output<Optional<List<String>>> acceleratorTypes() {
+        return Codegen.optional(this.acceleratorTypes);
+    }
+    /**
      * An array of up to three Git repositories to associate with the notebook instance.
      * These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
      * 
@@ -146,6 +161,20 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> directInternetAccess() {
         return Codegen.optional(this.directInternetAccess);
+    }
+    /**
+     * Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+     * 
+     */
+    @Export(name="instanceMetadataServiceConfiguration", type=NotebookInstanceInstanceMetadataServiceConfiguration.class, parameters={})
+    private Output</* @Nullable */ NotebookInstanceInstanceMetadataServiceConfiguration> instanceMetadataServiceConfiguration;
+
+    /**
+     * @return Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+     * 
+     */
+    public Output<Optional<NotebookInstanceInstanceMetadataServiceConfiguration>> instanceMetadataServiceConfiguration() {
+        return Codegen.optional(this.instanceMetadataServiceConfiguration);
     }
     /**
      * The name of ML compute instance type.
@@ -218,14 +247,14 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
         return this.networkInterfaceId;
     }
     /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
      * 
      */
     @Export(name="platformIdentifier", type=String.class, parameters={})
     private Output<String> platformIdentifier;
 
     /**
-     * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+     * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
      * 
      */
     public Output<String> platformIdentifier() {
@@ -288,14 +317,14 @@ public class NotebookInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.subnetId);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

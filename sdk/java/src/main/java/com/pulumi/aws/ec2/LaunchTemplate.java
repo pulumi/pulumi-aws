@@ -72,6 +72,7 @@ import javax.annotation.Nullable;
  *             .creditSpecification(LaunchTemplateCreditSpecificationArgs.builder()
  *                 .cpuCredits(&#34;standard&#34;)
  *                 .build())
+ *             .disableApiStop(true)
  *             .disableApiTermination(true)
  *             .ebsOptimized(true)
  *             .elasticGpuSpecifications(LaunchTemplateElasticGpuSpecificationArgs.builder()
@@ -234,6 +235,20 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
+    }
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * 
+     */
+    @Export(name="disableApiStop", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> disableApiStop;
+
+    /**
+     * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * 
+     */
+    public Output<Optional<Boolean>> disableApiStop() {
+        return Codegen.optional(this.disableApiStop);
     }
     /**
      * If `true`, enables [EC2 Instance

@@ -96,7 +96,7 @@ class _MapState:
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
         :param pulumi.Input[str] map_name: The name for the map resource.
-        :param pulumi.Input[str] update_time: The timestamp for when the map resource was last updated in ISO 8601.
+        :param pulumi.Input[str] update_time: The timestamp for when the map resource was last updated in ISO 8601 format.
         """
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
@@ -197,7 +197,7 @@ class _MapState:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The timestamp for when the map resource was last updated in ISO 8601.
+        The timestamp for when the map resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 
@@ -349,7 +349,7 @@ class Map(pulumi.CustomResource):
         :param pulumi.Input[str] description: An optional description for the map resource.
         :param pulumi.Input[str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
         :param pulumi.Input[str] map_name: The name for the map resource.
-        :param pulumi.Input[str] update_time: The timestamp for when the map resource was last updated in ISO 8601.
+        :param pulumi.Input[str] update_time: The timestamp for when the map resource was last updated in ISO 8601 format.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -419,7 +419,7 @@ class Map(pulumi.CustomResource):
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[str]:
         """
-        The timestamp for when the map resource was last updated in ISO 8601.
+        The timestamp for when the map resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 

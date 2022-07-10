@@ -115,6 +115,7 @@ import javax.annotation.Nullable;
  *         var example = new Selection(&#34;example&#34;, SelectionArgs.builder()        
  *             .iamRoleArn(aws_iam_role.example().arn())
  *             .planId(aws_backup_plan.example().id())
+ *             .resources(&#34;*&#34;)
  *             .conditions(SelectionConditionArgs.builder()
  *                 .stringEquals(SelectionConditionStringEqualArgs.builder()
  *                     .key(&#34;aws:ResourceTag/Component&#34;)

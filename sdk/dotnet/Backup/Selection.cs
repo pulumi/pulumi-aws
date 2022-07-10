@@ -99,6 +99,10 @@ namespace Pulumi.Aws.Backup
     ///         {
     ///             IamRoleArn = aws_iam_role.Example.Arn,
     ///             PlanId = aws_backup_plan.Example.Id,
+    ///             Resources = 
+    ///             {
+    ///                 "*",
+    ///             },
     ///             Conditions = 
     ///             {
     ///                 new Aws.Backup.Inputs.SelectionConditionArgs

@@ -22,7 +22,7 @@ class CustomerGatewayArgs:
         """
         The set of arguments for constructing a CustomerGateway resource.
         :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
-        :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
+        :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
@@ -55,7 +55,7 @@ class CustomerGatewayArgs:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Input[str]:
         """
-        The IP address of the gateway's Internet-routable external interface.
+        The IPv4 address for the customer gateway device's outside interface.
         """
         return pulumi.get(self, "ip_address")
 
@@ -130,7 +130,7 @@ class _CustomerGatewayState:
         :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
-        :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
+        :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the gateway. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
@@ -205,7 +205,7 @@ class _CustomerGatewayState:
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The IP address of the gateway's Internet-routable external interface.
+        The IPv4 address for the customer gateway device's outside interface.
         """
         return pulumi.get(self, "ip_address")
 
@@ -294,7 +294,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
-        :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
+        :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the gateway. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
                supports at this time is "ipsec.1".
@@ -407,7 +407,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN).
         :param pulumi.Input[str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
         :param pulumi.Input[str] device_name: A name for the customer gateway device.
-        :param pulumi.Input[str] ip_address: The IP address of the gateway's Internet-routable external interface.
+        :param pulumi.Input[str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the gateway. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] type: The type of customer gateway. The only type AWS
@@ -463,7 +463,7 @@ class CustomerGateway(pulumi.CustomResource):
     @pulumi.getter(name="ipAddress")
     def ip_address(self) -> pulumi.Output[str]:
         """
-        The IP address of the gateway's Internet-routable external interface.
+        The IPv4 address for the customer gateway device's outside interface.
         """
         return pulumi.get(self, "ip_address")
 

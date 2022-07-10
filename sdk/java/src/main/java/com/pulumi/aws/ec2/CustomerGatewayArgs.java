@@ -62,14 +62,14 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The IP address of the gateway&#39;s Internet-routable external interface.
+     * The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
     @Import(name="ipAddress", required=true)
     private Output<String> ipAddress;
 
     /**
-     * @return The IP address of the gateway&#39;s Internet-routable external interface.
+     * @return The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
     public Output<String> ipAddress() {
@@ -201,7 +201,7 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipAddress The IP address of the gateway&#39;s Internet-routable external interface.
+         * @param ipAddress The IPv4 address for the customer gateway device&#39;s outside interface.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class CustomerGatewayArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ipAddress The IP address of the gateway&#39;s Internet-routable external interface.
+         * @param ipAddress The IPv4 address for the customer gateway device&#39;s outside interface.
          * 
          * @return builder
          * 

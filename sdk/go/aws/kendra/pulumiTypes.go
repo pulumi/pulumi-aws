@@ -10,6 +10,736 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ExperienceConfiguration struct {
+	ContentSourceConfiguration *ExperienceConfigurationContentSourceConfiguration `pulumi:"contentSourceConfiguration"`
+	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+	UserIdentityConfiguration *ExperienceConfigurationUserIdentityConfiguration `pulumi:"userIdentityConfiguration"`
+}
+
+// ExperienceConfigurationInput is an input type that accepts ExperienceConfigurationArgs and ExperienceConfigurationOutput values.
+// You can construct a concrete instance of `ExperienceConfigurationInput` via:
+//
+//          ExperienceConfigurationArgs{...}
+type ExperienceConfigurationInput interface {
+	pulumi.Input
+
+	ToExperienceConfigurationOutput() ExperienceConfigurationOutput
+	ToExperienceConfigurationOutputWithContext(context.Context) ExperienceConfigurationOutput
+}
+
+type ExperienceConfigurationArgs struct {
+	ContentSourceConfiguration ExperienceConfigurationContentSourceConfigurationPtrInput `pulumi:"contentSourceConfiguration"`
+	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+	UserIdentityConfiguration ExperienceConfigurationUserIdentityConfigurationPtrInput `pulumi:"userIdentityConfiguration"`
+}
+
+func (ExperienceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperienceConfiguration)(nil)).Elem()
+}
+
+func (i ExperienceConfigurationArgs) ToExperienceConfigurationOutput() ExperienceConfigurationOutput {
+	return i.ToExperienceConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExperienceConfigurationArgs) ToExperienceConfigurationOutputWithContext(ctx context.Context) ExperienceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationOutput)
+}
+
+func (i ExperienceConfigurationArgs) ToExperienceConfigurationPtrOutput() ExperienceConfigurationPtrOutput {
+	return i.ToExperienceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExperienceConfigurationArgs) ToExperienceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationOutput).ToExperienceConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExperienceConfigurationPtrInput is an input type that accepts ExperienceConfigurationArgs, ExperienceConfigurationPtr and ExperienceConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExperienceConfigurationPtrInput` via:
+//
+//          ExperienceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExperienceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExperienceConfigurationPtrOutput() ExperienceConfigurationPtrOutput
+	ToExperienceConfigurationPtrOutputWithContext(context.Context) ExperienceConfigurationPtrOutput
+}
+
+type experienceConfigurationPtrType ExperienceConfigurationArgs
+
+func ExperienceConfigurationPtr(v *ExperienceConfigurationArgs) ExperienceConfigurationPtrInput {
+	return (*experienceConfigurationPtrType)(v)
+}
+
+func (*experienceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperienceConfiguration)(nil)).Elem()
+}
+
+func (i *experienceConfigurationPtrType) ToExperienceConfigurationPtrOutput() ExperienceConfigurationPtrOutput {
+	return i.ToExperienceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *experienceConfigurationPtrType) ToExperienceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationPtrOutput)
+}
+
+type ExperienceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExperienceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperienceConfiguration)(nil)).Elem()
+}
+
+func (o ExperienceConfigurationOutput) ToExperienceConfigurationOutput() ExperienceConfigurationOutput {
+	return o
+}
+
+func (o ExperienceConfigurationOutput) ToExperienceConfigurationOutputWithContext(ctx context.Context) ExperienceConfigurationOutput {
+	return o
+}
+
+func (o ExperienceConfigurationOutput) ToExperienceConfigurationPtrOutput() ExperienceConfigurationPtrOutput {
+	return o.ToExperienceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExperienceConfigurationOutput) ToExperienceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperienceConfiguration) *ExperienceConfiguration {
+		return &v
+	}).(ExperienceConfigurationPtrOutput)
+}
+
+func (o ExperienceConfigurationOutput) ContentSourceConfiguration() ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v ExperienceConfiguration) *ExperienceConfigurationContentSourceConfiguration {
+		return v.ContentSourceConfiguration
+	}).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
+}
+
+// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+func (o ExperienceConfigurationOutput) UserIdentityConfiguration() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return o.ApplyT(func(v ExperienceConfiguration) *ExperienceConfigurationUserIdentityConfiguration {
+		return v.UserIdentityConfiguration
+	}).(ExperienceConfigurationUserIdentityConfigurationPtrOutput)
+}
+
+type ExperienceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperienceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperienceConfiguration)(nil)).Elem()
+}
+
+func (o ExperienceConfigurationPtrOutput) ToExperienceConfigurationPtrOutput() ExperienceConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperienceConfigurationPtrOutput) ToExperienceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperienceConfigurationPtrOutput) Elem() ExperienceConfigurationOutput {
+	return o.ApplyT(func(v *ExperienceConfiguration) ExperienceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExperienceConfiguration
+		return ret
+	}).(ExperienceConfigurationOutput)
+}
+
+func (o ExperienceConfigurationPtrOutput) ContentSourceConfiguration() ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperienceConfiguration) *ExperienceConfigurationContentSourceConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ContentSourceConfiguration
+	}).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
+}
+
+// The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+func (o ExperienceConfigurationPtrOutput) UserIdentityConfiguration() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return o.ApplyT(func(v *ExperienceConfiguration) *ExperienceConfigurationUserIdentityConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.UserIdentityConfiguration
+	}).(ExperienceConfigurationUserIdentityConfigurationPtrOutput)
+}
+
+type ExperienceConfigurationContentSourceConfiguration struct {
+	// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+	DataSourceIds []string `pulumi:"dataSourceIds"`
+	// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
+	DirectPutContent *bool `pulumi:"directPutContent"`
+	// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+	FaqIds []string `pulumi:"faqIds"`
+}
+
+// ExperienceConfigurationContentSourceConfigurationInput is an input type that accepts ExperienceConfigurationContentSourceConfigurationArgs and ExperienceConfigurationContentSourceConfigurationOutput values.
+// You can construct a concrete instance of `ExperienceConfigurationContentSourceConfigurationInput` via:
+//
+//          ExperienceConfigurationContentSourceConfigurationArgs{...}
+type ExperienceConfigurationContentSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToExperienceConfigurationContentSourceConfigurationOutput() ExperienceConfigurationContentSourceConfigurationOutput
+	ToExperienceConfigurationContentSourceConfigurationOutputWithContext(context.Context) ExperienceConfigurationContentSourceConfigurationOutput
+}
+
+type ExperienceConfigurationContentSourceConfigurationArgs struct {
+	// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+	DataSourceIds pulumi.StringArrayInput `pulumi:"dataSourceIds"`
+	// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
+	DirectPutContent pulumi.BoolPtrInput `pulumi:"directPutContent"`
+	// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+	FaqIds pulumi.StringArrayInput `pulumi:"faqIds"`
+}
+
+func (ExperienceConfigurationContentSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperienceConfigurationContentSourceConfiguration)(nil)).Elem()
+}
+
+func (i ExperienceConfigurationContentSourceConfigurationArgs) ToExperienceConfigurationContentSourceConfigurationOutput() ExperienceConfigurationContentSourceConfigurationOutput {
+	return i.ToExperienceConfigurationContentSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExperienceConfigurationContentSourceConfigurationArgs) ToExperienceConfigurationContentSourceConfigurationOutputWithContext(ctx context.Context) ExperienceConfigurationContentSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationContentSourceConfigurationOutput)
+}
+
+func (i ExperienceConfigurationContentSourceConfigurationArgs) ToExperienceConfigurationContentSourceConfigurationPtrOutput() ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return i.ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExperienceConfigurationContentSourceConfigurationArgs) ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationContentSourceConfigurationOutput).ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExperienceConfigurationContentSourceConfigurationPtrInput is an input type that accepts ExperienceConfigurationContentSourceConfigurationArgs, ExperienceConfigurationContentSourceConfigurationPtr and ExperienceConfigurationContentSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExperienceConfigurationContentSourceConfigurationPtrInput` via:
+//
+//          ExperienceConfigurationContentSourceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExperienceConfigurationContentSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExperienceConfigurationContentSourceConfigurationPtrOutput() ExperienceConfigurationContentSourceConfigurationPtrOutput
+	ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(context.Context) ExperienceConfigurationContentSourceConfigurationPtrOutput
+}
+
+type experienceConfigurationContentSourceConfigurationPtrType ExperienceConfigurationContentSourceConfigurationArgs
+
+func ExperienceConfigurationContentSourceConfigurationPtr(v *ExperienceConfigurationContentSourceConfigurationArgs) ExperienceConfigurationContentSourceConfigurationPtrInput {
+	return (*experienceConfigurationContentSourceConfigurationPtrType)(v)
+}
+
+func (*experienceConfigurationContentSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperienceConfigurationContentSourceConfiguration)(nil)).Elem()
+}
+
+func (i *experienceConfigurationContentSourceConfigurationPtrType) ToExperienceConfigurationContentSourceConfigurationPtrOutput() ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return i.ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *experienceConfigurationContentSourceConfigurationPtrType) ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
+}
+
+type ExperienceConfigurationContentSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExperienceConfigurationContentSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperienceConfigurationContentSourceConfiguration)(nil)).Elem()
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationOutput) ToExperienceConfigurationContentSourceConfigurationOutput() ExperienceConfigurationContentSourceConfigurationOutput {
+	return o
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationOutput) ToExperienceConfigurationContentSourceConfigurationOutputWithContext(ctx context.Context) ExperienceConfigurationContentSourceConfigurationOutput {
+	return o
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationOutput) ToExperienceConfigurationContentSourceConfigurationPtrOutput() ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return o.ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationOutput) ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperienceConfigurationContentSourceConfiguration) *ExperienceConfigurationContentSourceConfiguration {
+		return &v
+	}).(ExperienceConfigurationContentSourceConfigurationPtrOutput)
+}
+
+// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+func (o ExperienceConfigurationContentSourceConfigurationOutput) DataSourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExperienceConfigurationContentSourceConfiguration) []string { return v.DataSourceIds }).(pulumi.StringArrayOutput)
+}
+
+// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
+func (o ExperienceConfigurationContentSourceConfigurationOutput) DirectPutContent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExperienceConfigurationContentSourceConfiguration) *bool { return v.DirectPutContent }).(pulumi.BoolPtrOutput)
+}
+
+// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+func (o ExperienceConfigurationContentSourceConfigurationOutput) FaqIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExperienceConfigurationContentSourceConfiguration) []string { return v.FaqIds }).(pulumi.StringArrayOutput)
+}
+
+type ExperienceConfigurationContentSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperienceConfigurationContentSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperienceConfigurationContentSourceConfiguration)(nil)).Elem()
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) ToExperienceConfigurationContentSourceConfigurationPtrOutput() ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) ToExperienceConfigurationContentSourceConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationContentSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) Elem() ExperienceConfigurationContentSourceConfigurationOutput {
+	return o.ApplyT(func(v *ExperienceConfigurationContentSourceConfiguration) ExperienceConfigurationContentSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExperienceConfigurationContentSourceConfiguration
+		return ret
+	}).(ExperienceConfigurationContentSourceConfigurationOutput)
+}
+
+// The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) DataSourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExperienceConfigurationContentSourceConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DataSourceIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
+func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) DirectPutContent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExperienceConfigurationContentSourceConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DirectPutContent
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+func (o ExperienceConfigurationContentSourceConfigurationPtrOutput) FaqIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ExperienceConfigurationContentSourceConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FaqIds
+	}).(pulumi.StringArrayOutput)
+}
+
+type ExperienceConfigurationUserIdentityConfiguration struct {
+	// The AWS SSO field name that contains the identifiers of your users, such as their emails.
+	IdentityAttributeName string `pulumi:"identityAttributeName"`
+}
+
+// ExperienceConfigurationUserIdentityConfigurationInput is an input type that accepts ExperienceConfigurationUserIdentityConfigurationArgs and ExperienceConfigurationUserIdentityConfigurationOutput values.
+// You can construct a concrete instance of `ExperienceConfigurationUserIdentityConfigurationInput` via:
+//
+//          ExperienceConfigurationUserIdentityConfigurationArgs{...}
+type ExperienceConfigurationUserIdentityConfigurationInput interface {
+	pulumi.Input
+
+	ToExperienceConfigurationUserIdentityConfigurationOutput() ExperienceConfigurationUserIdentityConfigurationOutput
+	ToExperienceConfigurationUserIdentityConfigurationOutputWithContext(context.Context) ExperienceConfigurationUserIdentityConfigurationOutput
+}
+
+type ExperienceConfigurationUserIdentityConfigurationArgs struct {
+	// The AWS SSO field name that contains the identifiers of your users, such as their emails.
+	IdentityAttributeName pulumi.StringInput `pulumi:"identityAttributeName"`
+}
+
+func (ExperienceConfigurationUserIdentityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperienceConfigurationUserIdentityConfiguration)(nil)).Elem()
+}
+
+func (i ExperienceConfigurationUserIdentityConfigurationArgs) ToExperienceConfigurationUserIdentityConfigurationOutput() ExperienceConfigurationUserIdentityConfigurationOutput {
+	return i.ToExperienceConfigurationUserIdentityConfigurationOutputWithContext(context.Background())
+}
+
+func (i ExperienceConfigurationUserIdentityConfigurationArgs) ToExperienceConfigurationUserIdentityConfigurationOutputWithContext(ctx context.Context) ExperienceConfigurationUserIdentityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationUserIdentityConfigurationOutput)
+}
+
+func (i ExperienceConfigurationUserIdentityConfigurationArgs) ToExperienceConfigurationUserIdentityConfigurationPtrOutput() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return i.ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ExperienceConfigurationUserIdentityConfigurationArgs) ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationUserIdentityConfigurationOutput).ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(ctx)
+}
+
+// ExperienceConfigurationUserIdentityConfigurationPtrInput is an input type that accepts ExperienceConfigurationUserIdentityConfigurationArgs, ExperienceConfigurationUserIdentityConfigurationPtr and ExperienceConfigurationUserIdentityConfigurationPtrOutput values.
+// You can construct a concrete instance of `ExperienceConfigurationUserIdentityConfigurationPtrInput` via:
+//
+//          ExperienceConfigurationUserIdentityConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ExperienceConfigurationUserIdentityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToExperienceConfigurationUserIdentityConfigurationPtrOutput() ExperienceConfigurationUserIdentityConfigurationPtrOutput
+	ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(context.Context) ExperienceConfigurationUserIdentityConfigurationPtrOutput
+}
+
+type experienceConfigurationUserIdentityConfigurationPtrType ExperienceConfigurationUserIdentityConfigurationArgs
+
+func ExperienceConfigurationUserIdentityConfigurationPtr(v *ExperienceConfigurationUserIdentityConfigurationArgs) ExperienceConfigurationUserIdentityConfigurationPtrInput {
+	return (*experienceConfigurationUserIdentityConfigurationPtrType)(v)
+}
+
+func (*experienceConfigurationUserIdentityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperienceConfigurationUserIdentityConfiguration)(nil)).Elem()
+}
+
+func (i *experienceConfigurationUserIdentityConfigurationPtrType) ToExperienceConfigurationUserIdentityConfigurationPtrOutput() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return i.ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *experienceConfigurationUserIdentityConfigurationPtrType) ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceConfigurationUserIdentityConfigurationPtrOutput)
+}
+
+type ExperienceConfigurationUserIdentityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ExperienceConfigurationUserIdentityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperienceConfigurationUserIdentityConfiguration)(nil)).Elem()
+}
+
+func (o ExperienceConfigurationUserIdentityConfigurationOutput) ToExperienceConfigurationUserIdentityConfigurationOutput() ExperienceConfigurationUserIdentityConfigurationOutput {
+	return o
+}
+
+func (o ExperienceConfigurationUserIdentityConfigurationOutput) ToExperienceConfigurationUserIdentityConfigurationOutputWithContext(ctx context.Context) ExperienceConfigurationUserIdentityConfigurationOutput {
+	return o
+}
+
+func (o ExperienceConfigurationUserIdentityConfigurationOutput) ToExperienceConfigurationUserIdentityConfigurationPtrOutput() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return o.ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ExperienceConfigurationUserIdentityConfigurationOutput) ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperienceConfigurationUserIdentityConfiguration) *ExperienceConfigurationUserIdentityConfiguration {
+		return &v
+	}).(ExperienceConfigurationUserIdentityConfigurationPtrOutput)
+}
+
+// The AWS SSO field name that contains the identifiers of your users, such as their emails.
+func (o ExperienceConfigurationUserIdentityConfigurationOutput) IdentityAttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v ExperienceConfigurationUserIdentityConfiguration) string { return v.IdentityAttributeName }).(pulumi.StringOutput)
+}
+
+type ExperienceConfigurationUserIdentityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperienceConfigurationUserIdentityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperienceConfigurationUserIdentityConfiguration)(nil)).Elem()
+}
+
+func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) ToExperienceConfigurationUserIdentityConfigurationPtrOutput() ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) ToExperienceConfigurationUserIdentityConfigurationPtrOutputWithContext(ctx context.Context) ExperienceConfigurationUserIdentityConfigurationPtrOutput {
+	return o
+}
+
+func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) Elem() ExperienceConfigurationUserIdentityConfigurationOutput {
+	return o.ApplyT(func(v *ExperienceConfigurationUserIdentityConfiguration) ExperienceConfigurationUserIdentityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ExperienceConfigurationUserIdentityConfiguration
+		return ret
+	}).(ExperienceConfigurationUserIdentityConfigurationOutput)
+}
+
+// The AWS SSO field name that contains the identifiers of your users, such as their emails.
+func (o ExperienceConfigurationUserIdentityConfigurationPtrOutput) IdentityAttributeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperienceConfigurationUserIdentityConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityAttributeName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExperienceEndpoint struct {
+	// The endpoint of your Amazon Kendra experience.
+	Endpoint *string `pulumi:"endpoint"`
+	// The type of endpoint for your Amazon Kendra experience.
+	EndpointType *string `pulumi:"endpointType"`
+}
+
+// ExperienceEndpointInput is an input type that accepts ExperienceEndpointArgs and ExperienceEndpointOutput values.
+// You can construct a concrete instance of `ExperienceEndpointInput` via:
+//
+//          ExperienceEndpointArgs{...}
+type ExperienceEndpointInput interface {
+	pulumi.Input
+
+	ToExperienceEndpointOutput() ExperienceEndpointOutput
+	ToExperienceEndpointOutputWithContext(context.Context) ExperienceEndpointOutput
+}
+
+type ExperienceEndpointArgs struct {
+	// The endpoint of your Amazon Kendra experience.
+	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
+	// The type of endpoint for your Amazon Kendra experience.
+	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
+}
+
+func (ExperienceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperienceEndpoint)(nil)).Elem()
+}
+
+func (i ExperienceEndpointArgs) ToExperienceEndpointOutput() ExperienceEndpointOutput {
+	return i.ToExperienceEndpointOutputWithContext(context.Background())
+}
+
+func (i ExperienceEndpointArgs) ToExperienceEndpointOutputWithContext(ctx context.Context) ExperienceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceEndpointOutput)
+}
+
+// ExperienceEndpointArrayInput is an input type that accepts ExperienceEndpointArray and ExperienceEndpointArrayOutput values.
+// You can construct a concrete instance of `ExperienceEndpointArrayInput` via:
+//
+//          ExperienceEndpointArray{ ExperienceEndpointArgs{...} }
+type ExperienceEndpointArrayInput interface {
+	pulumi.Input
+
+	ToExperienceEndpointArrayOutput() ExperienceEndpointArrayOutput
+	ToExperienceEndpointArrayOutputWithContext(context.Context) ExperienceEndpointArrayOutput
+}
+
+type ExperienceEndpointArray []ExperienceEndpointInput
+
+func (ExperienceEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExperienceEndpoint)(nil)).Elem()
+}
+
+func (i ExperienceEndpointArray) ToExperienceEndpointArrayOutput() ExperienceEndpointArrayOutput {
+	return i.ToExperienceEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ExperienceEndpointArray) ToExperienceEndpointArrayOutputWithContext(ctx context.Context) ExperienceEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperienceEndpointArrayOutput)
+}
+
+type ExperienceEndpointOutput struct{ *pulumi.OutputState }
+
+func (ExperienceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperienceEndpoint)(nil)).Elem()
+}
+
+func (o ExperienceEndpointOutput) ToExperienceEndpointOutput() ExperienceEndpointOutput {
+	return o
+}
+
+func (o ExperienceEndpointOutput) ToExperienceEndpointOutputWithContext(ctx context.Context) ExperienceEndpointOutput {
+	return o
+}
+
+// The endpoint of your Amazon Kendra experience.
+func (o ExperienceEndpointOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperienceEndpoint) *string { return v.Endpoint }).(pulumi.StringPtrOutput)
+}
+
+// The type of endpoint for your Amazon Kendra experience.
+func (o ExperienceEndpointOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperienceEndpoint) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
+}
+
+type ExperienceEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ExperienceEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExperienceEndpoint)(nil)).Elem()
+}
+
+func (o ExperienceEndpointArrayOutput) ToExperienceEndpointArrayOutput() ExperienceEndpointArrayOutput {
+	return o
+}
+
+func (o ExperienceEndpointArrayOutput) ToExperienceEndpointArrayOutputWithContext(ctx context.Context) ExperienceEndpointArrayOutput {
+	return o
+}
+
+func (o ExperienceEndpointArrayOutput) Index(i pulumi.IntInput) ExperienceEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExperienceEndpoint {
+		return vs[0].([]ExperienceEndpoint)[vs[1].(int)]
+	}).(ExperienceEndpointOutput)
+}
+
+type FaqS3Path struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket string `pulumi:"bucket"`
+	// The name of the file.
+	Key string `pulumi:"key"`
+}
+
+// FaqS3PathInput is an input type that accepts FaqS3PathArgs and FaqS3PathOutput values.
+// You can construct a concrete instance of `FaqS3PathInput` via:
+//
+//          FaqS3PathArgs{...}
+type FaqS3PathInput interface {
+	pulumi.Input
+
+	ToFaqS3PathOutput() FaqS3PathOutput
+	ToFaqS3PathOutputWithContext(context.Context) FaqS3PathOutput
+}
+
+type FaqS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (FaqS3PathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FaqS3Path)(nil)).Elem()
+}
+
+func (i FaqS3PathArgs) ToFaqS3PathOutput() FaqS3PathOutput {
+	return i.ToFaqS3PathOutputWithContext(context.Background())
+}
+
+func (i FaqS3PathArgs) ToFaqS3PathOutputWithContext(ctx context.Context) FaqS3PathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FaqS3PathOutput)
+}
+
+func (i FaqS3PathArgs) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
+	return i.ToFaqS3PathPtrOutputWithContext(context.Background())
+}
+
+func (i FaqS3PathArgs) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FaqS3PathOutput).ToFaqS3PathPtrOutputWithContext(ctx)
+}
+
+// FaqS3PathPtrInput is an input type that accepts FaqS3PathArgs, FaqS3PathPtr and FaqS3PathPtrOutput values.
+// You can construct a concrete instance of `FaqS3PathPtrInput` via:
+//
+//          FaqS3PathArgs{...}
+//
+//  or:
+//
+//          nil
+type FaqS3PathPtrInput interface {
+	pulumi.Input
+
+	ToFaqS3PathPtrOutput() FaqS3PathPtrOutput
+	ToFaqS3PathPtrOutputWithContext(context.Context) FaqS3PathPtrOutput
+}
+
+type faqS3PathPtrType FaqS3PathArgs
+
+func FaqS3PathPtr(v *FaqS3PathArgs) FaqS3PathPtrInput {
+	return (*faqS3PathPtrType)(v)
+}
+
+func (*faqS3PathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FaqS3Path)(nil)).Elem()
+}
+
+func (i *faqS3PathPtrType) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
+	return i.ToFaqS3PathPtrOutputWithContext(context.Background())
+}
+
+func (i *faqS3PathPtrType) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FaqS3PathPtrOutput)
+}
+
+type FaqS3PathOutput struct{ *pulumi.OutputState }
+
+func (FaqS3PathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FaqS3Path)(nil)).Elem()
+}
+
+func (o FaqS3PathOutput) ToFaqS3PathOutput() FaqS3PathOutput {
+	return o
+}
+
+func (o FaqS3PathOutput) ToFaqS3PathOutputWithContext(ctx context.Context) FaqS3PathOutput {
+	return o
+}
+
+func (o FaqS3PathOutput) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
+	return o.ToFaqS3PathPtrOutputWithContext(context.Background())
+}
+
+func (o FaqS3PathOutput) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FaqS3Path) *FaqS3Path {
+		return &v
+	}).(FaqS3PathPtrOutput)
+}
+
+// The name of the S3 bucket that contains the file.
+func (o FaqS3PathOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v FaqS3Path) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name of the file.
+func (o FaqS3PathOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v FaqS3Path) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type FaqS3PathPtrOutput struct{ *pulumi.OutputState }
+
+func (FaqS3PathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FaqS3Path)(nil)).Elem()
+}
+
+func (o FaqS3PathPtrOutput) ToFaqS3PathPtrOutput() FaqS3PathPtrOutput {
+	return o
+}
+
+func (o FaqS3PathPtrOutput) ToFaqS3PathPtrOutputWithContext(ctx context.Context) FaqS3PathPtrOutput {
+	return o
+}
+
+func (o FaqS3PathPtrOutput) Elem() FaqS3PathOutput {
+	return o.ApplyT(func(v *FaqS3Path) FaqS3Path {
+		if v != nil {
+			return *v
+		}
+		var ret FaqS3Path
+		return ret
+	}).(FaqS3PathOutput)
+}
+
+// The name of the S3 bucket that contains the file.
+func (o FaqS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FaqS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the file.
+func (o FaqS3PathPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FaqS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
 type IndexCapacityUnits struct {
 	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
 	QueryCapacityUnits *int `pulumi:"queryCapacityUnits"`
@@ -1703,7 +2433,2444 @@ func (o IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput) UserName
 	}).(pulumi.StringPtrOutput)
 }
 
+type QuerySuggestionsBlockListSourceS3Path struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket string `pulumi:"bucket"`
+	// The name of the file.
+	Key string `pulumi:"key"`
+}
+
+// QuerySuggestionsBlockListSourceS3PathInput is an input type that accepts QuerySuggestionsBlockListSourceS3PathArgs and QuerySuggestionsBlockListSourceS3PathOutput values.
+// You can construct a concrete instance of `QuerySuggestionsBlockListSourceS3PathInput` via:
+//
+//          QuerySuggestionsBlockListSourceS3PathArgs{...}
+type QuerySuggestionsBlockListSourceS3PathInput interface {
+	pulumi.Input
+
+	ToQuerySuggestionsBlockListSourceS3PathOutput() QuerySuggestionsBlockListSourceS3PathOutput
+	ToQuerySuggestionsBlockListSourceS3PathOutputWithContext(context.Context) QuerySuggestionsBlockListSourceS3PathOutput
+}
+
+type QuerySuggestionsBlockListSourceS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (QuerySuggestionsBlockListSourceS3PathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuerySuggestionsBlockListSourceS3Path)(nil)).Elem()
+}
+
+func (i QuerySuggestionsBlockListSourceS3PathArgs) ToQuerySuggestionsBlockListSourceS3PathOutput() QuerySuggestionsBlockListSourceS3PathOutput {
+	return i.ToQuerySuggestionsBlockListSourceS3PathOutputWithContext(context.Background())
+}
+
+func (i QuerySuggestionsBlockListSourceS3PathArgs) ToQuerySuggestionsBlockListSourceS3PathOutputWithContext(ctx context.Context) QuerySuggestionsBlockListSourceS3PathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListSourceS3PathOutput)
+}
+
+func (i QuerySuggestionsBlockListSourceS3PathArgs) ToQuerySuggestionsBlockListSourceS3PathPtrOutput() QuerySuggestionsBlockListSourceS3PathPtrOutput {
+	return i.ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(context.Background())
+}
+
+func (i QuerySuggestionsBlockListSourceS3PathArgs) ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(ctx context.Context) QuerySuggestionsBlockListSourceS3PathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListSourceS3PathOutput).ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(ctx)
+}
+
+// QuerySuggestionsBlockListSourceS3PathPtrInput is an input type that accepts QuerySuggestionsBlockListSourceS3PathArgs, QuerySuggestionsBlockListSourceS3PathPtr and QuerySuggestionsBlockListSourceS3PathPtrOutput values.
+// You can construct a concrete instance of `QuerySuggestionsBlockListSourceS3PathPtrInput` via:
+//
+//          QuerySuggestionsBlockListSourceS3PathArgs{...}
+//
+//  or:
+//
+//          nil
+type QuerySuggestionsBlockListSourceS3PathPtrInput interface {
+	pulumi.Input
+
+	ToQuerySuggestionsBlockListSourceS3PathPtrOutput() QuerySuggestionsBlockListSourceS3PathPtrOutput
+	ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(context.Context) QuerySuggestionsBlockListSourceS3PathPtrOutput
+}
+
+type querySuggestionsBlockListSourceS3PathPtrType QuerySuggestionsBlockListSourceS3PathArgs
+
+func QuerySuggestionsBlockListSourceS3PathPtr(v *QuerySuggestionsBlockListSourceS3PathArgs) QuerySuggestionsBlockListSourceS3PathPtrInput {
+	return (*querySuggestionsBlockListSourceS3PathPtrType)(v)
+}
+
+func (*querySuggestionsBlockListSourceS3PathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuerySuggestionsBlockListSourceS3Path)(nil)).Elem()
+}
+
+func (i *querySuggestionsBlockListSourceS3PathPtrType) ToQuerySuggestionsBlockListSourceS3PathPtrOutput() QuerySuggestionsBlockListSourceS3PathPtrOutput {
+	return i.ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(context.Background())
+}
+
+func (i *querySuggestionsBlockListSourceS3PathPtrType) ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(ctx context.Context) QuerySuggestionsBlockListSourceS3PathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListSourceS3PathPtrOutput)
+}
+
+type QuerySuggestionsBlockListSourceS3PathOutput struct{ *pulumi.OutputState }
+
+func (QuerySuggestionsBlockListSourceS3PathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuerySuggestionsBlockListSourceS3Path)(nil)).Elem()
+}
+
+func (o QuerySuggestionsBlockListSourceS3PathOutput) ToQuerySuggestionsBlockListSourceS3PathOutput() QuerySuggestionsBlockListSourceS3PathOutput {
+	return o
+}
+
+func (o QuerySuggestionsBlockListSourceS3PathOutput) ToQuerySuggestionsBlockListSourceS3PathOutputWithContext(ctx context.Context) QuerySuggestionsBlockListSourceS3PathOutput {
+	return o
+}
+
+func (o QuerySuggestionsBlockListSourceS3PathOutput) ToQuerySuggestionsBlockListSourceS3PathPtrOutput() QuerySuggestionsBlockListSourceS3PathPtrOutput {
+	return o.ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(context.Background())
+}
+
+func (o QuerySuggestionsBlockListSourceS3PathOutput) ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(ctx context.Context) QuerySuggestionsBlockListSourceS3PathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QuerySuggestionsBlockListSourceS3Path) *QuerySuggestionsBlockListSourceS3Path {
+		return &v
+	}).(QuerySuggestionsBlockListSourceS3PathPtrOutput)
+}
+
+// The name of the S3 bucket that contains the file.
+func (o QuerySuggestionsBlockListSourceS3PathOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v QuerySuggestionsBlockListSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name of the file.
+func (o QuerySuggestionsBlockListSourceS3PathOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v QuerySuggestionsBlockListSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type QuerySuggestionsBlockListSourceS3PathPtrOutput struct{ *pulumi.OutputState }
+
+func (QuerySuggestionsBlockListSourceS3PathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuerySuggestionsBlockListSourceS3Path)(nil)).Elem()
+}
+
+func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) ToQuerySuggestionsBlockListSourceS3PathPtrOutput() QuerySuggestionsBlockListSourceS3PathPtrOutput {
+	return o
+}
+
+func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) ToQuerySuggestionsBlockListSourceS3PathPtrOutputWithContext(ctx context.Context) QuerySuggestionsBlockListSourceS3PathPtrOutput {
+	return o
+}
+
+func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Elem() QuerySuggestionsBlockListSourceS3PathOutput {
+	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) QuerySuggestionsBlockListSourceS3Path {
+		if v != nil {
+			return *v
+		}
+		var ret QuerySuggestionsBlockListSourceS3Path
+		return ret
+	}).(QuerySuggestionsBlockListSourceS3PathOutput)
+}
+
+// The name of the S3 bucket that contains the file.
+func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the file.
+func (o QuerySuggestionsBlockListSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuerySuggestionsBlockListSourceS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThesaurusSourceS3Path struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket string `pulumi:"bucket"`
+	// The name of the file.
+	Key string `pulumi:"key"`
+}
+
+// ThesaurusSourceS3PathInput is an input type that accepts ThesaurusSourceS3PathArgs and ThesaurusSourceS3PathOutput values.
+// You can construct a concrete instance of `ThesaurusSourceS3PathInput` via:
+//
+//          ThesaurusSourceS3PathArgs{...}
+type ThesaurusSourceS3PathInput interface {
+	pulumi.Input
+
+	ToThesaurusSourceS3PathOutput() ThesaurusSourceS3PathOutput
+	ToThesaurusSourceS3PathOutputWithContext(context.Context) ThesaurusSourceS3PathOutput
+}
+
+type ThesaurusSourceS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (ThesaurusSourceS3PathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThesaurusSourceS3Path)(nil)).Elem()
+}
+
+func (i ThesaurusSourceS3PathArgs) ToThesaurusSourceS3PathOutput() ThesaurusSourceS3PathOutput {
+	return i.ToThesaurusSourceS3PathOutputWithContext(context.Background())
+}
+
+func (i ThesaurusSourceS3PathArgs) ToThesaurusSourceS3PathOutputWithContext(ctx context.Context) ThesaurusSourceS3PathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusSourceS3PathOutput)
+}
+
+func (i ThesaurusSourceS3PathArgs) ToThesaurusSourceS3PathPtrOutput() ThesaurusSourceS3PathPtrOutput {
+	return i.ToThesaurusSourceS3PathPtrOutputWithContext(context.Background())
+}
+
+func (i ThesaurusSourceS3PathArgs) ToThesaurusSourceS3PathPtrOutputWithContext(ctx context.Context) ThesaurusSourceS3PathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusSourceS3PathOutput).ToThesaurusSourceS3PathPtrOutputWithContext(ctx)
+}
+
+// ThesaurusSourceS3PathPtrInput is an input type that accepts ThesaurusSourceS3PathArgs, ThesaurusSourceS3PathPtr and ThesaurusSourceS3PathPtrOutput values.
+// You can construct a concrete instance of `ThesaurusSourceS3PathPtrInput` via:
+//
+//          ThesaurusSourceS3PathArgs{...}
+//
+//  or:
+//
+//          nil
+type ThesaurusSourceS3PathPtrInput interface {
+	pulumi.Input
+
+	ToThesaurusSourceS3PathPtrOutput() ThesaurusSourceS3PathPtrOutput
+	ToThesaurusSourceS3PathPtrOutputWithContext(context.Context) ThesaurusSourceS3PathPtrOutput
+}
+
+type thesaurusSourceS3PathPtrType ThesaurusSourceS3PathArgs
+
+func ThesaurusSourceS3PathPtr(v *ThesaurusSourceS3PathArgs) ThesaurusSourceS3PathPtrInput {
+	return (*thesaurusSourceS3PathPtrType)(v)
+}
+
+func (*thesaurusSourceS3PathPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThesaurusSourceS3Path)(nil)).Elem()
+}
+
+func (i *thesaurusSourceS3PathPtrType) ToThesaurusSourceS3PathPtrOutput() ThesaurusSourceS3PathPtrOutput {
+	return i.ToThesaurusSourceS3PathPtrOutputWithContext(context.Background())
+}
+
+func (i *thesaurusSourceS3PathPtrType) ToThesaurusSourceS3PathPtrOutputWithContext(ctx context.Context) ThesaurusSourceS3PathPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusSourceS3PathPtrOutput)
+}
+
+type ThesaurusSourceS3PathOutput struct{ *pulumi.OutputState }
+
+func (ThesaurusSourceS3PathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThesaurusSourceS3Path)(nil)).Elem()
+}
+
+func (o ThesaurusSourceS3PathOutput) ToThesaurusSourceS3PathOutput() ThesaurusSourceS3PathOutput {
+	return o
+}
+
+func (o ThesaurusSourceS3PathOutput) ToThesaurusSourceS3PathOutputWithContext(ctx context.Context) ThesaurusSourceS3PathOutput {
+	return o
+}
+
+func (o ThesaurusSourceS3PathOutput) ToThesaurusSourceS3PathPtrOutput() ThesaurusSourceS3PathPtrOutput {
+	return o.ToThesaurusSourceS3PathPtrOutputWithContext(context.Background())
+}
+
+func (o ThesaurusSourceS3PathOutput) ToThesaurusSourceS3PathPtrOutputWithContext(ctx context.Context) ThesaurusSourceS3PathPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThesaurusSourceS3Path) *ThesaurusSourceS3Path {
+		return &v
+	}).(ThesaurusSourceS3PathPtrOutput)
+}
+
+// The name of the S3 bucket that contains the file.
+func (o ThesaurusSourceS3PathOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v ThesaurusSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name of the file.
+func (o ThesaurusSourceS3PathOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ThesaurusSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type ThesaurusSourceS3PathPtrOutput struct{ *pulumi.OutputState }
+
+func (ThesaurusSourceS3PathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThesaurusSourceS3Path)(nil)).Elem()
+}
+
+func (o ThesaurusSourceS3PathPtrOutput) ToThesaurusSourceS3PathPtrOutput() ThesaurusSourceS3PathPtrOutput {
+	return o
+}
+
+func (o ThesaurusSourceS3PathPtrOutput) ToThesaurusSourceS3PathPtrOutputWithContext(ctx context.Context) ThesaurusSourceS3PathPtrOutput {
+	return o
+}
+
+func (o ThesaurusSourceS3PathPtrOutput) Elem() ThesaurusSourceS3PathOutput {
+	return o.ApplyT(func(v *ThesaurusSourceS3Path) ThesaurusSourceS3Path {
+		if v != nil {
+			return *v
+		}
+		var ret ThesaurusSourceS3Path
+		return ret
+	}).(ThesaurusSourceS3PathOutput)
+}
+
+// The name of the S3 bucket that contains the file.
+func (o ThesaurusSourceS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThesaurusSourceS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the file.
+func (o ThesaurusSourceS3PathPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThesaurusSourceS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+type GetExperienceConfiguration struct {
+	// The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
+	ContentSourceConfigurations []GetExperienceConfigurationContentSourceConfiguration `pulumi:"contentSourceConfigurations"`
+	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
+	UserIdentityConfigurations []GetExperienceConfigurationUserIdentityConfiguration `pulumi:"userIdentityConfigurations"`
+}
+
+// GetExperienceConfigurationInput is an input type that accepts GetExperienceConfigurationArgs and GetExperienceConfigurationOutput values.
+// You can construct a concrete instance of `GetExperienceConfigurationInput` via:
+//
+//          GetExperienceConfigurationArgs{...}
+type GetExperienceConfigurationInput interface {
+	pulumi.Input
+
+	ToGetExperienceConfigurationOutput() GetExperienceConfigurationOutput
+	ToGetExperienceConfigurationOutputWithContext(context.Context) GetExperienceConfigurationOutput
+}
+
+type GetExperienceConfigurationArgs struct {
+	// The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
+	ContentSourceConfigurations GetExperienceConfigurationContentSourceConfigurationArrayInput `pulumi:"contentSourceConfigurations"`
+	// The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
+	UserIdentityConfigurations GetExperienceConfigurationUserIdentityConfigurationArrayInput `pulumi:"userIdentityConfigurations"`
+}
+
+func (GetExperienceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExperienceConfiguration)(nil)).Elem()
+}
+
+func (i GetExperienceConfigurationArgs) ToGetExperienceConfigurationOutput() GetExperienceConfigurationOutput {
+	return i.ToGetExperienceConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetExperienceConfigurationArgs) ToGetExperienceConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationOutput)
+}
+
+// GetExperienceConfigurationArrayInput is an input type that accepts GetExperienceConfigurationArray and GetExperienceConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetExperienceConfigurationArrayInput` via:
+//
+//          GetExperienceConfigurationArray{ GetExperienceConfigurationArgs{...} }
+type GetExperienceConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetExperienceConfigurationArrayOutput() GetExperienceConfigurationArrayOutput
+	ToGetExperienceConfigurationArrayOutputWithContext(context.Context) GetExperienceConfigurationArrayOutput
+}
+
+type GetExperienceConfigurationArray []GetExperienceConfigurationInput
+
+func (GetExperienceConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExperienceConfiguration)(nil)).Elem()
+}
+
+func (i GetExperienceConfigurationArray) ToGetExperienceConfigurationArrayOutput() GetExperienceConfigurationArrayOutput {
+	return i.ToGetExperienceConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetExperienceConfigurationArray) ToGetExperienceConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationArrayOutput)
+}
+
+type GetExperienceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetExperienceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExperienceConfiguration)(nil)).Elem()
+}
+
+func (o GetExperienceConfigurationOutput) ToGetExperienceConfigurationOutput() GetExperienceConfigurationOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationOutput) ToGetExperienceConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationOutput {
+	return o
+}
+
+// The identifiers of your data sources and FAQs. This is the content you want to use for your Amazon Kendra Experience. Documented below.
+func (o GetExperienceConfigurationOutput) ContentSourceConfigurations() GetExperienceConfigurationContentSourceConfigurationArrayOutput {
+	return o.ApplyT(func(v GetExperienceConfiguration) []GetExperienceConfigurationContentSourceConfiguration {
+		return v.ContentSourceConfigurations
+	}).(GetExperienceConfigurationContentSourceConfigurationArrayOutput)
+}
+
+// The AWS SSO field name that contains the identifiers of your users, such as their emails. Documented below.
+func (o GetExperienceConfigurationOutput) UserIdentityConfigurations() GetExperienceConfigurationUserIdentityConfigurationArrayOutput {
+	return o.ApplyT(func(v GetExperienceConfiguration) []GetExperienceConfigurationUserIdentityConfiguration {
+		return v.UserIdentityConfigurations
+	}).(GetExperienceConfigurationUserIdentityConfigurationArrayOutput)
+}
+
+type GetExperienceConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExperienceConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExperienceConfiguration)(nil)).Elem()
+}
+
+func (o GetExperienceConfigurationArrayOutput) ToGetExperienceConfigurationArrayOutput() GetExperienceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationArrayOutput) ToGetExperienceConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationArrayOutput) Index(i pulumi.IntInput) GetExperienceConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExperienceConfiguration {
+		return vs[0].([]GetExperienceConfiguration)[vs[1].(int)]
+	}).(GetExperienceConfigurationOutput)
+}
+
+type GetExperienceConfigurationContentSourceConfiguration struct {
+	// The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+	DataSourceIds []string `pulumi:"dataSourceIds"`
+	// Whether to use documents you indexed directly using the `BatchPutDocument API`.
+	DirectPutContent bool `pulumi:"directPutContent"`
+	// The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+	FaqIds []string `pulumi:"faqIds"`
+}
+
+// GetExperienceConfigurationContentSourceConfigurationInput is an input type that accepts GetExperienceConfigurationContentSourceConfigurationArgs and GetExperienceConfigurationContentSourceConfigurationOutput values.
+// You can construct a concrete instance of `GetExperienceConfigurationContentSourceConfigurationInput` via:
+//
+//          GetExperienceConfigurationContentSourceConfigurationArgs{...}
+type GetExperienceConfigurationContentSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToGetExperienceConfigurationContentSourceConfigurationOutput() GetExperienceConfigurationContentSourceConfigurationOutput
+	ToGetExperienceConfigurationContentSourceConfigurationOutputWithContext(context.Context) GetExperienceConfigurationContentSourceConfigurationOutput
+}
+
+type GetExperienceConfigurationContentSourceConfigurationArgs struct {
+	// The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+	DataSourceIds pulumi.StringArrayInput `pulumi:"dataSourceIds"`
+	// Whether to use documents you indexed directly using the `BatchPutDocument API`.
+	DirectPutContent pulumi.BoolInput `pulumi:"directPutContent"`
+	// The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+	FaqIds pulumi.StringArrayInput `pulumi:"faqIds"`
+}
+
+func (GetExperienceConfigurationContentSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExperienceConfigurationContentSourceConfiguration)(nil)).Elem()
+}
+
+func (i GetExperienceConfigurationContentSourceConfigurationArgs) ToGetExperienceConfigurationContentSourceConfigurationOutput() GetExperienceConfigurationContentSourceConfigurationOutput {
+	return i.ToGetExperienceConfigurationContentSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetExperienceConfigurationContentSourceConfigurationArgs) ToGetExperienceConfigurationContentSourceConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationContentSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationContentSourceConfigurationOutput)
+}
+
+// GetExperienceConfigurationContentSourceConfigurationArrayInput is an input type that accepts GetExperienceConfigurationContentSourceConfigurationArray and GetExperienceConfigurationContentSourceConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetExperienceConfigurationContentSourceConfigurationArrayInput` via:
+//
+//          GetExperienceConfigurationContentSourceConfigurationArray{ GetExperienceConfigurationContentSourceConfigurationArgs{...} }
+type GetExperienceConfigurationContentSourceConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetExperienceConfigurationContentSourceConfigurationArrayOutput() GetExperienceConfigurationContentSourceConfigurationArrayOutput
+	ToGetExperienceConfigurationContentSourceConfigurationArrayOutputWithContext(context.Context) GetExperienceConfigurationContentSourceConfigurationArrayOutput
+}
+
+type GetExperienceConfigurationContentSourceConfigurationArray []GetExperienceConfigurationContentSourceConfigurationInput
+
+func (GetExperienceConfigurationContentSourceConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExperienceConfigurationContentSourceConfiguration)(nil)).Elem()
+}
+
+func (i GetExperienceConfigurationContentSourceConfigurationArray) ToGetExperienceConfigurationContentSourceConfigurationArrayOutput() GetExperienceConfigurationContentSourceConfigurationArrayOutput {
+	return i.ToGetExperienceConfigurationContentSourceConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetExperienceConfigurationContentSourceConfigurationArray) ToGetExperienceConfigurationContentSourceConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationContentSourceConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationContentSourceConfigurationArrayOutput)
+}
+
+type GetExperienceConfigurationContentSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetExperienceConfigurationContentSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExperienceConfigurationContentSourceConfiguration)(nil)).Elem()
+}
+
+func (o GetExperienceConfigurationContentSourceConfigurationOutput) ToGetExperienceConfigurationContentSourceConfigurationOutput() GetExperienceConfigurationContentSourceConfigurationOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationContentSourceConfigurationOutput) ToGetExperienceConfigurationContentSourceConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationContentSourceConfigurationOutput {
+	return o
+}
+
+// The identifiers of the data sources you want to use for your Amazon Kendra Experience.
+func (o GetExperienceConfigurationContentSourceConfigurationOutput) DataSourceIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) []string { return v.DataSourceIds }).(pulumi.StringArrayOutput)
+}
+
+// Whether to use documents you indexed directly using the `BatchPutDocument API`.
+func (o GetExperienceConfigurationContentSourceConfigurationOutput) DirectPutContent() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) bool { return v.DirectPutContent }).(pulumi.BoolOutput)
+}
+
+// The identifier of the FAQs that you want to use for your Amazon Kendra Experience.
+func (o GetExperienceConfigurationContentSourceConfigurationOutput) FaqIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetExperienceConfigurationContentSourceConfiguration) []string { return v.FaqIds }).(pulumi.StringArrayOutput)
+}
+
+type GetExperienceConfigurationContentSourceConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExperienceConfigurationContentSourceConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExperienceConfigurationContentSourceConfiguration)(nil)).Elem()
+}
+
+func (o GetExperienceConfigurationContentSourceConfigurationArrayOutput) ToGetExperienceConfigurationContentSourceConfigurationArrayOutput() GetExperienceConfigurationContentSourceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationContentSourceConfigurationArrayOutput) ToGetExperienceConfigurationContentSourceConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationContentSourceConfigurationArrayOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationContentSourceConfigurationArrayOutput) Index(i pulumi.IntInput) GetExperienceConfigurationContentSourceConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExperienceConfigurationContentSourceConfiguration {
+		return vs[0].([]GetExperienceConfigurationContentSourceConfiguration)[vs[1].(int)]
+	}).(GetExperienceConfigurationContentSourceConfigurationOutput)
+}
+
+type GetExperienceConfigurationUserIdentityConfiguration struct {
+	// The AWS SSO field name that contains the identifiers of your users, such as their emails.
+	IdentityAttributeName string `pulumi:"identityAttributeName"`
+}
+
+// GetExperienceConfigurationUserIdentityConfigurationInput is an input type that accepts GetExperienceConfigurationUserIdentityConfigurationArgs and GetExperienceConfigurationUserIdentityConfigurationOutput values.
+// You can construct a concrete instance of `GetExperienceConfigurationUserIdentityConfigurationInput` via:
+//
+//          GetExperienceConfigurationUserIdentityConfigurationArgs{...}
+type GetExperienceConfigurationUserIdentityConfigurationInput interface {
+	pulumi.Input
+
+	ToGetExperienceConfigurationUserIdentityConfigurationOutput() GetExperienceConfigurationUserIdentityConfigurationOutput
+	ToGetExperienceConfigurationUserIdentityConfigurationOutputWithContext(context.Context) GetExperienceConfigurationUserIdentityConfigurationOutput
+}
+
+type GetExperienceConfigurationUserIdentityConfigurationArgs struct {
+	// The AWS SSO field name that contains the identifiers of your users, such as their emails.
+	IdentityAttributeName pulumi.StringInput `pulumi:"identityAttributeName"`
+}
+
+func (GetExperienceConfigurationUserIdentityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExperienceConfigurationUserIdentityConfiguration)(nil)).Elem()
+}
+
+func (i GetExperienceConfigurationUserIdentityConfigurationArgs) ToGetExperienceConfigurationUserIdentityConfigurationOutput() GetExperienceConfigurationUserIdentityConfigurationOutput {
+	return i.ToGetExperienceConfigurationUserIdentityConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetExperienceConfigurationUserIdentityConfigurationArgs) ToGetExperienceConfigurationUserIdentityConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationUserIdentityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationUserIdentityConfigurationOutput)
+}
+
+// GetExperienceConfigurationUserIdentityConfigurationArrayInput is an input type that accepts GetExperienceConfigurationUserIdentityConfigurationArray and GetExperienceConfigurationUserIdentityConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetExperienceConfigurationUserIdentityConfigurationArrayInput` via:
+//
+//          GetExperienceConfigurationUserIdentityConfigurationArray{ GetExperienceConfigurationUserIdentityConfigurationArgs{...} }
+type GetExperienceConfigurationUserIdentityConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetExperienceConfigurationUserIdentityConfigurationArrayOutput() GetExperienceConfigurationUserIdentityConfigurationArrayOutput
+	ToGetExperienceConfigurationUserIdentityConfigurationArrayOutputWithContext(context.Context) GetExperienceConfigurationUserIdentityConfigurationArrayOutput
+}
+
+type GetExperienceConfigurationUserIdentityConfigurationArray []GetExperienceConfigurationUserIdentityConfigurationInput
+
+func (GetExperienceConfigurationUserIdentityConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExperienceConfigurationUserIdentityConfiguration)(nil)).Elem()
+}
+
+func (i GetExperienceConfigurationUserIdentityConfigurationArray) ToGetExperienceConfigurationUserIdentityConfigurationArrayOutput() GetExperienceConfigurationUserIdentityConfigurationArrayOutput {
+	return i.ToGetExperienceConfigurationUserIdentityConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetExperienceConfigurationUserIdentityConfigurationArray) ToGetExperienceConfigurationUserIdentityConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationUserIdentityConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceConfigurationUserIdentityConfigurationArrayOutput)
+}
+
+type GetExperienceConfigurationUserIdentityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetExperienceConfigurationUserIdentityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExperienceConfigurationUserIdentityConfiguration)(nil)).Elem()
+}
+
+func (o GetExperienceConfigurationUserIdentityConfigurationOutput) ToGetExperienceConfigurationUserIdentityConfigurationOutput() GetExperienceConfigurationUserIdentityConfigurationOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationUserIdentityConfigurationOutput) ToGetExperienceConfigurationUserIdentityConfigurationOutputWithContext(ctx context.Context) GetExperienceConfigurationUserIdentityConfigurationOutput {
+	return o
+}
+
+// The AWS SSO field name that contains the identifiers of your users, such as their emails.
+func (o GetExperienceConfigurationUserIdentityConfigurationOutput) IdentityAttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExperienceConfigurationUserIdentityConfiguration) string { return v.IdentityAttributeName }).(pulumi.StringOutput)
+}
+
+type GetExperienceConfigurationUserIdentityConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExperienceConfigurationUserIdentityConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExperienceConfigurationUserIdentityConfiguration)(nil)).Elem()
+}
+
+func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) ToGetExperienceConfigurationUserIdentityConfigurationArrayOutput() GetExperienceConfigurationUserIdentityConfigurationArrayOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) ToGetExperienceConfigurationUserIdentityConfigurationArrayOutputWithContext(ctx context.Context) GetExperienceConfigurationUserIdentityConfigurationArrayOutput {
+	return o
+}
+
+func (o GetExperienceConfigurationUserIdentityConfigurationArrayOutput) Index(i pulumi.IntInput) GetExperienceConfigurationUserIdentityConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExperienceConfigurationUserIdentityConfiguration {
+		return vs[0].([]GetExperienceConfigurationUserIdentityConfiguration)[vs[1].(int)]
+	}).(GetExperienceConfigurationUserIdentityConfigurationOutput)
+}
+
+type GetExperienceEndpoint struct {
+	// The endpoint of your Amazon Kendra Experience.
+	Endpoint string `pulumi:"endpoint"`
+	// The type of endpoint for your Amazon Kendra Experience.
+	EndpointType string `pulumi:"endpointType"`
+}
+
+// GetExperienceEndpointInput is an input type that accepts GetExperienceEndpointArgs and GetExperienceEndpointOutput values.
+// You can construct a concrete instance of `GetExperienceEndpointInput` via:
+//
+//          GetExperienceEndpointArgs{...}
+type GetExperienceEndpointInput interface {
+	pulumi.Input
+
+	ToGetExperienceEndpointOutput() GetExperienceEndpointOutput
+	ToGetExperienceEndpointOutputWithContext(context.Context) GetExperienceEndpointOutput
+}
+
+type GetExperienceEndpointArgs struct {
+	// The endpoint of your Amazon Kendra Experience.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The type of endpoint for your Amazon Kendra Experience.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+}
+
+func (GetExperienceEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExperienceEndpoint)(nil)).Elem()
+}
+
+func (i GetExperienceEndpointArgs) ToGetExperienceEndpointOutput() GetExperienceEndpointOutput {
+	return i.ToGetExperienceEndpointOutputWithContext(context.Background())
+}
+
+func (i GetExperienceEndpointArgs) ToGetExperienceEndpointOutputWithContext(ctx context.Context) GetExperienceEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceEndpointOutput)
+}
+
+// GetExperienceEndpointArrayInput is an input type that accepts GetExperienceEndpointArray and GetExperienceEndpointArrayOutput values.
+// You can construct a concrete instance of `GetExperienceEndpointArrayInput` via:
+//
+//          GetExperienceEndpointArray{ GetExperienceEndpointArgs{...} }
+type GetExperienceEndpointArrayInput interface {
+	pulumi.Input
+
+	ToGetExperienceEndpointArrayOutput() GetExperienceEndpointArrayOutput
+	ToGetExperienceEndpointArrayOutputWithContext(context.Context) GetExperienceEndpointArrayOutput
+}
+
+type GetExperienceEndpointArray []GetExperienceEndpointInput
+
+func (GetExperienceEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExperienceEndpoint)(nil)).Elem()
+}
+
+func (i GetExperienceEndpointArray) ToGetExperienceEndpointArrayOutput() GetExperienceEndpointArrayOutput {
+	return i.ToGetExperienceEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i GetExperienceEndpointArray) ToGetExperienceEndpointArrayOutputWithContext(ctx context.Context) GetExperienceEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetExperienceEndpointArrayOutput)
+}
+
+type GetExperienceEndpointOutput struct{ *pulumi.OutputState }
+
+func (GetExperienceEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetExperienceEndpoint)(nil)).Elem()
+}
+
+func (o GetExperienceEndpointOutput) ToGetExperienceEndpointOutput() GetExperienceEndpointOutput {
+	return o
+}
+
+func (o GetExperienceEndpointOutput) ToGetExperienceEndpointOutputWithContext(ctx context.Context) GetExperienceEndpointOutput {
+	return o
+}
+
+// The endpoint of your Amazon Kendra Experience.
+func (o GetExperienceEndpointOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExperienceEndpoint) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The type of endpoint for your Amazon Kendra Experience.
+func (o GetExperienceEndpointOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetExperienceEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+type GetExperienceEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetExperienceEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetExperienceEndpoint)(nil)).Elem()
+}
+
+func (o GetExperienceEndpointArrayOutput) ToGetExperienceEndpointArrayOutput() GetExperienceEndpointArrayOutput {
+	return o
+}
+
+func (o GetExperienceEndpointArrayOutput) ToGetExperienceEndpointArrayOutputWithContext(ctx context.Context) GetExperienceEndpointArrayOutput {
+	return o
+}
+
+func (o GetExperienceEndpointArrayOutput) Index(i pulumi.IntInput) GetExperienceEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetExperienceEndpoint {
+		return vs[0].([]GetExperienceEndpoint)[vs[1].(int)]
+	}).(GetExperienceEndpointOutput)
+}
+
+type GetFaqS3Path struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket string `pulumi:"bucket"`
+	// The name of the file.
+	Key string `pulumi:"key"`
+}
+
+// GetFaqS3PathInput is an input type that accepts GetFaqS3PathArgs and GetFaqS3PathOutput values.
+// You can construct a concrete instance of `GetFaqS3PathInput` via:
+//
+//          GetFaqS3PathArgs{...}
+type GetFaqS3PathInput interface {
+	pulumi.Input
+
+	ToGetFaqS3PathOutput() GetFaqS3PathOutput
+	ToGetFaqS3PathOutputWithContext(context.Context) GetFaqS3PathOutput
+}
+
+type GetFaqS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (GetFaqS3PathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFaqS3Path)(nil)).Elem()
+}
+
+func (i GetFaqS3PathArgs) ToGetFaqS3PathOutput() GetFaqS3PathOutput {
+	return i.ToGetFaqS3PathOutputWithContext(context.Background())
+}
+
+func (i GetFaqS3PathArgs) ToGetFaqS3PathOutputWithContext(ctx context.Context) GetFaqS3PathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFaqS3PathOutput)
+}
+
+// GetFaqS3PathArrayInput is an input type that accepts GetFaqS3PathArray and GetFaqS3PathArrayOutput values.
+// You can construct a concrete instance of `GetFaqS3PathArrayInput` via:
+//
+//          GetFaqS3PathArray{ GetFaqS3PathArgs{...} }
+type GetFaqS3PathArrayInput interface {
+	pulumi.Input
+
+	ToGetFaqS3PathArrayOutput() GetFaqS3PathArrayOutput
+	ToGetFaqS3PathArrayOutputWithContext(context.Context) GetFaqS3PathArrayOutput
+}
+
+type GetFaqS3PathArray []GetFaqS3PathInput
+
+func (GetFaqS3PathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFaqS3Path)(nil)).Elem()
+}
+
+func (i GetFaqS3PathArray) ToGetFaqS3PathArrayOutput() GetFaqS3PathArrayOutput {
+	return i.ToGetFaqS3PathArrayOutputWithContext(context.Background())
+}
+
+func (i GetFaqS3PathArray) ToGetFaqS3PathArrayOutputWithContext(ctx context.Context) GetFaqS3PathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetFaqS3PathArrayOutput)
+}
+
+type GetFaqS3PathOutput struct{ *pulumi.OutputState }
+
+func (GetFaqS3PathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetFaqS3Path)(nil)).Elem()
+}
+
+func (o GetFaqS3PathOutput) ToGetFaqS3PathOutput() GetFaqS3PathOutput {
+	return o
+}
+
+func (o GetFaqS3PathOutput) ToGetFaqS3PathOutputWithContext(ctx context.Context) GetFaqS3PathOutput {
+	return o
+}
+
+// The name of the S3 bucket that contains the file.
+func (o GetFaqS3PathOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFaqS3Path) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name of the file.
+func (o GetFaqS3PathOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetFaqS3Path) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type GetFaqS3PathArrayOutput struct{ *pulumi.OutputState }
+
+func (GetFaqS3PathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetFaqS3Path)(nil)).Elem()
+}
+
+func (o GetFaqS3PathArrayOutput) ToGetFaqS3PathArrayOutput() GetFaqS3PathArrayOutput {
+	return o
+}
+
+func (o GetFaqS3PathArrayOutput) ToGetFaqS3PathArrayOutputWithContext(ctx context.Context) GetFaqS3PathArrayOutput {
+	return o
+}
+
+func (o GetFaqS3PathArrayOutput) Index(i pulumi.IntInput) GetFaqS3PathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetFaqS3Path {
+		return vs[0].([]GetFaqS3Path)[vs[1].(int)]
+	}).(GetFaqS3PathOutput)
+}
+
+type GetIndexCapacityUnit struct {
+	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+	QueryCapacityUnits int `pulumi:"queryCapacityUnits"`
+	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+	StorageCapacityUnits int `pulumi:"storageCapacityUnits"`
+}
+
+// GetIndexCapacityUnitInput is an input type that accepts GetIndexCapacityUnitArgs and GetIndexCapacityUnitOutput values.
+// You can construct a concrete instance of `GetIndexCapacityUnitInput` via:
+//
+//          GetIndexCapacityUnitArgs{...}
+type GetIndexCapacityUnitInput interface {
+	pulumi.Input
+
+	ToGetIndexCapacityUnitOutput() GetIndexCapacityUnitOutput
+	ToGetIndexCapacityUnitOutputWithContext(context.Context) GetIndexCapacityUnitOutput
+}
+
+type GetIndexCapacityUnitArgs struct {
+	// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+	QueryCapacityUnits pulumi.IntInput `pulumi:"queryCapacityUnits"`
+	// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+	StorageCapacityUnits pulumi.IntInput `pulumi:"storageCapacityUnits"`
+}
+
+func (GetIndexCapacityUnitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexCapacityUnit)(nil)).Elem()
+}
+
+func (i GetIndexCapacityUnitArgs) ToGetIndexCapacityUnitOutput() GetIndexCapacityUnitOutput {
+	return i.ToGetIndexCapacityUnitOutputWithContext(context.Background())
+}
+
+func (i GetIndexCapacityUnitArgs) ToGetIndexCapacityUnitOutputWithContext(ctx context.Context) GetIndexCapacityUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexCapacityUnitOutput)
+}
+
+// GetIndexCapacityUnitArrayInput is an input type that accepts GetIndexCapacityUnitArray and GetIndexCapacityUnitArrayOutput values.
+// You can construct a concrete instance of `GetIndexCapacityUnitArrayInput` via:
+//
+//          GetIndexCapacityUnitArray{ GetIndexCapacityUnitArgs{...} }
+type GetIndexCapacityUnitArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexCapacityUnitArrayOutput() GetIndexCapacityUnitArrayOutput
+	ToGetIndexCapacityUnitArrayOutputWithContext(context.Context) GetIndexCapacityUnitArrayOutput
+}
+
+type GetIndexCapacityUnitArray []GetIndexCapacityUnitInput
+
+func (GetIndexCapacityUnitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexCapacityUnit)(nil)).Elem()
+}
+
+func (i GetIndexCapacityUnitArray) ToGetIndexCapacityUnitArrayOutput() GetIndexCapacityUnitArrayOutput {
+	return i.ToGetIndexCapacityUnitArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexCapacityUnitArray) ToGetIndexCapacityUnitArrayOutputWithContext(ctx context.Context) GetIndexCapacityUnitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexCapacityUnitArrayOutput)
+}
+
+type GetIndexCapacityUnitOutput struct{ *pulumi.OutputState }
+
+func (GetIndexCapacityUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexCapacityUnit)(nil)).Elem()
+}
+
+func (o GetIndexCapacityUnitOutput) ToGetIndexCapacityUnitOutput() GetIndexCapacityUnitOutput {
+	return o
+}
+
+func (o GetIndexCapacityUnitOutput) ToGetIndexCapacityUnitOutputWithContext(ctx context.Context) GetIndexCapacityUnitOutput {
+	return o
+}
+
+// The amount of extra query capacity for an index and GetQuerySuggestions capacity. For more information, refer to [QueryCapacityUnits](https://docs.aws.amazon.com/kendra/latest/dg/API_CapacityUnitsConfiguration.html#Kendra-Type-CapacityUnitsConfiguration-QueryCapacityUnits).
+func (o GetIndexCapacityUnitOutput) QueryCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIndexCapacityUnit) int { return v.QueryCapacityUnits }).(pulumi.IntOutput)
+}
+
+// The amount of extra storage capacity for an index. A single capacity unit provides 30 GB of storage space or 100,000 documents, whichever is reached first. Minimum value of 0.
+func (o GetIndexCapacityUnitOutput) StorageCapacityUnits() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIndexCapacityUnit) int { return v.StorageCapacityUnits }).(pulumi.IntOutput)
+}
+
+type GetIndexCapacityUnitArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexCapacityUnitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexCapacityUnit)(nil)).Elem()
+}
+
+func (o GetIndexCapacityUnitArrayOutput) ToGetIndexCapacityUnitArrayOutput() GetIndexCapacityUnitArrayOutput {
+	return o
+}
+
+func (o GetIndexCapacityUnitArrayOutput) ToGetIndexCapacityUnitArrayOutputWithContext(ctx context.Context) GetIndexCapacityUnitArrayOutput {
+	return o
+}
+
+func (o GetIndexCapacityUnitArrayOutput) Index(i pulumi.IntInput) GetIndexCapacityUnitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexCapacityUnit {
+		return vs[0].([]GetIndexCapacityUnit)[vs[1].(int)]
+	}).(GetIndexCapacityUnitOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdate struct {
+	// The name of the index field. Minimum length of 1. Maximum length of 30.
+	Name string `pulumi:"name"`
+	// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+	Relevances []GetIndexDocumentMetadataConfigurationUpdateRelevance `pulumi:"relevances"`
+	// A block that provides information about how the field is used during a search. Documented below.
+	Searches []GetIndexDocumentMetadataConfigurationUpdateSearch `pulumi:"searches"`
+	// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+	Type string `pulumi:"type"`
+}
+
+// GetIndexDocumentMetadataConfigurationUpdateInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateArgs and GetIndexDocumentMetadataConfigurationUpdateOutput values.
+// You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateInput` via:
+//
+//          GetIndexDocumentMetadataConfigurationUpdateArgs{...}
+type GetIndexDocumentMetadataConfigurationUpdateInput interface {
+	pulumi.Input
+
+	ToGetIndexDocumentMetadataConfigurationUpdateOutput() GetIndexDocumentMetadataConfigurationUpdateOutput
+	ToGetIndexDocumentMetadataConfigurationUpdateOutputWithContext(context.Context) GetIndexDocumentMetadataConfigurationUpdateOutput
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateArgs struct {
+	// The name of the index field. Minimum length of 1. Maximum length of 30.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+	Relevances GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput `pulumi:"relevances"`
+	// A block that provides information about how the field is used during a search. Documented below.
+	Searches GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput `pulumi:"searches"`
+	// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetIndexDocumentMetadataConfigurationUpdateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdate)(nil)).Elem()
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateArgs) ToGetIndexDocumentMetadataConfigurationUpdateOutput() GetIndexDocumentMetadataConfigurationUpdateOutput {
+	return i.ToGetIndexDocumentMetadataConfigurationUpdateOutputWithContext(context.Background())
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateArgs) ToGetIndexDocumentMetadataConfigurationUpdateOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateOutput)
+}
+
+// GetIndexDocumentMetadataConfigurationUpdateArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateArray and GetIndexDocumentMetadataConfigurationUpdateArrayOutput values.
+// You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateArrayInput` via:
+//
+//          GetIndexDocumentMetadataConfigurationUpdateArray{ GetIndexDocumentMetadataConfigurationUpdateArgs{...} }
+type GetIndexDocumentMetadataConfigurationUpdateArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexDocumentMetadataConfigurationUpdateArrayOutput() GetIndexDocumentMetadataConfigurationUpdateArrayOutput
+	ToGetIndexDocumentMetadataConfigurationUpdateArrayOutputWithContext(context.Context) GetIndexDocumentMetadataConfigurationUpdateArrayOutput
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateArray []GetIndexDocumentMetadataConfigurationUpdateInput
+
+func (GetIndexDocumentMetadataConfigurationUpdateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexDocumentMetadataConfigurationUpdate)(nil)).Elem()
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateArray) ToGetIndexDocumentMetadataConfigurationUpdateArrayOutput() GetIndexDocumentMetadataConfigurationUpdateArrayOutput {
+	return i.ToGetIndexDocumentMetadataConfigurationUpdateArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateArray) ToGetIndexDocumentMetadataConfigurationUpdateArrayOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateArrayOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateOutput struct{ *pulumi.OutputState }
+
+func (GetIndexDocumentMetadataConfigurationUpdateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdate)(nil)).Elem()
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateOutput) ToGetIndexDocumentMetadataConfigurationUpdateOutput() GetIndexDocumentMetadataConfigurationUpdateOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateOutput) ToGetIndexDocumentMetadataConfigurationUpdateOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateOutput {
+	return o
+}
+
+// The name of the index field. Minimum length of 1. Maximum length of 30.
+func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A block that provides manual tuning parameters to determine how the field affects the search results. Documented below.
+func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Relevances() GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) []GetIndexDocumentMetadataConfigurationUpdateRelevance {
+		return v.Relevances
+	}).(GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput)
+}
+
+// A block that provides information about how the field is used during a search. Documented below.
+func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Searches() GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) []GetIndexDocumentMetadataConfigurationUpdateSearch {
+		return v.Searches
+	}).(GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput)
+}
+
+// The data type of the index field. Valid values are `STRING_VALUE`, `STRING_LIST_VALUE`, `LONG_VALUE`, `DATE_VALUE`.
+func (o GetIndexDocumentMetadataConfigurationUpdateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdate) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexDocumentMetadataConfigurationUpdateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexDocumentMetadataConfigurationUpdate)(nil)).Elem()
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) ToGetIndexDocumentMetadataConfigurationUpdateArrayOutput() GetIndexDocumentMetadataConfigurationUpdateArrayOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) ToGetIndexDocumentMetadataConfigurationUpdateArrayOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateArrayOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateArrayOutput) Index(i pulumi.IntInput) GetIndexDocumentMetadataConfigurationUpdateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexDocumentMetadataConfigurationUpdate {
+		return vs[0].([]GetIndexDocumentMetadataConfigurationUpdate)[vs[1].(int)]
+	}).(GetIndexDocumentMetadataConfigurationUpdateOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateRelevance struct {
+	// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+	Duration string `pulumi:"duration"`
+	// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+	Freshness bool `pulumi:"freshness"`
+	// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+	Importance int `pulumi:"importance"`
+	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+	RankOrder string `pulumi:"rankOrder"`
+	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	ValuesImportanceMap map[string]int `pulumi:"valuesImportanceMap"`
+}
+
+// GetIndexDocumentMetadataConfigurationUpdateRelevanceInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs and GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput values.
+// You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateRelevanceInput` via:
+//
+//          GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs{...}
+type GetIndexDocumentMetadataConfigurationUpdateRelevanceInput interface {
+	pulumi.Input
+
+	ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutput() GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput
+	ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutputWithContext(context.Context) GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs struct {
+	// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+	Duration pulumi.StringInput `pulumi:"duration"`
+	// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+	Freshness pulumi.BoolInput `pulumi:"freshness"`
+	// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+	Importance pulumi.IntInput `pulumi:"importance"`
+	// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+	RankOrder pulumi.StringInput `pulumi:"rankOrder"`
+	// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+	ValuesImportanceMap pulumi.IntMapInput `pulumi:"valuesImportanceMap"`
+}
+
+func (GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateRelevance)(nil)).Elem()
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutput() GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput {
+	return i.ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutputWithContext(context.Background())
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput)
+}
+
+// GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateRelevanceArray and GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput values.
+// You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput` via:
+//
+//          GetIndexDocumentMetadataConfigurationUpdateRelevanceArray{ GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs{...} }
+type GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput() GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput
+	ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(context.Context) GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateRelevanceArray []GetIndexDocumentMetadataConfigurationUpdateRelevanceInput
+
+func (GetIndexDocumentMetadataConfigurationUpdateRelevanceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexDocumentMetadataConfigurationUpdateRelevance)(nil)).Elem()
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArray) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput() GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
+	return i.ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateRelevanceArray) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput struct{ *pulumi.OutputState }
+
+func (GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateRelevance)(nil)).Elem()
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutput() GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput {
+	return o
+}
+
+// Specifies the time period that the boost applies to. For more information, refer to [Duration](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Duration).
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+// Indicates that this field determines how "fresh" a document is. For more information, refer to [Freshness](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-Freshness).
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Freshness() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) bool { return v.Freshness }).(pulumi.BoolOutput)
+}
+
+// The relative importance of the field in the search. Larger numbers provide more of a boost than smaller numbers. Minimum value of 1. Maximum value of 10.
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) Importance() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) int { return v.Importance }).(pulumi.IntOutput)
+}
+
+// Determines how values should be interpreted. For more information, refer to [RankOrder](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-RankOrder).
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) RankOrder() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) string { return v.RankOrder }).(pulumi.StringOutput)
+}
+
+// A list of values that should be given a different boost when they appear in the result list. For more information, refer to [ValueImportanceMap](https://docs.aws.amazon.com/kendra/latest/dg/API_Relevance.html#Kendra-Type-Relevance-ValueImportanceMap).
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput) ValuesImportanceMap() pulumi.IntMapOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateRelevance) map[string]int {
+		return v.ValuesImportanceMap
+	}).(pulumi.IntMapOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexDocumentMetadataConfigurationUpdateRelevance)(nil)).Elem()
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput() GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) ToGetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput) Index(i pulumi.IntInput) GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexDocumentMetadataConfigurationUpdateRelevance {
+		return vs[0].([]GetIndexDocumentMetadataConfigurationUpdateRelevance)[vs[1].(int)]
+	}).(GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateSearch struct {
+	// Determines whether the field is returned in the query response. The default is `true`.
+	Displayable bool `pulumi:"displayable"`
+	// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+	Facetable bool `pulumi:"facetable"`
+	// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+	Searchable bool `pulumi:"searchable"`
+	// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+	Sortable bool `pulumi:"sortable"`
+}
+
+// GetIndexDocumentMetadataConfigurationUpdateSearchInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateSearchArgs and GetIndexDocumentMetadataConfigurationUpdateSearchOutput values.
+// You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateSearchInput` via:
+//
+//          GetIndexDocumentMetadataConfigurationUpdateSearchArgs{...}
+type GetIndexDocumentMetadataConfigurationUpdateSearchInput interface {
+	pulumi.Input
+
+	ToGetIndexDocumentMetadataConfigurationUpdateSearchOutput() GetIndexDocumentMetadataConfigurationUpdateSearchOutput
+	ToGetIndexDocumentMetadataConfigurationUpdateSearchOutputWithContext(context.Context) GetIndexDocumentMetadataConfigurationUpdateSearchOutput
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateSearchArgs struct {
+	// Determines whether the field is returned in the query response. The default is `true`.
+	Displayable pulumi.BoolInput `pulumi:"displayable"`
+	// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+	Facetable pulumi.BoolInput `pulumi:"facetable"`
+	// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+	Searchable pulumi.BoolInput `pulumi:"searchable"`
+	// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+	Sortable pulumi.BoolInput `pulumi:"sortable"`
+}
+
+func (GetIndexDocumentMetadataConfigurationUpdateSearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateSearch)(nil)).Elem()
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateSearchArgs) ToGetIndexDocumentMetadataConfigurationUpdateSearchOutput() GetIndexDocumentMetadataConfigurationUpdateSearchOutput {
+	return i.ToGetIndexDocumentMetadataConfigurationUpdateSearchOutputWithContext(context.Background())
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateSearchArgs) ToGetIndexDocumentMetadataConfigurationUpdateSearchOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateSearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateSearchOutput)
+}
+
+// GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput is an input type that accepts GetIndexDocumentMetadataConfigurationUpdateSearchArray and GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput values.
+// You can construct a concrete instance of `GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput` via:
+//
+//          GetIndexDocumentMetadataConfigurationUpdateSearchArray{ GetIndexDocumentMetadataConfigurationUpdateSearchArgs{...} }
+type GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput() GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput
+	ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(context.Context) GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateSearchArray []GetIndexDocumentMetadataConfigurationUpdateSearchInput
+
+func (GetIndexDocumentMetadataConfigurationUpdateSearchArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexDocumentMetadataConfigurationUpdateSearch)(nil)).Elem()
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateSearchArray) ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput() GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
+	return i.ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexDocumentMetadataConfigurationUpdateSearchArray) ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateSearchOutput struct{ *pulumi.OutputState }
+
+func (GetIndexDocumentMetadataConfigurationUpdateSearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateSearch)(nil)).Elem()
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) ToGetIndexDocumentMetadataConfigurationUpdateSearchOutput() GetIndexDocumentMetadataConfigurationUpdateSearchOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) ToGetIndexDocumentMetadataConfigurationUpdateSearchOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateSearchOutput {
+	return o
+}
+
+// Determines whether the field is returned in the query response. The default is `true`.
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Displayable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Displayable }).(pulumi.BoolOutput)
+}
+
+// Indicates that the field can be used to create search facets, a count of results for each value in the field. The default is `false`.
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Facetable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Facetable }).(pulumi.BoolOutput)
+}
+
+// Determines whether the field is used in the search. If the Searchable field is true, you can use relevance tuning to manually tune how Amazon Kendra weights the field in the search. The default is `true` for `string` fields and `false` for `number` and `date` fields.
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Searchable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Searchable }).(pulumi.BoolOutput)
+}
+
+// Determines whether the field can be used to sort the results of a query. If you specify sorting on a field that does not have Sortable set to true, Amazon Kendra returns an exception. The default is `false`.
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchOutput) Sortable() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetIndexDocumentMetadataConfigurationUpdateSearch) bool { return v.Sortable }).(pulumi.BoolOutput)
+}
+
+type GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexDocumentMetadataConfigurationUpdateSearch)(nil)).Elem()
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput() GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) ToGetIndexDocumentMetadataConfigurationUpdateSearchArrayOutputWithContext(ctx context.Context) GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput {
+	return o
+}
+
+func (o GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput) Index(i pulumi.IntInput) GetIndexDocumentMetadataConfigurationUpdateSearchOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexDocumentMetadataConfigurationUpdateSearch {
+		return vs[0].([]GetIndexDocumentMetadataConfigurationUpdateSearch)[vs[1].(int)]
+	}).(GetIndexDocumentMetadataConfigurationUpdateSearchOutput)
+}
+
+type GetIndexIndexStatistic struct {
+	// A block that specifies the number of question and answer topics in the index. Documented below.
+	FaqStatistics []GetIndexIndexStatisticFaqStatistic `pulumi:"faqStatistics"`
+	// A block that specifies the number of text documents indexed.
+	TextDocumentStatistics []GetIndexIndexStatisticTextDocumentStatistic `pulumi:"textDocumentStatistics"`
+}
+
+// GetIndexIndexStatisticInput is an input type that accepts GetIndexIndexStatisticArgs and GetIndexIndexStatisticOutput values.
+// You can construct a concrete instance of `GetIndexIndexStatisticInput` via:
+//
+//          GetIndexIndexStatisticArgs{...}
+type GetIndexIndexStatisticInput interface {
+	pulumi.Input
+
+	ToGetIndexIndexStatisticOutput() GetIndexIndexStatisticOutput
+	ToGetIndexIndexStatisticOutputWithContext(context.Context) GetIndexIndexStatisticOutput
+}
+
+type GetIndexIndexStatisticArgs struct {
+	// A block that specifies the number of question and answer topics in the index. Documented below.
+	FaqStatistics GetIndexIndexStatisticFaqStatisticArrayInput `pulumi:"faqStatistics"`
+	// A block that specifies the number of text documents indexed.
+	TextDocumentStatistics GetIndexIndexStatisticTextDocumentStatisticArrayInput `pulumi:"textDocumentStatistics"`
+}
+
+func (GetIndexIndexStatisticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexIndexStatistic)(nil)).Elem()
+}
+
+func (i GetIndexIndexStatisticArgs) ToGetIndexIndexStatisticOutput() GetIndexIndexStatisticOutput {
+	return i.ToGetIndexIndexStatisticOutputWithContext(context.Background())
+}
+
+func (i GetIndexIndexStatisticArgs) ToGetIndexIndexStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticOutput)
+}
+
+// GetIndexIndexStatisticArrayInput is an input type that accepts GetIndexIndexStatisticArray and GetIndexIndexStatisticArrayOutput values.
+// You can construct a concrete instance of `GetIndexIndexStatisticArrayInput` via:
+//
+//          GetIndexIndexStatisticArray{ GetIndexIndexStatisticArgs{...} }
+type GetIndexIndexStatisticArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexIndexStatisticArrayOutput() GetIndexIndexStatisticArrayOutput
+	ToGetIndexIndexStatisticArrayOutputWithContext(context.Context) GetIndexIndexStatisticArrayOutput
+}
+
+type GetIndexIndexStatisticArray []GetIndexIndexStatisticInput
+
+func (GetIndexIndexStatisticArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexIndexStatistic)(nil)).Elem()
+}
+
+func (i GetIndexIndexStatisticArray) ToGetIndexIndexStatisticArrayOutput() GetIndexIndexStatisticArrayOutput {
+	return i.ToGetIndexIndexStatisticArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexIndexStatisticArray) ToGetIndexIndexStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticArrayOutput)
+}
+
+type GetIndexIndexStatisticOutput struct{ *pulumi.OutputState }
+
+func (GetIndexIndexStatisticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexIndexStatistic)(nil)).Elem()
+}
+
+func (o GetIndexIndexStatisticOutput) ToGetIndexIndexStatisticOutput() GetIndexIndexStatisticOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticOutput) ToGetIndexIndexStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticOutput {
+	return o
+}
+
+// A block that specifies the number of question and answer topics in the index. Documented below.
+func (o GetIndexIndexStatisticOutput) FaqStatistics() GetIndexIndexStatisticFaqStatisticArrayOutput {
+	return o.ApplyT(func(v GetIndexIndexStatistic) []GetIndexIndexStatisticFaqStatistic { return v.FaqStatistics }).(GetIndexIndexStatisticFaqStatisticArrayOutput)
+}
+
+// A block that specifies the number of text documents indexed.
+func (o GetIndexIndexStatisticOutput) TextDocumentStatistics() GetIndexIndexStatisticTextDocumentStatisticArrayOutput {
+	return o.ApplyT(func(v GetIndexIndexStatistic) []GetIndexIndexStatisticTextDocumentStatistic {
+		return v.TextDocumentStatistics
+	}).(GetIndexIndexStatisticTextDocumentStatisticArrayOutput)
+}
+
+type GetIndexIndexStatisticArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexIndexStatisticArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexIndexStatistic)(nil)).Elem()
+}
+
+func (o GetIndexIndexStatisticArrayOutput) ToGetIndexIndexStatisticArrayOutput() GetIndexIndexStatisticArrayOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticArrayOutput) ToGetIndexIndexStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticArrayOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticArrayOutput) Index(i pulumi.IntInput) GetIndexIndexStatisticOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexIndexStatistic {
+		return vs[0].([]GetIndexIndexStatistic)[vs[1].(int)]
+	}).(GetIndexIndexStatisticOutput)
+}
+
+type GetIndexIndexStatisticFaqStatistic struct {
+	// The total number of FAQ questions and answers contained in the index.
+	IndexedQuestionAnswersCount int `pulumi:"indexedQuestionAnswersCount"`
+}
+
+// GetIndexIndexStatisticFaqStatisticInput is an input type that accepts GetIndexIndexStatisticFaqStatisticArgs and GetIndexIndexStatisticFaqStatisticOutput values.
+// You can construct a concrete instance of `GetIndexIndexStatisticFaqStatisticInput` via:
+//
+//          GetIndexIndexStatisticFaqStatisticArgs{...}
+type GetIndexIndexStatisticFaqStatisticInput interface {
+	pulumi.Input
+
+	ToGetIndexIndexStatisticFaqStatisticOutput() GetIndexIndexStatisticFaqStatisticOutput
+	ToGetIndexIndexStatisticFaqStatisticOutputWithContext(context.Context) GetIndexIndexStatisticFaqStatisticOutput
+}
+
+type GetIndexIndexStatisticFaqStatisticArgs struct {
+	// The total number of FAQ questions and answers contained in the index.
+	IndexedQuestionAnswersCount pulumi.IntInput `pulumi:"indexedQuestionAnswersCount"`
+}
+
+func (GetIndexIndexStatisticFaqStatisticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexIndexStatisticFaqStatistic)(nil)).Elem()
+}
+
+func (i GetIndexIndexStatisticFaqStatisticArgs) ToGetIndexIndexStatisticFaqStatisticOutput() GetIndexIndexStatisticFaqStatisticOutput {
+	return i.ToGetIndexIndexStatisticFaqStatisticOutputWithContext(context.Background())
+}
+
+func (i GetIndexIndexStatisticFaqStatisticArgs) ToGetIndexIndexStatisticFaqStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticFaqStatisticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticFaqStatisticOutput)
+}
+
+// GetIndexIndexStatisticFaqStatisticArrayInput is an input type that accepts GetIndexIndexStatisticFaqStatisticArray and GetIndexIndexStatisticFaqStatisticArrayOutput values.
+// You can construct a concrete instance of `GetIndexIndexStatisticFaqStatisticArrayInput` via:
+//
+//          GetIndexIndexStatisticFaqStatisticArray{ GetIndexIndexStatisticFaqStatisticArgs{...} }
+type GetIndexIndexStatisticFaqStatisticArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexIndexStatisticFaqStatisticArrayOutput() GetIndexIndexStatisticFaqStatisticArrayOutput
+	ToGetIndexIndexStatisticFaqStatisticArrayOutputWithContext(context.Context) GetIndexIndexStatisticFaqStatisticArrayOutput
+}
+
+type GetIndexIndexStatisticFaqStatisticArray []GetIndexIndexStatisticFaqStatisticInput
+
+func (GetIndexIndexStatisticFaqStatisticArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexIndexStatisticFaqStatistic)(nil)).Elem()
+}
+
+func (i GetIndexIndexStatisticFaqStatisticArray) ToGetIndexIndexStatisticFaqStatisticArrayOutput() GetIndexIndexStatisticFaqStatisticArrayOutput {
+	return i.ToGetIndexIndexStatisticFaqStatisticArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexIndexStatisticFaqStatisticArray) ToGetIndexIndexStatisticFaqStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticFaqStatisticArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticFaqStatisticArrayOutput)
+}
+
+type GetIndexIndexStatisticFaqStatisticOutput struct{ *pulumi.OutputState }
+
+func (GetIndexIndexStatisticFaqStatisticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexIndexStatisticFaqStatistic)(nil)).Elem()
+}
+
+func (o GetIndexIndexStatisticFaqStatisticOutput) ToGetIndexIndexStatisticFaqStatisticOutput() GetIndexIndexStatisticFaqStatisticOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticFaqStatisticOutput) ToGetIndexIndexStatisticFaqStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticFaqStatisticOutput {
+	return o
+}
+
+// The total number of FAQ questions and answers contained in the index.
+func (o GetIndexIndexStatisticFaqStatisticOutput) IndexedQuestionAnswersCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIndexIndexStatisticFaqStatistic) int { return v.IndexedQuestionAnswersCount }).(pulumi.IntOutput)
+}
+
+type GetIndexIndexStatisticFaqStatisticArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexIndexStatisticFaqStatisticArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexIndexStatisticFaqStatistic)(nil)).Elem()
+}
+
+func (o GetIndexIndexStatisticFaqStatisticArrayOutput) ToGetIndexIndexStatisticFaqStatisticArrayOutput() GetIndexIndexStatisticFaqStatisticArrayOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticFaqStatisticArrayOutput) ToGetIndexIndexStatisticFaqStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticFaqStatisticArrayOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticFaqStatisticArrayOutput) Index(i pulumi.IntInput) GetIndexIndexStatisticFaqStatisticOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexIndexStatisticFaqStatistic {
+		return vs[0].([]GetIndexIndexStatisticFaqStatistic)[vs[1].(int)]
+	}).(GetIndexIndexStatisticFaqStatisticOutput)
+}
+
+type GetIndexIndexStatisticTextDocumentStatistic struct {
+	// The total size, in bytes, of the indexed documents.
+	IndexedTextBytes int `pulumi:"indexedTextBytes"`
+	// The number of text documents indexed.
+	IndexedTextDocumentsCount int `pulumi:"indexedTextDocumentsCount"`
+}
+
+// GetIndexIndexStatisticTextDocumentStatisticInput is an input type that accepts GetIndexIndexStatisticTextDocumentStatisticArgs and GetIndexIndexStatisticTextDocumentStatisticOutput values.
+// You can construct a concrete instance of `GetIndexIndexStatisticTextDocumentStatisticInput` via:
+//
+//          GetIndexIndexStatisticTextDocumentStatisticArgs{...}
+type GetIndexIndexStatisticTextDocumentStatisticInput interface {
+	pulumi.Input
+
+	ToGetIndexIndexStatisticTextDocumentStatisticOutput() GetIndexIndexStatisticTextDocumentStatisticOutput
+	ToGetIndexIndexStatisticTextDocumentStatisticOutputWithContext(context.Context) GetIndexIndexStatisticTextDocumentStatisticOutput
+}
+
+type GetIndexIndexStatisticTextDocumentStatisticArgs struct {
+	// The total size, in bytes, of the indexed documents.
+	IndexedTextBytes pulumi.IntInput `pulumi:"indexedTextBytes"`
+	// The number of text documents indexed.
+	IndexedTextDocumentsCount pulumi.IntInput `pulumi:"indexedTextDocumentsCount"`
+}
+
+func (GetIndexIndexStatisticTextDocumentStatisticArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexIndexStatisticTextDocumentStatistic)(nil)).Elem()
+}
+
+func (i GetIndexIndexStatisticTextDocumentStatisticArgs) ToGetIndexIndexStatisticTextDocumentStatisticOutput() GetIndexIndexStatisticTextDocumentStatisticOutput {
+	return i.ToGetIndexIndexStatisticTextDocumentStatisticOutputWithContext(context.Background())
+}
+
+func (i GetIndexIndexStatisticTextDocumentStatisticArgs) ToGetIndexIndexStatisticTextDocumentStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticTextDocumentStatisticOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticTextDocumentStatisticOutput)
+}
+
+// GetIndexIndexStatisticTextDocumentStatisticArrayInput is an input type that accepts GetIndexIndexStatisticTextDocumentStatisticArray and GetIndexIndexStatisticTextDocumentStatisticArrayOutput values.
+// You can construct a concrete instance of `GetIndexIndexStatisticTextDocumentStatisticArrayInput` via:
+//
+//          GetIndexIndexStatisticTextDocumentStatisticArray{ GetIndexIndexStatisticTextDocumentStatisticArgs{...} }
+type GetIndexIndexStatisticTextDocumentStatisticArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexIndexStatisticTextDocumentStatisticArrayOutput() GetIndexIndexStatisticTextDocumentStatisticArrayOutput
+	ToGetIndexIndexStatisticTextDocumentStatisticArrayOutputWithContext(context.Context) GetIndexIndexStatisticTextDocumentStatisticArrayOutput
+}
+
+type GetIndexIndexStatisticTextDocumentStatisticArray []GetIndexIndexStatisticTextDocumentStatisticInput
+
+func (GetIndexIndexStatisticTextDocumentStatisticArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexIndexStatisticTextDocumentStatistic)(nil)).Elem()
+}
+
+func (i GetIndexIndexStatisticTextDocumentStatisticArray) ToGetIndexIndexStatisticTextDocumentStatisticArrayOutput() GetIndexIndexStatisticTextDocumentStatisticArrayOutput {
+	return i.ToGetIndexIndexStatisticTextDocumentStatisticArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexIndexStatisticTextDocumentStatisticArray) ToGetIndexIndexStatisticTextDocumentStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticTextDocumentStatisticArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexIndexStatisticTextDocumentStatisticArrayOutput)
+}
+
+type GetIndexIndexStatisticTextDocumentStatisticOutput struct{ *pulumi.OutputState }
+
+func (GetIndexIndexStatisticTextDocumentStatisticOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexIndexStatisticTextDocumentStatistic)(nil)).Elem()
+}
+
+func (o GetIndexIndexStatisticTextDocumentStatisticOutput) ToGetIndexIndexStatisticTextDocumentStatisticOutput() GetIndexIndexStatisticTextDocumentStatisticOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticTextDocumentStatisticOutput) ToGetIndexIndexStatisticTextDocumentStatisticOutputWithContext(ctx context.Context) GetIndexIndexStatisticTextDocumentStatisticOutput {
+	return o
+}
+
+// The total size, in bytes, of the indexed documents.
+func (o GetIndexIndexStatisticTextDocumentStatisticOutput) IndexedTextBytes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIndexIndexStatisticTextDocumentStatistic) int { return v.IndexedTextBytes }).(pulumi.IntOutput)
+}
+
+// The number of text documents indexed.
+func (o GetIndexIndexStatisticTextDocumentStatisticOutput) IndexedTextDocumentsCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetIndexIndexStatisticTextDocumentStatistic) int { return v.IndexedTextDocumentsCount }).(pulumi.IntOutput)
+}
+
+type GetIndexIndexStatisticTextDocumentStatisticArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexIndexStatisticTextDocumentStatisticArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexIndexStatisticTextDocumentStatistic)(nil)).Elem()
+}
+
+func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) ToGetIndexIndexStatisticTextDocumentStatisticArrayOutput() GetIndexIndexStatisticTextDocumentStatisticArrayOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) ToGetIndexIndexStatisticTextDocumentStatisticArrayOutputWithContext(ctx context.Context) GetIndexIndexStatisticTextDocumentStatisticArrayOutput {
+	return o
+}
+
+func (o GetIndexIndexStatisticTextDocumentStatisticArrayOutput) Index(i pulumi.IntInput) GetIndexIndexStatisticTextDocumentStatisticOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexIndexStatisticTextDocumentStatistic {
+		return vs[0].([]GetIndexIndexStatisticTextDocumentStatistic)[vs[1].(int)]
+	}).(GetIndexIndexStatisticTextDocumentStatisticOutput)
+}
+
+type GetIndexServerSideEncryptionConfiguration struct {
+	// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+}
+
+// GetIndexServerSideEncryptionConfigurationInput is an input type that accepts GetIndexServerSideEncryptionConfigurationArgs and GetIndexServerSideEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `GetIndexServerSideEncryptionConfigurationInput` via:
+//
+//          GetIndexServerSideEncryptionConfigurationArgs{...}
+type GetIndexServerSideEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToGetIndexServerSideEncryptionConfigurationOutput() GetIndexServerSideEncryptionConfigurationOutput
+	ToGetIndexServerSideEncryptionConfigurationOutputWithContext(context.Context) GetIndexServerSideEncryptionConfigurationOutput
+}
+
+type GetIndexServerSideEncryptionConfigurationArgs struct {
+	// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+}
+
+func (GetIndexServerSideEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexServerSideEncryptionConfigurationArgs) ToGetIndexServerSideEncryptionConfigurationOutput() GetIndexServerSideEncryptionConfigurationOutput {
+	return i.ToGetIndexServerSideEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetIndexServerSideEncryptionConfigurationArgs) ToGetIndexServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) GetIndexServerSideEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexServerSideEncryptionConfigurationOutput)
+}
+
+// GetIndexServerSideEncryptionConfigurationArrayInput is an input type that accepts GetIndexServerSideEncryptionConfigurationArray and GetIndexServerSideEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetIndexServerSideEncryptionConfigurationArrayInput` via:
+//
+//          GetIndexServerSideEncryptionConfigurationArray{ GetIndexServerSideEncryptionConfigurationArgs{...} }
+type GetIndexServerSideEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexServerSideEncryptionConfigurationArrayOutput() GetIndexServerSideEncryptionConfigurationArrayOutput
+	ToGetIndexServerSideEncryptionConfigurationArrayOutputWithContext(context.Context) GetIndexServerSideEncryptionConfigurationArrayOutput
+}
+
+type GetIndexServerSideEncryptionConfigurationArray []GetIndexServerSideEncryptionConfigurationInput
+
+func (GetIndexServerSideEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexServerSideEncryptionConfigurationArray) ToGetIndexServerSideEncryptionConfigurationArrayOutput() GetIndexServerSideEncryptionConfigurationArrayOutput {
+	return i.ToGetIndexServerSideEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexServerSideEncryptionConfigurationArray) ToGetIndexServerSideEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetIndexServerSideEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexServerSideEncryptionConfigurationArrayOutput)
+}
+
+type GetIndexServerSideEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetIndexServerSideEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexServerSideEncryptionConfigurationOutput) ToGetIndexServerSideEncryptionConfigurationOutput() GetIndexServerSideEncryptionConfigurationOutput {
+	return o
+}
+
+func (o GetIndexServerSideEncryptionConfigurationOutput) ToGetIndexServerSideEncryptionConfigurationOutputWithContext(ctx context.Context) GetIndexServerSideEncryptionConfigurationOutput {
+	return o
+}
+
+// The identifier of the AWS KMScustomer master key (CMK). Amazon Kendra doesn't support asymmetric CMKs.
+func (o GetIndexServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexServerSideEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+type GetIndexServerSideEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexServerSideEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexServerSideEncryptionConfigurationArrayOutput) ToGetIndexServerSideEncryptionConfigurationArrayOutput() GetIndexServerSideEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexServerSideEncryptionConfigurationArrayOutput) ToGetIndexServerSideEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetIndexServerSideEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexServerSideEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexServerSideEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexServerSideEncryptionConfiguration {
+		return vs[0].([]GetIndexServerSideEncryptionConfiguration)[vs[1].(int)]
+	}).(GetIndexServerSideEncryptionConfigurationOutput)
+}
+
+type GetIndexUserGroupResolutionConfiguration struct {
+	// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
+	UserGroupResolutionMode string `pulumi:"userGroupResolutionMode"`
+}
+
+// GetIndexUserGroupResolutionConfigurationInput is an input type that accepts GetIndexUserGroupResolutionConfigurationArgs and GetIndexUserGroupResolutionConfigurationOutput values.
+// You can construct a concrete instance of `GetIndexUserGroupResolutionConfigurationInput` via:
+//
+//          GetIndexUserGroupResolutionConfigurationArgs{...}
+type GetIndexUserGroupResolutionConfigurationInput interface {
+	pulumi.Input
+
+	ToGetIndexUserGroupResolutionConfigurationOutput() GetIndexUserGroupResolutionConfigurationOutput
+	ToGetIndexUserGroupResolutionConfigurationOutputWithContext(context.Context) GetIndexUserGroupResolutionConfigurationOutput
+}
+
+type GetIndexUserGroupResolutionConfigurationArgs struct {
+	// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
+	UserGroupResolutionMode pulumi.StringInput `pulumi:"userGroupResolutionMode"`
+}
+
+func (GetIndexUserGroupResolutionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexUserGroupResolutionConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexUserGroupResolutionConfigurationArgs) ToGetIndexUserGroupResolutionConfigurationOutput() GetIndexUserGroupResolutionConfigurationOutput {
+	return i.ToGetIndexUserGroupResolutionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetIndexUserGroupResolutionConfigurationArgs) ToGetIndexUserGroupResolutionConfigurationOutputWithContext(ctx context.Context) GetIndexUserGroupResolutionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserGroupResolutionConfigurationOutput)
+}
+
+// GetIndexUserGroupResolutionConfigurationArrayInput is an input type that accepts GetIndexUserGroupResolutionConfigurationArray and GetIndexUserGroupResolutionConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetIndexUserGroupResolutionConfigurationArrayInput` via:
+//
+//          GetIndexUserGroupResolutionConfigurationArray{ GetIndexUserGroupResolutionConfigurationArgs{...} }
+type GetIndexUserGroupResolutionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexUserGroupResolutionConfigurationArrayOutput() GetIndexUserGroupResolutionConfigurationArrayOutput
+	ToGetIndexUserGroupResolutionConfigurationArrayOutputWithContext(context.Context) GetIndexUserGroupResolutionConfigurationArrayOutput
+}
+
+type GetIndexUserGroupResolutionConfigurationArray []GetIndexUserGroupResolutionConfigurationInput
+
+func (GetIndexUserGroupResolutionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexUserGroupResolutionConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexUserGroupResolutionConfigurationArray) ToGetIndexUserGroupResolutionConfigurationArrayOutput() GetIndexUserGroupResolutionConfigurationArrayOutput {
+	return i.ToGetIndexUserGroupResolutionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexUserGroupResolutionConfigurationArray) ToGetIndexUserGroupResolutionConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserGroupResolutionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserGroupResolutionConfigurationArrayOutput)
+}
+
+type GetIndexUserGroupResolutionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetIndexUserGroupResolutionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexUserGroupResolutionConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexUserGroupResolutionConfigurationOutput) ToGetIndexUserGroupResolutionConfigurationOutput() GetIndexUserGroupResolutionConfigurationOutput {
+	return o
+}
+
+func (o GetIndexUserGroupResolutionConfigurationOutput) ToGetIndexUserGroupResolutionConfigurationOutputWithContext(ctx context.Context) GetIndexUserGroupResolutionConfigurationOutput {
+	return o
+}
+
+// The identity store provider (mode) you want to use to fetch access levels of groups and users. AWS Single Sign-On is currently the only available mode. Your users and groups must exist in an AWS SSO identity source in order to use this mode. Valid Values are `AWS_SSO` or `NONE`.
+func (o GetIndexUserGroupResolutionConfigurationOutput) UserGroupResolutionMode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserGroupResolutionConfiguration) string { return v.UserGroupResolutionMode }).(pulumi.StringOutput)
+}
+
+type GetIndexUserGroupResolutionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexUserGroupResolutionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexUserGroupResolutionConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexUserGroupResolutionConfigurationArrayOutput) ToGetIndexUserGroupResolutionConfigurationArrayOutput() GetIndexUserGroupResolutionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexUserGroupResolutionConfigurationArrayOutput) ToGetIndexUserGroupResolutionConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserGroupResolutionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexUserGroupResolutionConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexUserGroupResolutionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexUserGroupResolutionConfiguration {
+		return vs[0].([]GetIndexUserGroupResolutionConfiguration)[vs[1].(int)]
+	}).(GetIndexUserGroupResolutionConfigurationOutput)
+}
+
+type GetIndexUserTokenConfiguration struct {
+	// A block that specifies the information about the JSON token type configuration.
+	JsonTokenTypeConfigurations []GetIndexUserTokenConfigurationJsonTokenTypeConfiguration `pulumi:"jsonTokenTypeConfigurations"`
+	// A block that specifies the information about the JWT token type configuration.
+	JwtTokenTypeConfigurations []GetIndexUserTokenConfigurationJwtTokenTypeConfiguration `pulumi:"jwtTokenTypeConfigurations"`
+}
+
+// GetIndexUserTokenConfigurationInput is an input type that accepts GetIndexUserTokenConfigurationArgs and GetIndexUserTokenConfigurationOutput values.
+// You can construct a concrete instance of `GetIndexUserTokenConfigurationInput` via:
+//
+//          GetIndexUserTokenConfigurationArgs{...}
+type GetIndexUserTokenConfigurationInput interface {
+	pulumi.Input
+
+	ToGetIndexUserTokenConfigurationOutput() GetIndexUserTokenConfigurationOutput
+	ToGetIndexUserTokenConfigurationOutputWithContext(context.Context) GetIndexUserTokenConfigurationOutput
+}
+
+type GetIndexUserTokenConfigurationArgs struct {
+	// A block that specifies the information about the JSON token type configuration.
+	JsonTokenTypeConfigurations GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput `pulumi:"jsonTokenTypeConfigurations"`
+	// A block that specifies the information about the JWT token type configuration.
+	JwtTokenTypeConfigurations GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput `pulumi:"jwtTokenTypeConfigurations"`
+}
+
+func (GetIndexUserTokenConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexUserTokenConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexUserTokenConfigurationArgs) ToGetIndexUserTokenConfigurationOutput() GetIndexUserTokenConfigurationOutput {
+	return i.ToGetIndexUserTokenConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetIndexUserTokenConfigurationArgs) ToGetIndexUserTokenConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationOutput)
+}
+
+// GetIndexUserTokenConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationArray and GetIndexUserTokenConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetIndexUserTokenConfigurationArrayInput` via:
+//
+//          GetIndexUserTokenConfigurationArray{ GetIndexUserTokenConfigurationArgs{...} }
+type GetIndexUserTokenConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexUserTokenConfigurationArrayOutput() GetIndexUserTokenConfigurationArrayOutput
+	ToGetIndexUserTokenConfigurationArrayOutputWithContext(context.Context) GetIndexUserTokenConfigurationArrayOutput
+}
+
+type GetIndexUserTokenConfigurationArray []GetIndexUserTokenConfigurationInput
+
+func (GetIndexUserTokenConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexUserTokenConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexUserTokenConfigurationArray) ToGetIndexUserTokenConfigurationArrayOutput() GetIndexUserTokenConfigurationArrayOutput {
+	return i.ToGetIndexUserTokenConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexUserTokenConfigurationArray) ToGetIndexUserTokenConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationArrayOutput)
+}
+
+type GetIndexUserTokenConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetIndexUserTokenConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexUserTokenConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexUserTokenConfigurationOutput) ToGetIndexUserTokenConfigurationOutput() GetIndexUserTokenConfigurationOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationOutput) ToGetIndexUserTokenConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationOutput {
+	return o
+}
+
+// A block that specifies the information about the JSON token type configuration.
+func (o GetIndexUserTokenConfigurationOutput) JsonTokenTypeConfigurations() GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfiguration) []GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
+		return v.JsonTokenTypeConfigurations
+	}).(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput)
+}
+
+// A block that specifies the information about the JWT token type configuration.
+func (o GetIndexUserTokenConfigurationOutput) JwtTokenTypeConfigurations() GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfiguration) []GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
+		return v.JwtTokenTypeConfigurations
+	}).(GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput)
+}
+
+type GetIndexUserTokenConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexUserTokenConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexUserTokenConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexUserTokenConfigurationArrayOutput) ToGetIndexUserTokenConfigurationArrayOutput() GetIndexUserTokenConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationArrayOutput) ToGetIndexUserTokenConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexUserTokenConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexUserTokenConfiguration {
+		return vs[0].([]GetIndexUserTokenConfiguration)[vs[1].(int)]
+	}).(GetIndexUserTokenConfigurationOutput)
+}
+
+type GetIndexUserTokenConfigurationJsonTokenTypeConfiguration struct {
+	// The group attribute field.
+	GroupAttributeField string `pulumi:"groupAttributeField"`
+	// The user name attribute field.
+	UserNameAttributeField string `pulumi:"userNameAttributeField"`
+}
+
+// GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput is an input type that accepts GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs and GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput values.
+// You can construct a concrete instance of `GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput` via:
+//
+//          GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs{...}
+type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput interface {
+	pulumi.Input
+
+	ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput() GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput
+	ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutputWithContext(context.Context) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput
+}
+
+type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs struct {
+	// The group attribute field.
+	GroupAttributeField pulumi.StringInput `pulumi:"groupAttributeField"`
+	// The user name attribute field.
+	UserNameAttributeField pulumi.StringInput `pulumi:"userNameAttributeField"`
+}
+
+func (GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexUserTokenConfigurationJsonTokenTypeConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput() GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput {
+	return i.ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput)
+}
+
+// GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray and GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput` via:
+//
+//          GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray{ GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs{...} }
+type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput() GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput
+	ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutputWithContext(context.Context) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput
+}
+
+type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray []GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput
+
+func (GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexUserTokenConfigurationJsonTokenTypeConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput() GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput {
+	return i.ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput)
+}
+
+type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexUserTokenConfigurationJsonTokenTypeConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput() GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput {
+	return o
+}
+
+// The group attribute field.
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) GroupAttributeField() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJsonTokenTypeConfiguration) string { return v.GroupAttributeField }).(pulumi.StringOutput)
+}
+
+// The user name attribute field.
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput) UserNameAttributeField() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJsonTokenTypeConfiguration) string {
+		return v.UserNameAttributeField
+	}).(pulumi.StringOutput)
+}
+
+type GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexUserTokenConfigurationJsonTokenTypeConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput() GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) ToGetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexUserTokenConfigurationJsonTokenTypeConfiguration {
+		return vs[0].([]GetIndexUserTokenConfigurationJsonTokenTypeConfiguration)[vs[1].(int)]
+	}).(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput)
+}
+
+type GetIndexUserTokenConfigurationJwtTokenTypeConfiguration struct {
+	// The regular expression that identifies the claim.
+	ClaimRegex string `pulumi:"claimRegex"`
+	// The group attribute field.
+	GroupAttributeField string `pulumi:"groupAttributeField"`
+	// The issuer of the token.
+	Issuer string `pulumi:"issuer"`
+	// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+	KeyLocation string `pulumi:"keyLocation"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretsManagerArn string `pulumi:"secretsManagerArn"`
+	// The signing key URL.
+	Url string `pulumi:"url"`
+	// The user name attribute field.
+	UserNameAttributeField string `pulumi:"userNameAttributeField"`
+}
+
+// GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput is an input type that accepts GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs and GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput values.
+// You can construct a concrete instance of `GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput` via:
+//
+//          GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs{...}
+type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput interface {
+	pulumi.Input
+
+	ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput() GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput
+	ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutputWithContext(context.Context) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput
+}
+
+type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs struct {
+	// The regular expression that identifies the claim.
+	ClaimRegex pulumi.StringInput `pulumi:"claimRegex"`
+	// The group attribute field.
+	GroupAttributeField pulumi.StringInput `pulumi:"groupAttributeField"`
+	// The issuer of the token.
+	Issuer pulumi.StringInput `pulumi:"issuer"`
+	// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+	KeyLocation pulumi.StringInput `pulumi:"keyLocation"`
+	// The Amazon Resource Name (ARN) of the secret.
+	SecretsManagerArn pulumi.StringInput `pulumi:"secretsManagerArn"`
+	// The signing key URL.
+	Url pulumi.StringInput `pulumi:"url"`
+	// The user name attribute field.
+	UserNameAttributeField pulumi.StringInput `pulumi:"userNameAttributeField"`
+}
+
+func (GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexUserTokenConfigurationJwtTokenTypeConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput() GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput {
+	return i.ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput)
+}
+
+// GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput is an input type that accepts GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray and GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput` via:
+//
+//          GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray{ GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs{...} }
+type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput() GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput
+	ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutputWithContext(context.Context) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput
+}
+
+type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray []GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput
+
+func (GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexUserTokenConfigurationJwtTokenTypeConfiguration)(nil)).Elem()
+}
+
+func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput() GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput {
+	return i.ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput)
+}
+
+type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIndexUserTokenConfigurationJwtTokenTypeConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput() GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput {
+	return o
+}
+
+// The regular expression that identifies the claim.
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) ClaimRegex() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.ClaimRegex }).(pulumi.StringOutput)
+}
+
+// The group attribute field.
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) GroupAttributeField() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.GroupAttributeField }).(pulumi.StringOutput)
+}
+
+// The issuer of the token.
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) Issuer() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.Issuer }).(pulumi.StringOutput)
+}
+
+// The location of the key. Valid values are `URL` or `SECRET_MANAGER`
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) KeyLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.KeyLocation }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the secret.
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) SecretsManagerArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.SecretsManagerArn }).(pulumi.StringOutput)
+}
+
+// The signing key URL.
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// The user name attribute field.
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput) UserNameAttributeField() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIndexUserTokenConfigurationJwtTokenTypeConfiguration) string {
+		return v.UserNameAttributeField
+	}).(pulumi.StringOutput)
+}
+
+type GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIndexUserTokenConfigurationJwtTokenTypeConfiguration)(nil)).Elem()
+}
+
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput() GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) ToGetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutputWithContext(ctx context.Context) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput {
+	return o
+}
+
+func (o GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput) Index(i pulumi.IntInput) GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIndexUserTokenConfigurationJwtTokenTypeConfiguration {
+		return vs[0].([]GetIndexUserTokenConfigurationJwtTokenTypeConfiguration)[vs[1].(int)]
+	}).(GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput)
+}
+
+type GetQuerySuggestionsBlockListSourceS3Path struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket string `pulumi:"bucket"`
+	// The name of the file.
+	Key string `pulumi:"key"`
+}
+
+// GetQuerySuggestionsBlockListSourceS3PathInput is an input type that accepts GetQuerySuggestionsBlockListSourceS3PathArgs and GetQuerySuggestionsBlockListSourceS3PathOutput values.
+// You can construct a concrete instance of `GetQuerySuggestionsBlockListSourceS3PathInput` via:
+//
+//          GetQuerySuggestionsBlockListSourceS3PathArgs{...}
+type GetQuerySuggestionsBlockListSourceS3PathInput interface {
+	pulumi.Input
+
+	ToGetQuerySuggestionsBlockListSourceS3PathOutput() GetQuerySuggestionsBlockListSourceS3PathOutput
+	ToGetQuerySuggestionsBlockListSourceS3PathOutputWithContext(context.Context) GetQuerySuggestionsBlockListSourceS3PathOutput
+}
+
+type GetQuerySuggestionsBlockListSourceS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (GetQuerySuggestionsBlockListSourceS3PathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetQuerySuggestionsBlockListSourceS3Path)(nil)).Elem()
+}
+
+func (i GetQuerySuggestionsBlockListSourceS3PathArgs) ToGetQuerySuggestionsBlockListSourceS3PathOutput() GetQuerySuggestionsBlockListSourceS3PathOutput {
+	return i.ToGetQuerySuggestionsBlockListSourceS3PathOutputWithContext(context.Background())
+}
+
+func (i GetQuerySuggestionsBlockListSourceS3PathArgs) ToGetQuerySuggestionsBlockListSourceS3PathOutputWithContext(ctx context.Context) GetQuerySuggestionsBlockListSourceS3PathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetQuerySuggestionsBlockListSourceS3PathOutput)
+}
+
+// GetQuerySuggestionsBlockListSourceS3PathArrayInput is an input type that accepts GetQuerySuggestionsBlockListSourceS3PathArray and GetQuerySuggestionsBlockListSourceS3PathArrayOutput values.
+// You can construct a concrete instance of `GetQuerySuggestionsBlockListSourceS3PathArrayInput` via:
+//
+//          GetQuerySuggestionsBlockListSourceS3PathArray{ GetQuerySuggestionsBlockListSourceS3PathArgs{...} }
+type GetQuerySuggestionsBlockListSourceS3PathArrayInput interface {
+	pulumi.Input
+
+	ToGetQuerySuggestionsBlockListSourceS3PathArrayOutput() GetQuerySuggestionsBlockListSourceS3PathArrayOutput
+	ToGetQuerySuggestionsBlockListSourceS3PathArrayOutputWithContext(context.Context) GetQuerySuggestionsBlockListSourceS3PathArrayOutput
+}
+
+type GetQuerySuggestionsBlockListSourceS3PathArray []GetQuerySuggestionsBlockListSourceS3PathInput
+
+func (GetQuerySuggestionsBlockListSourceS3PathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetQuerySuggestionsBlockListSourceS3Path)(nil)).Elem()
+}
+
+func (i GetQuerySuggestionsBlockListSourceS3PathArray) ToGetQuerySuggestionsBlockListSourceS3PathArrayOutput() GetQuerySuggestionsBlockListSourceS3PathArrayOutput {
+	return i.ToGetQuerySuggestionsBlockListSourceS3PathArrayOutputWithContext(context.Background())
+}
+
+func (i GetQuerySuggestionsBlockListSourceS3PathArray) ToGetQuerySuggestionsBlockListSourceS3PathArrayOutputWithContext(ctx context.Context) GetQuerySuggestionsBlockListSourceS3PathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetQuerySuggestionsBlockListSourceS3PathArrayOutput)
+}
+
+type GetQuerySuggestionsBlockListSourceS3PathOutput struct{ *pulumi.OutputState }
+
+func (GetQuerySuggestionsBlockListSourceS3PathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetQuerySuggestionsBlockListSourceS3Path)(nil)).Elem()
+}
+
+func (o GetQuerySuggestionsBlockListSourceS3PathOutput) ToGetQuerySuggestionsBlockListSourceS3PathOutput() GetQuerySuggestionsBlockListSourceS3PathOutput {
+	return o
+}
+
+func (o GetQuerySuggestionsBlockListSourceS3PathOutput) ToGetQuerySuggestionsBlockListSourceS3PathOutputWithContext(ctx context.Context) GetQuerySuggestionsBlockListSourceS3PathOutput {
+	return o
+}
+
+// The name of the S3 bucket that contains the file.
+func (o GetQuerySuggestionsBlockListSourceS3PathOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQuerySuggestionsBlockListSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name of the file.
+func (o GetQuerySuggestionsBlockListSourceS3PathOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetQuerySuggestionsBlockListSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type GetQuerySuggestionsBlockListSourceS3PathArrayOutput struct{ *pulumi.OutputState }
+
+func (GetQuerySuggestionsBlockListSourceS3PathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetQuerySuggestionsBlockListSourceS3Path)(nil)).Elem()
+}
+
+func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) ToGetQuerySuggestionsBlockListSourceS3PathArrayOutput() GetQuerySuggestionsBlockListSourceS3PathArrayOutput {
+	return o
+}
+
+func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) ToGetQuerySuggestionsBlockListSourceS3PathArrayOutputWithContext(ctx context.Context) GetQuerySuggestionsBlockListSourceS3PathArrayOutput {
+	return o
+}
+
+func (o GetQuerySuggestionsBlockListSourceS3PathArrayOutput) Index(i pulumi.IntInput) GetQuerySuggestionsBlockListSourceS3PathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetQuerySuggestionsBlockListSourceS3Path {
+		return vs[0].([]GetQuerySuggestionsBlockListSourceS3Path)[vs[1].(int)]
+	}).(GetQuerySuggestionsBlockListSourceS3PathOutput)
+}
+
+type GetThesaurusSourceS3Path struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket string `pulumi:"bucket"`
+	// The name of the file.
+	Key string `pulumi:"key"`
+}
+
+// GetThesaurusSourceS3PathInput is an input type that accepts GetThesaurusSourceS3PathArgs and GetThesaurusSourceS3PathOutput values.
+// You can construct a concrete instance of `GetThesaurusSourceS3PathInput` via:
+//
+//          GetThesaurusSourceS3PathArgs{...}
+type GetThesaurusSourceS3PathInput interface {
+	pulumi.Input
+
+	ToGetThesaurusSourceS3PathOutput() GetThesaurusSourceS3PathOutput
+	ToGetThesaurusSourceS3PathOutputWithContext(context.Context) GetThesaurusSourceS3PathOutput
+}
+
+type GetThesaurusSourceS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (GetThesaurusSourceS3PathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThesaurusSourceS3Path)(nil)).Elem()
+}
+
+func (i GetThesaurusSourceS3PathArgs) ToGetThesaurusSourceS3PathOutput() GetThesaurusSourceS3PathOutput {
+	return i.ToGetThesaurusSourceS3PathOutputWithContext(context.Background())
+}
+
+func (i GetThesaurusSourceS3PathArgs) ToGetThesaurusSourceS3PathOutputWithContext(ctx context.Context) GetThesaurusSourceS3PathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThesaurusSourceS3PathOutput)
+}
+
+// GetThesaurusSourceS3PathArrayInput is an input type that accepts GetThesaurusSourceS3PathArray and GetThesaurusSourceS3PathArrayOutput values.
+// You can construct a concrete instance of `GetThesaurusSourceS3PathArrayInput` via:
+//
+//          GetThesaurusSourceS3PathArray{ GetThesaurusSourceS3PathArgs{...} }
+type GetThesaurusSourceS3PathArrayInput interface {
+	pulumi.Input
+
+	ToGetThesaurusSourceS3PathArrayOutput() GetThesaurusSourceS3PathArrayOutput
+	ToGetThesaurusSourceS3PathArrayOutputWithContext(context.Context) GetThesaurusSourceS3PathArrayOutput
+}
+
+type GetThesaurusSourceS3PathArray []GetThesaurusSourceS3PathInput
+
+func (GetThesaurusSourceS3PathArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThesaurusSourceS3Path)(nil)).Elem()
+}
+
+func (i GetThesaurusSourceS3PathArray) ToGetThesaurusSourceS3PathArrayOutput() GetThesaurusSourceS3PathArrayOutput {
+	return i.ToGetThesaurusSourceS3PathArrayOutputWithContext(context.Background())
+}
+
+func (i GetThesaurusSourceS3PathArray) ToGetThesaurusSourceS3PathArrayOutputWithContext(ctx context.Context) GetThesaurusSourceS3PathArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetThesaurusSourceS3PathArrayOutput)
+}
+
+type GetThesaurusSourceS3PathOutput struct{ *pulumi.OutputState }
+
+func (GetThesaurusSourceS3PathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetThesaurusSourceS3Path)(nil)).Elem()
+}
+
+func (o GetThesaurusSourceS3PathOutput) ToGetThesaurusSourceS3PathOutput() GetThesaurusSourceS3PathOutput {
+	return o
+}
+
+func (o GetThesaurusSourceS3PathOutput) ToGetThesaurusSourceS3PathOutputWithContext(ctx context.Context) GetThesaurusSourceS3PathOutput {
+	return o
+}
+
+// The name of the S3 bucket that contains the file.
+func (o GetThesaurusSourceS3PathOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThesaurusSourceS3Path) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name of the file.
+func (o GetThesaurusSourceS3PathOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetThesaurusSourceS3Path) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type GetThesaurusSourceS3PathArrayOutput struct{ *pulumi.OutputState }
+
+func (GetThesaurusSourceS3PathArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetThesaurusSourceS3Path)(nil)).Elem()
+}
+
+func (o GetThesaurusSourceS3PathArrayOutput) ToGetThesaurusSourceS3PathArrayOutput() GetThesaurusSourceS3PathArrayOutput {
+	return o
+}
+
+func (o GetThesaurusSourceS3PathArrayOutput) ToGetThesaurusSourceS3PathArrayOutputWithContext(ctx context.Context) GetThesaurusSourceS3PathArrayOutput {
+	return o
+}
+
+func (o GetThesaurusSourceS3PathArrayOutput) Index(i pulumi.IntInput) GetThesaurusSourceS3PathOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetThesaurusSourceS3Path {
+		return vs[0].([]GetThesaurusSourceS3Path)[vs[1].(int)]
+	}).(GetThesaurusSourceS3PathOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationInput)(nil)).Elem(), ExperienceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationPtrInput)(nil)).Elem(), ExperienceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationContentSourceConfigurationInput)(nil)).Elem(), ExperienceConfigurationContentSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationContentSourceConfigurationPtrInput)(nil)).Elem(), ExperienceConfigurationContentSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationUserIdentityConfigurationInput)(nil)).Elem(), ExperienceConfigurationUserIdentityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceConfigurationUserIdentityConfigurationPtrInput)(nil)).Elem(), ExperienceConfigurationUserIdentityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceEndpointInput)(nil)).Elem(), ExperienceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperienceEndpointArrayInput)(nil)).Elem(), ExperienceEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FaqS3PathInput)(nil)).Elem(), FaqS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FaqS3PathPtrInput)(nil)).Elem(), FaqS3PathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityUnitsInput)(nil)).Elem(), IndexCapacityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityUnitsPtrInput)(nil)).Elem(), IndexCapacityUnitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationUpdateInput)(nil)).Elem(), IndexDocumentMetadataConfigurationUpdateArgs{})
@@ -1728,6 +4895,58 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrInput)(nil)).Elem(), IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexUserTokenConfigurationsJwtTokenTypeConfigurationInput)(nil)).Elem(), IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrInput)(nil)).Elem(), IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuerySuggestionsBlockListSourceS3PathInput)(nil)).Elem(), QuerySuggestionsBlockListSourceS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuerySuggestionsBlockListSourceS3PathPtrInput)(nil)).Elem(), QuerySuggestionsBlockListSourceS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThesaurusSourceS3PathInput)(nil)).Elem(), ThesaurusSourceS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThesaurusSourceS3PathPtrInput)(nil)).Elem(), ThesaurusSourceS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExperienceConfigurationInput)(nil)).Elem(), GetExperienceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExperienceConfigurationArrayInput)(nil)).Elem(), GetExperienceConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExperienceConfigurationContentSourceConfigurationInput)(nil)).Elem(), GetExperienceConfigurationContentSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExperienceConfigurationContentSourceConfigurationArrayInput)(nil)).Elem(), GetExperienceConfigurationContentSourceConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExperienceConfigurationUserIdentityConfigurationInput)(nil)).Elem(), GetExperienceConfigurationUserIdentityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExperienceConfigurationUserIdentityConfigurationArrayInput)(nil)).Elem(), GetExperienceConfigurationUserIdentityConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExperienceEndpointInput)(nil)).Elem(), GetExperienceEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetExperienceEndpointArrayInput)(nil)).Elem(), GetExperienceEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFaqS3PathInput)(nil)).Elem(), GetFaqS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetFaqS3PathArrayInput)(nil)).Elem(), GetFaqS3PathArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexCapacityUnitInput)(nil)).Elem(), GetIndexCapacityUnitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexCapacityUnitArrayInput)(nil)).Elem(), GetIndexCapacityUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateInput)(nil)).Elem(), GetIndexDocumentMetadataConfigurationUpdateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateArrayInput)(nil)).Elem(), GetIndexDocumentMetadataConfigurationUpdateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateRelevanceInput)(nil)).Elem(), GetIndexDocumentMetadataConfigurationUpdateRelevanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayInput)(nil)).Elem(), GetIndexDocumentMetadataConfigurationUpdateRelevanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateSearchInput)(nil)).Elem(), GetIndexDocumentMetadataConfigurationUpdateSearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexDocumentMetadataConfigurationUpdateSearchArrayInput)(nil)).Elem(), GetIndexDocumentMetadataConfigurationUpdateSearchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexIndexStatisticInput)(nil)).Elem(), GetIndexIndexStatisticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexIndexStatisticArrayInput)(nil)).Elem(), GetIndexIndexStatisticArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexIndexStatisticFaqStatisticInput)(nil)).Elem(), GetIndexIndexStatisticFaqStatisticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexIndexStatisticFaqStatisticArrayInput)(nil)).Elem(), GetIndexIndexStatisticFaqStatisticArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexIndexStatisticTextDocumentStatisticInput)(nil)).Elem(), GetIndexIndexStatisticTextDocumentStatisticArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexIndexStatisticTextDocumentStatisticArrayInput)(nil)).Elem(), GetIndexIndexStatisticTextDocumentStatisticArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexServerSideEncryptionConfigurationInput)(nil)).Elem(), GetIndexServerSideEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexServerSideEncryptionConfigurationArrayInput)(nil)).Elem(), GetIndexServerSideEncryptionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexUserGroupResolutionConfigurationInput)(nil)).Elem(), GetIndexUserGroupResolutionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexUserGroupResolutionConfigurationArrayInput)(nil)).Elem(), GetIndexUserGroupResolutionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexUserTokenConfigurationInput)(nil)).Elem(), GetIndexUserTokenConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexUserTokenConfigurationArrayInput)(nil)).Elem(), GetIndexUserTokenConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexUserTokenConfigurationJsonTokenTypeConfigurationInput)(nil)).Elem(), GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayInput)(nil)).Elem(), GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexUserTokenConfigurationJwtTokenTypeConfigurationInput)(nil)).Elem(), GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayInput)(nil)).Elem(), GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetQuerySuggestionsBlockListSourceS3PathInput)(nil)).Elem(), GetQuerySuggestionsBlockListSourceS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetQuerySuggestionsBlockListSourceS3PathArrayInput)(nil)).Elem(), GetQuerySuggestionsBlockListSourceS3PathArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThesaurusSourceS3PathInput)(nil)).Elem(), GetThesaurusSourceS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetThesaurusSourceS3PathArrayInput)(nil)).Elem(), GetThesaurusSourceS3PathArray{})
+	pulumi.RegisterOutputType(ExperienceConfigurationOutput{})
+	pulumi.RegisterOutputType(ExperienceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExperienceConfigurationContentSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(ExperienceConfigurationContentSourceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExperienceConfigurationUserIdentityConfigurationOutput{})
+	pulumi.RegisterOutputType(ExperienceConfigurationUserIdentityConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ExperienceEndpointOutput{})
+	pulumi.RegisterOutputType(ExperienceEndpointArrayOutput{})
+	pulumi.RegisterOutputType(FaqS3PathOutput{})
+	pulumi.RegisterOutputType(FaqS3PathPtrOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsPtrOutput{})
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationUpdateOutput{})
@@ -1752,4 +4971,46 @@ func init() {
 	pulumi.RegisterOutputType(IndexUserTokenConfigurationsJsonTokenTypeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexUserTokenConfigurationsJwtTokenTypeConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexUserTokenConfigurationsJwtTokenTypeConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(QuerySuggestionsBlockListSourceS3PathOutput{})
+	pulumi.RegisterOutputType(QuerySuggestionsBlockListSourceS3PathPtrOutput{})
+	pulumi.RegisterOutputType(ThesaurusSourceS3PathOutput{})
+	pulumi.RegisterOutputType(ThesaurusSourceS3PathPtrOutput{})
+	pulumi.RegisterOutputType(GetExperienceConfigurationOutput{})
+	pulumi.RegisterOutputType(GetExperienceConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetExperienceConfigurationContentSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(GetExperienceConfigurationContentSourceConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetExperienceConfigurationUserIdentityConfigurationOutput{})
+	pulumi.RegisterOutputType(GetExperienceConfigurationUserIdentityConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetExperienceEndpointOutput{})
+	pulumi.RegisterOutputType(GetExperienceEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetFaqS3PathOutput{})
+	pulumi.RegisterOutputType(GetFaqS3PathArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexCapacityUnitOutput{})
+	pulumi.RegisterOutputType(GetIndexCapacityUnitArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexDocumentMetadataConfigurationUpdateOutput{})
+	pulumi.RegisterOutputType(GetIndexDocumentMetadataConfigurationUpdateArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexDocumentMetadataConfigurationUpdateRelevanceOutput{})
+	pulumi.RegisterOutputType(GetIndexDocumentMetadataConfigurationUpdateRelevanceArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexDocumentMetadataConfigurationUpdateSearchOutput{})
+	pulumi.RegisterOutputType(GetIndexDocumentMetadataConfigurationUpdateSearchArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexIndexStatisticOutput{})
+	pulumi.RegisterOutputType(GetIndexIndexStatisticArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexIndexStatisticFaqStatisticOutput{})
+	pulumi.RegisterOutputType(GetIndexIndexStatisticFaqStatisticArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexIndexStatisticTextDocumentStatisticOutput{})
+	pulumi.RegisterOutputType(GetIndexIndexStatisticTextDocumentStatisticArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexServerSideEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(GetIndexServerSideEncryptionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexUserGroupResolutionConfigurationOutput{})
+	pulumi.RegisterOutputType(GetIndexUserGroupResolutionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexUserTokenConfigurationOutput{})
+	pulumi.RegisterOutputType(GetIndexUserTokenConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationOutput{})
+	pulumi.RegisterOutputType(GetIndexUserTokenConfigurationJsonTokenTypeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetIndexUserTokenConfigurationJwtTokenTypeConfigurationOutput{})
+	pulumi.RegisterOutputType(GetIndexUserTokenConfigurationJwtTokenTypeConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetQuerySuggestionsBlockListSourceS3PathOutput{})
+	pulumi.RegisterOutputType(GetQuerySuggestionsBlockListSourceS3PathArrayOutput{})
+	pulumi.RegisterOutputType(GetThesaurusSourceS3PathOutput{})
+	pulumi.RegisterOutputType(GetThesaurusSourceS3PathArrayOutput{})
 }

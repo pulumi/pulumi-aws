@@ -7,6 +7,7 @@ import com.pulumi.aws.ecr.inputs.RepositoryEncryptionConfigurationArgs;
 import com.pulumi.aws.ecr.inputs.RepositoryImageScanningConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,23 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<RepositoryEncryptionConfigurationArgs>>> encryptionConfigurations() {
         return Optional.ofNullable(this.encryptionConfigurations);
+    }
+
+    /**
+     * If `true`, will delete the repository even if it contains images.
+     * Defaults to `false`.
+     * 
+     */
+    @Import(name="forceDelete")
+    private @Nullable Output<Boolean> forceDelete;
+
+    /**
+     * @return If `true`, will delete the repository even if it contains images.
+     * Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> forceDelete() {
+        return Optional.ofNullable(this.forceDelete);
     }
 
     /**
@@ -159,6 +177,7 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
     private RepositoryState(RepositoryState $) {
         this.arn = $.arn;
         this.encryptionConfigurations = $.encryptionConfigurations;
+        this.forceDelete = $.forceDelete;
         this.imageScanningConfiguration = $.imageScanningConfiguration;
         this.imageTagMutability = $.imageTagMutability;
         this.name = $.name;
@@ -236,6 +255,29 @@ public final class RepositoryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder encryptionConfigurations(RepositoryEncryptionConfigurationArgs... encryptionConfigurations) {
             return encryptionConfigurations(List.of(encryptionConfigurations));
+        }
+
+        /**
+         * @param forceDelete If `true`, will delete the repository even if it contains images.
+         * Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDelete(@Nullable Output<Boolean> forceDelete) {
+            $.forceDelete = forceDelete;
+            return this;
+        }
+
+        /**
+         * @param forceDelete If `true`, will delete the repository even if it contains images.
+         * Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder forceDelete(Boolean forceDelete) {
+            return forceDelete(Output.of(forceDelete));
         }
 
         /**

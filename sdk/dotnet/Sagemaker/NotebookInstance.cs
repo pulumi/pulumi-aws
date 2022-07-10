@@ -81,6 +81,12 @@ namespace Pulumi.Aws.Sagemaker
     public partial class NotebookInstance : Pulumi.CustomResource
     {
         /// <summary>
+        /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+        /// </summary>
+        [Output("acceleratorTypes")]
+        public Output<ImmutableArray<string>> AcceleratorTypes { get; private set; } = null!;
+
+        /// <summary>
         /// An array of up to three Git repositories to associate with the notebook instance.
         /// These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in [AWS CodeCommit](https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html) or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         /// </summary>
@@ -104,6 +110,12 @@ namespace Pulumi.Aws.Sagemaker
         /// </summary>
         [Output("directInternetAccess")]
         public Output<string?> DirectInternetAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        /// </summary>
+        [Output("instanceMetadataServiceConfiguration")]
+        public Output<Outputs.NotebookInstanceInstanceMetadataServiceConfiguration?> InstanceMetadataServiceConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The name of ML compute instance type.
@@ -136,7 +148,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         /// </summary>
         [Output("platformIdentifier")]
         public Output<string> PlatformIdentifier { get; private set; } = null!;
@@ -166,7 +178,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -235,6 +247,18 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class NotebookInstanceArgs : Pulumi.ResourceArgs
     {
+        [Input("acceleratorTypes")]
+        private InputList<string>? _acceleratorTypes;
+
+        /// <summary>
+        /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+        /// </summary>
+        public InputList<string> AcceleratorTypes
+        {
+            get => _acceleratorTypes ?? (_acceleratorTypes = new InputList<string>());
+            set => _acceleratorTypes = value;
+        }
+
         [Input("additionalCodeRepositories")]
         private InputList<string>? _additionalCodeRepositories;
 
@@ -261,6 +285,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DirectInternetAccess { get; set; }
 
         /// <summary>
+        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        /// </summary>
+        [Input("instanceMetadataServiceConfiguration")]
+        public Input<Inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs>? InstanceMetadataServiceConfiguration { get; set; }
+
+        /// <summary>
         /// The name of ML compute instance type.
         /// </summary>
         [Input("instanceType", required: true)]
@@ -285,7 +315,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         /// </summary>
         [Input("platformIdentifier")]
         public Input<string>? PlatformIdentifier { get; set; }
@@ -324,7 +354,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -345,6 +375,18 @@ namespace Pulumi.Aws.Sagemaker
 
     public sealed class NotebookInstanceState : Pulumi.ResourceArgs
     {
+        [Input("acceleratorTypes")]
+        private InputList<string>? _acceleratorTypes;
+
+        /// <summary>
+        /// A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+        /// </summary>
+        public InputList<string> AcceleratorTypes
+        {
+            get => _acceleratorTypes ?? (_acceleratorTypes = new InputList<string>());
+            set => _acceleratorTypes = value;
+        }
+
         [Input("additionalCodeRepositories")]
         private InputList<string>? _additionalCodeRepositories;
 
@@ -377,6 +419,12 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? DirectInternetAccess { get; set; }
 
         /// <summary>
+        /// Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+        /// </summary>
+        [Input("instanceMetadataServiceConfiguration")]
+        public Input<Inputs.NotebookInstanceInstanceMetadataServiceConfigurationGetArgs>? InstanceMetadataServiceConfiguration { get; set; }
+
+        /// <summary>
         /// The name of ML compute instance type.
         /// </summary>
         [Input("instanceType")]
@@ -407,7 +455,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+        /// The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
         /// </summary>
         [Input("platformIdentifier")]
         public Input<string>? PlatformIdentifier { get; set; }
@@ -446,7 +494,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

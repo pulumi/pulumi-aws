@@ -13,8 +13,7 @@ namespace Pulumi.Aws.Ssm
     /// Provides an SSM Parameter resource.
     /// 
     /// ## Example Usage
-    /// 
-    /// To store a basic string parameter:
+    /// ### Basic example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// }
     /// ```
-    /// 
-    /// To store an encrypted string using the default SSM KMS key:
+    /// ### Encrypted string using default SSM KMS key
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -84,38 +82,40 @@ namespace Pulumi.Aws.Ssm
     public partial class Parameter : Pulumi.CustomResource
     {
         /// <summary>
-        /// A regular expression used to validate the parameter value.
+        /// Regular expression used to validate the parameter value.
         /// </summary>
         [Output("allowedPattern")]
         public Output<string?> AllowedPattern { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the parameter.
+        /// ARN of the parameter.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the parameter.
+        /// Description of the parameter.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("insecureValue")]
+        public Output<string> InsecureValue { get; private set; } = null!;
+
         /// <summary>
-        /// The KMS key id or arn for encrypting a SecureString.
+        /// KMS key ID or ARN for encrypting a SecureString.
         /// </summary>
         [Output("keyId")]
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        /// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -127,41 +127,37 @@ namespace Pulumi.Aws.Ssm
         public Output<bool?> Overwrite { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The parameter tier to assign to the parameter.
-        /// If not specified, will use the default parameter tier for the region.
-        /// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-        /// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-        /// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        /// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         /// </summary>
         [Output("tier")]
-        public Output<string> Tier { get; private set; } = null!;
+        public Output<string?> Tier { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// The value of the parameter.
+        /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
         /// </summary>
         [Output("value")]
         public Output<string> Value { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the parameter.
+        /// Version of the parameter.
         /// </summary>
         [Output("version")]
         public Output<int> Version { get; private set; } = null!;
@@ -213,38 +209,40 @@ namespace Pulumi.Aws.Ssm
     public sealed class ParameterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression used to validate the parameter value.
+        /// Regular expression used to validate the parameter value.
         /// </summary>
         [Input("allowedPattern")]
         public Input<string>? AllowedPattern { get; set; }
 
         /// <summary>
-        /// The ARN of the parameter.
+        /// ARN of the parameter.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
 
         /// <summary>
-        /// The description of the parameter.
+        /// Description of the parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("insecureValue")]
+        public Input<string>? InsecureValue { get; set; }
+
         /// <summary>
-        /// The KMS key id or arn for encrypting a SecureString.
+        /// KMS key ID or ARN for encrypting a SecureString.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        /// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -259,7 +257,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -268,26 +266,22 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The parameter tier to assign to the parameter.
-        /// If not specified, will use the default parameter tier for the region.
-        /// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-        /// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-        /// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        /// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
 
         /// <summary>
-        /// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         /// </summary>
         [Input("type", required: true)]
         public InputUnion<string, Pulumi.Aws.Ssm.ParameterType> Type { get; set; } = null!;
 
         /// <summary>
-        /// The value of the parameter.
+        /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
         /// </summary>
-        [Input("value", required: true)]
-        public Input<string> Value { get; set; } = null!;
+        [Input("value")]
+        public Input<string>? Value { get; set; }
 
         public ParameterArgs()
         {
@@ -297,38 +291,40 @@ namespace Pulumi.Aws.Ssm
     public sealed class ParameterState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A regular expression used to validate the parameter value.
+        /// Regular expression used to validate the parameter value.
         /// </summary>
         [Input("allowedPattern")]
         public Input<string>? AllowedPattern { get; set; }
 
         /// <summary>
-        /// The ARN of the parameter.
+        /// ARN of the parameter.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-        /// ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+        /// Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
         /// </summary>
         [Input("dataType")]
         public Input<string>? DataType { get; set; }
 
         /// <summary>
-        /// The description of the parameter.
+        /// Description of the parameter.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("insecureValue")]
+        public Input<string>? InsecureValue { get; set; }
+
         /// <summary>
-        /// The KMS key id or arn for encrypting a SecureString.
+        /// KMS key ID or ARN for encrypting a SecureString.
         /// </summary>
         [Input("keyId")]
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        /// Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -343,7 +339,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -355,7 +351,7 @@ namespace Pulumi.Aws.Ssm
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -364,29 +360,25 @@ namespace Pulumi.Aws.Ssm
         }
 
         /// <summary>
-        /// The parameter tier to assign to the parameter.
-        /// If not specified, will use the default parameter tier for the region.
-        /// Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-        /// Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-        /// For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+        /// Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
         /// </summary>
         [Input("tier")]
         public Input<string>? Tier { get; set; }
 
         /// <summary>
-        /// The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+        /// Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
         /// </summary>
         [Input("type")]
         public InputUnion<string, Pulumi.Aws.Ssm.ParameterType>? Type { get; set; }
 
         /// <summary>
-        /// The value of the parameter.
+        /// Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 
         /// <summary>
-        /// The version of the parameter.
+        /// Version of the parameter.
         /// </summary>
         [Input("version")]
         public Input<int>? Version { get; set; }

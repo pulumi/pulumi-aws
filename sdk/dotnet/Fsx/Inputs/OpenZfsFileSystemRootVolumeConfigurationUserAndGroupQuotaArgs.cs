@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Fsx.Inputs
         [Input("storageCapacityQuotaGib", required: true)]
         public Input<int> StorageCapacityQuotaGib { get; set; } = null!;
 
+        /// <summary>
+        /// - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 

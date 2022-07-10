@@ -292,21 +292,29 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
     public Output<String> privateIp() {
         return this.privateIp;
     }
+    /**
+     * Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+     * 
+     */
     @Export(name="privateIpListEnabled", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> privateIpListEnabled;
 
+    /**
+     * @return Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+     * 
+     */
     public Output<Optional<Boolean>> privateIpListEnabled() {
         return Codegen.optional(this.privateIpListEnabled);
     }
     /**
-     * List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
      * 
      */
     @Export(name="privateIpLists", type=List.class, parameters={String.class})
     private Output<List<String>> privateIpLists;
 
     /**
-     * @return List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+     * @return List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
      * 
      */
     public Output<List<String>> privateIpLists() {
@@ -383,14 +391,14 @@ public class NetworkInterface extends com.pulumi.resources.CustomResource {
         return this.subnetId;
     }
     /**
-     * Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

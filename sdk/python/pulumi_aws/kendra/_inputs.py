@@ -9,6 +9,11 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ExperienceConfigurationArgs',
+    'ExperienceConfigurationContentSourceConfigurationArgs',
+    'ExperienceConfigurationUserIdentityConfigurationArgs',
+    'ExperienceEndpointArgs',
+    'FaqS3PathArgs',
     'IndexCapacityUnitsArgs',
     'IndexDocumentMetadataConfigurationUpdateArgs',
     'IndexDocumentMetadataConfigurationUpdateRelevanceArgs',
@@ -21,7 +26,197 @@ __all__ = [
     'IndexUserTokenConfigurationsArgs',
     'IndexUserTokenConfigurationsJsonTokenTypeConfigurationArgs',
     'IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs',
+    'QuerySuggestionsBlockListSourceS3PathArgs',
+    'ThesaurusSourceS3PathArgs',
 ]
+
+@pulumi.input_type
+class ExperienceConfigurationArgs:
+    def __init__(__self__, *,
+                 content_source_configuration: Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs']] = None,
+                 user_identity_configuration: Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs']] = None):
+        """
+        :param pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs'] user_identity_configuration: The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+        """
+        if content_source_configuration is not None:
+            pulumi.set(__self__, "content_source_configuration", content_source_configuration)
+        if user_identity_configuration is not None:
+            pulumi.set(__self__, "user_identity_configuration", user_identity_configuration)
+
+    @property
+    @pulumi.getter(name="contentSourceConfiguration")
+    def content_source_configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs']]:
+        return pulumi.get(self, "content_source_configuration")
+
+    @content_source_configuration.setter
+    def content_source_configuration(self, value: Optional[pulumi.Input['ExperienceConfigurationContentSourceConfigurationArgs']]):
+        pulumi.set(self, "content_source_configuration", value)
+
+    @property
+    @pulumi.getter(name="userIdentityConfiguration")
+    def user_identity_configuration(self) -> Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs']]:
+        """
+        The AWS SSO field name that contains the identifiers of your users, such as their emails. Detailed below.
+        """
+        return pulumi.get(self, "user_identity_configuration")
+
+    @user_identity_configuration.setter
+    def user_identity_configuration(self, value: Optional[pulumi.Input['ExperienceConfigurationUserIdentityConfigurationArgs']]):
+        pulumi.set(self, "user_identity_configuration", value)
+
+
+@pulumi.input_type
+class ExperienceConfigurationContentSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 data_source_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 direct_put_content: Optional[pulumi.Input[bool]] = None,
+                 faq_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_source_ids: The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+        :param pulumi.Input[bool] direct_put_content: Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] faq_ids: The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+        """
+        if data_source_ids is not None:
+            pulumi.set(__self__, "data_source_ids", data_source_ids)
+        if direct_put_content is not None:
+            pulumi.set(__self__, "direct_put_content", direct_put_content)
+        if faq_ids is not None:
+            pulumi.set(__self__, "faq_ids", faq_ids)
+
+    @property
+    @pulumi.getter(name="dataSourceIds")
+    def data_source_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The identifiers of the data sources you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+        """
+        return pulumi.get(self, "data_source_ids")
+
+    @data_source_ids.setter
+    def data_source_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_source_ids", value)
+
+    @property
+    @pulumi.getter(name="directPutContent")
+    def direct_put_content(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to use documents you indexed directly using the `BatchPutDocument API`. Defaults to `false`.
+        """
+        return pulumi.get(self, "direct_put_content")
+
+    @direct_put_content.setter
+    def direct_put_content(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "direct_put_content", value)
+
+    @property
+    @pulumi.getter(name="faqIds")
+    def faq_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The identifier of the FAQs that you want to use for your Amazon Kendra experience. Maximum number of 100 items.
+        """
+        return pulumi.get(self, "faq_ids")
+
+    @faq_ids.setter
+    def faq_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "faq_ids", value)
+
+
+@pulumi.input_type
+class ExperienceConfigurationUserIdentityConfigurationArgs:
+    def __init__(__self__, *,
+                 identity_attribute_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] identity_attribute_name: The AWS SSO field name that contains the identifiers of your users, such as their emails.
+        """
+        pulumi.set(__self__, "identity_attribute_name", identity_attribute_name)
+
+    @property
+    @pulumi.getter(name="identityAttributeName")
+    def identity_attribute_name(self) -> pulumi.Input[str]:
+        """
+        The AWS SSO field name that contains the identifiers of your users, such as their emails.
+        """
+        return pulumi.get(self, "identity_attribute_name")
+
+    @identity_attribute_name.setter
+    def identity_attribute_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "identity_attribute_name", value)
+
+
+@pulumi.input_type
+class ExperienceEndpointArgs:
+    def __init__(__self__, *,
+                 endpoint: Optional[pulumi.Input[str]] = None,
+                 endpoint_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint: The endpoint of your Amazon Kendra experience.
+        :param pulumi.Input[str] endpoint_type: The type of endpoint for your Amazon Kendra experience.
+        """
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The endpoint of your Amazon Kendra experience.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint", value)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of endpoint for your Amazon Kendra experience.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "endpoint_type", value)
+
+
+@pulumi.input_type
+class FaqS3PathArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bucket: The name of the S3 bucket that contains the file.
+        :param pulumi.Input[str] key: The name of the file.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket that contains the file.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
 
 @pulumi.input_type
 class IndexCapacityUnitsArgs:
@@ -629,5 +824,79 @@ class IndexUserTokenConfigurationsJwtTokenTypeConfigurationArgs:
     @user_name_attribute_field.setter
     def user_name_attribute_field(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_name_attribute_field", value)
+
+
+@pulumi.input_type
+class QuerySuggestionsBlockListSourceS3PathArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bucket: The name of the S3 bucket that contains the file.
+        :param pulumi.Input[str] key: The name of the file.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket that contains the file.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
+
+
+@pulumi.input_type
+class ThesaurusSourceS3PathArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str],
+                 key: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bucket: The name of the S3 bucket that contains the file.
+        :param pulumi.Input[str] key: The name of the file.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the S3 bucket that contains the file.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[str]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "key", value)
 
 

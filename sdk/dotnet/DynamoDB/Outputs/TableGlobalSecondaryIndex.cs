@@ -14,38 +14,31 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableGlobalSecondaryIndex
     {
         /// <summary>
-        /// The name of the hash key in the index; must be
-        /// defined as an attribute in the resource.
+        /// Name of the hash key in the index; must be defined as an attribute in the resource.
         /// </summary>
         public readonly string HashKey;
         /// <summary>
-        /// The name of the index
+        /// Name of the index
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Only required with `INCLUDE` as a
-        /// projection type; a list of attributes to project into the index. These
-        /// do not need to be defined as attributes on the table.
+        /// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         /// </summary>
         public readonly ImmutableArray<string> NonKeyAttributes;
         /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        /// where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        /// projects just the hash and range key into the index, and `INCLUDE`
-        /// projects only the keys specified in the _non_key_attributes_
-        /// parameter.
+        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
         /// </summary>
         public readonly string ProjectionType;
         /// <summary>
-        /// The name of the range key; must be defined
+        /// Name of the range key.
         /// </summary>
         public readonly string? RangeKey;
         /// <summary>
-        /// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         /// </summary>
         public readonly int? ReadCapacity;
         /// <summary>
-        /// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        /// Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         /// </summary>
         public readonly int? WriteCapacity;
 

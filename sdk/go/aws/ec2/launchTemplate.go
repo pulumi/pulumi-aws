@@ -55,6 +55,7 @@ import (
 // 			CreditSpecification: &ec2.LaunchTemplateCreditSpecificationArgs{
 // 				CpuCredits: pulumi.String("standard"),
 // 			},
+// 			DisableApiStop:        pulumi.Bool(true),
 // 			DisableApiTermination: pulumi.Bool(true),
 // 			EbsOptimized:          pulumi.String("true"),
 // 			ElasticGpuSpecifications: ec2.LaunchTemplateElasticGpuSpecificationArray{
@@ -146,6 +147,8 @@ type LaunchTemplate struct {
 	DefaultVersion pulumi.IntOutput `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolPtrOutput `pulumi:"disableApiStop"`
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination pulumi.BoolPtrOutput `pulumi:"disableApiTermination"`
@@ -263,6 +266,8 @@ type launchTemplateState struct {
 	DefaultVersion *int `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description *string `pulumi:"description"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
@@ -352,6 +357,8 @@ type LaunchTemplateState struct {
 	DefaultVersion pulumi.IntPtrInput
 	// Description of the launch template.
 	Description pulumi.StringPtrInput
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolPtrInput
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination pulumi.BoolPtrInput
@@ -443,6 +450,8 @@ type launchTemplateArgs struct {
 	DefaultVersion *int `pulumi:"defaultVersion"`
 	// Description of the launch template.
 	Description *string `pulumi:"description"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
@@ -527,6 +536,8 @@ type LaunchTemplateArgs struct {
 	DefaultVersion pulumi.IntPtrInput
 	// Description of the launch template.
 	Description pulumi.StringPtrInput
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolPtrInput
 	// If `true`, enables [EC2 Instance
 	// Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination)
 	DisableApiTermination pulumi.BoolPtrInput
@@ -719,6 +730,11 @@ func (o LaunchTemplateOutput) DefaultVersion() pulumi.IntOutput {
 // Description of the launch template.
 func (o LaunchTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+func (o LaunchTemplateOutput) DisableApiStop() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) pulumi.BoolPtrOutput { return v.DisableApiStop }).(pulumi.BoolPtrOutput)
 }
 
 // If `true`, enables [EC2 Instance

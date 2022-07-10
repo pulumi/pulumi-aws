@@ -508,6 +508,20 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.defaultCooldown;
     }
     /**
+     * The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     * 
+     */
+    @Export(name="defaultInstanceWarmup", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> defaultInstanceWarmup;
+
+    /**
+     * @return The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     * 
+     */
+    public Output<Optional<Integer>> defaultInstanceWarmup() {
+        return Codegen.optional(this.defaultInstanceWarmup);
+    }
+    /**
      * The number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for
      * Capacity below.)

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TablePointInTimeRecovery
     {
         /// <summary>
-        /// Indicates whether ttl is enabled (true) or disabled (false).
+        /// Whether TTL is enabled.
         /// </summary>
         public readonly bool Enabled;
 

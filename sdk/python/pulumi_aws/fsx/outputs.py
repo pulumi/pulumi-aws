@@ -829,7 +829,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
                  user_and_group_quotas: Optional[Sequence['outputs.OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota']] = None):
         """
         :param bool copy_tags_to_snapshots: - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
-        :param str data_compression_type: - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        :param str data_compression_type: - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         :param 'OpenZfsFileSystemRootVolumeConfigurationNfsExportsArgs' nfs_exports: - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
         :param bool read_only: - specifies whether the volume is read-only. Default is false.
         :param Sequence['OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs'] user_and_group_quotas: - Specify how much storage users or groups can use on the volume. Maximum of 100 items. See User and Group Quotas Below.
@@ -857,7 +857,7 @@ class OpenZfsFileSystemRootVolumeConfiguration(dict):
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> Optional[str]:
         """
-        - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+        - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
         """
         return pulumi.get(self, "data_compression_type")
 
@@ -976,6 +976,7 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
         """
         :param int id: - The ID of the user or group. Valid values between `0` and `2147483647`
         :param int storage_capacity_quota_gib: - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
+        :param str type: - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "storage_capacity_quota_gib", storage_capacity_quota_gib)
@@ -1000,6 +1001,9 @@ class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota(dict):
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        """
         return pulumi.get(self, "type")
 
 

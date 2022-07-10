@@ -5,6 +5,8 @@ package com.pulumi.aws.lakeformation.inputs;
 
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocation;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabase;
+import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTag;
+import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTagPolicy;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsTable;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsTableWithColumns;
 import com.pulumi.core.annotations.Import;
@@ -80,6 +82,36 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
     }
 
     /**
+     * Configuration block for an LF-tag resource. Detailed below.
+     * 
+     */
+    @Import(name="lfTag")
+    private @Nullable GetPermissionsLfTag lfTag;
+
+    /**
+     * @return Configuration block for an LF-tag resource. Detailed below.
+     * 
+     */
+    public Optional<GetPermissionsLfTag> lfTag() {
+        return Optional.ofNullable(this.lfTag);
+    }
+
+    /**
+     * Configuration block for an LF-tag policy resource. Detailed below.
+     * 
+     */
+    @Import(name="lfTagPolicy")
+    private @Nullable GetPermissionsLfTagPolicy lfTagPolicy;
+
+    /**
+     * @return Configuration block for an LF-tag policy resource. Detailed below.
+     * 
+     */
+    public Optional<GetPermissionsLfTagPolicy> lfTagPolicy() {
+        return Optional.ofNullable(this.lfTagPolicy);
+    }
+
+    /**
      * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
      * 
      */
@@ -131,6 +163,8 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
         this.catalogResource = $.catalogResource;
         this.dataLocation = $.dataLocation;
         this.database = $.database;
+        this.lfTag = $.lfTag;
+        this.lfTagPolicy = $.lfTagPolicy;
         this.principal = $.principal;
         this.table = $.table;
         this.tableWithColumns = $.tableWithColumns;
@@ -195,6 +229,28 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder database(@Nullable GetPermissionsDatabase database) {
             $.database = database;
+            return this;
+        }
+
+        /**
+         * @param lfTag Configuration block for an LF-tag resource. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lfTag(@Nullable GetPermissionsLfTag lfTag) {
+            $.lfTag = lfTag;
+            return this;
+        }
+
+        /**
+         * @param lfTagPolicy Configuration block for an LF-tag policy resource. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lfTagPolicy(@Nullable GetPermissionsLfTagPolicy lfTagPolicy) {
+            $.lfTagPolicy = lfTagPolicy;
             return this;
         }
 

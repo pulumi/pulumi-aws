@@ -13,6 +13,18 @@ __all__ = [
     'IdentityPoolRoleAttachmentRoleMappingArgs',
     'IdentityPoolRoleAttachmentRoleMappingMappingRuleArgs',
     'ResourceServerScopeArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs',
+    'RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs',
+    'RiskConfigurationCompromisedCredentialsRiskConfigurationArgs',
+    'RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs',
+    'RiskConfigurationRiskExceptionConfigurationArgs',
     'UserPoolAccountRecoverySettingArgs',
     'UserPoolAccountRecoverySettingRecoveryMechanismArgs',
     'UserPoolAdminCreateUserConfigArgs',
@@ -261,6 +273,554 @@ class ResourceServerScopeArgs:
     @scope_name.setter
     def scope_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "scope_name", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'],
+                 notify_configuration: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
+        """
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs'] actions: The compromised credentials risk configuration actions. See details below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs'] notify_configuration: The notify configuration used to construct email notifications. See details below.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "notify_configuration", notify_configuration)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs']:
+        """
+        The compromised credentials risk configuration actions. See details below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="notifyConfiguration")
+    def notify_configuration(self) -> pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']:
+        """
+        The notify configuration used to construct email notifications. See details below.
+        """
+        return pulumi.get(self, "notify_configuration")
+
+    @notify_configuration.setter
+    def notify_configuration(self, value: pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs']):
+        pulumi.set(self, "notify_configuration", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationActionsArgs:
+    def __init__(__self__, *,
+                 high_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']] = None,
+                 low_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']] = None,
+                 medium_action: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']] = None):
+        """
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs'] high_action: Action to take for a high risk. See action block below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs'] low_action: Action to take for a low risk. See action block below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs'] medium_action: Action to take for a medium risk. See action block below.
+        """
+        if high_action is not None:
+            pulumi.set(__self__, "high_action", high_action)
+        if low_action is not None:
+            pulumi.set(__self__, "low_action", low_action)
+        if medium_action is not None:
+            pulumi.set(__self__, "medium_action", medium_action)
+
+    @property
+    @pulumi.getter(name="highAction")
+    def high_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']]:
+        """
+        Action to take for a high risk. See action block below.
+        """
+        return pulumi.get(self, "high_action")
+
+    @high_action.setter
+    def high_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs']]):
+        pulumi.set(self, "high_action", value)
+
+    @property
+    @pulumi.getter(name="lowAction")
+    def low_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']]:
+        """
+        Action to take for a low risk. See action block below.
+        """
+        return pulumi.get(self, "low_action")
+
+    @low_action.setter
+    def low_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs']]):
+        pulumi.set(self, "low_action", value)
+
+    @property
+    @pulumi.getter(name="mediumAction")
+    def medium_action(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']]:
+        """
+        Action to take for a medium risk. See action block below.
+        """
+        return pulumi.get(self, "medium_action")
+
+    @medium_action.setter
+    def medium_action(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs']]):
+        pulumi.set(self, "medium_action", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationActionsHighActionArgs:
+    def __init__(__self__, *,
+                 event_action: pulumi.Input[str],
+                 notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        :param pulumi.Input[bool] notify: Whether to send a notification.
+        """
+        pulumi.set(__self__, "event_action", event_action)
+        pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> pulumi.Input[str]:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        return pulumi.get(self, "event_action")
+
+    @event_action.setter
+    def event_action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_action", value)
+
+    @property
+    @pulumi.getter
+    def notify(self) -> pulumi.Input[bool]:
+        """
+        Whether to send a notification.
+        """
+        return pulumi.get(self, "notify")
+
+    @notify.setter
+    def notify(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "notify", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationActionsLowActionArgs:
+    def __init__(__self__, *,
+                 event_action: pulumi.Input[str],
+                 notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        :param pulumi.Input[bool] notify: Whether to send a notification.
+        """
+        pulumi.set(__self__, "event_action", event_action)
+        pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> pulumi.Input[str]:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        return pulumi.get(self, "event_action")
+
+    @event_action.setter
+    def event_action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_action", value)
+
+    @property
+    @pulumi.getter
+    def notify(self) -> pulumi.Input[bool]:
+        """
+        Whether to send a notification.
+        """
+        return pulumi.get(self, "notify")
+
+    @notify.setter
+    def notify(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "notify", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
+    def __init__(__self__, *,
+                 event_action: pulumi.Input[str],
+                 notify: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        :param pulumi.Input[bool] notify: Whether to send a notification.
+        """
+        pulumi.set(__self__, "event_action", event_action)
+        pulumi.set(__self__, "notify", notify)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> pulumi.Input[str]:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        return pulumi.get(self, "event_action")
+
+    @event_action.setter
+    def event_action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_action", value)
+
+    @property
+    @pulumi.getter
+    def notify(self) -> pulumi.Input[bool]:
+        """
+        Whether to send a notification.
+        """
+        return pulumi.get(self, "notify")
+
+    @notify.setter
+    def notify(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "notify", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
+    def __init__(__self__, *,
+                 source_arn: pulumi.Input[str],
+                 block_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs']] = None,
+                 from_: Optional[pulumi.Input[str]] = None,
+                 mfa_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']] = None,
+                 no_action_email: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']] = None,
+                 reply_to: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs'] block_email: Email template used when a detected risk event is blocked. See notify email type below.
+        :param pulumi.Input[str] from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs'] mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs'] no_action_email: The email template used when a detected risk event is allowed. See notify email type below.
+        :param pulumi.Input[str] reply_to: The destination to which the receiver of an email should reply to.
+        """
+        pulumi.set(__self__, "source_arn", source_arn)
+        if block_email is not None:
+            pulumi.set(__self__, "block_email", block_email)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+        if mfa_email is not None:
+            pulumi.set(__self__, "mfa_email", mfa_email)
+        if no_action_email is not None:
+            pulumi.set(__self__, "no_action_email", no_action_email)
+        if reply_to is not None:
+            pulumi.set(__self__, "reply_to", reply_to)
+
+    @property
+    @pulumi.getter(name="sourceArn")
+    def source_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        """
+        return pulumi.get(self, "source_arn")
+
+    @source_arn.setter
+    def source_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "source_arn", value)
+
+    @property
+    @pulumi.getter(name="blockEmail")
+    def block_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs']]:
+        """
+        Email template used when a detected risk event is blocked. See notify email type below.
+        """
+        return pulumi.get(self, "block_email")
+
+    @block_email.setter
+    def block_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs']]):
+        pulumi.set(self, "block_email", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "from_", value)
+
+    @property
+    @pulumi.getter(name="mfaEmail")
+    def mfa_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']]:
+        """
+        The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
+        """
+        return pulumi.get(self, "mfa_email")
+
+    @mfa_email.setter
+    def mfa_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs']]):
+        pulumi.set(self, "mfa_email", value)
+
+    @property
+    @pulumi.getter(name="noActionEmail")
+    def no_action_email(self) -> Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']]:
+        """
+        The email template used when a detected risk event is allowed. See notify email type below.
+        """
+        return pulumi.get(self, "no_action_email")
+
+    @no_action_email.setter
+    def no_action_email(self, value: Optional[pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']]):
+        pulumi.set(self, "no_action_email", value)
+
+    @property
+    @pulumi.getter(name="replyTo")
+    def reply_to(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination to which the receiver of an email should reply to.
+        """
+        return pulumi.get(self, "reply_to")
+
+    @reply_to.setter
+    def reply_to(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reply_to", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs:
+    def __init__(__self__, *,
+                 html_body: pulumi.Input[str],
+                 subject: pulumi.Input[str],
+                 text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        """
+        pulumi.set(__self__, "html_body", html_body)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "text_body", text_body)
+
+    @property
+    @pulumi.getter(name="htmlBody")
+    def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
+        return pulumi.get(self, "html_body")
+
+    @html_body.setter
+    def html_body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "html_body", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter(name="textBody")
+    def text_body(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text_body")
+
+    @text_body.setter
+    def text_body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text_body", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs:
+    def __init__(__self__, *,
+                 html_body: pulumi.Input[str],
+                 subject: pulumi.Input[str],
+                 text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        """
+        pulumi.set(__self__, "html_body", html_body)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "text_body", text_body)
+
+    @property
+    @pulumi.getter(name="htmlBody")
+    def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
+        return pulumi.get(self, "html_body")
+
+    @html_body.setter
+    def html_body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "html_body", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter(name="textBody")
+    def text_body(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text_body")
+
+    @text_body.setter
+    def text_body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text_body", value)
+
+
+@pulumi.input_type
+class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs:
+    def __init__(__self__, *,
+                 html_body: pulumi.Input[str],
+                 subject: pulumi.Input[str],
+                 text_body: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] html_body: The email HTML body.
+        :param pulumi.Input[str] subject: The email subject.
+        """
+        pulumi.set(__self__, "html_body", html_body)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "text_body", text_body)
+
+    @property
+    @pulumi.getter(name="htmlBody")
+    def html_body(self) -> pulumi.Input[str]:
+        """
+        The email HTML body.
+        """
+        return pulumi.get(self, "html_body")
+
+    @html_body.setter
+    def html_body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "html_body", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> pulumi.Input[str]:
+        """
+        The email subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subject", value)
+
+    @property
+    @pulumi.getter(name="textBody")
+    def text_body(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "text_body")
+
+    @text_body.setter
+    def text_body(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text_body", value)
+
+
+@pulumi.input_type
+class RiskConfigurationCompromisedCredentialsRiskConfigurationArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs'],
+                 event_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs'] actions: The compromised credentials risk configuration actions. See details below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] event_filters: Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+        """
+        pulumi.set(__self__, "actions", actions)
+        if event_filters is not None:
+            pulumi.set(__self__, "event_filters", event_filters)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs']:
+        """
+        The compromised credentials risk configuration actions. See details below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input['RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs']):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="eventFilters")
+    def event_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Perform the action for these events. The default is to perform all events if no event filter is specified. Valid values are `SIGN_IN`, `PASSWORD_CHANGE`, and `SIGN_UP`.
+        """
+        return pulumi.get(self, "event_filters")
+
+    @event_filters.setter
+    def event_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "event_filters", value)
+
+
+@pulumi.input_type
+class RiskConfigurationCompromisedCredentialsRiskConfigurationActionsArgs:
+    def __init__(__self__, *,
+                 event_action: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] event_action: The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        pulumi.set(__self__, "event_action", event_action)
+
+    @property
+    @pulumi.getter(name="eventAction")
+    def event_action(self) -> pulumi.Input[str]:
+        """
+        The event action. Valid values are `BLOCK` or `NO_ACTION`.
+        """
+        return pulumi.get(self, "event_action")
+
+    @event_action.setter
+    def event_action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "event_action", value)
+
+
+@pulumi.input_type
+class RiskConfigurationRiskExceptionConfigurationArgs:
+    def __init__(__self__, *,
+                 blocked_ip_range_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 skipped_ip_range_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_ip_range_lists: Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] skipped_ip_range_lists: Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        """
+        if blocked_ip_range_lists is not None:
+            pulumi.set(__self__, "blocked_ip_range_lists", blocked_ip_range_lists)
+        if skipped_ip_range_lists is not None:
+            pulumi.set(__self__, "skipped_ip_range_lists", skipped_ip_range_lists)
+
+    @property
+    @pulumi.getter(name="blockedIpRangeLists")
+    def blocked_ip_range_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation, a compact representation of an IP address and its routing prefix.
+        """
+        return pulumi.get(self, "blocked_ip_range_lists")
+
+    @blocked_ip_range_lists.setter
+    def blocked_ip_range_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "blocked_ip_range_lists", value)
+
+    @property
+    @pulumi.getter(name="skippedIpRangeLists")
+    def skipped_ip_range_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Risk detection isn't performed on the IP addresses in this range list. The IP range is in CIDR notation.
+        """
+        return pulumi.get(self, "skipped_ip_range_lists")
+
+    @skipped_ip_range_lists.setter
+    def skipped_ip_range_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "skipped_ip_range_lists", value)
 
 
 @pulumi.input_type

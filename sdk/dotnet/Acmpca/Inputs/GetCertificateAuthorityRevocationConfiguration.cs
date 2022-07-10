@@ -20,6 +20,14 @@ namespace Pulumi.Aws.Acmpca.Inputs
             set => _crlConfigurations = value;
         }
 
+        [Input("ocspConfigurations", required: true)]
+        private List<Inputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs>? _ocspConfigurations;
+        public List<Inputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs> OcspConfigurations
+        {
+            get => _ocspConfigurations ?? (_ocspConfigurations = new List<Inputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs>());
+            set => _ocspConfigurations = value;
+        }
+
         public GetCertificateAuthorityRevocationConfigurationArgs()
         {
         }

@@ -85,6 +85,80 @@ import (
 // 	})
 // }
 // ```
+// ### Example Multiple Condition Keys and Values
+//
+// You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/iam"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
+// 			Statements: []iam.GetPolicyDocumentStatement{
+// 				iam.GetPolicyDocumentStatement{
+// 					Actions: []string{
+// 						"kms:Decrypt",
+// 						"kms:GenerateDataKey",
+// 					},
+// 					Conditions: []iam.GetPolicyDocumentStatementCondition{
+// 						iam.GetPolicyDocumentStatementCondition{
+// 							Test: "ForAnyValue:StringEquals",
+// 							Values: []string{
+// 								"pi",
+// 							},
+// 							Variable: "kms:EncryptionContext:service",
+// 						},
+// 						iam.GetPolicyDocumentStatementCondition{
+// 							Test: "ForAnyValue:StringEquals",
+// 							Values: []string{
+// 								"rds",
+// 							},
+// 							Variable: "kms:EncryptionContext:aws:pi:service",
+// 						},
+// 						iam.GetPolicyDocumentStatementCondition{
+// 							Test: "ForAnyValue:StringEquals",
+// 							Values: []string{
+// 								"db-AAAAABBBBBCCCCCDDDDDEEEEE",
+// 								"db-EEEEEDDDDDCCCCCBBBBBAAAAA",
+// 							},
+// 							Variable: "kms:EncryptionContext:aws:rds:db-id",
+// 						},
+// 					},
+// 					Resources: []string{
+// 						"*",
+// 					},
+// 				},
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		return nil
+// 	})
+// }
+// ```
 func GetPolicyDocument(ctx *pulumi.Context, args *GetPolicyDocumentArgs, opts ...pulumi.InvokeOption) (*GetPolicyDocumentResult, error) {
 	var rv GetPolicyDocumentResult
 	err := ctx.Invoke("aws:iam/getPolicyDocument:getPolicyDocument", args, &rv, opts...)

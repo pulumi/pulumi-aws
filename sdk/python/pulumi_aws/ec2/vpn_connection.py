@@ -20,11 +20,13 @@ class VpnConnectionArgs:
                  enable_acceleration: Optional[pulumi.Input[bool]] = None,
                  local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
+                 outside_ip_address_type: Optional[pulumi.Input[str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -70,11 +72,13 @@ class VpnConnectionArgs:
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
         :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
@@ -122,6 +126,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "local_ipv4_network_cidr", local_ipv4_network_cidr)
         if local_ipv6_network_cidr is not None:
             pulumi.set(__self__, "local_ipv6_network_cidr", local_ipv6_network_cidr)
+        if outside_ip_address_type is not None:
+            pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
         if remote_ipv4_network_cidr is not None:
             pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
@@ -132,6 +138,8 @@ class VpnConnectionArgs:
             pulumi.set(__self__, "tags", tags)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if transport_transit_gateway_attachment_id is not None:
+            pulumi.set(__self__, "transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
         if tunnel1_dpd_timeout_action is not None:
             pulumi.set(__self__, "tunnel1_dpd_timeout_action", tunnel1_dpd_timeout_action)
         if tunnel1_dpd_timeout_seconds is not None:
@@ -270,6 +278,18 @@ class VpnConnectionArgs:
         pulumi.set(self, "local_ipv6_network_cidr", value)
 
     @property
+    @pulumi.getter(name="outsideIpAddressType")
+    def outside_ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        """
+        return pulumi.get(self, "outside_ip_address_type")
+
+    @outside_ip_address_type.setter
+    def outside_ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outside_ip_address_type", value)
+
+    @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
     def remote_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
         """
@@ -328,6 +348,18 @@ class VpnConnectionArgs:
     @transit_gateway_id.setter
     def transit_gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="transportTransitGatewayAttachmentId")
+    def transport_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        """
+        return pulumi.get(self, "transport_transit_gateway_attachment_id")
+
+    @transport_transit_gateway_attachment_id.setter
+    def transport_transit_gateway_attachment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transport_transit_gateway_attachment_id", value)
 
     @property
     @pulumi.getter(name="tunnel1DpdTimeoutAction")
@@ -797,6 +829,7 @@ class _VpnConnectionState:
                  enable_acceleration: Optional[pulumi.Input[bool]] = None,
                  local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
+                 outside_ip_address_type: Optional[pulumi.Input[str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  routes: Optional[pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]]] = None,
@@ -805,6 +838,7 @@ class _VpnConnectionState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_address: Optional[pulumi.Input[str]] = None,
                  tunnel1_bgp_asn: Optional[pulumi.Input[str]] = None,
                  tunnel1_bgp_holdtime: Optional[pulumi.Input[int]] = None,
@@ -865,6 +899,7 @@ class _VpnConnectionState:
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
         :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input['VpnConnectionRouteArgs']]] routes: The static routes associated with the VPN connection. Detailed below.
@@ -873,6 +908,7 @@ class _VpnConnectionState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         :param pulumi.Input[str] tunnel1_address: The public IP address of the first VPN tunnel.
         :param pulumi.Input[str] tunnel1_bgp_asn: The bgp asn number of the first VPN tunnel.
         :param pulumi.Input[int] tunnel1_bgp_holdtime: The bgp holdtime of the first VPN tunnel.
@@ -940,6 +976,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "local_ipv4_network_cidr", local_ipv4_network_cidr)
         if local_ipv6_network_cidr is not None:
             pulumi.set(__self__, "local_ipv6_network_cidr", local_ipv6_network_cidr)
+        if outside_ip_address_type is not None:
+            pulumi.set(__self__, "outside_ip_address_type", outside_ip_address_type)
         if remote_ipv4_network_cidr is not None:
             pulumi.set(__self__, "remote_ipv4_network_cidr", remote_ipv4_network_cidr)
         if remote_ipv6_network_cidr is not None:
@@ -956,6 +994,8 @@ class _VpnConnectionState:
             pulumi.set(__self__, "transit_gateway_attachment_id", transit_gateway_attachment_id)
         if transit_gateway_id is not None:
             pulumi.set(__self__, "transit_gateway_id", transit_gateway_id)
+        if transport_transit_gateway_attachment_id is not None:
+            pulumi.set(__self__, "transport_transit_gateway_attachment_id", transport_transit_gateway_attachment_id)
         if tunnel1_address is not None:
             pulumi.set(__self__, "tunnel1_address", tunnel1_address)
         if tunnel1_bgp_asn is not None:
@@ -1154,6 +1194,18 @@ class _VpnConnectionState:
         pulumi.set(self, "local_ipv6_network_cidr", value)
 
     @property
+    @pulumi.getter(name="outsideIpAddressType")
+    def outside_ip_address_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        """
+        return pulumi.get(self, "outside_ip_address_type")
+
+    @outside_ip_address_type.setter
+    def outside_ip_address_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "outside_ip_address_type", value)
+
+    @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
     def remote_ipv4_network_cidr(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1248,6 +1300,18 @@ class _VpnConnectionState:
     @transit_gateway_id.setter
     def transit_gateway_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transit_gateway_id", value)
+
+    @property
+    @pulumi.getter(name="transportTransitGatewayAttachmentId")
+    def transport_transit_gateway_attachment_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        """
+        return pulumi.get(self, "transport_transit_gateway_attachment_id")
+
+    @transport_transit_gateway_attachment_id.setter
+    def transport_transit_gateway_attachment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transport_transit_gateway_attachment_id", value)
 
     @property
     @pulumi.getter(name="tunnel1Address")
@@ -1859,11 +1923,13 @@ class VpnConnection(pulumi.CustomResource):
                  enable_acceleration: Optional[pulumi.Input[bool]] = None,
                  local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
+                 outside_ip_address_type: Optional[pulumi.Input[str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1946,6 +2012,40 @@ class VpnConnection(pulumi.CustomResource):
             type="ipsec.1",
             static_routes_only=True)
         ```
+        ### AWS Site to Site Private VPN
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway",
+            amazon_side_asn=64513,
+            description="terraform_ipsec_vpn_example",
+            transit_gateway_cidr_blocks=["10.0.0.0/24"])
+        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+            bgp_asn="64514",
+            ip_address="10.0.0.1",
+            type="ipsec.1",
+            tags={
+                "Name": "terraform_ipsec_vpn_example",
+            })
+        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+            dx_gateway_id=example_gateway.id,
+            associated_gateway_id=example_transit_gateway.id,
+            allowed_prefixes=["10.0.0.0/8"])
+        example_direct_connect_gateway_attachment = aws.ec2transitgateway.get_direct_connect_gateway_attachment_output(transit_gateway_id=example_transit_gateway.id,
+            dx_gateway_id=example_gateway.id)
+        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+            customer_gateway_id=example_customer_gateway.id,
+            outside_ip_address_type="PrivateIpv4",
+            transit_gateway_id=example_transit_gateway.id,
+            transport_transit_gateway_attachment_id=example_direct_connect_gateway_attachment.id,
+            type="ipsec.1",
+            tags={
+                "Name": "terraform_ipsec_vpn_example",
+            })
+        ```
 
         ## Import
 
@@ -1961,11 +2061,13 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
         :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[bool] static_routes_only: Whether the VPN connection uses static routes exclusively. Static routes must be used for devices that don't support BGP.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the connection. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         :param pulumi.Input[str] tunnel1_dpd_timeout_action: The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
         :param pulumi.Input[int] tunnel1_dpd_timeout_seconds: The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tunnel1_ike_versions: The IKE versions that are permitted for the first VPN tunnel. Valid values are `ikev1 | ikev2`.
@@ -2054,6 +2156,40 @@ class VpnConnection(pulumi.CustomResource):
             type="ipsec.1",
             static_routes_only=True)
         ```
+        ### AWS Site to Site Private VPN
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_gateway = aws.directconnect.Gateway("exampleGateway", amazon_side_asn="64512")
+        example_transit_gateway = aws.ec2transitgateway.TransitGateway("exampleTransitGateway",
+            amazon_side_asn=64513,
+            description="terraform_ipsec_vpn_example",
+            transit_gateway_cidr_blocks=["10.0.0.0/24"])
+        example_customer_gateway = aws.ec2.CustomerGateway("exampleCustomerGateway",
+            bgp_asn="64514",
+            ip_address="10.0.0.1",
+            type="ipsec.1",
+            tags={
+                "Name": "terraform_ipsec_vpn_example",
+            })
+        example_gateway_association = aws.directconnect.GatewayAssociation("exampleGatewayAssociation",
+            dx_gateway_id=example_gateway.id,
+            associated_gateway_id=example_transit_gateway.id,
+            allowed_prefixes=["10.0.0.0/8"])
+        example_direct_connect_gateway_attachment = aws.ec2transitgateway.get_direct_connect_gateway_attachment_output(transit_gateway_id=example_transit_gateway.id,
+            dx_gateway_id=example_gateway.id)
+        example_vpn_connection = aws.ec2.VpnConnection("exampleVpnConnection",
+            customer_gateway_id=example_customer_gateway.id,
+            outside_ip_address_type="PrivateIpv4",
+            transit_gateway_id=example_transit_gateway.id,
+            transport_transit_gateway_attachment_id=example_direct_connect_gateway_attachment.id,
+            type="ipsec.1",
+            tags={
+                "Name": "terraform_ipsec_vpn_example",
+            })
+        ```
 
         ## Import
 
@@ -2082,11 +2218,13 @@ class VpnConnection(pulumi.CustomResource):
                  enable_acceleration: Optional[pulumi.Input[bool]] = None,
                  local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
                  local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
+                 outside_ip_address_type: Optional[pulumi.Input[str]] = None,
                  remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
                  remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
                  static_routes_only: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  transit_gateway_id: Optional[pulumi.Input[str]] = None,
+                 transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_action: Optional[pulumi.Input[str]] = None,
                  tunnel1_dpd_timeout_seconds: Optional[pulumi.Input[int]] = None,
                  tunnel1_ike_versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2144,11 +2282,13 @@ class VpnConnection(pulumi.CustomResource):
             __props__.__dict__["enable_acceleration"] = enable_acceleration
             __props__.__dict__["local_ipv4_network_cidr"] = local_ipv4_network_cidr
             __props__.__dict__["local_ipv6_network_cidr"] = local_ipv6_network_cidr
+            __props__.__dict__["outside_ip_address_type"] = outside_ip_address_type
             __props__.__dict__["remote_ipv4_network_cidr"] = remote_ipv4_network_cidr
             __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
             __props__.__dict__["static_routes_only"] = static_routes_only
             __props__.__dict__["tags"] = tags
             __props__.__dict__["transit_gateway_id"] = transit_gateway_id
+            __props__.__dict__["transport_transit_gateway_attachment_id"] = transport_transit_gateway_attachment_id
             __props__.__dict__["tunnel1_dpd_timeout_action"] = tunnel1_dpd_timeout_action
             __props__.__dict__["tunnel1_dpd_timeout_seconds"] = tunnel1_dpd_timeout_seconds
             __props__.__dict__["tunnel1_ike_versions"] = tunnel1_ike_versions
@@ -2226,6 +2366,7 @@ class VpnConnection(pulumi.CustomResource):
             enable_acceleration: Optional[pulumi.Input[bool]] = None,
             local_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
             local_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
+            outside_ip_address_type: Optional[pulumi.Input[str]] = None,
             remote_ipv4_network_cidr: Optional[pulumi.Input[str]] = None,
             remote_ipv6_network_cidr: Optional[pulumi.Input[str]] = None,
             routes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionRouteArgs']]]]] = None,
@@ -2234,6 +2375,7 @@ class VpnConnection(pulumi.CustomResource):
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
             transit_gateway_id: Optional[pulumi.Input[str]] = None,
+            transport_transit_gateway_attachment_id: Optional[pulumi.Input[str]] = None,
             tunnel1_address: Optional[pulumi.Input[str]] = None,
             tunnel1_bgp_asn: Optional[pulumi.Input[str]] = None,
             tunnel1_bgp_holdtime: Optional[pulumi.Input[int]] = None,
@@ -2299,6 +2441,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_acceleration: Indicate whether to enable acceleration for the VPN connection. Supports only EC2 Transit Gateway.
         :param pulumi.Input[str] local_ipv4_network_cidr: The IPv4 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[str] local_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
+        :param pulumi.Input[str] outside_ip_address_type: Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
         :param pulumi.Input[str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
         :param pulumi.Input[str] remote_ipv6_network_cidr: The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnConnectionRouteArgs']]]] routes: The static routes associated with the VPN connection. Detailed below.
@@ -2307,6 +2450,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] transit_gateway_attachment_id: When associated with an EC2 Transit Gateway (`transit_gateway_id` argument), the attachment ID. See also the `ec2.Tag` for tagging the EC2 Transit Gateway VPN Attachment.
         :param pulumi.Input[str] transit_gateway_id: The ID of the EC2 Transit Gateway.
+        :param pulumi.Input[str] transport_transit_gateway_attachment_id: . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
         :param pulumi.Input[str] tunnel1_address: The public IP address of the first VPN tunnel.
         :param pulumi.Input[str] tunnel1_bgp_asn: The bgp asn number of the first VPN tunnel.
         :param pulumi.Input[int] tunnel1_bgp_holdtime: The bgp holdtime of the first VPN tunnel.
@@ -2370,6 +2514,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["enable_acceleration"] = enable_acceleration
         __props__.__dict__["local_ipv4_network_cidr"] = local_ipv4_network_cidr
         __props__.__dict__["local_ipv6_network_cidr"] = local_ipv6_network_cidr
+        __props__.__dict__["outside_ip_address_type"] = outside_ip_address_type
         __props__.__dict__["remote_ipv4_network_cidr"] = remote_ipv4_network_cidr
         __props__.__dict__["remote_ipv6_network_cidr"] = remote_ipv6_network_cidr
         __props__.__dict__["routes"] = routes
@@ -2378,6 +2523,7 @@ class VpnConnection(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["transit_gateway_attachment_id"] = transit_gateway_attachment_id
         __props__.__dict__["transit_gateway_id"] = transit_gateway_id
+        __props__.__dict__["transport_transit_gateway_attachment_id"] = transport_transit_gateway_attachment_id
         __props__.__dict__["tunnel1_address"] = tunnel1_address
         __props__.__dict__["tunnel1_bgp_asn"] = tunnel1_bgp_asn
         __props__.__dict__["tunnel1_bgp_holdtime"] = tunnel1_bgp_holdtime
@@ -2495,6 +2641,14 @@ class VpnConnection(pulumi.CustomResource):
         return pulumi.get(self, "local_ipv6_network_cidr")
 
     @property
+    @pulumi.getter(name="outsideIpAddressType")
+    def outside_ip_address_type(self) -> pulumi.Output[str]:
+        """
+        Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+        """
+        return pulumi.get(self, "outside_ip_address_type")
+
+    @property
     @pulumi.getter(name="remoteIpv4NetworkCidr")
     def remote_ipv4_network_cidr(self) -> pulumi.Output[str]:
         """
@@ -2557,6 +2711,14 @@ class VpnConnection(pulumi.CustomResource):
         The ID of the EC2 Transit Gateway.
         """
         return pulumi.get(self, "transit_gateway_id")
+
+    @property
+    @pulumi.getter(name="transportTransitGatewayAttachmentId")
+    def transport_transit_gateway_attachment_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+        """
+        return pulumi.get(self, "transport_transit_gateway_attachment_id")
 
     @property
     @pulumi.getter(name="tunnel1Address")

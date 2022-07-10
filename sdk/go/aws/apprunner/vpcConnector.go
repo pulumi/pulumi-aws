@@ -46,10 +46,10 @@ import (
 //
 // ## Import
 //
-// App Runner vpc connector can be imported by using the `vpc_connector_name`, e.g.,
+// App Runner vpc connector can be imported by using the `arn`, e.g.,
 //
 // ```sh
-//  $ pulumi import aws:apprunner/vpcConnector:VpcConnector vpc_connector_name
+//  $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
 // ```
 type VpcConnector struct {
 	pulumi.CustomResourceState
@@ -61,7 +61,7 @@ type VpcConnector struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A name for the VPC connector.
 	VpcConnectorName pulumi.StringOutput `pulumi:"vpcConnectorName"`
@@ -114,7 +114,7 @@ type vpcConnectorState struct {
 	Status *string `pulumi:"status"`
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	Subnets []string `pulumi:"subnets"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A name for the VPC connector.
 	VpcConnectorName *string `pulumi:"vpcConnectorName"`
@@ -130,7 +130,7 @@ type VpcConnectorState struct {
 	Status pulumi.StringPtrInput
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	Subnets pulumi.StringArrayInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A name for the VPC connector.
 	VpcConnectorName pulumi.StringPtrInput
@@ -147,7 +147,7 @@ type vpcConnectorArgs struct {
 	SecurityGroups []string `pulumi:"securityGroups"`
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	Subnets []string `pulumi:"subnets"`
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A name for the VPC connector.
 	VpcConnectorName string `pulumi:"vpcConnectorName"`
@@ -159,7 +159,7 @@ type VpcConnectorArgs struct {
 	SecurityGroups pulumi.StringArrayInput
 	// A list of IDs of subnets that App Runner should use when it associates your service with a custom Amazon VPC. Specify IDs of subnets of a single Amazon VPC. App Runner determines the Amazon VPC from the subnets you specify.
 	Subnets pulumi.StringArrayInput
-	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A name for the VPC connector.
 	VpcConnectorName pulumi.StringInput
@@ -271,7 +271,7 @@ func (o VpcConnectorOutput) Subnets() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringArrayOutput { return v.Subnets }).(pulumi.StringArrayOutput)
 }
 
-// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o VpcConnectorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *VpcConnector) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'AnomalySubscriptionSubscriberArgs',
     'CostCategoryRuleArgs',
     'CostCategoryRuleInheritedValueArgs',
     'CostCategoryRuleRuleArgs',
@@ -48,6 +49,43 @@ __all__ = [
     'GetTagsSortByArgs',
     'GetTagsTimePeriodArgs',
 ]
+
+@pulumi.input_type
+class AnomalySubscriptionSubscriberArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] address: The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        :param pulumi.Input[str] type: The type of subscription. Valid Values: `SNS` | `EMAIL`.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        """
+        The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        The type of subscription. Valid Values: `SNS` | `EMAIL`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
 
 @pulumi.input_type
 class CostCategoryRuleArgs:

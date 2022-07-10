@@ -48,6 +48,8 @@ func GetDnsNamespace(ctx *pulumi.Context, args *GetDnsNamespaceArgs, opts ...pul
 type GetDnsNamespaceArgs struct {
 	// The name of the namespace.
 	Name string `pulumi:"name"`
+	// A map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
 	Type string `pulumi:"type"`
 }
@@ -63,7 +65,9 @@ type GetDnsNamespaceResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id   string `pulumi:"id"`
 	Name string `pulumi:"name"`
-	Type string `pulumi:"type"`
+	// A map of tags for the resource.
+	Tags map[string]string `pulumi:"tags"`
+	Type string            `pulumi:"type"`
 }
 
 func GetDnsNamespaceOutput(ctx *pulumi.Context, args GetDnsNamespaceOutputArgs, opts ...pulumi.InvokeOption) GetDnsNamespaceResultOutput {
@@ -83,6 +87,8 @@ func GetDnsNamespaceOutput(ctx *pulumi.Context, args GetDnsNamespaceOutputArgs, 
 type GetDnsNamespaceOutputArgs struct {
 	// The name of the namespace.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A map of tags for the resource.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
 	Type pulumi.StringInput `pulumi:"type"`
 }
@@ -128,6 +134,11 @@ func (o GetDnsNamespaceResultOutput) Id() pulumi.StringOutput {
 
 func (o GetDnsNamespaceResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDnsNamespaceResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A map of tags for the resource.
+func (o GetDnsNamespaceResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetDnsNamespaceResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func (o GetDnsNamespaceResultOutput) Type() pulumi.StringOutput {

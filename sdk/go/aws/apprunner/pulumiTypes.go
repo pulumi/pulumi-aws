@@ -134,6 +134,143 @@ func (o CustomDomainAssociationCertificateValidationRecordArrayOutput) Index(i p
 	}).(CustomDomainAssociationCertificateValidationRecordOutput)
 }
 
+type ObservabilityConfigurationTraceConfiguration struct {
+	// The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+	Vendor *string `pulumi:"vendor"`
+}
+
+// ObservabilityConfigurationTraceConfigurationInput is an input type that accepts ObservabilityConfigurationTraceConfigurationArgs and ObservabilityConfigurationTraceConfigurationOutput values.
+// You can construct a concrete instance of `ObservabilityConfigurationTraceConfigurationInput` via:
+//
+//          ObservabilityConfigurationTraceConfigurationArgs{...}
+type ObservabilityConfigurationTraceConfigurationInput interface {
+	pulumi.Input
+
+	ToObservabilityConfigurationTraceConfigurationOutput() ObservabilityConfigurationTraceConfigurationOutput
+	ToObservabilityConfigurationTraceConfigurationOutputWithContext(context.Context) ObservabilityConfigurationTraceConfigurationOutput
+}
+
+type ObservabilityConfigurationTraceConfigurationArgs struct {
+	// The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+	Vendor pulumi.StringPtrInput `pulumi:"vendor"`
+}
+
+func (ObservabilityConfigurationTraceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityConfigurationTraceConfiguration)(nil)).Elem()
+}
+
+func (i ObservabilityConfigurationTraceConfigurationArgs) ToObservabilityConfigurationTraceConfigurationOutput() ObservabilityConfigurationTraceConfigurationOutput {
+	return i.ToObservabilityConfigurationTraceConfigurationOutputWithContext(context.Background())
+}
+
+func (i ObservabilityConfigurationTraceConfigurationArgs) ToObservabilityConfigurationTraceConfigurationOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityConfigurationTraceConfigurationOutput)
+}
+
+func (i ObservabilityConfigurationTraceConfigurationArgs) ToObservabilityConfigurationTraceConfigurationPtrOutput() ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return i.ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityConfigurationTraceConfigurationArgs) ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityConfigurationTraceConfigurationOutput).ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(ctx)
+}
+
+// ObservabilityConfigurationTraceConfigurationPtrInput is an input type that accepts ObservabilityConfigurationTraceConfigurationArgs, ObservabilityConfigurationTraceConfigurationPtr and ObservabilityConfigurationTraceConfigurationPtrOutput values.
+// You can construct a concrete instance of `ObservabilityConfigurationTraceConfigurationPtrInput` via:
+//
+//          ObservabilityConfigurationTraceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ObservabilityConfigurationTraceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityConfigurationTraceConfigurationPtrOutput() ObservabilityConfigurationTraceConfigurationPtrOutput
+	ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(context.Context) ObservabilityConfigurationTraceConfigurationPtrOutput
+}
+
+type observabilityConfigurationTraceConfigurationPtrType ObservabilityConfigurationTraceConfigurationArgs
+
+func ObservabilityConfigurationTraceConfigurationPtr(v *ObservabilityConfigurationTraceConfigurationArgs) ObservabilityConfigurationTraceConfigurationPtrInput {
+	return (*observabilityConfigurationTraceConfigurationPtrType)(v)
+}
+
+func (*observabilityConfigurationTraceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityConfigurationTraceConfiguration)(nil)).Elem()
+}
+
+func (i *observabilityConfigurationTraceConfigurationPtrType) ToObservabilityConfigurationTraceConfigurationPtrOutput() ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return i.ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityConfigurationTraceConfigurationPtrType) ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityConfigurationTraceConfigurationPtrOutput)
+}
+
+type ObservabilityConfigurationTraceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityConfigurationTraceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityConfigurationTraceConfiguration)(nil)).Elem()
+}
+
+func (o ObservabilityConfigurationTraceConfigurationOutput) ToObservabilityConfigurationTraceConfigurationOutput() ObservabilityConfigurationTraceConfigurationOutput {
+	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationOutput) ToObservabilityConfigurationTraceConfigurationOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationOutput {
+	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationOutput) ToObservabilityConfigurationTraceConfigurationPtrOutput() ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return o.ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityConfigurationTraceConfigurationOutput) ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityConfigurationTraceConfiguration) *ObservabilityConfigurationTraceConfiguration {
+		return &v
+	}).(ObservabilityConfigurationTraceConfigurationPtrOutput)
+}
+
+// The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+func (o ObservabilityConfigurationTraceConfigurationOutput) Vendor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityConfigurationTraceConfiguration) *string { return v.Vendor }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityConfigurationTraceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityConfigurationTraceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityConfigurationTraceConfiguration)(nil)).Elem()
+}
+
+func (o ObservabilityConfigurationTraceConfigurationPtrOutput) ToObservabilityConfigurationTraceConfigurationPtrOutput() ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationPtrOutput) ToObservabilityConfigurationTraceConfigurationPtrOutputWithContext(ctx context.Context) ObservabilityConfigurationTraceConfigurationPtrOutput {
+	return o
+}
+
+func (o ObservabilityConfigurationTraceConfigurationPtrOutput) Elem() ObservabilityConfigurationTraceConfigurationOutput {
+	return o.ApplyT(func(v *ObservabilityConfigurationTraceConfiguration) ObservabilityConfigurationTraceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityConfigurationTraceConfiguration
+		return ret
+	}).(ObservabilityConfigurationTraceConfigurationOutput)
+}
+
+// The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+func (o ObservabilityConfigurationTraceConfigurationPtrOutput) Vendor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityConfigurationTraceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Vendor
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceEncryptionConfiguration struct {
 	// The ARN of the KMS key used for encryption.
 	KmsKey string `pulumi:"kmsKey"`
@@ -971,6 +1108,162 @@ func (o ServiceNetworkConfigurationEgressConfigurationPtrOutput) VpcConnectorArn
 		}
 		return v.VpcConnectorArn
 	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceObservabilityConfiguration struct {
+	// The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+	ObservabilityConfigurationArn string `pulumi:"observabilityConfigurationArn"`
+	// When `true`, an observability configuration resource is associated with the service.
+	ObservabilityEnabled bool `pulumi:"observabilityEnabled"`
+}
+
+// ServiceObservabilityConfigurationInput is an input type that accepts ServiceObservabilityConfigurationArgs and ServiceObservabilityConfigurationOutput values.
+// You can construct a concrete instance of `ServiceObservabilityConfigurationInput` via:
+//
+//          ServiceObservabilityConfigurationArgs{...}
+type ServiceObservabilityConfigurationInput interface {
+	pulumi.Input
+
+	ToServiceObservabilityConfigurationOutput() ServiceObservabilityConfigurationOutput
+	ToServiceObservabilityConfigurationOutputWithContext(context.Context) ServiceObservabilityConfigurationOutput
+}
+
+type ServiceObservabilityConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+	ObservabilityConfigurationArn pulumi.StringInput `pulumi:"observabilityConfigurationArn"`
+	// When `true`, an observability configuration resource is associated with the service.
+	ObservabilityEnabled pulumi.BoolInput `pulumi:"observabilityEnabled"`
+}
+
+func (ServiceObservabilityConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceObservabilityConfiguration)(nil)).Elem()
+}
+
+func (i ServiceObservabilityConfigurationArgs) ToServiceObservabilityConfigurationOutput() ServiceObservabilityConfigurationOutput {
+	return i.ToServiceObservabilityConfigurationOutputWithContext(context.Background())
+}
+
+func (i ServiceObservabilityConfigurationArgs) ToServiceObservabilityConfigurationOutputWithContext(ctx context.Context) ServiceObservabilityConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceObservabilityConfigurationOutput)
+}
+
+func (i ServiceObservabilityConfigurationArgs) ToServiceObservabilityConfigurationPtrOutput() ServiceObservabilityConfigurationPtrOutput {
+	return i.ToServiceObservabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceObservabilityConfigurationArgs) ToServiceObservabilityConfigurationPtrOutputWithContext(ctx context.Context) ServiceObservabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceObservabilityConfigurationOutput).ToServiceObservabilityConfigurationPtrOutputWithContext(ctx)
+}
+
+// ServiceObservabilityConfigurationPtrInput is an input type that accepts ServiceObservabilityConfigurationArgs, ServiceObservabilityConfigurationPtr and ServiceObservabilityConfigurationPtrOutput values.
+// You can construct a concrete instance of `ServiceObservabilityConfigurationPtrInput` via:
+//
+//          ServiceObservabilityConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceObservabilityConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToServiceObservabilityConfigurationPtrOutput() ServiceObservabilityConfigurationPtrOutput
+	ToServiceObservabilityConfigurationPtrOutputWithContext(context.Context) ServiceObservabilityConfigurationPtrOutput
+}
+
+type serviceObservabilityConfigurationPtrType ServiceObservabilityConfigurationArgs
+
+func ServiceObservabilityConfigurationPtr(v *ServiceObservabilityConfigurationArgs) ServiceObservabilityConfigurationPtrInput {
+	return (*serviceObservabilityConfigurationPtrType)(v)
+}
+
+func (*serviceObservabilityConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceObservabilityConfiguration)(nil)).Elem()
+}
+
+func (i *serviceObservabilityConfigurationPtrType) ToServiceObservabilityConfigurationPtrOutput() ServiceObservabilityConfigurationPtrOutput {
+	return i.ToServiceObservabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceObservabilityConfigurationPtrType) ToServiceObservabilityConfigurationPtrOutputWithContext(ctx context.Context) ServiceObservabilityConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceObservabilityConfigurationPtrOutput)
+}
+
+type ServiceObservabilityConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ServiceObservabilityConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceObservabilityConfiguration)(nil)).Elem()
+}
+
+func (o ServiceObservabilityConfigurationOutput) ToServiceObservabilityConfigurationOutput() ServiceObservabilityConfigurationOutput {
+	return o
+}
+
+func (o ServiceObservabilityConfigurationOutput) ToServiceObservabilityConfigurationOutputWithContext(ctx context.Context) ServiceObservabilityConfigurationOutput {
+	return o
+}
+
+func (o ServiceObservabilityConfigurationOutput) ToServiceObservabilityConfigurationPtrOutput() ServiceObservabilityConfigurationPtrOutput {
+	return o.ToServiceObservabilityConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceObservabilityConfigurationOutput) ToServiceObservabilityConfigurationPtrOutputWithContext(ctx context.Context) ServiceObservabilityConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceObservabilityConfiguration) *ServiceObservabilityConfiguration {
+		return &v
+	}).(ServiceObservabilityConfigurationPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+func (o ServiceObservabilityConfigurationOutput) ObservabilityConfigurationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceObservabilityConfiguration) string { return v.ObservabilityConfigurationArn }).(pulumi.StringOutput)
+}
+
+// When `true`, an observability configuration resource is associated with the service.
+func (o ServiceObservabilityConfigurationOutput) ObservabilityEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ServiceObservabilityConfiguration) bool { return v.ObservabilityEnabled }).(pulumi.BoolOutput)
+}
+
+type ServiceObservabilityConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceObservabilityConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceObservabilityConfiguration)(nil)).Elem()
+}
+
+func (o ServiceObservabilityConfigurationPtrOutput) ToServiceObservabilityConfigurationPtrOutput() ServiceObservabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceObservabilityConfigurationPtrOutput) ToServiceObservabilityConfigurationPtrOutputWithContext(ctx context.Context) ServiceObservabilityConfigurationPtrOutput {
+	return o
+}
+
+func (o ServiceObservabilityConfigurationPtrOutput) Elem() ServiceObservabilityConfigurationOutput {
+	return o.ApplyT(func(v *ServiceObservabilityConfiguration) ServiceObservabilityConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceObservabilityConfiguration
+		return ret
+	}).(ServiceObservabilityConfigurationOutput)
+}
+
+// The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+func (o ServiceObservabilityConfigurationPtrOutput) ObservabilityConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceObservabilityConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObservabilityConfigurationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `true`, an observability configuration resource is associated with the service.
+func (o ServiceObservabilityConfigurationPtrOutput) ObservabilityEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceObservabilityConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ObservabilityEnabled
+	}).(pulumi.BoolPtrOutput)
 }
 
 type ServiceSourceConfiguration struct {
@@ -2404,6 +2697,8 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) St
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecordInput)(nil)).Elem(), CustomDomainAssociationCertificateValidationRecordArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecordArrayInput)(nil)).Elem(), CustomDomainAssociationCertificateValidationRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityConfigurationTraceConfigurationPtrInput)(nil)).Elem(), ObservabilityConfigurationTraceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEncryptionConfigurationInput)(nil)).Elem(), ServiceEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEncryptionConfigurationPtrInput)(nil)).Elem(), ServiceEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigurationInput)(nil)).Elem(), ServiceHealthCheckConfigurationArgs{})
@@ -2414,6 +2709,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationEgressConfigurationInput)(nil)).Elem(), ServiceNetworkConfigurationEgressConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceNetworkConfigurationEgressConfigurationPtrInput)(nil)).Elem(), ServiceNetworkConfigurationEgressConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceObservabilityConfigurationInput)(nil)).Elem(), ServiceObservabilityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceObservabilityConfigurationPtrInput)(nil)).Elem(), ServiceObservabilityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationPtrInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationAuthenticationConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationAuthenticationConfigurationArgs{})
@@ -2432,6 +2729,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationImageRepositoryImageConfigurationPtrInput)(nil)).Elem(), ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{})
 	pulumi.RegisterOutputType(CustomDomainAssociationCertificateValidationRecordOutput{})
 	pulumi.RegisterOutputType(CustomDomainAssociationCertificateValidationRecordArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationOutput{})
+	pulumi.RegisterOutputType(ObservabilityConfigurationTraceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceHealthCheckConfigurationOutput{})
@@ -2442,6 +2741,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationEgressConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceNetworkConfigurationEgressConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceObservabilityConfigurationOutput{})
+	pulumi.RegisterOutputType(ServiceObservabilityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationAuthenticationConfigurationOutput{})

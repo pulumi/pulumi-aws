@@ -22,10 +22,13 @@ class GetKeyPairResult:
     """
     A collection of values returned by getKeyPair.
     """
-    def __init__(__self__, arn=None, filters=None, fingerprint=None, id=None, key_name=None, key_pair_id=None, tags=None):
+    def __init__(__self__, arn=None, create_time=None, filters=None, fingerprint=None, id=None, include_public_key=None, key_name=None, key_pair_id=None, key_type=None, public_key=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if create_time and not isinstance(create_time, str):
+            raise TypeError("Expected argument 'create_time' to be a str")
+        pulumi.set(__self__, "create_time", create_time)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -35,12 +38,21 @@ class GetKeyPairResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if include_public_key and not isinstance(include_public_key, bool):
+            raise TypeError("Expected argument 'include_public_key' to be a bool")
+        pulumi.set(__self__, "include_public_key", include_public_key)
         if key_name and not isinstance(key_name, str):
             raise TypeError("Expected argument 'key_name' to be a str")
         pulumi.set(__self__, "key_name", key_name)
         if key_pair_id and not isinstance(key_pair_id, str):
             raise TypeError("Expected argument 'key_pair_id' to be a str")
         pulumi.set(__self__, "key_pair_id", key_pair_id)
+        if key_type and not isinstance(key_type, str):
+            raise TypeError("Expected argument 'key_type' to be a str")
+        pulumi.set(__self__, "key_type", key_type)
+        if public_key and not isinstance(public_key, str):
+            raise TypeError("Expected argument 'public_key' to be a str")
+        pulumi.set(__self__, "public_key", public_key)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -52,6 +64,14 @@ class GetKeyPairResult:
         The ARN of the Key Pair.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> str:
+        """
+        The timestamp for when the key pair was created in ISO 8601 format.
+        """
+        return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter
@@ -75,6 +95,11 @@ class GetKeyPairResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="includePublicKey")
+    def include_public_key(self) -> Optional[bool]:
+        return pulumi.get(self, "include_public_key")
+
+    @property
     @pulumi.getter(name="keyName")
     def key_name(self) -> Optional[str]:
         return pulumi.get(self, "key_name")
@@ -83,6 +108,22 @@ class GetKeyPairResult:
     @pulumi.getter(name="keyPairId")
     def key_pair_id(self) -> Optional[str]:
         return pulumi.get(self, "key_pair_id")
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> str:
+        """
+        The type of key pair.
+        """
+        return pulumi.get(self, "key_type")
+
+    @property
+    @pulumi.getter(name="publicKey")
+    def public_key(self) -> str:
+        """
+        The public key material.
+        """
+        return pulumi.get(self, "public_key")
 
     @property
     @pulumi.getter
@@ -100,15 +141,20 @@ class AwaitableGetKeyPairResult(GetKeyPairResult):
             yield self
         return GetKeyPairResult(
             arn=self.arn,
+            create_time=self.create_time,
             filters=self.filters,
             fingerprint=self.fingerprint,
             id=self.id,
+            include_public_key=self.include_public_key,
             key_name=self.key_name,
             key_pair_id=self.key_pair_id,
+            key_type=self.key_type,
+            public_key=self.public_key,
             tags=self.tags)
 
 
 def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterArgs']]] = None,
+                 include_public_key: Optional[bool] = None,
                  key_name: Optional[str] = None,
                  key_pair_id: Optional[str] = None,
                  tags: Optional[Mapping[str, str]] = None,
@@ -118,13 +164,14 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
     ## Example Usage
 
-    The following example shows how to get a EC2 Key Pair from its name.
+    The following example shows how to get a EC2 Key Pair including the public key material from its name.
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_key_pair(key_name="test",
+        include_public_key=True,
         filters=[aws.ec2.GetKeyPairFilterArgs(
             name="tag:Component",
             values=["web"],
@@ -136,12 +183,14 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
+    :param bool include_public_key: Whether to include the public key material in the response.
     :param str key_name: The Key Pair name.
     :param str key_pair_id: The Key Pair ID.
     :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
     """
     __args__ = dict()
     __args__['filters'] = filters
+    __args__['includePublicKey'] = include_public_key
     __args__['keyName'] = key_name
     __args__['keyPairId'] = key_pair_id
     __args__['tags'] = tags
@@ -153,16 +202,21 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
     return AwaitableGetKeyPairResult(
         arn=__ret__.arn,
+        create_time=__ret__.create_time,
         filters=__ret__.filters,
         fingerprint=__ret__.fingerprint,
         id=__ret__.id,
+        include_public_key=__ret__.include_public_key,
         key_name=__ret__.key_name,
         key_pair_id=__ret__.key_pair_id,
+        key_type=__ret__.key_type,
+        public_key=__ret__.public_key,
         tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_key_pair)
 def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetKeyPairFilterArgs']]]]] = None,
+                        include_public_key: Optional[pulumi.Input[Optional[bool]]] = None,
                         key_name: Optional[pulumi.Input[Optional[str]]] = None,
                         key_pair_id: Optional[pulumi.Input[Optional[str]]] = None,
                         tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
@@ -172,13 +226,14 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     ## Example Usage
 
-    The following example shows how to get a EC2 Key Pair from its name.
+    The following example shows how to get a EC2 Key Pair including the public key material from its name.
 
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_key_pair(key_name="test",
+        include_public_key=True,
         filters=[aws.ec2.GetKeyPairFilterArgs(
             name="tag:Component",
             values=["web"],
@@ -190,6 +245,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
+    :param bool include_public_key: Whether to include the public key material in the response.
     :param str key_name: The Key Pair name.
     :param str key_pair_id: The Key Pair ID.
     :param Mapping[str, str] tags: Any tags assigned to the Key Pair.
