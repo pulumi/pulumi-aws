@@ -17,14 +17,14 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableTtlArgs Empty = new TableTtlArgs();
 
     /**
-     * The name of the table attribute to store the TTL timestamp in.
+     * Name of the table attribute to store the TTL timestamp in.
      * 
      */
     @Import(name="attributeName", required=true)
     private Output<String> attributeName;
 
     /**
-     * @return The name of the table attribute to store the TTL timestamp in.
+     * @return Name of the table attribute to store the TTL timestamp in.
      * 
      */
     public Output<String> attributeName() {
@@ -32,14 +32,14 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Indicates whether ttl is enabled (true) or disabled (false).
+     * Whether TTL is enabled.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether ttl is enabled (true) or disabled (false).
+     * @return Whether TTL is enabled.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -72,7 +72,7 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributeName The name of the table attribute to store the TTL timestamp in.
+         * @param attributeName Name of the table attribute to store the TTL timestamp in.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param attributeName The name of the table attribute to store the TTL timestamp in.
+         * @param attributeName Name of the table attribute to store the TTL timestamp in.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Indicates whether ttl is enabled (true) or disabled (false).
+         * @param enabled Whether TTL is enabled.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class TableTtlArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled Indicates whether ttl is enabled (true) or disabled (false).
+         * @param enabled Whether TTL is enabled.
          * 
          * @return builder
          * 

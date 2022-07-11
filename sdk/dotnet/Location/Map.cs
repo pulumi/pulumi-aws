@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Location
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp for when the map resource was last updated in ISO 8601.
+        /// The timestamp for when the map resource was last updated in ISO 8601 format.
         /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.Location
         }
 
         /// <summary>
-        /// The timestamp for when the map resource was last updated in ISO 8601.
+        /// The timestamp for when the map resource was last updated in ISO 8601 format.
         /// </summary>
         [Input("updateTime")]
         public Input<string>? UpdateTime { get; set; }

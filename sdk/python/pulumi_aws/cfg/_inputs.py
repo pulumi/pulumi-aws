@@ -351,17 +351,21 @@ class RemediationConfigurationParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resource_value: Optional[pulumi.Input[str]] = None,
-                 static_value: Optional[pulumi.Input[str]] = None):
+                 static_value: Optional[pulumi.Input[str]] = None,
+                 static_values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] name: Name of the attribute.
         :param pulumi.Input[str] resource_value: Value is dynamic and changes at run-time.
         :param pulumi.Input[str] static_value: Value is static and does not change at run-time.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] static_values: List of static values.
         """
         pulumi.set(__self__, "name", name)
         if resource_value is not None:
             pulumi.set(__self__, "resource_value", resource_value)
         if static_value is not None:
             pulumi.set(__self__, "static_value", static_value)
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
 
     @property
     @pulumi.getter
@@ -398,6 +402,18 @@ class RemediationConfigurationParameterArgs:
     @static_value.setter
     def static_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "static_value", value)
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of static values.
+        """
+        return pulumi.get(self, "static_values")
+
+    @static_values.setter
+    def static_values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "static_values", value)
 
 
 @pulumi.input_type

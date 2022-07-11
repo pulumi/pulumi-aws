@@ -18,8 +18,8 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// OpenSearch Domain configurations are similar in many ways to Elasticsearch Domain configurations. However, there are important differences including these:
     /// 
-    /// * OpenSearch has `engine_version` while Elasticsearch has `elastisearch_version`
-    /// * Versions are specified differently - _e.g._, `Elastisearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
+    /// * OpenSearch has `engine_version` while Elasticsearch has `elasticsearch_version`
+    /// * Versions are specified differently - _e.g._, `Elasticsearch_7.10` with OpenSearch vs. `7.10` for Elasticsearch.
     /// * `instance_type` argument values end in `search` for OpenSearch vs. `elasticsearch` for Elasticsearch (_e.g._, `t2.micro.search` vs. `t2.micro.elasticsearch`).
     /// * The AWS-managed service-linked role for OpenSearch is called `AWSServiceRoleForAmazonOpenSearchService` instead of `AWSServiceRoleForAmazonElasticsearchService` for Elasticsearch.
     /// 

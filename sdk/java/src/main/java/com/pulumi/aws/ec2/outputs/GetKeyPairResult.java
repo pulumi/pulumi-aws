@@ -5,6 +5,7 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetKeyPairFilter;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,11 @@ public final class GetKeyPairResult {
      * 
      */
     private final String arn;
+    /**
+     * @return The timestamp for when the key pair was created in ISO 8601 format.
+     * 
+     */
+    private final String createTime;
     private final @Nullable List<GetKeyPairFilter> filters;
     /**
      * @return The SHA-1 digest of the DER encoded private key.
@@ -30,8 +36,19 @@ public final class GetKeyPairResult {
      * 
      */
     private final String id;
+    private final @Nullable Boolean includePublicKey;
     private final @Nullable String keyName;
     private final @Nullable String keyPairId;
+    /**
+     * @return The type of key pair.
+     * 
+     */
+    private final String keyType;
+    /**
+     * @return The public key material.
+     * 
+     */
+    private final String publicKey;
     /**
      * @return Any tags assigned to the Key Pair.
      * 
@@ -41,18 +58,26 @@ public final class GetKeyPairResult {
     @CustomType.Constructor
     private GetKeyPairResult(
         @CustomType.Parameter("arn") String arn,
+        @CustomType.Parameter("createTime") String createTime,
         @CustomType.Parameter("filters") @Nullable List<GetKeyPairFilter> filters,
         @CustomType.Parameter("fingerprint") String fingerprint,
         @CustomType.Parameter("id") String id,
+        @CustomType.Parameter("includePublicKey") @Nullable Boolean includePublicKey,
         @CustomType.Parameter("keyName") @Nullable String keyName,
         @CustomType.Parameter("keyPairId") @Nullable String keyPairId,
+        @CustomType.Parameter("keyType") String keyType,
+        @CustomType.Parameter("publicKey") String publicKey,
         @CustomType.Parameter("tags") Map<String,String> tags) {
         this.arn = arn;
+        this.createTime = createTime;
         this.filters = filters;
         this.fingerprint = fingerprint;
         this.id = id;
+        this.includePublicKey = includePublicKey;
         this.keyName = keyName;
         this.keyPairId = keyPairId;
+        this.keyType = keyType;
+        this.publicKey = publicKey;
         this.tags = tags;
     }
 
@@ -62,6 +87,13 @@ public final class GetKeyPairResult {
      */
     public String arn() {
         return this.arn;
+    }
+    /**
+     * @return The timestamp for when the key pair was created in ISO 8601 format.
+     * 
+     */
+    public String createTime() {
+        return this.createTime;
     }
     public List<GetKeyPairFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
@@ -80,11 +112,28 @@ public final class GetKeyPairResult {
     public String id() {
         return this.id;
     }
+    public Optional<Boolean> includePublicKey() {
+        return Optional.ofNullable(this.includePublicKey);
+    }
     public Optional<String> keyName() {
         return Optional.ofNullable(this.keyName);
     }
     public Optional<String> keyPairId() {
         return Optional.ofNullable(this.keyPairId);
+    }
+    /**
+     * @return The type of key pair.
+     * 
+     */
+    public String keyType() {
+        return this.keyType;
+    }
+    /**
+     * @return The public key material.
+     * 
+     */
+    public String publicKey() {
+        return this.publicKey;
     }
     /**
      * @return Any tags assigned to the Key Pair.
@@ -104,11 +153,15 @@ public final class GetKeyPairResult {
 
     public static final class Builder {
         private String arn;
+        private String createTime;
         private @Nullable List<GetKeyPairFilter> filters;
         private String fingerprint;
         private String id;
+        private @Nullable Boolean includePublicKey;
         private @Nullable String keyName;
         private @Nullable String keyPairId;
+        private String keyType;
+        private String publicKey;
         private Map<String,String> tags;
 
         public Builder() {
@@ -118,16 +171,24 @@ public final class GetKeyPairResult {
         public Builder(GetKeyPairResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
+    	      this.createTime = defaults.createTime;
     	      this.filters = defaults.filters;
     	      this.fingerprint = defaults.fingerprint;
     	      this.id = defaults.id;
+    	      this.includePublicKey = defaults.includePublicKey;
     	      this.keyName = defaults.keyName;
     	      this.keyPairId = defaults.keyPairId;
+    	      this.keyType = defaults.keyType;
+    	      this.publicKey = defaults.publicKey;
     	      this.tags = defaults.tags;
         }
 
         public Builder arn(String arn) {
             this.arn = Objects.requireNonNull(arn);
+            return this;
+        }
+        public Builder createTime(String createTime) {
+            this.createTime = Objects.requireNonNull(createTime);
             return this;
         }
         public Builder filters(@Nullable List<GetKeyPairFilter> filters) {
@@ -145,6 +206,10 @@ public final class GetKeyPairResult {
             this.id = Objects.requireNonNull(id);
             return this;
         }
+        public Builder includePublicKey(@Nullable Boolean includePublicKey) {
+            this.includePublicKey = includePublicKey;
+            return this;
+        }
         public Builder keyName(@Nullable String keyName) {
             this.keyName = keyName;
             return this;
@@ -153,11 +218,19 @@ public final class GetKeyPairResult {
             this.keyPairId = keyPairId;
             return this;
         }
+        public Builder keyType(String keyType) {
+            this.keyType = Objects.requireNonNull(keyType);
+            return this;
+        }
+        public Builder publicKey(String publicKey) {
+            this.publicKey = Objects.requireNonNull(publicKey);
+            return this;
+        }
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
         }        public GetKeyPairResult build() {
-            return new GetKeyPairResult(arn, filters, fingerprint, id, keyName, keyPairId, tags);
+            return new GetKeyPairResult(arn, createTime, filters, fingerprint, id, includePublicKey, keyName, keyPairId, keyType, publicKey, tags);
         }
     }
 }

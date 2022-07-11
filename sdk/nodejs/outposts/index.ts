@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./getAsset";
+export * from "./getAssets";
 export * from "./getOutpost";
 export * from "./getOutpostInstanceType";
 export * from "./getOutpostInstanceTypes";

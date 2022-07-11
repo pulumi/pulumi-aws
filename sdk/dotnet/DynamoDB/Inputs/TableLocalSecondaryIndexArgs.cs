@@ -13,7 +13,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     public sealed class TableLocalSecondaryIndexArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the index
+        /// Name of the index
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -22,9 +22,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         private InputList<string>? _nonKeyAttributes;
 
         /// <summary>
-        /// Only required with `INCLUDE` as a
-        /// projection type; a list of attributes to project into the index. These
-        /// do not need to be defined as attributes on the table.
+        /// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         /// </summary>
         public InputList<string> NonKeyAttributes
         {
@@ -33,17 +31,13 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         }
 
         /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY`
-        /// where `ALL` projects every attribute into the index, `KEYS_ONLY`
-        /// projects just the hash and range key into the index, and `INCLUDE`
-        /// projects only the keys specified in the _non_key_attributes_
-        /// parameter.
+        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects just the hash and range key into the index, and `INCLUDE` projects only the keys specified in the `non_key_attributes` parameter.
         /// </summary>
         [Input("projectionType", required: true)]
         public Input<string> ProjectionType { get; set; } = null!;
 
         /// <summary>
-        /// The name of the range key; must be defined
+        /// Name of the range key.
         /// </summary>
         [Input("rangeKey", required: true)]
         public Input<string> RangeKey { get; set; } = null!;

@@ -70,10 +70,14 @@ func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.In
 // A collection of arguments for invoking getPolicy.
 type LookupPolicyArgs struct {
 	// The ARN of the IAM policy.
+	// Conflicts with `name` and `pathPrefix`.
 	Arn *string `pulumi:"arn"`
 	// The name of the IAM policy.
+	// Conflicts with `arn`.
 	Name *string `pulumi:"name"`
-	// The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+	// The prefix of the path to the IAM policy.
+	// Defaults to a slash (`/`).
+	// Conflicts with `arn`.
 	PathPrefix *string `pulumi:"pathPrefix"`
 	// Key-value mapping of tags for the IAM Policy.
 	Tags map[string]string `pulumi:"tags"`
@@ -114,10 +118,14 @@ func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts .
 // A collection of arguments for invoking getPolicy.
 type LookupPolicyOutputArgs struct {
 	// The ARN of the IAM policy.
+	// Conflicts with `name` and `pathPrefix`.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The name of the IAM policy.
+	// Conflicts with `arn`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+	// The prefix of the path to the IAM policy.
+	// Defaults to a slash (`/`).
+	// Conflicts with `arn`.
 	PathPrefix pulumi.StringPtrInput `pulumi:"pathPrefix"`
 	// Key-value mapping of tags for the IAM Policy.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

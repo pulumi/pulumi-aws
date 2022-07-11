@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2.inputs;
 import com.pulumi.aws.ec2.inputs.GetKeyPairFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -31,6 +32,21 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
      */
     public Optional<Output<List<GetKeyPairFilterArgs>>> filters() {
         return Optional.ofNullable(this.filters);
+    }
+
+    /**
+     * Whether to include the public key material in the response.
+     * 
+     */
+    @Import(name="includePublicKey")
+    private @Nullable Output<Boolean> includePublicKey;
+
+    /**
+     * @return Whether to include the public key material in the response.
+     * 
+     */
+    public Optional<Output<Boolean>> includePublicKey() {
+        return Optional.ofNullable(this.includePublicKey);
     }
 
     /**
@@ -82,6 +98,7 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
 
     private GetKeyPairArgs(GetKeyPairArgs $) {
         this.filters = $.filters;
+        this.includePublicKey = $.includePublicKey;
         this.keyName = $.keyName;
         this.keyPairId = $.keyPairId;
         this.tags = $.tags;
@@ -134,6 +151,27 @@ public final class GetKeyPairArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder filters(GetKeyPairFilterArgs... filters) {
             return filters(List.of(filters));
+        }
+
+        /**
+         * @param includePublicKey Whether to include the public key material in the response.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includePublicKey(@Nullable Output<Boolean> includePublicKey) {
+            $.includePublicKey = includePublicKey;
+            return this;
+        }
+
+        /**
+         * @param includePublicKey Whether to include the public key material in the response.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder includePublicKey(Boolean includePublicKey) {
+            return includePublicKey(Output.of(includePublicKey));
         }
 
         /**

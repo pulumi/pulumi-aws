@@ -22,6 +22,7 @@ class ServiceArgs:
                  health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
                  instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
+                 observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Service resource.
@@ -31,7 +32,8 @@ class ServiceArgs:
         :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input['ServiceHealthCheckConfigurationArgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
+        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "service_name", service_name)
@@ -46,6 +48,8 @@ class ServiceArgs:
             pulumi.set(__self__, "instance_configuration", instance_configuration)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if observability_configuration is not None:
+            pulumi.set(__self__, "observability_configuration", observability_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -125,13 +129,25 @@ class ServiceArgs:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
         """
-        Configuration settings related to network traffic of the web application that the App Runner service runs.
+        Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
     def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="observabilityConfiguration")
+    def observability_configuration(self) -> Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]:
+        """
+        The observability configuration of your service. See Observability Configuration below for more details.
+        """
+        return pulumi.get(self, "observability_configuration")
+
+    @observability_configuration.setter
+    def observability_configuration(self, value: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]):
+        pulumi.set(self, "observability_configuration", value)
 
     @property
     @pulumi.getter
@@ -155,6 +171,7 @@ class _ServiceState:
                  health_check_configuration: Optional[pulumi.Input['ServiceHealthCheckConfigurationArgs']] = None,
                  instance_configuration: Optional[pulumi.Input['ServiceInstanceConfigurationArgs']] = None,
                  network_configuration: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']] = None,
+                 observability_configuration: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']] = None,
                  service_id: Optional[pulumi.Input[str]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_url: Optional[pulumi.Input[str]] = None,
@@ -169,7 +186,8 @@ class _ServiceState:
         :param pulumi.Input['ServiceEncryptionConfigurationArgs'] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input['ServiceHealthCheckConfigurationArgs'] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         :param pulumi.Input['ServiceInstanceConfigurationArgs'] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
+        :param pulumi.Input['ServiceNetworkConfigurationArgs'] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        :param pulumi.Input['ServiceObservabilityConfigurationArgs'] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[str] service_url: A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
@@ -190,6 +208,8 @@ class _ServiceState:
             pulumi.set(__self__, "instance_configuration", instance_configuration)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if observability_configuration is not None:
+            pulumi.set(__self__, "observability_configuration", observability_configuration)
         if service_id is not None:
             pulumi.set(__self__, "service_id", service_id)
         if service_name is not None:
@@ -269,13 +289,25 @@ class _ServiceState:
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]:
         """
-        Configuration settings related to network traffic of the web application that the App Runner service runs.
+        Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         """
         return pulumi.get(self, "network_configuration")
 
     @network_configuration.setter
     def network_configuration(self, value: Optional[pulumi.Input['ServiceNetworkConfigurationArgs']]):
         pulumi.set(self, "network_configuration", value)
+
+    @property
+    @pulumi.getter(name="observabilityConfiguration")
+    def observability_configuration(self) -> Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]:
+        """
+        The observability configuration of your service. See Observability Configuration below for more details.
+        """
+        return pulumi.get(self, "observability_configuration")
+
+    @observability_configuration.setter
+    def observability_configuration(self, value: Optional[pulumi.Input['ServiceObservabilityConfigurationArgs']]):
+        pulumi.set(self, "observability_configuration", value)
 
     @property
     @pulumi.getter(name="serviceId")
@@ -372,6 +404,7 @@ class Service(pulumi.CustomResource):
                  health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
                  instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
+                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -441,6 +474,37 @@ class Service(pulumi.CustomResource):
                 "Name": "example-apprunner-service",
             })
         ```
+        ### Service with Observability Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_observability_configuration = aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration",
+            observability_configuration_name="example",
+            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
+                vendor="AWSXRAY",
+            ))
+        example_service = aws.apprunner.Service("exampleService",
+            service_name="example",
+            observability_configuration=aws.apprunner.ServiceObservabilityConfigurationArgs(
+                observability_configuration_arn=example_observability_configuration.arn,
+                observability_enabled=True,
+            ),
+            source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
+                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArgs(
+                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(
+                        port="8000",
+                    ),
+                    image_identifier="public.ecr.aws/aws-containers/hello-app-runner:latest",
+                    image_repository_type="ECR_PUBLIC",
+                ),
+                auto_deployment_enabled=False,
+            ),
+            tags={
+                "Name": "example-apprunner-service",
+            })
+        ```
 
         ## Import
 
@@ -456,7 +520,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']] source_configuration: The source to deploy to the App Runner service. Can be a code or an image repository. See Source Configuration below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -532,6 +597,37 @@ class Service(pulumi.CustomResource):
                 "Name": "example-apprunner-service",
             })
         ```
+        ### Service with Observability Configuration
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_observability_configuration = aws.apprunner.ObservabilityConfiguration("exampleObservabilityConfiguration",
+            observability_configuration_name="example",
+            trace_configuration=aws.apprunner.ObservabilityConfigurationTraceConfigurationArgs(
+                vendor="AWSXRAY",
+            ))
+        example_service = aws.apprunner.Service("exampleService",
+            service_name="example",
+            observability_configuration=aws.apprunner.ServiceObservabilityConfigurationArgs(
+                observability_configuration_arn=example_observability_configuration.arn,
+                observability_enabled=True,
+            ),
+            source_configuration=aws.apprunner.ServiceSourceConfigurationArgs(
+                image_repository=aws.apprunner.ServiceSourceConfigurationImageRepositoryArgs(
+                    image_configuration=aws.apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs(
+                        port="8000",
+                    ),
+                    image_identifier="public.ecr.aws/aws-containers/hello-app-runner:latest",
+                    image_repository_type="ECR_PUBLIC",
+                ),
+                auto_deployment_enabled=False,
+            ),
+            tags={
+                "Name": "example-apprunner-service",
+            })
+        ```
 
         ## Import
 
@@ -561,6 +657,7 @@ class Service(pulumi.CustomResource):
                  health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
                  instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
                  network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
+                 observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
                  source_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceSourceConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -581,6 +678,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["health_check_configuration"] = health_check_configuration
             __props__.__dict__["instance_configuration"] = instance_configuration
             __props__.__dict__["network_configuration"] = network_configuration
+            __props__.__dict__["observability_configuration"] = observability_configuration
             if service_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
@@ -609,6 +707,7 @@ class Service(pulumi.CustomResource):
             health_check_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']]] = None,
             instance_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']]] = None,
             network_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']]] = None,
+            observability_configuration: Optional[pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']]] = None,
             service_id: Optional[pulumi.Input[str]] = None,
             service_name: Optional[pulumi.Input[str]] = None,
             service_url: Optional[pulumi.Input[str]] = None,
@@ -628,7 +727,8 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceEncryptionConfigurationArgs']] encryption_configuration: An optional custom encryption key that App Runner uses to encrypt the copy of your source repository that it maintains and your service logs. By default, App Runner uses an AWS managed CMK. See Encryption Configuration below for more details.
         :param pulumi.Input[pulumi.InputType['ServiceHealthCheckConfigurationArgs']] health_check_configuration: Settings of the health check that AWS App Runner performs to monitor the health of your service. See Health Check Configuration below for more details.
         :param pulumi.Input[pulumi.InputType['ServiceInstanceConfigurationArgs']] instance_configuration: The runtime configuration of instances (scaling units) of the App Runner service. See Instance Configuration below for more details.
-        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs.
+        :param pulumi.Input[pulumi.InputType['ServiceNetworkConfigurationArgs']] network_configuration: Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
+        :param pulumi.Input[pulumi.InputType['ServiceObservabilityConfigurationArgs']] observability_configuration: The observability configuration of your service. See Observability Configuration below for more details.
         :param pulumi.Input[str] service_id: An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
         :param pulumi.Input[str] service_name: Name of the service.
         :param pulumi.Input[str] service_url: A subdomain URL that App Runner generated for this service. You can use this URL to access your service web application.
@@ -647,6 +747,7 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["health_check_configuration"] = health_check_configuration
         __props__.__dict__["instance_configuration"] = instance_configuration
         __props__.__dict__["network_configuration"] = network_configuration
+        __props__.__dict__["observability_configuration"] = observability_configuration
         __props__.__dict__["service_id"] = service_id
         __props__.__dict__["service_name"] = service_name
         __props__.__dict__["service_url"] = service_url
@@ -700,9 +801,17 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="networkConfiguration")
     def network_configuration(self) -> pulumi.Output['outputs.ServiceNetworkConfiguration']:
         """
-        Configuration settings related to network traffic of the web application that the App Runner service runs.
+        Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         """
         return pulumi.get(self, "network_configuration")
+
+    @property
+    @pulumi.getter(name="observabilityConfiguration")
+    def observability_configuration(self) -> pulumi.Output[Optional['outputs.ServiceObservabilityConfiguration']]:
+        """
+        The observability configuration of your service. See Observability Configuration below for more details.
+        """
+        return pulumi.get(self, "observability_configuration")
 
     @property
     @pulumi.getter(name="serviceId")

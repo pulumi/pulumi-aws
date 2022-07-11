@@ -14,14 +14,14 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
     public static final TablePointInTimeRecoveryArgs Empty = new TablePointInTimeRecoveryArgs();
 
     /**
-     * Indicates whether ttl is enabled (true) or disabled (false).
+     * Whether TTL is enabled.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Indicates whether ttl is enabled (true) or disabled (false).
+     * @return Whether TTL is enabled.
      * 
      */
     public Output<Boolean> enabled() {
@@ -53,7 +53,7 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Indicates whether ttl is enabled (true) or disabled (false).
+         * @param enabled Whether TTL is enabled.
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class TablePointInTimeRecoveryArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enabled Indicates whether ttl is enabled (true) or disabled (false).
+         * @param enabled Whether TTL is enabled.
          * 
          * @return builder
          * 

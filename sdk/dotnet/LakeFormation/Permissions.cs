@@ -66,6 +66,54 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// }
     /// ```
+    /// ### Grant Permissions Using Tag-Based Access Control
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.LakeFormation.Permissions("test", new Aws.LakeFormation.PermissionsArgs
+    ///         {
+    ///             Principal = aws_iam_role.Sales_role.Arn,
+    ///             Permissions = 
+    ///             {
+    ///                 "CREATE_TABLE",
+    ///                 "ALTER",
+    ///                 "DROP",
+    ///             },
+    ///             LfTagPolicy = new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyArgs
+    ///             {
+    ///                 ResourceType = "DATABASE",
+    ///                 Expressions = 
+    ///                 {
+    ///                     new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
+    ///                     {
+    ///                         Key = "Team",
+    ///                         Values = 
+    ///                         {
+    ///                             "Sales",
+    ///                         },
+    ///                     },
+    ///                     new Aws.LakeFormation.Inputs.PermissionsLfTagPolicyExpressionArgs
+    ///                     {
+    ///                         Key = "Environment",
+    ///                         Values = 
+    ///                         {
+    ///                             "Dev",
+    ///                             "Production",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/permissions:Permissions")]
     public partial class Permissions : Pulumi.CustomResource
@@ -95,7 +143,19 @@ namespace Pulumi.Aws.LakeFormation
         public Output<Outputs.PermissionsDatabase> Database { get; private set; } = null!;
 
         /// <summary>
-        /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        /// Configuration block for an LF-tag resource. Detailed below.
+        /// </summary>
+        [Output("lfTag")]
+        public Output<Outputs.PermissionsLfTag> LfTag { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for an LF-tag policy resource. Detailed below.
+        /// </summary>
+        [Output("lfTagPolicy")]
+        public Output<Outputs.PermissionsLfTagPolicy> LfTagPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableArray<string>> PermissionDetails { get; private set; } = null!;
@@ -194,11 +254,23 @@ namespace Pulumi.Aws.LakeFormation
         [Input("database")]
         public Input<Inputs.PermissionsDatabaseArgs>? Database { get; set; }
 
+        /// <summary>
+        /// Configuration block for an LF-tag resource. Detailed below.
+        /// </summary>
+        [Input("lfTag")]
+        public Input<Inputs.PermissionsLfTagArgs>? LfTag { get; set; }
+
+        /// <summary>
+        /// Configuration block for an LF-tag policy resource. Detailed below.
+        /// </summary>
+        [Input("lfTagPolicy")]
+        public Input<Inputs.PermissionsLfTagPolicyArgs>? LfTagPolicy { get; set; }
+
         [Input("permissions", required: true)]
         private InputList<string>? _permissions;
 
         /// <summary>
-        /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
         public InputList<string> PermissionDetails
         {
@@ -267,11 +339,23 @@ namespace Pulumi.Aws.LakeFormation
         [Input("database")]
         public Input<Inputs.PermissionsDatabaseGetArgs>? Database { get; set; }
 
+        /// <summary>
+        /// Configuration block for an LF-tag resource. Detailed below.
+        /// </summary>
+        [Input("lfTag")]
+        public Input<Inputs.PermissionsLfTagGetArgs>? LfTag { get; set; }
+
+        /// <summary>
+        /// Configuration block for an LF-tag policy resource. Detailed below.
+        /// </summary>
+        [Input("lfTagPolicy")]
+        public Input<Inputs.PermissionsLfTagPolicyGetArgs>? LfTagPolicy { get; set; }
+
         [Input("permissions")]
         private InputList<string>? _permissions;
 
         /// <summary>
-        /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+        /// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
         /// </summary>
         public InputList<string> PermissionDetails
         {

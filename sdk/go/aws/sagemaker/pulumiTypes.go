@@ -4083,13 +4083,15 @@ type EndpointConfigurationProductionVariant struct {
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
 	AcceleratorType *string `pulumi:"acceleratorType"`
 	// Initial number of instances used for auto-scaling.
-	InitialInstanceCount int `pulumi:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
 	InitialVariantWeight *float64 `pulumi:"initialVariantWeight"`
 	// The type of instance to start.
-	InstanceType string `pulumi:"instanceType"`
+	InstanceType *string `pulumi:"instanceType"`
 	// The name of the model to use.
 	ModelName string `pulumi:"modelName"`
+	// Specifies configuration for how an endpoint performs asynchronous inference.
+	ServerlessConfig *EndpointConfigurationProductionVariantServerlessConfig `pulumi:"serverlessConfig"`
 	// The name of the variant. If omitted, this provider will assign a random, unique name.
 	VariantName *string `pulumi:"variantName"`
 }
@@ -4109,13 +4111,15 @@ type EndpointConfigurationProductionVariantArgs struct {
 	// The size of the Elastic Inference (EI) instance to use for the production variant.
 	AcceleratorType pulumi.StringPtrInput `pulumi:"acceleratorType"`
 	// Initial number of instances used for auto-scaling.
-	InitialInstanceCount pulumi.IntInput `pulumi:"initialInstanceCount"`
-	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
 	InitialVariantWeight pulumi.Float64PtrInput `pulumi:"initialVariantWeight"`
 	// The type of instance to start.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The name of the model to use.
 	ModelName pulumi.StringInput `pulumi:"modelName"`
+	// Specifies configuration for how an endpoint performs asynchronous inference.
+	ServerlessConfig EndpointConfigurationProductionVariantServerlessConfigPtrInput `pulumi:"serverlessConfig"`
 	// The name of the variant. If omitted, this provider will assign a random, unique name.
 	VariantName pulumi.StringPtrInput `pulumi:"variantName"`
 }
@@ -4177,23 +4181,30 @@ func (o EndpointConfigurationProductionVariantOutput) AcceleratorType() pulumi.S
 }
 
 // Initial number of instances used for auto-scaling.
-func (o EndpointConfigurationProductionVariantOutput) InitialInstanceCount() pulumi.IntOutput {
-	return o.ApplyT(func(v EndpointConfigurationProductionVariant) int { return v.InitialInstanceCount }).(pulumi.IntOutput)
+func (o EndpointConfigurationProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
 }
 
-// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
 func (o EndpointConfigurationProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
 }
 
 // The type of instance to start.
-func (o EndpointConfigurationProductionVariantOutput) InstanceType() pulumi.StringOutput {
-	return o.ApplyT(func(v EndpointConfigurationProductionVariant) string { return v.InstanceType }).(pulumi.StringOutput)
+func (o EndpointConfigurationProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // The name of the model to use.
 func (o EndpointConfigurationProductionVariantOutput) ModelName() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointConfigurationProductionVariant) string { return v.ModelName }).(pulumi.StringOutput)
+}
+
+// Specifies configuration for how an endpoint performs asynchronous inference.
+func (o EndpointConfigurationProductionVariantOutput) ServerlessConfig() EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariant) *EndpointConfigurationProductionVariantServerlessConfig {
+		return v.ServerlessConfig
+	}).(EndpointConfigurationProductionVariantServerlessConfigPtrOutput)
 }
 
 // The name of the variant. If omitted, this provider will assign a random, unique name.
@@ -4219,6 +4230,162 @@ func (o EndpointConfigurationProductionVariantArrayOutput) Index(i pulumi.IntInp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigurationProductionVariant {
 		return vs[0].([]EndpointConfigurationProductionVariant)[vs[1].(int)]
 	}).(EndpointConfigurationProductionVariantOutput)
+}
+
+type EndpointConfigurationProductionVariantServerlessConfig struct {
+	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+	MaxConcurrency int `pulumi:"maxConcurrency"`
+	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+	MemorySizeInMb int `pulumi:"memorySizeInMb"`
+}
+
+// EndpointConfigurationProductionVariantServerlessConfigInput is an input type that accepts EndpointConfigurationProductionVariantServerlessConfigArgs and EndpointConfigurationProductionVariantServerlessConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigurationProductionVariantServerlessConfigInput` via:
+//
+//          EndpointConfigurationProductionVariantServerlessConfigArgs{...}
+type EndpointConfigurationProductionVariantServerlessConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationProductionVariantServerlessConfigOutput() EndpointConfigurationProductionVariantServerlessConfigOutput
+	ToEndpointConfigurationProductionVariantServerlessConfigOutputWithContext(context.Context) EndpointConfigurationProductionVariantServerlessConfigOutput
+}
+
+type EndpointConfigurationProductionVariantServerlessConfigArgs struct {
+	// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
+	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
+}
+
+func (EndpointConfigurationProductionVariantServerlessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationProductionVariantServerlessConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigurationProductionVariantServerlessConfigArgs) ToEndpointConfigurationProductionVariantServerlessConfigOutput() EndpointConfigurationProductionVariantServerlessConfigOutput {
+	return i.ToEndpointConfigurationProductionVariantServerlessConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationProductionVariantServerlessConfigArgs) ToEndpointConfigurationProductionVariantServerlessConfigOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantServerlessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationProductionVariantServerlessConfigOutput)
+}
+
+func (i EndpointConfigurationProductionVariantServerlessConfigArgs) ToEndpointConfigurationProductionVariantServerlessConfigPtrOutput() EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return i.ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigurationProductionVariantServerlessConfigArgs) ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationProductionVariantServerlessConfigOutput).ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigurationProductionVariantServerlessConfigPtrInput is an input type that accepts EndpointConfigurationProductionVariantServerlessConfigArgs, EndpointConfigurationProductionVariantServerlessConfigPtr and EndpointConfigurationProductionVariantServerlessConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigurationProductionVariantServerlessConfigPtrInput` via:
+//
+//          EndpointConfigurationProductionVariantServerlessConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointConfigurationProductionVariantServerlessConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigurationProductionVariantServerlessConfigPtrOutput() EndpointConfigurationProductionVariantServerlessConfigPtrOutput
+	ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(context.Context) EndpointConfigurationProductionVariantServerlessConfigPtrOutput
+}
+
+type endpointConfigurationProductionVariantServerlessConfigPtrType EndpointConfigurationProductionVariantServerlessConfigArgs
+
+func EndpointConfigurationProductionVariantServerlessConfigPtr(v *EndpointConfigurationProductionVariantServerlessConfigArgs) EndpointConfigurationProductionVariantServerlessConfigPtrInput {
+	return (*endpointConfigurationProductionVariantServerlessConfigPtrType)(v)
+}
+
+func (*endpointConfigurationProductionVariantServerlessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationProductionVariantServerlessConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigurationProductionVariantServerlessConfigPtrType) ToEndpointConfigurationProductionVariantServerlessConfigPtrOutput() EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return i.ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigurationProductionVariantServerlessConfigPtrType) ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigurationProductionVariantServerlessConfigPtrOutput)
+}
+
+type EndpointConfigurationProductionVariantServerlessConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationProductionVariantServerlessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigurationProductionVariantServerlessConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ToEndpointConfigurationProductionVariantServerlessConfigOutput() EndpointConfigurationProductionVariantServerlessConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ToEndpointConfigurationProductionVariantServerlessConfigOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantServerlessConfigOutput {
+	return o
+}
+
+func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ToEndpointConfigurationProductionVariantServerlessConfigPtrOutput() EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return o.ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigurationProductionVariantServerlessConfigOutput) ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigurationProductionVariantServerlessConfig) *EndpointConfigurationProductionVariantServerlessConfig {
+		return &v
+	}).(EndpointConfigurationProductionVariantServerlessConfigPtrOutput)
+}
+
+// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+func (o EndpointConfigurationProductionVariantServerlessConfigOutput) MaxConcurrency() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) int { return v.MaxConcurrency }).(pulumi.IntOutput)
+}
+
+// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+func (o EndpointConfigurationProductionVariantServerlessConfigOutput) MemorySizeInMb() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigurationProductionVariantServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
+}
+
+type EndpointConfigurationProductionVariantServerlessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigurationProductionVariantServerlessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigurationProductionVariantServerlessConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) ToEndpointConfigurationProductionVariantServerlessConfigPtrOutput() EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) ToEndpointConfigurationProductionVariantServerlessConfigPtrOutputWithContext(ctx context.Context) EndpointConfigurationProductionVariantServerlessConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) Elem() EndpointConfigurationProductionVariantServerlessConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) EndpointConfigurationProductionVariantServerlessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigurationProductionVariantServerlessConfig
+		return ret
+	}).(EndpointConfigurationProductionVariantServerlessConfigOutput)
+}
+
+// The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MaxConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
+// The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+func (o EndpointConfigurationProductionVariantServerlessConfigPtrOutput) MemorySizeInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigurationProductionVariantServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MemorySizeInMb
+	}).(pulumi.IntPtrOutput)
 }
 
 type EndpointDeploymentConfig struct {
@@ -7726,6 +7893,8 @@ func (o ModelContainerArrayOutput) Index(i pulumi.IntInput) ModelContainerOutput
 type ModelContainerImageConfig struct {
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+	RepositoryAuthConfig *ModelContainerImageConfigRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
 }
 
 // ModelContainerImageConfigInput is an input type that accepts ModelContainerImageConfigArgs and ModelContainerImageConfigOutput values.
@@ -7742,6 +7911,8 @@ type ModelContainerImageConfigInput interface {
 type ModelContainerImageConfigArgs struct {
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+	RepositoryAuthConfig ModelContainerImageConfigRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
 }
 
 func (ModelContainerImageConfigArgs) ElementType() reflect.Type {
@@ -7826,6 +7997,13 @@ func (o ModelContainerImageConfigOutput) RepositoryAccessMode() pulumi.StringOut
 	return o.ApplyT(func(v ModelContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
 }
 
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+func (o ModelContainerImageConfigOutput) RepositoryAuthConfig() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o.ApplyT(func(v ModelContainerImageConfig) *ModelContainerImageConfigRepositoryAuthConfig {
+		return v.RepositoryAuthConfig
+	}).(ModelContainerImageConfigRepositoryAuthConfigPtrOutput)
+}
+
 type ModelContainerImageConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ModelContainerImageConfigPtrOutput) ElementType() reflect.Type {
@@ -7857,6 +8035,155 @@ func (o ModelContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi.String
 			return nil
 		}
 		return &v.RepositoryAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+func (o ModelContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o.ApplyT(func(v *ModelContainerImageConfig) *ModelContainerImageConfigRepositoryAuthConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryAuthConfig
+	}).(ModelContainerImageConfigRepositoryAuthConfigPtrOutput)
+}
+
+type ModelContainerImageConfigRepositoryAuthConfig struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
+}
+
+// ModelContainerImageConfigRepositoryAuthConfigInput is an input type that accepts ModelContainerImageConfigRepositoryAuthConfigArgs and ModelContainerImageConfigRepositoryAuthConfigOutput values.
+// You can construct a concrete instance of `ModelContainerImageConfigRepositoryAuthConfigInput` via:
+//
+//          ModelContainerImageConfigRepositoryAuthConfigArgs{...}
+type ModelContainerImageConfigRepositoryAuthConfigInput interface {
+	pulumi.Input
+
+	ToModelContainerImageConfigRepositoryAuthConfigOutput() ModelContainerImageConfigRepositoryAuthConfigOutput
+	ToModelContainerImageConfigRepositoryAuthConfigOutputWithContext(context.Context) ModelContainerImageConfigRepositoryAuthConfigOutput
+}
+
+type ModelContainerImageConfigRepositoryAuthConfigArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
+}
+
+func (ModelContainerImageConfigRepositoryAuthConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerImageConfigRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (i ModelContainerImageConfigRepositoryAuthConfigArgs) ToModelContainerImageConfigRepositoryAuthConfigOutput() ModelContainerImageConfigRepositoryAuthConfigOutput {
+	return i.ToModelContainerImageConfigRepositoryAuthConfigOutputWithContext(context.Background())
+}
+
+func (i ModelContainerImageConfigRepositoryAuthConfigArgs) ToModelContainerImageConfigRepositoryAuthConfigOutputWithContext(ctx context.Context) ModelContainerImageConfigRepositoryAuthConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerImageConfigRepositoryAuthConfigOutput)
+}
+
+func (i ModelContainerImageConfigRepositoryAuthConfigArgs) ToModelContainerImageConfigRepositoryAuthConfigPtrOutput() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return i.ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelContainerImageConfigRepositoryAuthConfigArgs) ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerImageConfigRepositoryAuthConfigOutput).ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx)
+}
+
+// ModelContainerImageConfigRepositoryAuthConfigPtrInput is an input type that accepts ModelContainerImageConfigRepositoryAuthConfigArgs, ModelContainerImageConfigRepositoryAuthConfigPtr and ModelContainerImageConfigRepositoryAuthConfigPtrOutput values.
+// You can construct a concrete instance of `ModelContainerImageConfigRepositoryAuthConfigPtrInput` via:
+//
+//          ModelContainerImageConfigRepositoryAuthConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelContainerImageConfigRepositoryAuthConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelContainerImageConfigRepositoryAuthConfigPtrOutput() ModelContainerImageConfigRepositoryAuthConfigPtrOutput
+	ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(context.Context) ModelContainerImageConfigRepositoryAuthConfigPtrOutput
+}
+
+type modelContainerImageConfigRepositoryAuthConfigPtrType ModelContainerImageConfigRepositoryAuthConfigArgs
+
+func ModelContainerImageConfigRepositoryAuthConfigPtr(v *ModelContainerImageConfigRepositoryAuthConfigArgs) ModelContainerImageConfigRepositoryAuthConfigPtrInput {
+	return (*modelContainerImageConfigRepositoryAuthConfigPtrType)(v)
+}
+
+func (*modelContainerImageConfigRepositoryAuthConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerImageConfigRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (i *modelContainerImageConfigRepositoryAuthConfigPtrType) ToModelContainerImageConfigRepositoryAuthConfigPtrOutput() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return i.ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelContainerImageConfigRepositoryAuthConfigPtrType) ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelContainerImageConfigRepositoryAuthConfigPtrOutput)
+}
+
+type ModelContainerImageConfigRepositoryAuthConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerImageConfigRepositoryAuthConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelContainerImageConfigRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (o ModelContainerImageConfigRepositoryAuthConfigOutput) ToModelContainerImageConfigRepositoryAuthConfigOutput() ModelContainerImageConfigRepositoryAuthConfigOutput {
+	return o
+}
+
+func (o ModelContainerImageConfigRepositoryAuthConfigOutput) ToModelContainerImageConfigRepositoryAuthConfigOutputWithContext(ctx context.Context) ModelContainerImageConfigRepositoryAuthConfigOutput {
+	return o
+}
+
+func (o ModelContainerImageConfigRepositoryAuthConfigOutput) ToModelContainerImageConfigRepositoryAuthConfigPtrOutput() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o.ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelContainerImageConfigRepositoryAuthConfigOutput) ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelContainerImageConfigRepositoryAuthConfig) *ModelContainerImageConfigRepositoryAuthConfig {
+		return &v
+	}).(ModelContainerImageConfigRepositoryAuthConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+func (o ModelContainerImageConfigRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelContainerImageConfigRepositoryAuthConfig) string {
+		return v.RepositoryCredentialsProviderArn
+	}).(pulumi.StringOutput)
+}
+
+type ModelContainerImageConfigRepositoryAuthConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelContainerImageConfigRepositoryAuthConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelContainerImageConfigRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) ToModelContainerImageConfigRepositoryAuthConfigPtrOutput() ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) ToModelContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o
+}
+
+func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) Elem() ModelContainerImageConfigRepositoryAuthConfigOutput {
+	return o.ApplyT(func(v *ModelContainerImageConfigRepositoryAuthConfig) ModelContainerImageConfigRepositoryAuthConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelContainerImageConfigRepositoryAuthConfig
+		return ret
+	}).(ModelContainerImageConfigRepositoryAuthConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+func (o ModelContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelContainerImageConfigRepositoryAuthConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryCredentialsProviderArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8236,6 +8563,8 @@ func (o ModelPrimaryContainerPtrOutput) ModelDataUrl() pulumi.StringPtrOutput {
 type ModelPrimaryContainerImageConfig struct {
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode string `pulumi:"repositoryAccessMode"`
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+	RepositoryAuthConfig *ModelPrimaryContainerImageConfigRepositoryAuthConfig `pulumi:"repositoryAuthConfig"`
 }
 
 // ModelPrimaryContainerImageConfigInput is an input type that accepts ModelPrimaryContainerImageConfigArgs and ModelPrimaryContainerImageConfigOutput values.
@@ -8252,6 +8581,8 @@ type ModelPrimaryContainerImageConfigInput interface {
 type ModelPrimaryContainerImageConfigArgs struct {
 	// Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
 	RepositoryAccessMode pulumi.StringInput `pulumi:"repositoryAccessMode"`
+	// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+	RepositoryAuthConfig ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput `pulumi:"repositoryAuthConfig"`
 }
 
 func (ModelPrimaryContainerImageConfigArgs) ElementType() reflect.Type {
@@ -8336,6 +8667,13 @@ func (o ModelPrimaryContainerImageConfigOutput) RepositoryAccessMode() pulumi.St
 	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) string { return v.RepositoryAccessMode }).(pulumi.StringOutput)
 }
 
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+func (o ModelPrimaryContainerImageConfigOutput) RepositoryAuthConfig() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfigRepositoryAuthConfig {
+		return v.RepositoryAuthConfig
+	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput)
+}
+
 type ModelPrimaryContainerImageConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ModelPrimaryContainerImageConfigPtrOutput) ElementType() reflect.Type {
@@ -8367,6 +8705,155 @@ func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAccessMode() pulumi
 			return nil
 		}
 		return &v.RepositoryAccessMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+func (o ModelPrimaryContainerImageConfigPtrOutput) RepositoryAuthConfig() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerImageConfig) *ModelPrimaryContainerImageConfigRepositoryAuthConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryAuthConfig
+	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput)
+}
+
+type ModelPrimaryContainerImageConfigRepositoryAuthConfig struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	RepositoryCredentialsProviderArn string `pulumi:"repositoryCredentialsProviderArn"`
+}
+
+// ModelPrimaryContainerImageConfigRepositoryAuthConfigInput is an input type that accepts ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs and ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerImageConfigRepositoryAuthConfigInput` via:
+//
+//          ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs{...}
+type ModelPrimaryContainerImageConfigRepositoryAuthConfigInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerImageConfigRepositoryAuthConfigOutput() ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput
+	ToModelPrimaryContainerImageConfigRepositoryAuthConfigOutputWithContext(context.Context) ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput
+}
+
+type ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs struct {
+	// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+	RepositoryCredentialsProviderArn pulumi.StringInput `pulumi:"repositoryCredentialsProviderArn"`
+}
+
+func (ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerImageConfigRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (i ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs) ToModelPrimaryContainerImageConfigRepositoryAuthConfigOutput() ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput {
+	return i.ToModelPrimaryContainerImageConfigRepositoryAuthConfigOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs) ToModelPrimaryContainerImageConfigRepositoryAuthConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput)
+}
+
+func (i ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs) ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return i.ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs) ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput).ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx)
+}
+
+// ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput is an input type that accepts ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs, ModelPrimaryContainerImageConfigRepositoryAuthConfigPtr and ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput values.
+// You can construct a concrete instance of `ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput` via:
+//
+//          ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput
+	ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(context.Context) ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput
+}
+
+type modelPrimaryContainerImageConfigRepositoryAuthConfigPtrType ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs
+
+func ModelPrimaryContainerImageConfigRepositoryAuthConfigPtr(v *ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs) ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput {
+	return (*modelPrimaryContainerImageConfigRepositoryAuthConfigPtrType)(v)
+}
+
+func (*modelPrimaryContainerImageConfigRepositoryAuthConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerImageConfigRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (i *modelPrimaryContainerImageConfigRepositoryAuthConfigPtrType) ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return i.ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelPrimaryContainerImageConfigRepositoryAuthConfigPtrType) ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput)
+}
+
+type ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelPrimaryContainerImageConfigRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) ToModelPrimaryContainerImageConfigRepositoryAuthConfigOutput() ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) ToModelPrimaryContainerImageConfigRepositoryAuthConfigOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o.ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPrimaryContainerImageConfigRepositoryAuthConfig) *ModelPrimaryContainerImageConfigRepositoryAuthConfig {
+		return &v
+	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput) RepositoryCredentialsProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelPrimaryContainerImageConfigRepositoryAuthConfig) string {
+		return v.RepositoryCredentialsProviderArn
+	}).(pulumi.StringOutput)
+}
+
+type ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelPrimaryContainerImageConfigRepositoryAuthConfig)(nil)).Elem()
+}
+
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput() ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) ToModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutputWithContext(ctx context.Context) ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput {
+	return o
+}
+
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) Elem() ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerImageConfigRepositoryAuthConfig) ModelPrimaryContainerImageConfigRepositoryAuthConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelPrimaryContainerImageConfigRepositoryAuthConfig
+		return ret
+	}).(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput)
+}
+
+// The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+func (o ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput) RepositoryCredentialsProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelPrimaryContainerImageConfigRepositoryAuthConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryCredentialsProviderArn
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8516,6 +9003,145 @@ func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 		}
 		return v.Subnets
 	}).(pulumi.StringArrayOutput)
+}
+
+type NotebookInstanceInstanceMetadataServiceConfiguration struct {
+	// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
+	MinimumInstanceMetadataServiceVersion *string `pulumi:"minimumInstanceMetadataServiceVersion"`
+}
+
+// NotebookInstanceInstanceMetadataServiceConfigurationInput is an input type that accepts NotebookInstanceInstanceMetadataServiceConfigurationArgs and NotebookInstanceInstanceMetadataServiceConfigurationOutput values.
+// You can construct a concrete instance of `NotebookInstanceInstanceMetadataServiceConfigurationInput` via:
+//
+//          NotebookInstanceInstanceMetadataServiceConfigurationArgs{...}
+type NotebookInstanceInstanceMetadataServiceConfigurationInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput
+	ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput
+}
+
+type NotebookInstanceInstanceMetadataServiceConfigurationArgs struct {
+	// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
+	MinimumInstanceMetadataServiceVersion pulumi.StringPtrInput `pulumi:"minimumInstanceMetadataServiceVersion"`
+}
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationOutput)
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationOutput).ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx)
+}
+
+// NotebookInstanceInstanceMetadataServiceConfigurationPtrInput is an input type that accepts NotebookInstanceInstanceMetadataServiceConfigurationArgs, NotebookInstanceInstanceMetadataServiceConfigurationPtr and NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput values.
+// You can construct a concrete instance of `NotebookInstanceInstanceMetadataServiceConfigurationPtrInput` via:
+//
+//          NotebookInstanceInstanceMetadataServiceConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type NotebookInstanceInstanceMetadataServiceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput
+	ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput
+}
+
+type notebookInstanceInstanceMetadataServiceConfigurationPtrType NotebookInstanceInstanceMetadataServiceConfigurationArgs
+
+func NotebookInstanceInstanceMetadataServiceConfigurationPtr(v *NotebookInstanceInstanceMetadataServiceConfigurationArgs) NotebookInstanceInstanceMetadataServiceConfigurationPtrInput {
+	return (*notebookInstanceInstanceMetadataServiceConfigurationPtrType)(v)
+}
+
+func (*notebookInstanceInstanceMetadataServiceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (i *notebookInstanceInstanceMetadataServiceConfigurationPtrType) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *notebookInstanceInstanceMetadataServiceConfigurationPtrType) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
+}
+
+type NotebookInstanceInstanceMetadataServiceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookInstanceInstanceMetadataServiceConfiguration) *NotebookInstanceInstanceMetadataServiceConfiguration {
+		return &v
+	}).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
+}
+
+// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) MinimumInstanceMetadataServiceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotebookInstanceInstanceMetadataServiceConfiguration) *string {
+		return v.MinimumInstanceMetadataServiceVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) Elem() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o.ApplyT(func(v *NotebookInstanceInstanceMetadataServiceConfiguration) NotebookInstanceInstanceMetadataServiceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookInstanceInstanceMetadataServiceConfiguration
+		return ret
+	}).(NotebookInstanceInstanceMetadataServiceConfigurationOutput)
+}
+
+// Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) MinimumInstanceMetadataServiceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstanceInstanceMetadataServiceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumInstanceMetadataServiceVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type ProjectServiceCatalogProvisioningDetails struct {
@@ -11603,6 +12229,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput)(nil)).Elem(), EndpointConfigurationDataCaptureConfigCaptureOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantInput)(nil)).Elem(), EndpointConfigurationProductionVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantArrayInput)(nil)).Elem(), EndpointConfigurationProductionVariantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantServerlessConfigInput)(nil)).Elem(), EndpointConfigurationProductionVariantServerlessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantServerlessConfigPtrInput)(nil)).Elem(), EndpointConfigurationProductionVariantServerlessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigPtrInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfigurationInput)(nil)).Elem(), EndpointDeploymentConfigAutoRollbackConfigurationArgs{})
@@ -11649,14 +12277,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerArrayInput)(nil)).Elem(), ModelContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigInput)(nil)).Elem(), ModelContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigPtrInput)(nil)).Elem(), ModelContainerImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigRepositoryAuthConfigInput)(nil)).Elem(), ModelContainerImageConfigRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigRepositoryAuthConfigPtrInput)(nil)).Elem(), ModelContainerImageConfigRepositoryAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigInput)(nil)).Elem(), ModelInferenceExecutionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInferenceExecutionConfigPtrInput)(nil)).Elem(), ModelInferenceExecutionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerInput)(nil)).Elem(), ModelPrimaryContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerPtrInput)(nil)).Elem(), ModelPrimaryContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigInput)(nil)).Elem(), ModelPrimaryContainerImageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerImageConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigRepositoryAuthConfigInput)(nil)).Elem(), ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrInput)(nil)).Elem(), ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigInput)(nil)).Elem(), ModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigPtrInput)(nil)).Elem(), ModelVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationPtrInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsPtrInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectServiceCatalogProvisioningDetailsProvisioningParameterInput)(nil)).Elem(), ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs{})
@@ -11743,6 +12377,8 @@ func init() {
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantServerlessConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantServerlessConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigAutoRollbackConfigurationOutput{})
@@ -11789,14 +12425,20 @@ func init() {
 	pulumi.RegisterOutputType(ModelContainerArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelContainerImageConfigRepositoryAuthConfigOutput{})
+	pulumi.RegisterOutputType(ModelContainerImageConfigRepositoryAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelInferenceExecutionConfigOutput{})
 	pulumi.RegisterOutputType(ModelInferenceExecutionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerPtrOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigOutput{})
 	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigRepositoryAuthConfigOutput{})
+	pulumi.RegisterOutputType(ModelPrimaryContainerImageConfigRepositoryAuthConfigPtrOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigOutput{})
 	pulumi.RegisterOutputType(ModelVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsOutput{})
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectServiceCatalogProvisioningDetailsProvisioningParameterOutput{})

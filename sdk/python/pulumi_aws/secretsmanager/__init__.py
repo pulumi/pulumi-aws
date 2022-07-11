@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_random_password import *
 from .get_secret import *
 from .get_secret_rotation import *
 from .get_secret_version import *

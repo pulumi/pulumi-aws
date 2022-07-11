@@ -57,6 +57,9 @@ type PlacementGroup struct {
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
+	// Determines how placement groups spread instances. Can only be used
+	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+	SpreadLevel pulumi.StringPtrOutput `pulumi:"spreadLevel"`
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringOutput `pulumi:"strategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -107,6 +110,9 @@ type placementGroupState struct {
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The ID of the placement group.
 	PlacementGroupId *string `pulumi:"placementGroupId"`
+	// Determines how placement groups spread instances. Can only be used
+	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+	SpreadLevel *string `pulumi:"spreadLevel"`
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy *string `pulumi:"strategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -126,6 +132,9 @@ type PlacementGroupState struct {
 	PartitionCount pulumi.IntPtrInput
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringPtrInput
+	// Determines how placement groups spread instances. Can only be used
+	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+	SpreadLevel pulumi.StringPtrInput
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -145,6 +154,9 @@ type placementGroupArgs struct {
 	// placement group.  Can only be specified when the `strategy` is set to
 	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
 	PartitionCount *int `pulumi:"partitionCount"`
+	// Determines how placement groups spread instances. Can only be used
+	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+	SpreadLevel *string `pulumi:"spreadLevel"`
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy string `pulumi:"strategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -159,6 +171,9 @@ type PlacementGroupArgs struct {
 	// placement group.  Can only be specified when the `strategy` is set to
 	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
 	PartitionCount pulumi.IntPtrInput
+	// Determines how placement groups spread instances. Can only be used
+	// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+	SpreadLevel pulumi.StringPtrInput
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -272,6 +287,12 @@ func (o PlacementGroupOutput) PartitionCount() pulumi.IntOutput {
 // The ID of the placement group.
 func (o PlacementGroupOutput) PlacementGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.StringOutput { return v.PlacementGroupId }).(pulumi.StringOutput)
+}
+
+// Determines how placement groups spread instances. Can only be used
+// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+func (o PlacementGroupOutput) SpreadLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PlacementGroup) pulumi.StringPtrOutput { return v.SpreadLevel }).(pulumi.StringPtrOutput)
 }
 
 // The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.

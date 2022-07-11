@@ -82,6 +82,8 @@ type GetAmiArgs struct {
 	// several valid keys, for a full reference, check out
 	// [describe-images in the AWS CLI reference][1].
 	Filters []GetAmiFilter `pulumi:"filters"`
+	// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+	IncludeDeprecated *bool `pulumi:"includeDeprecated"`
 	// If more than one result is returned, use the most
 	// recent AMI.
 	MostRecent *bool `pulumi:"mostRecent"`
@@ -91,7 +93,7 @@ type GetAmiArgs struct {
 	// impact if the result is large. It is recommended to combine this with other
 	// options to narrow down the list AWS returns.
 	NameRegex *string `pulumi:"nameRegex"`
-	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - The key name of the tag.
@@ -132,7 +134,8 @@ type GetAmiResult struct {
 	// the AWS account ID of the AMI owner.
 	ImageOwnerAlias string `pulumi:"imageOwnerAlias"`
 	// The type of image.
-	ImageType string `pulumi:"imageType"`
+	ImageType         string `pulumi:"imageType"`
+	IncludeDeprecated *bool  `pulumi:"includeDeprecated"`
 	// The kernel associated with the image, if any. Only applicable
 	// for machine images.
 	KernelId   string `pulumi:"kernelId"`
@@ -207,6 +210,8 @@ type GetAmiOutputArgs struct {
 	// several valid keys, for a full reference, check out
 	// [describe-images in the AWS CLI reference][1].
 	Filters GetAmiFilterArrayInput `pulumi:"filters"`
+	// If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+	IncludeDeprecated pulumi.BoolPtrInput `pulumi:"includeDeprecated"`
 	// If more than one result is returned, use the most
 	// recent AMI.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
@@ -216,7 +221,7 @@ type GetAmiOutputArgs struct {
 	// impact if the result is large. It is recommended to combine this with other
 	// options to narrow down the list AWS returns.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+	// List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
 	// Any tags assigned to the image.
 	// * `tags.#.key` - The key name of the tag.
@@ -321,6 +326,10 @@ func (o GetAmiResultOutput) ImageOwnerAlias() pulumi.StringOutput {
 // The type of image.
 func (o GetAmiResultOutput) ImageType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiResult) string { return v.ImageType }).(pulumi.StringOutput)
+}
+
+func (o GetAmiResultOutput) IncludeDeprecated() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetAmiResult) *bool { return v.IncludeDeprecated }).(pulumi.BoolPtrOutput)
 }
 
 // The kernel associated with the image, if any. Only applicable

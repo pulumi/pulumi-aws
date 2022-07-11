@@ -63,10 +63,10 @@ type DefaultVpcDhcpOptions struct {
 	DomainName        pulumi.StringOutput `pulumi:"domainName"`
 	DomainNameServers pulumi.StringOutput `pulumi:"domainNameServers"`
 	// List of NETBIOS name servers.
-	NetbiosNameServers pulumi.StringArrayOutput `pulumi:"netbiosNameServers"`
+	NetbiosNameServers pulumi.StringOutput `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType pulumi.StringPtrOutput `pulumi:"netbiosNodeType"`
-	NtpServers      pulumi.StringOutput    `pulumi:"ntpServers"`
+	NetbiosNodeType pulumi.StringOutput `pulumi:"netbiosNodeType"`
+	NtpServers      pulumi.StringOutput `pulumi:"ntpServers"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
@@ -108,7 +108,7 @@ type defaultVpcDhcpOptionsState struct {
 	DomainName        *string `pulumi:"domainName"`
 	DomainNameServers *string `pulumi:"domainNameServers"`
 	// List of NETBIOS name servers.
-	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
+	NetbiosNameServers *string `pulumi:"netbiosNameServers"`
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
 	NtpServers      *string `pulumi:"ntpServers"`
@@ -125,7 +125,7 @@ type DefaultVpcDhcpOptionsState struct {
 	DomainName        pulumi.StringPtrInput
 	DomainNameServers pulumi.StringPtrInput
 	// List of NETBIOS name servers.
-	NetbiosNameServers pulumi.StringArrayInput
+	NetbiosNameServers pulumi.StringPtrInput
 	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
 	NetbiosNodeType pulumi.StringPtrInput
 	NtpServers      pulumi.StringPtrInput
@@ -141,26 +141,20 @@ func (DefaultVpcDhcpOptionsState) ElementType() reflect.Type {
 }
 
 type defaultVpcDhcpOptionsArgs struct {
-	// List of NETBIOS name servers.
-	NetbiosNameServers []string `pulumi:"netbiosNameServers"`
-	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType *string `pulumi:"netbiosNodeType"`
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags to assign to the resource.
-	Tags map[string]string `pulumi:"tags"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DefaultVpcDhcpOptions resource.
 type DefaultVpcDhcpOptionsArgs struct {
-	// List of NETBIOS name servers.
-	NetbiosNameServers pulumi.StringArrayInput
-	// The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-	NetbiosNodeType pulumi.StringPtrInput
 	// The ID of the AWS account that owns the DHCP options set.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource.
-	Tags pulumi.StringMapInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DefaultVpcDhcpOptionsArgs) ElementType() reflect.Type {
@@ -264,13 +258,13 @@ func (o DefaultVpcDhcpOptionsOutput) DomainNameServers() pulumi.StringOutput {
 }
 
 // List of NETBIOS name servers.
-func (o DefaultVpcDhcpOptionsOutput) NetbiosNameServers() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DefaultVpcDhcpOptions) pulumi.StringArrayOutput { return v.NetbiosNameServers }).(pulumi.StringArrayOutput)
+func (o DefaultVpcDhcpOptionsOutput) NetbiosNameServers() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultVpcDhcpOptions) pulumi.StringOutput { return v.NetbiosNameServers }).(pulumi.StringOutput)
 }
 
 // The NetBIOS node type (1, 2, 4, or 8). AWS recommends to specify 2 since broadcast and multicast are not supported in their network. For more information about these node types, see [RFC 2132](http://www.ietf.org/rfc/rfc2132.txt).
-func (o DefaultVpcDhcpOptionsOutput) NetbiosNodeType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DefaultVpcDhcpOptions) pulumi.StringPtrOutput { return v.NetbiosNodeType }).(pulumi.StringPtrOutput)
+func (o DefaultVpcDhcpOptionsOutput) NetbiosNodeType() pulumi.StringOutput {
+	return o.ApplyT(func(v *DefaultVpcDhcpOptions) pulumi.StringOutput { return v.NetbiosNodeType }).(pulumi.StringOutput)
 }
 
 func (o DefaultVpcDhcpOptionsOutput) NtpServers() pulumi.StringOutput {

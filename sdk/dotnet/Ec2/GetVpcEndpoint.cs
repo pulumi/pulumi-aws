@@ -213,8 +213,10 @@ namespace Pulumi.Aws.Ec2
         /// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcEndpointDnsEntryResult> DnsEntries;
+        public readonly ImmutableArray<Outputs.GetVpcEndpointDnsOptionResult> DnsOptions;
         public readonly ImmutableArray<Outputs.GetVpcEndpointFilterResult> Filters;
         public readonly string Id;
+        public readonly string IpAddressType;
         /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         /// </summary>
@@ -268,9 +270,13 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetVpcEndpointDnsEntryResult> dnsEntries,
 
+            ImmutableArray<Outputs.GetVpcEndpointDnsOptionResult> dnsOptions,
+
             ImmutableArray<Outputs.GetVpcEndpointFilterResult> filters,
 
             string id,
+
+            string ipAddressType,
 
             ImmutableArray<string> networkInterfaceIds,
 
@@ -303,8 +309,10 @@ namespace Pulumi.Aws.Ec2
             Arn = arn;
             CidrBlocks = cidrBlocks;
             DnsEntries = dnsEntries;
+            DnsOptions = dnsOptions;
             Filters = filters;
             Id = id;
+            IpAddressType = ipAddressType;
             NetworkInterfaceIds = networkInterfaceIds;
             OwnerId = ownerId;
             Policy = policy;

@@ -487,6 +487,8 @@ type Group struct {
 	Context pulumi.StringPtrOutput `pulumi:"context"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntOutput `pulumi:"defaultCooldown"`
+	// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+	DefaultInstanceWarmup pulumi.IntPtrOutput `pulumi:"defaultInstanceWarmup"`
 	// The number of Amazon EC2 instances that
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
@@ -630,6 +632,8 @@ type groupState struct {
 	Context *string `pulumi:"context"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown *int `pulumi:"defaultCooldown"`
+	// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+	DefaultInstanceWarmup *int `pulumi:"defaultInstanceWarmup"`
 	// The number of Amazon EC2 instances that
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
@@ -739,6 +743,8 @@ type GroupState struct {
 	Context pulumi.StringPtrInput
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntPtrInput
+	// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+	DefaultInstanceWarmup pulumi.IntPtrInput
 	// The number of Amazon EC2 instances that
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
@@ -850,6 +856,8 @@ type groupArgs struct {
 	Context *string `pulumi:"context"`
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown *int `pulumi:"defaultCooldown"`
+	// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+	DefaultInstanceWarmup *int `pulumi:"defaultInstanceWarmup"`
 	// The number of Amazon EC2 instances that
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
@@ -958,6 +966,8 @@ type GroupArgs struct {
 	Context pulumi.StringPtrInput
 	// The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 	DefaultCooldown pulumi.IntPtrInput
+	// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+	DefaultInstanceWarmup pulumi.IntPtrInput
 	// The number of Amazon EC2 instances that
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
@@ -1166,6 +1176,11 @@ func (o GroupOutput) Context() pulumi.StringPtrOutput {
 // The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
 func (o GroupOutput) DefaultCooldown() pulumi.IntOutput {
 	return o.ApplyT(func(v *Group) pulumi.IntOutput { return v.DefaultCooldown }).(pulumi.IntOutput)
+}
+
+// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+func (o GroupOutput) DefaultInstanceWarmup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Group) pulumi.IntPtrOutput { return v.DefaultInstanceWarmup }).(pulumi.IntPtrOutput)
 }
 
 // The number of Amazon EC2 instances that

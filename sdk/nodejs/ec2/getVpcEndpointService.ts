@@ -139,6 +139,10 @@ export interface GetVpcEndpointServiceResult {
     readonly serviceName: string;
     readonly serviceType: string;
     /**
+     * The supported IP address types.
+     */
+    readonly supportedIpAddressTypes: string[];
+    /**
      * A map of tags assigned to the resource.
      */
     readonly tags: {[key: string]: string};

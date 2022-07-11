@@ -55,8 +55,8 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+     * The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+     * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
      * for all supported values.
      * 
      */
@@ -64,8 +64,8 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
     private @Nullable Output<String> targetString;
 
     /**
-     * @return The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-     * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+     * @return The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+     * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
      * for all supported values.
      * 
      */
@@ -174,8 +174,8 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetString The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+         * @param targetString The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
          * for all supported values.
          * 
          * @return builder
@@ -187,8 +187,8 @@ public final class ByteMatchSetByteMatchTupleArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param targetString The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-         * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+         * @param targetString The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+         * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
          * for all supported values.
          * 
          * @return builder

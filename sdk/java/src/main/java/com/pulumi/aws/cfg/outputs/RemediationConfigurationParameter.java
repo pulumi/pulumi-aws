@@ -5,6 +5,7 @@ package com.pulumi.aws.cfg.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -26,15 +27,22 @@ public final class RemediationConfigurationParameter {
      * 
      */
     private final @Nullable String staticValue;
+    /**
+     * @return List of static values.
+     * 
+     */
+    private final @Nullable List<String> staticValues;
 
     @CustomType.Constructor
     private RemediationConfigurationParameter(
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("resourceValue") @Nullable String resourceValue,
-        @CustomType.Parameter("staticValue") @Nullable String staticValue) {
+        @CustomType.Parameter("staticValue") @Nullable String staticValue,
+        @CustomType.Parameter("staticValues") @Nullable List<String> staticValues) {
         this.name = name;
         this.resourceValue = resourceValue;
         this.staticValue = staticValue;
+        this.staticValues = staticValues;
     }
 
     /**
@@ -58,6 +66,13 @@ public final class RemediationConfigurationParameter {
     public Optional<String> staticValue() {
         return Optional.ofNullable(this.staticValue);
     }
+    /**
+     * @return List of static values.
+     * 
+     */
+    public List<String> staticValues() {
+        return this.staticValues == null ? List.of() : this.staticValues;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -71,6 +86,7 @@ public final class RemediationConfigurationParameter {
         private String name;
         private @Nullable String resourceValue;
         private @Nullable String staticValue;
+        private @Nullable List<String> staticValues;
 
         public Builder() {
     	      // Empty
@@ -81,6 +97,7 @@ public final class RemediationConfigurationParameter {
     	      this.name = defaults.name;
     	      this.resourceValue = defaults.resourceValue;
     	      this.staticValue = defaults.staticValue;
+    	      this.staticValues = defaults.staticValues;
         }
 
         public Builder name(String name) {
@@ -94,8 +111,15 @@ public final class RemediationConfigurationParameter {
         public Builder staticValue(@Nullable String staticValue) {
             this.staticValue = staticValue;
             return this;
+        }
+        public Builder staticValues(@Nullable List<String> staticValues) {
+            this.staticValues = staticValues;
+            return this;
+        }
+        public Builder staticValues(String... staticValues) {
+            return staticValues(List.of(staticValues));
         }        public RemediationConfigurationParameter build() {
-            return new RemediationConfigurationParameter(name, resourceValue, staticValue);
+            return new RemediationConfigurationParameter(name, resourceValue, staticValue, staticValues);
         }
     }
 }

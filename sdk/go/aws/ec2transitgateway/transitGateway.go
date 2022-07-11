@@ -60,7 +60,8 @@ type TransitGateway struct {
 	// Description of the EC2 Transit Gateway.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport       pulumi.StringPtrOutput `pulumi:"dnsSupport"`
+	DnsSupport pulumi.StringPtrOutput `pulumi:"dnsSupport"`
+	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrOutput `pulumi:"multicastSupport"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -120,7 +121,8 @@ type transitGatewayState struct {
 	// Description of the EC2 Transit Gateway.
 	Description *string `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport       *string `pulumi:"dnsSupport"`
+	DnsSupport *string `pulumi:"dnsSupport"`
+	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport *string `pulumi:"multicastSupport"`
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId *string `pulumi:"ownerId"`
@@ -152,7 +154,8 @@ type TransitGatewayState struct {
 	// Description of the EC2 Transit Gateway.
 	Description pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport       pulumi.StringPtrInput
+	DnsSupport pulumi.StringPtrInput
+	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrInput
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId pulumi.StringPtrInput
@@ -184,7 +187,8 @@ type transitGatewayArgs struct {
 	// Description of the EC2 Transit Gateway.
 	Description *string `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport       *string `pulumi:"dnsSupport"`
+	DnsSupport *string `pulumi:"dnsSupport"`
+	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport *string `pulumi:"multicastSupport"`
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -207,7 +211,8 @@ type TransitGatewayArgs struct {
 	// Description of the EC2 Transit Gateway.
 	Description pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport       pulumi.StringPtrInput
+	DnsSupport pulumi.StringPtrInput
+	// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 	MulticastSupport pulumi.StringPtrInput
 	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -344,6 +349,7 @@ func (o TransitGatewayOutput) DnsSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.DnsSupport }).(pulumi.StringPtrOutput)
 }
 
+// Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
 func (o TransitGatewayOutput) MulticastSupport() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TransitGateway) pulumi.StringPtrOutput { return v.MulticastSupport }).(pulumi.StringPtrOutput)
 }

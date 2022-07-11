@@ -53,6 +53,21 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     * 
+     */
+    @Import(name="deleteLambda")
+    private @Nullable Output<Boolean> deleteLambda;
+
+    /**
+     * @return Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> deleteLambda() {
+        return Optional.ofNullable(this.deleteLambda);
+    }
+
+    /**
      * ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
      * 
      */
@@ -282,6 +297,7 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
     private CanaryArgs(CanaryArgs $) {
         this.artifactConfig = $.artifactConfig;
         this.artifactS3Location = $.artifactS3Location;
+        this.deleteLambda = $.deleteLambda;
         this.executionRoleArn = $.executionRoleArn;
         this.failureRetentionPeriod = $.failureRetentionPeriod;
         this.handler = $.handler;
@@ -357,6 +373,27 @@ public final class CanaryArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder artifactS3Location(String artifactS3Location) {
             return artifactS3Location(Output.of(artifactS3Location));
+        }
+
+        /**
+         * @param deleteLambda Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteLambda(@Nullable Output<Boolean> deleteLambda) {
+            $.deleteLambda = deleteLambda;
+            return this;
+        }
+
+        /**
+         * @param deleteLambda Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteLambda(Boolean deleteLambda) {
+            return deleteLambda(Output.of(deleteLambda));
         }
 
         /**

@@ -50,6 +50,7 @@ __all__ = [
     'InstanceMaintenanceOptions',
     'InstanceMetadataOptions',
     'InstanceNetworkInterface',
+    'InstancePrivateDnsNameOptions',
     'InstanceRootBlockDevice',
     'LaunchConfigurationEbsBlockDevice',
     'LaunchConfigurationEphemeralBlockDevice',
@@ -122,10 +123,12 @@ __all__ = [
     'SpotInstanceRequestMaintenanceOptions',
     'SpotInstanceRequestMetadataOptions',
     'SpotInstanceRequestNetworkInterface',
+    'SpotInstanceRequestPrivateDnsNameOptions',
     'SpotInstanceRequestRootBlockDevice',
     'TrafficMirrorFilterRuleDestinationPortRange',
     'TrafficMirrorFilterRuleSourcePortRange',
     'VpcEndpointDnsEntry',
+    'VpcEndpointDnsOptions',
     'VpcEndpointServicePrivateDnsNameConfiguration',
     'VpcIpamOperatingRegion',
     'VpcIpamPoolCidrCidrAuthorizationContext',
@@ -152,6 +155,7 @@ __all__ = [
     'GetInstanceFilterResult',
     'GetInstanceMaintenanceOptionResult',
     'GetInstanceMetadataOptionResult',
+    'GetInstancePrivateDnsNameOptionResult',
     'GetInstanceRootBlockDeviceResult',
     'GetInstanceTypeFpgaResult',
     'GetInstanceTypeGpusResult',
@@ -230,6 +234,7 @@ __all__ = [
     'GetVpcCidrBlockAssociationResult',
     'GetVpcDhcpOptionsFilterResult',
     'GetVpcEndpointDnsEntryResult',
+    'GetVpcEndpointDnsOptionResult',
     'GetVpcEndpointFilterResult',
     'GetVpcEndpointServiceFilterResult',
     'GetVpcFilterResult',
@@ -3331,6 +3336,70 @@ class InstanceNetworkInterface(dict):
         Integer index of the network card. Limited by instance type. The default index is `0`.
         """
         return pulumi.get(self, "network_card_index")
+
+
+@pulumi.output_type
+class InstancePrivateDnsNameOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableResourceNameDnsARecord":
+            suggest = "enable_resource_name_dns_a_record"
+        elif key == "enableResourceNameDnsAaaaRecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
+        elif key == "hostnameType":
+            suggest = "hostname_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstancePrivateDnsNameOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstancePrivateDnsNameOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstancePrivateDnsNameOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_resource_name_dns_a_record: Optional[bool] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
+                 hostname_type: Optional[str] = None):
+        """
+        :param bool enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        :param str hostname_type: The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[bool]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[str]:
+        """
+        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        return pulumi.get(self, "hostname_type")
 
 
 @pulumi.output_type
@@ -8637,6 +8706,70 @@ class SpotInstanceRequestNetworkInterface(dict):
 
 
 @pulumi.output_type
+class SpotInstanceRequestPrivateDnsNameOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableResourceNameDnsARecord":
+            suggest = "enable_resource_name_dns_a_record"
+        elif key == "enableResourceNameDnsAaaaRecord":
+            suggest = "enable_resource_name_dns_aaaa_record"
+        elif key == "hostnameType":
+            suggest = "hostname_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpotInstanceRequestPrivateDnsNameOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpotInstanceRequestPrivateDnsNameOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpotInstanceRequestPrivateDnsNameOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_resource_name_dns_a_record: Optional[bool] = None,
+                 enable_resource_name_dns_aaaa_record: Optional[bool] = None,
+                 hostname_type: Optional[str] = None):
+        """
+        :param bool enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        :param str hostname_type: The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        if enable_resource_name_dns_a_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        if enable_resource_name_dns_aaaa_record is not None:
+            pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        if hostname_type is not None:
+            pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> Optional[bool]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> Optional[bool]:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> Optional[str]:
+        """
+        The type of hostname for Amazon EC2 instances. For IPv4 only subnets, an instance DNS name must be based on the instance IPv4 address. For IPv6 native subnets, an instance DNS name must be based on the instance ID. For dual-stack subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name` and `resource-name`.
+        """
+        return pulumi.get(self, "hostname_type")
+
+
+@pulumi.output_type
 class SpotInstanceRequestRootBlockDevice(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8934,6 +9067,42 @@ class VpcEndpointDnsEntry(dict):
         The ID of the private hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class VpcEndpointDnsOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsRecordIpType":
+            suggest = "dns_record_ip_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcEndpointDnsOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcEndpointDnsOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcEndpointDnsOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_record_ip_type: Optional[str] = None):
+        """
+        :param str dns_record_ip_type: The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        """
+        if dns_record_ip_type is not None:
+            pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+
+    @property
+    @pulumi.getter(name="dnsRecordIpType")
+    def dns_record_ip_type(self) -> Optional[str]:
+        """
+        The DNS records created for the endpoint. Valid values are `ipv4`, `dualstack`, `service-defined`, and `ipv6`.
+        """
+        return pulumi.get(self, "dns_record_ip_type")
 
 
 @pulumi.output_type
@@ -10065,6 +10234,46 @@ class GetInstanceMetadataOptionResult(dict):
         If access to instance tags is allowed from the metadata service: `enabled`, `disabled`.
         """
         return pulumi.get(self, "instance_metadata_tags")
+
+
+@pulumi.output_type
+class GetInstancePrivateDnsNameOptionResult(dict):
+    def __init__(__self__, *,
+                 enable_resource_name_dns_a_record: bool,
+                 enable_resource_name_dns_aaaa_record: bool,
+                 hostname_type: str):
+        """
+        :param bool enable_resource_name_dns_a_record: Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        :param bool enable_resource_name_dns_aaaa_record: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        :param str hostname_type: The type of hostname for EC2 instances.
+        """
+        pulumi.set(__self__, "enable_resource_name_dns_a_record", enable_resource_name_dns_a_record)
+        pulumi.set(__self__, "enable_resource_name_dns_aaaa_record", enable_resource_name_dns_aaaa_record)
+        pulumi.set(__self__, "hostname_type", hostname_type)
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsARecord")
+    def enable_resource_name_dns_a_record(self) -> bool:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_a_record")
+
+    @property
+    @pulumi.getter(name="enableResourceNameDnsAaaaRecord")
+    def enable_resource_name_dns_aaaa_record(self) -> bool:
+        """
+        Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+        """
+        return pulumi.get(self, "enable_resource_name_dns_aaaa_record")
+
+    @property
+    @pulumi.getter(name="hostnameType")
+    def hostname_type(self) -> str:
+        """
+        The type of hostname for EC2 instances.
+        """
+        return pulumi.get(self, "hostname_type")
 
 
 @pulumi.output_type
@@ -12865,6 +13074,18 @@ class GetVpcEndpointDnsEntryResult(dict):
         The ID of the private hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
+
+
+@pulumi.output_type
+class GetVpcEndpointDnsOptionResult(dict):
+    def __init__(__self__, *,
+                 dns_record_ip_type: str):
+        pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+
+    @property
+    @pulumi.getter(name="dnsRecordIpType")
+    def dns_record_ip_type(self) -> str:
+        return pulumi.get(self, "dns_record_ip_type")
 
 
 @pulumi.output_type

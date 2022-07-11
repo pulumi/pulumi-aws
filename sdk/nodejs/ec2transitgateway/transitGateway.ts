@@ -88,6 +88,9 @@ export class TransitGateway extends pulumi.CustomResource {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     public readonly dnsSupport!: pulumi.Output<string | undefined>;
+    /**
+     * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
     public readonly multicastSupport!: pulumi.Output<string | undefined>;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
@@ -201,6 +204,9 @@ export interface TransitGatewayState {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     dnsSupport?: pulumi.Input<string>;
+    /**
+     * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
     multicastSupport?: pulumi.Input<string>;
     /**
      * Identifier of the AWS account that owns the EC2 Transit Gateway
@@ -256,6 +262,9 @@ export interface TransitGatewayArgs {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     dnsSupport?: pulumi.Input<string>;
+    /**
+     * Whether Multicast support is enabled. Required to use `ec2TransitGatewayMulticastDomain`. Valid values: `disable`, `enable`. Default value: `disable`.
+     */
     multicastSupport?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

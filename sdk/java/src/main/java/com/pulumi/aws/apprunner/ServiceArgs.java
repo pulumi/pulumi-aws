@@ -7,6 +7,7 @@ import com.pulumi.aws.apprunner.inputs.ServiceEncryptionConfigurationArgs;
 import com.pulumi.aws.apprunner.inputs.ServiceHealthCheckConfigurationArgs;
 import com.pulumi.aws.apprunner.inputs.ServiceInstanceConfigurationArgs;
 import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationArgs;
+import com.pulumi.aws.apprunner.inputs.ServiceObservabilityConfigurationArgs;
 import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -82,18 +83,33 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration settings related to network traffic of the web application that the App Runner service runs.
+     * Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
     @Import(name="networkConfiguration")
     private @Nullable Output<ServiceNetworkConfigurationArgs> networkConfiguration;
 
     /**
-     * @return Configuration settings related to network traffic of the web application that the App Runner service runs.
+     * @return Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
      * 
      */
     public Optional<Output<ServiceNetworkConfigurationArgs>> networkConfiguration() {
         return Optional.ofNullable(this.networkConfiguration);
+    }
+
+    /**
+     * The observability configuration of your service. See Observability Configuration below for more details.
+     * 
+     */
+    @Import(name="observabilityConfiguration")
+    private @Nullable Output<ServiceObservabilityConfigurationArgs> observabilityConfiguration;
+
+    /**
+     * @return The observability configuration of your service. See Observability Configuration below for more details.
+     * 
+     */
+    public Optional<Output<ServiceObservabilityConfigurationArgs>> observabilityConfiguration() {
+        return Optional.ofNullable(this.observabilityConfiguration);
     }
 
     /**
@@ -149,6 +165,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         this.healthCheckConfiguration = $.healthCheckConfiguration;
         this.instanceConfiguration = $.instanceConfiguration;
         this.networkConfiguration = $.networkConfiguration;
+        this.observabilityConfiguration = $.observabilityConfiguration;
         this.serviceName = $.serviceName;
         this.sourceConfiguration = $.sourceConfiguration;
         this.tags = $.tags;
@@ -257,7 +274,7 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration Configuration settings related to network traffic of the web application that the App Runner service runs.
+         * @param networkConfiguration Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
          * 
          * @return builder
          * 
@@ -268,13 +285,34 @@ public final class ServiceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param networkConfiguration Configuration settings related to network traffic of the web application that the App Runner service runs.
+         * @param networkConfiguration Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
          * 
          * @return builder
          * 
          */
         public Builder networkConfiguration(ServiceNetworkConfigurationArgs networkConfiguration) {
             return networkConfiguration(Output.of(networkConfiguration));
+        }
+
+        /**
+         * @param observabilityConfiguration The observability configuration of your service. See Observability Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder observabilityConfiguration(@Nullable Output<ServiceObservabilityConfigurationArgs> observabilityConfiguration) {
+            $.observabilityConfiguration = observabilityConfiguration;
+            return this;
+        }
+
+        /**
+         * @param observabilityConfiguration The observability configuration of your service. See Observability Configuration below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder observabilityConfiguration(ServiceObservabilityConfigurationArgs observabilityConfiguration) {
+            return observabilityConfiguration(Output.of(observabilityConfiguration));
         }
 
         /**

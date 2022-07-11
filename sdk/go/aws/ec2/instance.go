@@ -151,8 +151,10 @@ type Instance struct {
 	CpuCoreCount pulumi.IntOutput `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntOutput `pulumi:"cpuThreadsPerCore"`
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrOutput `pulumi:"creditSpecification"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolOutput `pulumi:"disableApiStop"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolOutput `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -206,6 +208,8 @@ type Instance struct {
 	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns pulumi.StringOutput `pulumi:"privateDns"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions InstancePrivateDnsNameOptionsOutput `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringOutput `pulumi:"privateIp"`
 	// The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
@@ -285,8 +289,10 @@ type instanceState struct {
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -340,6 +346,8 @@ type instanceState struct {
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns *string `pulumi:"privateDns"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions *InstancePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
 	// The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
@@ -391,8 +399,10 @@ type InstanceState struct {
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntPtrInput
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrInput
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolPtrInput
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -446,6 +456,8 @@ type InstanceState struct {
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
 	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 	PrivateDns pulumi.StringPtrInput
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions InstancePrivateDnsNameOptionsPtrInput
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
 	// The public DNS name assigned to the instance. For EC2-VPC, this is only available if you've enabled DNS hostnames for your VPC.
@@ -499,8 +511,10 @@ type instanceArgs struct {
 	CpuCoreCount *int `pulumi:"cpuCoreCount"`
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore *int `pulumi:"cpuThreadsPerCore"`
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification *InstanceCreditSpecification `pulumi:"creditSpecification"`
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop *bool `pulumi:"disableApiStop"`
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination *bool `pulumi:"disableApiTermination"`
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -544,6 +558,8 @@ type instanceArgs struct {
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions *InstancePrivateDnsNameOptions `pulumi:"privateDnsNameOptions"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
@@ -588,8 +604,10 @@ type InstanceArgs struct {
 	CpuCoreCount pulumi.IntPtrInput
 	// If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	CpuThreadsPerCore pulumi.IntPtrInput
-	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+	// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 	CreditSpecification InstanceCreditSpecificationPtrInput
+	// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+	DisableApiStop pulumi.BoolPtrInput
 	// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
 	DisableApiTermination pulumi.BoolPtrInput
 	// One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
@@ -633,6 +651,8 @@ type InstanceArgs struct {
 	PlacementGroup pulumi.StringPtrInput
 	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
 	PlacementPartitionNumber pulumi.IntPtrInput
+	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+	PrivateDnsNameOptions InstancePrivateDnsNameOptionsPtrInput
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
@@ -787,9 +807,14 @@ func (o InstanceOutput) CpuThreadsPerCore() pulumi.IntOutput {
 	return o.ApplyT(func(v *Instance) pulumi.IntOutput { return v.CpuThreadsPerCore }).(pulumi.IntOutput)
 }
 
-// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
 func (o InstanceOutput) CreditSpecification() InstanceCreditSpecificationPtrOutput {
 	return o.ApplyT(func(v *Instance) InstanceCreditSpecificationPtrOutput { return v.CreditSpecification }).(InstanceCreditSpecificationPtrOutput)
+}
+
+// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+func (o InstanceOutput) DisableApiStop() pulumi.BoolOutput {
+	return o.ApplyT(func(v *Instance) pulumi.BoolOutput { return v.DisableApiStop }).(pulumi.BoolOutput)
 }
 
 // If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -921,6 +946,11 @@ func (o InstanceOutput) PrimaryNetworkInterfaceId() pulumi.StringOutput {
 // The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
 func (o InstanceOutput) PrivateDns() pulumi.StringOutput {
 	return o.ApplyT(func(v *Instance) pulumi.StringOutput { return v.PrivateDns }).(pulumi.StringOutput)
+}
+
+// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+func (o InstanceOutput) PrivateDnsNameOptions() InstancePrivateDnsNameOptionsOutput {
+	return o.ApplyT(func(v *Instance) InstancePrivateDnsNameOptionsOutput { return v.PrivateDnsNameOptions }).(InstancePrivateDnsNameOptionsOutput)
 }
 
 // Private IP address to associate with the instance in a VPC.

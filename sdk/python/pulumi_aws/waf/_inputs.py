@@ -53,8 +53,8 @@ class ByteMatchSetByteMatchTupleArgs:
                e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
                for all supported values.
-        :param pulumi.Input[str] target_string: The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-               See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+        :param pulumi.Input[str] target_string: The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+               See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
                for all supported values.
         """
         pulumi.set(__self__, "field_to_match", field_to_match)
@@ -111,8 +111,8 @@ class ByteMatchSetByteMatchTupleArgs:
     @pulumi.getter(name="targetString")
     def target_string(self) -> Optional[pulumi.Input[str]]:
         """
-        The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
-        See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
+        The value that you want to search for within the field specified by `field_to_match`, e.g., `badrefer1`.
+        See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_waf_ByteMatchTuple.html)
         for all supported values.
         """
         return pulumi.get(self, "target_string")

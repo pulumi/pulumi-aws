@@ -40,6 +40,37 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Grant Permissions Using Tag-Based Access Control
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.lakeformation.Permissions("test", {
+ *     principal: aws_iam_role.sales_role.arn,
+ *     permissions: [
+ *         "CREATE_TABLE",
+ *         "ALTER",
+ *         "DROP",
+ *     ],
+ *     lfTagPolicy: {
+ *         resourceType: "DATABASE",
+ *         expressions: [
+ *             {
+ *                 key: "Team",
+ *                 values: ["Sales"],
+ *             },
+ *             {
+ *                 key: "Environment",
+ *                 values: [
+ *                     "Dev",
+ *                     "Production",
+ *                 ],
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
  */
 export class Permissions extends pulumi.CustomResource {
     /**
@@ -86,7 +117,15 @@ export class Permissions extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<outputs.lakeformation.PermissionsDatabase>;
     /**
-     * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     * Configuration block for an LF-tag resource. Detailed below.
+     */
+    public readonly lfTag!: pulumi.Output<outputs.lakeformation.PermissionsLfTag>;
+    /**
+     * Configuration block for an LF-tag policy resource. Detailed below.
+     */
+    public readonly lfTagPolicy!: pulumi.Output<outputs.lakeformation.PermissionsLfTagPolicy>;
+    /**
+     * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
     public readonly permissions!: pulumi.Output<string[]>;
     /**
@@ -123,6 +162,8 @@ export class Permissions extends pulumi.CustomResource {
             resourceInputs["catalogResource"] = state ? state.catalogResource : undefined;
             resourceInputs["dataLocation"] = state ? state.dataLocation : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["lfTag"] = state ? state.lfTag : undefined;
+            resourceInputs["lfTagPolicy"] = state ? state.lfTagPolicy : undefined;
             resourceInputs["permissions"] = state ? state.permissions : undefined;
             resourceInputs["permissionsWithGrantOptions"] = state ? state.permissionsWithGrantOptions : undefined;
             resourceInputs["principal"] = state ? state.principal : undefined;
@@ -140,6 +181,8 @@ export class Permissions extends pulumi.CustomResource {
             resourceInputs["catalogResource"] = args ? args.catalogResource : undefined;
             resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["lfTag"] = args ? args.lfTag : undefined;
+            resourceInputs["lfTagPolicy"] = args ? args.lfTagPolicy : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["permissionsWithGrantOptions"] = args ? args.permissionsWithGrantOptions : undefined;
             resourceInputs["principal"] = args ? args.principal : undefined;
@@ -172,7 +215,15 @@ export interface PermissionsState {
      */
     database?: pulumi.Input<inputs.lakeformation.PermissionsDatabase>;
     /**
-     * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     * Configuration block for an LF-tag resource. Detailed below.
+     */
+    lfTag?: pulumi.Input<inputs.lakeformation.PermissionsLfTag>;
+    /**
+     * Configuration block for an LF-tag policy resource. Detailed below.
+     */
+    lfTagPolicy?: pulumi.Input<inputs.lakeformation.PermissionsLfTagPolicy>;
+    /**
+     * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
     permissions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -214,7 +265,15 @@ export interface PermissionsArgs {
      */
     database?: pulumi.Input<inputs.lakeformation.PermissionsDatabase>;
     /**
-     * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+     * Configuration block for an LF-tag resource. Detailed below.
+     */
+    lfTag?: pulumi.Input<inputs.lakeformation.PermissionsLfTag>;
+    /**
+     * Configuration block for an LF-tag policy resource. Detailed below.
+     */
+    lfTagPolicy?: pulumi.Input<inputs.lakeformation.PermissionsLfTagPolicy>;
+    /**
+     * List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
      */
     permissions: pulumi.Input<pulumi.Input<string>[]>;
     /**

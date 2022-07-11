@@ -31,7 +31,7 @@ class SnapshotCopyArgs:
         :param pulumi.Input[str] kms_key_id: KMS key ID.
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         """
         pulumi.set(__self__, "source_db_snapshot_identifier", source_db_snapshot_identifier)
@@ -139,7 +139,7 @@ class SnapshotCopyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -204,7 +204,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         :param pulumi.Input[str] target_db_snapshot_identifier: The Identifier for the snapshot.
@@ -471,7 +471,7 @@ class _SnapshotCopyState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -587,7 +587,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] option_group_name: The name of an option group to associate with the copy of the snapshot.
         :param pulumi.Input[str] presigned_url: he URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         :param pulumi.Input[str] target_db_snapshot_identifier: The Identifier for the snapshot.
         """
@@ -752,7 +752,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] source_db_snapshot_identifier: Snapshot identifier of the source snapshot.
         :param pulumi.Input[str] source_region: The region that the DB snapshot was created in or copied from.
         :param pulumi.Input[str] storage_type: Specifies the storage type associated with DB snapshot.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[str] target_custom_availability_zone: The external custom Availability Zone.
         :param pulumi.Input[str] target_db_snapshot_identifier: The Identifier for the snapshot.
@@ -929,7 +929,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

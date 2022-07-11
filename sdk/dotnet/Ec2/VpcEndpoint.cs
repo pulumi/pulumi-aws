@@ -152,6 +152,18 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.VpcEndpointDnsEntry>> DnsEntries { get; private set; } = null!;
 
         /// <summary>
+        /// The DNS options for the endpoint. See dns_options below.
+        /// </summary>
+        [Output("dnsOptions")]
+        public Output<Outputs.VpcEndpointDnsOptions> DnsOptions { get; private set; } = null!;
+
+        /// <summary>
+        /// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        /// </summary>
+        [Output("ipAddressType")]
+        public Output<string> IpAddressType { get; private set; } = null!;
+
+        /// <summary>
         /// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
         /// </summary>
         [Output("networkInterfaceIds")]
@@ -296,6 +308,18 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? AutoAccept { get; set; }
 
         /// <summary>
+        /// The DNS options for the endpoint. See dns_options below.
+        /// </summary>
+        [Input("dnsOptions")]
+        public Input<Inputs.VpcEndpointDnsOptionsArgs>? DnsOptions { get; set; }
+
+        /// <summary>
+        /// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
+
+        /// <summary>
         /// A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
         /// </summary>
         [Input("policy")]
@@ -417,6 +441,18 @@ namespace Pulumi.Aws.Ec2
             get => _dnsEntries ?? (_dnsEntries = new InputList<Inputs.VpcEndpointDnsEntryGetArgs>());
             set => _dnsEntries = value;
         }
+
+        /// <summary>
+        /// The DNS options for the endpoint. See dns_options below.
+        /// </summary>
+        [Input("dnsOptions")]
+        public Input<Inputs.VpcEndpointDnsOptionsGetArgs>? DnsOptions { get; set; }
+
+        /// <summary>
+        /// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+        /// </summary>
+        [Input("ipAddressType")]
+        public Input<string>? IpAddressType { get; set; }
 
         [Input("networkInterfaceIds")]
         private InputList<string>? _networkInterfaceIds;

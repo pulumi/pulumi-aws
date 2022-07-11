@@ -25,6 +25,10 @@ namespace Pulumi.Aws.Cfg.Outputs
         /// Value is static and does not change at run-time.
         /// </summary>
         public readonly string? StaticValue;
+        /// <summary>
+        /// List of static values.
+        /// </summary>
+        public readonly ImmutableArray<string> StaticValues;
 
         [OutputConstructor]
         private RemediationConfigurationParameter(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.Cfg.Outputs
 
             string? resourceValue,
 
-            string? staticValue)
+            string? staticValue,
+
+            ImmutableArray<string> staticValues)
         {
             Name = name;
             ResourceValue = resourceValue;
             StaticValue = staticValue;
+            StaticValues = staticValues;
         }
     }
 }

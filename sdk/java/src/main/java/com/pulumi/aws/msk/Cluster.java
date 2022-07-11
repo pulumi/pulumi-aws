@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Cluster(&#34;example&#34;, ClusterArgs.builder()        
- *             .kafkaVersion(&#34;2.4.1&#34;)
+ *             .kafkaVersion(&#34;3.2.0&#34;)
  *             .numberOfBrokerNodes(3)
  *             .brokerNodeGroupInfo(ClusterBrokerNodeGroupInfoArgs.builder()
  *                 .instanceType(&#34;kafka.m5.large&#34;)

@@ -86,8 +86,7 @@ type LookupConnectionResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// The name of the CodeStar Connection. The name is unique in the calling AWS account.
-	Name string `pulumi:"name"`
-	// The name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`.
+	Name         string `pulumi:"name"`
 	ProviderType string `pulumi:"providerType"`
 	// Map of key-value resource tags to associate with the resource.
 	Tags map[string]string `pulumi:"tags"`
@@ -159,7 +158,6 @@ func (o LookupConnectionResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The name of the external provider where your third-party code repository is configured. Possible values are `Bitbucket`, `GitHub`, or `GitHubEnterpriseServer`.
 func (o LookupConnectionResultOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionResult) string { return v.ProviderType }).(pulumi.StringOutput)
 }

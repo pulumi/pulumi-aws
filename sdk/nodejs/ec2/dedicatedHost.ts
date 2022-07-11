@@ -80,9 +80,13 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public readonly instanceFamily!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     public readonly instanceType!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     */
+    public readonly outpostArn!: pulumi.Output<string | undefined>;
     /**
      * The ID of the AWS account that owns the Dedicated Host.
      */
@@ -115,6 +119,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["hostRecovery"] = state ? state.hostRecovery : undefined;
             resourceInputs["instanceFamily"] = state ? state.instanceFamily : undefined;
             resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -128,6 +133,7 @@ export class DedicatedHost extends pulumi.CustomResource {
             resourceInputs["hostRecovery"] = args ? args.hostRecovery : undefined;
             resourceInputs["instanceFamily"] = args ? args.instanceFamily : undefined;
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ownerId"] = undefined /*out*/;
@@ -163,9 +169,13 @@ export interface DedicatedHostState {
      */
     instanceFamily?: pulumi.Input<string>;
     /**
-     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     instanceType?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     */
+    outpostArn?: pulumi.Input<string>;
     /**
      * The ID of the AWS account that owns the Dedicated Host.
      */
@@ -201,9 +211,13 @@ export interface DedicatedHostArgs {
      */
     instanceFamily?: pulumi.Input<string>;
     /**
-     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     instanceType?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     */
+    outpostArn?: pulumi.Input<string>;
     /**
      * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

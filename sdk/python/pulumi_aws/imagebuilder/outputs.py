@@ -21,6 +21,9 @@ __all__ = [
     'DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission',
     'DistributionConfigurationDistributionContainerDistributionConfiguration',
     'DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository',
+    'DistributionConfigurationDistributionFastLaunchConfiguration',
+    'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate',
+    'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration',
     'DistributionConfigurationDistributionLaunchTemplateConfiguration',
     'ImageImageTestsConfiguration',
     'ImageOutputResource',
@@ -48,6 +51,9 @@ __all__ = [
     'GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionResult',
     'GetDistributionConfigurationDistributionContainerDistributionConfigurationResult',
     'GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryResult',
+    'GetDistributionConfigurationDistributionFastLaunchConfigurationResult',
+    'GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult',
+    'GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult',
     'GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult',
     'GetDistributionConfigurationsFilterResult',
     'GetImageImageTestsConfigurationResult',
@@ -438,6 +444,8 @@ class DistributionConfigurationDistribution(dict):
             suggest = "ami_distribution_configuration"
         elif key == "containerDistributionConfiguration":
             suggest = "container_distribution_configuration"
+        elif key == "fastLaunchConfigurations":
+            suggest = "fast_launch_configurations"
         elif key == "launchTemplateConfigurations":
             suggest = "launch_template_configurations"
         elif key == "licenseConfigurationArns":
@@ -458,12 +466,14 @@ class DistributionConfigurationDistribution(dict):
                  region: str,
                  ami_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionAmiDistributionConfiguration'] = None,
                  container_distribution_configuration: Optional['outputs.DistributionConfigurationDistributionContainerDistributionConfiguration'] = None,
+                 fast_launch_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionFastLaunchConfiguration']] = None,
                  launch_template_configurations: Optional[Sequence['outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration']] = None,
                  license_configuration_arns: Optional[Sequence[str]] = None):
         """
         :param str region: AWS Region for the distribution.
         :param 'DistributionConfigurationDistributionAmiDistributionConfigurationArgs' ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
         :param 'DistributionConfigurationDistributionContainerDistributionConfigurationArgs' container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
+        :param Sequence['DistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
         :param Sequence['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         """
@@ -472,6 +482,8 @@ class DistributionConfigurationDistribution(dict):
             pulumi.set(__self__, "ami_distribution_configuration", ami_distribution_configuration)
         if container_distribution_configuration is not None:
             pulumi.set(__self__, "container_distribution_configuration", container_distribution_configuration)
+        if fast_launch_configurations is not None:
+            pulumi.set(__self__, "fast_launch_configurations", fast_launch_configurations)
         if launch_template_configurations is not None:
             pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         if license_configuration_arns is not None:
@@ -500,6 +512,14 @@ class DistributionConfigurationDistribution(dict):
         Configuration block with container distribution settings. Detailed below.
         """
         return pulumi.get(self, "container_distribution_configuration")
+
+    @property
+    @pulumi.getter(name="fastLaunchConfigurations")
+    def fast_launch_configurations(self) -> Optional[Sequence['outputs.DistributionConfigurationDistributionFastLaunchConfiguration']]:
+        """
+        Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+        """
+        return pulumi.get(self, "fast_launch_configurations")
 
     @property
     @pulumi.getter(name="launchTemplateConfigurations")
@@ -803,6 +823,194 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationTar
         The service in which this image is registered. Valid values: `ECR`.
         """
         return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistributionFastLaunchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountId":
+            suggest = "account_id"
+        elif key == "launchTemplate":
+            suggest = "launch_template"
+        elif key == "maxParallelLaunches":
+            suggest = "max_parallel_launches"
+        elif key == "snapshotConfiguration":
+            suggest = "snapshot_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionFastLaunchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionFastLaunchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionFastLaunchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_id: str,
+                 enabled: bool,
+                 launch_template: Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate'] = None,
+                 max_parallel_launches: Optional[int] = None,
+                 snapshot_configuration: Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration'] = None):
+        """
+        :param str account_id: The account ID that this configuration applies to.
+        :param bool enabled: A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+        :param 'DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs' launch_template: Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+        :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
+        :param 'DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs' snapshot_configuration: Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "enabled", enabled)
+        if launch_template is not None:
+            pulumi.set(__self__, "launch_template", launch_template)
+        if max_parallel_launches is not None:
+            pulumi.set(__self__, "max_parallel_launches", max_parallel_launches)
+        if snapshot_configuration is not None:
+            pulumi.set(__self__, "snapshot_configuration", snapshot_configuration)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        The account ID that this configuration applies to.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="launchTemplate")
+    def launch_template(self) -> Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate']:
+        """
+        Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+        """
+        return pulumi.get(self, "launch_template")
+
+    @property
+    @pulumi.getter(name="maxParallelLaunches")
+    def max_parallel_launches(self) -> Optional[int]:
+        """
+        The maximum number of parallel instances that are launched for creating resources.
+        """
+        return pulumi.get(self, "max_parallel_launches")
+
+    @property
+    @pulumi.getter(name="snapshotConfiguration")
+    def snapshot_configuration(self) -> Optional['outputs.DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration']:
+        """
+        Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+        """
+        return pulumi.get(self, "snapshot_configuration")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "launchTemplateId":
+            suggest = "launch_template_id"
+        elif key == "launchTemplateName":
+            suggest = "launch_template_name"
+        elif key == "launchTemplateVersion":
+            suggest = "launch_template_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 launch_template_id: Optional[str] = None,
+                 launch_template_name: Optional[str] = None,
+                 launch_template_version: Optional[str] = None):
+        """
+        :param str launch_template_id: The ID of the Amazon EC2 launch template to use.
+        :param str launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
+        :param str launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
+        """
+        if launch_template_id is not None:
+            pulumi.set(__self__, "launch_template_id", launch_template_id)
+        if launch_template_name is not None:
+            pulumi.set(__self__, "launch_template_name", launch_template_name)
+        if launch_template_version is not None:
+            pulumi.set(__self__, "launch_template_version", launch_template_version)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> Optional[str]:
+        """
+        The ID of the Amazon EC2 launch template to use.
+        """
+        return pulumi.get(self, "launch_template_id")
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> Optional[str]:
+        """
+        The name of the launch template to use for faster launching for a Windows AMI.
+        """
+        return pulumi.get(self, "launch_template_name")
+
+    @property
+    @pulumi.getter(name="launchTemplateVersion")
+    def launch_template_version(self) -> Optional[str]:
+        """
+        The version of the launch template to use for faster launching for a Windows AMI.
+        """
+        return pulumi.get(self, "launch_template_version")
+
+
+@pulumi.output_type
+class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetResourceCount":
+            suggest = "target_resource_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_resource_count: Optional[int] = None):
+        """
+        :param int target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
+        if target_resource_count is not None:
+            pulumi.set(__self__, "target_resource_count", target_resource_count)
+
+    @property
+    @pulumi.getter(name="targetResourceCount")
+    def target_resource_count(self) -> Optional[int]:
+        """
+        The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
+        return pulumi.get(self, "target_resource_count")
 
 
 @pulumi.output_type
@@ -1881,18 +2089,21 @@ class GetDistributionConfigurationDistributionResult(dict):
     def __init__(__self__, *,
                  ami_distribution_configurations: Sequence['outputs.GetDistributionConfigurationDistributionAmiDistributionConfigurationResult'],
                  container_distribution_configurations: Sequence['outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult'],
+                 fast_launch_configurations: Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationResult'],
                  launch_template_configurations: Sequence['outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult'],
                  license_configuration_arns: Sequence[str],
                  region: str):
         """
         :param Sequence['GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configurations: Nested list of AMI distribution configuration.
         :param Sequence['GetDistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configurations: Nested list of container distribution configurations.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationArgs'] fast_launch_configurations: Nested list of Windows faster-launching configurations to use for AMI distribution.
         :param Sequence['GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs'] launch_template_configurations: Nested list of launch template configurations.
         :param Sequence[str] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
         :param str region: AWS Region of distribution.
         """
         pulumi.set(__self__, "ami_distribution_configurations", ami_distribution_configurations)
         pulumi.set(__self__, "container_distribution_configurations", container_distribution_configurations)
+        pulumi.set(__self__, "fast_launch_configurations", fast_launch_configurations)
         pulumi.set(__self__, "launch_template_configurations", launch_template_configurations)
         pulumi.set(__self__, "license_configuration_arns", license_configuration_arns)
         pulumi.set(__self__, "region", region)
@@ -1912,6 +2123,14 @@ class GetDistributionConfigurationDistributionResult(dict):
         Nested list of container distribution configurations.
         """
         return pulumi.get(self, "container_distribution_configurations")
+
+    @property
+    @pulumi.getter(name="fastLaunchConfigurations")
+    def fast_launch_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationResult']:
+        """
+        Nested list of Windows faster-launching configurations to use for AMI distribution.
+        """
+        return pulumi.get(self, "fast_launch_configurations")
 
     @property
     @pulumi.getter(name="launchTemplateConfigurations")
@@ -2129,6 +2348,126 @@ class GetDistributionConfigurationDistributionContainerDistributionConfiguration
         Service in which the image is registered.
         """
         return pulumi.get(self, "service")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationDistributionFastLaunchConfigurationResult(dict):
+    def __init__(__self__, *,
+                 account_id: str,
+                 enabled: bool,
+                 launch_templates: Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult'],
+                 max_parallel_launches: int,
+                 snapshot_configurations: Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult']):
+        """
+        :param str account_id: The account ID that this configuration applies to.
+        :param bool enabled: A Boolean that represents the current state of faster launching for the Windows AMI.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs'] launch_templates: Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        :param int max_parallel_launches: The maximum number of parallel instances that are launched for creating resources.
+        :param Sequence['GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs'] snapshot_configurations: Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        """
+        pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "launch_templates", launch_templates)
+        pulumi.set(__self__, "max_parallel_launches", max_parallel_launches)
+        pulumi.set(__self__, "snapshot_configurations", snapshot_configurations)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> str:
+        """
+        The account ID that this configuration applies to.
+        """
+        return pulumi.get(self, "account_id")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        """
+        A Boolean that represents the current state of faster launching for the Windows AMI.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="launchTemplates")
+    def launch_templates(self) -> Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult']:
+        """
+        Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+        """
+        return pulumi.get(self, "launch_templates")
+
+    @property
+    @pulumi.getter(name="maxParallelLaunches")
+    def max_parallel_launches(self) -> int:
+        """
+        The maximum number of parallel instances that are launched for creating resources.
+        """
+        return pulumi.get(self, "max_parallel_launches")
+
+    @property
+    @pulumi.getter(name="snapshotConfigurations")
+    def snapshot_configurations(self) -> Sequence['outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult']:
+        """
+        Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+        """
+        return pulumi.get(self, "snapshot_configurations")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateResult(dict):
+    def __init__(__self__, *,
+                 launch_template_id: str,
+                 launch_template_name: str,
+                 launch_template_version: str):
+        """
+        :param str launch_template_id: ID of the Amazon EC2 launch template.
+        :param str launch_template_name: The name of the launch template to use for faster launching for a Windows AMI.
+        :param str launch_template_version: The version of the launch template to use for faster launching for a Windows AMI.
+        """
+        pulumi.set(__self__, "launch_template_id", launch_template_id)
+        pulumi.set(__self__, "launch_template_name", launch_template_name)
+        pulumi.set(__self__, "launch_template_version", launch_template_version)
+
+    @property
+    @pulumi.getter(name="launchTemplateId")
+    def launch_template_id(self) -> str:
+        """
+        ID of the Amazon EC2 launch template.
+        """
+        return pulumi.get(self, "launch_template_id")
+
+    @property
+    @pulumi.getter(name="launchTemplateName")
+    def launch_template_name(self) -> str:
+        """
+        The name of the launch template to use for faster launching for a Windows AMI.
+        """
+        return pulumi.get(self, "launch_template_name")
+
+    @property
+    @pulumi.getter(name="launchTemplateVersion")
+    def launch_template_version(self) -> str:
+        """
+        The version of the launch template to use for faster launching for a Windows AMI.
+        """
+        return pulumi.get(self, "launch_template_version")
+
+
+@pulumi.output_type
+class GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationResult(dict):
+    def __init__(__self__, *,
+                 target_resource_count: int):
+        """
+        :param int target_resource_count: The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
+        pulumi.set(__self__, "target_resource_count", target_resource_count)
+
+    @property
+    @pulumi.getter(name="targetResourceCount")
+    def target_resource_count(self) -> int:
+        """
+        The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+        """
+        return pulumi.get(self, "target_resource_count")
 
 
 @pulumi.output_type

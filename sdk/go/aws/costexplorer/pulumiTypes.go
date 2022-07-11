@@ -10,6 +10,112 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AnomalySubscriptionSubscriber struct {
+	// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+	Address string `pulumi:"address"`
+	// The type of subscription. Valid Values: `SNS` | `EMAIL`.
+	Type string `pulumi:"type"`
+}
+
+// AnomalySubscriptionSubscriberInput is an input type that accepts AnomalySubscriptionSubscriberArgs and AnomalySubscriptionSubscriberOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionSubscriberInput` via:
+//
+//          AnomalySubscriptionSubscriberArgs{...}
+type AnomalySubscriptionSubscriberInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionSubscriberOutput() AnomalySubscriptionSubscriberOutput
+	ToAnomalySubscriptionSubscriberOutputWithContext(context.Context) AnomalySubscriptionSubscriberOutput
+}
+
+type AnomalySubscriptionSubscriberArgs struct {
+	// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+	Address pulumi.StringInput `pulumi:"address"`
+	// The type of subscription. Valid Values: `SNS` | `EMAIL`.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AnomalySubscriptionSubscriberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionSubscriber)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionSubscriberArgs) ToAnomalySubscriptionSubscriberOutput() AnomalySubscriptionSubscriberOutput {
+	return i.ToAnomalySubscriptionSubscriberOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionSubscriberArgs) ToAnomalySubscriptionSubscriberOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionSubscriberOutput)
+}
+
+// AnomalySubscriptionSubscriberArrayInput is an input type that accepts AnomalySubscriptionSubscriberArray and AnomalySubscriptionSubscriberArrayOutput values.
+// You can construct a concrete instance of `AnomalySubscriptionSubscriberArrayInput` via:
+//
+//          AnomalySubscriptionSubscriberArray{ AnomalySubscriptionSubscriberArgs{...} }
+type AnomalySubscriptionSubscriberArrayInput interface {
+	pulumi.Input
+
+	ToAnomalySubscriptionSubscriberArrayOutput() AnomalySubscriptionSubscriberArrayOutput
+	ToAnomalySubscriptionSubscriberArrayOutputWithContext(context.Context) AnomalySubscriptionSubscriberArrayOutput
+}
+
+type AnomalySubscriptionSubscriberArray []AnomalySubscriptionSubscriberInput
+
+func (AnomalySubscriptionSubscriberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalySubscriptionSubscriber)(nil)).Elem()
+}
+
+func (i AnomalySubscriptionSubscriberArray) ToAnomalySubscriptionSubscriberArrayOutput() AnomalySubscriptionSubscriberArrayOutput {
+	return i.ToAnomalySubscriptionSubscriberArrayOutputWithContext(context.Background())
+}
+
+func (i AnomalySubscriptionSubscriberArray) ToAnomalySubscriptionSubscriberArrayOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnomalySubscriptionSubscriberArrayOutput)
+}
+
+type AnomalySubscriptionSubscriberOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionSubscriberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnomalySubscriptionSubscriber)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionSubscriberOutput) ToAnomalySubscriptionSubscriberOutput() AnomalySubscriptionSubscriberOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberOutput) ToAnomalySubscriptionSubscriberOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberOutput {
+	return o
+}
+
+// The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+func (o AnomalySubscriptionSubscriberOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalySubscriptionSubscriber) string { return v.Address }).(pulumi.StringOutput)
+}
+
+// The type of subscription. Valid Values: `SNS` | `EMAIL`.
+func (o AnomalySubscriptionSubscriberOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AnomalySubscriptionSubscriber) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AnomalySubscriptionSubscriberArrayOutput struct{ *pulumi.OutputState }
+
+func (AnomalySubscriptionSubscriberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AnomalySubscriptionSubscriber)(nil)).Elem()
+}
+
+func (o AnomalySubscriptionSubscriberArrayOutput) ToAnomalySubscriptionSubscriberArrayOutput() AnomalySubscriptionSubscriberArrayOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberArrayOutput) ToAnomalySubscriptionSubscriberArrayOutputWithContext(ctx context.Context) AnomalySubscriptionSubscriberArrayOutput {
+	return o
+}
+
+func (o AnomalySubscriptionSubscriberArrayOutput) Index(i pulumi.IntInput) AnomalySubscriptionSubscriberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AnomalySubscriptionSubscriber {
+		return vs[0].([]AnomalySubscriptionSubscriber)[vs[1].(int)]
+	}).(AnomalySubscriptionSubscriberOutput)
+}
+
 type CostCategoryRule struct {
 	// Configuration block for the value the line item is categorized as if the line item contains the matched dimension. See below.
 	InheritedValue *CostCategoryRuleInheritedValue `pulumi:"inheritedValue"`
@@ -8463,6 +8569,8 @@ func (o GetTagsTimePeriodOutput) Start() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberInput)(nil)).Elem(), AnomalySubscriptionSubscriberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnomalySubscriptionSubscriberArrayInput)(nil)).Elem(), AnomalySubscriptionSubscriberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleInput)(nil)).Elem(), CostCategoryRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleArrayInput)(nil)).Elem(), CostCategoryRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CostCategoryRuleInheritedValueInput)(nil)).Elem(), CostCategoryRuleInheritedValueArgs{})
@@ -8578,6 +8686,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagsSortByInput)(nil)).Elem(), GetTagsSortByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagsSortByArrayInput)(nil)).Elem(), GetTagsSortByArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagsTimePeriodInput)(nil)).Elem(), GetTagsTimePeriodArgs{})
+	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberOutput{})
+	pulumi.RegisterOutputType(AnomalySubscriptionSubscriberArrayOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleArrayOutput{})
 	pulumi.RegisterOutputType(CostCategoryRuleInheritedValueOutput{})

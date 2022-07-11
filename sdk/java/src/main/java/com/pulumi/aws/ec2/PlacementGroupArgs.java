@@ -54,6 +54,23 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Determines how placement groups spread instances. Can only be used
+     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * 
+     */
+    @Import(name="spreadLevel")
+    private @Nullable Output<String> spreadLevel;
+
+    /**
+     * @return Determines how placement groups spread instances. Can only be used
+     * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+     * 
+     */
+    public Optional<Output<String>> spreadLevel() {
+        return Optional.ofNullable(this.spreadLevel);
+    }
+
+    /**
      * The placement strategy. Can be `&#34;cluster&#34;`, `&#34;partition&#34;` or `&#34;spread&#34;`.
      * 
      */
@@ -88,6 +105,7 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
     private PlacementGroupArgs(PlacementGroupArgs $) {
         this.name = $.name;
         this.partitionCount = $.partitionCount;
+        this.spreadLevel = $.spreadLevel;
         this.strategy = $.strategy;
         this.tags = $.tags;
     }
@@ -154,6 +172,29 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder partitionCount(Integer partitionCount) {
             return partitionCount(Output.of(partitionCount));
+        }
+
+        /**
+         * @param spreadLevel Determines how placement groups spread instances. Can only be used
+         * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spreadLevel(@Nullable Output<String> spreadLevel) {
+            $.spreadLevel = spreadLevel;
+            return this;
+        }
+
+        /**
+         * @param spreadLevel Determines how placement groups spread instances. Can only be used
+         * when the `strategy` is set to `&#34;spread&#34;`. Can be `&#34;host&#34;` or `&#34;rack&#34;`. `&#34;host&#34;` can only be used for Outpost placement groups.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spreadLevel(String spreadLevel) {
+            return spreadLevel(Output.of(spreadLevel));
         }
 
         /**

@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example = new aws.msk.Cluster("example", {
- *     kafkaVersion: "2.4.1",
+ *     kafkaVersion: "3.2.0",
  *     numberOfBrokerNodes: 3,
  *     brokerNodeGroupInfo: {
  *         instanceType: "kafka.m5.large",

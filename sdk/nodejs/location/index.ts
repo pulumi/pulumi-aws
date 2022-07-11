@@ -7,12 +7,18 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./getMap";
 export * from "./getPlaceIndex";
+export * from "./getRouteCalculator";
+export * from "./getTracker";
 export * from "./map";
 export * from "./placeIndex";
+export * from "./routeCalculation";
+export * from "./tracker";
 
 // Import resources to register:
 import { Map } from "./map";
 import { PlaceIndex } from "./placeIndex";
+import { RouteCalculation } from "./routeCalculation";
+import { Tracker } from "./tracker";
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +28,10 @@ const _module = {
                 return new Map(name, <any>undefined, { urn })
             case "aws:location/placeIndex:PlaceIndex":
                 return new PlaceIndex(name, <any>undefined, { urn })
+            case "aws:location/routeCalculation:RouteCalculation":
+                return new RouteCalculation(name, <any>undefined, { urn })
+            case "aws:location/tracker:Tracker":
+                return new Tracker(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -29,3 +39,5 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "location/map", _module)
 pulumi.runtime.registerResourceModule("aws", "location/placeIndex", _module)
+pulumi.runtime.registerResourceModule("aws", "location/routeCalculation", _module)
+pulumi.runtime.registerResourceModule("aws", "location/tracker", _module)

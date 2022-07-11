@@ -70,6 +70,21 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     * 
+     */
+    @Import(name="deleteLambda")
+    private @Nullable Output<Boolean> deleteLambda;
+
+    /**
+     * @return Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> deleteLambda() {
+        return Optional.ofNullable(this.deleteLambda);
+    }
+
+    /**
      * ARN of the Lambda function that is used as your canary&#39;s engine.
      * 
      */
@@ -375,6 +390,7 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.artifactConfig = $.artifactConfig;
         this.artifactS3Location = $.artifactS3Location;
+        this.deleteLambda = $.deleteLambda;
         this.engineArn = $.engineArn;
         this.executionRoleArn = $.executionRoleArn;
         this.failureRetentionPeriod = $.failureRetentionPeriod;
@@ -476,6 +492,27 @@ public final class CanaryState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder artifactS3Location(String artifactS3Location) {
             return artifactS3Location(Output.of(artifactS3Location));
+        }
+
+        /**
+         * @param deleteLambda Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteLambda(@Nullable Output<Boolean> deleteLambda) {
+            $.deleteLambda = deleteLambda;
+            return this;
+        }
+
+        /**
+         * @param deleteLambda Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder deleteLambda(Boolean deleteLambda) {
+            return deleteLambda(Output.of(deleteLambda));
         }
 
         /**

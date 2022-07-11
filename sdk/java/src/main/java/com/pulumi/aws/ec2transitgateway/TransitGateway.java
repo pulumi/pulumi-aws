@@ -166,9 +166,17 @@ public class TransitGateway extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> dnsSupport() {
         return Codegen.optional(this.dnsSupport);
     }
+    /**
+     * Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
     @Export(name="multicastSupport", type=String.class, parameters={})
     private Output</* @Nullable */ String> multicastSupport;
 
+    /**
+     * @return Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+     * 
+     */
     public Output<Optional<String>> multicastSupport() {
         return Codegen.optional(this.multicastSupport);
     }

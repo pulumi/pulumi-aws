@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following example shows how to get a EC2 Key Pair from its name.
+        /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -31,6 +31,7 @@ namespace Pulumi.Aws.Ec2
         ///         var example = Output.Create(Aws.Ec2.GetKeyPair.InvokeAsync(new Aws.Ec2.GetKeyPairArgs
         ///         {
         ///             KeyName = "test",
+        ///             IncludePublicKey = true,
         ///             Filters = 
         ///             {
         ///                 new Aws.Ec2.Inputs.GetKeyPairFilterArgs
@@ -69,7 +70,7 @@ namespace Pulumi.Aws.Ec2
         /// ## Example Usage
         /// {{% example %}}
         /// 
-        /// The following example shows how to get a EC2 Key Pair from its name.
+        /// The following example shows how to get a EC2 Key Pair including the public key material from its name.
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -82,6 +83,7 @@ namespace Pulumi.Aws.Ec2
         ///         var example = Output.Create(Aws.Ec2.GetKeyPair.InvokeAsync(new Aws.Ec2.GetKeyPairArgs
         ///         {
         ///             KeyName = "test",
+        ///             IncludePublicKey = true,
         ///             Filters = 
         ///             {
         ///                 new Aws.Ec2.Inputs.GetKeyPairFilterArgs
@@ -130,6 +132,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// Whether to include the public key material in the response.
+        /// </summary>
+        [Input("includePublicKey")]
+        public bool? IncludePublicKey { get; set; }
+
+        /// <summary>
         /// The Key Pair name.
         /// </summary>
         [Input("keyName")]
@@ -173,6 +181,12 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// Whether to include the public key material in the response.
+        /// </summary>
+        [Input("includePublicKey")]
+        public Input<bool>? IncludePublicKey { get; set; }
+
+        /// <summary>
         /// The Key Pair name.
         /// </summary>
         [Input("keyName")]
@@ -209,6 +223,10 @@ namespace Pulumi.Aws.Ec2
         /// The ARN of the Key Pair.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The timestamp for when the key pair was created in ISO 8601 format.
+        /// </summary>
+        public readonly string CreateTime;
         public readonly ImmutableArray<Outputs.GetKeyPairFilterResult> Filters;
         /// <summary>
         /// The SHA-1 digest of the DER encoded private key.
@@ -218,8 +236,17 @@ namespace Pulumi.Aws.Ec2
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly bool? IncludePublicKey;
         public readonly string? KeyName;
         public readonly string? KeyPairId;
+        /// <summary>
+        /// The type of key pair.
+        /// </summary>
+        public readonly string KeyType;
+        /// <summary>
+        /// The public key material.
+        /// </summary>
+        public readonly string PublicKey;
         /// <summary>
         /// Any tags assigned to the Key Pair.
         /// </summary>
@@ -229,24 +256,36 @@ namespace Pulumi.Aws.Ec2
         private GetKeyPairResult(
             string arn,
 
+            string createTime,
+
             ImmutableArray<Outputs.GetKeyPairFilterResult> filters,
 
             string fingerprint,
 
             string id,
 
+            bool? includePublicKey,
+
             string? keyName,
 
             string? keyPairId,
 
+            string keyType,
+
+            string publicKey,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
+            CreateTime = createTime;
             Filters = filters;
             Fingerprint = fingerprint;
             Id = id;
+            IncludePublicKey = includePublicKey;
             KeyName = keyName;
             KeyPairId = keyPairId;
+            KeyType = keyType;
+            PublicKey = publicKey;
             Tags = tags;
         }
     }

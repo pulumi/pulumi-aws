@@ -54,7 +54,7 @@ type Revision struct {
 	DataSetId pulumi.StringOutput `pulumi:"dataSetId"`
 	// The Id of the revision.
 	RevisionId pulumi.StringOutput `pulumi:"revisionId"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -100,7 +100,7 @@ type revisionState struct {
 	DataSetId *string `pulumi:"dataSetId"`
 	// The Id of the revision.
 	RevisionId *string `pulumi:"revisionId"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -115,7 +115,7 @@ type RevisionState struct {
 	DataSetId pulumi.StringPtrInput
 	// The Id of the revision.
 	RevisionId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -130,7 +130,7 @@ type revisionArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The dataset id.
 	DataSetId string `pulumi:"dataSetId"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -140,7 +140,7 @@ type RevisionArgs struct {
 	Comment pulumi.StringPtrInput
 	// The dataset id.
 	DataSetId pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -251,7 +251,7 @@ func (o RevisionOutput) RevisionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.RevisionId }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o RevisionOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

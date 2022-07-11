@@ -270,6 +270,20 @@ public class VpcEndpointService extends com.pulumi.resources.CustomResource {
         return this.state;
     }
     /**
+     * The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * 
+     */
+    @Export(name="supportedIpAddressTypes", type=List.class, parameters={String.class})
+    private Output<List<String>> supportedIpAddressTypes;
+
+    /**
+     * @return The supported IP address types. The possible values are `ipv4` and `ipv6`.
+     * 
+     */
+    public Output<List<String>> supportedIpAddressTypes() {
+        return this.supportedIpAddressTypes;
+    }
+    /**
      * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

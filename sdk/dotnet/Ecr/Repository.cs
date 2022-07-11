@@ -59,6 +59,13 @@ namespace Pulumi.Aws.Ecr
         public Output<ImmutableArray<Outputs.RepositoryEncryptionConfiguration>> EncryptionConfigurations { get; private set; } = null!;
 
         /// <summary>
+        /// If `true`, will delete the repository even if it contains images.
+        /// Defaults to `false`.
+        /// </summary>
+        [Output("forceDelete")]
+        public Output<bool?> ForceDelete { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         /// </summary>
         [Output("imageScanningConfiguration")]
@@ -159,6 +166,13 @@ namespace Pulumi.Aws.Ecr
         }
 
         /// <summary>
+        /// If `true`, will delete the repository even if it contains images.
+        /// Defaults to `false`.
+        /// </summary>
+        [Input("forceDelete")]
+        public Input<bool>? ForceDelete { get; set; }
+
+        /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         /// </summary>
         [Input("imageScanningConfiguration")]
@@ -212,6 +226,13 @@ namespace Pulumi.Aws.Ecr
             get => _encryptionConfigurations ?? (_encryptionConfigurations = new InputList<Inputs.RepositoryEncryptionConfigurationGetArgs>());
             set => _encryptionConfigurations = value;
         }
+
+        /// <summary>
+        /// If `true`, will delete the repository even if it contains images.
+        /// Defaults to `false`.
+        /// </summary>
+        [Input("forceDelete")]
+        public Input<bool>? ForceDelete { get; set; }
 
         /// <summary>
         /// Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.

@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.VpcEndpointArgs;
 import com.pulumi.aws.ec2.inputs.VpcEndpointState;
 import com.pulumi.aws.ec2.outputs.VpcEndpointDnsEntry;
+import com.pulumi.aws.ec2.outputs.VpcEndpointDnsOptions;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -193,6 +194,34 @@ public class VpcEndpoint extends com.pulumi.resources.CustomResource {
      */
     public Output<List<VpcEndpointDnsEntry>> dnsEntries() {
         return this.dnsEntries;
+    }
+    /**
+     * The DNS options for the endpoint. See dns_options below.
+     * 
+     */
+    @Export(name="dnsOptions", type=VpcEndpointDnsOptions.class, parameters={})
+    private Output<VpcEndpointDnsOptions> dnsOptions;
+
+    /**
+     * @return The DNS options for the endpoint. See dns_options below.
+     * 
+     */
+    public Output<VpcEndpointDnsOptions> dnsOptions() {
+        return this.dnsOptions;
+    }
+    /**
+     * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     * 
+     */
+    @Export(name="ipAddressType", type=String.class, parameters={})
+    private Output<String> ipAddressType;
+
+    /**
+     * @return The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     * 
+     */
+    public Output<String> ipAddressType() {
+        return this.ipAddressType;
     }
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.

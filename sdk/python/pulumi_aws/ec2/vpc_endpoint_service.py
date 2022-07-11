@@ -20,6 +20,7 @@ class VpcEndpointServiceArgs:
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_dns_name: Optional[pulumi.Input[str]] = None,
+                 supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a VpcEndpointService resource.
@@ -28,6 +29,7 @@ class VpcEndpointServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -39,6 +41,8 @@ class VpcEndpointServiceArgs:
             pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
         if private_dns_name is not None:
             pulumi.set(__self__, "private_dns_name", private_dns_name)
+        if supported_ip_address_types is not None:
+            pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -103,6 +107,18 @@ class VpcEndpointServiceArgs:
         pulumi.set(self, "private_dns_name", value)
 
     @property
+    @pulumi.getter(name="supportedIpAddressTypes")
+    def supported_ip_address_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        """
+        return pulumi.get(self, "supported_ip_address_types")
+
+    @supported_ip_address_types.setter
+    def supported_ip_address_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_ip_address_types", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -131,6 +147,7 @@ class _VpcEndpointServiceState:
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_type: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -148,6 +165,7 @@ class _VpcEndpointServiceState:
         :param pulumi.Input[str] service_name: The service name.
         :param pulumi.Input[str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
@@ -177,6 +195,8 @@ class _VpcEndpointServiceState:
             pulumi.set(__self__, "service_type", service_type)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if supported_ip_address_types is not None:
+            pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -339,6 +359,18 @@ class _VpcEndpointServiceState:
         pulumi.set(self, "state", value)
 
     @property
+    @pulumi.getter(name="supportedIpAddressTypes")
+    def supported_ip_address_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        """
+        return pulumi.get(self, "supported_ip_address_types")
+
+    @supported_ip_address_types.setter
+    def supported_ip_address_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "supported_ip_address_types", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -373,6 +405,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_dns_name: Optional[pulumi.Input[str]] = None,
+                 supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -422,6 +455,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
         :param pulumi.Input[str] private_dns_name: The private DNS name for the service.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -490,6 +524,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_dns_name: Optional[pulumi.Input[str]] = None,
+                 supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -510,6 +545,7 @@ class VpcEndpointService(pulumi.CustomResource):
             __props__.__dict__["gateway_load_balancer_arns"] = gateway_load_balancer_arns
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
             __props__.__dict__["private_dns_name"] = private_dns_name
+            __props__.__dict__["supported_ip_address_types"] = supported_ip_address_types
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["availability_zones"] = None
@@ -543,6 +579,7 @@ class VpcEndpointService(pulumi.CustomResource):
             service_name: Optional[pulumi.Input[str]] = None,
             service_type: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
+            supported_ip_address_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'VpcEndpointService':
         """
@@ -565,6 +602,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[str] service_name: The service name.
         :param pulumi.Input[str] service_type: The service type, `Gateway` or `Interface`.
         :param pulumi.Input[str] state: Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_ip_address_types: The supported IP address types. The possible values are `ipv4` and `ipv6`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
@@ -585,6 +623,7 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__.__dict__["service_name"] = service_name
         __props__.__dict__["service_type"] = service_type
         __props__.__dict__["state"] = state
+        __props__.__dict__["supported_ip_address_types"] = supported_ip_address_types
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return VpcEndpointService(resource_name, opts=opts, __props__=__props__)
@@ -692,6 +731,14 @@ class VpcEndpointService(pulumi.CustomResource):
         Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="supportedIpAddressTypes")
+    def supported_ip_address_types(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The supported IP address types. The possible values are `ipv4` and `ipv6`.
+        """
+        return pulumi.get(self, "supported_ip_address_types")
 
     @property
     @pulumi.getter

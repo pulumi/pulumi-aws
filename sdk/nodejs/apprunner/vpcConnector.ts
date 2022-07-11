@@ -28,10 +28,10 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Runner vpc connector can be imported by using the `vpc_connector_name`, e.g.,
+ * App Runner vpc connector can be imported by using the `arn`, e.g.,
  *
  * ```sh
- *  $ pulumi import aws:apprunner/vpcConnector:VpcConnector vpc_connector_name
+ *  $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
  * ```
  */
 export class VpcConnector extends pulumi.CustomResource {
@@ -76,7 +76,7 @@ export class VpcConnector extends pulumi.CustomResource {
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
-     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -150,7 +150,7 @@ export interface VpcConnectorState {
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -176,7 +176,7 @@ export interface VpcConnectorArgs {
      */
     subnets: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

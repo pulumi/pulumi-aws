@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Map{}
 	case "aws:location/placeIndex:PlaceIndex":
 		r = &PlaceIndex{}
+	case "aws:location/routeCalculation:RouteCalculation":
+		r = &RouteCalculation{}
+	case "aws:location/tracker:Tracker":
+		r = &Tracker{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -46,6 +50,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"location/placeIndex",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"location/routeCalculation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"location/tracker",
 		&module{version},
 	)
 }

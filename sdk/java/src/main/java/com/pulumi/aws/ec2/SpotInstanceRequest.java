@@ -15,6 +15,7 @@ import com.pulumi.aws.ec2.outputs.SpotInstanceRequestLaunchTemplate;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestMaintenanceOptions;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestMetadataOptions;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestNetworkInterface;
+import com.pulumi.aws.ec2.outputs.SpotInstanceRequestPrivateDnsNameOptions;
 import com.pulumi.aws.ec2.outputs.SpotInstanceRequestRootBlockDevice;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -190,18 +191,32 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
         return this.cpuThreadsPerCore;
     }
     /**
-     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     * Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
     @Export(name="creditSpecification", type=SpotInstanceRequestCreditSpecification.class, parameters={})
     private Output</* @Nullable */ SpotInstanceRequestCreditSpecification> creditSpecification;
 
     /**
-     * @return Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+     * @return Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
      * 
      */
     public Output<Optional<SpotInstanceRequestCreditSpecification>> creditSpecification() {
         return Codegen.optional(this.creditSpecification);
+    }
+    /**
+     * If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * 
+     */
+    @Export(name="disableApiStop", type=Boolean.class, parameters={})
+    private Output<Boolean> disableApiStop;
+
+    /**
+     * @return If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+     * 
+     */
+    public Output<Boolean> disableApiStop() {
+        return this.disableApiStop;
     }
     /**
      * If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -570,6 +585,20 @@ public class SpotInstanceRequest extends com.pulumi.resources.CustomResource {
      */
     public Output<String> privateDns() {
         return this.privateDns;
+    }
+    /**
+     * The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * 
+     */
+    @Export(name="privateDnsNameOptions", type=SpotInstanceRequestPrivateDnsNameOptions.class, parameters={})
+    private Output<SpotInstanceRequestPrivateDnsNameOptions> privateDnsNameOptions;
+
+    /**
+     * @return The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+     * 
+     */
+    public Output<SpotInstanceRequestPrivateDnsNameOptions> privateDnsNameOptions() {
+        return this.privateDnsNameOptions;
     }
     /**
      * Private IP address to associate with the instance in a VPC.

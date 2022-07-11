@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following example shows how to get a EC2 Key Pair from its name.
+ * The following example shows how to get a EC2 Key Pair including the public key material from its name.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ec2.getKeyPair({
  *     keyName: "test",
+ *     includePublicKey: true,
  *     filters: [{
  *         name: "tag:Component",
  *         values: ["web"],
@@ -37,6 +38,7 @@ export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:ec2/getKeyPair:getKeyPair", {
         "filters": args.filters,
+        "includePublicKey": args.includePublicKey,
         "keyName": args.keyName,
         "keyPairId": args.keyPairId,
         "tags": args.tags,
@@ -51,6 +53,10 @@ export interface GetKeyPairArgs {
      * Custom filter block as described below.
      */
     filters?: inputs.ec2.GetKeyPairFilter[];
+    /**
+     * Whether to include the public key material in the response.
+     */
+    includePublicKey?: boolean;
     /**
      * The Key Pair name.
      */
@@ -73,6 +79,10 @@ export interface GetKeyPairResult {
      * The ARN of the Key Pair.
      */
     readonly arn: string;
+    /**
+     * The timestamp for when the key pair was created in ISO 8601 format.
+     */
+    readonly createTime: string;
     readonly filters?: outputs.ec2.GetKeyPairFilter[];
     /**
      * The SHA-1 digest of the DER encoded private key.
@@ -82,8 +92,17 @@ export interface GetKeyPairResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly includePublicKey?: boolean;
     readonly keyName?: string;
     readonly keyPairId?: string;
+    /**
+     * The type of key pair.
+     */
+    readonly keyType: string;
+    /**
+     * The public key material.
+     */
+    readonly publicKey: string;
     /**
      * Any tags assigned to the Key Pair.
      */
@@ -102,6 +121,10 @@ export interface GetKeyPairOutputArgs {
      * Custom filter block as described below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetKeyPairFilterArgs>[]>;
+    /**
+     * Whether to include the public key material in the response.
+     */
+    includePublicKey?: pulumi.Input<boolean>;
     /**
      * The Key Pair name.
      */

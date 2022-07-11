@@ -80,6 +80,8 @@ type LookupDedicatedHostResult struct {
 	InstanceFamily string `pulumi:"instanceFamily"`
 	// The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
 	InstanceType string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+	OutpostArn string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId string `pulumi:"ownerId"`
 	// The number of sockets on the Dedicated Host.
@@ -176,6 +178,11 @@ func (o LookupDedicatedHostResultOutput) InstanceFamily() pulumi.StringOutput {
 // The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
 func (o LookupDedicatedHostResultOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+func (o LookupDedicatedHostResultOutput) OutpostArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupDedicatedHostResult) string { return v.OutpostArn }).(pulumi.StringOutput)
 }
 
 // The ID of the AWS account that owns the Dedicated Host.

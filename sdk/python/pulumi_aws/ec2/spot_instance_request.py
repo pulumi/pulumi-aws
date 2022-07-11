@@ -23,6 +23,7 @@ class SpotInstanceRequestArgs:
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']] = None,
+                 disable_api_stop: Optional[pulumi.Input[bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEbsBlockDeviceArgs']]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
@@ -46,6 +47,7 @@ class SpotInstanceRequestArgs:
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  placement_partition_number: Optional[pulumi.Input[int]] = None,
+                 private_dns_name_options: Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -75,7 +77,8 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEbsBlockDeviceArgs']]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
@@ -101,6 +104,7 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
         :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        :param pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
@@ -139,6 +143,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
             pulumi.set(__self__, "credit_specification", credit_specification)
+        if disable_api_stop is not None:
+            pulumi.set(__self__, "disable_api_stop", disable_api_stop)
         if disable_api_termination is not None:
             pulumi.set(__self__, "disable_api_termination", disable_api_termination)
         if ebs_block_devices is not None:
@@ -185,6 +191,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "placement_group", placement_group)
         if placement_partition_number is not None:
             pulumi.set(__self__, "placement_partition_number", placement_partition_number)
+        if private_dns_name_options is not None:
+            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if private_ip is not None:
             pulumi.set(__self__, "private_ip", private_ip)
         if root_block_device is not None:
@@ -312,13 +320,25 @@ class SpotInstanceRequestArgs:
     @pulumi.getter(name="creditSpecification")
     def credit_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']]:
         """
-        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         """
         return pulumi.get(self, "credit_specification")
 
     @credit_specification.setter
     def credit_specification(self, value: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']]):
         pulumi.set(self, "credit_specification", value)
+
+    @property
+    @pulumi.getter(name="disableApiStop")
+    def disable_api_stop(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        """
+        return pulumi.get(self, "disable_api_stop")
+
+    @disable_api_stop.setter
+    def disable_api_stop(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_api_stop", value)
 
     @property
     @pulumi.getter(name="disableApiTermination")
@@ -599,6 +619,18 @@ class SpotInstanceRequestArgs:
         pulumi.set(self, "placement_partition_number", value)
 
     @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']]:
+        """
+        The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        """
+        return pulumi.get(self, "private_dns_name_options")
+
+    @private_dns_name_options.setter
+    def private_dns_name_options(self, value: Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']]):
+        pulumi.set(self, "private_dns_name_options", value)
+
+    @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[str]]:
         """
@@ -830,6 +862,7 @@ class _SpotInstanceRequestState:
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']] = None,
+                 disable_api_stop: Optional[pulumi.Input[bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEbsBlockDeviceArgs']]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
@@ -858,6 +891,7 @@ class _SpotInstanceRequestState:
                  placement_partition_number: Optional[pulumi.Input[int]] = None,
                  primary_network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_dns: Optional[pulumi.Input[str]] = None,
+                 private_dns_name_options: Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  public_dns: Optional[pulumi.Input[str]] = None,
                  public_ip: Optional[pulumi.Input[str]] = None,
@@ -893,7 +927,8 @@ class _SpotInstanceRequestState:
         :param pulumi.Input['SpotInstanceRequestCapacityReservationSpecificationArgs'] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input['SpotInstanceRequestCreditSpecificationArgs'] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestEbsBlockDeviceArgs']]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
@@ -922,6 +957,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[str] private_dns: The private DNS name assigned to the instance. Can only be
                used inside the Amazon EC2, and only available if you've enabled DNS hostnames
                for your VPC
+        :param pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs'] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
                is only available if you've enabled DNS hostnames for your VPC
@@ -974,6 +1010,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "cpu_threads_per_core", cpu_threads_per_core)
         if credit_specification is not None:
             pulumi.set(__self__, "credit_specification", credit_specification)
+        if disable_api_stop is not None:
+            pulumi.set(__self__, "disable_api_stop", disable_api_stop)
         if disable_api_termination is not None:
             pulumi.set(__self__, "disable_api_termination", disable_api_termination)
         if ebs_block_devices is not None:
@@ -1030,6 +1068,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "primary_network_interface_id", primary_network_interface_id)
         if private_dns is not None:
             pulumi.set(__self__, "private_dns", private_dns)
+        if private_dns_name_options is not None:
+            pulumi.set(__self__, "private_dns_name_options", private_dns_name_options)
         if private_ip is not None:
             pulumi.set(__self__, "private_ip", private_ip)
         if public_dns is not None:
@@ -1178,13 +1218,25 @@ class _SpotInstanceRequestState:
     @pulumi.getter(name="creditSpecification")
     def credit_specification(self) -> Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']]:
         """
-        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         """
         return pulumi.get(self, "credit_specification")
 
     @credit_specification.setter
     def credit_specification(self, value: Optional[pulumi.Input['SpotInstanceRequestCreditSpecificationArgs']]):
         pulumi.set(self, "credit_specification", value)
+
+    @property
+    @pulumi.getter(name="disableApiStop")
+    def disable_api_stop(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        """
+        return pulumi.get(self, "disable_api_stop")
+
+    @disable_api_stop.setter
+    def disable_api_stop(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "disable_api_stop", value)
 
     @property
     @pulumi.getter(name="disableApiTermination")
@@ -1515,6 +1567,18 @@ class _SpotInstanceRequestState:
         pulumi.set(self, "private_dns", value)
 
     @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']]:
+        """
+        The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        """
+        return pulumi.get(self, "private_dns_name_options")
+
+    @private_dns_name_options.setter
+    def private_dns_name_options(self, value: Optional[pulumi.Input['SpotInstanceRequestPrivateDnsNameOptionsArgs']]):
+        pulumi.set(self, "private_dns_name_options", value)
+
+    @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1823,6 +1887,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']]] = None,
+                 disable_api_stop: Optional[pulumi.Input[bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
@@ -1846,6 +1911,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  placement_partition_number: Optional[pulumi.Input[int]] = None,
+                 private_dns_name_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestPrivateDnsNameOptionsArgs']]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1916,7 +1982,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
@@ -1942,6 +2009,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
         :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestPrivateDnsNameOptionsArgs']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
@@ -2033,6 +2101,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  cpu_core_count: Optional[pulumi.Input[int]] = None,
                  cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
                  credit_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']]] = None,
+                 disable_api_stop: Optional[pulumi.Input[bool]] = None,
                  disable_api_termination: Optional[pulumi.Input[bool]] = None,
                  ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]]] = None,
                  ebs_optimized: Optional[pulumi.Input[bool]] = None,
@@ -2056,6 +2125,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
                  placement_partition_number: Optional[pulumi.Input[int]] = None,
+                 private_dns_name_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestPrivateDnsNameOptionsArgs']]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2094,6 +2164,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["cpu_core_count"] = cpu_core_count
             __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
             __props__.__dict__["credit_specification"] = credit_specification
+            __props__.__dict__["disable_api_stop"] = disable_api_stop
             __props__.__dict__["disable_api_termination"] = disable_api_termination
             __props__.__dict__["ebs_block_devices"] = ebs_block_devices
             __props__.__dict__["ebs_optimized"] = ebs_optimized
@@ -2117,6 +2188,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group"] = placement_group
             __props__.__dict__["placement_partition_number"] = placement_partition_number
+            __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["private_ip"] = private_ip
             __props__.__dict__["root_block_device"] = root_block_device
             __props__.__dict__["secondary_private_ips"] = secondary_private_ips
@@ -2166,6 +2238,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             cpu_core_count: Optional[pulumi.Input[int]] = None,
             cpu_threads_per_core: Optional[pulumi.Input[int]] = None,
             credit_specification: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']]] = None,
+            disable_api_stop: Optional[pulumi.Input[bool]] = None,
             disable_api_termination: Optional[pulumi.Input[bool]] = None,
             ebs_block_devices: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]]] = None,
             ebs_optimized: Optional[pulumi.Input[bool]] = None,
@@ -2194,6 +2267,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             placement_partition_number: Optional[pulumi.Input[int]] = None,
             primary_network_interface_id: Optional[pulumi.Input[str]] = None,
             private_dns: Optional[pulumi.Input[str]] = None,
+            private_dns_name_options: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestPrivateDnsNameOptionsArgs']]] = None,
             private_ip: Optional[pulumi.Input[str]] = None,
             public_dns: Optional[pulumi.Input[str]] = None,
             public_ip: Optional[pulumi.Input[str]] = None,
@@ -2234,7 +2308,8 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCapacityReservationSpecificationArgs']] capacity_reservation_specification: Describes an instance's Capacity Reservation targeting option. See Capacity Reservation Specification below for more details.
         :param pulumi.Input[int] cpu_core_count: Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
         :param pulumi.Input[int] cpu_threads_per_core: If set to to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
-        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestCreditSpecificationArgs']] credit_specification: Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        :param pulumi.Input[bool] disable_api_stop: If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
         :param pulumi.Input[bool] disable_api_termination: If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestEbsBlockDeviceArgs']]]] ebs_block_devices: One or more configuration blocks with additional EBS block devices to attach to the instance. Block device configurations only apply on resource creation. See Block Devices below for details on attributes and drift detection. When accessing this as an attribute reference, it is a set of objects.
         :param pulumi.Input[bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized. Note that if this is not set on an instance type that is optimized by default then this will show as disabled but if the instance type is optimized by default then there is no need to set this and there is no effect to disabling it. See the [EBS Optimized section](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html) of the AWS User Guide for more information.
@@ -2263,6 +2338,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] private_dns: The private DNS name assigned to the instance. Can only be
                used inside the Amazon EC2, and only available if you've enabled DNS hostnames
                for your VPC
+        :param pulumi.Input[pulumi.InputType['SpotInstanceRequestPrivateDnsNameOptionsArgs']] private_dns_name_options: The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[str] public_dns: The public DNS name assigned to the instance. For EC2-VPC, this
                is only available if you've enabled DNS hostnames for your VPC
@@ -2310,6 +2386,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["cpu_core_count"] = cpu_core_count
         __props__.__dict__["cpu_threads_per_core"] = cpu_threads_per_core
         __props__.__dict__["credit_specification"] = credit_specification
+        __props__.__dict__["disable_api_stop"] = disable_api_stop
         __props__.__dict__["disable_api_termination"] = disable_api_termination
         __props__.__dict__["ebs_block_devices"] = ebs_block_devices
         __props__.__dict__["ebs_optimized"] = ebs_optimized
@@ -2338,6 +2415,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["placement_partition_number"] = placement_partition_number
         __props__.__dict__["primary_network_interface_id"] = primary_network_interface_id
         __props__.__dict__["private_dns"] = private_dns
+        __props__.__dict__["private_dns_name_options"] = private_dns_name_options
         __props__.__dict__["private_ip"] = private_ip
         __props__.__dict__["public_dns"] = public_dns
         __props__.__dict__["public_ip"] = public_ip
@@ -2431,9 +2509,17 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter(name="creditSpecification")
     def credit_specification(self) -> pulumi.Output[Optional['outputs.SpotInstanceRequestCreditSpecification']]:
         """
-        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         """
         return pulumi.get(self, "credit_specification")
+
+    @property
+    @pulumi.getter(name="disableApiStop")
+    def disable_api_stop(self) -> pulumi.Output[bool]:
+        """
+        If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        """
+        return pulumi.get(self, "disable_api_stop")
 
     @property
     @pulumi.getter(name="disableApiTermination")
@@ -2650,6 +2736,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         for your VPC
         """
         return pulumi.get(self, "private_dns")
+
+    @property
+    @pulumi.getter(name="privateDnsNameOptions")
+    def private_dns_name_options(self) -> pulumi.Output['outputs.SpotInstanceRequestPrivateDnsNameOptions']:
+        """
+        The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        """
+        return pulumi.get(self, "private_dns_name_options")
 
     @property
     @pulumi.getter(name="privateIp")

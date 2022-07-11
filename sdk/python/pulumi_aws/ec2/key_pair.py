@@ -85,6 +85,7 @@ class _KeyPairState:
                  key_name: Optional[pulumi.Input[str]] = None,
                  key_name_prefix: Optional[pulumi.Input[str]] = None,
                  key_pair_id: Optional[pulumi.Input[str]] = None,
+                 key_type: Optional[pulumi.Input[str]] = None,
                  public_key: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -94,6 +95,7 @@ class _KeyPairState:
         :param pulumi.Input[str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         :param pulumi.Input[str] key_name: The key pair name.
         :param pulumi.Input[str] key_pair_id: The key pair ID.
+        :param pulumi.Input[str] key_type: The type of key pair.
         :param pulumi.Input[str] public_key: The public key material.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -108,6 +110,8 @@ class _KeyPairState:
             pulumi.set(__self__, "key_name_prefix", key_name_prefix)
         if key_pair_id is not None:
             pulumi.set(__self__, "key_pair_id", key_pair_id)
+        if key_type is not None:
+            pulumi.set(__self__, "key_type", key_type)
         if public_key is not None:
             pulumi.set(__self__, "public_key", public_key)
         if tags is not None:
@@ -171,6 +175,18 @@ class _KeyPairState:
     @key_pair_id.setter
     def key_pair_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_pair_id", value)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of key pair.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "key_type", value)
 
     @property
     @pulumi.getter(name="publicKey")
@@ -327,6 +343,7 @@ class KeyPair(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["fingerprint"] = None
             __props__.__dict__["key_pair_id"] = None
+            __props__.__dict__["key_type"] = None
             __props__.__dict__["tags_all"] = None
         super(KeyPair, __self__).__init__(
             'aws:ec2/keyPair:KeyPair',
@@ -343,6 +360,7 @@ class KeyPair(pulumi.CustomResource):
             key_name: Optional[pulumi.Input[str]] = None,
             key_name_prefix: Optional[pulumi.Input[str]] = None,
             key_pair_id: Optional[pulumi.Input[str]] = None,
+            key_type: Optional[pulumi.Input[str]] = None,
             public_key: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'KeyPair':
@@ -357,6 +375,7 @@ class KeyPair(pulumi.CustomResource):
         :param pulumi.Input[str] fingerprint: The MD5 public key fingerprint as specified in section 4 of RFC 4716.
         :param pulumi.Input[str] key_name: The key pair name.
         :param pulumi.Input[str] key_pair_id: The key pair ID.
+        :param pulumi.Input[str] key_type: The type of key pair.
         :param pulumi.Input[str] public_key: The public key material.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -370,6 +389,7 @@ class KeyPair(pulumi.CustomResource):
         __props__.__dict__["key_name"] = key_name
         __props__.__dict__["key_name_prefix"] = key_name_prefix
         __props__.__dict__["key_pair_id"] = key_pair_id
+        __props__.__dict__["key_type"] = key_type
         __props__.__dict__["public_key"] = public_key
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -411,6 +431,14 @@ class KeyPair(pulumi.CustomResource):
         The key pair ID.
         """
         return pulumi.get(self, "key_pair_id")
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Output[str]:
+        """
+        The type of key pair.
+        """
+        return pulumi.get(self, "key_type")
 
     @property
     @pulumi.getter(name="publicKey")

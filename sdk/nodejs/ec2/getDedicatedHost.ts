@@ -91,6 +91,10 @@ export interface GetDedicatedHostResult {
      */
     readonly instanceType: string;
     /**
+     * The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+     */
+    readonly outpostArn: string;
+    /**
      * The ID of the AWS account that owns the Dedicated Host.
      */
     readonly ownerId: string;

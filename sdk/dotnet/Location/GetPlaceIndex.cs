@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Location
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the map.
+        /// Key-value map of resource tags for the place index.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Location
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the map.
+        /// Key-value map of resource tags for the place index.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -151,11 +151,11 @@ namespace Pulumi.Aws.Location
         public readonly string IndexArn;
         public readonly string IndexName;
         /// <summary>
-        /// Key-value map of resource tags for the map.
+        /// Key-value map of resource tags for the place index.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The timestamp for when the place index resource was last update in ISO 8601.
+        /// The timestamp for when the place index resource was last updated in ISO 8601 format.
         /// </summary>
         public readonly string UpdateTime;
 

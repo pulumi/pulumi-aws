@@ -99,6 +99,61 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### AWS Site to Site Private VPN
+ * ```java
+ * package generated_program;
+ * 
+ * import java.util.*;
+ * import java.io.*;
+ * import java.nio.*;
+ * import com.pulumi.*;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleGateway = new Gateway(&#34;exampleGateway&#34;, GatewayArgs.builder()        
+ *             .amazonSideAsn(&#34;64512&#34;)
+ *             .build());
+ * 
+ *         var exampleTransitGateway = new TransitGateway(&#34;exampleTransitGateway&#34;, TransitGatewayArgs.builder()        
+ *             .amazonSideAsn(&#34;64513&#34;)
+ *             .description(&#34;terraform_ipsec_vpn_example&#34;)
+ *             .transitGatewayCidrBlocks(&#34;10.0.0.0/24&#34;)
+ *             .build());
+ * 
+ *         var exampleCustomerGateway = new CustomerGateway(&#34;exampleCustomerGateway&#34;, CustomerGatewayArgs.builder()        
+ *             .bgpAsn(64514)
+ *             .ipAddress(&#34;10.0.0.1&#34;)
+ *             .type(&#34;ipsec.1&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;terraform_ipsec_vpn_example&#34;))
+ *             .build());
+ * 
+ *         var exampleGatewayAssociation = new GatewayAssociation(&#34;exampleGatewayAssociation&#34;, GatewayAssociationArgs.builder()        
+ *             .dxGatewayId(exampleGateway.id())
+ *             .associatedGatewayId(exampleTransitGateway.id())
+ *             .allowedPrefixes(&#34;10.0.0.0/8&#34;)
+ *             .build());
+ * 
+ *         final var exampleDirectConnectGatewayAttachment = Ec2transitgatewayFunctions.getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs.builder()
+ *             .transitGatewayId(exampleTransitGateway.id())
+ *             .dxGatewayId(exampleGateway.id())
+ *             .build());
+ * 
+ *         var exampleVpnConnection = new VpnConnection(&#34;exampleVpnConnection&#34;, VpnConnectionArgs.builder()        
+ *             .customerGatewayId(exampleCustomerGateway.id())
+ *             .outsideIpAddressType(&#34;PrivateIpv4&#34;)
+ *             .transitGatewayId(exampleTransitGateway.id())
+ *             .transportTransitGatewayAttachmentId(exampleDirectConnectGatewayAttachment.apply(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult).apply(exampleDirectConnectGatewayAttachment -&gt; exampleDirectConnectGatewayAttachment.apply(getDirectConnectGatewayAttachmentResult -&gt; getDirectConnectGatewayAttachmentResult.id())))
+ *             .type(&#34;ipsec.1&#34;)
+ *             .tags(Map.of(&#34;Name&#34;, &#34;terraform_ipsec_vpn_example&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * 
  * ## Import
  * 
@@ -224,6 +279,20 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
         return this.localIpv6NetworkCidr;
     }
     /**
+     * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     * 
+     */
+    @Export(name="outsideIpAddressType", type=String.class, parameters={})
+    private Output<String> outsideIpAddressType;
+
+    /**
+     * @return Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     * 
+     */
+    public Output<String> outsideIpAddressType() {
+        return this.outsideIpAddressType;
+    }
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      * 
      */
@@ -334,6 +403,20 @@ public class VpnConnection extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> transitGatewayId() {
         return Codegen.optional(this.transitGatewayId);
+    }
+    /**
+     * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     * 
+     */
+    @Export(name="transportTransitGatewayAttachmentId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> transportTransitGatewayAttachmentId;
+
+    /**
+     * @return . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     * 
+     */
+    public Output<Optional<String>> transportTransitGatewayAttachmentId() {
+        return Codegen.optional(this.transportTransitGatewayAttachmentId);
     }
     /**
      * The public IP address of the first VPN tunnel.

@@ -62,7 +62,7 @@ type NetworkInsightsPath struct {
 	Source pulumi.StringOutput `pulumi:"source"`
 	// IP address of the source resource.
 	SourceIp pulumi.StringPtrOutput `pulumi:"sourceIp"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -120,7 +120,7 @@ type networkInsightsPathState struct {
 	Source *string `pulumi:"source"`
 	// IP address of the source resource.
 	SourceIp *string `pulumi:"sourceIp"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -141,7 +141,7 @@ type NetworkInsightsPathState struct {
 	Source pulumi.StringPtrInput
 	// IP address of the source resource.
 	SourceIp pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -164,7 +164,7 @@ type networkInsightsPathArgs struct {
 	Source string `pulumi:"source"`
 	// IP address of the source resource.
 	SourceIp *string `pulumi:"sourceIp"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -182,7 +182,7 @@ type NetworkInsightsPathArgs struct {
 	Source pulumi.StringInput
 	// IP address of the source resource.
 	SourceIp pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -308,7 +308,7 @@ func (o NetworkInsightsPathOutput) SourceIp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringPtrOutput { return v.SourceIp }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkInsightsPathOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInsightsPath) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -6,6 +6,8 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./getDnsNamespace";
+export * from "./getHttpNamespace";
+export * from "./getService";
 export * from "./httpNamespace";
 export * from "./instance";
 export * from "./privateDnsNamespace";

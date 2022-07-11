@@ -61,7 +61,7 @@ type Map struct {
 	MapName pulumi.StringOutput    `pulumi:"mapName"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The timestamp for when the map resource was last updated in ISO 8601.
+	// The timestamp for when the map resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
@@ -112,7 +112,7 @@ type mapState struct {
 	MapName *string           `pulumi:"mapName"`
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The timestamp for when the map resource was last updated in ISO 8601.
+	// The timestamp for when the map resource was last updated in ISO 8601 format.
 	UpdateTime *string `pulumi:"updateTime"`
 }
 
@@ -129,7 +129,7 @@ type MapState struct {
 	MapName pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// The timestamp for when the map resource was last updated in ISO 8601.
+	// The timestamp for when the map resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringPtrInput
 }
 
@@ -278,7 +278,7 @@ func (o MapOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The timestamp for when the map resource was last updated in ISO 8601.
+// The timestamp for when the map resource was last updated in ISO 8601 format.
 func (o MapOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Map) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

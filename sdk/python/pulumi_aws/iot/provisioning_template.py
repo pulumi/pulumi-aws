@@ -30,7 +30,7 @@ class ProvisioningTemplateArgs:
         :param pulumi.Input[bool] enabled: True to enable the fleet provisioning template, otherwise false.
         :param pulumi.Input[str] name: The name of the fleet provisioning template.
         :param pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "provisioning_role_arn", provisioning_role_arn)
         pulumi.set(__self__, "template_body", template_body)
@@ -121,7 +121,7 @@ class ProvisioningTemplateArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -152,7 +152,7 @@ class _ProvisioningTemplateState:
         :param pulumi.Input[str] name: The name of the fleet provisioning template.
         :param pulumi.Input['ProvisioningTemplatePreProvisioningHookArgs'] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
         """
@@ -265,7 +265,7 @@ class _ProvisioningTemplateState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -383,7 +383,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the fleet provisioning template.
         :param pulumi.Input[pulumi.InputType['ProvisioningTemplatePreProvisioningHookArgs']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
         """
         ...
@@ -539,7 +539,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the fleet provisioning template.
         :param pulumi.Input[pulumi.InputType['ProvisioningTemplatePreProvisioningHookArgs']] pre_provisioning_hook: Creates a pre-provisioning hook template. Details below.
         :param pulumi.Input[str] provisioning_role_arn: The role ARN for the role associated with the fleet provisioning template. This IoT role grants permission to provision a device.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[str] template_body: The JSON formatted contents of the fleet provisioning template.
         """
@@ -619,7 +619,7 @@ class ProvisioningTemplate(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

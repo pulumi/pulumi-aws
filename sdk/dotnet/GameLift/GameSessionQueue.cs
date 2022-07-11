@@ -29,6 +29,7 @@ namespace Pulumi.Aws.GameLift
     ///                 aws_gamelift_fleet.Us_west_2_fleet.Arn,
     ///                 aws_gamelift_fleet.Eu_central_1_fleet.Arn,
     ///             },
+    ///             NotificationTarget = aws_sns_topic.Game_session_queue_notifications.Arn,
     ///             PlayerLatencyPolicies = 
     ///             {
     ///                 new Aws.GameLift.Inputs.GameSessionQueuePlayerLatencyPolicyArgs
@@ -76,6 +77,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
+        [Output("notificationTarget")]
+        public Output<string?> NotificationTarget { get; private set; } = null!;
 
         /// <summary>
         /// One or more policies used to choose fleet based on player latency. See below.
@@ -165,6 +172,12 @@ namespace Pulumi.Aws.GameLift
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
+        [Input("notificationTarget")]
+        public Input<string>? NotificationTarget { get; set; }
+
         [Input("playerLatencyPolicies")]
         private InputList<Inputs.GameSessionQueuePlayerLatencyPolicyArgs>? _playerLatencyPolicies;
 
@@ -225,6 +238,12 @@ namespace Pulumi.Aws.GameLift
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// An SNS topic ARN that is set up to receive game session placement notifications.
+        /// </summary>
+        [Input("notificationTarget")]
+        public Input<string>? NotificationTarget { get; set; }
 
         [Input("playerLatencyPolicies")]
         private InputList<Inputs.GameSessionQueuePlayerLatencyPolicyGetArgs>? _playerLatencyPolicies;

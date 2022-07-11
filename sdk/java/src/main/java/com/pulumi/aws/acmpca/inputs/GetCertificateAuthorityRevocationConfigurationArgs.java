@@ -4,6 +4,7 @@
 package com.pulumi.aws.acmpca.inputs;
 
 import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs;
+import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
@@ -21,10 +22,18 @@ public final class GetCertificateAuthorityRevocationConfigurationArgs extends co
         return this.crlConfigurations;
     }
 
+    @Import(name="ocspConfigurations", required=true)
+    private Output<List<GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs>> ocspConfigurations;
+
+    public Output<List<GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs>> ocspConfigurations() {
+        return this.ocspConfigurations;
+    }
+
     private GetCertificateAuthorityRevocationConfigurationArgs() {}
 
     private GetCertificateAuthorityRevocationConfigurationArgs(GetCertificateAuthorityRevocationConfigurationArgs $) {
         this.crlConfigurations = $.crlConfigurations;
+        this.ocspConfigurations = $.ocspConfigurations;
     }
 
     public static Builder builder() {
@@ -58,8 +67,22 @@ public final class GetCertificateAuthorityRevocationConfigurationArgs extends co
             return crlConfigurations(List.of(crlConfigurations));
         }
 
+        public Builder ocspConfigurations(Output<List<GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs>> ocspConfigurations) {
+            $.ocspConfigurations = ocspConfigurations;
+            return this;
+        }
+
+        public Builder ocspConfigurations(List<GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs> ocspConfigurations) {
+            return ocspConfigurations(Output.of(ocspConfigurations));
+        }
+
+        public Builder ocspConfigurations(GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs... ocspConfigurations) {
+            return ocspConfigurations(List.of(ocspConfigurations));
+        }
+
         public GetCertificateAuthorityRevocationConfigurationArgs build() {
             $.crlConfigurations = Objects.requireNonNull($.crlConfigurations, "expected parameter 'crlConfigurations' to be non-null");
+            $.ocspConfigurations = Objects.requireNonNull($.ocspConfigurations, "expected parameter 'ocspConfigurations' to be non-null");
             return $;
         }
     }

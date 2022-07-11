@@ -342,6 +342,10 @@ namespace Pulumi.Aws.Ec2
         public readonly string ServiceName;
         public readonly string ServiceType;
         /// <summary>
+        /// The supported IP address types.
+        /// </summary>
+        public readonly ImmutableArray<string> SupportedIpAddressTypes;
+        /// <summary>
         /// A map of tags assigned to the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -378,6 +382,8 @@ namespace Pulumi.Aws.Ec2
 
             string serviceType,
 
+            ImmutableArray<string> supportedIpAddressTypes,
+
             ImmutableDictionary<string, string> tags,
 
             bool vpcEndpointPolicySupported)
@@ -395,6 +401,7 @@ namespace Pulumi.Aws.Ec2
             ServiceId = serviceId;
             ServiceName = serviceName;
             ServiceType = serviceType;
+            SupportedIpAddressTypes = supportedIpAddressTypes;
             Tags = tags;
             VpcEndpointPolicySupported = vpcEndpointPolicySupported;
         }

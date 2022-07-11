@@ -68,7 +68,7 @@ type NetworkProfile struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringOutput `pulumi:"projectArn"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -132,7 +132,7 @@ type networkProfileState struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn *string `pulumi:"projectArn"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -165,7 +165,7 @@ type NetworkProfileState struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -200,7 +200,7 @@ type networkProfileArgs struct {
 	Name *string `pulumi:"name"`
 	// The ARN of the project for the network profile.
 	ProjectArn string `pulumi:"projectArn"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type *string `pulumi:"type"`
@@ -230,7 +230,7 @@ type NetworkProfileArgs struct {
 	Name pulumi.StringPtrInput
 	// The ARN of the project for the network profile.
 	ProjectArn pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of network profile to create. Valid values are listed are `PRIVATE` and `CURATED`.
 	Type pulumi.StringPtrInput
@@ -371,7 +371,7 @@ func (o NetworkProfileOutput) ProjectArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringOutput { return v.ProjectArn }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkProfileOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkProfile) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -45,6 +45,7 @@ import * as apigatewayv2 from "./apigatewayv2";
 import * as appautoscaling from "./appautoscaling";
 import * as appconfig from "./appconfig";
 import * as appflow from "./appflow";
+import * as applicationinsights from "./applicationinsights";
 import * as applicationloadbalancing from "./applicationloadbalancing";
 import * as appmesh from "./appmesh";
 import * as apprunner from "./apprunner";
@@ -165,6 +166,7 @@ import * as route53 from "./route53";
 import * as route53domains from "./route53domains";
 import * as route53recoverycontrol from "./route53recoverycontrol";
 import * as route53recoveryreadiness from "./route53recoveryreadiness";
+import * as rum from "./rum";
 import * as s3 from "./s3";
 import * as s3control from "./s3control";
 import * as s3outposts from "./s3outposts";
@@ -190,6 +192,7 @@ import * as storagegateway from "./storagegateway";
 import * as swf from "./swf";
 import * as synthetics from "./synthetics";
 import * as timestreamwrite from "./timestreamwrite";
+import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as types from "./types";
 import * as waf from "./waf";
@@ -212,6 +215,7 @@ export {
     appautoscaling,
     appconfig,
     appflow,
+    applicationinsights,
     applicationloadbalancing,
     appmesh,
     apprunner,
@@ -332,6 +336,7 @@ export {
     route53domains,
     route53recoverycontrol,
     route53recoveryreadiness,
+    rum,
     s3,
     s3control,
     s3outposts,
@@ -357,6 +362,7 @@ export {
     swf,
     synthetics,
     timestreamwrite,
+    transcribe,
     transfer,
     types,
     waf,

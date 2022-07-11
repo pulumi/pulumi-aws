@@ -251,22 +251,30 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.privateIp);
     }
 
+    /**
+     * Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+     * 
+     */
     @Import(name="privateIpListEnabled")
     private @Nullable Output<Boolean> privateIpListEnabled;
 
+    /**
+     * @return Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+     * 
+     */
     public Optional<Output<Boolean>> privateIpListEnabled() {
         return Optional.ofNullable(this.privateIpListEnabled);
     }
 
     /**
-     * List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
      * 
      */
     @Import(name="privateIpLists")
     private @Nullable Output<List<String>> privateIpLists;
 
     /**
-     * @return List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+     * @return List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
      * 
      */
     public Optional<Output<List<String>>> privateIpLists() {
@@ -349,14 +357,14 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -798,17 +806,29 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
             return privateIp(Output.of(privateIp));
         }
 
+        /**
+         * @param privateIpListEnabled Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateIpListEnabled(@Nullable Output<Boolean> privateIpListEnabled) {
             $.privateIpListEnabled = privateIpListEnabled;
             return this;
         }
 
+        /**
+         * @param privateIpListEnabled Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privateIpListEnabled(Boolean privateIpListEnabled) {
             return privateIpListEnabled(Output.of(privateIpListEnabled));
         }
 
         /**
-         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
          * 
          * @return builder
          * 
@@ -819,7 +839,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
          * 
          * @return builder
          * 
@@ -829,7 +849,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+         * @param privateIpLists List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
          * 
          * @return builder
          * 
@@ -964,7 +984,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -975,7 +995,7 @@ public final class NetworkInterfaceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

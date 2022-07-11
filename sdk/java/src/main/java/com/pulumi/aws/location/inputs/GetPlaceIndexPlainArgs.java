@@ -31,14 +31,14 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Key-value map of resource tags for the map.
+     * Key-value map of resource tags for the place index.
      * 
      */
     @Import(name="tags")
     private @Nullable Map<String,String> tags;
 
     /**
-     * @return Key-value map of resource tags for the map.
+     * @return Key-value map of resource tags for the place index.
      * 
      */
     public Optional<Map<String,String>> tags() {
@@ -82,7 +82,7 @@ public final class GetPlaceIndexPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags Key-value map of resource tags for the map.
+         * @param tags Key-value map of resource tags for the place index.
          * 
          * @return builder
          * 

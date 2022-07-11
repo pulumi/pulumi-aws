@@ -1188,6 +1188,8 @@ type RemediationConfigurationParameter struct {
 	ResourceValue *string `pulumi:"resourceValue"`
 	// Value is static and does not change at run-time.
 	StaticValue *string `pulumi:"staticValue"`
+	// List of static values.
+	StaticValues []string `pulumi:"staticValues"`
 }
 
 // RemediationConfigurationParameterInput is an input type that accepts RemediationConfigurationParameterArgs and RemediationConfigurationParameterOutput values.
@@ -1208,6 +1210,8 @@ type RemediationConfigurationParameterArgs struct {
 	ResourceValue pulumi.StringPtrInput `pulumi:"resourceValue"`
 	// Value is static and does not change at run-time.
 	StaticValue pulumi.StringPtrInput `pulumi:"staticValue"`
+	// List of static values.
+	StaticValues pulumi.StringArrayInput `pulumi:"staticValues"`
 }
 
 func (RemediationConfigurationParameterArgs) ElementType() reflect.Type {
@@ -1274,6 +1278,11 @@ func (o RemediationConfigurationParameterOutput) ResourceValue() pulumi.StringPt
 // Value is static and does not change at run-time.
 func (o RemediationConfigurationParameterOutput) StaticValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationParameter) *string { return v.StaticValue }).(pulumi.StringPtrOutput)
+}
+
+// List of static values.
+func (o RemediationConfigurationParameterOutput) StaticValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RemediationConfigurationParameter) []string { return v.StaticValues }).(pulumi.StringArrayOutput)
 }
 
 type RemediationConfigurationParameterArrayOutput struct{ *pulumi.OutputState }

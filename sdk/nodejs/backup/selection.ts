@@ -64,6 +64,7 @@ import * as utilities from "../utilities";
  * const example = new aws.backup.Selection("example", {
  *     iamRoleArn: aws_iam_role.example.arn,
  *     planId: aws_backup_plan.example.id,
+ *     resources: ["*"],
  *     conditions: [{
  *         stringEquals: [{
  *             key: "aws:ResourceTag/Component",

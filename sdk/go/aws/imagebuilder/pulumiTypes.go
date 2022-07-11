@@ -920,6 +920,8 @@ type DistributionConfigurationDistribution struct {
 	AmiDistributionConfiguration *DistributionConfigurationDistributionAmiDistributionConfiguration `pulumi:"amiDistributionConfiguration"`
 	// Configuration block with container distribution settings. Detailed below.
 	ContainerDistributionConfiguration *DistributionConfigurationDistributionContainerDistributionConfiguration `pulumi:"containerDistributionConfiguration"`
+	// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+	FastLaunchConfigurations []DistributionConfigurationDistributionFastLaunchConfiguration `pulumi:"fastLaunchConfigurations"`
 	// Set of launch template configuration settings that apply to image distribution. Detailed below.
 	LaunchTemplateConfigurations []DistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
@@ -944,6 +946,8 @@ type DistributionConfigurationDistributionArgs struct {
 	AmiDistributionConfiguration DistributionConfigurationDistributionAmiDistributionConfigurationPtrInput `pulumi:"amiDistributionConfiguration"`
 	// Configuration block with container distribution settings. Detailed below.
 	ContainerDistributionConfiguration DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput `pulumi:"containerDistributionConfiguration"`
+	// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+	FastLaunchConfigurations DistributionConfigurationDistributionFastLaunchConfigurationArrayInput `pulumi:"fastLaunchConfigurations"`
 	// Set of launch template configuration settings that apply to image distribution. Detailed below.
 	LaunchTemplateConfigurations DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
@@ -1015,6 +1019,13 @@ func (o DistributionConfigurationDistributionOutput) ContainerDistributionConfig
 	return o.ApplyT(func(v DistributionConfigurationDistribution) *DistributionConfigurationDistributionContainerDistributionConfiguration {
 		return v.ContainerDistributionConfiguration
 	}).(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput)
+}
+
+// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+func (o DistributionConfigurationDistributionOutput) FastLaunchConfigurations() DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistribution) []DistributionConfigurationDistributionFastLaunchConfiguration {
+		return v.FastLaunchConfigurations
+	}).(DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 }
 
 // Set of launch template configuration settings that apply to image distribution. Detailed below.
@@ -1835,6 +1846,465 @@ func (o DistributionConfigurationDistributionContainerDistributionConfigurationT
 		}
 		return &v.Service
 	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfiguration struct {
+	// The account ID that this configuration applies to.
+	AccountId string `pulumi:"accountId"`
+	// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+	Enabled bool `pulumi:"enabled"`
+	// Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+	LaunchTemplate *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate `pulumi:"launchTemplate"`
+	// The maximum number of parallel instances that are launched for creating resources.
+	MaxParallelLaunches *int `pulumi:"maxParallelLaunches"`
+	// Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+	SnapshotConfiguration *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration `pulumi:"snapshotConfiguration"`
+}
+
+// DistributionConfigurationDistributionFastLaunchConfigurationInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationArgs and DistributionConfigurationDistributionFastLaunchConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationInput` via:
+//
+//          DistributionConfigurationDistributionFastLaunchConfigurationArgs{...}
+type DistributionConfigurationDistributionFastLaunchConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionFastLaunchConfigurationOutput() DistributionConfigurationDistributionFastLaunchConfigurationOutput
+	ToDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(context.Context) DistributionConfigurationDistributionFastLaunchConfigurationOutput
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationArgs struct {
+	// The account ID that this configuration applies to.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+	LaunchTemplate DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput `pulumi:"launchTemplate"`
+	// The maximum number of parallel instances that are launched for creating resources.
+	MaxParallelLaunches pulumi.IntPtrInput `pulumi:"maxParallelLaunches"`
+	// Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+	SnapshotConfiguration DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput `pulumi:"snapshotConfiguration"`
+}
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationOutput() DistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationOutput)
+}
+
+// DistributionConfigurationDistributionFastLaunchConfigurationArrayInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationArray and DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationArrayInput` via:
+//
+//          DistributionConfigurationDistributionFastLaunchConfigurationArray{ DistributionConfigurationDistributionFastLaunchConfigurationArgs{...} }
+type DistributionConfigurationDistributionFastLaunchConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput() DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput
+	ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(context.Context) DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationArray []DistributionConfigurationDistributionFastLaunchConfigurationInput
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfigurationDistributionFastLaunchConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationArray) ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput() DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationArray) ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationOutput() DistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return o
+}
+
+// The account ID that this configuration applies to.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) LaunchTemplate() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
+		return v.LaunchTemplate
+	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput)
+}
+
+// The maximum number of parallel instances that are launched for creating resources.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) MaxParallelLaunches() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) *int {
+		return v.MaxParallelLaunches
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationOutput) SnapshotConfiguration() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfiguration) *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
+		return v.SnapshotConfiguration
+	}).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DistributionConfigurationDistributionFastLaunchConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput() DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) Index(i pulumi.IntInput) DistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DistributionConfigurationDistributionFastLaunchConfiguration {
+		return vs[0].([]DistributionConfigurationDistributionFastLaunchConfiguration)[vs[1].(int)]
+	}).(DistributionConfigurationDistributionFastLaunchConfigurationOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate struct {
+	// The ID of the Amazon EC2 launch template to use.
+	LaunchTemplateId *string `pulumi:"launchTemplateId"`
+	// The name of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateName *string `pulumi:"launchTemplateName"`
+	// The version of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateVersion *string `pulumi:"launchTemplateVersion"`
+}
+
+// DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs and DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput` via:
+//
+//          DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
+type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput
+	ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs struct {
+	// The ID of the Amazon EC2 launch template to use.
+	LaunchTemplateId pulumi.StringPtrInput `pulumi:"launchTemplateId"`
+	// The name of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
+	// The version of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateVersion pulumi.StringPtrInput `pulumi:"launchTemplateVersion"`
+}
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput)
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput).ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(ctx)
+}
+
+// DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs, DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtr and DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput` via:
+//
+//          DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput
+	ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput
+}
+
+type distributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrType DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs
+
+func DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtr(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput {
+	return (*distributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrType)(v)
+}
+
+func (*distributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)(nil)).Elem()
+}
+
+func (i *distributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrType) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrType) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return o.ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
+		return &v
+	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput)
+}
+
+// The ID of the Amazon EC2 launch template to use.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
+		return v.LaunchTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch template to use for faster launching for a Windows AMI.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
+		return v.LaunchTemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the launch template to use for faster launching for a Windows AMI.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
+		return v.LaunchTemplateVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) Elem() DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
+		return ret
+	}).(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput)
+}
+
+// The ID of the Amazon EC2 launch template to use.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) LaunchTemplateId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the launch template to use for faster launching for a Windows AMI.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) LaunchTemplateName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the launch template to use for faster launching for a Windows AMI.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput) LaunchTemplateVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LaunchTemplateVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration struct {
+	// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+	TargetResourceCount *int `pulumi:"targetResourceCount"`
+}
+
+// DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs and DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput` via:
+//
+//          DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
+type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput
+	ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs struct {
+	// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+	TargetResourceCount pulumi.IntPtrInput `pulumi:"targetResourceCount"`
+}
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput)
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput).ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(ctx)
+}
+
+// DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput is an input type that accepts DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs, DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtr and DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput values.
+// You can construct a concrete instance of `DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput` via:
+//
+//          DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput
+	ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput
+}
+
+type distributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrType DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs
+
+func DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtr(v *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput {
+	return (*distributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrType)(v)
+}
+
+func (*distributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (i *distributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrType) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return i.ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrType) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return o.ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
+		return &v
+	}).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput)
+}
+
+// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) TargetResourceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) *int {
+		return v.TargetResourceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+type DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) ToDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutputWithContext(ctx context.Context) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput {
+	return o
+}
+
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) Elem() DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration
+		return ret
+	}).(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput)
+}
+
+// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+func (o DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput) TargetResourceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TargetResourceCount
+	}).(pulumi.IntPtrOutput)
 }
 
 type DistributionConfigurationDistributionLaunchTemplateConfiguration struct {
@@ -4764,6 +5234,8 @@ type GetDistributionConfigurationDistribution struct {
 	AmiDistributionConfigurations []GetDistributionConfigurationDistributionAmiDistributionConfiguration `pulumi:"amiDistributionConfigurations"`
 	// Nested list of container distribution configurations.
 	ContainerDistributionConfigurations []GetDistributionConfigurationDistributionContainerDistributionConfiguration `pulumi:"containerDistributionConfigurations"`
+	// Nested list of Windows faster-launching configurations to use for AMI distribution.
+	FastLaunchConfigurations []GetDistributionConfigurationDistributionFastLaunchConfiguration `pulumi:"fastLaunchConfigurations"`
 	// Nested list of launch template configurations.
 	LaunchTemplateConfigurations []GetDistributionConfigurationDistributionLaunchTemplateConfiguration `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
@@ -4788,6 +5260,8 @@ type GetDistributionConfigurationDistributionArgs struct {
 	AmiDistributionConfigurations GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput `pulumi:"amiDistributionConfigurations"`
 	// Nested list of container distribution configurations.
 	ContainerDistributionConfigurations GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayInput `pulumi:"containerDistributionConfigurations"`
+	// Nested list of Windows faster-launching configurations to use for AMI distribution.
+	FastLaunchConfigurations GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput `pulumi:"fastLaunchConfigurations"`
 	// Nested list of launch template configurations.
 	LaunchTemplateConfigurations GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput `pulumi:"launchTemplateConfigurations"`
 	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
@@ -4859,6 +5333,13 @@ func (o GetDistributionConfigurationDistributionOutput) ContainerDistributionCon
 	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionContainerDistributionConfiguration {
 		return v.ContainerDistributionConfigurations
 	}).(GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput)
+}
+
+// Nested list of Windows faster-launching configurations to use for AMI distribution.
+func (o GetDistributionConfigurationDistributionOutput) FastLaunchConfigurations() GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistribution) []GetDistributionConfigurationDistributionFastLaunchConfiguration {
+		return v.FastLaunchConfigurations
+	}).(GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
 }
 
 // Nested list of launch template configurations.
@@ -5409,6 +5890,365 @@ func (o GetDistributionConfigurationDistributionContainerDistributionConfigurati
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository {
 		return vs[0].([]GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepository)[vs[1].(int)]
 	}).(GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfiguration struct {
+	// The account ID that this configuration applies to.
+	AccountId string `pulumi:"accountId"`
+	// A Boolean that represents the current state of faster launching for the Windows AMI.
+	Enabled bool `pulumi:"enabled"`
+	// Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+	LaunchTemplates []GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate `pulumi:"launchTemplates"`
+	// The maximum number of parallel instances that are launched for creating resources.
+	MaxParallelLaunches int `pulumi:"maxParallelLaunches"`
+	// Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+	SnapshotConfigurations []GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration `pulumi:"snapshotConfigurations"`
+}
+
+// GetDistributionConfigurationDistributionFastLaunchConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationArgs and GetDistributionConfigurationDistributionFastLaunchConfigurationOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationInput` via:
+//
+//          GetDistributionConfigurationDistributionFastLaunchConfigurationArgs{...}
+type GetDistributionConfigurationDistributionFastLaunchConfigurationInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationOutput
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationOutput
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationArgs struct {
+	// The account ID that this configuration applies to.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// A Boolean that represents the current state of faster launching for the Windows AMI.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+	LaunchTemplates GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput `pulumi:"launchTemplates"`
+	// The maximum number of parallel instances that are launched for creating resources.
+	MaxParallelLaunches pulumi.IntInput `pulumi:"maxParallelLaunches"`
+	// Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+	SnapshotConfigurations GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput `pulumi:"snapshotConfigurations"`
+}
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfiguration)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArgs) ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArgs) ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationOutput)
+}
+
+// GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationArray and GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput` via:
+//
+//          GetDistributionConfigurationDistributionFastLaunchConfigurationArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationArgs{...} }
+type GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationArray []GetDistributionConfigurationDistributionFastLaunchConfigurationInput
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionFastLaunchConfiguration)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArray) ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationArray) ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfiguration)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return o
+}
+
+// The account ID that this configuration applies to.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) AccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) string { return v.AccountId }).(pulumi.StringOutput)
+}
+
+// A Boolean that represents the current state of faster launching for the Windows AMI.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// Nested list of launch templates that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) LaunchTemplates() GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) []GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
+		return v.LaunchTemplates
+	}).(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput)
+}
+
+// The maximum number of parallel instances that are launched for creating resources.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) MaxParallelLaunches() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) int {
+		return v.MaxParallelLaunches
+	}).(pulumi.IntOutput)
+}
+
+// Nested list of configurations for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationOutput) SnapshotConfigurations() GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfiguration) []GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
+		return v.SnapshotConfigurations
+	}).(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionFastLaunchConfiguration)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionFastLaunchConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionFastLaunchConfiguration {
+		return vs[0].([]GetDistributionConfigurationDistributionFastLaunchConfiguration)[vs[1].(int)]
+	}).(GetDistributionConfigurationDistributionFastLaunchConfigurationOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate struct {
+	// ID of the Amazon EC2 launch template.
+	LaunchTemplateId string `pulumi:"launchTemplateId"`
+	// The name of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateName string `pulumi:"launchTemplateName"`
+	// The version of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateVersion string `pulumi:"launchTemplateVersion"`
+}
+
+// GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs and GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput` via:
+//
+//          GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...}
+type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs struct {
+	// ID of the Amazon EC2 launch template.
+	LaunchTemplateId pulumi.StringInput `pulumi:"launchTemplateId"`
+	// The name of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateName pulumi.StringInput `pulumi:"launchTemplateName"`
+	// The version of the launch template to use for faster launching for a Windows AMI.
+	LaunchTemplateVersion pulumi.StringInput `pulumi:"launchTemplateVersion"`
+}
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput)
+}
+
+// GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray and GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput` via:
+//
+//          GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{...} }
+type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutputWithContext(context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray []GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput {
+	return i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return o
+}
+
+// ID of the Amazon EC2 launch template.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) string {
+		return v.LaunchTemplateId
+	}).(pulumi.StringOutput)
+}
+
+// The name of the launch template to use for faster launching for a Windows AMI.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) string {
+		return v.LaunchTemplateName
+	}).(pulumi.StringOutput)
+}
+
+// The version of the launch template to use for faster launching for a Windows AMI.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput) LaunchTemplateVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate) string {
+		return v.LaunchTemplateVersion
+	}).(pulumi.StringOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate {
+		return vs[0].([]GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate)[vs[1].(int)]
+	}).(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration struct {
+	// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+	TargetResourceCount int `pulumi:"targetResourceCount"`
+}
+
+// GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs and GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput` via:
+//
+//          GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...}
+type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs struct {
+	// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+	TargetResourceCount pulumi.IntInput `pulumi:"targetResourceCount"`
+}
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput)
+}
+
+// GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray and GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput` via:
+//
+//          GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray{ GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{...} }
+type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput
+	ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutputWithContext(context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray []GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput {
+	return i.ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return o
+}
+
+// The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput) TargetResourceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration) int {
+		return v.TargetResourceCount
+	}).(pulumi.IntOutput)
+}
+
+type GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)(nil)).Elem()
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput() GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput) ToGetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput {
+	return o
+}
+
+func (o GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput) Index(i pulumi.IntInput) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration {
+		return vs[0].([]GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfiguration)[vs[1].(int)]
+	}).(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput)
 }
 
 type GetDistributionConfigurationDistributionLaunchTemplateConfiguration struct {
@@ -7321,6 +8161,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrInput)(nil)).Elem(), DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionFastLaunchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationDistributionFastLaunchConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput)(nil)).Elem(), DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrInput)(nil)).Elem(), DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrInput)(nil)).Elem(), DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionLaunchTemplateConfigurationInput)(nil)).Elem(), DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput)(nil)).Elem(), DistributionConfigurationDistributionLaunchTemplateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageTestsConfigurationInput)(nil)).Elem(), ImageImageTestsConfigurationArgs{})
@@ -7375,6 +8221,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionContainerDistributionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryInput)(nil)).Elem(), GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionFastLaunchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionFastLaunchConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateInput)(nil)).Elem(), GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionLaunchTemplateConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionLaunchTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionLaunchTemplateConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationsFilterInput)(nil)).Elem(), GetDistributionConfigurationsFilterArgs{})
@@ -7431,6 +8283,12 @@ func init() {
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionFastLaunchConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionFastLaunchConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplatePtrOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput{})
+	pulumi.RegisterOutputType(DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionLaunchTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ImageImageTestsConfigurationOutput{})
@@ -7485,6 +8343,12 @@ func init() {
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionContainerDistributionConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionFastLaunchConfigurationOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionFastLaunchConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArrayOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationOutput{})
+	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionLaunchTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationDistributionLaunchTemplateConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDistributionConfigurationsFilterOutput{})

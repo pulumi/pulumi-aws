@@ -95,7 +95,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
      */
     public readonly storageCapacityReservationGib!: pulumi.Output<number>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface OpenZfsVolumeState {
      */
     storageCapacityReservationGib?: pulumi.Input<number>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -260,7 +260,7 @@ export interface OpenZfsVolumeArgs {
      */
     storageCapacityReservationGib?: pulumi.Input<number>;
     /**
-     * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

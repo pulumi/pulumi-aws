@@ -24,6 +24,18 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         [Input("containerDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationDistributionContainerDistributionConfigurationGetArgs>? ContainerDistributionConfiguration { get; set; }
 
+        [Input("fastLaunchConfigurations")]
+        private InputList<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationGetArgs>? _fastLaunchConfigurations;
+
+        /// <summary>
+        /// Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+        /// </summary>
+        public InputList<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationGetArgs> FastLaunchConfigurations
+        {
+            get => _fastLaunchConfigurations ?? (_fastLaunchConfigurations = new InputList<Inputs.DistributionConfigurationDistributionFastLaunchConfigurationGetArgs>());
+            set => _fastLaunchConfigurations = value;
+        }
+
         [Input("launchTemplateConfigurations")]
         private InputList<Inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationGetArgs>? _launchTemplateConfigurations;
 

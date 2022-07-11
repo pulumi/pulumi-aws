@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'DirectoryConnectSettingsArgs',
     'DirectoryVpcSettingsArgs',
+    'SharedDirectoryTargetArgs',
 ]
 
 @pulumi.input_type
@@ -155,5 +156,43 @@ class DirectoryVpcSettingsArgs:
     @availability_zones.setter
     def availability_zones(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "availability_zones", value)
+
+
+@pulumi.input_type
+class SharedDirectoryTargetArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[str],
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] id: Identifier of the directory consumer account.
+        :param pulumi.Input[str] type: Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+        """
+        pulumi.set(__self__, "id", id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[str]:
+        """
+        Identifier of the directory consumer account.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of identifier to be used in the `id` field. Valid value is `ACCOUNT`. Default is `ACCOUNT`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
 
 

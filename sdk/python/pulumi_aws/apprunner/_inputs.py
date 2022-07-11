@@ -10,11 +10,13 @@ from .. import _utilities
 
 __all__ = [
     'CustomDomainAssociationCertificateValidationRecordArgs',
+    'ObservabilityConfigurationTraceConfigurationArgs',
     'ServiceEncryptionConfigurationArgs',
     'ServiceHealthCheckConfigurationArgs',
     'ServiceInstanceConfigurationArgs',
     'ServiceNetworkConfigurationArgs',
     'ServiceNetworkConfigurationEgressConfigurationArgs',
+    'ServiceObservabilityConfigurationArgs',
     'ServiceSourceConfigurationArgs',
     'ServiceSourceConfigurationAuthenticationConfigurationArgs',
     'ServiceSourceConfigurationCodeRepositoryArgs',
@@ -94,6 +96,29 @@ class CustomDomainAssociationCertificateValidationRecordArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ObservabilityConfigurationTraceConfigurationArgs:
+    def __init__(__self__, *,
+                 vendor: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] vendor: The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+        """
+        if vendor is not None:
+            pulumi.set(__self__, "vendor", vendor)
+
+    @property
+    @pulumi.getter
+    def vendor(self) -> Optional[pulumi.Input[str]]:
+        """
+        The implementation provider chosen for tracing App Runner services. Valid values: `AWSXRAY`.
+        """
+        return pulumi.get(self, "vendor")
+
+    @vendor.setter
+    def vendor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vendor", value)
 
 
 @pulumi.input_type
@@ -336,6 +361,43 @@ class ServiceNetworkConfigurationEgressConfigurationArgs:
     @vpc_connector_arn.setter
     def vpc_connector_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "vpc_connector_arn", value)
+
+
+@pulumi.input_type
+class ServiceObservabilityConfigurationArgs:
+    def __init__(__self__, *,
+                 observability_configuration_arn: pulumi.Input[str],
+                 observability_enabled: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] observability_configuration_arn: The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+        :param pulumi.Input[bool] observability_enabled: When `true`, an observability configuration resource is associated with the service.
+        """
+        pulumi.set(__self__, "observability_configuration_arn", observability_configuration_arn)
+        pulumi.set(__self__, "observability_enabled", observability_enabled)
+
+    @property
+    @pulumi.getter(name="observabilityConfigurationArn")
+    def observability_configuration_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the observability configuration that is associated with the service.
+        """
+        return pulumi.get(self, "observability_configuration_arn")
+
+    @observability_configuration_arn.setter
+    def observability_configuration_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "observability_configuration_arn", value)
+
+    @property
+    @pulumi.getter(name="observabilityEnabled")
+    def observability_enabled(self) -> pulumi.Input[bool]:
+        """
+        When `true`, an observability configuration resource is associated with the service.
+        """
+        return pulumi.get(self, "observability_enabled")
+
+    @observability_enabled.setter
+    def observability_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "observability_enabled", value)
 
 
 @pulumi.input_type

@@ -14,11 +14,16 @@ namespace Pulumi.Aws.Acmpca.Outputs
     public sealed class GetCertificateAuthorityRevocationConfigurationResult
     {
         public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult> CrlConfigurations;
+        public readonly ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult> OcspConfigurations;
 
         [OutputConstructor]
-        private GetCertificateAuthorityRevocationConfigurationResult(ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult> crlConfigurations)
+        private GetCertificateAuthorityRevocationConfigurationResult(
+            ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult> crlConfigurations,
+
+            ImmutableArray<Outputs.GetCertificateAuthorityRevocationConfigurationOcspConfigurationResult> ocspConfigurations)
         {
             CrlConfigurations = crlConfigurations;
+            OcspConfigurations = ocspConfigurations;
         }
     }
 }

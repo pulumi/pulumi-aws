@@ -115,14 +115,14 @@ public class BucketMetric extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.filter);
     }
     /**
-     * Unique identifier of the metrics configuration for the bucket.
+     * Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Unique identifier of the metrics configuration for the bucket.
+     * @return Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
      * 
      */
     public Output<String> name() {

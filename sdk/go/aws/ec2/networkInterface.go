@@ -103,10 +103,11 @@ type NetworkInterface struct {
 	// AWS account ID of the owner of the network interface.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Private DNS name of the network interface (IPv4).
-	PrivateDnsName       pulumi.StringOutput  `pulumi:"privateDnsName"`
-	PrivateIp            pulumi.StringOutput  `pulumi:"privateIp"`
+	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
+	PrivateIp      pulumi.StringOutput `pulumi:"privateIp"`
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
 	PrivateIpListEnabled pulumi.BoolPtrOutput `pulumi:"privateIpListEnabled"`
-	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists pulumi.StringArrayOutput `pulumi:"privateIpLists"`
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps pulumi.StringArrayOutput `pulumi:"privateIps"`
@@ -118,7 +119,7 @@ type NetworkInterface struct {
 	SourceDestCheck pulumi.BoolPtrOutput `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -185,10 +186,11 @@ type networkInterfaceState struct {
 	// AWS account ID of the owner of the network interface.
 	OwnerId *string `pulumi:"ownerId"`
 	// Private DNS name of the network interface (IPv4).
-	PrivateDnsName       *string `pulumi:"privateDnsName"`
-	PrivateIp            *string `pulumi:"privateIp"`
-	PrivateIpListEnabled *bool   `pulumi:"privateIpListEnabled"`
-	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+	PrivateDnsName *string `pulumi:"privateDnsName"`
+	PrivateIp      *string `pulumi:"privateIp"`
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+	PrivateIpListEnabled *bool `pulumi:"privateIpListEnabled"`
+	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists []string `pulumi:"privateIpLists"`
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps []string `pulumi:"privateIps"`
@@ -200,7 +202,7 @@ type networkInterfaceState struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
 	SubnetId *string `pulumi:"subnetId"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -236,10 +238,11 @@ type NetworkInterfaceState struct {
 	// AWS account ID of the owner of the network interface.
 	OwnerId pulumi.StringPtrInput
 	// Private DNS name of the network interface (IPv4).
-	PrivateDnsName       pulumi.StringPtrInput
-	PrivateIp            pulumi.StringPtrInput
+	PrivateDnsName pulumi.StringPtrInput
+	PrivateIp      pulumi.StringPtrInput
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
 	PrivateIpListEnabled pulumi.BoolPtrInput
-	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists pulumi.StringArrayInput
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps pulumi.StringArrayInput
@@ -251,7 +254,7 @@ type NetworkInterfaceState struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringPtrInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -282,10 +285,11 @@ type networkInterfaceArgs struct {
 	// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
 	Ipv6PrefixCount *int `pulumi:"ipv6PrefixCount"`
 	// One or more IPv6 prefixes assigned to the network interface.
-	Ipv6Prefixes         []string `pulumi:"ipv6Prefixes"`
-	PrivateIp            *string  `pulumi:"privateIp"`
-	PrivateIpListEnabled *bool    `pulumi:"privateIpListEnabled"`
-	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+	Ipv6Prefixes []string `pulumi:"ipv6Prefixes"`
+	PrivateIp    *string  `pulumi:"privateIp"`
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+	PrivateIpListEnabled *bool `pulumi:"privateIpListEnabled"`
+	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists []string `pulumi:"privateIpLists"`
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps []string `pulumi:"privateIps"`
@@ -297,7 +301,7 @@ type networkInterfaceArgs struct {
 	SourceDestCheck *bool `pulumi:"sourceDestCheck"`
 	// Subnet ID to create the ENI in.
 	SubnetId string `pulumi:"subnetId"`
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -323,10 +327,11 @@ type NetworkInterfaceArgs struct {
 	// Number of IPv6 prefixes that AWS automatically assigns to the network interface.
 	Ipv6PrefixCount pulumi.IntPtrInput
 	// One or more IPv6 prefixes assigned to the network interface.
-	Ipv6Prefixes         pulumi.StringArrayInput
-	PrivateIp            pulumi.StringPtrInput
+	Ipv6Prefixes pulumi.StringArrayInput
+	PrivateIp    pulumi.StringPtrInput
+	// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
 	PrivateIpListEnabled pulumi.BoolPtrInput
-	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+	// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 	PrivateIpLists pulumi.StringArrayInput
 	// List of private IPs to assign to the ENI without regard to order.
 	PrivateIps pulumi.StringArrayInput
@@ -338,7 +343,7 @@ type NetworkInterfaceArgs struct {
 	SourceDestCheck pulumi.BoolPtrInput
 	// Subnet ID to create the ENI in.
 	SubnetId pulumi.StringInput
-	// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -511,11 +516,12 @@ func (o NetworkInterfaceOutput) PrivateIp() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.PrivateIp }).(pulumi.StringOutput)
 }
 
+// Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
 func (o NetworkInterfaceOutput) PrivateIpListEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.PrivateIpListEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+// List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
 func (o NetworkInterfaceOutput) PrivateIpLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringArrayOutput { return v.PrivateIpLists }).(pulumi.StringArrayOutput)
 }
@@ -545,7 +551,7 @@ func (o NetworkInterfaceOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o NetworkInterfaceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

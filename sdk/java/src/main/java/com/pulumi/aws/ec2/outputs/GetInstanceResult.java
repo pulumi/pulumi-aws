@@ -10,6 +10,7 @@ import com.pulumi.aws.ec2.outputs.GetInstanceEphemeralBlockDevice;
 import com.pulumi.aws.ec2.outputs.GetInstanceFilter;
 import com.pulumi.aws.ec2.outputs.GetInstanceMaintenanceOption;
 import com.pulumi.aws.ec2.outputs.GetInstanceMetadataOption;
+import com.pulumi.aws.ec2.outputs.GetInstancePrivateDnsNameOption;
 import com.pulumi.aws.ec2.outputs.GetInstanceRootBlockDevice;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Boolean;
@@ -48,6 +49,15 @@ public final class GetInstanceResult {
      * 
      */
     private final List<GetInstanceCreditSpecification> creditSpecifications;
+    /**
+     * @return Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
+     * 
+     */
+    private final Boolean disableApiStop;
+    /**
+     * @return Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
+     * 
+     */
     private final Boolean disableApiTermination;
     /**
      * @return The EBS block device mappings of the Instance.
@@ -160,6 +170,11 @@ public final class GetInstanceResult {
      */
     private final String privateDns;
     /**
+     * @return The options for the instance hostname.
+     * 
+     */
+    private final List<GetInstancePrivateDnsNameOption> privateDnsNameOptions;
+    /**
      * @return The private IP address assigned to the Instance.
      * 
      */
@@ -233,6 +248,7 @@ public final class GetInstanceResult {
         @CustomType.Parameter("associatePublicIpAddress") Boolean associatePublicIpAddress,
         @CustomType.Parameter("availabilityZone") String availabilityZone,
         @CustomType.Parameter("creditSpecifications") List<GetInstanceCreditSpecification> creditSpecifications,
+        @CustomType.Parameter("disableApiStop") Boolean disableApiStop,
         @CustomType.Parameter("disableApiTermination") Boolean disableApiTermination,
         @CustomType.Parameter("ebsBlockDevices") List<GetInstanceEbsBlockDevice> ebsBlockDevices,
         @CustomType.Parameter("ebsOptimized") Boolean ebsOptimized,
@@ -259,6 +275,7 @@ public final class GetInstanceResult {
         @CustomType.Parameter("placementGroup") String placementGroup,
         @CustomType.Parameter("placementPartitionNumber") Integer placementPartitionNumber,
         @CustomType.Parameter("privateDns") String privateDns,
+        @CustomType.Parameter("privateDnsNameOptions") List<GetInstancePrivateDnsNameOption> privateDnsNameOptions,
         @CustomType.Parameter("privateIp") String privateIp,
         @CustomType.Parameter("publicDns") String publicDns,
         @CustomType.Parameter("publicIp") String publicIp,
@@ -277,6 +294,7 @@ public final class GetInstanceResult {
         this.associatePublicIpAddress = associatePublicIpAddress;
         this.availabilityZone = availabilityZone;
         this.creditSpecifications = creditSpecifications;
+        this.disableApiStop = disableApiStop;
         this.disableApiTermination = disableApiTermination;
         this.ebsBlockDevices = ebsBlockDevices;
         this.ebsOptimized = ebsOptimized;
@@ -303,6 +321,7 @@ public final class GetInstanceResult {
         this.placementGroup = placementGroup;
         this.placementPartitionNumber = placementPartitionNumber;
         this.privateDns = privateDns;
+        this.privateDnsNameOptions = privateDnsNameOptions;
         this.privateIp = privateIp;
         this.publicDns = publicDns;
         this.publicIp = publicIp;
@@ -353,6 +372,17 @@ public final class GetInstanceResult {
     public List<GetInstanceCreditSpecification> creditSpecifications() {
         return this.creditSpecifications;
     }
+    /**
+     * @return Whether or not EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection) is enabled (Boolean).
+     * 
+     */
+    public Boolean disableApiStop() {
+        return this.disableApiStop;
+    }
+    /**
+     * @return Whether or not [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination) is enabled (Boolean).
+     * 
+     */
     public Boolean disableApiTermination() {
         return this.disableApiTermination;
     }
@@ -517,6 +547,13 @@ public final class GetInstanceResult {
         return this.privateDns;
     }
     /**
+     * @return The options for the instance hostname.
+     * 
+     */
+    public List<GetInstancePrivateDnsNameOption> privateDnsNameOptions() {
+        return this.privateDnsNameOptions;
+    }
+    /**
      * @return The private IP address assigned to the Instance.
      * 
      */
@@ -623,6 +660,7 @@ public final class GetInstanceResult {
         private Boolean associatePublicIpAddress;
         private String availabilityZone;
         private List<GetInstanceCreditSpecification> creditSpecifications;
+        private Boolean disableApiStop;
         private Boolean disableApiTermination;
         private List<GetInstanceEbsBlockDevice> ebsBlockDevices;
         private Boolean ebsOptimized;
@@ -649,6 +687,7 @@ public final class GetInstanceResult {
         private String placementGroup;
         private Integer placementPartitionNumber;
         private String privateDns;
+        private List<GetInstancePrivateDnsNameOption> privateDnsNameOptions;
         private String privateIp;
         private String publicDns;
         private String publicIp;
@@ -674,6 +713,7 @@ public final class GetInstanceResult {
     	      this.associatePublicIpAddress = defaults.associatePublicIpAddress;
     	      this.availabilityZone = defaults.availabilityZone;
     	      this.creditSpecifications = defaults.creditSpecifications;
+    	      this.disableApiStop = defaults.disableApiStop;
     	      this.disableApiTermination = defaults.disableApiTermination;
     	      this.ebsBlockDevices = defaults.ebsBlockDevices;
     	      this.ebsOptimized = defaults.ebsOptimized;
@@ -700,6 +740,7 @@ public final class GetInstanceResult {
     	      this.placementGroup = defaults.placementGroup;
     	      this.placementPartitionNumber = defaults.placementPartitionNumber;
     	      this.privateDns = defaults.privateDns;
+    	      this.privateDnsNameOptions = defaults.privateDnsNameOptions;
     	      this.privateIp = defaults.privateIp;
     	      this.publicDns = defaults.publicDns;
     	      this.publicIp = defaults.publicIp;
@@ -737,6 +778,10 @@ public final class GetInstanceResult {
         }
         public Builder creditSpecifications(GetInstanceCreditSpecification... creditSpecifications) {
             return creditSpecifications(List.of(creditSpecifications));
+        }
+        public Builder disableApiStop(Boolean disableApiStop) {
+            this.disableApiStop = Objects.requireNonNull(disableApiStop);
+            return this;
         }
         public Builder disableApiTermination(Boolean disableApiTermination) {
             this.disableApiTermination = Objects.requireNonNull(disableApiTermination);
@@ -863,6 +908,13 @@ public final class GetInstanceResult {
             this.privateDns = Objects.requireNonNull(privateDns);
             return this;
         }
+        public Builder privateDnsNameOptions(List<GetInstancePrivateDnsNameOption> privateDnsNameOptions) {
+            this.privateDnsNameOptions = Objects.requireNonNull(privateDnsNameOptions);
+            return this;
+        }
+        public Builder privateDnsNameOptions(GetInstancePrivateDnsNameOption... privateDnsNameOptions) {
+            return privateDnsNameOptions(List.of(privateDnsNameOptions));
+        }
         public Builder privateIp(String privateIp) {
             this.privateIp = Objects.requireNonNull(privateIp);
             return this;
@@ -927,7 +979,7 @@ public final class GetInstanceResult {
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }        public GetInstanceResult build() {
-            return new GetInstanceResult(ami, arn, associatePublicIpAddress, availabilityZone, creditSpecifications, disableApiTermination, ebsBlockDevices, ebsOptimized, enclaveOptions, ephemeralBlockDevices, filters, getPasswordData, getUserData, hostId, iamInstanceProfile, id, instanceId, instanceState, instanceTags, instanceType, ipv6Addresses, keyName, maintenanceOptions, metadataOptions, monitoring, networkInterfaceId, outpostArn, passwordData, placementGroup, placementPartitionNumber, privateDns, privateIp, publicDns, publicIp, rootBlockDevices, secondaryPrivateIps, securityGroups, sourceDestCheck, subnetId, tags, tenancy, userData, userDataBase64, vpcSecurityGroupIds);
+            return new GetInstanceResult(ami, arn, associatePublicIpAddress, availabilityZone, creditSpecifications, disableApiStop, disableApiTermination, ebsBlockDevices, ebsOptimized, enclaveOptions, ephemeralBlockDevices, filters, getPasswordData, getUserData, hostId, iamInstanceProfile, id, instanceId, instanceState, instanceTags, instanceType, ipv6Addresses, keyName, maintenanceOptions, metadataOptions, monitoring, networkInterfaceId, outpostArn, passwordData, placementGroup, placementPartitionNumber, privateDns, privateDnsNameOptions, privateIp, publicDns, publicIp, rootBlockDevices, secondaryPrivateIps, securityGroups, sourceDestCheck, subnetId, tags, tenancy, userData, userDataBase64, vpcSecurityGroupIds);
         }
     }
 }

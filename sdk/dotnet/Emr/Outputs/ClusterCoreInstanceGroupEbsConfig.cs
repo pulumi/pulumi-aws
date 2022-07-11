@@ -22,7 +22,11 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly int Size;
         /// <summary>
-        /// Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        /// The throughput, in mebibyte per second (MiB/s).
+        /// </summary>
+        public readonly int? Throughput;
+        /// <summary>
+        /// Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -36,12 +40,15 @@ namespace Pulumi.Aws.Emr.Outputs
 
             int size,
 
+            int? throughput,
+
             string type,
 
             int? volumesPerInstance)
         {
             Iops = iops;
             Size = size;
+            Throughput = throughput;
             Type = type;
             VolumesPerInstance = volumesPerInstance;
         }

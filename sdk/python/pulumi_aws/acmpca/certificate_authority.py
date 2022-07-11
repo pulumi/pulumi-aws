@@ -24,7 +24,7 @@ class CertificateAuthorityArgs:
         """
         The set of arguments for constructing a CertificateAuthority resource.
         :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
-        :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
         :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input['CertificateAuthorityRevocationConfigurationArgs'] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -58,7 +58,7 @@ class CertificateAuthorityArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        Boolean value that specifies whether a custom OCSP responder is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -140,7 +140,7 @@ class _CertificateAuthorityState:
         :param pulumi.Input['CertificateAuthorityCertificateAuthorityConfigurationArgs'] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[str] certificate_chain: Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] certificate_signing_request: The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-        :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
         :param pulumi.Input[str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
@@ -249,7 +249,7 @@ class _CertificateAuthorityState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        Boolean value that specifies whether a custom OCSP responder is enabled.
         """
         return pulumi.get(self, "enabled")
 
@@ -456,7 +456,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
-        :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
         :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityRevocationConfigurationArgs']] revocation_configuration: Nested argument containing revocation configuration. Defined below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Specifies a key-value map of user-defined tags that are attached to the certificate authority. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -630,7 +630,7 @@ class CertificateAuthority(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['CertificateAuthorityCertificateAuthorityConfigurationArgs']] certificate_authority_configuration: Nested argument containing algorithms and certificate subject information. Defined below.
         :param pulumi.Input[str] certificate_chain: Base64-encoded certificate chain that includes any intermediate certificates and chains up to root on-premises certificate that you used to sign your private CA certificate. The chain does not include your private CA certificate. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] certificate_signing_request: The base64 PEM-encoded certificate signing request (CSR) for your private CA certificate.
-        :param pulumi.Input[bool] enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        :param pulumi.Input[bool] enabled: Boolean value that specifies whether a custom OCSP responder is enabled.
         :param pulumi.Input[str] not_after: Date and time after which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[str] not_before: Date and time before which the certificate authority is not valid. Only available after the certificate authority certificate has been imported.
         :param pulumi.Input[int] permanent_deletion_time_in_days: The number of days to make a CA restorable after it has been deleted, must be between 7 to 30 days, with default to 30 days.
@@ -706,7 +706,7 @@ class CertificateAuthority(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+        Boolean value that specifies whether a custom OCSP responder is enabled.
         """
         return pulumi.get(self, "enabled")
 

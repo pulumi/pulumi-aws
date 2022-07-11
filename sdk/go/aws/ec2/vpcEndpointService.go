@@ -108,6 +108,8 @@ type VpcEndpointService struct {
 	ServiceType pulumi.StringOutput `pulumi:"serviceType"`
 	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
 	State pulumi.StringOutput `pulumi:"state"`
+	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+	SupportedIpAddressTypes pulumi.StringArrayOutput `pulumi:"supportedIpAddressTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -172,6 +174,8 @@ type vpcEndpointServiceState struct {
 	ServiceType *string `pulumi:"serviceType"`
 	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
 	State *string `pulumi:"state"`
+	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -205,6 +209,8 @@ type VpcEndpointServiceState struct {
 	ServiceType pulumi.StringPtrInput
 	// Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
 	State pulumi.StringPtrInput
+	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+	SupportedIpAddressTypes pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -226,6 +232,8 @@ type vpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The private DNS name for the service.
 	PrivateDnsName *string `pulumi:"privateDnsName"`
+	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -242,6 +250,8 @@ type VpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// The private DNS name for the service.
 	PrivateDnsName pulumi.StringPtrInput
+	// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+	SupportedIpAddressTypes pulumi.StringArrayInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -398,6 +408,11 @@ func (o VpcEndpointServiceOutput) ServiceType() pulumi.StringOutput {
 // Verification state of the VPC endpoint service. Consumers of the endpoint service can use the private name only when the state is `verified`.
 func (o VpcEndpointServiceOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// The supported IP address types. The possible values are `ipv4` and `ipv6`.
+func (o VpcEndpointServiceOutput) SupportedIpAddressTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringArrayOutput { return v.SupportedIpAddressTypes }).(pulumi.StringArrayOutput)
 }
 
 // A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

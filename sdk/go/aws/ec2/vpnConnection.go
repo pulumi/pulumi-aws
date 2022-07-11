@@ -100,6 +100,80 @@ import (
 // 	})
 // }
 // ```
+// ### AWS Site to Site Private VPN
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/directconnect"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleGateway, err := directconnect.NewGateway(ctx, "exampleGateway", &directconnect.GatewayArgs{
+// 			AmazonSideAsn: pulumi.String("64512"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleTransitGateway, err := ec2transitgateway.NewTransitGateway(ctx, "exampleTransitGateway", &ec2transitgateway.TransitGatewayArgs{
+// 			AmazonSideAsn: pulumi.Int(64513),
+// 			Description:   pulumi.String("terraform_ipsec_vpn_example"),
+// 			TransitGatewayCidrBlocks: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/24"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleCustomerGateway, err := ec2.NewCustomerGateway(ctx, "exampleCustomerGateway", &ec2.CustomerGatewayArgs{
+// 			BgpAsn:    pulumi.String("64514"),
+// 			IpAddress: pulumi.String("10.0.0.1"),
+// 			Type:      pulumi.String("ipsec.1"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("terraform_ipsec_vpn_example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = directconnect.NewGatewayAssociation(ctx, "exampleGatewayAssociation", &directconnect.GatewayAssociationArgs{
+// 			DxGatewayId:         exampleGateway.ID(),
+// 			AssociatedGatewayId: exampleTransitGateway.ID(),
+// 			AllowedPrefixes: pulumi.StringArray{
+// 				pulumi.String("10.0.0.0/8"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleDirectConnectGatewayAttachment := ec2transitgateway.GetDirectConnectGatewayAttachmentOutput(ctx, ec2transitgateway.GetDirectConnectGatewayAttachmentOutputArgs{
+// 			TransitGatewayId: exampleTransitGateway.ID(),
+// 			DxGatewayId:      exampleGateway.ID(),
+// 		}, nil)
+// 		_, err = ec2.NewVpnConnection(ctx, "exampleVpnConnection", &ec2.VpnConnectionArgs{
+// 			CustomerGatewayId:    exampleCustomerGateway.ID(),
+// 			OutsideIpAddressType: pulumi.String("PrivateIpv4"),
+// 			TransitGatewayId:     exampleTransitGateway.ID(),
+// 			TransportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.ApplyT(func(exampleDirectConnectGatewayAttachment ec2transitgateway.GetDirectConnectGatewayAttachmentResult) (string, error) {
+// 				return exampleDirectConnectGatewayAttachment.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			Type: pulumi.String("ipsec.1"),
+// 			Tags: pulumi.StringMap{
+// 				"Name": pulumi.String("terraform_ipsec_vpn_example"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -127,6 +201,8 @@ type VpnConnection struct {
 	LocalIpv4NetworkCidr pulumi.StringOutput `pulumi:"localIpv4NetworkCidr"`
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv6NetworkCidr pulumi.StringOutput `pulumi:"localIpv6NetworkCidr"`
+	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+	OutsideIpAddressType pulumi.StringOutput `pulumi:"outsideIpAddressType"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringOutput `pulumi:"remoteIpv4NetworkCidr"`
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
@@ -143,6 +219,8 @@ type VpnConnection struct {
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrOutput `pulumi:"transitGatewayId"`
+	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+	TransportTransitGatewayAttachmentId pulumi.StringPtrOutput `pulumi:"transportTransitGatewayAttachmentId"`
 	// The public IP address of the first VPN tunnel.
 	Tunnel1Address pulumi.StringOutput `pulumi:"tunnel1Address"`
 	// The bgp asn number of the first VPN tunnel.
@@ -296,6 +374,8 @@ type vpnConnectionState struct {
 	LocalIpv4NetworkCidr *string `pulumi:"localIpv4NetworkCidr"`
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
+	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
@@ -312,6 +392,8 @@ type vpnConnectionState struct {
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+	TransportTransitGatewayAttachmentId *string `pulumi:"transportTransitGatewayAttachmentId"`
 	// The public IP address of the first VPN tunnel.
 	Tunnel1Address *string `pulumi:"tunnel1Address"`
 	// The bgp asn number of the first VPN tunnel.
@@ -431,6 +513,8 @@ type VpnConnectionState struct {
 	LocalIpv4NetworkCidr pulumi.StringPtrInput
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv6NetworkCidr pulumi.StringPtrInput
+	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+	OutsideIpAddressType pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringPtrInput
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
@@ -447,6 +531,8 @@ type VpnConnectionState struct {
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
+	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+	TransportTransitGatewayAttachmentId pulumi.StringPtrInput
 	// The public IP address of the first VPN tunnel.
 	Tunnel1Address pulumi.StringPtrInput
 	// The bgp asn number of the first VPN tunnel.
@@ -562,6 +648,8 @@ type vpnConnectionArgs struct {
 	LocalIpv4NetworkCidr *string `pulumi:"localIpv4NetworkCidr"`
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv6NetworkCidr *string `pulumi:"localIpv6NetworkCidr"`
+	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr *string `pulumi:"remoteIpv4NetworkCidr"`
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
@@ -572,6 +660,8 @@ type vpnConnectionArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
+	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+	TransportTransitGatewayAttachmentId *string `pulumi:"transportTransitGatewayAttachmentId"`
 	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
 	Tunnel1DpdTimeoutAction *string `pulumi:"tunnel1DpdTimeoutAction"`
 	// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
@@ -662,6 +752,8 @@ type VpnConnectionArgs struct {
 	LocalIpv4NetworkCidr pulumi.StringPtrInput
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
 	LocalIpv6NetworkCidr pulumi.StringPtrInput
+	// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+	OutsideIpAddressType pulumi.StringPtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	RemoteIpv4NetworkCidr pulumi.StringPtrInput
 	// The IPv6 CIDR on the customer gateway (on-premises) side of the VPN connection.
@@ -672,6 +764,8 @@ type VpnConnectionArgs struct {
 	Tags pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
+	// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+	TransportTransitGatewayAttachmentId pulumi.StringPtrInput
 	// The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
 	Tunnel1DpdTimeoutAction pulumi.StringPtrInput
 	// The number of seconds after which a DPD timeout occurs for the first VPN tunnel. Valid value is equal or higher than `30`.
@@ -879,6 +973,11 @@ func (o VpnConnectionOutput) LocalIpv6NetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.LocalIpv6NetworkCidr }).(pulumi.StringOutput)
 }
 
+// Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+func (o VpnConnectionOutput) OutsideIpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.OutsideIpAddressType }).(pulumi.StringOutput)
+}
+
 // The IPv4 CIDR on the AWS side of the VPN connection.
 func (o VpnConnectionOutput) RemoteIpv4NetworkCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringOutput { return v.RemoteIpv4NetworkCidr }).(pulumi.StringOutput)
@@ -917,6 +1016,11 @@ func (o VpnConnectionOutput) TransitGatewayAttachmentId() pulumi.StringOutput {
 // The ID of the EC2 Transit Gateway.
 func (o VpnConnectionOutput) TransitGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.TransitGatewayId }).(pulumi.StringPtrOutput)
+}
+
+// . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+func (o VpnConnectionOutput) TransportTransitGatewayAttachmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.TransportTransitGatewayAttachmentId }).(pulumi.StringPtrOutput)
 }
 
 // The public IP address of the first VPN tunnel.

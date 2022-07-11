@@ -105,6 +105,54 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// }
     /// ```
+    /// ### Service with Observability Configuration
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleObservabilityConfiguration = new Aws.AppRunner.ObservabilityConfiguration("exampleObservabilityConfiguration", new Aws.AppRunner.ObservabilityConfigurationArgs
+    ///         {
+    ///             ObservabilityConfigurationName = "example",
+    ///             TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
+    ///             {
+    ///                 Vendor = "AWSXRAY",
+    ///             },
+    ///         });
+    ///         var exampleService = new Aws.AppRunner.Service("exampleService", new Aws.AppRunner.ServiceArgs
+    ///         {
+    ///             ServiceName = "example",
+    ///             ObservabilityConfiguration = new Aws.AppRunner.Inputs.ServiceObservabilityConfigurationArgs
+    ///             {
+    ///                 ObservabilityConfigurationArn = exampleObservabilityConfiguration.Arn,
+    ///                 ObservabilityEnabled = true,
+    ///             },
+    ///             SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
+    ///             {
+    ///                 ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
+    ///                 {
+    ///                     ImageConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs
+    ///                     {
+    ///                         Port = "8000",
+    ///                     },
+    ///                     ImageIdentifier = "public.ecr.aws/aws-containers/hello-app-runner:latest",
+    ///                     ImageRepositoryType = "ECR_PUBLIC",
+    ///                 },
+    ///                 AutoDeploymentEnabled = false,
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "Name", "example-apprunner-service" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -148,10 +196,16 @@ namespace Pulumi.Aws.AppRunner
         public Output<Outputs.ServiceInstanceConfiguration> InstanceConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration settings related to network traffic of the web application that the App Runner service runs.
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.ServiceNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// The observability configuration of your service. See Observability Configuration below for more details.
+        /// </summary>
+        [Output("observabilityConfiguration")]
+        public Output<Outputs.ServiceObservabilityConfiguration?> ObservabilityConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.
@@ -266,10 +320,16 @@ namespace Pulumi.Aws.AppRunner
         public Input<Inputs.ServiceInstanceConfigurationArgs>? InstanceConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration settings related to network traffic of the web application that the App Runner service runs.
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
+        /// The observability configuration of your service. See Observability Configuration below for more details.
+        /// </summary>
+        [Input("observabilityConfiguration")]
+        public Input<Inputs.ServiceObservabilityConfigurationArgs>? ObservabilityConfiguration { get; set; }
 
         /// <summary>
         /// Name of the service.
@@ -333,10 +393,16 @@ namespace Pulumi.Aws.AppRunner
         public Input<Inputs.ServiceInstanceConfigurationGetArgs>? InstanceConfiguration { get; set; }
 
         /// <summary>
-        /// Configuration settings related to network traffic of the web application that the App Runner service runs.
+        /// Configuration settings related to network traffic of the web application that the App Runner service runs. See Network Configuration below for more details.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
+        /// The observability configuration of your service. See Observability Configuration below for more details.
+        /// </summary>
+        [Input("observabilityConfiguration")]
+        public Input<Inputs.ServiceObservabilityConfigurationGetArgs>? ObservabilityConfiguration { get; set; }
 
         /// <summary>
         /// An alphanumeric ID that App Runner generated for this service. Unique within the AWS Region.

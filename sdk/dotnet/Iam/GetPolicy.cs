@@ -119,18 +119,22 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// The ARN of the IAM policy.
+        /// Conflicts with `name` and `path_prefix`.
         /// </summary>
         [Input("arn")]
         public string? Arn { get; set; }
 
         /// <summary>
         /// The name of the IAM policy.
+        /// Conflicts with `arn`.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
         /// <summary>
-        /// The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+        /// The prefix of the path to the IAM policy.
+        /// Defaults to a slash (`/`).
+        /// Conflicts with `arn`.
         /// </summary>
         [Input("pathPrefix")]
         public string? PathPrefix { get; set; }
@@ -156,18 +160,22 @@ namespace Pulumi.Aws.Iam
     {
         /// <summary>
         /// The ARN of the IAM policy.
+        /// Conflicts with `name` and `path_prefix`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// The name of the IAM policy.
+        /// Conflicts with `arn`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+        /// The prefix of the path to the IAM policy.
+        /// Defaults to a slash (`/`).
+        /// Conflicts with `arn`.
         /// </summary>
         [Input("pathPrefix")]
         public Input<string>? PathPrefix { get; set; }

@@ -71,6 +71,12 @@ namespace Pulumi.Aws.Synthetics
         public Output<string> ArtifactS3Location { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+        /// </summary>
+        [Output("deleteLambda")]
+        public Output<bool?> DeleteLambda { get; private set; } = null!;
+
+        /// <summary>
         /// ARN of the Lambda function that is used as your canary's engine.
         /// </summary>
         [Output("engineArn")]
@@ -249,6 +255,12 @@ namespace Pulumi.Aws.Synthetics
         public Input<string> ArtifactS3Location { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+        /// </summary>
+        [Input("deleteLambda")]
+        public Input<bool>? DeleteLambda { get; set; }
+
+        /// <summary>
         /// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
         /// </summary>
         [Input("executionRoleArn", required: true)]
@@ -368,6 +380,12 @@ namespace Pulumi.Aws.Synthetics
         /// </summary>
         [Input("artifactS3Location")]
         public Input<string>? ArtifactS3Location { get; set; }
+
+        /// <summary>
+        /// Specifies whether to also delete the Lambda functions and layers used by this canary. The default is `false`.
+        /// </summary>
+        [Input("deleteLambda")]
+        public Input<bool>? DeleteLambda { get; set; }
 
         /// <summary>
         /// ARN of the Lambda function that is used as your canary's engine.

@@ -107,7 +107,7 @@ class GetPlaceIndexResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
-        Key-value map of resource tags for the map.
+        Key-value map of resource tags for the place index.
         """
         return pulumi.get(self, "tags")
 
@@ -115,7 +115,7 @@ class GetPlaceIndexResult:
     @pulumi.getter(name="updateTime")
     def update_time(self) -> str:
         """
-        The timestamp for when the place index resource was last update in ISO 8601.
+        The timestamp for when the place index resource was last updated in ISO 8601 format.
         """
         return pulumi.get(self, "update_time")
 
@@ -154,7 +154,7 @@ def get_place_index(index_name: Optional[str] = None,
 
 
     :param str index_name: The name of the place index resource.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the map.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the place index.
     """
     __args__ = dict()
     __args__['indexName'] = index_name
@@ -195,6 +195,6 @@ def get_place_index_output(index_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str index_name: The name of the place index resource.
-    :param Mapping[str, str] tags: Key-value map of resource tags for the map.
+    :param Mapping[str, str] tags: Key-value map of resource tags for the place index.
     """
     ...

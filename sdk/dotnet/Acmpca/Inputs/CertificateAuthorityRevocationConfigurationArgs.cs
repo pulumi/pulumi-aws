@@ -18,6 +18,13 @@ namespace Pulumi.Aws.Acmpca.Inputs
         [Input("crlConfiguration")]
         public Input<Inputs.CertificateAuthorityRevocationConfigurationCrlConfigurationArgs>? CrlConfiguration { get; set; }
 
+        /// <summary>
+        /// Nested argument containing configuration of
+        /// the custom OCSP responder endpoint. Defined below.
+        /// </summary>
+        [Input("ocspConfiguration")]
+        public Input<Inputs.CertificateAuthorityRevocationConfigurationOcspConfigurationArgs>? OcspConfiguration { get; set; }
+
         public CertificateAuthorityRevocationConfigurationArgs()
         {
         }

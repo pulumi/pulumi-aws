@@ -438,6 +438,8 @@ class RemediationConfigurationParameter(dict):
             suggest = "resource_value"
         elif key == "staticValue":
             suggest = "static_value"
+        elif key == "staticValues":
+            suggest = "static_values"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in RemediationConfigurationParameter. Access the value via the '{suggest}' property getter instead.")
@@ -453,17 +455,21 @@ class RemediationConfigurationParameter(dict):
     def __init__(__self__, *,
                  name: str,
                  resource_value: Optional[str] = None,
-                 static_value: Optional[str] = None):
+                 static_value: Optional[str] = None,
+                 static_values: Optional[Sequence[str]] = None):
         """
         :param str name: Name of the attribute.
         :param str resource_value: Value is dynamic and changes at run-time.
         :param str static_value: Value is static and does not change at run-time.
+        :param Sequence[str] static_values: List of static values.
         """
         pulumi.set(__self__, "name", name)
         if resource_value is not None:
             pulumi.set(__self__, "resource_value", resource_value)
         if static_value is not None:
             pulumi.set(__self__, "static_value", static_value)
+        if static_values is not None:
+            pulumi.set(__self__, "static_values", static_values)
 
     @property
     @pulumi.getter
@@ -488,6 +494,14 @@ class RemediationConfigurationParameter(dict):
         Value is static and does not change at run-time.
         """
         return pulumi.get(self, "static_value")
+
+    @property
+    @pulumi.getter(name="staticValues")
+    def static_values(self) -> Optional[Sequence[str]]:
+        """
+        List of static values.
+        """
+        return pulumi.get(self, "static_values")
 
 
 @pulumi.output_type

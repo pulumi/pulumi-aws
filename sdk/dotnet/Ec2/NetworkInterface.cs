@@ -167,11 +167,14 @@ namespace Pulumi.Aws.Ec2
         [Output("privateIp")]
         public Output<string> PrivateIp { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        /// </summary>
         [Output("privateIpListEnabled")]
         public Output<bool?> PrivateIpListEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         /// </summary>
         [Output("privateIpLists")]
         public Output<ImmutableArray<string>> PrivateIpLists { get; private set; } = null!;
@@ -207,7 +210,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> SubnetId { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -360,6 +363,9 @@ namespace Pulumi.Aws.Ec2
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
 
+        /// <summary>
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        /// </summary>
         [Input("privateIpListEnabled")]
         public Input<bool>? PrivateIpListEnabled { get; set; }
 
@@ -367,7 +373,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _privateIpLists;
 
         /// <summary>
-        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         /// </summary>
         public InputList<string> PrivateIpLists
         {
@@ -421,7 +427,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -559,6 +565,9 @@ namespace Pulumi.Aws.Ec2
         [Input("privateIp")]
         public Input<string>? PrivateIp { get; set; }
 
+        /// <summary>
+        /// Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        /// </summary>
         [Input("privateIpListEnabled")]
         public Input<bool>? PrivateIpListEnabled { get; set; }
 
@@ -566,7 +575,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _privateIpLists;
 
         /// <summary>
-        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        /// List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         /// </summary>
         public InputList<string> PrivateIpLists
         {
@@ -620,7 +629,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

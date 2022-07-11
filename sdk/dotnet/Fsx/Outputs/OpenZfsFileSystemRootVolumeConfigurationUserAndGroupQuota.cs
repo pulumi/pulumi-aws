@@ -21,6 +21,9 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
         /// </summary>
         public readonly int StorageCapacityQuotaGib;
+        /// <summary>
+        /// - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

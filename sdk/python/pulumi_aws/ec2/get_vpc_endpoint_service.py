@@ -22,7 +22,7 @@ class GetVpcEndpointServiceResult:
     """
     A collection of values returned by getVpcEndpointService.
     """
-    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, tags=None, vpc_endpoint_policy_supported=None):
+    def __init__(__self__, acceptance_required=None, arn=None, availability_zones=None, base_endpoint_dns_names=None, filters=None, id=None, manages_vpc_endpoints=None, owner=None, private_dns_name=None, service=None, service_id=None, service_name=None, service_type=None, supported_ip_address_types=None, tags=None, vpc_endpoint_policy_supported=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -62,6 +62,9 @@ class GetVpcEndpointServiceResult:
         if service_type and not isinstance(service_type, str):
             raise TypeError("Expected argument 'service_type' to be a str")
         pulumi.set(__self__, "service_type", service_type)
+        if supported_ip_address_types and not isinstance(supported_ip_address_types, list):
+            raise TypeError("Expected argument 'supported_ip_address_types' to be a list")
+        pulumi.set(__self__, "supported_ip_address_types", supported_ip_address_types)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -162,6 +165,14 @@ class GetVpcEndpointServiceResult:
         return pulumi.get(self, "service_type")
 
     @property
+    @pulumi.getter(name="supportedIpAddressTypes")
+    def supported_ip_address_types(self) -> Sequence[str]:
+        """
+        The supported IP address types.
+        """
+        return pulumi.get(self, "supported_ip_address_types")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -197,6 +208,7 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             service_id=self.service_id,
             service_name=self.service_name,
             service_type=self.service_type,
+            supported_ip_address_types=self.supported_ip_address_types,
             tags=self.tags,
             vpc_endpoint_policy_supported=self.vpc_endpoint_policy_supported)
 
@@ -280,6 +292,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
         service_id=__ret__.service_id,
         service_name=__ret__.service_name,
         service_type=__ret__.service_type,
+        supported_ip_address_types=__ret__.supported_ip_address_types,
         tags=__ret__.tags,
         vpc_endpoint_policy_supported=__ret__.vpc_endpoint_policy_supported)
 

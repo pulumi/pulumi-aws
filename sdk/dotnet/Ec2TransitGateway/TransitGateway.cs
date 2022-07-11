@@ -90,6 +90,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("dnsSupport")]
         public Output<string?> DnsSupport { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
         [Output("multicastSupport")]
         public Output<string?> MulticastSupport { get; private set; } = null!;
 
@@ -211,6 +214,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
+        /// <summary>
+        /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
         [Input("multicastSupport")]
         public Input<string>? MulticastSupport { get; set; }
 
@@ -299,6 +305,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Input("dnsSupport")]
         public Input<string>? DnsSupport { get; set; }
 
+        /// <summary>
+        /// Whether Multicast support is enabled. Required to use `ec2_transit_gateway_multicast_domain`. Valid values: `disable`, `enable`. Default value: `disable`.
+        /// </summary>
         [Input("multicastSupport")]
         public Input<string>? MulticastSupport { get; set; }
 

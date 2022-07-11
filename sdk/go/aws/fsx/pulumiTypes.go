@@ -2333,7 +2333,7 @@ func (o OpenZfsFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtr
 type OpenZfsFileSystemRootVolumeConfiguration struct {
 	// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
-	// - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType *string `pulumi:"dataCompressionType"`
 	// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
 	NfsExports *OpenZfsFileSystemRootVolumeConfigurationNfsExports `pulumi:"nfsExports"`
@@ -2357,7 +2357,7 @@ type OpenZfsFileSystemRootVolumeConfigurationInput interface {
 type OpenZfsFileSystemRootVolumeConfigurationArgs struct {
 	// - A boolean flag indicating whether tags for the file system should be copied to snapshots. The default value is false.
 	CopyTagsToSnapshots pulumi.BoolPtrInput `pulumi:"copyTagsToSnapshots"`
-	// - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+	// - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 	DataCompressionType pulumi.StringPtrInput `pulumi:"dataCompressionType"`
 	// - NFS export configuration for the root volume. Exactly 1 item. See NFS Exports Below.
 	NfsExports OpenZfsFileSystemRootVolumeConfigurationNfsExportsPtrInput `pulumi:"nfsExports"`
@@ -2449,7 +2449,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationOutput) CopyTagsToSnapshots() pu
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
 }
 
-// - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+// - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 func (o OpenZfsFileSystemRootVolumeConfigurationOutput) DataCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
 }
@@ -2507,7 +2507,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) CopyTagsToSnapshots()
 	}).(pulumi.BoolPtrOutput)
 }
 
-// - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+// - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don't specify compression option will inherit from parent volume. This option on file system applies to the root volume.
 func (o OpenZfsFileSystemRootVolumeConfigurationPtrOutput) DataCompressionType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OpenZfsFileSystemRootVolumeConfiguration) *string {
 		if v == nil {
@@ -2798,8 +2798,9 @@ type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota struct {
 	// - The ID of the user or group. Valid values between `0` and `2147483647`
 	Id int `pulumi:"id"`
 	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-	StorageCapacityQuotaGib int    `pulumi:"storageCapacityQuotaGib"`
-	Type                    string `pulumi:"type"`
+	StorageCapacityQuotaGib int `pulumi:"storageCapacityQuotaGib"`
+	// - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+	Type string `pulumi:"type"`
 }
 
 // OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaInput is an input type that accepts OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs and OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput values.
@@ -2817,8 +2818,9 @@ type OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs struct {
 	// - The ID of the user or group. Valid values between `0` and `2147483647`
 	Id pulumi.IntInput `pulumi:"id"`
 	// - The amount of storage that the user or group can use in gibibytes (GiB). Valid values between `0` and `2147483647`
-	StorageCapacityQuotaGib pulumi.IntInput    `pulumi:"storageCapacityQuotaGib"`
-	Type                    pulumi.StringInput `pulumi:"type"`
+	StorageCapacityQuotaGib pulumi.IntInput `pulumi:"storageCapacityQuotaGib"`
+	// - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+	Type pulumi.StringInput `pulumi:"type"`
 }
 
 func (OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs) ElementType() reflect.Type {
@@ -2884,6 +2886,7 @@ func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) Storage
 	}).(pulumi.IntOutput)
 }
 
+// - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
 func (o OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuota) string { return v.Type }).(pulumi.StringOutput)
 }

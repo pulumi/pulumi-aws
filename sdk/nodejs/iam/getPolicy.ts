@@ -51,14 +51,18 @@ export function getPolicy(args?: GetPolicyArgs, opts?: pulumi.InvokeOptions): Pr
 export interface GetPolicyArgs {
     /**
      * The ARN of the IAM policy.
+     * Conflicts with `name` and `pathPrefix`.
      */
     arn?: string;
     /**
      * The name of the IAM policy.
+     * Conflicts with `arn`.
      */
     name?: string;
     /**
-     * The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+     * The prefix of the path to the IAM policy.
+     * Defaults to a slash (`/`).
+     * Conflicts with `arn`.
      */
     pathPrefix?: string;
     /**
@@ -110,14 +114,18 @@ export function getPolicyOutput(args?: GetPolicyOutputArgs, opts?: pulumi.Invoke
 export interface GetPolicyOutputArgs {
     /**
      * The ARN of the IAM policy.
+     * Conflicts with `name` and `pathPrefix`.
      */
     arn?: pulumi.Input<string>;
     /**
      * The name of the IAM policy.
+     * Conflicts with `arn`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+     * The prefix of the path to the IAM policy.
+     * Defaults to a slash (`/`).
+     * Conflicts with `arn`.
      */
     pathPrefix?: pulumi.Input<string>;
     /**

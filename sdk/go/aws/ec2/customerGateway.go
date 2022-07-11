@@ -59,7 +59,7 @@ type CustomerGateway struct {
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
-	// The IP address of the gateway's Internet-routable external interface.
+	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -116,7 +116,7 @@ type customerGatewayState struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
 	DeviceName *string `pulumi:"deviceName"`
-	// The IP address of the gateway's Internet-routable external interface.
+	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress *string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -136,7 +136,7 @@ type CustomerGatewayState struct {
 	CertificateArn pulumi.StringPtrInput
 	// A name for the customer gateway device.
 	DeviceName pulumi.StringPtrInput
-	// The IP address of the gateway's Internet-routable external interface.
+	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringPtrInput
 	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -158,7 +158,7 @@ type customerGatewayArgs struct {
 	CertificateArn *string `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
 	DeviceName *string `pulumi:"deviceName"`
-	// The IP address of the gateway's Internet-routable external interface.
+	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress string `pulumi:"ipAddress"`
 	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -175,7 +175,7 @@ type CustomerGatewayArgs struct {
 	CertificateArn pulumi.StringPtrInput
 	// A name for the customer gateway device.
 	DeviceName pulumi.StringPtrInput
-	// The IP address of the gateway's Internet-routable external interface.
+	// The IPv4 address for the customer gateway device's outside interface.
 	IpAddress pulumi.StringInput
 	// Tags to apply to the gateway. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -291,7 +291,7 @@ func (o CustomerGatewayOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// The IP address of the gateway's Internet-routable external interface.
+// The IPv4 address for the customer gateway device's outside interface.
 func (o CustomerGatewayOutput) IpAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringOutput { return v.IpAddress }).(pulumi.StringOutput)
 }

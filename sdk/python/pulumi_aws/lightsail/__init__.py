@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .container_service import *
 from .container_service_deployment_version import *
+from .database import *
 from .domain import *
 from .instance import *
 from .instance_public_ports import *

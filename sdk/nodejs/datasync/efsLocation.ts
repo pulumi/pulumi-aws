@@ -64,6 +64,10 @@ export class EfsLocation extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     */
+    public readonly accessPointArn!: pulumi.Output<string | undefined>;
+    /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -75,6 +79,14 @@ export class EfsLocation extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of EFS File System.
      */
     public readonly efsFileSystemArn!: pulumi.Output<ARN>;
+    /**
+     * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+     */
+    public readonly fileSystemAccessRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+     */
+    public readonly inTransitEncryption!: pulumi.Output<string | undefined>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
@@ -102,9 +114,12 @@ export class EfsLocation extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EfsLocationState | undefined;
+            resourceInputs["accessPointArn"] = state ? state.accessPointArn : undefined;
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["ec2Config"] = state ? state.ec2Config : undefined;
             resourceInputs["efsFileSystemArn"] = state ? state.efsFileSystemArn : undefined;
+            resourceInputs["fileSystemAccessRoleArn"] = state ? state.fileSystemAccessRoleArn : undefined;
+            resourceInputs["inTransitEncryption"] = state ? state.inTransitEncryption : undefined;
             resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -117,8 +132,11 @@ export class EfsLocation extends pulumi.CustomResource {
             if ((!args || args.efsFileSystemArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'efsFileSystemArn'");
             }
+            resourceInputs["accessPointArn"] = args ? args.accessPointArn : undefined;
             resourceInputs["ec2Config"] = args ? args.ec2Config : undefined;
             resourceInputs["efsFileSystemArn"] = args ? args.efsFileSystemArn : undefined;
+            resourceInputs["fileSystemAccessRoleArn"] = args ? args.fileSystemAccessRoleArn : undefined;
+            resourceInputs["inTransitEncryption"] = args ? args.inTransitEncryption : undefined;
             resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -135,6 +153,10 @@ export class EfsLocation extends pulumi.CustomResource {
  */
 export interface EfsLocationState {
     /**
+     * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     */
+    accessPointArn?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the DataSync Location.
      */
     arn?: pulumi.Input<string>;
@@ -146,6 +168,14 @@ export interface EfsLocationState {
      * Amazon Resource Name (ARN) of EFS File System.
      */
     efsFileSystemArn?: pulumi.Input<ARN>;
+    /**
+     * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+     */
+    fileSystemAccessRoleArn?: pulumi.Input<string>;
+    /**
+     * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+     */
+    inTransitEncryption?: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */
@@ -166,6 +196,10 @@ export interface EfsLocationState {
  */
 export interface EfsLocationArgs {
     /**
+     * Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+     */
+    accessPointArn?: pulumi.Input<string>;
+    /**
      * Configuration block containing EC2 configurations for connecting to the EFS File System.
      */
     ec2Config: pulumi.Input<inputs.datasync.EfsLocationEc2Config>;
@@ -173,6 +207,14 @@ export interface EfsLocationArgs {
      * Amazon Resource Name (ARN) of EFS File System.
      */
     efsFileSystemArn: pulumi.Input<ARN>;
+    /**
+     * Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+     */
+    fileSystemAccessRoleArn?: pulumi.Input<string>;
+    /**
+     * Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+     */
+    inTransitEncryption?: pulumi.Input<string>;
     /**
      * Subdirectory to perform actions as source or destination. Default `/`.
      */

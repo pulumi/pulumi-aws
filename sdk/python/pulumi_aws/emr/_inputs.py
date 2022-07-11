@@ -397,7 +397,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] size: Volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        :param pulumi.Input[str] type: Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
         :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
@@ -424,7 +424,7 @@ class ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         """
         return pulumi.get(self, "type")
 
@@ -710,17 +710,21 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
                  iops: Optional[pulumi.Input[int]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] size: Volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        :param pulumi.Input[str] type: Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
+        :param pulumi.Input[int] throughput: The throughput, in mebibyte per second (MiB/s).
         :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volumes_per_instance is not None:
             pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
 
@@ -740,7 +744,7 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         """
         return pulumi.get(self, "type")
 
@@ -759,6 +763,18 @@ class ClusterCoreInstanceGroupEbsConfigArgs:
     @iops.setter
     def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The throughput, in mebibyte per second (MiB/s).
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
 
     @property
     @pulumi.getter(name="volumesPerInstance")
@@ -1285,7 +1301,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] size: Volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        :param pulumi.Input[str] type: Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
         :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
@@ -1312,7 +1328,7 @@ class ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         """
         return pulumi.get(self, "type")
 
@@ -1582,17 +1598,21 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
                  size: pulumi.Input[int],
                  type: pulumi.Input[str],
                  iops: Optional[pulumi.Input[int]] = None,
+                 throughput: Optional[pulumi.Input[int]] = None,
                  volumes_per_instance: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[int] size: Volume size, in gibibytes (GiB).
-        :param pulumi.Input[str] type: Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        :param pulumi.Input[str] type: Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         :param pulumi.Input[int] iops: Number of I/O operations per second (IOPS) that the volume supports.
+        :param pulumi.Input[int] throughput: The throughput, in mebibyte per second (MiB/s).
         :param pulumi.Input[int] volumes_per_instance: Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
         """
         pulumi.set(__self__, "size", size)
         pulumi.set(__self__, "type", type)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if throughput is not None:
+            pulumi.set(__self__, "throughput", throughput)
         if volumes_per_instance is not None:
             pulumi.set(__self__, "volumes_per_instance", volumes_per_instance)
 
@@ -1612,7 +1632,7 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+        Volume type. Valid options are `gp3`, `gp2`, `io1`, `standard`, `st1` and `sc1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
         """
         return pulumi.get(self, "type")
 
@@ -1631,6 +1651,18 @@ class ClusterMasterInstanceGroupEbsConfigArgs:
     @iops.setter
     def iops(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "iops", value)
+
+    @property
+    @pulumi.getter
+    def throughput(self) -> Optional[pulumi.Input[int]]:
+        """
+        The throughput, in mebibyte per second (MiB/s).
+        """
+        return pulumi.get(self, "throughput")
+
+    @throughput.setter
+    def throughput(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "throughput", value)
 
     @property
     @pulumi.getter(name="volumesPerInstance")

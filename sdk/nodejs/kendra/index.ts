@@ -5,20 +5,45 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./experience";
+export * from "./faq";
+export * from "./getExperience";
+export * from "./getFaq";
+export * from "./getIndex";
+export * from "./getQuerySuggestionsBlockList";
+export * from "./getThesaurus";
 export * from "./index_";
+export * from "./querySuggestionsBlockList";
+export * from "./thesaurus";
 
 // Import resources to register:
+import { Experience } from "./experience";
+import { Faq } from "./faq";
 import { Index } from "./index_";
+import { QuerySuggestionsBlockList } from "./querySuggestionsBlockList";
+import { Thesaurus } from "./thesaurus";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:kendra/experience:Experience":
+                return new Experience(name, <any>undefined, { urn })
+            case "aws:kendra/faq:Faq":
+                return new Faq(name, <any>undefined, { urn })
             case "aws:kendra/index:Index":
                 return new Index(name, <any>undefined, { urn })
+            case "aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList":
+                return new QuerySuggestionsBlockList(name, <any>undefined, { urn })
+            case "aws:kendra/thesaurus:Thesaurus":
+                return new Thesaurus(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "kendra/experience", _module)
+pulumi.runtime.registerResourceModule("aws", "kendra/faq", _module)
 pulumi.runtime.registerResourceModule("aws", "kendra/index", _module)
+pulumi.runtime.registerResourceModule("aws", "kendra/querySuggestionsBlockList", _module)
+pulumi.runtime.registerResourceModule("aws", "kendra/thesaurus", _module)

@@ -136,9 +136,12 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateDnsName!: pulumi.Output<string>;
     public readonly privateIp!: pulumi.Output<string>;
+    /**
+     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+     */
     public readonly privateIpListEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
      */
     public readonly privateIpLists!: pulumi.Output<string[]>;
     /**
@@ -162,7 +165,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -309,9 +312,12 @@ export interface NetworkInterfaceState {
      */
     privateDnsName?: pulumi.Input<string>;
     privateIp?: pulumi.Input<string>;
+    /**
+     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+     */
     privateIpListEnabled?: pulumi.Input<boolean>;
     /**
-     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
      */
     privateIpLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -335,7 +341,7 @@ export interface NetworkInterfaceState {
      */
     subnetId?: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -390,9 +396,12 @@ export interface NetworkInterfaceArgs {
      */
     ipv6Prefixes?: pulumi.Input<pulumi.Input<string>[]>;
     privateIp?: pulumi.Input<string>;
+    /**
+     * Whether `privateIpList` is allowed and controls the IPs to assign to the ENI and `privateIps` and `privateIpsCount` become read-only. Default false.
+     */
     privateIpListEnabled?: pulumi.Input<boolean>;
     /**
-     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnable` to `true`.
+     * List of private IPs to assign to the ENI in sequential order. Requires setting `privateIpListEnabled` to `true`.
      */
     privateIpLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -416,7 +425,7 @@ export interface NetworkInterfaceArgs {
      */
     subnetId: pulumi.Input<string>;
     /**
-     * Map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

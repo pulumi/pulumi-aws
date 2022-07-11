@@ -501,6 +501,12 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int> DefaultCooldown { get; private set; } = null!;
 
         /// <summary>
+        /// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        /// </summary>
+        [Output("defaultInstanceWarmup")]
+        public Output<int?> DefaultInstanceWarmup { get; private set; } = null!;
+
+        /// <summary>
         /// The number of Amazon EC2 instances that
         /// should be running in the group. (See also Waiting for
         /// Capacity below.)
@@ -791,6 +797,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("defaultCooldown")]
         public Input<int>? DefaultCooldown { get; set; }
+
+        /// <summary>
+        /// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        /// </summary>
+        [Input("defaultInstanceWarmup")]
+        public Input<int>? DefaultInstanceWarmup { get; set; }
 
         /// <summary>
         /// The number of Amazon EC2 instances that
@@ -1105,6 +1117,12 @@ namespace Pulumi.Aws.AutoScaling
         /// </summary>
         [Input("defaultCooldown")]
         public Input<int>? DefaultCooldown { get; set; }
+
+        /// <summary>
+        /// The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+        /// </summary>
+        [Input("defaultInstanceWarmup")]
+        public Input<int>? DefaultInstanceWarmup { get; set; }
 
         /// <summary>
         /// The number of Amazon EC2 instances that

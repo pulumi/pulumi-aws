@@ -118,7 +118,7 @@ import (
 // 			return err
 // 		}
 // 		example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-// 			KafkaVersion:        pulumi.String("2.4.1"),
+// 			KafkaVersion:        pulumi.String("3.2.0"),
 // 			NumberOfBrokerNodes: pulumi.Int(3),
 // 			BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
 // 				InstanceType: pulumi.String("kafka.m5.large"),

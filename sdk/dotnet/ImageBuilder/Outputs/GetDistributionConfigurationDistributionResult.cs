@@ -22,6 +22,10 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult> ContainerDistributionConfigurations;
         /// <summary>
+        /// Nested list of Windows faster-launching configurations to use for AMI distribution.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationResult> FastLaunchConfigurations;
+        /// <summary>
         /// Nested list of launch template configurations.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult> LaunchTemplateConfigurations;
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
 
             ImmutableArray<Outputs.GetDistributionConfigurationDistributionContainerDistributionConfigurationResult> containerDistributionConfigurations,
 
+            ImmutableArray<Outputs.GetDistributionConfigurationDistributionFastLaunchConfigurationResult> fastLaunchConfigurations,
+
             ImmutableArray<Outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult> launchTemplateConfigurations,
 
             ImmutableArray<string> licenseConfigurationArns,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         {
             AmiDistributionConfigurations = amiDistributionConfigurations;
             ContainerDistributionConfigurations = containerDistributionConfigurations;
+            FastLaunchConfigurations = fastLaunchConfigurations;
             LaunchTemplateConfigurations = launchTemplateConfigurations;
             LicenseConfigurationArns = licenseConfigurationArns;
             Region = region;

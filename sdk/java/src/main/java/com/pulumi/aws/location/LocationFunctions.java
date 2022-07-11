@@ -8,8 +8,14 @@ import com.pulumi.aws.location.inputs.GetMapArgs;
 import com.pulumi.aws.location.inputs.GetMapPlainArgs;
 import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
 import com.pulumi.aws.location.inputs.GetPlaceIndexPlainArgs;
+import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
+import com.pulumi.aws.location.inputs.GetRouteCalculatorPlainArgs;
+import com.pulumi.aws.location.inputs.GetTrackerArgs;
+import com.pulumi.aws.location.inputs.GetTrackerPlainArgs;
 import com.pulumi.aws.location.outputs.GetMapResult;
 import com.pulumi.aws.location.outputs.GetPlaceIndexResult;
+import com.pulumi.aws.location.outputs.GetRouteCalculatorResult;
+import com.pulumi.aws.location.outputs.GetTrackerResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
@@ -256,5 +262,245 @@ public final class LocationFunctions {
      */
     public static CompletableFuture<GetPlaceIndexResult> getPlaceIndexPlain(GetPlaceIndexPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:location/getPlaceIndex:getPlaceIndex", TypeShape.of(GetPlaceIndexResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Location Service Route Calculator.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
+     *             .calculatorName(&#34;example&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRouteCalculatorResult> getRouteCalculator(GetRouteCalculatorArgs args) {
+        return getRouteCalculator(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Location Service Route Calculator.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
+     *             .calculatorName(&#34;example&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRouteCalculatorResult> getRouteCalculatorPlain(GetRouteCalculatorPlainArgs args) {
+        return getRouteCalculatorPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Location Service Route Calculator.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
+     *             .calculatorName(&#34;example&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRouteCalculatorResult> getRouteCalculator(GetRouteCalculatorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:location/getRouteCalculator:getRouteCalculator", TypeShape.of(GetRouteCalculatorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Location Service Route Calculator.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
+     *             .calculatorName(&#34;example&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRouteCalculatorResult> getRouteCalculatorPlain(GetRouteCalculatorPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:location/getRouteCalculator:getRouteCalculator", TypeShape.of(GetRouteCalculatorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Location Service Tracker.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(LocationFunctions.getTracker(GetTrackerArgs.builder()
+     *             .trackerName(&#34;example&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTrackerResult> getTracker(GetTrackerArgs args) {
+        return getTracker(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Location Service Tracker.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(LocationFunctions.getTracker(GetTrackerArgs.builder()
+     *             .trackerName(&#34;example&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTrackerResult> getTrackerPlain(GetTrackerPlainArgs args) {
+        return getTrackerPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Location Service Tracker.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(LocationFunctions.getTracker(GetTrackerArgs.builder()
+     *             .trackerName(&#34;example&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetTrackerResult> getTracker(GetTrackerArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:location/getTracker:getTracker", TypeShape.of(GetTrackerResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Location Service Tracker.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(LocationFunctions.getTracker(GetTrackerArgs.builder()
+     *             .trackerName(&#34;example&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetTrackerResult> getTrackerPlain(GetTrackerPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:location/getTracker:getTracker", TypeShape.of(GetTrackerResult.class), args, Utilities.withVersion(options));
     }
 }

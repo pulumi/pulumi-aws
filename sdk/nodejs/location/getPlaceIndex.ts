@@ -40,7 +40,7 @@ export interface GetPlaceIndexArgs {
      */
     indexName: string;
     /**
-     * Key-value map of resource tags for the map.
+     * Key-value map of resource tags for the place index.
      */
     tags?: {[key: string]: string};
 }
@@ -75,11 +75,11 @@ export interface GetPlaceIndexResult {
     readonly indexArn: string;
     readonly indexName: string;
     /**
-     * Key-value map of resource tags for the map.
+     * Key-value map of resource tags for the place index.
      */
     readonly tags: {[key: string]: string};
     /**
-     * The timestamp for when the place index resource was last update in ISO 8601.
+     * The timestamp for when the place index resource was last updated in ISO 8601 format.
      */
     readonly updateTime: string;
 }
@@ -97,7 +97,7 @@ export interface GetPlaceIndexOutputArgs {
      */
     indexName: pulumi.Input<string>;
     /**
-     * Key-value map of resource tags for the map.
+     * Key-value map of resource tags for the place index.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

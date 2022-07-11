@@ -6,12 +6,16 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./anomalyMonitor";
+export * from "./anomalySubscription";
+export * from "./costAllocationTag";
 export * from "./costCategory";
 export * from "./getCostCategory";
 export * from "./getTags";
 
 // Import resources to register:
 import { AnomalyMonitor } from "./anomalyMonitor";
+import { AnomalySubscription } from "./anomalySubscription";
+import { CostAllocationTag } from "./costAllocationTag";
 import { CostCategory } from "./costCategory";
 
 const _module = {
@@ -20,6 +24,10 @@ const _module = {
         switch (type) {
             case "aws:costexplorer/anomalyMonitor:AnomalyMonitor":
                 return new AnomalyMonitor(name, <any>undefined, { urn })
+            case "aws:costexplorer/anomalySubscription:AnomalySubscription":
+                return new AnomalySubscription(name, <any>undefined, { urn })
+            case "aws:costexplorer/costAllocationTag:CostAllocationTag":
+                return new CostAllocationTag(name, <any>undefined, { urn })
             case "aws:costexplorer/costCategory:CostCategory":
                 return new CostCategory(name, <any>undefined, { urn })
             default:
@@ -28,4 +36,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "costexplorer/anomalyMonitor", _module)
+pulumi.runtime.registerResourceModule("aws", "costexplorer/anomalySubscription", _module)
+pulumi.runtime.registerResourceModule("aws", "costexplorer/costAllocationTag", _module)
 pulumi.runtime.registerResourceModule("aws", "costexplorer/costCategory", _module)

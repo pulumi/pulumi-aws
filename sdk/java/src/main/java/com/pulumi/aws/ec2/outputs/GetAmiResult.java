@@ -91,6 +91,7 @@ public final class GetAmiResult {
      * 
      */
     private final String imageType;
+    private final @Nullable Boolean includeDeprecated;
     /**
      * @return The kernel associated with the image, if any. Only applicable
      * for machine images.
@@ -109,7 +110,7 @@ public final class GetAmiResult {
      * 
      */
     private final String ownerId;
-    private final List<String> owners;
+    private final @Nullable List<String> owners;
     /**
      * @return The value is Windows for `Windows` AMIs; otherwise blank.
      * 
@@ -214,12 +215,13 @@ public final class GetAmiResult {
         @CustomType.Parameter("imageLocation") String imageLocation,
         @CustomType.Parameter("imageOwnerAlias") String imageOwnerAlias,
         @CustomType.Parameter("imageType") String imageType,
+        @CustomType.Parameter("includeDeprecated") @Nullable Boolean includeDeprecated,
         @CustomType.Parameter("kernelId") String kernelId,
         @CustomType.Parameter("mostRecent") @Nullable Boolean mostRecent,
         @CustomType.Parameter("name") String name,
         @CustomType.Parameter("nameRegex") @Nullable String nameRegex,
         @CustomType.Parameter("ownerId") String ownerId,
-        @CustomType.Parameter("owners") List<String> owners,
+        @CustomType.Parameter("owners") @Nullable List<String> owners,
         @CustomType.Parameter("platform") String platform,
         @CustomType.Parameter("platformDetails") String platformDetails,
         @CustomType.Parameter("productCodes") List<GetAmiProductCode> productCodes,
@@ -251,6 +253,7 @@ public final class GetAmiResult {
         this.imageLocation = imageLocation;
         this.imageOwnerAlias = imageOwnerAlias;
         this.imageType = imageType;
+        this.includeDeprecated = includeDeprecated;
         this.kernelId = kernelId;
         this.mostRecent = mostRecent;
         this.name = name;
@@ -380,6 +383,9 @@ public final class GetAmiResult {
     public String imageType() {
         return this.imageType;
     }
+    public Optional<Boolean> includeDeprecated() {
+        return Optional.ofNullable(this.includeDeprecated);
+    }
     /**
      * @return The kernel associated with the image, if any. Only applicable
      * for machine images.
@@ -409,7 +415,7 @@ public final class GetAmiResult {
         return this.ownerId;
     }
     public List<String> owners() {
-        return this.owners;
+        return this.owners == null ? List.of() : this.owners;
     }
     /**
      * @return The value is Windows for `Windows` AMIs; otherwise blank.
@@ -552,12 +558,13 @@ public final class GetAmiResult {
         private String imageLocation;
         private String imageOwnerAlias;
         private String imageType;
+        private @Nullable Boolean includeDeprecated;
         private String kernelId;
         private @Nullable Boolean mostRecent;
         private String name;
         private @Nullable String nameRegex;
         private String ownerId;
-        private List<String> owners;
+        private @Nullable List<String> owners;
         private String platform;
         private String platformDetails;
         private List<GetAmiProductCode> productCodes;
@@ -596,6 +603,7 @@ public final class GetAmiResult {
     	      this.imageLocation = defaults.imageLocation;
     	      this.imageOwnerAlias = defaults.imageOwnerAlias;
     	      this.imageType = defaults.imageType;
+    	      this.includeDeprecated = defaults.includeDeprecated;
     	      this.kernelId = defaults.kernelId;
     	      this.mostRecent = defaults.mostRecent;
     	      this.name = defaults.name;
@@ -692,6 +700,10 @@ public final class GetAmiResult {
             this.imageType = Objects.requireNonNull(imageType);
             return this;
         }
+        public Builder includeDeprecated(@Nullable Boolean includeDeprecated) {
+            this.includeDeprecated = includeDeprecated;
+            return this;
+        }
         public Builder kernelId(String kernelId) {
             this.kernelId = Objects.requireNonNull(kernelId);
             return this;
@@ -712,8 +724,8 @@ public final class GetAmiResult {
             this.ownerId = Objects.requireNonNull(ownerId);
             return this;
         }
-        public Builder owners(List<String> owners) {
-            this.owners = Objects.requireNonNull(owners);
+        public Builder owners(@Nullable List<String> owners) {
+            this.owners = owners;
             return this;
         }
         public Builder owners(String... owners) {
@@ -782,7 +794,7 @@ public final class GetAmiResult {
             this.virtualizationType = Objects.requireNonNull(virtualizationType);
             return this;
         }        public GetAmiResult build() {
-            return new GetAmiResult(architecture, arn, blockDeviceMappings, bootMode, creationDate, deprecationTime, description, enaSupport, executableUsers, filters, hypervisor, id, imageId, imageLocation, imageOwnerAlias, imageType, kernelId, mostRecent, name, nameRegex, ownerId, owners, platform, platformDetails, productCodes, public_, ramdiskId, rootDeviceName, rootDeviceType, rootSnapshotId, sriovNetSupport, state, stateReason, tags, tpmSupport, usageOperation, virtualizationType);
+            return new GetAmiResult(architecture, arn, blockDeviceMappings, bootMode, creationDate, deprecationTime, description, enaSupport, executableUsers, filters, hypervisor, id, imageId, imageLocation, imageOwnerAlias, imageType, includeDeprecated, kernelId, mostRecent, name, nameRegex, ownerId, owners, platform, platformDetails, productCodes, public_, ramdiskId, rootDeviceName, rootDeviceType, rootSnapshotId, sriovNetSupport, state, stateReason, tags, tpmSupport, usageOperation, virtualizationType);
         }
     }
 }

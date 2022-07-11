@@ -37,31 +37,26 @@ class TableArgs:
                  write_capacity: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Table resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
-        :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table;
-               subject to the normal limits on the number of GSIs, projected
-               attributes, etc.
-        :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
-               defined as an attribute in the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table;
-               these can only be allocated *at creation* so you cannot change this
-               definition after you have created the resource.
-        :param pulumi.Input[str] name: The name of the index
-        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options.
-        :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
-        :param pulumi.Input[str] restore_date_time: The time of the point-in-time recovery point to restore.
-        :param pulumi.Input[str] restore_source_name: The name of the table to restore. Must match the name of an existing table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+        :param pulumi.Input[str] name: Name of the index
+        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica.
+        :param pulumi.Input[str] range_key: Name of the range key.
+        :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
+        :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
         :param pulumi.Input[bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
-        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
-        :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
+        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
-        :param pulumi.Input[str] table_class: The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['TableTtlArgs'] ttl: Defines ttl, has two properties, and can only be specified once:
-        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
+        :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         if attributes is not None:
             pulumi.set(__self__, "attributes", attributes)
@@ -108,7 +103,7 @@ class TableArgs:
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]]:
         """
-        List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         """
         return pulumi.get(self, "attributes")
 
@@ -132,9 +127,7 @@ class TableArgs:
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]:
         """
-        Describe a GSI for the table;
-        subject to the normal limits on the number of GSIs, projected
-        attributes, etc.
+        Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         """
         return pulumi.get(self, "global_secondary_indexes")
 
@@ -146,8 +139,7 @@ class TableArgs:
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the hash key in the index; must be
-        defined as an attribute in the resource.
+        Name of the hash key in the index; must be defined as an attribute in the resource.
         """
         return pulumi.get(self, "hash_key")
 
@@ -159,9 +151,7 @@ class TableArgs:
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]:
         """
-        Describe an LSI on the table;
-        these can only be allocated *at creation* so you cannot change this
-        definition after you have created the resource.
+        Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
         """
         return pulumi.get(self, "local_secondary_indexes")
 
@@ -173,7 +163,7 @@ class TableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the index
+        Name of the index
         """
         return pulumi.get(self, "name")
 
@@ -185,7 +175,7 @@ class TableArgs:
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]:
         """
-        Enable point-in-time recovery options.
+        Whether to enable Point In Time Recovery for the replica.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -197,7 +187,7 @@ class TableArgs:
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the range key; must be defined
+        Name of the range key.
         """
         return pulumi.get(self, "range_key")
 
@@ -209,7 +199,7 @@ class TableArgs:
     @pulumi.getter(name="readCapacity")
     def read_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "read_capacity")
 
@@ -221,7 +211,7 @@ class TableArgs:
     @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]:
         """
-        Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         """
         return pulumi.get(self, "replicas")
 
@@ -233,7 +223,7 @@ class TableArgs:
     @pulumi.getter(name="restoreDateTime")
     def restore_date_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The time of the point-in-time recovery point to restore.
+        Time of the point-in-time recovery point to restore.
         """
         return pulumi.get(self, "restore_date_time")
 
@@ -245,7 +235,7 @@ class TableArgs:
     @pulumi.getter(name="restoreSourceName")
     def restore_source_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the table to restore. Must match the name of an existing table.
+        Name of the table to restore. Must match the name of an existing table.
         """
         return pulumi.get(self, "restore_source_name")
 
@@ -269,7 +259,7 @@ class TableArgs:
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input['TableServerSideEncryptionArgs']]:
         """
-        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
         """
         return pulumi.get(self, "server_side_encryption")
 
@@ -281,7 +271,7 @@ class TableArgs:
     @pulumi.getter(name="streamEnabled")
     def stream_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether Streams are to be enabled (true) or disabled (false).
+        Whether Streams are enabled.
         """
         return pulumi.get(self, "stream_enabled")
 
@@ -305,7 +295,7 @@ class TableArgs:
     @pulumi.getter(name="tableClass")
     def table_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         """
         return pulumi.get(self, "table_class")
 
@@ -329,7 +319,7 @@ class TableArgs:
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input['TableTtlArgs']]:
         """
-        Defines ttl, has two properties, and can only be specified once:
+        Configuration block for TTL. See below.
         """
         return pulumi.get(self, "ttl")
 
@@ -341,7 +331,7 @@ class TableArgs:
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "write_capacity")
 
@@ -379,38 +369,30 @@ class _TableState:
                  write_capacity: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Table resources.
-        :param pulumi.Input[str] arn: The arn of the table
-        :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        :param pulumi.Input[str] arn: ARN of the table
+        :param pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
-        :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table;
-               subject to the normal limits on the number of GSIs, projected
-               attributes, etc.
-        :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
-               defined as an attribute in the resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table;
-               these can only be allocated *at creation* so you cannot change this
-               definition after you have created the resource.
-        :param pulumi.Input[str] name: The name of the index
-        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Enable point-in-time recovery options.
-        :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
-        :param pulumi.Input[str] restore_date_time: The time of the point-in-time recovery point to restore.
-        :param pulumi.Input[str] restore_source_name: The name of the table to restore. Must match the name of an existing table.
+        :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+        :param pulumi.Input[str] name: Name of the index
+        :param pulumi.Input['TablePointInTimeRecoveryArgs'] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica.
+        :param pulumi.Input[str] range_key: Name of the range key.
+        :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
+        :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
         :param pulumi.Input[bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
-        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
-        :param pulumi.Input[str] stream_arn: The ARN of the Table Stream. Only available when `stream_enabled = true`
-        :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
-        :param pulumi.Input[str] stream_label: A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-               a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-               table name and this field is guaranteed to be unique.
-               It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        :param pulumi.Input[str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
+        :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
+        :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
-        :param pulumi.Input[str] table_class: The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input['TableTtlArgs'] ttl: Defines ttl, has two properties, and can only be specified once:
-        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input['TableTtlArgs'] ttl: Configuration block for TTL. See below.
+        :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -465,7 +447,7 @@ class _TableState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The arn of the table
+        ARN of the table
         """
         return pulumi.get(self, "arn")
 
@@ -477,7 +459,7 @@ class _TableState:
     @pulumi.getter
     def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableAttributeArgs']]]]:
         """
-        List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         """
         return pulumi.get(self, "attributes")
 
@@ -501,9 +483,7 @@ class _TableState:
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexArgs']]]]:
         """
-        Describe a GSI for the table;
-        subject to the normal limits on the number of GSIs, projected
-        attributes, etc.
+        Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         """
         return pulumi.get(self, "global_secondary_indexes")
 
@@ -515,8 +495,7 @@ class _TableState:
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the hash key in the index; must be
-        defined as an attribute in the resource.
+        Name of the hash key in the index; must be defined as an attribute in the resource.
         """
         return pulumi.get(self, "hash_key")
 
@@ -528,9 +507,7 @@ class _TableState:
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]]]:
         """
-        Describe an LSI on the table;
-        these can only be allocated *at creation* so you cannot change this
-        definition after you have created the resource.
+        Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
         """
         return pulumi.get(self, "local_secondary_indexes")
 
@@ -542,7 +519,7 @@ class _TableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the index
+        Name of the index
         """
         return pulumi.get(self, "name")
 
@@ -554,7 +531,7 @@ class _TableState:
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> Optional[pulumi.Input['TablePointInTimeRecoveryArgs']]:
         """
-        Enable point-in-time recovery options.
+        Whether to enable Point In Time Recovery for the replica.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -566,7 +543,7 @@ class _TableState:
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the range key; must be defined
+        Name of the range key.
         """
         return pulumi.get(self, "range_key")
 
@@ -578,7 +555,7 @@ class _TableState:
     @pulumi.getter(name="readCapacity")
     def read_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "read_capacity")
 
@@ -590,7 +567,7 @@ class _TableState:
     @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableReplicaArgs']]]]:
         """
-        Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         """
         return pulumi.get(self, "replicas")
 
@@ -602,7 +579,7 @@ class _TableState:
     @pulumi.getter(name="restoreDateTime")
     def restore_date_time(self) -> Optional[pulumi.Input[str]]:
         """
-        The time of the point-in-time recovery point to restore.
+        Time of the point-in-time recovery point to restore.
         """
         return pulumi.get(self, "restore_date_time")
 
@@ -614,7 +591,7 @@ class _TableState:
     @pulumi.getter(name="restoreSourceName")
     def restore_source_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the table to restore. Must match the name of an existing table.
+        Name of the table to restore. Must match the name of an existing table.
         """
         return pulumi.get(self, "restore_source_name")
 
@@ -638,7 +615,7 @@ class _TableState:
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> Optional[pulumi.Input['TableServerSideEncryptionArgs']]:
         """
-        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
         """
         return pulumi.get(self, "server_side_encryption")
 
@@ -650,7 +627,7 @@ class _TableState:
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of the Table Stream. Only available when `stream_enabled = true`
+        ARN of the Table Stream. Only available when `stream_enabled = true`
         """
         return pulumi.get(self, "stream_arn")
 
@@ -662,7 +639,7 @@ class _TableState:
     @pulumi.getter(name="streamEnabled")
     def stream_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Indicates whether Streams are to be enabled (true) or disabled (false).
+        Whether Streams are enabled.
         """
         return pulumi.get(self, "stream_enabled")
 
@@ -674,10 +651,7 @@ class _TableState:
     @pulumi.getter(name="streamLabel")
     def stream_label(self) -> Optional[pulumi.Input[str]]:
         """
-        A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-        a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-        table name and this field is guaranteed to be unique.
-        It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
         """
         return pulumi.get(self, "stream_label")
 
@@ -701,7 +675,7 @@ class _TableState:
     @pulumi.getter(name="tableClass")
     def table_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         """
         return pulumi.get(self, "table_class")
 
@@ -725,7 +699,7 @@ class _TableState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -737,7 +711,7 @@ class _TableState:
     @pulumi.getter
     def ttl(self) -> Optional[pulumi.Input['TableTtlArgs']]:
         """
-        Defines ttl, has two properties, and can only be specified once:
+        Configuration block for TTL. See below.
         """
         return pulumi.get(self, "ttl")
 
@@ -749,7 +723,7 @@ class _TableState:
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> Optional[pulumi.Input[int]]:
         """
-        The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "write_capacity")
 
@@ -789,10 +763,18 @@ class Table(pulumi.CustomResource):
 
         > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
 
+        ## DynamoDB Table attributes
+
+        Only define attributes on the table object that are going to be used as:
+
+        * Table hash key or range key
+        * LSI or GSI hash key or range key
+
+        The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
+
         ## Example Usage
 
-        The following dynamodb table description models the table and GSI shown
-        in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+        The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 
         ```python
         import pulumi
@@ -873,31 +855,26 @@ class Table(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table;
-               subject to the normal limits on the number of GSIs, projected
-               attributes, etc.
-        :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
-               defined as an attribute in the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table;
-               these can only be allocated *at creation* so you cannot change this
-               definition after you have created the resource.
-        :param pulumi.Input[str] name: The name of the index
-        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Enable point-in-time recovery options.
-        :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
-        :param pulumi.Input[str] restore_date_time: The time of the point-in-time recovery point to restore.
-        :param pulumi.Input[str] restore_source_name: The name of the table to restore. Must match the name of an existing table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+        :param pulumi.Input[str] name: Name of the index
+        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica.
+        :param pulumi.Input[str] range_key: Name of the range key.
+        :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
+        :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
         :param pulumi.Input[bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
-        :param pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
-        :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
+        :param pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
-        :param pulumi.Input[str] table_class: The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Defines ttl, has two properties, and can only be specified once:
-        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Configuration block for TTL. See below.
+        :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         ...
     @overload
@@ -910,10 +887,18 @@ class Table(pulumi.CustomResource):
 
         > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `read_capacity` and/or `write_capacity` if there's `autoscaling policy` attached to the table.
 
+        ## DynamoDB Table attributes
+
+        Only define attributes on the table object that are going to be used as:
+
+        * Table hash key or range key
+        * LSI or GSI hash key or range key
+
+        The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
+
         ## Example Usage
 
-        The following dynamodb table description models the table and GSI shown
-        in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+        The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
 
         ```python
         import pulumi
@@ -1104,38 +1089,30 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The arn of the table
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        :param pulumi.Input[str] arn: ARN of the table
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableAttributeArgs']]]] attributes: Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         :param pulumi.Input[str] billing_mode: Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table;
-               subject to the normal limits on the number of GSIs, projected
-               attributes, etc.
-        :param pulumi.Input[str] hash_key: The name of the hash key in the index; must be
-               defined as an attribute in the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table;
-               these can only be allocated *at creation* so you cannot change this
-               definition after you have created the resource.
-        :param pulumi.Input[str] name: The name of the index
-        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Enable point-in-time recovery options.
-        :param pulumi.Input[str] range_key: The name of the range key; must be defined
-        :param pulumi.Input[int] read_capacity: The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
-        :param pulumi.Input[str] restore_date_time: The time of the point-in-time recovery point to restore.
-        :param pulumi.Input[str] restore_source_name: The name of the table to restore. Must match the name of an existing table.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableGlobalSecondaryIndexArgs']]]] global_secondary_indexes: Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
+        :param pulumi.Input[str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableLocalSecondaryIndexArgs']]]] local_secondary_indexes: Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
+        :param pulumi.Input[str] name: Name of the index
+        :param pulumi.Input[pulumi.InputType['TablePointInTimeRecoveryArgs']] point_in_time_recovery: Whether to enable Point In Time Recovery for the replica.
+        :param pulumi.Input[str] range_key: Name of the range key.
+        :param pulumi.Input[int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TableReplicaArgs']]]] replicas: Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
+        :param pulumi.Input[str] restore_date_time: Time of the point-in-time recovery point to restore.
+        :param pulumi.Input[str] restore_source_name: Name of the table to restore. Must match the name of an existing table.
         :param pulumi.Input[bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
-        :param pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
-        :param pulumi.Input[str] stream_arn: The ARN of the Table Stream. Only available when `stream_enabled = true`
-        :param pulumi.Input[bool] stream_enabled: Indicates whether Streams are to be enabled (true) or disabled (false).
-        :param pulumi.Input[str] stream_label: A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-               a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-               table name and this field is guaranteed to be unique.
-               It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        :param pulumi.Input[pulumi.InputType['TableServerSideEncryptionArgs']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
+        :param pulumi.Input[str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
+        :param pulumi.Input[bool] stream_enabled: Whether Streams are enabled.
+        :param pulumi.Input[str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
         :param pulumi.Input[str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
-        :param pulumi.Input[str] table_class: The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        :param pulumi.Input[str] table_class: Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Defines ttl, has two properties, and can only be specified once:
-        :param pulumi.Input[int] write_capacity: The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[pulumi.InputType['TableTtlArgs']] ttl: Configuration block for TTL. See below.
+        :param pulumi.Input[int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1171,7 +1148,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The arn of the table
+        ARN of the table
         """
         return pulumi.get(self, "arn")
 
@@ -1179,7 +1156,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def attributes(self) -> pulumi.Output[Sequence['outputs.TableAttribute']]:
         """
-        List of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. Each attribute has two properties:
+        Set of nested attribute definitions. Only required for `hash_key` and `range_key` attributes. See below.
         """
         return pulumi.get(self, "attributes")
 
@@ -1195,9 +1172,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="globalSecondaryIndexes")
     def global_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.TableGlobalSecondaryIndex']]]:
         """
-        Describe a GSI for the table;
-        subject to the normal limits on the number of GSIs, projected
-        attributes, etc.
+        Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
         """
         return pulumi.get(self, "global_secondary_indexes")
 
@@ -1205,8 +1180,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> pulumi.Output[str]:
         """
-        The name of the hash key in the index; must be
-        defined as an attribute in the resource.
+        Name of the hash key in the index; must be defined as an attribute in the resource.
         """
         return pulumi.get(self, "hash_key")
 
@@ -1214,9 +1188,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="localSecondaryIndexes")
     def local_secondary_indexes(self) -> pulumi.Output[Optional[Sequence['outputs.TableLocalSecondaryIndex']]]:
         """
-        Describe an LSI on the table;
-        these can only be allocated *at creation* so you cannot change this
-        definition after you have created the resource.
+        Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
         """
         return pulumi.get(self, "local_secondary_indexes")
 
@@ -1224,7 +1196,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the index
+        Name of the index
         """
         return pulumi.get(self, "name")
 
@@ -1232,7 +1204,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="pointInTimeRecovery")
     def point_in_time_recovery(self) -> pulumi.Output['outputs.TablePointInTimeRecovery']:
         """
-        Enable point-in-time recovery options.
+        Whether to enable Point In Time Recovery for the replica.
         """
         return pulumi.get(self, "point_in_time_recovery")
 
@@ -1240,7 +1212,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="rangeKey")
     def range_key(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the range key; must be defined
+        Name of the range key.
         """
         return pulumi.get(self, "range_key")
 
@@ -1248,7 +1220,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="readCapacity")
     def read_capacity(self) -> pulumi.Output[int]:
         """
-        The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "read_capacity")
 
@@ -1256,7 +1228,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def replicas(self) -> pulumi.Output[Optional[Sequence['outputs.TableReplica']]]:
         """
-        Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+        Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
         """
         return pulumi.get(self, "replicas")
 
@@ -1264,7 +1236,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="restoreDateTime")
     def restore_date_time(self) -> pulumi.Output[Optional[str]]:
         """
-        The time of the point-in-time recovery point to restore.
+        Time of the point-in-time recovery point to restore.
         """
         return pulumi.get(self, "restore_date_time")
 
@@ -1272,7 +1244,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="restoreSourceName")
     def restore_source_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the table to restore. Must match the name of an existing table.
+        Name of the table to restore. Must match the name of an existing table.
         """
         return pulumi.get(self, "restore_source_name")
 
@@ -1288,7 +1260,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="serverSideEncryption")
     def server_side_encryption(self) -> pulumi.Output['outputs.TableServerSideEncryption']:
         """
-        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+        Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
         """
         return pulumi.get(self, "server_side_encryption")
 
@@ -1296,7 +1268,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Output[str]:
         """
-        The ARN of the Table Stream. Only available when `stream_enabled = true`
+        ARN of the Table Stream. Only available when `stream_enabled = true`
         """
         return pulumi.get(self, "stream_arn")
 
@@ -1304,7 +1276,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="streamEnabled")
     def stream_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Indicates whether Streams are to be enabled (true) or disabled (false).
+        Whether Streams are enabled.
         """
         return pulumi.get(self, "stream_enabled")
 
@@ -1312,10 +1284,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="streamLabel")
     def stream_label(self) -> pulumi.Output[str]:
         """
-        A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-        a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-        table name and this field is guaranteed to be unique.
-        It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
+        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`
         """
         return pulumi.get(self, "stream_label")
 
@@ -1331,7 +1300,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="tableClass")
     def table_class(self) -> pulumi.Output[Optional[str]]:
         """
-        The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
         """
         return pulumi.get(self, "table_class")
 
@@ -1347,7 +1316,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -1355,7 +1324,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter
     def ttl(self) -> pulumi.Output['outputs.TableTtl']:
         """
-        Defines ttl, has two properties, and can only be specified once:
+        Configuration block for TTL. See below.
         """
         return pulumi.get(self, "ttl")
 
@@ -1363,7 +1332,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> pulumi.Output[int]:
         """
-        The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "write_capacity")
 

@@ -65,7 +65,7 @@ type ParameterGroup struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -114,7 +114,7 @@ type parameterGroupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -132,7 +132,7 @@ type ParameterGroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters ParameterGroupParameterArrayInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -152,7 +152,7 @@ type parameterGroupArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -167,7 +167,7 @@ type ParameterGroupArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Set of MemoryDB parameters to apply. Any parameters not specified will fall back to their family defaults. Detailed below.
 	Parameters ParameterGroupParameterArrayInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -287,7 +287,7 @@ func (o ParameterGroupOutput) Parameters() ParameterGroupParameterArrayOutput {
 	return o.ApplyT(func(v *ParameterGroup) ParameterGroupParameterArrayOutput { return v.Parameters }).(ParameterGroupParameterArrayOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ParameterGroupOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

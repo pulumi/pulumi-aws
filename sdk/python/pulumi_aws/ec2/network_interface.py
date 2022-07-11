@@ -48,12 +48,13 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[int] ipv6_prefix_count: Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_prefixes: One or more IPv6 prefixes assigned to the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        :param pulumi.Input[bool] private_ip_list_enabled: Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
         if attachments is not None:
@@ -248,6 +249,9 @@ class NetworkInterfaceArgs:
     @property
     @pulumi.getter(name="privateIpListEnabled")
     def private_ip_list_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        """
         return pulumi.get(self, "private_ip_list_enabled")
 
     @private_ip_list_enabled.setter
@@ -258,7 +262,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter(name="privateIpLists")
     def private_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         """
         return pulumi.get(self, "private_ip_lists")
 
@@ -318,7 +322,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -372,13 +376,14 @@ class _NetworkInterfaceState:
         :param pulumi.Input[str] mac_address: MAC address of the network interface.
         :param pulumi.Input[str] owner_id: AWS account ID of the owner of the network interface.
         :param pulumi.Input[str] private_dns_name: Private DNS name of the network interface (IPv4).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        :param pulumi.Input[bool] private_ip_list_enabled: Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if arn is not None:
@@ -632,6 +637,9 @@ class _NetworkInterfaceState:
     @property
     @pulumi.getter(name="privateIpListEnabled")
     def private_ip_list_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        """
         return pulumi.get(self, "private_ip_list_enabled")
 
     @private_ip_list_enabled.setter
@@ -642,7 +650,7 @@ class _NetworkInterfaceState:
     @pulumi.getter(name="privateIpLists")
     def private_ip_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         """
         return pulumi.get(self, "private_ip_lists")
 
@@ -714,7 +722,7 @@ class _NetworkInterfaceState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -816,13 +824,14 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Addresses are assigned without regard to order. You can't use this option if you're specifying `ipv6_address_count`.
         :param pulumi.Input[int] ipv6_prefix_count: Number of IPv6 prefixes that AWS automatically assigns to the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_prefixes: One or more IPv6 prefixes assigned to the network interface.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        :param pulumi.Input[bool] private_ip_list_enabled: Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -1005,13 +1014,14 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.Input[str] mac_address: MAC address of the network interface.
         :param pulumi.Input[str] owner_id: AWS account ID of the owner of the network interface.
         :param pulumi.Input[str] private_dns_name: Private DNS name of the network interface (IPv4).
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        :param pulumi.Input[bool] private_ip_list_enabled: Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ip_lists: List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] private_ips: List of private IPs to assign to the ENI without regard to order.
         :param pulumi.Input[int] private_ips_count: Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + `private_ips_count`, as a primary private IP will be assiged to an ENI by default.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: List of security group IDs to assign to the ENI.
         :param pulumi.Input[bool] source_dest_check: Whether to enable source destination checking for the ENI. Default true.
         :param pulumi.Input[str] subnet_id: Subnet ID to create the ENI in.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1176,13 +1186,16 @@ class NetworkInterface(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateIpListEnabled")
     def private_ip_list_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether `private_ip_list` is allowed and controls the IPs to assign to the ENI and `private_ips` and `private_ips_count` become read-only. Default false.
+        """
         return pulumi.get(self, "private_ip_list_enabled")
 
     @property
     @pulumi.getter(name="privateIpLists")
     def private_ip_lists(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enable` to `true`.
+        List of private IPs to assign to the ENI in sequential order. Requires setting `private_ip_list_enabled` to `true`.
         """
         return pulumi.get(self, "private_ip_lists")
 
@@ -1230,7 +1243,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

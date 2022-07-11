@@ -26,7 +26,7 @@ class QuickConnectArgs:
         :param pulumi.Input['QuickConnectQuickConnectConfigArgs'] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         :param pulumi.Input[str] description: Specifies the description of the Quick Connect.
         :param pulumi.Input[str] name: Specifies the name of the Quick Connect.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         pulumi.set(__self__, "quick_connect_config", quick_connect_config)
@@ -89,7 +89,7 @@ class QuickConnectArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the Quick Connect. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -117,7 +117,7 @@ class _QuickConnectState:
         :param pulumi.Input[str] name: Specifies the name of the Quick Connect.
         :param pulumi.Input['QuickConnectQuickConnectConfigArgs'] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         :param pulumi.Input[str] quick_connect_id: The identifier for the Quick Connect.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if arn is not None:
@@ -213,7 +213,7 @@ class _QuickConnectState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the Quick Connect. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -283,7 +283,7 @@ class QuickConnect(pulumi.CustomResource):
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Quick Connect.
         :param pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -398,7 +398,7 @@ class QuickConnect(pulumi.CustomResource):
         :param pulumi.Input[str] name: Specifies the name of the Quick Connect.
         :param pulumi.Input[pulumi.InputType['QuickConnectQuickConnectConfigArgs']] quick_connect_config: A block that defines the configuration information for the Quick Connect: `quick_connect_type` and one of `phone_config`, `queue_config`, `user_config` . The Quick Connect Config block is documented below.
         :param pulumi.Input[str] quick_connect_id: The identifier for the Quick Connect.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -467,7 +467,7 @@ class QuickConnect(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Tags to apply to the Quick Connect. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Quick Connect. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

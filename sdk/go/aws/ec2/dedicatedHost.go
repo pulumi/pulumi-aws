@@ -59,8 +59,10 @@ type DedicatedHost struct {
 	HostRecovery pulumi.StringPtrOutput `pulumi:"hostRecovery"`
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceFamily pulumi.StringPtrOutput `pulumi:"instanceFamily"`
-	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrOutput `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -111,8 +113,10 @@ type dedicatedHostState struct {
 	HostRecovery *string `pulumi:"hostRecovery"`
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceFamily *string `pulumi:"instanceFamily"`
-	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId *string `pulumi:"ownerId"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -132,8 +136,10 @@ type DedicatedHostState struct {
 	HostRecovery pulumi.StringPtrInput
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceFamily pulumi.StringPtrInput
-	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	OutpostArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -155,8 +161,10 @@ type dedicatedHostArgs struct {
 	HostRecovery *string `pulumi:"hostRecovery"`
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceFamily *string `pulumi:"instanceFamily"`
-	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType *string `pulumi:"instanceType"`
+	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	OutpostArn *string `pulumi:"outpostArn"`
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -171,8 +179,10 @@ type DedicatedHostArgs struct {
 	HostRecovery pulumi.StringPtrInput
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceFamily pulumi.StringPtrInput
-	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+	OutpostArn pulumi.StringPtrInput
 	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -289,9 +299,14 @@ func (o DedicatedHostOutput) InstanceFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.InstanceFamily }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
+// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instanceFamily` or `instanceType` must be specified.
 func (o DedicatedHostOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+func (o DedicatedHostOutput) OutpostArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DedicatedHost) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the AWS account that owns the Dedicated Host.

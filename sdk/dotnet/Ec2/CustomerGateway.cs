@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> DeviceName { get; private set; } = null!;
 
         /// <summary>
-        /// The IP address of the gateway's Internet-routable external interface.
+        /// The IPv4 address for the customer gateway device's outside interface.
         /// </summary>
         [Output("ipAddress")]
         public Output<string> IpAddress { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The IP address of the gateway's Internet-routable external interface.
+        /// The IPv4 address for the customer gateway device's outside interface.
         /// </summary>
         [Input("ipAddress", required: true)]
         public Input<string> IpAddress { get; set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? DeviceName { get; set; }
 
         /// <summary>
-        /// The IP address of the gateway's Internet-routable external interface.
+        /// The IPv4 address for the customer gateway device's outside interface.
         /// </summary>
         [Input("ipAddress")]
         public Input<string>? IpAddress { get; set; }

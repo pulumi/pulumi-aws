@@ -78,10 +78,16 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> InstanceFamily { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Output("instanceType")]
         public Output<string?> InstanceType { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+        /// </summary>
+        [Output("outpostArn")]
+        public Output<string?> OutpostArn { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the AWS account that owns the Dedicated Host.
@@ -172,10 +178,16 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceFamily { get; set; }
 
         /// <summary>
-        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -227,10 +239,16 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceFamily { get; set; }
 
         /// <summary>
-        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+        /// </summary>
+        [Input("outpostArn")]
+        public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
         /// The ID of the AWS account that owns the Dedicated Host.

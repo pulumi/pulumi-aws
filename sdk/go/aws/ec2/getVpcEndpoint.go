@@ -76,9 +76,11 @@ type LookupVpcEndpointResult struct {
 	// The list of CIDR blocks for the exposed AWS service. Applicable for endpoints of type `Gateway`.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
-	DnsEntries []GetVpcEndpointDnsEntry `pulumi:"dnsEntries"`
-	Filters    []GetVpcEndpointFilter   `pulumi:"filters"`
-	Id         string                   `pulumi:"id"`
+	DnsEntries    []GetVpcEndpointDnsEntry  `pulumi:"dnsEntries"`
+	DnsOptions    []GetVpcEndpointDnsOption `pulumi:"dnsOptions"`
+	Filters       []GetVpcEndpointFilter    `pulumi:"filters"`
+	Id            string                    `pulumi:"id"`
+	IpAddressType string                    `pulumi:"ipAddressType"`
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that owns the VPC endpoint.
@@ -169,12 +171,20 @@ func (o LookupVpcEndpointResultOutput) DnsEntries() GetVpcEndpointDnsEntryArrayO
 	return o.ApplyT(func(v LookupVpcEndpointResult) []GetVpcEndpointDnsEntry { return v.DnsEntries }).(GetVpcEndpointDnsEntryArrayOutput)
 }
 
+func (o LookupVpcEndpointResultOutput) DnsOptions() GetVpcEndpointDnsOptionArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []GetVpcEndpointDnsOption { return v.DnsOptions }).(GetVpcEndpointDnsOptionArrayOutput)
+}
+
 func (o LookupVpcEndpointResultOutput) Filters() GetVpcEndpointFilterArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) []GetVpcEndpointFilter { return v.Filters }).(GetVpcEndpointFilterArrayOutput)
 }
 
 func (o LookupVpcEndpointResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) string { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
 // One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.

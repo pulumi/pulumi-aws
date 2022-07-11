@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.EndpointConfigurationProductionVariantServerlessConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Double;
@@ -36,26 +37,26 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
      * Initial number of instances used for auto-scaling.
      * 
      */
-    @Import(name="initialInstanceCount", required=true)
-    private Output<Integer> initialInstanceCount;
+    @Import(name="initialInstanceCount")
+    private @Nullable Output<Integer> initialInstanceCount;
 
     /**
      * @return Initial number of instances used for auto-scaling.
      * 
      */
-    public Output<Integer> initialInstanceCount() {
-        return this.initialInstanceCount;
+    public Optional<Output<Integer>> initialInstanceCount() {
+        return Optional.ofNullable(this.initialInstanceCount);
     }
 
     /**
-     * Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+     * Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
      * 
      */
     @Import(name="initialVariantWeight")
     private @Nullable Output<Double> initialVariantWeight;
 
     /**
-     * @return Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+     * @return Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
      * 
      */
     public Optional<Output<Double>> initialVariantWeight() {
@@ -66,15 +67,15 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
      * The type of instance to start.
      * 
      */
-    @Import(name="instanceType", required=true)
-    private Output<String> instanceType;
+    @Import(name="instanceType")
+    private @Nullable Output<String> instanceType;
 
     /**
      * @return The type of instance to start.
      * 
      */
-    public Output<String> instanceType() {
-        return this.instanceType;
+    public Optional<Output<String>> instanceType() {
+        return Optional.ofNullable(this.instanceType);
     }
 
     /**
@@ -90,6 +91,21 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
      */
     public Output<String> modelName() {
         return this.modelName;
+    }
+
+    /**
+     * Specifies configuration for how an endpoint performs asynchronous inference.
+     * 
+     */
+    @Import(name="serverlessConfig")
+    private @Nullable Output<EndpointConfigurationProductionVariantServerlessConfigArgs> serverlessConfig;
+
+    /**
+     * @return Specifies configuration for how an endpoint performs asynchronous inference.
+     * 
+     */
+    public Optional<Output<EndpointConfigurationProductionVariantServerlessConfigArgs>> serverlessConfig() {
+        return Optional.ofNullable(this.serverlessConfig);
     }
 
     /**
@@ -115,6 +131,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         this.initialVariantWeight = $.initialVariantWeight;
         this.instanceType = $.instanceType;
         this.modelName = $.modelName;
+        this.serverlessConfig = $.serverlessConfig;
         this.variantName = $.variantName;
     }
 
@@ -163,7 +180,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder initialInstanceCount(Output<Integer> initialInstanceCount) {
+        public Builder initialInstanceCount(@Nullable Output<Integer> initialInstanceCount) {
             $.initialInstanceCount = initialInstanceCount;
             return this;
         }
@@ -179,7 +196,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param initialVariantWeight Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+         * @param initialVariantWeight Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
          * 
          * @return builder
          * 
@@ -190,7 +207,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
-         * @param initialVariantWeight Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+         * @param initialVariantWeight Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
          * 
          * @return builder
          * 
@@ -205,7 +222,7 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
          * @return builder
          * 
          */
-        public Builder instanceType(Output<String> instanceType) {
+        public Builder instanceType(@Nullable Output<String> instanceType) {
             $.instanceType = instanceType;
             return this;
         }
@@ -242,6 +259,27 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         /**
+         * @param serverlessConfig Specifies configuration for how an endpoint performs asynchronous inference.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessConfig(@Nullable Output<EndpointConfigurationProductionVariantServerlessConfigArgs> serverlessConfig) {
+            $.serverlessConfig = serverlessConfig;
+            return this;
+        }
+
+        /**
+         * @param serverlessConfig Specifies configuration for how an endpoint performs asynchronous inference.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessConfig(EndpointConfigurationProductionVariantServerlessConfigArgs serverlessConfig) {
+            return serverlessConfig(Output.of(serverlessConfig));
+        }
+
+        /**
          * @param variantName The name of the variant. If omitted, this provider will assign a random, unique name.
          * 
          * @return builder
@@ -263,8 +301,6 @@ public final class EndpointConfigurationProductionVariantArgs extends com.pulumi
         }
 
         public EndpointConfigurationProductionVariantArgs build() {
-            $.initialInstanceCount = Objects.requireNonNull($.initialInstanceCount, "expected parameter 'initialInstanceCount' to be non-null");
-            $.instanceType = Objects.requireNonNull($.instanceType, "expected parameter 'instanceType' to be non-null");
             $.modelName = Objects.requireNonNull($.modelName, "expected parameter 'modelName' to be non-null");
             return $;
         }

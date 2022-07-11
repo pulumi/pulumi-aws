@@ -71,7 +71,7 @@ type QuickConnect struct {
 	QuickConnectConfig QuickConnectQuickConnectConfigOutput `pulumi:"quickConnectConfig"`
 	// The identifier for the Quick Connect.
 	QuickConnectId pulumi.StringOutput `pulumi:"quickConnectId"`
-	// Tags to apply to the Quick Connect. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -124,7 +124,7 @@ type quickConnectState struct {
 	QuickConnectConfig *QuickConnectQuickConnectConfig `pulumi:"quickConnectConfig"`
 	// The identifier for the Quick Connect.
 	QuickConnectId *string `pulumi:"quickConnectId"`
-	// Tags to apply to the Quick Connect. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -143,7 +143,7 @@ type QuickConnectState struct {
 	QuickConnectConfig QuickConnectQuickConnectConfigPtrInput
 	// The identifier for the Quick Connect.
 	QuickConnectId pulumi.StringPtrInput
-	// Tags to apply to the Quick Connect. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -162,7 +162,7 @@ type quickConnectArgs struct {
 	Name *string `pulumi:"name"`
 	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
 	QuickConnectConfig QuickConnectQuickConnectConfig `pulumi:"quickConnectConfig"`
-	// Tags to apply to the Quick Connect. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -176,7 +176,7 @@ type QuickConnectArgs struct {
 	Name pulumi.StringPtrInput
 	// A block that defines the configuration information for the Quick Connect: `quickConnectType` and one of `phoneConfig`, `queueConfig`, `userConfig` . The Quick Connect Config block is documented below.
 	QuickConnectConfig QuickConnectQuickConnectConfigInput
-	// Tags to apply to the Quick Connect. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -297,7 +297,7 @@ func (o QuickConnectOutput) QuickConnectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringOutput { return v.QuickConnectId }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Quick Connect. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Tags to apply to the Quick Connect. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o QuickConnectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *QuickConnect) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

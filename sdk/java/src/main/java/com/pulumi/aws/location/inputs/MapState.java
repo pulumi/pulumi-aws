@@ -107,14 +107,14 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timestamp for when the map resource was last updated in ISO 8601.
+     * The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
     @Import(name="updateTime")
     private @Nullable Output<String> updateTime;
 
     /**
-     * @return The timestamp for when the map resource was last updated in ISO 8601.
+     * @return The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
     public Optional<Output<String>> updateTime() {
@@ -276,7 +276,7 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime The timestamp for when the map resource was last updated in ISO 8601.
+         * @param updateTime The timestamp for when the map resource was last updated in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime The timestamp for when the map resource was last updated in ISO 8601.
+         * @param updateTime The timestamp for when the map resource was last updated in ISO 8601 format.
          * 
          * @return builder
          * 

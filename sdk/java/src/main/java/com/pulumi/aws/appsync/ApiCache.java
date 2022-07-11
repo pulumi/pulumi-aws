@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Provides an AppSync API Cache.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -41,7 +40,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleApiCache = new ApiCache(&#34;exampleApiCache&#34;, ApiCacheArgs.builder()        
  *             .apiId(exampleGraphQLApi.id())
- *             .expires(&#34;2018-05-03T04:00:00Z&#34;)
+ *             .apiCachingBehavior(&#34;FULL_REQUEST_CACHING&#34;)
+ *             .type(&#34;LARGE&#34;)
+ *             .ttl(900)
  *             .build());
  * 
  *     }

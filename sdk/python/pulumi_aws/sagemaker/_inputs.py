@@ -34,6 +34,7 @@ __all__ = [
     'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeaderArgs',
     'EndpointConfigurationDataCaptureConfigCaptureOptionArgs',
     'EndpointConfigurationProductionVariantArgs',
+    'EndpointConfigurationProductionVariantServerlessConfigArgs',
     'EndpointDeploymentConfigArgs',
     'EndpointDeploymentConfigAutoRollbackConfigurationArgs',
     'EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs',
@@ -57,10 +58,13 @@ __all__ = [
     'HumanTaskUIUiTemplateArgs',
     'ModelContainerArgs',
     'ModelContainerImageConfigArgs',
+    'ModelContainerImageConfigRepositoryAuthConfigArgs',
     'ModelInferenceExecutionConfigArgs',
     'ModelPrimaryContainerArgs',
     'ModelPrimaryContainerImageConfigArgs',
+    'ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs',
     'ModelVpcConfigArgs',
+    'NotebookInstanceInstanceMetadataServiceConfigurationArgs',
     'ProjectServiceCatalogProvisioningDetailsArgs',
     'ProjectServiceCatalogProvisioningDetailsProvisioningParameterArgs',
     'UserProfileUserSettingsArgs',
@@ -1310,53 +1314,35 @@ class EndpointConfigurationDataCaptureConfigCaptureOptionArgs:
 @pulumi.input_type
 class EndpointConfigurationProductionVariantArgs:
     def __init__(__self__, *,
-                 initial_instance_count: pulumi.Input[int],
-                 instance_type: pulumi.Input[str],
                  model_name: pulumi.Input[str],
                  accelerator_type: Optional[pulumi.Input[str]] = None,
+                 initial_instance_count: Optional[pulumi.Input[int]] = None,
                  initial_variant_weight: Optional[pulumi.Input[float]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 serverless_config: Optional[pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs']] = None,
                  variant_name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[int] initial_instance_count: Initial number of instances used for auto-scaling.
-        :param pulumi.Input[str] instance_type: The type of instance to start.
         :param pulumi.Input[str] model_name: The name of the model to use.
         :param pulumi.Input[str] accelerator_type: The size of the Elastic Inference (EI) instance to use for the production variant.
-        :param pulumi.Input[float] initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+        :param pulumi.Input[int] initial_instance_count: Initial number of instances used for auto-scaling.
+        :param pulumi.Input[float] initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
+        :param pulumi.Input[str] instance_type: The type of instance to start.
+        :param pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs'] serverless_config: Specifies configuration for how an endpoint performs asynchronous inference.
         :param pulumi.Input[str] variant_name: The name of the variant. If omitted, this provider will assign a random, unique name.
         """
-        pulumi.set(__self__, "initial_instance_count", initial_instance_count)
-        pulumi.set(__self__, "instance_type", instance_type)
         pulumi.set(__self__, "model_name", model_name)
         if accelerator_type is not None:
             pulumi.set(__self__, "accelerator_type", accelerator_type)
+        if initial_instance_count is not None:
+            pulumi.set(__self__, "initial_instance_count", initial_instance_count)
         if initial_variant_weight is not None:
             pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if serverless_config is not None:
+            pulumi.set(__self__, "serverless_config", serverless_config)
         if variant_name is not None:
             pulumi.set(__self__, "variant_name", variant_name)
-
-    @property
-    @pulumi.getter(name="initialInstanceCount")
-    def initial_instance_count(self) -> pulumi.Input[int]:
-        """
-        Initial number of instances used for auto-scaling.
-        """
-        return pulumi.get(self, "initial_instance_count")
-
-    @initial_instance_count.setter
-    def initial_instance_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "initial_instance_count", value)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> pulumi.Input[str]:
-        """
-        The type of instance to start.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @instance_type.setter
-    def instance_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "instance_type", value)
 
     @property
     @pulumi.getter(name="modelName")
@@ -1383,16 +1369,52 @@ class EndpointConfigurationProductionVariantArgs:
         pulumi.set(self, "accelerator_type", value)
 
     @property
+    @pulumi.getter(name="initialInstanceCount")
+    def initial_instance_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        Initial number of instances used for auto-scaling.
+        """
+        return pulumi.get(self, "initial_instance_count")
+
+    @initial_instance_count.setter
+    def initial_instance_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "initial_instance_count", value)
+
+    @property
     @pulumi.getter(name="initialVariantWeight")
     def initial_variant_weight(self) -> Optional[pulumi.Input[float]]:
         """
-        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         """
         return pulumi.get(self, "initial_variant_weight")
 
     @initial_variant_weight.setter
     def initial_variant_weight(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "initial_variant_weight", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of instance to start.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="serverlessConfig")
+    def serverless_config(self) -> Optional[pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs']]:
+        """
+        Specifies configuration for how an endpoint performs asynchronous inference.
+        """
+        return pulumi.get(self, "serverless_config")
+
+    @serverless_config.setter
+    def serverless_config(self, value: Optional[pulumi.Input['EndpointConfigurationProductionVariantServerlessConfigArgs']]):
+        pulumi.set(self, "serverless_config", value)
 
     @property
     @pulumi.getter(name="variantName")
@@ -1405,6 +1427,43 @@ class EndpointConfigurationProductionVariantArgs:
     @variant_name.setter
     def variant_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "variant_name", value)
+
+
+@pulumi.input_type
+class EndpointConfigurationProductionVariantServerlessConfigArgs:
+    def __init__(__self__, *,
+                 max_concurrency: pulumi.Input[int],
+                 memory_size_in_mb: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] max_concurrency: The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+        :param pulumi.Input[int] memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        """
+        pulumi.set(__self__, "max_concurrency", max_concurrency)
+        pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+
+    @property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> pulumi.Input[int]:
+        """
+        The maximum number of concurrent invocations your serverless endpoint can process. Valid values are between `1` and `200`.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @max_concurrency.setter
+    def max_concurrency(self, value: pulumi.Input[int]):
+        pulumi.set(self, "max_concurrency", value)
+
+    @property
+    @pulumi.getter(name="memorySizeInMb")
+    def memory_size_in_mb(self) -> pulumi.Input[int]:
+        """
+        The memory size of your serverless endpoint. Valid values are in 1 GB increments: `1024` MB, `2048` MB, `3072` MB, `4096` MB, `5120` MB, or `6144` MB.
+        """
+        return pulumi.get(self, "memory_size_in_mb")
+
+    @memory_size_in_mb.setter
+    def memory_size_in_mb(self, value: pulumi.Input[int]):
+        pulumi.set(self, "memory_size_in_mb", value)
 
 
 @pulumi.input_type
@@ -2426,11 +2485,15 @@ class ModelContainerArgs:
 @pulumi.input_type
 class ModelContainerImageConfigArgs:
     def __init__(__self__, *,
-                 repository_access_mode: pulumi.Input[str]):
+                 repository_access_mode: pulumi.Input[str],
+                 repository_auth_config: Optional[pulumi.Input['ModelContainerImageConfigRepositoryAuthConfigArgs']] = None):
         """
         :param pulumi.Input[str] repository_access_mode: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+        :param pulumi.Input['ModelContainerImageConfigRepositoryAuthConfigArgs'] repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
         pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+        if repository_auth_config is not None:
+            pulumi.set(__self__, "repository_auth_config", repository_auth_config)
 
     @property
     @pulumi.getter(name="repositoryAccessMode")
@@ -2443,6 +2506,40 @@ class ModelContainerImageConfigArgs:
     @repository_access_mode.setter
     def repository_access_mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository_access_mode", value)
+
+    @property
+    @pulumi.getter(name="repositoryAuthConfig")
+    def repository_auth_config(self) -> Optional[pulumi.Input['ModelContainerImageConfigRepositoryAuthConfigArgs']]:
+        """
+        Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+        """
+        return pulumi.get(self, "repository_auth_config")
+
+    @repository_auth_config.setter
+    def repository_auth_config(self, value: Optional[pulumi.Input['ModelContainerImageConfigRepositoryAuthConfigArgs']]):
+        pulumi.set(self, "repository_auth_config", value)
+
+
+@pulumi.input_type
+class ModelContainerImageConfigRepositoryAuthConfigArgs:
+    def __init__(__self__, *,
+                 repository_credentials_provider_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_credentials_provider_arn: The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+        """
+        pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
+
+    @property
+    @pulumi.getter(name="repositoryCredentialsProviderArn")
+    def repository_credentials_provider_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+        """
+        return pulumi.get(self, "repository_credentials_provider_arn")
+
+    @repository_credentials_provider_arn.setter
+    def repository_credentials_provider_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_credentials_provider_arn", value)
 
 
 @pulumi.input_type
@@ -2574,11 +2671,15 @@ class ModelPrimaryContainerArgs:
 @pulumi.input_type
 class ModelPrimaryContainerImageConfigArgs:
     def __init__(__self__, *,
-                 repository_access_mode: pulumi.Input[str]):
+                 repository_access_mode: pulumi.Input[str],
+                 repository_auth_config: Optional[pulumi.Input['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs']] = None):
         """
         :param pulumi.Input[str] repository_access_mode: Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+        :param pulumi.Input['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs'] repository_auth_config: Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
         """
         pulumi.set(__self__, "repository_access_mode", repository_access_mode)
+        if repository_auth_config is not None:
+            pulumi.set(__self__, "repository_auth_config", repository_auth_config)
 
     @property
     @pulumi.getter(name="repositoryAccessMode")
@@ -2591,6 +2692,40 @@ class ModelPrimaryContainerImageConfigArgs:
     @repository_access_mode.setter
     def repository_access_mode(self, value: pulumi.Input[str]):
         pulumi.set(self, "repository_access_mode", value)
+
+    @property
+    @pulumi.getter(name="repositoryAuthConfig")
+    def repository_auth_config(self) -> Optional[pulumi.Input['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs']]:
+        """
+        Specifies an authentication configuration for the private docker registry where your model image is hosted. Specify a value for this property only if you specified Vpc as the value for the RepositoryAccessMode field, and the private Docker registry where the model image is hosted requires authentication. see Repository Auth Config.
+        """
+        return pulumi.get(self, "repository_auth_config")
+
+    @repository_auth_config.setter
+    def repository_auth_config(self, value: Optional[pulumi.Input['ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs']]):
+        pulumi.set(self, "repository_auth_config", value)
+
+
+@pulumi.input_type
+class ModelPrimaryContainerImageConfigRepositoryAuthConfigArgs:
+    def __init__(__self__, *,
+                 repository_credentials_provider_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] repository_credentials_provider_arn: The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+        """
+        pulumi.set(__self__, "repository_credentials_provider_arn", repository_credentials_provider_arn)
+
+    @property
+    @pulumi.getter(name="repositoryCredentialsProviderArn")
+    def repository_credentials_provider_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+        """
+        return pulumi.get(self, "repository_credentials_provider_arn")
+
+    @repository_credentials_provider_arn.setter
+    def repository_credentials_provider_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_credentials_provider_arn", value)
 
 
 @pulumi.input_type
@@ -2618,6 +2753,29 @@ class ModelVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "subnets", value)
+
+
+@pulumi.input_type
+class NotebookInstanceInstanceMetadataServiceConfigurationArgs:
+    def __init__(__self__, *,
+                 minimum_instance_metadata_service_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] minimum_instance_metadata_service_version: Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
+        """
+        if minimum_instance_metadata_service_version is not None:
+            pulumi.set(__self__, "minimum_instance_metadata_service_version", minimum_instance_metadata_service_version)
+
+    @property
+    @pulumi.getter(name="minimumInstanceMetadataServiceVersion")
+    def minimum_instance_metadata_service_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates the minimum IMDS version that the notebook instance supports. When passed "1" is passed. This means that both IMDSv1 and IMDSv2 are supported. Valid values are `1` and `2`.
+        """
+        return pulumi.get(self, "minimum_instance_metadata_service_version")
+
+    @minimum_instance_metadata_service_version.setter
+    def minimum_instance_metadata_service_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "minimum_instance_metadata_service_version", value)
 
 
 @pulumi.input_type

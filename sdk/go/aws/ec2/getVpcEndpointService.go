@@ -148,6 +148,8 @@ type LookupVpcEndpointServiceResult struct {
 	ServiceId   string `pulumi:"serviceId"`
 	ServiceName string `pulumi:"serviceName"`
 	ServiceType string `pulumi:"serviceType"`
+	// The supported IP address types.
+	SupportedIpAddressTypes []string `pulumi:"supportedIpAddressTypes"`
 	// A map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether or not the service supports endpoint policies - `true` or `false`.
@@ -259,6 +261,11 @@ func (o LookupVpcEndpointServiceResultOutput) ServiceName() pulumi.StringOutput 
 
 func (o LookupVpcEndpointServiceResultOutput) ServiceType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) string { return v.ServiceType }).(pulumi.StringOutput)
+}
+
+// The supported IP address types.
+func (o LookupVpcEndpointServiceResultOutput) SupportedIpAddressTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []string { return v.SupportedIpAddressTypes }).(pulumi.StringArrayOutput)
 }
 
 // A map of tags assigned to the resource.

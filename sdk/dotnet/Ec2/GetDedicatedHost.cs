@@ -198,6 +198,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+        /// </summary>
+        public readonly string OutpostArn;
+        /// <summary>
         /// The ID of the AWS account that owns the Dedicated Host.
         /// </summary>
         public readonly string OwnerId;
@@ -233,6 +237,8 @@ namespace Pulumi.Aws.Ec2
 
             string instanceType,
 
+            string outpostArn,
+
             string ownerId,
 
             int sockets,
@@ -251,6 +257,7 @@ namespace Pulumi.Aws.Ec2
             Id = id;
             InstanceFamily = instanceFamily;
             InstanceType = instanceType;
+            OutpostArn = outpostArn;
             OwnerId = ownerId;
             Sockets = sockets;
             Tags = tags;

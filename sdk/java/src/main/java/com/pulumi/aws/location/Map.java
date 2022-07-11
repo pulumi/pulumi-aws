@@ -138,14 +138,14 @@ public class Map extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The timestamp for when the map resource was last updated in ISO 8601.
+     * The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
     @Export(name="updateTime", type=String.class, parameters={})
     private Output<String> updateTime;
 
     /**
-     * @return The timestamp for when the map resource was last updated in ISO 8601.
+     * @return The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
     public Output<String> updateTime() {

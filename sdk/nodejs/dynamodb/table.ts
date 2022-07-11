@@ -10,10 +10,18 @@ import * as utilities from "../utilities";
  *
  * > **Note:** It is recommended to use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) for `readCapacity` and/or `writeCapacity` if there's `autoscaling policy` attached to the table.
  *
+ * ## DynamoDB Table attributes
+ *
+ * Only define attributes on the table object that are going to be used as:
+ *
+ * * Table hash key or range key
+ * * LSI or GSI hash key or range key
+ *
+ * The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
+ *
  * ## Example Usage
  *
- * The following dynamodb table description models the table and GSI shown
- * in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
+ * The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -123,11 +131,11 @@ export class Table extends pulumi.CustomResource {
     }
 
     /**
-     * The arn of the table
+     * ARN of the table
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
+     * Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      */
     public readonly attributes!: pulumi.Output<outputs.dynamodb.TableAttribute[]>;
     /**
@@ -135,48 +143,43 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly billingMode!: pulumi.Output<string | undefined>;
     /**
-     * Describe a GSI for the table;
-     * subject to the normal limits on the number of GSIs, projected
-     * attributes, etc.
+     * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
     /**
-     * The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * Name of the hash key in the index; must be defined as an attribute in the resource.
      */
     public readonly hashKey!: pulumi.Output<string>;
     /**
-     * Describe an LSI on the table;
-     * these can only be allocated *at creation* so you cannot change this
-     * definition after you have created the resource.
+     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
      */
     public readonly localSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableLocalSecondaryIndex[] | undefined>;
     /**
-     * The name of the index
+     * Name of the index
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Enable point-in-time recovery options.
+     * Whether to enable Point In Time Recovery for the replica.
      */
     public readonly pointInTimeRecovery!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecovery>;
     /**
-     * The name of the range key; must be defined
+     * Name of the range key.
      */
     public readonly rangeKey!: pulumi.Output<string | undefined>;
     /**
-     * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+     * Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     public readonly readCapacity!: pulumi.Output<number>;
     /**
-     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
     public readonly replicas!: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
     /**
-     * The time of the point-in-time recovery point to restore.
+     * Time of the point-in-time recovery point to restore.
      */
     public readonly restoreDateTime!: pulumi.Output<string | undefined>;
     /**
-     * The name of the table to restore. Must match the name of an existing table.
+     * Name of the table to restore. Must match the name of an existing table.
      */
     public readonly restoreSourceName!: pulumi.Output<string | undefined>;
     /**
@@ -184,22 +187,19 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly restoreToLatestTime!: pulumi.Output<boolean | undefined>;
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
      */
     public readonly serverSideEncryption!: pulumi.Output<outputs.dynamodb.TableServerSideEncryption>;
     /**
-     * The ARN of the Table Stream. Only available when `streamEnabled = true`
+     * ARN of the Table Stream. Only available when `streamEnabled = true`
      */
     public /*out*/ readonly streamArn!: pulumi.Output<string>;
     /**
-     * Indicates whether Streams are to be enabled (true) or disabled (false).
+     * Whether Streams are enabled.
      */
     public readonly streamEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-     * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-     * table name and this field is guaranteed to be unique.
-     * It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
+     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
      */
     public /*out*/ readonly streamLabel!: pulumi.Output<string>;
     /**
@@ -207,7 +207,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly streamViewType!: pulumi.Output<string>;
     /**
-     * The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      */
     public readonly tableClass!: pulumi.Output<string | undefined>;
     /**
@@ -215,15 +215,15 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Defines ttl, has two properties, and can only be specified once:
+     * Configuration block for TTL. See below.
      */
     public readonly ttl!: pulumi.Output<outputs.dynamodb.TableTtl>;
     /**
-     * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+     * Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     public readonly writeCapacity!: pulumi.Output<number>;
 
@@ -301,11 +301,11 @@ export class Table extends pulumi.CustomResource {
  */
 export interface TableState {
     /**
-     * The arn of the table
+     * ARN of the table
      */
     arn?: pulumi.Input<string>;
     /**
-     * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
+     * Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      */
     attributes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableAttribute>[]>;
     /**
@@ -313,48 +313,43 @@ export interface TableState {
      */
     billingMode?: pulumi.Input<string>;
     /**
-     * Describe a GSI for the table;
-     * subject to the normal limits on the number of GSIs, projected
-     * attributes, etc.
+     * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndex>[]>;
     /**
-     * The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * Name of the hash key in the index; must be defined as an attribute in the resource.
      */
     hashKey?: pulumi.Input<string>;
     /**
-     * Describe an LSI on the table;
-     * these can only be allocated *at creation* so you cannot change this
-     * definition after you have created the resource.
+     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
-     * The name of the index
+     * Name of the index
      */
     name?: pulumi.Input<string>;
     /**
-     * Enable point-in-time recovery options.
+     * Whether to enable Point In Time Recovery for the replica.
      */
     pointInTimeRecovery?: pulumi.Input<inputs.dynamodb.TablePointInTimeRecovery>;
     /**
-     * The name of the range key; must be defined
+     * Name of the range key.
      */
     rangeKey?: pulumi.Input<string>;
     /**
-     * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+     * Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     readCapacity?: pulumi.Input<number>;
     /**
-     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
     /**
-     * The time of the point-in-time recovery point to restore.
+     * Time of the point-in-time recovery point to restore.
      */
     restoreDateTime?: pulumi.Input<string>;
     /**
-     * The name of the table to restore. Must match the name of an existing table.
+     * Name of the table to restore. Must match the name of an existing table.
      */
     restoreSourceName?: pulumi.Input<string>;
     /**
@@ -362,22 +357,19 @@ export interface TableState {
      */
     restoreToLatestTime?: pulumi.Input<boolean>;
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
      */
     serverSideEncryption?: pulumi.Input<inputs.dynamodb.TableServerSideEncryption>;
     /**
-     * The ARN of the Table Stream. Only available when `streamEnabled = true`
+     * ARN of the Table Stream. Only available when `streamEnabled = true`
      */
     streamArn?: pulumi.Input<string>;
     /**
-     * Indicates whether Streams are to be enabled (true) or disabled (false).
+     * Whether Streams are enabled.
      */
     streamEnabled?: pulumi.Input<boolean>;
     /**
-     * A timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not
-     * a unique identifier for the stream on its own. However, the combination of AWS customer ID,
-     * table name and this field is guaranteed to be unique.
-     * It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
+     * Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`
      */
     streamLabel?: pulumi.Input<string>;
     /**
@@ -385,7 +377,7 @@ export interface TableState {
      */
     streamViewType?: pulumi.Input<string>;
     /**
-     * The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      */
     tableClass?: pulumi.Input<string>;
     /**
@@ -393,15 +385,15 @@ export interface TableState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Defines ttl, has two properties, and can only be specified once:
+     * Configuration block for TTL. See below.
      */
     ttl?: pulumi.Input<inputs.dynamodb.TableTtl>;
     /**
-     * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+     * Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     writeCapacity?: pulumi.Input<number>;
 }
@@ -411,7 +403,7 @@ export interface TableState {
  */
 export interface TableArgs {
     /**
-     * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
+     * Set of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. See below.
      */
     attributes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableAttribute>[]>;
     /**
@@ -419,48 +411,43 @@ export interface TableArgs {
      */
     billingMode?: pulumi.Input<string>;
     /**
-     * Describe a GSI for the table;
-     * subject to the normal limits on the number of GSIs, projected
-     * attributes, etc.
+     * Describe a GSI for the table; subject to the normal limits on the number of GSIs, projected attributes, etc. See below.
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndex>[]>;
     /**
-     * The name of the hash key in the index; must be
-     * defined as an attribute in the resource.
+     * Name of the hash key in the index; must be defined as an attribute in the resource.
      */
     hashKey?: pulumi.Input<string>;
     /**
-     * Describe an LSI on the table;
-     * these can only be allocated *at creation* so you cannot change this
-     * definition after you have created the resource.
+     * Describe an LSI on the table; these can only be allocated *at creation* so you cannot change this definition after you have created the resource. See below.
      */
     localSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableLocalSecondaryIndex>[]>;
     /**
-     * The name of the index
+     * Name of the index
      */
     name?: pulumi.Input<string>;
     /**
-     * Enable point-in-time recovery options.
+     * Whether to enable Point In Time Recovery for the replica.
      */
     pointInTimeRecovery?: pulumi.Input<inputs.dynamodb.TablePointInTimeRecovery>;
     /**
-     * The name of the range key; must be defined
+     * Name of the range key.
      */
     rangeKey?: pulumi.Input<string>;
     /**
-     * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
+     * Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     readCapacity?: pulumi.Input<number>;
     /**
-     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
+     * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. See below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
     /**
-     * The time of the point-in-time recovery point to restore.
+     * Time of the point-in-time recovery point to restore.
      */
     restoreDateTime?: pulumi.Input<string>;
     /**
-     * The name of the table to restore. Must match the name of an existing table.
+     * Name of the table to restore. Must match the name of an existing table.
      */
     restoreSourceName?: pulumi.Input<string>;
     /**
@@ -468,11 +455,11 @@ export interface TableArgs {
      */
     restoreToLatestTime?: pulumi.Input<boolean>;
     /**
-     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
+     * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. See below.
      */
     serverSideEncryption?: pulumi.Input<inputs.dynamodb.TableServerSideEncryption>;
     /**
-     * Indicates whether Streams are to be enabled (true) or disabled (false).
+     * Whether Streams are enabled.
      */
     streamEnabled?: pulumi.Input<boolean>;
     /**
@@ -480,7 +467,7 @@ export interface TableArgs {
      */
     streamViewType?: pulumi.Input<string>;
     /**
-     * The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     * Storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
      */
     tableClass?: pulumi.Input<string>;
     /**
@@ -488,11 +475,11 @@ export interface TableArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Defines ttl, has two properties, and can only be specified once:
+     * Configuration block for TTL. See below.
      */
     ttl?: pulumi.Input<inputs.dynamodb.TableTtl>;
     /**
-     * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
+     * Number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
     writeCapacity?: pulumi.Input<number>;
 }

@@ -21,14 +21,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     public static final ParameterState Empty = new ParameterState();
 
     /**
-     * A regular expression used to validate the parameter value.
+     * Regular expression used to validate the parameter value.
      * 
      */
     @Import(name="allowedPattern")
     private @Nullable Output<String> allowedPattern;
 
     /**
-     * @return A regular expression used to validate the parameter value.
+     * @return Regular expression used to validate the parameter value.
      * 
      */
     public Optional<Output<String>> allowedPattern() {
@@ -36,14 +36,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the parameter.
+     * ARN of the parameter.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the parameter.
+     * @return ARN of the parameter.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -51,16 +51,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-     * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+     * Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
     @Import(name="dataType")
     private @Nullable Output<String> dataType;
 
     /**
-     * @return The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-     * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+     * @return Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
     public Optional<Output<String>> dataType() {
@@ -68,29 +66,36 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The description of the parameter.
+     * Description of the parameter.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return The description of the parameter.
+     * @return Description of the parameter.
      * 
      */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    @Import(name="insecureValue")
+    private @Nullable Output<String> insecureValue;
+
+    public Optional<Output<String>> insecureValue() {
+        return Optional.ofNullable(this.insecureValue);
+    }
+
     /**
-     * The KMS key id or arn for encrypting a SecureString.
+     * KMS key ID or ARN for encrypting a SecureString.
      * 
      */
     @Import(name="keyId")
     private @Nullable Output<String> keyId;
 
     /**
-     * @return The KMS key id or arn for encrypting a SecureString.
+     * @return KMS key ID or ARN for encrypting a SecureString.
      * 
      */
     public Optional<Output<String>> keyId() {
@@ -98,14 +103,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * @return Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      * 
      */
     public Optional<Output<String>> name() {
@@ -128,14 +133,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -143,14 +148,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -158,22 +163,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The parameter tier to assign to the parameter.
-     * If not specified, will use the default parameter tier for the region.
-     * Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-     * Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-     * For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     * Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      * 
      */
     @Import(name="tier")
     private @Nullable Output<String> tier;
 
     /**
-     * @return The parameter tier to assign to the parameter.
-     * If not specified, will use the default parameter tier for the region.
-     * Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-     * Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-     * For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     * @return Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      * 
      */
     public Optional<Output<String>> tier() {
@@ -181,14 +178,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<Either<String,ParameterType>> type;
 
     /**
-     * @return The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
      */
     public Optional<Output<Either<String,ParameterType>>> type() {
@@ -196,14 +193,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value of the parameter.
+     * Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
      * 
      */
     @Import(name="value")
     private @Nullable Output<String> value;
 
     /**
-     * @return The value of the parameter.
+     * @return Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
      * 
      */
     public Optional<Output<String>> value() {
@@ -211,14 +208,14 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The version of the parameter.
+     * Version of the parameter.
      * 
      */
     @Import(name="version")
     private @Nullable Output<Integer> version;
 
     /**
-     * @return The version of the parameter.
+     * @return Version of the parameter.
      * 
      */
     public Optional<Output<Integer>> version() {
@@ -232,6 +229,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         this.arn = $.arn;
         this.dataType = $.dataType;
         this.description = $.description;
+        this.insecureValue = $.insecureValue;
         this.keyId = $.keyId;
         this.name = $.name;
         this.overwrite = $.overwrite;
@@ -262,7 +260,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedPattern A regular expression used to validate the parameter value.
+         * @param allowedPattern Regular expression used to validate the parameter value.
          * 
          * @return builder
          * 
@@ -273,7 +271,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowedPattern A regular expression used to validate the parameter value.
+         * @param allowedPattern Regular expression used to validate the parameter value.
          * 
          * @return builder
          * 
@@ -283,7 +281,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the parameter.
+         * @param arn ARN of the parameter.
          * 
          * @return builder
          * 
@@ -294,7 +292,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The ARN of the parameter.
+         * @param arn ARN of the parameter.
          * 
          * @return builder
          * 
@@ -304,8 +302,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataType The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-         * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+         * @param dataType Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
          * 
          * @return builder
          * 
@@ -316,8 +313,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataType The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-         * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+         * @param dataType Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
          * 
          * @return builder
          * 
@@ -327,7 +323,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the parameter.
+         * @param description Description of the parameter.
          * 
          * @return builder
          * 
@@ -338,7 +334,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description The description of the parameter.
+         * @param description Description of the parameter.
          * 
          * @return builder
          * 
@@ -347,8 +343,17 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
             return description(Output.of(description));
         }
 
+        public Builder insecureValue(@Nullable Output<String> insecureValue) {
+            $.insecureValue = insecureValue;
+            return this;
+        }
+
+        public Builder insecureValue(String insecureValue) {
+            return insecureValue(Output.of(insecureValue));
+        }
+
         /**
-         * @param keyId The KMS key id or arn for encrypting a SecureString.
+         * @param keyId KMS key ID or ARN for encrypting a SecureString.
          * 
          * @return builder
          * 
@@ -359,7 +364,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param keyId The KMS key id or arn for encrypting a SecureString.
+         * @param keyId KMS key ID or ARN for encrypting a SecureString.
          * 
          * @return builder
          * 
@@ -369,7 +374,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+         * @param name Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
          * 
          * @return builder
          * 
@@ -380,7 +385,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+         * @param name Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
          * 
          * @return builder
          * 
@@ -411,7 +416,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -422,7 +427,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tags A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -432,7 +437,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -443,7 +448,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider .
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
          * 
          * @return builder
          * 
@@ -453,11 +458,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tier The parameter tier to assign to the parameter.
-         * If not specified, will use the default parameter tier for the region.
-         * Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-         * Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-         * For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+         * @param tier Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
          * 
          * @return builder
          * 
@@ -468,11 +469,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tier The parameter tier to assign to the parameter.
-         * If not specified, will use the default parameter tier for the region.
-         * Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-         * Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-         * For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+         * @param tier Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
          * 
          * @return builder
          * 
@@ -482,7 +479,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+         * @param type Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
          * 
          * @return builder
          * 
@@ -493,7 +490,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+         * @param type Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
          * 
          * @return builder
          * 
@@ -503,7 +500,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+         * @param type Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
          * 
          * @return builder
          * 
@@ -513,7 +510,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+         * @param type Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
          * 
          * @return builder
          * 
@@ -523,7 +520,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value The value of the parameter.
+         * @param value Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
          * 
          * @return builder
          * 
@@ -534,7 +531,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param value The value of the parameter.
+         * @param value Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
          * 
          * @return builder
          * 
@@ -544,7 +541,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the parameter.
+         * @param version Version of the parameter.
          * 
          * @return builder
          * 
@@ -555,7 +552,7 @@ public final class ParameterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param version The version of the parameter.
+         * @param version Version of the parameter.
          * 
          * @return builder
          * 

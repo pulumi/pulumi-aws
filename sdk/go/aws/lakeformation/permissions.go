@@ -71,6 +71,51 @@ import (
 // 	})
 // }
 // ```
+// ### Grant Permissions Using Tag-Based Access Control
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lakeformation"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := lakeformation.NewPermissions(ctx, "test", &lakeformation.PermissionsArgs{
+// 			Principal: pulumi.Any(aws_iam_role.Sales_role.Arn),
+// 			Permissions: pulumi.StringArray{
+// 				pulumi.String("CREATE_TABLE"),
+// 				pulumi.String("ALTER"),
+// 				pulumi.String("DROP"),
+// 			},
+// 			LfTagPolicy: &lakeformation.PermissionsLfTagPolicyArgs{
+// 				ResourceType: pulumi.String("DATABASE"),
+// 				Expressions: lakeformation.PermissionsLfTagPolicyExpressionArray{
+// 					&lakeformation.PermissionsLfTagPolicyExpressionArgs{
+// 						Key: pulumi.String("Team"),
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("Sales"),
+// 						},
+// 					},
+// 					&lakeformation.PermissionsLfTagPolicyExpressionArgs{
+// 						Key: pulumi.String("Environment"),
+// 						Values: pulumi.StringArray{
+// 							pulumi.String("Dev"),
+// 							pulumi.String("Production"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Permissions struct {
 	pulumi.CustomResourceState
 
@@ -82,7 +127,11 @@ type Permissions struct {
 	DataLocation PermissionsDataLocationOutput `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
 	Database PermissionsDatabaseOutput `pulumi:"database"`
-	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Configuration block for an LF-tag resource. Detailed below.
+	LfTag PermissionsLfTagOutput `pulumi:"lfTag"`
+	// Configuration block for an LF-tag policy resource. Detailed below.
+	LfTagPolicy PermissionsLfTagPolicyOutput `pulumi:"lfTagPolicy"`
+	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions pulumi.StringArrayOutput `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayOutput `pulumi:"permissionsWithGrantOptions"`
@@ -137,7 +186,11 @@ type permissionsState struct {
 	DataLocation *PermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
 	Database *PermissionsDatabase `pulumi:"database"`
-	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Configuration block for an LF-tag resource. Detailed below.
+	LfTag *PermissionsLfTag `pulumi:"lfTag"`
+	// Configuration block for an LF-tag policy resource. Detailed below.
+	LfTagPolicy *PermissionsLfTagPolicy `pulumi:"lfTagPolicy"`
+	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions []string `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions []string `pulumi:"permissionsWithGrantOptions"`
@@ -158,7 +211,11 @@ type PermissionsState struct {
 	DataLocation PermissionsDataLocationPtrInput
 	// Configuration block for a database resource. Detailed below.
 	Database PermissionsDatabasePtrInput
-	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Configuration block for an LF-tag resource. Detailed below.
+	LfTag PermissionsLfTagPtrInput
+	// Configuration block for an LF-tag policy resource. Detailed below.
+	LfTagPolicy PermissionsLfTagPolicyPtrInput
+	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions pulumi.StringArrayInput
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayInput
@@ -183,7 +240,11 @@ type permissionsArgs struct {
 	DataLocation *PermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
 	Database *PermissionsDatabase `pulumi:"database"`
-	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Configuration block for an LF-tag resource. Detailed below.
+	LfTag *PermissionsLfTag `pulumi:"lfTag"`
+	// Configuration block for an LF-tag policy resource. Detailed below.
+	LfTagPolicy *PermissionsLfTagPolicy `pulumi:"lfTagPolicy"`
+	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions []string `pulumi:"permissions"`
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions []string `pulumi:"permissionsWithGrantOptions"`
@@ -205,7 +266,11 @@ type PermissionsArgs struct {
 	DataLocation PermissionsDataLocationPtrInput
 	// Configuration block for a database resource. Detailed below.
 	Database PermissionsDatabasePtrInput
-	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+	// Configuration block for an LF-tag resource. Detailed below.
+	LfTag PermissionsLfTagPtrInput
+	// Configuration block for an LF-tag policy resource. Detailed below.
+	LfTagPolicy PermissionsLfTagPolicyPtrInput
+	// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 	Permissions pulumi.StringArrayInput
 	// Subset of `permissions` which the principal can pass.
 	PermissionsWithGrantOptions pulumi.StringArrayInput
@@ -324,7 +389,17 @@ func (o PermissionsOutput) Database() PermissionsDatabaseOutput {
 	return o.ApplyT(func(v *Permissions) PermissionsDatabaseOutput { return v.Database }).(PermissionsDatabaseOutput)
 }
 
-// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+// Configuration block for an LF-tag resource. Detailed below.
+func (o PermissionsOutput) LfTag() PermissionsLfTagOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsLfTagOutput { return v.LfTag }).(PermissionsLfTagOutput)
+}
+
+// Configuration block for an LF-tag policy resource. Detailed below.
+func (o PermissionsOutput) LfTagPolicy() PermissionsLfTagPolicyOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsLfTagPolicyOutput { return v.LfTagPolicy }).(PermissionsLfTagPolicyOutput)
+}
+
+// List of permissions granted to the principal. Valid values may include `ALL`, `ALTER`, `ASSOCIATE`, `CREATE_DATABASE`, `CREATE_TABLE`, `DATA_LOCATION_ACCESS`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT`. For details on each permission, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
 func (o PermissionsOutput) Permissions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Permissions) pulumi.StringArrayOutput { return v.Permissions }).(pulumi.StringArrayOutput)
 }

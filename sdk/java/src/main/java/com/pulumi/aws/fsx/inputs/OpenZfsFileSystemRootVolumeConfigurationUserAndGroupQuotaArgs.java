@@ -44,9 +44,17 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
         return this.storageCapacityQuotaGib;
     }
 
+    /**
+     * - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * 
+     */
     @Import(name="type", required=true)
     private Output<String> type;
 
+    /**
+     * @return - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+     * 
+     */
     public Output<String> type() {
         return this.type;
     }
@@ -119,11 +127,23 @@ public final class OpenZfsFileSystemRootVolumeConfigurationUserAndGroupQuotaArgs
             return storageCapacityQuotaGib(Output.of(storageCapacityQuotaGib));
         }
 
+        /**
+         * @param type - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(Output<String> type) {
             $.type = type;
             return this;
         }
 
+        /**
+         * @param type - A value that specifies whether the quota applies to a user or group. Valid values are `USER` or `GROUP`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

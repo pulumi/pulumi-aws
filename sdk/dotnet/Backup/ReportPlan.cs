@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Backup
         public Output<Outputs.ReportPlanReportSetting> ReportSetting { get; private set; } = null!;
 
         /// <summary>
-        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Backup
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Metadata that you can assign to help organize the report plans you create. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

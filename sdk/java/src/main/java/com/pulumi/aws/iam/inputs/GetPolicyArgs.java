@@ -18,6 +18,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The ARN of the IAM policy.
+     * Conflicts with `name` and `path_prefix`.
      * 
      */
     @Import(name="arn")
@@ -25,6 +26,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The ARN of the IAM policy.
+     * Conflicts with `name` and `path_prefix`.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,6 +35,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * The name of the IAM policy.
+     * Conflicts with `arn`.
      * 
      */
     @Import(name="name")
@@ -40,6 +43,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
     /**
      * @return The name of the IAM policy.
+     * Conflicts with `arn`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -47,14 +51,18 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+     * The prefix of the path to the IAM policy.
+     * Defaults to a slash (`/`).
+     * Conflicts with `arn`.
      * 
      */
     @Import(name="pathPrefix")
     private @Nullable Output<String> pathPrefix;
 
     /**
-     * @return The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+     * @return The prefix of the path to the IAM policy.
+     * Defaults to a slash (`/`).
+     * Conflicts with `arn`.
      * 
      */
     public Optional<Output<String>> pathPrefix() {
@@ -105,6 +113,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param arn The ARN of the IAM policy.
+         * Conflicts with `name` and `path_prefix`.
          * 
          * @return builder
          * 
@@ -116,6 +125,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param arn The ARN of the IAM policy.
+         * Conflicts with `name` and `path_prefix`.
          * 
          * @return builder
          * 
@@ -126,6 +136,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param name The name of the IAM policy.
+         * Conflicts with `arn`.
          * 
          * @return builder
          * 
@@ -137,6 +148,7 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
 
         /**
          * @param name The name of the IAM policy.
+         * Conflicts with `arn`.
          * 
          * @return builder
          * 
@@ -146,7 +158,9 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pathPrefix The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+         * @param pathPrefix The prefix of the path to the IAM policy.
+         * Defaults to a slash (`/`).
+         * Conflicts with `arn`.
          * 
          * @return builder
          * 
@@ -157,7 +171,9 @@ public final class GetPolicyArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pathPrefix The prefix of the path to the IAM policy. Defaults to a slash (`/`).
+         * @param pathPrefix The prefix of the path to the IAM policy.
+         * Defaults to a slash (`/`).
+         * Conflicts with `arn`.
          * 
          * @return builder
          * 

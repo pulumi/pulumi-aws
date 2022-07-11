@@ -30,6 +30,18 @@ namespace Pulumi.Aws.Cfg.Inputs
         [Input("staticValue")]
         public Input<string>? StaticValue { get; set; }
 
+        [Input("staticValues")]
+        private InputList<string>? _staticValues;
+
+        /// <summary>
+        /// List of static values.
+        /// </summary>
+        public InputList<string> StaticValues
+        {
+            get => _staticValues ?? (_staticValues = new InputList<string>());
+            set => _staticValues = value;
+        }
+
         public RemediationConfigurationParameterArgs()
         {
         }

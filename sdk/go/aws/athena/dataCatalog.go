@@ -144,7 +144,7 @@ type DataCatalog struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters pulumi.StringMapOutput `pulumi:"parameters"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -198,7 +198,7 @@ type dataCatalogState struct {
 	Name *string `pulumi:"name"`
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters map[string]string `pulumi:"parameters"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -215,7 +215,7 @@ type DataCatalogState struct {
 	Name pulumi.StringPtrInput
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters pulumi.StringMapInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -234,7 +234,7 @@ type dataCatalogArgs struct {
 	Name *string `pulumi:"name"`
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters map[string]string `pulumi:"parameters"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
 	Type string `pulumi:"type"`
@@ -248,7 +248,7 @@ type DataCatalogArgs struct {
 	Name pulumi.StringPtrInput
 	// Key value pairs that specifies the Lambda function or functions to use for the data catalog. The mapping used depends on the catalog type.
 	Parameters pulumi.StringMapInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The type of data catalog: `LAMBDA` for a federated catalog, `GLUE` for AWS Glue Catalog, or `HIVE` for an external hive metastore.
 	Type pulumi.StringInput
@@ -361,7 +361,7 @@ func (o DataCatalogOutput) Parameters() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o DataCatalogOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataCatalog) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

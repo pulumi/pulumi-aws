@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./containerService";
 export * from "./containerServiceDeploymentVersion";
+export * from "./database";
 export * from "./domain";
 export * from "./instance";
 export * from "./instancePublicPorts";
@@ -17,6 +18,7 @@ export * from "./staticIpAttachment";
 // Import resources to register:
 import { ContainerService } from "./containerService";
 import { ContainerServiceDeploymentVersion } from "./containerServiceDeploymentVersion";
+import { Database } from "./database";
 import { Domain } from "./domain";
 import { Instance } from "./instance";
 import { InstancePublicPorts } from "./instancePublicPorts";
@@ -32,6 +34,8 @@ const _module = {
                 return new ContainerService(name, <any>undefined, { urn })
             case "aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion":
                 return new ContainerServiceDeploymentVersion(name, <any>undefined, { urn })
+            case "aws:lightsail/database:Database":
+                return new Database(name, <any>undefined, { urn })
             case "aws:lightsail/domain:Domain":
                 return new Domain(name, <any>undefined, { urn })
             case "aws:lightsail/instance:Instance":
@@ -51,6 +55,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerService", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/containerServiceDeploymentVersion", _module)
+pulumi.runtime.registerResourceModule("aws", "lightsail/database", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/instance", _module)
 pulumi.runtime.registerResourceModule("aws", "lightsail/instancePublicPorts", _module)

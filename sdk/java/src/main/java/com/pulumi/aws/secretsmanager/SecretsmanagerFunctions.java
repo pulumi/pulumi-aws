@@ -4,6 +4,8 @@
 package com.pulumi.aws.secretsmanager;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
+import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordPlainArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretPlainArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
@@ -12,6 +14,7 @@ import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionPlainArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretsArgs;
 import com.pulumi.aws.secretsmanager.inputs.GetSecretsPlainArgs;
+import com.pulumi.aws.secretsmanager.outputs.GetRandomPasswordResult;
 import com.pulumi.aws.secretsmanager.outputs.GetSecretResult;
 import com.pulumi.aws.secretsmanager.outputs.GetSecretRotationResult;
 import com.pulumi.aws.secretsmanager.outputs.GetSecretVersionResult;
@@ -23,6 +26,192 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class SecretsmanagerFunctions {
+    /**
+     * Generate a random password.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *             .excludeNumbers(true)
+     *             .passwordLength(50)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRandomPasswordResult> getRandomPassword() {
+        return getRandomPassword(GetRandomPasswordArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Generate a random password.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *             .excludeNumbers(true)
+     *             .passwordLength(50)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain() {
+        return getRandomPasswordPlain(GetRandomPasswordPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Generate a random password.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *             .excludeNumbers(true)
+     *             .passwordLength(50)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRandomPasswordResult> getRandomPassword(GetRandomPasswordArgs args) {
+        return getRandomPassword(args, InvokeOptions.Empty);
+    }
+    /**
+     * Generate a random password.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *             .excludeNumbers(true)
+     *             .passwordLength(50)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain(GetRandomPasswordPlainArgs args) {
+        return getRandomPasswordPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Generate a random password.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *             .excludeNumbers(true)
+     *             .passwordLength(50)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetRandomPasswordResult> getRandomPassword(GetRandomPasswordArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:secretsmanager/getRandomPassword:getRandomPassword", TypeShape.of(GetRandomPasswordResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Generate a random password.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *             .excludeNumbers(true)
+     *             .passwordLength(50)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain(GetRandomPasswordPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:secretsmanager/getRandomPassword:getRandomPassword", TypeShape.of(GetRandomPasswordResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion`.
      * 

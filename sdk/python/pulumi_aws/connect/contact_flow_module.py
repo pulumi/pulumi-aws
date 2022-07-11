@@ -27,7 +27,7 @@ class ContactFlowModuleArgs:
         :param pulumi.Input[str] description: Specifies the description of the Contact Flow Module.
         :param pulumi.Input[str] filename: The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         :param pulumi.Input[str] name: Specifies the name of the Contact Flow Module.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow Module. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         if content is not None:
@@ -116,7 +116,7 @@ class ContactFlowModuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the Contact Flow Module. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -147,7 +147,7 @@ class _ContactFlowModuleState:
         :param pulumi.Input[str] filename: The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Contact Flow Module.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow Module. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if arn is not None:
@@ -268,7 +268,7 @@ class _ContactFlowModuleState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the Contact Flow Module. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -386,7 +386,7 @@ class ContactFlowModule(pulumi.CustomResource):
         :param pulumi.Input[str] filename: The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Contact Flow Module.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow Module. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -551,7 +551,7 @@ class ContactFlowModule(pulumi.CustomResource):
         :param pulumi.Input[str] filename: The path to the Contact Flow Module source within the local filesystem. Conflicts with `content`.
         :param pulumi.Input[str] instance_id: Specifies the identifier of the hosting Amazon Connect Instance.
         :param pulumi.Input[str] name: Specifies the name of the Contact Flow Module.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow Module. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -635,7 +635,7 @@ class ContactFlowModule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Tags to apply to the Contact Flow Module. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Contact Flow Module. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

@@ -119,6 +119,14 @@ export class VpcEndpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsEntries!: pulumi.Output<outputs.ec2.VpcEndpointDnsEntry[]>;
     /**
+     * The DNS options for the endpoint. See dnsOptions below.
+     */
+    public readonly dnsOptions!: pulumi.Output<outputs.ec2.VpcEndpointDnsOptions>;
+    /**
+     * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     */
+    public readonly ipAddressType!: pulumi.Output<string>;
+    /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */
     public /*out*/ readonly networkInterfaceIds!: pulumi.Output<string[]>;
@@ -198,6 +206,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["autoAccept"] = state ? state.autoAccept : undefined;
             resourceInputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
             resourceInputs["dnsEntries"] = state ? state.dnsEntries : undefined;
+            resourceInputs["dnsOptions"] = state ? state.dnsOptions : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
             resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
             resourceInputs["ownerId"] = state ? state.ownerId : undefined;
             resourceInputs["policy"] = state ? state.policy : undefined;
@@ -222,6 +232,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
                 throw new Error("Missing required property 'vpcId'");
             }
             resourceInputs["autoAccept"] = args ? args.autoAccept : undefined;
+            resourceInputs["dnsOptions"] = args ? args.dnsOptions : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
@@ -266,6 +278,14 @@ export interface VpcEndpointState {
      * The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
      */
     dnsEntries?: pulumi.Input<pulumi.Input<inputs.ec2.VpcEndpointDnsEntry>[]>;
+    /**
+     * The DNS options for the endpoint. See dnsOptions below.
+     */
+    dnsOptions?: pulumi.Input<inputs.ec2.VpcEndpointDnsOptions>;
+    /**
+     * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
      */
@@ -338,6 +358,14 @@ export interface VpcEndpointArgs {
      * Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
      */
     autoAccept?: pulumi.Input<boolean>;
+    /**
+     * The DNS options for the endpoint. See dnsOptions below.
+     */
+    dnsOptions?: pulumi.Input<inputs.ec2.VpcEndpointDnsOptions>;
+    /**
+     * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     */
+    ipAddressType?: pulumi.Input<string>;
     /**
      * A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
      */

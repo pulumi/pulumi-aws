@@ -27,6 +27,7 @@ export function getDnsNamespace(args: GetDnsNamespaceArgs, opts?: pulumi.InvokeO
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("aws:servicediscovery/getDnsNamespace:getDnsNamespace", {
         "name": args.name,
+        "tags": args.tags,
         "type": args.type,
     }, opts);
 }
@@ -39,6 +40,10 @@ export interface GetDnsNamespaceArgs {
      * The name of the namespace.
      */
     name: string;
+    /**
+     * A map of tags for the resource.
+     */
+    tags?: {[key: string]: string};
     /**
      * The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
      */
@@ -66,6 +71,10 @@ export interface GetDnsNamespaceResult {
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * A map of tags for the resource.
+     */
+    readonly tags: {[key: string]: string};
     readonly type: string;
 }
 
@@ -81,6 +90,10 @@ export interface GetDnsNamespaceOutputArgs {
      * The name of the namespace.
      */
     name: pulumi.Input<string>;
+    /**
+     * A map of tags for the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
      */

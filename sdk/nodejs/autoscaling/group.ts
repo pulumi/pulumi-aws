@@ -378,6 +378,10 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly defaultCooldown!: pulumi.Output<number>;
     /**
+     * The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     */
+    public readonly defaultInstanceWarmup!: pulumi.Output<number | undefined>;
+    /**
      * The number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for
      * Capacity below.)
@@ -552,6 +556,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["capacityRebalance"] = state ? state.capacityRebalance : undefined;
             resourceInputs["context"] = state ? state.context : undefined;
             resourceInputs["defaultCooldown"] = state ? state.defaultCooldown : undefined;
+            resourceInputs["defaultInstanceWarmup"] = state ? state.defaultInstanceWarmup : undefined;
             resourceInputs["desiredCapacity"] = state ? state.desiredCapacity : undefined;
             resourceInputs["enabledMetrics"] = state ? state.enabledMetrics : undefined;
             resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
@@ -595,6 +600,7 @@ export class Group extends pulumi.CustomResource {
             resourceInputs["capacityRebalance"] = args ? args.capacityRebalance : undefined;
             resourceInputs["context"] = args ? args.context : undefined;
             resourceInputs["defaultCooldown"] = args ? args.defaultCooldown : undefined;
+            resourceInputs["defaultInstanceWarmup"] = args ? args.defaultInstanceWarmup : undefined;
             resourceInputs["desiredCapacity"] = args ? args.desiredCapacity : undefined;
             resourceInputs["enabledMetrics"] = args ? args.enabledMetrics : undefined;
             resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
@@ -657,6 +663,10 @@ export interface GroupState {
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
     defaultCooldown?: pulumi.Input<number>;
+    /**
+     * The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     */
+    defaultInstanceWarmup?: pulumi.Input<number>;
     /**
      * The number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for
@@ -835,6 +845,10 @@ export interface GroupArgs {
      * The amount of time, in seconds, after a scaling activity completes before another scaling activity can start.
      */
     defaultCooldown?: pulumi.Input<number>;
+    /**
+     * The amount of time, in seconds, until a newly launched instance can contribute to the Amazon CloudWatch metrics. This delay lets an instance finish initializing before Amazon EC2 Auto Scaling aggregates instance metrics, resulting in more reliable usage data. Set this value equal to the amount of time that it takes for resource consumption to become stable after an instance reaches the InService state. (See [Set the default instance warmup for an Auto Scaling group](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-default-instance-warmup.html))
+     */
+    defaultInstanceWarmup?: pulumi.Input<number>;
     /**
      * The number of Amazon EC2 instances that
      * should be running in the group. (See also Waiting for

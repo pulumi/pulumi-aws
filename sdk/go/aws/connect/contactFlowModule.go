@@ -78,7 +78,7 @@ type ContactFlowModule struct {
 	InstanceId pulumi.StringOutput `pulumi:"instanceId"`
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Tags to apply to the Contact Flow Module. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -131,7 +131,7 @@ type contactFlowModuleState struct {
 	InstanceId *string `pulumi:"instanceId"`
 	// Specifies the name of the Contact Flow Module.
 	Name *string `pulumi:"name"`
-	// Tags to apply to the Contact Flow Module. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -153,7 +153,7 @@ type ContactFlowModuleState struct {
 	InstanceId pulumi.StringPtrInput
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringPtrInput
-	// Tags to apply to the Contact Flow Module. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -175,7 +175,7 @@ type contactFlowModuleArgs struct {
 	InstanceId string `pulumi:"instanceId"`
 	// Specifies the name of the Contact Flow Module.
 	Name *string `pulumi:"name"`
-	// Tags to apply to the Contact Flow Module. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -192,7 +192,7 @@ type ContactFlowModuleArgs struct {
 	InstanceId pulumi.StringInput
 	// Specifies the name of the Contact Flow Module.
 	Name pulumi.StringPtrInput
-	// Tags to apply to the Contact Flow Module. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -322,7 +322,7 @@ func (o ContactFlowModuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Tags to apply to the Contact Flow Module. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Tags to apply to the Contact Flow Module. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ContactFlowModuleOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ContactFlowModule) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

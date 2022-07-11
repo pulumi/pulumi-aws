@@ -65,7 +65,7 @@ type HsmConfiguration struct {
 	HsmPartitionPassword pulumi.StringOutput `pulumi:"hsmPartitionPassword"`
 	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate pulumi.StringOutput `pulumi:"hsmServerPublicCertificate"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -132,7 +132,7 @@ type hsmConfigurationState struct {
 	HsmPartitionPassword *string `pulumi:"hsmPartitionPassword"`
 	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate *string `pulumi:"hsmServerPublicCertificate"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -153,7 +153,7 @@ type HsmConfigurationState struct {
 	HsmPartitionPassword pulumi.StringPtrInput
 	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -176,7 +176,7 @@ type hsmConfigurationArgs struct {
 	HsmPartitionPassword string `pulumi:"hsmPartitionPassword"`
 	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate string `pulumi:"hsmServerPublicCertificate"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -194,7 +194,7 @@ type HsmConfigurationArgs struct {
 	HsmPartitionPassword pulumi.StringInput
 	// The HSMs public certificate file. When using Cloud HSM, the file name is server.pem.
 	HsmServerPublicCertificate pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -320,7 +320,7 @@ func (o HsmConfigurationOutput) HsmServerPublicCertificate() pulumi.StringOutput
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringOutput { return v.HsmServerPublicCertificate }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o HsmConfigurationOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *HsmConfiguration) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

@@ -213,6 +213,100 @@ public final class Ec2Functions {
      * ```
      * 
      */
+    public static Output<GetAmiResult> getAmi() {
+        return getAmi(GetAmiArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the ID of a registered AMI for use in other
+     * resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *             .executableUsers(&#34;self&#34;)
+     *             .filters(            
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;name&#34;)
+     *                     .values(&#34;myami-*&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;root-device-type&#34;)
+     *                     .values(&#34;ebs&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;virtualization-type&#34;)
+     *                     .values(&#34;hvm&#34;)
+     *                     .build())
+     *             .mostRecent(true)
+     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
+     *             .owners(&#34;self&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAmiResult> getAmiPlain() {
+        return getAmiPlain(GetAmiPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to get the ID of a registered AMI for use in other
+     * resources.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *             .executableUsers(&#34;self&#34;)
+     *             .filters(            
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;name&#34;)
+     *                     .values(&#34;myami-*&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;root-device-type&#34;)
+     *                     .values(&#34;ebs&#34;)
+     *                     .build(),
+     *                 GetAmiFilterArgs.builder()
+     *                     .name(&#34;virtualization-type&#34;)
+     *                     .values(&#34;hvm&#34;)
+     *                     .build())
+     *             .mostRecent(true)
+     *             .nameRegex(&#34;^myami-\\d{3}&#34;)
+     *             .owners(&#34;self&#34;)
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetAmiResult> getAmi(GetAmiArgs args) {
         return getAmi(args, InvokeOptions.Empty);
     }
@@ -3564,7 +3658,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a EC2 Key Pair from its name.
+     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * ```java
      * package generated_program;
      * 
@@ -3581,6 +3675,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
+     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
@@ -3603,7 +3698,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a EC2 Key Pair from its name.
+     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * ```java
      * package generated_program;
      * 
@@ -3620,6 +3715,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
+     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
@@ -3642,7 +3738,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a EC2 Key Pair from its name.
+     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * ```java
      * package generated_program;
      * 
@@ -3659,6 +3755,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
+     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
@@ -3681,7 +3778,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a EC2 Key Pair from its name.
+     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * ```java
      * package generated_program;
      * 
@@ -3698,6 +3795,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
+     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
@@ -3720,7 +3818,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a EC2 Key Pair from its name.
+     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * ```java
      * package generated_program;
      * 
@@ -3737,6 +3835,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
+     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
@@ -3759,7 +3858,7 @@ public final class Ec2Functions {
      * 
      * ## Example Usage
      * 
-     * The following example shows how to get a EC2 Key Pair from its name.
+     * The following example shows how to get a EC2 Key Pair including the public key material from its name.
      * ```java
      * package generated_program;
      * 
@@ -3776,6 +3875,7 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
+     *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)

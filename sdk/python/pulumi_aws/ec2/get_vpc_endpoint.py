@@ -22,7 +22,7 @@ class GetVpcEndpointResult:
     """
     A collection of values returned by getVpcEndpoint.
     """
-    def __init__(__self__, arn=None, cidr_blocks=None, dns_entries=None, filters=None, id=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, cidr_blocks=None, dns_entries=None, dns_options=None, filters=None, id=None, ip_address_type=None, network_interface_ids=None, owner_id=None, policy=None, prefix_list_id=None, private_dns_enabled=None, requester_managed=None, route_table_ids=None, security_group_ids=None, service_name=None, state=None, subnet_ids=None, tags=None, vpc_endpoint_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -32,12 +32,18 @@ class GetVpcEndpointResult:
         if dns_entries and not isinstance(dns_entries, list):
             raise TypeError("Expected argument 'dns_entries' to be a list")
         pulumi.set(__self__, "dns_entries", dns_entries)
+        if dns_options and not isinstance(dns_options, list):
+            raise TypeError("Expected argument 'dns_options' to be a list")
+        pulumi.set(__self__, "dns_options", dns_options)
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         if network_interface_ids and not isinstance(network_interface_ids, list):
             raise TypeError("Expected argument 'network_interface_ids' to be a list")
         pulumi.set(__self__, "network_interface_ids", network_interface_ids)
@@ -106,6 +112,11 @@ class GetVpcEndpointResult:
         return pulumi.get(self, "dns_entries")
 
     @property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> Sequence['outputs.GetVpcEndpointDnsOptionResult']:
+        return pulumi.get(self, "dns_options")
+
+    @property
     @pulumi.getter
     def filters(self) -> Optional[Sequence['outputs.GetVpcEndpointFilterResult']]:
         return pulumi.get(self, "filters")
@@ -114,6 +125,11 @@ class GetVpcEndpointResult:
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> str:
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
@@ -225,8 +241,10 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             arn=self.arn,
             cidr_blocks=self.cidr_blocks,
             dns_entries=self.dns_entries,
+            dns_options=self.dns_options,
             filters=self.filters,
             id=self.id,
+            ip_address_type=self.ip_address_type,
             network_interface_ids=self.network_interface_ids,
             owner_id=self.owner_id,
             policy=self.policy,
@@ -293,8 +311,10 @@ def get_vpc_endpoint(filters: Optional[Sequence[pulumi.InputType['GetVpcEndpoint
         arn=__ret__.arn,
         cidr_blocks=__ret__.cidr_blocks,
         dns_entries=__ret__.dns_entries,
+        dns_options=__ret__.dns_options,
         filters=__ret__.filters,
         id=__ret__.id,
+        ip_address_type=__ret__.ip_address_type,
         network_interface_ids=__ret__.network_interface_ids,
         owner_id=__ret__.owner_id,
         policy=__ret__.policy,

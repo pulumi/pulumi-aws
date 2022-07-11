@@ -4,6 +4,7 @@
 package com.pulumi.aws.acmpca.inputs;
 
 import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityRevocationConfigurationCrlConfiguration;
+import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityRevocationConfigurationOcspConfiguration;
 import com.pulumi.core.annotations.Import;
 import java.util.List;
 import java.util.Objects;
@@ -20,10 +21,18 @@ public final class GetCertificateAuthorityRevocationConfiguration extends com.pu
         return this.crlConfigurations;
     }
 
+    @Import(name="ocspConfigurations", required=true)
+    private List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations;
+
+    public List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations() {
+        return this.ocspConfigurations;
+    }
+
     private GetCertificateAuthorityRevocationConfiguration() {}
 
     private GetCertificateAuthorityRevocationConfiguration(GetCertificateAuthorityRevocationConfiguration $) {
         this.crlConfigurations = $.crlConfigurations;
+        this.ocspConfigurations = $.ocspConfigurations;
     }
 
     public static Builder builder() {
@@ -53,8 +62,18 @@ public final class GetCertificateAuthorityRevocationConfiguration extends com.pu
             return crlConfigurations(List.of(crlConfigurations));
         }
 
+        public Builder ocspConfigurations(List<GetCertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfigurations) {
+            $.ocspConfigurations = ocspConfigurations;
+            return this;
+        }
+
+        public Builder ocspConfigurations(GetCertificateAuthorityRevocationConfigurationOcspConfiguration... ocspConfigurations) {
+            return ocspConfigurations(List.of(ocspConfigurations));
+        }
+
         public GetCertificateAuthorityRevocationConfiguration build() {
             $.crlConfigurations = Objects.requireNonNull($.crlConfigurations, "expected parameter 'crlConfigurations' to be non-null");
+            $.ocspConfigurations = Objects.requireNonNull($.ocspConfigurations, "expected parameter 'ocspConfigurations' to be non-null");
             return $;
         }
     }

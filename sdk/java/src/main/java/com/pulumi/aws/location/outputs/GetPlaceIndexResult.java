@@ -44,12 +44,12 @@ public final class GetPlaceIndexResult {
     private final String indexArn;
     private final String indexName;
     /**
-     * @return Key-value map of resource tags for the map.
+     * @return Key-value map of resource tags for the place index.
      * 
      */
     private final Map<String,String> tags;
     /**
-     * @return The timestamp for when the place index resource was last update in ISO 8601.
+     * @return The timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
     private final String updateTime;
@@ -122,14 +122,14 @@ public final class GetPlaceIndexResult {
         return this.indexName;
     }
     /**
-     * @return Key-value map of resource tags for the map.
+     * @return Key-value map of resource tags for the place index.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
     /**
-     * @return The timestamp for when the place index resource was last update in ISO 8601.
+     * @return The timestamp for when the place index resource was last updated in ISO 8601 format.
      * 
      */
     public String updateTime() {

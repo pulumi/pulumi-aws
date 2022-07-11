@@ -78,6 +78,12 @@ namespace Pulumi.Aws.Ec2
         public Output<string> KeyPairId { get; private set; } = null!;
 
         /// <summary>
+        /// The type of key pair.
+        /// </summary>
+        [Output("keyType")]
+        public Output<string> KeyType { get; private set; } = null!;
+
+        /// <summary>
         /// The public key material.
         /// </summary>
         [Output("publicKey")]
@@ -201,6 +207,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("keyPairId")]
         public Input<string>? KeyPairId { get; set; }
+
+        /// <summary>
+        /// The type of key pair.
+        /// </summary>
+        [Input("keyType")]
+        public Input<string>? KeyType { get; set; }
 
         /// <summary>
         /// The public key material.

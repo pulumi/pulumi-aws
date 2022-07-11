@@ -9,13 +9,17 @@ export * from "./dataLakeSettings";
 export * from "./getDataLakeSettings";
 export * from "./getPermissions";
 export * from "./getResource";
+export * from "./lfTag";
 export * from "./permissions";
 export * from "./resource";
+export * from "./resourceLfTags";
 
 // Import resources to register:
 import { DataLakeSettings } from "./dataLakeSettings";
+import { LfTag } from "./lfTag";
 import { Permissions } from "./permissions";
 import { Resource } from "./resource";
+import { ResourceLfTags } from "./resourceLfTags";
 
 const _module = {
     version: utilities.getVersion(),
@@ -23,15 +27,21 @@ const _module = {
         switch (type) {
             case "aws:lakeformation/dataLakeSettings:DataLakeSettings":
                 return new DataLakeSettings(name, <any>undefined, { urn })
+            case "aws:lakeformation/lfTag:LfTag":
+                return new LfTag(name, <any>undefined, { urn })
             case "aws:lakeformation/permissions:Permissions":
                 return new Permissions(name, <any>undefined, { urn })
             case "aws:lakeformation/resource:Resource":
                 return new Resource(name, <any>undefined, { urn })
+            case "aws:lakeformation/resourceLfTags:ResourceLfTags":
+                return new ResourceLfTags(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "lakeformation/dataLakeSettings", _module)
+pulumi.runtime.registerResourceModule("aws", "lakeformation/lfTag", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/permissions", _module)
 pulumi.runtime.registerResourceModule("aws", "lakeformation/resource", _module)
+pulumi.runtime.registerResourceModule("aws", "lakeformation/resourceLfTags", _module)

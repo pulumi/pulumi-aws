@@ -4,6 +4,7 @@
 package com.pulumi.aws.acmpca.outputs;
 
 import com.pulumi.aws.acmpca.outputs.CertificateAuthorityRevocationConfigurationCrlConfiguration;
+import com.pulumi.aws.acmpca.outputs.CertificateAuthorityRevocationConfigurationOcspConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,10 +17,19 @@ public final class CertificateAuthorityRevocationConfiguration {
      * 
      */
     private final @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration;
+    /**
+     * @return Nested argument containing configuration of
+     * the custom OCSP responder endpoint. Defined below.
+     * 
+     */
+    private final @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration;
 
     @CustomType.Constructor
-    private CertificateAuthorityRevocationConfiguration(@CustomType.Parameter("crlConfiguration") @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration) {
+    private CertificateAuthorityRevocationConfiguration(
+        @CustomType.Parameter("crlConfiguration") @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration,
+        @CustomType.Parameter("ocspConfiguration") @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration) {
         this.crlConfiguration = crlConfiguration;
+        this.ocspConfiguration = ocspConfiguration;
     }
 
     /**
@@ -28,6 +38,14 @@ public final class CertificateAuthorityRevocationConfiguration {
      */
     public Optional<CertificateAuthorityRevocationConfigurationCrlConfiguration> crlConfiguration() {
         return Optional.ofNullable(this.crlConfiguration);
+    }
+    /**
+     * @return Nested argument containing configuration of
+     * the custom OCSP responder endpoint. Defined below.
+     * 
+     */
+    public Optional<CertificateAuthorityRevocationConfigurationOcspConfiguration> ocspConfiguration() {
+        return Optional.ofNullable(this.ocspConfiguration);
     }
 
     public static Builder builder() {
@@ -40,6 +58,7 @@ public final class CertificateAuthorityRevocationConfiguration {
 
     public static final class Builder {
         private @Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration;
+        private @Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration;
 
         public Builder() {
     	      // Empty
@@ -48,13 +67,18 @@ public final class CertificateAuthorityRevocationConfiguration {
         public Builder(CertificateAuthorityRevocationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.crlConfiguration = defaults.crlConfiguration;
+    	      this.ocspConfiguration = defaults.ocspConfiguration;
         }
 
         public Builder crlConfiguration(@Nullable CertificateAuthorityRevocationConfigurationCrlConfiguration crlConfiguration) {
             this.crlConfiguration = crlConfiguration;
             return this;
+        }
+        public Builder ocspConfiguration(@Nullable CertificateAuthorityRevocationConfigurationOcspConfiguration ocspConfiguration) {
+            this.ocspConfiguration = ocspConfiguration;
+            return this;
         }        public CertificateAuthorityRevocationConfiguration build() {
-            return new CertificateAuthorityRevocationConfiguration(crlConfiguration);
+            return new CertificateAuthorityRevocationConfiguration(crlConfiguration, ocspConfiguration);
         }
     }
 }

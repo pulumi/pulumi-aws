@@ -1319,6 +1319,72 @@ public final class IamFunctions {
      *     }
      * }
      * ```
+     * ### Example Multiple Condition Keys and Values
+     * 
+     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(                
+     *                     &#34;kms:Decrypt&#34;,
+     *                     &#34;kms:GenerateDataKey&#34;)
+     *                 .conditions(                
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;pi&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;rds&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(                        
+     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
+     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .build())
+     *                 .resources(&#34;*&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * ### Example Assume-Role Policy with Multiple Principals
      * 
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
@@ -1756,6 +1822,72 @@ public final class IamFunctions {
      *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
+     *     }
+     * }
+     * ```
+     * ### Example Multiple Condition Keys and Values
+     * 
+     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(                
+     *                     &#34;kms:Decrypt&#34;,
+     *                     &#34;kms:GenerateDataKey&#34;)
+     *                 .conditions(                
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;pi&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;rds&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(                        
+     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
+     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .build())
+     *                 .resources(&#34;*&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -2199,6 +2331,72 @@ public final class IamFunctions {
      *     }
      * }
      * ```
+     * ### Example Multiple Condition Keys and Values
+     * 
+     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(                
+     *                     &#34;kms:Decrypt&#34;,
+     *                     &#34;kms:GenerateDataKey&#34;)
+     *                 .conditions(                
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;pi&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;rds&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(                        
+     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
+     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .build())
+     *                 .resources(&#34;*&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * ### Example Assume-Role Policy with Multiple Principals
      * 
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
@@ -2636,6 +2834,72 @@ public final class IamFunctions {
      *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
+     *     }
+     * }
+     * ```
+     * ### Example Multiple Condition Keys and Values
+     * 
+     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(                
+     *                     &#34;kms:Decrypt&#34;,
+     *                     &#34;kms:GenerateDataKey&#34;)
+     *                 .conditions(                
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;pi&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;rds&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(                        
+     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
+     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .build())
+     *                 .resources(&#34;*&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```
@@ -3079,6 +3343,72 @@ public final class IamFunctions {
      *     }
      * }
      * ```
+     * ### Example Multiple Condition Keys and Values
+     * 
+     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(                
+     *                     &#34;kms:Decrypt&#34;,
+     *                     &#34;kms:GenerateDataKey&#34;)
+     *                 .conditions(                
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;pi&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;rds&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(                        
+     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
+     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .build())
+     *                 .resources(&#34;*&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *     }
+     * }
+     * ```
      * ### Example Assume-Role Policy with Multiple Principals
      * 
      * You can specify multiple principal blocks with different types. You can also use this data source to generate an assume-role policy.
@@ -3516,6 +3846,72 @@ public final class IamFunctions {
      *             .policy(examplePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
      *             .build());
      * 
+     *     }
+     * }
+     * ```
+     * ### Example Multiple Condition Keys and Values
+     * 
+     * You can specify a [condition with multiple keys and values](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_multi-value-conditions.html) by supplying multiple `condition` blocks with the same `test` value, but differing `variable` and `values` values.
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var exampleMultipleConditionKeysAndValues = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+     *             .statements(GetPolicyDocumentStatementArgs.builder()
+     *                 .actions(                
+     *                     &#34;kms:Decrypt&#34;,
+     *                     &#34;kms:GenerateDataKey&#34;)
+     *                 .conditions(                
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;pi&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(&#34;rds&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:pi:service&#34;)
+     *                         .build(),
+     *                     GetPolicyDocumentStatementConditionArgs.builder()
+     *                         .test(&#34;ForAnyValue:StringEquals&#34;)
+     *                         .values(                        
+     *                             &#34;db-AAAAABBBBBCCCCCDDDDDEEEEE&#34;,
+     *                             &#34;db-EEEEEDDDDDCCCCCBBBBBAAAAA&#34;)
+     *                         .variable(&#34;kms:EncryptionContext:aws:rds:db-id&#34;)
+     *                         .build())
+     *                 .resources(&#34;*&#34;)
+     *                 .build())
+     *             .build()));
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * `data.aws_iam_policy_document.example_multiple_condition_keys_and_values.json` will evaluate to:
+     * ```java
+     * package generated_program;
+     * 
+     * import java.util.*;
+     * import java.io.*;
+     * import java.nio.*;
+     * import com.pulumi.*;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
      *     }
      * }
      * ```

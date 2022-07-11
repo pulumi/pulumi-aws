@@ -40,6 +40,7 @@ import javax.annotation.Nullable;
  *             .destinations(            
  *                 aws_gamelift_fleet.us_west_2_fleet().arn(),
  *                 aws_gamelift_fleet.eu_central_1_fleet().arn())
+ *             .notificationTarget(aws_sns_topic.game_session_queue_notifications().arn())
  *             .playerLatencyPolicies(            
  *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
  *                     .maximumIndividualPlayerLatencyMilliseconds(100)
@@ -107,6 +108,20 @@ public class GameSessionQueue extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * An SNS topic ARN that is set up to receive game session placement notifications.
+     * 
+     */
+    @Export(name="notificationTarget", type=String.class, parameters={})
+    private Output</* @Nullable */ String> notificationTarget;
+
+    /**
+     * @return An SNS topic ARN that is set up to receive game session placement notifications.
+     * 
+     */
+    public Output<Optional<String>> notificationTarget() {
+        return Codegen.optional(this.notificationTarget);
     }
     /**
      * One or more policies used to choose fleet based on player latency. See below.

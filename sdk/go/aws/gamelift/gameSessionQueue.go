@@ -29,6 +29,7 @@ import (
 // 				pulumi.Any(aws_gamelift_fleet.Us_west_2_fleet.Arn),
 // 				pulumi.Any(aws_gamelift_fleet.Eu_central_1_fleet.Arn),
 // 			},
+// 			NotificationTarget: pulumi.Any(aws_sns_topic.Game_session_queue_notifications.Arn),
 // 			PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
 // 				&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
 // 					MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(100),
@@ -64,6 +65,8 @@ type GameSessionQueue struct {
 	Destinations pulumi.StringArrayOutput `pulumi:"destinations"`
 	// Name of the session queue.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget pulumi.StringPtrOutput `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayOutput `pulumi:"playerLatencyPolicies"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -109,6 +112,8 @@ type gameSessionQueueState struct {
 	Destinations []string `pulumi:"destinations"`
 	// Name of the session queue.
 	Name *string `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget *string `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -126,6 +131,8 @@ type GameSessionQueueState struct {
 	Destinations pulumi.StringArrayInput
 	// Name of the session queue.
 	Name pulumi.StringPtrInput
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget pulumi.StringPtrInput
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -145,6 +152,8 @@ type gameSessionQueueArgs struct {
 	Destinations []string `pulumi:"destinations"`
 	// Name of the session queue.
 	Name *string `pulumi:"name"`
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget *string `pulumi:"notificationTarget"`
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies []GameSessionQueuePlayerLatencyPolicy `pulumi:"playerLatencyPolicies"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -159,6 +168,8 @@ type GameSessionQueueArgs struct {
 	Destinations pulumi.StringArrayInput
 	// Name of the session queue.
 	Name pulumi.StringPtrInput
+	// An SNS topic ARN that is set up to receive game session placement notifications.
+	NotificationTarget pulumi.StringPtrInput
 	// One or more policies used to choose fleet based on player latency. See below.
 	PlayerLatencyPolicies GameSessionQueuePlayerLatencyPolicyArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -267,6 +278,11 @@ func (o GameSessionQueueOutput) Destinations() pulumi.StringArrayOutput {
 // Name of the session queue.
 func (o GameSessionQueueOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// An SNS topic ARN that is set up to receive game session placement notifications.
+func (o GameSessionQueueOutput) NotificationTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GameSessionQueue) pulumi.StringPtrOutput { return v.NotificationTarget }).(pulumi.StringPtrOutput)
 }
 
 // One or more policies used to choose fleet based on player latency. See below.

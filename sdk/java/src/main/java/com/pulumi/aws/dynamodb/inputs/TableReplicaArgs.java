@@ -5,6 +5,7 @@ package com.pulumi.aws.dynamodb.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,20 +17,33 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableReplicaArgs Empty = new TableReplicaArgs();
 
     /**
-     * The ARN of the CMK that should be used for the AWS KMS encryption.
-     * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+     * ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return The ARN of the CMK that should be used for the AWS KMS encryption.
-     * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+     * @return ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
         return Optional.ofNullable(this.kmsKeyArn);
+    }
+
+    /**
+     * Whether to enable Point In Time Recovery for the replica.
+     * 
+     */
+    @Import(name="pointInTimeRecovery")
+    private @Nullable Output<Boolean> pointInTimeRecovery;
+
+    /**
+     * @return Whether to enable Point In Time Recovery for the replica.
+     * 
+     */
+    public Optional<Output<Boolean>> pointInTimeRecovery() {
+        return Optional.ofNullable(this.pointInTimeRecovery);
     }
 
     /**
@@ -51,6 +65,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
 
     private TableReplicaArgs(TableReplicaArgs $) {
         this.kmsKeyArn = $.kmsKeyArn;
+        this.pointInTimeRecovery = $.pointInTimeRecovery;
         this.regionName = $.regionName;
     }
 
@@ -73,8 +88,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The ARN of the CMK that should be used for the AWS KMS encryption.
-         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
          * 
          * @return builder
          * 
@@ -85,14 +99,34 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn The ARN of the CMK that should be used for the AWS KMS encryption.
-         * This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
+         * @param kmsKeyArn ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
          * 
          * @return builder
          * 
          */
         public Builder kmsKeyArn(String kmsKeyArn) {
             return kmsKeyArn(Output.of(kmsKeyArn));
+        }
+
+        /**
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointInTimeRecovery(@Nullable Output<Boolean> pointInTimeRecovery) {
+            $.pointInTimeRecovery = pointInTimeRecovery;
+            return this;
+        }
+
+        /**
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder pointInTimeRecovery(Boolean pointInTimeRecovery) {
+            return pointInTimeRecovery(Output.of(pointInTimeRecovery));
         }
 
         /**

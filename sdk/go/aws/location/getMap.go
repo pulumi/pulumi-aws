@@ -66,7 +66,7 @@ type LookupMapResult struct {
 	MapName string `pulumi:"mapName"`
 	// Key-value map of resource tags for the map.
 	Tags map[string]string `pulumi:"tags"`
-	// The timestamp for when the map resource was last updated in ISO 8601.
+	// The timestamp for when the map resource was last updated in ISO 8601 format.
 	UpdateTime string `pulumi:"updateTime"`
 }
 
@@ -144,7 +144,7 @@ func (o LookupMapResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupMapResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The timestamp for when the map resource was last updated in ISO 8601.
+// The timestamp for when the map resource was last updated in ISO 8601 format.
 func (o LookupMapResultOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMapResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }

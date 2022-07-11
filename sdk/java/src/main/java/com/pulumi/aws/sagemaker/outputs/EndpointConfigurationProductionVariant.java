@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.EndpointConfigurationProductionVariantServerlessConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Double;
 import java.lang.Integer;
@@ -22,9 +23,9 @@ public final class EndpointConfigurationProductionVariant {
      * @return Initial number of instances used for auto-scaling.
      * 
      */
-    private final Integer initialInstanceCount;
+    private final @Nullable Integer initialInstanceCount;
     /**
-     * @return Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+     * @return Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
      * 
      */
     private final @Nullable Double initialVariantWeight;
@@ -32,12 +33,17 @@ public final class EndpointConfigurationProductionVariant {
      * @return The type of instance to start.
      * 
      */
-    private final String instanceType;
+    private final @Nullable String instanceType;
     /**
      * @return The name of the model to use.
      * 
      */
     private final String modelName;
+    /**
+     * @return Specifies configuration for how an endpoint performs asynchronous inference.
+     * 
+     */
+    private final @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig;
     /**
      * @return The name of the variant. If omitted, this provider will assign a random, unique name.
      * 
@@ -47,16 +53,18 @@ public final class EndpointConfigurationProductionVariant {
     @CustomType.Constructor
     private EndpointConfigurationProductionVariant(
         @CustomType.Parameter("acceleratorType") @Nullable String acceleratorType,
-        @CustomType.Parameter("initialInstanceCount") Integer initialInstanceCount,
+        @CustomType.Parameter("initialInstanceCount") @Nullable Integer initialInstanceCount,
         @CustomType.Parameter("initialVariantWeight") @Nullable Double initialVariantWeight,
-        @CustomType.Parameter("instanceType") String instanceType,
+        @CustomType.Parameter("instanceType") @Nullable String instanceType,
         @CustomType.Parameter("modelName") String modelName,
+        @CustomType.Parameter("serverlessConfig") @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig,
         @CustomType.Parameter("variantName") @Nullable String variantName) {
         this.acceleratorType = acceleratorType;
         this.initialInstanceCount = initialInstanceCount;
         this.initialVariantWeight = initialVariantWeight;
         this.instanceType = instanceType;
         this.modelName = modelName;
+        this.serverlessConfig = serverlessConfig;
         this.variantName = variantName;
     }
 
@@ -71,11 +79,11 @@ public final class EndpointConfigurationProductionVariant {
      * @return Initial number of instances used for auto-scaling.
      * 
      */
-    public Integer initialInstanceCount() {
-        return this.initialInstanceCount;
+    public Optional<Integer> initialInstanceCount() {
+        return Optional.ofNullable(this.initialInstanceCount);
     }
     /**
-     * @return Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+     * @return Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
      * 
      */
     public Optional<Double> initialVariantWeight() {
@@ -85,8 +93,8 @@ public final class EndpointConfigurationProductionVariant {
      * @return The type of instance to start.
      * 
      */
-    public String instanceType() {
-        return this.instanceType;
+    public Optional<String> instanceType() {
+        return Optional.ofNullable(this.instanceType);
     }
     /**
      * @return The name of the model to use.
@@ -94,6 +102,13 @@ public final class EndpointConfigurationProductionVariant {
      */
     public String modelName() {
         return this.modelName;
+    }
+    /**
+     * @return Specifies configuration for how an endpoint performs asynchronous inference.
+     * 
+     */
+    public Optional<EndpointConfigurationProductionVariantServerlessConfig> serverlessConfig() {
+        return Optional.ofNullable(this.serverlessConfig);
     }
     /**
      * @return The name of the variant. If omitted, this provider will assign a random, unique name.
@@ -113,10 +128,11 @@ public final class EndpointConfigurationProductionVariant {
 
     public static final class Builder {
         private @Nullable String acceleratorType;
-        private Integer initialInstanceCount;
+        private @Nullable Integer initialInstanceCount;
         private @Nullable Double initialVariantWeight;
-        private String instanceType;
+        private @Nullable String instanceType;
         private String modelName;
+        private @Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig;
         private @Nullable String variantName;
 
         public Builder() {
@@ -130,6 +146,7 @@ public final class EndpointConfigurationProductionVariant {
     	      this.initialVariantWeight = defaults.initialVariantWeight;
     	      this.instanceType = defaults.instanceType;
     	      this.modelName = defaults.modelName;
+    	      this.serverlessConfig = defaults.serverlessConfig;
     	      this.variantName = defaults.variantName;
         }
 
@@ -137,27 +154,31 @@ public final class EndpointConfigurationProductionVariant {
             this.acceleratorType = acceleratorType;
             return this;
         }
-        public Builder initialInstanceCount(Integer initialInstanceCount) {
-            this.initialInstanceCount = Objects.requireNonNull(initialInstanceCount);
+        public Builder initialInstanceCount(@Nullable Integer initialInstanceCount) {
+            this.initialInstanceCount = initialInstanceCount;
             return this;
         }
         public Builder initialVariantWeight(@Nullable Double initialVariantWeight) {
             this.initialVariantWeight = initialVariantWeight;
             return this;
         }
-        public Builder instanceType(String instanceType) {
-            this.instanceType = Objects.requireNonNull(instanceType);
+        public Builder instanceType(@Nullable String instanceType) {
+            this.instanceType = instanceType;
             return this;
         }
         public Builder modelName(String modelName) {
             this.modelName = Objects.requireNonNull(modelName);
             return this;
         }
+        public Builder serverlessConfig(@Nullable EndpointConfigurationProductionVariantServerlessConfig serverlessConfig) {
+            this.serverlessConfig = serverlessConfig;
+            return this;
+        }
         public Builder variantName(@Nullable String variantName) {
             this.variantName = variantName;
             return this;
         }        public EndpointConfigurationProductionVariant build() {
-            return new EndpointConfigurationProductionVariant(acceleratorType, initialInstanceCount, initialVariantWeight, instanceType, modelName, variantName);
+            return new EndpointConfigurationProductionVariant(acceleratorType, initialInstanceCount, initialVariantWeight, instanceType, modelName, serverlessConfig, variantName);
         }
     }
 }

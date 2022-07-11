@@ -65,6 +65,21 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * An SNS topic ARN that is set up to receive game session placement notifications.
+     * 
+     */
+    @Import(name="notificationTarget")
+    private @Nullable Output<String> notificationTarget;
+
+    /**
+     * @return An SNS topic ARN that is set up to receive game session placement notifications.
+     * 
+     */
+    public Optional<Output<String>> notificationTarget() {
+        return Optional.ofNullable(this.notificationTarget);
+    }
+
+    /**
      * One or more policies used to choose fleet based on player latency. See below.
      * 
      */
@@ -130,6 +145,7 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
         this.arn = $.arn;
         this.destinations = $.destinations;
         this.name = $.name;
+        this.notificationTarget = $.notificationTarget;
         this.playerLatencyPolicies = $.playerLatencyPolicies;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -225,6 +241,27 @@ public final class GameSessionQueueState extends com.pulumi.resources.ResourceAr
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param notificationTarget An SNS topic ARN that is set up to receive game session placement notifications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationTarget(@Nullable Output<String> notificationTarget) {
+            $.notificationTarget = notificationTarget;
+            return this;
+        }
+
+        /**
+         * @param notificationTarget An SNS topic ARN that is set up to receive game session placement notifications.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder notificationTarget(String notificationTarget) {
+            return notificationTarget(Output.of(notificationTarget));
         }
 
         /**

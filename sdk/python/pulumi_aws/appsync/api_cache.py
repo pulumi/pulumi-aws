@@ -229,6 +229,20 @@ class ApiCache(pulumi.CustomResource):
         """
         Provides an AppSync API Cache.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
+        example_api_cache = aws.appsync.ApiCache("exampleApiCache",
+            api_id=example_graph_ql_api.id,
+            api_caching_behavior="FULL_REQUEST_CACHING",
+            type="LARGE",
+            ttl=900)
+        ```
+
         ## Import
 
         `aws_appsync_api_cache` can be imported using the AppSync API ID, e.g.,
@@ -254,6 +268,20 @@ class ApiCache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides an AppSync API Cache.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_graph_ql_api = aws.appsync.GraphQLApi("exampleGraphQLApi", authentication_type="API_KEY")
+        example_api_cache = aws.appsync.ApiCache("exampleApiCache",
+            api_id=example_graph_ql_api.id,
+            api_caching_behavior="FULL_REQUEST_CACHING",
+            type="LARGE",
+            ttl=900)
+        ```
 
         ## Import
 

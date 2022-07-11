@@ -643,7 +643,7 @@ class Cluster(pulumi.CustomResource):
                 "LogDeliveryEnabled": "placeholder",
             })
         example = aws.msk.Cluster("example",
-            kafka_version="2.4.1",
+            kafka_version="3.2.0",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
                 instance_type="kafka.m5.large",
@@ -807,7 +807,7 @@ class Cluster(pulumi.CustomResource):
                 "LogDeliveryEnabled": "placeholder",
             })
         example = aws.msk.Cluster("example",
-            kafka_version="2.4.1",
+            kafka_version="3.2.0",
             number_of_broker_nodes=3,
             broker_node_group_info=aws.msk.ClusterBrokerNodeGroupInfoArgs(
                 instance_type="kafka.m5.large",

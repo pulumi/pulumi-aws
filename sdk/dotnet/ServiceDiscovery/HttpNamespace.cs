@@ -53,6 +53,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The name of an HTTP namespace.
+        /// </summary>
+        [Output("httpName")]
+        public Output<string> HttpName { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the http namespace.
         /// </summary>
         [Output("name")]
@@ -65,7 +71,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -160,6 +166,12 @@ namespace Pulumi.Aws.ServiceDiscovery
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The name of an HTTP namespace.
+        /// </summary>
+        [Input("httpName")]
+        public Input<string>? HttpName { get; set; }
+
+        /// <summary>
         /// The name of the http namespace.
         /// </summary>
         [Input("name")]
@@ -181,7 +193,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

@@ -152,6 +152,10 @@ type VpcEndpoint struct {
 	CidrBlocks pulumi.StringArrayOutput `pulumi:"cidrBlocks"`
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
 	DnsEntries VpcEndpointDnsEntryArrayOutput `pulumi:"dnsEntries"`
+	// The DNS options for the endpoint. See dnsOptions below.
+	DnsOptions VpcEndpointDnsOptionsOutput `pulumi:"dnsOptions"`
+	// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+	IpAddressType pulumi.StringOutput `pulumi:"ipAddressType"`
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that owns the VPC endpoint.
@@ -229,6 +233,10 @@ type vpcEndpointState struct {
 	CidrBlocks []string `pulumi:"cidrBlocks"`
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
 	DnsEntries []VpcEndpointDnsEntry `pulumi:"dnsEntries"`
+	// The DNS options for the endpoint. See dnsOptions below.
+	DnsOptions *VpcEndpointDnsOptions `pulumi:"dnsOptions"`
+	// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// The ID of the AWS account that owns the VPC endpoint.
@@ -272,6 +280,10 @@ type VpcEndpointState struct {
 	CidrBlocks pulumi.StringArrayInput
 	// The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
 	DnsEntries VpcEndpointDnsEntryArrayInput
+	// The DNS options for the endpoint. See dnsOptions below.
+	DnsOptions VpcEndpointDnsOptionsPtrInput
+	// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+	IpAddressType pulumi.StringPtrInput
 	// One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.
 	NetworkInterfaceIds pulumi.StringArrayInput
 	// The ID of the AWS account that owns the VPC endpoint.
@@ -313,6 +325,10 @@ func (VpcEndpointState) ElementType() reflect.Type {
 type vpcEndpointArgs struct {
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept *bool `pulumi:"autoAccept"`
+	// The DNS options for the endpoint. See dnsOptions below.
+	DnsOptions *VpcEndpointDnsOptions `pulumi:"dnsOptions"`
+	// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+	IpAddressType *string `pulumi:"ipAddressType"`
 	// A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy *string `pulumi:"policy"`
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
@@ -339,6 +355,10 @@ type vpcEndpointArgs struct {
 type VpcEndpointArgs struct {
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrInput
+	// The DNS options for the endpoint. See dnsOptions below.
+	DnsOptions VpcEndpointDnsOptionsPtrInput
+	// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+	IpAddressType pulumi.StringPtrInput
 	// A policy to attach to the endpoint that controls access to the service. This is a JSON formatted string. Defaults to full access. All `Gateway` and some `Interface` endpoints support policies - see the [relevant AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-endpoints-access.html) for more details.
 	Policy pulumi.StringPtrInput
 	// Whether or not to associate a private hosted zone with the specified VPC. Applicable for endpoints of type `Interface`.
@@ -466,6 +486,16 @@ func (o VpcEndpointOutput) CidrBlocks() pulumi.StringArrayOutput {
 // The DNS entries for the VPC Endpoint. Applicable for endpoints of type `Interface`. DNS blocks are documented below.
 func (o VpcEndpointOutput) DnsEntries() VpcEndpointDnsEntryArrayOutput {
 	return o.ApplyT(func(v *VpcEndpoint) VpcEndpointDnsEntryArrayOutput { return v.DnsEntries }).(VpcEndpointDnsEntryArrayOutput)
+}
+
+// The DNS options for the endpoint. See dnsOptions below.
+func (o VpcEndpointOutput) DnsOptions() VpcEndpointDnsOptionsOutput {
+	return o.ApplyT(func(v *VpcEndpoint) VpcEndpointDnsOptionsOutput { return v.DnsOptions }).(VpcEndpointDnsOptionsOutput)
+}
+
+// The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+func (o VpcEndpointOutput) IpAddressType() pulumi.StringOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.IpAddressType }).(pulumi.StringOutput)
 }
 
 // One or more network interfaces for the VPC Endpoint. Applicable for endpoints of type `Interface`.

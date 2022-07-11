@@ -5,6 +5,7 @@ package com.pulumi.aws.wafv2.inputs;
 
 import com.pulumi.aws.wafv2.inputs.WebAclRuleActionAllowArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleActionBlockArgs;
+import com.pulumi.aws.wafv2.inputs.WebAclRuleActionCaptchaArgs;
 import com.pulumi.aws.wafv2.inputs.WebAclRuleActionCountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -48,6 +49,21 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+     * 
+     */
+    @Import(name="captcha")
+    private @Nullable Output<WebAclRuleActionCaptchaArgs> captcha;
+
+    /**
+     * @return Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+     * 
+     */
+    public Optional<Output<WebAclRuleActionCaptchaArgs>> captcha() {
+        return Optional.ofNullable(this.captcha);
+    }
+
+    /**
      * Instructs AWS WAF to count the web request and allow it. See Count below for details.
      * 
      */
@@ -67,6 +83,7 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
     private WebAclRuleActionArgs(WebAclRuleActionArgs $) {
         this.allow = $.allow;
         this.block = $.block;
+        this.captcha = $.captcha;
         this.count = $.count;
     }
 
@@ -128,6 +145,27 @@ public final class WebAclRuleActionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder block(WebAclRuleActionBlockArgs block) {
             return block(Output.of(block));
+        }
+
+        /**
+         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captcha(@Nullable Output<WebAclRuleActionCaptchaArgs> captcha) {
+            $.captcha = captcha;
+            return this;
+        }
+
+        /**
+         * @param captcha Instructs AWS WAF to run a Captcha check against the web request. See Captcha below for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder captcha(WebAclRuleActionCaptchaArgs captcha) {
+            return captcha(Output.of(captcha));
         }
 
         /**

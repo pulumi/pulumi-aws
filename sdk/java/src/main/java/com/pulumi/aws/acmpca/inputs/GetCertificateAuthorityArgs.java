@@ -41,6 +41,8 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
      * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
      * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
      * * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+     * * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
+     * * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
      * 
      */
     @Import(name="revocationConfigurations")
@@ -54,6 +56,8 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
      * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
      * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
      * * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+     * * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
+     * * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
      * 
      */
     public Optional<Output<List<GetCertificateAuthorityRevocationConfigurationArgs>>> revocationConfigurations() {
@@ -130,6 +134,8 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
          * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
          * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
          * * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+         * * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
+         * * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
          * 
          * @return builder
          * 
@@ -147,6 +153,8 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
          * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
          * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
          * * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+         * * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
+         * * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
          * 
          * @return builder
          * 
@@ -163,6 +171,8 @@ public final class GetCertificateAuthorityArgs extends com.pulumi.resources.Invo
          * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
          * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
          * * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+         * * `revocation_configuration.0.ocsp_configuration.0.enabled` - Boolean value that specifies whether a custom OCSP responder is enabled.
+         * * `revocation_configuration.0.ocsp_configuration.0.ocsp_custom_cname` - A CNAME specifying a customized OCSP domain.
          * 
          * @return builder
          * 

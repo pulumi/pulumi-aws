@@ -21,7 +21,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
      */
     private final @Nullable Boolean copyTagsToSnapshots;
     /**
-     * @return - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * @return - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
     private final @Nullable String dataCompressionType;
@@ -63,7 +63,7 @@ public final class OpenZfsFileSystemRootVolumeConfiguration {
         return Optional.ofNullable(this.copyTagsToSnapshots);
     }
     /**
-     * @return - Method used to compress the data on the volume. Valid values are `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
+     * @return - Method used to compress the data on the volume. Valid values are `LZ4`, `NONE` or `ZSTD`. Child volumes that don&#39;t specify compression option will inherit from parent volume. This option on file system applies to the root volume.
      * 
      */
     public Optional<String> dataCompressionType() {

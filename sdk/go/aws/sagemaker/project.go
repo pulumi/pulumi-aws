@@ -61,7 +61,7 @@ type Project struct {
 	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsOutput `pulumi:"serviceCatalogProvisioningDetails"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -112,7 +112,7 @@ type projectState struct {
 	ProjectName *string `pulumi:"projectName"`
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails *ProjectServiceCatalogProvisioningDetails `pulumi:"serviceCatalogProvisioningDetails"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -129,7 +129,7 @@ type ProjectState struct {
 	ProjectName pulumi.StringPtrInput
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -146,7 +146,7 @@ type projectArgs struct {
 	ProjectName string `pulumi:"projectName"`
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetails `pulumi:"serviceCatalogProvisioningDetails"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -158,7 +158,7 @@ type ProjectArgs struct {
 	ProjectName pulumi.StringInput
 	// The product ID and provisioning artifact ID to provision a service catalog. See Service Catalog Provisioning Details below.
 	ServiceCatalogProvisioningDetails ProjectServiceCatalogProvisioningDetailsInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -276,7 +276,7 @@ func (o ProjectOutput) ServiceCatalogProvisioningDetails() ProjectServiceCatalog
 	}).(ProjectServiceCatalogProvisioningDetailsOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ProjectOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

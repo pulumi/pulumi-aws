@@ -561,6 +561,9 @@ func (o CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrOutput) T
 type CertificateAuthorityRevocationConfiguration struct {
 	// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
 	CrlConfiguration *CertificateAuthorityRevocationConfigurationCrlConfiguration `pulumi:"crlConfiguration"`
+	// Nested argument containing configuration of
+	// the custom OCSP responder endpoint. Defined below.
+	OcspConfiguration *CertificateAuthorityRevocationConfigurationOcspConfiguration `pulumi:"ocspConfiguration"`
 }
 
 // CertificateAuthorityRevocationConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationArgs and CertificateAuthorityRevocationConfigurationOutput values.
@@ -577,6 +580,9 @@ type CertificateAuthorityRevocationConfigurationInput interface {
 type CertificateAuthorityRevocationConfigurationArgs struct {
 	// Nested argument containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority. Defined below.
 	CrlConfiguration CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput `pulumi:"crlConfiguration"`
+	// Nested argument containing configuration of
+	// the custom OCSP responder endpoint. Defined below.
+	OcspConfiguration CertificateAuthorityRevocationConfigurationOcspConfigurationPtrInput `pulumi:"ocspConfiguration"`
 }
 
 func (CertificateAuthorityRevocationConfigurationArgs) ElementType() reflect.Type {
@@ -663,6 +669,14 @@ func (o CertificateAuthorityRevocationConfigurationOutput) CrlConfiguration() Ce
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
 
+// Nested argument containing configuration of
+// the custom OCSP responder endpoint. Defined below.
+func (o CertificateAuthorityRevocationConfigurationOutput) OcspConfiguration() CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfigurationOcspConfiguration {
+		return v.OcspConfiguration
+	}).(CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput)
+}
+
 type CertificateAuthorityRevocationConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (CertificateAuthorityRevocationConfigurationPtrOutput) ElementType() reflect.Type {
@@ -697,10 +711,21 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) CrlConfiguration()
 	}).(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput)
 }
 
+// Nested argument containing configuration of
+// the custom OCSP responder endpoint. Defined below.
+func (o CertificateAuthorityRevocationConfigurationPtrOutput) OcspConfiguration() CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfiguration) *CertificateAuthorityRevocationConfigurationOcspConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OcspConfiguration
+	}).(CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput)
+}
+
 type CertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 	CustomCname *string `pulumi:"customCname"`
-	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+	// Boolean value that specifies whether a custom OCSP responder is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// Number of days until a certificate expires. Must be between 1 and 5000.
 	ExpirationInDays int `pulumi:"expirationInDays"`
@@ -724,7 +749,7 @@ type CertificateAuthorityRevocationConfigurationCrlConfigurationInput interface 
 type CertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
 	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 	CustomCname pulumi.StringPtrInput `pulumi:"customCname"`
-	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+	// Boolean value that specifies whether a custom OCSP responder is enabled.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Number of days until a certificate expires. Must be between 1 and 5000.
 	ExpirationInDays pulumi.IntInput `pulumi:"expirationInDays"`
@@ -816,7 +841,7 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Custo
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
-// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+// Boolean value that specifies whether a custom OCSP responder is enabled.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -870,7 +895,7 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Cu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
+// Boolean value that specifies whether a custom OCSP responder is enabled.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool {
 		if v == nil {
@@ -907,6 +932,162 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) S3
 			return nil
 		}
 		return v.S3ObjectAcl
+	}).(pulumi.StringPtrOutput)
+}
+
+type CertificateAuthorityRevocationConfigurationOcspConfiguration struct {
+	// Boolean value that specifies whether a custom OCSP responder is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+	OcspCustomCname *string `pulumi:"ocspCustomCname"`
+}
+
+// CertificateAuthorityRevocationConfigurationOcspConfigurationInput is an input type that accepts CertificateAuthorityRevocationConfigurationOcspConfigurationArgs and CertificateAuthorityRevocationConfigurationOcspConfigurationOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationOcspConfigurationInput` via:
+//
+//          CertificateAuthorityRevocationConfigurationOcspConfigurationArgs{...}
+type CertificateAuthorityRevocationConfigurationOcspConfigurationInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityRevocationConfigurationOcspConfigurationOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationOutput
+	ToCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationOutput
+}
+
+type CertificateAuthorityRevocationConfigurationOcspConfigurationArgs struct {
+	// Boolean value that specifies whether a custom OCSP responder is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+	OcspCustomCname pulumi.StringPtrInput `pulumi:"ocspCustomCname"`
+}
+
+func (CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityRevocationConfigurationOcspConfiguration)(nil)).Elem()
+}
+
+func (i CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToCertificateAuthorityRevocationConfigurationOcspConfigurationOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return i.ToCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOcspConfigurationOutput)
+}
+
+func (i CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return i.ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOcspConfigurationOutput).ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(ctx)
+}
+
+// CertificateAuthorityRevocationConfigurationOcspConfigurationPtrInput is an input type that accepts CertificateAuthorityRevocationConfigurationOcspConfigurationArgs, CertificateAuthorityRevocationConfigurationOcspConfigurationPtr and CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput values.
+// You can construct a concrete instance of `CertificateAuthorityRevocationConfigurationOcspConfigurationPtrInput` via:
+//
+//          CertificateAuthorityRevocationConfigurationOcspConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type CertificateAuthorityRevocationConfigurationOcspConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput
+	ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput
+}
+
+type certificateAuthorityRevocationConfigurationOcspConfigurationPtrType CertificateAuthorityRevocationConfigurationOcspConfigurationArgs
+
+func CertificateAuthorityRevocationConfigurationOcspConfigurationPtr(v *CertificateAuthorityRevocationConfigurationOcspConfigurationArgs) CertificateAuthorityRevocationConfigurationOcspConfigurationPtrInput {
+	return (*certificateAuthorityRevocationConfigurationOcspConfigurationPtrType)(v)
+}
+
+func (*certificateAuthorityRevocationConfigurationOcspConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityRevocationConfigurationOcspConfiguration)(nil)).Elem()
+}
+
+func (i *certificateAuthorityRevocationConfigurationOcspConfigurationPtrType) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return i.ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *certificateAuthorityRevocationConfigurationOcspConfigurationPtrType) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput)
+}
+
+type CertificateAuthorityRevocationConfigurationOcspConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityRevocationConfigurationOcspConfiguration)(nil)).Elem()
+}
+
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToCertificateAuthorityRevocationConfigurationOcspConfigurationOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return o
+}
+
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return o
+}
+
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return o.ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CertificateAuthorityRevocationConfigurationOcspConfiguration) *CertificateAuthorityRevocationConfigurationOcspConfiguration {
+		return &v
+	}).(CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput)
+}
+
+// Boolean value that specifies whether a custom OCSP responder is enabled.
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationOcspConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationOutput) OcspCustomCname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationOcspConfiguration) *string { return v.OcspCustomCname }).(pulumi.StringPtrOutput)
+}
+
+type CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityRevocationConfigurationOcspConfiguration)(nil)).Elem()
+}
+
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput() CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) ToCertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutputWithContext(ctx context.Context) CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) Elem() CertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationOcspConfiguration) CertificateAuthorityRevocationConfigurationOcspConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityRevocationConfigurationOcspConfiguration
+		return ret
+	}).(CertificateAuthorityRevocationConfigurationOcspConfigurationOutput)
+}
+
+// Boolean value that specifies whether a custom OCSP responder is enabled.
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationOcspConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A CNAME specifying a customized OCSP domain. Note: The value of the CNAME must not include a protocol prefix such as "http://" or "https://".
+func (o CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput) OcspCustomCname() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationOcspConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OcspCustomCname
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1067,7 +1248,8 @@ func (o CertificateValidityPtrOutput) Value() pulumi.StringPtrOutput {
 }
 
 type GetCertificateAuthorityRevocationConfiguration struct {
-	CrlConfigurations []GetCertificateAuthorityRevocationConfigurationCrlConfiguration `pulumi:"crlConfigurations"`
+	CrlConfigurations  []GetCertificateAuthorityRevocationConfigurationCrlConfiguration  `pulumi:"crlConfigurations"`
+	OcspConfigurations []GetCertificateAuthorityRevocationConfigurationOcspConfiguration `pulumi:"ocspConfigurations"`
 }
 
 // GetCertificateAuthorityRevocationConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationArgs and GetCertificateAuthorityRevocationConfigurationOutput values.
@@ -1082,7 +1264,8 @@ type GetCertificateAuthorityRevocationConfigurationInput interface {
 }
 
 type GetCertificateAuthorityRevocationConfigurationArgs struct {
-	CrlConfigurations GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput `pulumi:"crlConfigurations"`
+	CrlConfigurations  GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput  `pulumi:"crlConfigurations"`
+	OcspConfigurations GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput `pulumi:"ocspConfigurations"`
 }
 
 func (GetCertificateAuthorityRevocationConfigurationArgs) ElementType() reflect.Type {
@@ -1140,6 +1323,12 @@ func (o GetCertificateAuthorityRevocationConfigurationOutput) CrlConfigurations(
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfiguration) []GetCertificateAuthorityRevocationConfigurationCrlConfiguration {
 		return v.CrlConfigurations
 	}).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput)
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationOutput) OcspConfigurations() GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfiguration) []GetCertificateAuthorityRevocationConfigurationOcspConfiguration {
+		return v.OcspConfigurations
+	}).(GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput)
 }
 
 type GetCertificateAuthorityRevocationConfigurationArrayOutput struct{ *pulumi.OutputState }
@@ -1280,6 +1469,108 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutpu
 	}).(GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput)
 }
 
+type GetCertificateAuthorityRevocationConfigurationOcspConfiguration struct {
+	Enabled         bool   `pulumi:"enabled"`
+	OcspCustomCname string `pulumi:"ocspCustomCname"`
+}
+
+// GetCertificateAuthorityRevocationConfigurationOcspConfigurationInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs and GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationOcspConfigurationInput` via:
+//
+//          GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs{...}
+type GetCertificateAuthorityRevocationConfigurationOcspConfigurationInput interface {
+	pulumi.Input
+
+	ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput() GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput
+	ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(context.Context) GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput
+}
+
+type GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs struct {
+	Enabled         pulumi.BoolInput   `pulumi:"enabled"`
+	OcspCustomCname pulumi.StringInput `pulumi:"ocspCustomCname"`
+}
+
+func (GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationOcspConfiguration)(nil)).Elem()
+}
+
+func (i GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput() GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return i.ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput)
+}
+
+// GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput is an input type that accepts GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray and GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput` via:
+//
+//          GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray{ GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs{...} }
+type GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput() GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput
+	ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutputWithContext(context.Context) GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput
+}
+
+type GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray []GetCertificateAuthorityRevocationConfigurationOcspConfigurationInput
+
+func (GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateAuthorityRevocationConfigurationOcspConfiguration)(nil)).Elem()
+}
+
+func (i GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput() GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput {
+	return i.ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput)
+}
+
+type GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationOcspConfiguration)(nil)).Elem()
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput() GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return o
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return o
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationOcspConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput) OcspCustomCname() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationOcspConfiguration) string {
+		return v.OcspCustomCname
+	}).(pulumi.StringOutput)
+}
+
+type GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetCertificateAuthorityRevocationConfigurationOcspConfiguration)(nil)).Elem()
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput() GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput {
+	return o
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput) ToGetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutputWithContext(ctx context.Context) GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput {
+	return o
+}
+
+func (o GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput) Index(i pulumi.IntInput) GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetCertificateAuthorityRevocationConfigurationOcspConfiguration {
+		return vs[0].([]GetCertificateAuthorityRevocationConfigurationOcspConfiguration)[vs[1].(int)]
+	}).(GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCertificateAuthorityConfigurationInput)(nil)).Elem(), CertificateAuthorityCertificateAuthorityConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCertificateAuthorityConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityCertificateAuthorityConfigurationArgs{})
@@ -1289,12 +1580,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationCrlConfigurationInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationOcspConfigurationInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationOcspConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationOcspConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationOcspConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateValidityInput)(nil)).Elem(), CertificateValidityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateValidityPtrInput)(nil)).Elem(), CertificateValidityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationArrayInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationOcspConfigurationInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationOcspConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationOcspConfigurationArray{})
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput{})
@@ -1303,10 +1598,14 @@ func init() {
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationCrlConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationOcspConfigurationOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityRevocationConfigurationOcspConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateValidityOutput{})
 	pulumi.RegisterOutputType(CertificateValidityPtrOutput{})
 	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationOutput{})
 	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput{})
 	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationOcspConfigurationOutput{})
+	pulumi.RegisterOutputType(GetCertificateAuthorityRevocationConfigurationOcspConfigurationArrayOutput{})
 }

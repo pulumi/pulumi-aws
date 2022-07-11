@@ -22,7 +22,7 @@ class GetAmiResult:
     """
     A collection of values returned by getAmi.
     """
-    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, usage_operation=None, virtualization_type=None):
+    def __init__(__self__, architecture=None, arn=None, block_device_mappings=None, boot_mode=None, creation_date=None, deprecation_time=None, description=None, ena_support=None, executable_users=None, filters=None, hypervisor=None, id=None, image_id=None, image_location=None, image_owner_alias=None, image_type=None, include_deprecated=None, kernel_id=None, most_recent=None, name=None, name_regex=None, owner_id=None, owners=None, platform=None, platform_details=None, product_codes=None, public=None, ramdisk_id=None, root_device_name=None, root_device_type=None, root_snapshot_id=None, sriov_net_support=None, state=None, state_reason=None, tags=None, tpm_support=None, usage_operation=None, virtualization_type=None):
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -71,6 +71,9 @@ class GetAmiResult:
         if image_type and not isinstance(image_type, str):
             raise TypeError("Expected argument 'image_type' to be a str")
         pulumi.set(__self__, "image_type", image_type)
+        if include_deprecated and not isinstance(include_deprecated, bool):
+            raise TypeError("Expected argument 'include_deprecated' to be a bool")
+        pulumi.set(__self__, "include_deprecated", include_deprecated)
         if kernel_id and not isinstance(kernel_id, str):
             raise TypeError("Expected argument 'kernel_id' to be a str")
         pulumi.set(__self__, "kernel_id", kernel_id)
@@ -260,6 +263,11 @@ class GetAmiResult:
         return pulumi.get(self, "image_type")
 
     @property
+    @pulumi.getter(name="includeDeprecated")
+    def include_deprecated(self) -> Optional[bool]:
+        return pulumi.get(self, "include_deprecated")
+
+    @property
     @pulumi.getter(name="kernelId")
     def kernel_id(self) -> str:
         """
@@ -296,7 +304,7 @@ class GetAmiResult:
 
     @property
     @pulumi.getter
-    def owners(self) -> Sequence[str]:
+    def owners(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "owners")
 
     @property
@@ -452,6 +460,7 @@ class AwaitableGetAmiResult(GetAmiResult):
             image_location=self.image_location,
             image_owner_alias=self.image_owner_alias,
             image_type=self.image_type,
+            include_deprecated=self.include_deprecated,
             kernel_id=self.kernel_id,
             most_recent=self.most_recent,
             name=self.name,
@@ -477,6 +486,7 @@ class AwaitableGetAmiResult(GetAmiResult):
 
 def get_ami(executable_users: Optional[Sequence[str]] = None,
             filters: Optional[Sequence[pulumi.InputType['GetAmiFilterArgs']]] = None,
+            include_deprecated: Optional[bool] = None,
             most_recent: Optional[bool] = None,
             name_regex: Optional[str] = None,
             owners: Optional[Sequence[str]] = None,
@@ -518,6 +528,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
+    :param bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
     :param bool most_recent: If more than one result is returned, use the most
            recent AMI.
     :param str name_regex: A regex string to apply to the AMI list returned
@@ -525,7 +536,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
            filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. It is recommended to combine this with other
            options to narrow down the list AWS returns.
-    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param Sequence[str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - The key name of the tag.
            * `tags.#.value` - The value of the tag.
@@ -533,6 +544,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
     __args__ = dict()
     __args__['executableUsers'] = executable_users
     __args__['filters'] = filters
+    __args__['includeDeprecated'] = include_deprecated
     __args__['mostRecent'] = most_recent
     __args__['nameRegex'] = name_regex
     __args__['owners'] = owners
@@ -560,6 +572,7 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
         image_location=__ret__.image_location,
         image_owner_alias=__ret__.image_owner_alias,
         image_type=__ret__.image_type,
+        include_deprecated=__ret__.include_deprecated,
         kernel_id=__ret__.kernel_id,
         most_recent=__ret__.most_recent,
         name=__ret__.name,
@@ -586,9 +599,10 @@ def get_ami(executable_users: Optional[Sequence[str]] = None,
 @_utilities.lift_output_func(get_ami)
 def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    filters: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetAmiFilterArgs']]]]] = None,
+                   include_deprecated: Optional[pulumi.Input[Optional[bool]]] = None,
                    most_recent: Optional[pulumi.Input[Optional[bool]]] = None,
                    name_regex: Optional[pulumi.Input[Optional[str]]] = None,
-                   owners: Optional[pulumi.Input[Sequence[str]]] = None,
+                   owners: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                    tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAmiResult]:
     """
@@ -627,6 +641,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
     :param Sequence[pulumi.InputType['GetAmiFilterArgs']] filters: One or more name/value pairs to filter off of. There are
            several valid keys, for a full reference, check out
            [describe-images in the AWS CLI reference][1].
+    :param bool include_deprecated: If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
     :param bool most_recent: If more than one result is returned, use the most
            recent AMI.
     :param str name_regex: A regex string to apply to the AMI list returned
@@ -634,7 +649,7 @@ def get_ami_output(executable_users: Optional[pulumi.Input[Optional[Sequence[str
            filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. It is recommended to combine this with other
            options to narrow down the list AWS returns.
-    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+    :param Sequence[str] owners: List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param Mapping[str, str] tags: Any tags assigned to the image.
            * `tags.#.key` - The key name of the tag.
            * `tags.#.value` - The value of the tag.

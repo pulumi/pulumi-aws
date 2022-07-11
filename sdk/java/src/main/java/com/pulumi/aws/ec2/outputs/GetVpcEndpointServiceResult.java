@@ -65,6 +65,11 @@ public final class GetVpcEndpointServiceResult {
     private final String serviceName;
     private final String serviceType;
     /**
+     * @return The supported IP address types.
+     * 
+     */
+    private final List<String> supportedIpAddressTypes;
+    /**
      * @return A map of tags assigned to the resource.
      * 
      */
@@ -90,6 +95,7 @@ public final class GetVpcEndpointServiceResult {
         @CustomType.Parameter("serviceId") String serviceId,
         @CustomType.Parameter("serviceName") String serviceName,
         @CustomType.Parameter("serviceType") String serviceType,
+        @CustomType.Parameter("supportedIpAddressTypes") List<String> supportedIpAddressTypes,
         @CustomType.Parameter("tags") Map<String,String> tags,
         @CustomType.Parameter("vpcEndpointPolicySupported") Boolean vpcEndpointPolicySupported) {
         this.acceptanceRequired = acceptanceRequired;
@@ -105,6 +111,7 @@ public final class GetVpcEndpointServiceResult {
         this.serviceId = serviceId;
         this.serviceName = serviceName;
         this.serviceType = serviceType;
+        this.supportedIpAddressTypes = supportedIpAddressTypes;
         this.tags = tags;
         this.vpcEndpointPolicySupported = vpcEndpointPolicySupported;
     }
@@ -185,6 +192,13 @@ public final class GetVpcEndpointServiceResult {
         return this.serviceType;
     }
     /**
+     * @return The supported IP address types.
+     * 
+     */
+    public List<String> supportedIpAddressTypes() {
+        return this.supportedIpAddressTypes;
+    }
+    /**
      * @return A map of tags assigned to the resource.
      * 
      */
@@ -221,6 +235,7 @@ public final class GetVpcEndpointServiceResult {
         private String serviceId;
         private String serviceName;
         private String serviceType;
+        private List<String> supportedIpAddressTypes;
         private Map<String,String> tags;
         private Boolean vpcEndpointPolicySupported;
 
@@ -243,6 +258,7 @@ public final class GetVpcEndpointServiceResult {
     	      this.serviceId = defaults.serviceId;
     	      this.serviceName = defaults.serviceName;
     	      this.serviceType = defaults.serviceType;
+    	      this.supportedIpAddressTypes = defaults.supportedIpAddressTypes;
     	      this.tags = defaults.tags;
     	      this.vpcEndpointPolicySupported = defaults.vpcEndpointPolicySupported;
         }
@@ -308,6 +324,13 @@ public final class GetVpcEndpointServiceResult {
             this.serviceType = Objects.requireNonNull(serviceType);
             return this;
         }
+        public Builder supportedIpAddressTypes(List<String> supportedIpAddressTypes) {
+            this.supportedIpAddressTypes = Objects.requireNonNull(supportedIpAddressTypes);
+            return this;
+        }
+        public Builder supportedIpAddressTypes(String... supportedIpAddressTypes) {
+            return supportedIpAddressTypes(List.of(supportedIpAddressTypes));
+        }
         public Builder tags(Map<String,String> tags) {
             this.tags = Objects.requireNonNull(tags);
             return this;
@@ -316,7 +339,7 @@ public final class GetVpcEndpointServiceResult {
             this.vpcEndpointPolicySupported = Objects.requireNonNull(vpcEndpointPolicySupported);
             return this;
         }        public GetVpcEndpointServiceResult build() {
-            return new GetVpcEndpointServiceResult(acceptanceRequired, arn, availabilityZones, baseEndpointDnsNames, filters, id, managesVpcEndpoints, owner, privateDnsName, service, serviceId, serviceName, serviceType, tags, vpcEndpointPolicySupported);
+            return new GetVpcEndpointServiceResult(acceptanceRequired, arn, availabilityZones, baseEndpointDnsNames, filters, id, managesVpcEndpoints, owner, privateDnsName, service, serviceId, serviceName, serviceType, supportedIpAddressTypes, tags, vpcEndpointPolicySupported);
         }
     }
 }

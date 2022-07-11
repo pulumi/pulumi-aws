@@ -15,6 +15,59 @@ namespace Pulumi.Aws.CostExplorer
     /// ## Example Usage
     /// 
     /// There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+    /// ### Dimensional Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceMonitor = new Aws.CostExplorer.AnomalyMonitor("serviceMonitor", new Aws.CostExplorer.AnomalyMonitorArgs
+    ///         {
+    ///             MonitorDimension = "SERVICE",
+    ///             MonitorType = "DIMENSIONAL",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Custom Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.CostExplorer.AnomalyMonitor("test", new Aws.CostExplorer.AnomalyMonitorArgs
+    ///         {
+    ///             MonitorSpecification = @"{
+    /// 	""And"": null,
+    /// 	""CostCategories"": null,
+    /// 	""Dimensions"": null,
+    /// 	""Not"": null,
+    /// 	""Or"": null,
+    /// 	""Tags"": {
+    /// 		""Key"": ""CostCenter"",
+    /// 		""MatchOptions"": null,
+    /// 		""Values"": [
+    /// 			""10000""
+    /// 		]
+    /// 	}
+    /// }
+    /// 
+    /// ",
+    ///             MonitorType = "CUSTOM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -33,12 +86,21 @@ namespace Pulumi.Aws.CostExplorer
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// </summary>
         [Output("monitorDimension")]
         public Output<string?> MonitorDimension { get; private set; } = null!;
 
+        /// <summary>
+        /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+        /// </summary>
         [Output("monitorSpecification")]
         public Output<string?> MonitorSpecification { get; private set; } = null!;
 
+        /// <summary>
+        /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+        /// </summary>
         [Output("monitorType")]
         public Output<string> MonitorType { get; private set; } = null!;
 
@@ -49,7 +111,7 @@ namespace Pulumi.Aws.CostExplorer
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -106,12 +168,21 @@ namespace Pulumi.Aws.CostExplorer
 
     public sealed class AnomalyMonitorArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// </summary>
         [Input("monitorDimension")]
         public Input<string>? MonitorDimension { get; set; }
 
+        /// <summary>
+        /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+        /// </summary>
         [Input("monitorSpecification")]
         public Input<string>? MonitorSpecification { get; set; }
 
+        /// <summary>
+        /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+        /// </summary>
         [Input("monitorType", required: true)]
         public Input<string> MonitorType { get; set; } = null!;
 
@@ -125,7 +196,7 @@ namespace Pulumi.Aws.CostExplorer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -146,12 +217,21 @@ namespace Pulumi.Aws.CostExplorer
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The dimensions to evaluate. Valid values: `SERVICE`.
+        /// </summary>
         [Input("monitorDimension")]
         public Input<string>? MonitorDimension { get; set; }
 
+        /// <summary>
+        /// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+        /// </summary>
         [Input("monitorSpecification")]
         public Input<string>? MonitorSpecification { get; set; }
 
+        /// <summary>
+        /// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+        /// </summary>
         [Input("monitorType")]
         public Input<string>? MonitorType { get; set; }
 
@@ -165,7 +245,7 @@ namespace Pulumi.Aws.CostExplorer
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

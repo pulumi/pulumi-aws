@@ -21,8 +21,7 @@ import javax.annotation.Nullable;
  * Provides an SSM Parameter resource.
  * 
  * ## Example Usage
- * 
- * To store a basic string parameter:
+ * ### Basic example
  * ```java
  * package generated_program;
  * 
@@ -45,8 +44,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * 
- * To store an encrypted string using the default SSM KMS key:
+ * ### Encrypted string using default SSM KMS key
  * ```java
  * package generated_program;
  * 
@@ -97,86 +95,90 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssm/parameter:Parameter")
 public class Parameter extends com.pulumi.resources.CustomResource {
     /**
-     * A regular expression used to validate the parameter value.
+     * Regular expression used to validate the parameter value.
      * 
      */
     @Export(name="allowedPattern", type=String.class, parameters={})
     private Output</* @Nullable */ String> allowedPattern;
 
     /**
-     * @return A regular expression used to validate the parameter value.
+     * @return Regular expression used to validate the parameter value.
      * 
      */
     public Output<Optional<String>> allowedPattern() {
         return Codegen.optional(this.allowedPattern);
     }
     /**
-     * The ARN of the parameter.
+     * ARN of the parameter.
      * 
      */
     @Export(name="arn", type=String.class, parameters={})
     private Output<String> arn;
 
     /**
-     * @return The ARN of the parameter.
+     * @return ARN of the parameter.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-     * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+     * Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
     @Export(name="dataType", type=String.class, parameters={})
     private Output<String> dataType;
 
     /**
-     * @return The data_type of the parameter. Valid values: text and aws:ec2:image for AMI format, see the [Native parameter support for Amazon Machine Image IDs
-     * ](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html)
+     * @return Data type of the parameter. Valid values: `text` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
      * 
      */
     public Output<String> dataType() {
         return this.dataType;
     }
     /**
-     * The description of the parameter.
+     * Description of the parameter.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the parameter.
+     * @return Description of the parameter.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
+    @Export(name="insecureValue", type=String.class, parameters={})
+    private Output<String> insecureValue;
+
+    public Output<String> insecureValue() {
+        return this.insecureValue;
+    }
     /**
-     * The KMS key id or arn for encrypting a SecureString.
+     * KMS key ID or ARN for encrypting a SecureString.
      * 
      */
     @Export(name="keyId", type=String.class, parameters={})
     private Output<String> keyId;
 
     /**
-     * @return The KMS key id or arn for encrypting a SecureString.
+     * @return KMS key ID or ARN for encrypting a SecureString.
      * 
      */
     public Output<String> keyId() {
         return this.keyId;
     }
     /**
-     * The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * @return Name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      * 
      */
     public Output<String> name() {
@@ -197,92 +199,84 @@ public class Parameter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.overwrite);
     }
     /**
-     * A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the object. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     @Export(name="tagsAll", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider .
+     * @return Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * The parameter tier to assign to the parameter.
-     * If not specified, will use the default parameter tier for the region.
-     * Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-     * Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-     * For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     * Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      * 
      */
     @Export(name="tier", type=String.class, parameters={})
-    private Output<String> tier;
+    private Output</* @Nullable */ String> tier;
 
     /**
-     * @return The parameter tier to assign to the parameter.
-     * If not specified, will use the default parameter tier for the region.
-     * Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`.
-     * Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource.
-     * For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
+     * @return Parameter tier to assign to the parameter. If not specified, will use the default parameter tier for the region. Valid tiers are `Standard`, `Advanced`, and `Intelligent-Tiering`. Downgrading an `Advanced` tier parameter to `Standard` will recreate the resource. For more information on parameter tiers, see the [AWS SSM Parameter tier comparison and guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html).
      * 
      */
-    public Output<String> tier() {
-        return this.tier;
+    public Output<Optional<String>> tier() {
+        return Codegen.optional(this.tier);
     }
     /**
-     * The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
+     * @return Type of the parameter. Valid types are `String`, `StringList` and `SecureString`.
      * 
      */
     public Output<String> type() {
         return this.type;
     }
     /**
-     * The value of the parameter.
+     * Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
      * 
      */
     @Export(name="value", type=String.class, parameters={})
     private Output<String> value;
 
     /**
-     * @return The value of the parameter.
+     * @return Value of the parameter. This value is always marked as sensitive in the plan output, regardless of `type`.
      * 
      */
     public Output<String> value() {
         return this.value;
     }
     /**
-     * The version of the parameter.
+     * Version of the parameter.
      * 
      */
     @Export(name="version", type=Integer.class, parameters={})
     private Output<Integer> version;
 
     /**
-     * @return The version of the parameter.
+     * @return Version of the parameter.
      * 
      */
     public Output<Integer> version() {

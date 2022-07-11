@@ -70,6 +70,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> PlacementGroupId { get; private set; } = null!;
 
         /// <summary>
+        /// Determines how placement groups spread instances. Can only be used
+        /// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        /// </summary>
+        [Output("spreadLevel")]
+        public Output<string?> SpreadLevel { get; private set; } = null!;
+
+        /// <summary>
         /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         /// </summary>
         [Output("strategy")]
@@ -148,6 +155,13 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
+        /// Determines how placement groups spread instances. Can only be used
+        /// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        /// </summary>
+        [Input("spreadLevel")]
+        public Input<string>? SpreadLevel { get; set; }
+
+        /// <summary>
         /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         /// </summary>
         [Input("strategy", required: true)]
@@ -197,6 +211,13 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("placementGroupId")]
         public Input<string>? PlacementGroupId { get; set; }
+
+        /// <summary>
+        /// Determines how placement groups spread instances. Can only be used
+        /// when the `strategy` is set to `"spread"`. Can be `"host"` or `"rack"`. `"host"` can only be used for Outpost placement groups.
+        /// </summary>
+        [Input("spreadLevel")]
+        public Input<string>? SpreadLevel { get; set; }
 
         /// <summary>
         /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.

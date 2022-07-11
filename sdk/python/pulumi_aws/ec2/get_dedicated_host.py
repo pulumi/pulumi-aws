@@ -22,7 +22,7 @@ class GetDedicatedHostResult:
     """
     A collection of values returned by getDedicatedHost.
     """
-    def __init__(__self__, arn=None, auto_placement=None, availability_zone=None, cores=None, filters=None, host_id=None, host_recovery=None, id=None, instance_family=None, instance_type=None, owner_id=None, sockets=None, tags=None, total_vcpus=None):
+    def __init__(__self__, arn=None, auto_placement=None, availability_zone=None, cores=None, filters=None, host_id=None, host_recovery=None, id=None, instance_family=None, instance_type=None, outpost_arn=None, owner_id=None, sockets=None, tags=None, total_vcpus=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -53,6 +53,9 @@ class GetDedicatedHostResult:
         if instance_type and not isinstance(instance_type, str):
             raise TypeError("Expected argument 'instance_type' to be a str")
         pulumi.set(__self__, "instance_type", instance_type)
+        if outpost_arn and not isinstance(outpost_arn, str):
+            raise TypeError("Expected argument 'outpost_arn' to be a str")
+        pulumi.set(__self__, "outpost_arn", outpost_arn)
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
@@ -141,6 +144,14 @@ class GetDedicatedHostResult:
         return pulumi.get(self, "instance_type")
 
     @property
+    @pulumi.getter(name="outpostArn")
+    def outpost_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the AWS Outpost on which the Dedicated Host is allocated.
+        """
+        return pulumi.get(self, "outpost_arn")
+
+    @property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> str:
         """
@@ -186,6 +197,7 @@ class AwaitableGetDedicatedHostResult(GetDedicatedHostResult):
             id=self.id,
             instance_family=self.instance_family,
             instance_type=self.instance_type,
+            outpost_arn=self.outpost_arn,
             owner_id=self.owner_id,
             sockets=self.sockets,
             tags=self.tags,
@@ -237,6 +249,7 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
         id=__ret__.id,
         instance_family=__ret__.instance_family,
         instance_type=__ret__.instance_type,
+        outpost_arn=__ret__.outpost_arn,
         owner_id=__ret__.owner_id,
         sockets=__ret__.sockets,
         tags=__ret__.tags,

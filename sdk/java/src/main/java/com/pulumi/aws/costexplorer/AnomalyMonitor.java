@@ -37,8 +37,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceMonitor = new AnomalyMonitor(&#34;serviceMonitor&#34;, AnomalyMonitorArgs.builder()        
- *             .dimension(&#34;SERVICE&#34;)
- *             .type(&#34;DIMENSIONAL&#34;)
+ *             .monitorDimension(&#34;SERVICE&#34;)
+ *             .monitorType(&#34;DIMENSIONAL&#34;)
  *             .build());
  * 
  *     }
@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new AnomalyMonitor(&#34;test&#34;, AnomalyMonitorArgs.builder()        
- *             .specification(&#34;&#34;&#34;
+ *             .monitorSpecification(&#34;&#34;&#34;
  * {
  * 	&#34;And&#34;: null,
  * 	&#34;CostCategories&#34;: null,
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * }
  * 
  *             &#34;&#34;&#34;)
- *             .type(&#34;CUSTOM&#34;)
+ *             .monitorType(&#34;CUSTOM&#34;)
  *             .build());
  * 
  *     }
@@ -109,21 +109,45 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The dimensions to evaluate. Valid values: `SERVICE`.
+     * 
+     */
     @Export(name="monitorDimension", type=String.class, parameters={})
     private Output</* @Nullable */ String> monitorDimension;
 
+    /**
+     * @return The dimensions to evaluate. Valid values: `SERVICE`.
+     * 
+     */
     public Output<Optional<String>> monitorDimension() {
         return Codegen.optional(this.monitorDimension);
     }
+    /**
+     * A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+     * 
+     */
     @Export(name="monitorSpecification", type=String.class, parameters={})
     private Output</* @Nullable */ String> monitorSpecification;
 
+    /**
+     * @return A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
+     * 
+     */
     public Output<Optional<String>> monitorSpecification() {
         return Codegen.optional(this.monitorSpecification);
     }
+    /**
+     * The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+     * 
+     */
     @Export(name="monitorType", type=String.class, parameters={})
     private Output<String> monitorType;
 
+    /**
+     * @return The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+     * 
+     */
     public Output<String> monitorType() {
         return this.monitorType;
     }
@@ -142,14 +166,14 @@ public class AnomalyMonitor extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", type=Map.class, parameters={String.class, String.class})
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

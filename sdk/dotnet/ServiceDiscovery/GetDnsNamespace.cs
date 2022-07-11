@@ -81,6 +81,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// A map of tags for the resource.
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         /// <summary>
         /// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
         /// </summary>
@@ -99,6 +111,18 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags for the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
@@ -132,6 +156,10 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// A map of tags for the resource.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
         public readonly string Type;
 
         [OutputConstructor]
@@ -146,6 +174,8 @@ namespace Pulumi.Aws.ServiceDiscovery
 
             string name,
 
+            ImmutableDictionary<string, string> tags,
+
             string type)
         {
             Arn = arn;
@@ -153,6 +183,7 @@ namespace Pulumi.Aws.ServiceDiscovery
             HostedZone = hostedZone;
             Id = id;
             Name = name;
+            Tags = tags;
             Type = type;
         }
     }

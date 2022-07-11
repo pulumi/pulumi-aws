@@ -47,7 +47,7 @@ func LookupPlaceIndex(ctx *pulumi.Context, args *LookupPlaceIndexArgs, opts ...p
 type LookupPlaceIndexArgs struct {
 	// The name of the place index resource.
 	IndexName string `pulumi:"indexName"`
-	// Key-value map of resource tags for the map.
+	// Key-value map of resource tags for the place index.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -66,9 +66,9 @@ type LookupPlaceIndexResult struct {
 	// The Amazon Resource Name (ARN) for the place index resource.
 	IndexArn  string `pulumi:"indexArn"`
 	IndexName string `pulumi:"indexName"`
-	// Key-value map of resource tags for the map.
+	// Key-value map of resource tags for the place index.
 	Tags map[string]string `pulumi:"tags"`
-	// The timestamp for when the place index resource was last update in ISO 8601.
+	// The timestamp for when the place index resource was last updated in ISO 8601 format.
 	UpdateTime string `pulumi:"updateTime"`
 }
 
@@ -89,7 +89,7 @@ func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs
 type LookupPlaceIndexOutputArgs struct {
 	// The name of the place index resource.
 	IndexName pulumi.StringInput `pulumi:"indexName"`
-	// Key-value map of resource tags for the map.
+	// Key-value map of resource tags for the place index.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -148,12 +148,12 @@ func (o LookupPlaceIndexResultOutput) IndexName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.IndexName }).(pulumi.StringOutput)
 }
 
-// Key-value map of resource tags for the map.
+// Key-value map of resource tags for the place index.
 func (o LookupPlaceIndexResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The timestamp for when the place index resource was last update in ISO 8601.
+// The timestamp for when the place index resource was last updated in ISO 8601 format.
 func (o LookupPlaceIndexResultOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlaceIndexResult) string { return v.UpdateTime }).(pulumi.StringOutput)
 }

@@ -38,8 +38,9 @@ import * as utilities from "./utilities";
  * ```
  */
 /** @deprecated aws.getAmi has been deprecated in favor of aws.ec2.getAmi */
-export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
+export function getAmi(args?: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<GetAmiResult> {
     pulumi.log.warn("getAmi is deprecated: aws.getAmi has been deprecated in favor of aws.ec2.getAmi")
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -48,6 +49,7 @@ export function getAmi(args: GetAmiArgs, opts?: pulumi.InvokeOptions): Promise<G
     return pulumi.runtime.invoke("aws:index/getAmi:getAmi", {
         "executableUsers": args.executableUsers,
         "filters": args.filters,
+        "includeDeprecated": args.includeDeprecated,
         "mostRecent": args.mostRecent,
         "nameRegex": args.nameRegex,
         "owners": args.owners,
@@ -71,6 +73,10 @@ export interface GetAmiArgs {
      */
     filters?: inputs.GetAmiFilter[];
     /**
+     * If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+     */
+    includeDeprecated?: boolean;
+    /**
      * If more than one result is returned, use the most
      * recent AMI.
      */
@@ -84,9 +90,9 @@ export interface GetAmiArgs {
      */
     nameRegex?: string;
     /**
-     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+     * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
-    owners: string[];
+    owners?: string[];
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - The key name of the tag.
@@ -159,6 +165,7 @@ export interface GetAmiResult {
      * The type of image.
      */
     readonly imageType: string;
+    readonly includeDeprecated?: boolean;
     /**
      * The kernel associated with the image, if any. Only applicable
      * for machine images.
@@ -174,7 +181,7 @@ export interface GetAmiResult {
      * The AWS account ID of the image owner.
      */
     readonly ownerId: string;
-    readonly owners: string[];
+    readonly owners?: string[];
     /**
      * The value is Windows for `Windows` AMIs; otherwise blank.
      */
@@ -247,7 +254,7 @@ export interface GetAmiResult {
     readonly virtualizationType: string;
 }
 
-export function getAmiOutput(args: GetAmiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiResult> {
+export function getAmiOutput(args?: GetAmiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAmiResult> {
     return pulumi.output(args).apply(a => getAmi(a, opts))
 }
 
@@ -267,6 +274,10 @@ export interface GetAmiOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetAmiFilterArgs>[]>;
     /**
+     * If true, all deprecated AMIs are included in the response. If false, no deprecated AMIs are included in the response. If no value is specified, the default value is false.
+     */
+    includeDeprecated?: pulumi.Input<boolean>;
+    /**
      * If more than one result is returned, use the most
      * recent AMI.
      */
@@ -280,9 +291,9 @@ export interface GetAmiOutputArgs {
      */
     nameRegex?: pulumi.Input<string>;
     /**
-     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
+     * List of AMI owners to limit search. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
-    owners: pulumi.Input<pulumi.Input<string>[]>;
+    owners?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Any tags assigned to the image.
      * * `tags.#.key` - The key name of the tag.

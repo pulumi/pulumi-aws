@@ -10,6 +10,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AnomalySubscriptionSubscriber',
     'CostCategoryRule',
     'CostCategoryRuleInheritedValue',
     'CostCategoryRuleRule',
@@ -69,6 +70,35 @@ __all__ = [
     'GetTagsSortByResult',
     'GetTagsTimePeriodResult',
 ]
+
+@pulumi.output_type
+class AnomalySubscriptionSubscriber(dict):
+    def __init__(__self__, *,
+                 address: str,
+                 type: str):
+        """
+        :param str address: The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        :param str type: The type of subscription. Valid Values: `SNS` | `EMAIL`.
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def address(self) -> str:
+        """
+        The address of the subscriber. If type is `SNS`, this will be the arn of the sns topic. If type is `EMAIL`, this will be the destination email address.
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        The type of subscription. Valid Values: `SNS` | `EMAIL`.
+        """
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class CostCategoryRule(dict):

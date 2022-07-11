@@ -21,11 +21,11 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// <summary>
         /// Initial number of instances used for auto-scaling.
         /// </summary>
-        [Input("initialInstanceCount", required: true)]
-        public Input<int> InitialInstanceCount { get; set; } = null!;
+        [Input("initialInstanceCount")]
+        public Input<int>? InitialInstanceCount { get; set; }
 
         /// <summary>
-        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to 1.0.
+        /// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration. If unspecified, it defaults to `1.0`.
         /// </summary>
         [Input("initialVariantWeight")]
         public Input<double>? InitialVariantWeight { get; set; }
@@ -33,14 +33,20 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// <summary>
         /// The type of instance to start.
         /// </summary>
-        [Input("instanceType", required: true)]
-        public Input<string> InstanceType { get; set; } = null!;
+        [Input("instanceType")]
+        public Input<string>? InstanceType { get; set; }
 
         /// <summary>
         /// The name of the model to use.
         /// </summary>
         [Input("modelName", required: true)]
         public Input<string> ModelName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies configuration for how an endpoint performs asynchronous inference.
+        /// </summary>
+        [Input("serverlessConfig")]
+        public Input<Inputs.EndpointConfigurationProductionVariantServerlessConfigArgs>? ServerlessConfig { get; set; }
 
         /// <summary>
         /// The name of the variant. If omitted, this provider will assign a random, unique name.

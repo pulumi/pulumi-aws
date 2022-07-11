@@ -22,7 +22,7 @@ class GetLaunchTemplateResult:
     """
     A collection of values returned by getLaunchTemplate.
     """
-    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerators=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_requirements=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, maintenance_options=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, private_dns_name_options=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
+    def __init__(__self__, arn=None, block_device_mappings=None, capacity_reservation_specifications=None, cpu_options=None, credit_specifications=None, default_version=None, description=None, disable_api_stop=None, disable_api_termination=None, ebs_optimized=None, elastic_gpu_specifications=None, elastic_inference_accelerators=None, enclave_options=None, filters=None, hibernation_options=None, iam_instance_profiles=None, id=None, image_id=None, instance_initiated_shutdown_behavior=None, instance_market_options=None, instance_requirements=None, instance_type=None, kernel_id=None, key_name=None, latest_version=None, license_specifications=None, maintenance_options=None, metadata_options=None, monitorings=None, name=None, network_interfaces=None, placements=None, private_dns_name_options=None, ram_disk_id=None, security_group_names=None, tag_specifications=None, tags=None, user_data=None, vpc_security_group_ids=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +44,9 @@ class GetLaunchTemplateResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if disable_api_stop and not isinstance(disable_api_stop, bool):
+            raise TypeError("Expected argument 'disable_api_stop' to be a bool")
+        pulumi.set(__self__, "disable_api_stop", disable_api_stop)
         if disable_api_termination and not isinstance(disable_api_termination, bool):
             raise TypeError("Expected argument 'disable_api_termination' to be a bool")
         pulumi.set(__self__, "disable_api_termination", disable_api_termination)
@@ -172,6 +175,11 @@ class GetLaunchTemplateResult:
     @pulumi.getter
     def description(self) -> str:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="disableApiStop")
+    def disable_api_stop(self) -> bool:
+        return pulumi.get(self, "disable_api_stop")
 
     @property
     @pulumi.getter(name="disableApiTermination")
@@ -345,6 +353,7 @@ class AwaitableGetLaunchTemplateResult(GetLaunchTemplateResult):
             credit_specifications=self.credit_specifications,
             default_version=self.default_version,
             description=self.description,
+            disable_api_stop=self.disable_api_stop,
             disable_api_termination=self.disable_api_termination,
             ebs_optimized=self.ebs_optimized,
             elastic_gpu_specifications=self.elastic_gpu_specifications,
@@ -431,6 +440,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
         credit_specifications=__ret__.credit_specifications,
         default_version=__ret__.default_version,
         description=__ret__.description,
+        disable_api_stop=__ret__.disable_api_stop,
         disable_api_termination=__ret__.disable_api_termination,
         ebs_optimized=__ret__.ebs_optimized,
         elastic_gpu_specifications=__ret__.elastic_gpu_specifications,

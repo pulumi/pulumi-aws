@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *         aws_gamelift_fleet.us_west_2_fleet.arn,
  *         aws_gamelift_fleet.eu_central_1_fleet.arn,
  *     ],
+ *     notificationTarget: aws_sns_topic.game_session_queue_notifications.arn,
  *     playerLatencyPolicies: [
  *         {
  *             maximumIndividualPlayerLatencyMilliseconds: 100,
@@ -81,6 +82,10 @@ export class GameSessionQueue extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * An SNS topic ARN that is set up to receive game session placement notifications.
+     */
+    public readonly notificationTarget!: pulumi.Output<string | undefined>;
+    /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
     public readonly playerLatencyPolicies!: pulumi.Output<outputs.gamelift.GameSessionQueuePlayerLatencyPolicy[] | undefined>;
@@ -113,6 +118,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["destinations"] = state ? state.destinations : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationTarget"] = state ? state.notificationTarget : undefined;
             resourceInputs["playerLatencyPolicies"] = state ? state.playerLatencyPolicies : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -121,6 +127,7 @@ export class GameSessionQueue extends pulumi.CustomResource {
             const args = argsOrState as GameSessionQueueArgs | undefined;
             resourceInputs["destinations"] = args ? args.destinations : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationTarget"] = args ? args.notificationTarget : undefined;
             resourceInputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
@@ -148,6 +155,10 @@ export interface GameSessionQueueState {
      * Name of the session queue.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An SNS topic ARN that is set up to receive game session placement notifications.
+     */
+    notificationTarget?: pulumi.Input<string>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */
@@ -178,6 +189,10 @@ export interface GameSessionQueueArgs {
      * Name of the session queue.
      */
     name?: pulumi.Input<string>;
+    /**
+     * An SNS topic ARN that is set up to receive game session placement notifications.
+     */
+    notificationTarget?: pulumi.Input<string>;
     /**
      * One or more policies used to choose fleet based on player latency. See below.
      */

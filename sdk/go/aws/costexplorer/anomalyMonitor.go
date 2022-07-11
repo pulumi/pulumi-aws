@@ -16,6 +16,54 @@ import (
 // ## Example Usage
 //
 // There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+// ### Dimensional Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := costexplorer.NewAnomalyMonitor(ctx, "serviceMonitor", &costexplorer.AnomalyMonitorArgs{
+// 			MonitorDimension: pulumi.String("SERVICE"),
+// 			MonitorType:      pulumi.String("DIMENSIONAL"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Custom Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/costexplorer"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := costexplorer.NewAnomalyMonitor(ctx, "test", &costexplorer.AnomalyMonitorArgs{
+// 			MonitorSpecification: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "	\"And\": null,\n", "	\"CostCategories\": null,\n", "	\"Dimensions\": null,\n", "	\"Not\": null,\n", "	\"Or\": null,\n", "	\"Tags\": {\n", "		\"Key\": \"CostCenter\",\n", "		\"MatchOptions\": null,\n", "		\"Values\": [\n", "			\"10000\"\n", "		]\n", "	}\n", "}\n", "\n")),
+// 			MonitorType: pulumi.String("CUSTOM"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -28,13 +76,16 @@ type AnomalyMonitor struct {
 	pulumi.CustomResourceState
 
 	// ARN of the anomaly monitor.
-	Arn                  pulumi.StringOutput    `pulumi:"arn"`
-	MonitorDimension     pulumi.StringPtrOutput `pulumi:"monitorDimension"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The dimensions to evaluate. Valid values: `SERVICE`.
+	MonitorDimension pulumi.StringPtrOutput `pulumi:"monitorDimension"`
+	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification pulumi.StringPtrOutput `pulumi:"monitorSpecification"`
-	MonitorType          pulumi.StringOutput    `pulumi:"monitorType"`
+	// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+	MonitorType pulumi.StringOutput `pulumi:"monitorType"`
 	// The name of the monitor.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -73,13 +124,16 @@ func GetAnomalyMonitor(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AnomalyMonitor resources.
 type anomalyMonitorState struct {
 	// ARN of the anomaly monitor.
-	Arn                  *string `pulumi:"arn"`
-	MonitorDimension     *string `pulumi:"monitorDimension"`
+	Arn *string `pulumi:"arn"`
+	// The dimensions to evaluate. Valid values: `SERVICE`.
+	MonitorDimension *string `pulumi:"monitorDimension"`
+	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification *string `pulumi:"monitorSpecification"`
-	MonitorType          *string `pulumi:"monitorType"`
+	// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+	MonitorType *string `pulumi:"monitorType"`
 	// The name of the monitor.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -87,13 +141,16 @@ type anomalyMonitorState struct {
 
 type AnomalyMonitorState struct {
 	// ARN of the anomaly monitor.
-	Arn                  pulumi.StringPtrInput
-	MonitorDimension     pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// The dimensions to evaluate. Valid values: `SERVICE`.
+	MonitorDimension pulumi.StringPtrInput
+	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification pulumi.StringPtrInput
-	MonitorType          pulumi.StringPtrInput
+	// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+	MonitorType pulumi.StringPtrInput
 	// The name of the monitor.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -104,23 +161,29 @@ func (AnomalyMonitorState) ElementType() reflect.Type {
 }
 
 type anomalyMonitorArgs struct {
-	MonitorDimension     *string `pulumi:"monitorDimension"`
+	// The dimensions to evaluate. Valid values: `SERVICE`.
+	MonitorDimension *string `pulumi:"monitorDimension"`
+	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification *string `pulumi:"monitorSpecification"`
-	MonitorType          string  `pulumi:"monitorType"`
+	// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+	MonitorType string `pulumi:"monitorType"`
 	// The name of the monitor.
 	Name *string `pulumi:"name"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AnomalyMonitor resource.
 type AnomalyMonitorArgs struct {
-	MonitorDimension     pulumi.StringPtrInput
+	// The dimensions to evaluate. Valid values: `SERVICE`.
+	MonitorDimension pulumi.StringPtrInput
+	// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 	MonitorSpecification pulumi.StringPtrInput
-	MonitorType          pulumi.StringInput
+	// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
+	MonitorType pulumi.StringInput
 	// The name of the monitor.
 	Name pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -216,14 +279,17 @@ func (o AnomalyMonitorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The dimensions to evaluate. Valid values: `SERVICE`.
 func (o AnomalyMonitorOutput) MonitorDimension() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringPtrOutput { return v.MonitorDimension }).(pulumi.StringPtrOutput)
 }
 
+// A valid JSON representation for the [Expression](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html) object.
 func (o AnomalyMonitorOutput) MonitorSpecification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringPtrOutput { return v.MonitorSpecification }).(pulumi.StringPtrOutput)
 }
 
+// The possible type values. Valid values: `DIMENSIONAL` | `CUSTOM`.
 func (o AnomalyMonitorOutput) MonitorType() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.MonitorType }).(pulumi.StringOutput)
 }
@@ -233,7 +299,7 @@ func (o AnomalyMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o AnomalyMonitorOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AnomalyMonitor) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

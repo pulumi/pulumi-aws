@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.NotebookInstanceInstanceMetadataServiceConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Integer;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class NotebookInstanceState extends com.pulumi.resources.ResourceArgs {
 
     public static final NotebookInstanceState Empty = new NotebookInstanceState();
+
+    /**
+     * A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+     * 
+     */
+    @Import(name="acceleratorTypes")
+    private @Nullable Output<List<String>> acceleratorTypes;
+
+    /**
+     * @return A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+     * 
+     */
+    public Optional<Output<List<String>>> acceleratorTypes() {
+        return Optional.ofNullable(this.acceleratorTypes);
+    }
 
     /**
      * An array of up to three Git repositories to associate with the notebook instance.
@@ -78,6 +94,21 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<String>> directInternetAccess() {
         return Optional.ofNullable(this.directInternetAccess);
+    }
+
+    /**
+     * Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+     * 
+     */
+    @Import(name="instanceMetadataServiceConfiguration")
+    private @Nullable Output<NotebookInstanceInstanceMetadataServiceConfigurationArgs> instanceMetadataServiceConfiguration;
+
+    /**
+     * @return Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+     * 
+     */
+    public Optional<Output<NotebookInstanceInstanceMetadataServiceConfigurationArgs>> instanceMetadataServiceConfiguration() {
+        return Optional.ofNullable(this.instanceMetadataServiceConfiguration);
     }
 
     /**
@@ -156,14 +187,14 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+     * The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
      * 
      */
     @Import(name="platformIdentifier")
     private @Nullable Output<String> platformIdentifier;
 
     /**
-     * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+     * @return The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
      * 
      */
     public Optional<Output<String>> platformIdentifier() {
@@ -231,14 +262,14 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -293,10 +324,12 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
     private NotebookInstanceState() {}
 
     private NotebookInstanceState(NotebookInstanceState $) {
+        this.acceleratorTypes = $.acceleratorTypes;
         this.additionalCodeRepositories = $.additionalCodeRepositories;
         this.arn = $.arn;
         this.defaultCodeRepository = $.defaultCodeRepository;
         this.directInternetAccess = $.directInternetAccess;
+        this.instanceMetadataServiceConfiguration = $.instanceMetadataServiceConfiguration;
         this.instanceType = $.instanceType;
         this.kmsKeyId = $.kmsKeyId;
         this.lifecycleConfigName = $.lifecycleConfigName;
@@ -329,6 +362,37 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
 
         public Builder(NotebookInstanceState defaults) {
             $ = new NotebookInstanceState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratorTypes(@Nullable Output<List<String>> acceleratorTypes) {
+            $.acceleratorTypes = acceleratorTypes;
+            return this;
+        }
+
+        /**
+         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratorTypes(List<String> acceleratorTypes) {
+            return acceleratorTypes(Output.of(acceleratorTypes));
+        }
+
+        /**
+         * @param acceleratorTypes A list of Elastic Inference (EI) instance types to associate with this notebook instance. See [Elastic Inference Accelerator](https://docs.aws.amazon.com/sagemaker/latest/dg/ei.html) for more details. Valid values: `ml.eia1.medium`, `ml.eia1.large`, `ml.eia1.xlarge`, `ml.eia2.medium`, `ml.eia2.large`, `ml.eia2.xlarge`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder acceleratorTypes(String... acceleratorTypes) {
+            return acceleratorTypes(List.of(acceleratorTypes));
         }
 
         /**
@@ -426,6 +490,27 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
          */
         public Builder directInternetAccess(String directInternetAccess) {
             return directInternetAccess(Output.of(directInternetAccess));
+        }
+
+        /**
+         * @param instanceMetadataServiceConfiguration Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMetadataServiceConfiguration(@Nullable Output<NotebookInstanceInstanceMetadataServiceConfigurationArgs> instanceMetadataServiceConfiguration) {
+            $.instanceMetadataServiceConfiguration = instanceMetadataServiceConfiguration;
+            return this;
+        }
+
+        /**
+         * @param instanceMetadataServiceConfiguration Information on the IMDS configuration of the notebook instance. Conflicts with `instance_metadata_service_configuration`. see details below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceMetadataServiceConfiguration(NotebookInstanceInstanceMetadataServiceConfigurationArgs instanceMetadataServiceConfiguration) {
+            return instanceMetadataServiceConfiguration(Output.of(instanceMetadataServiceConfiguration));
         }
 
         /**
@@ -534,7 +619,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param platformIdentifier The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+         * @param platformIdentifier The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
          * 
          * @return builder
          * 
@@ -545,7 +630,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param platformIdentifier The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1` or `notebook-al2-v1`, depending on which version of Amazon Linux you require.
+         * @param platformIdentifier The platform identifier of the notebook instance runtime environment. This value can be either `notebook-al1-v1`, `notebook-al2-v1`, or  `notebook-al2-v2`, depending on which version of Amazon Linux you require.
          * 
          * @return builder
          * 
@@ -649,7 +734,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -660,7 +745,7 @@ public final class NotebookInstanceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param tags A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

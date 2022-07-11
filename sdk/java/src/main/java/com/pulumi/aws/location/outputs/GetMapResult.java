@@ -44,7 +44,7 @@ public final class GetMapResult {
      */
     private final Map<String,String> tags;
     /**
-     * @return The timestamp for when the map resource was last updated in ISO 8601.
+     * @return The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
     private final String updateTime;
@@ -115,7 +115,7 @@ public final class GetMapResult {
         return this.tags;
     }
     /**
-     * @return The timestamp for when the map resource was last updated in ISO 8601.
+     * @return The timestamp for when the map resource was last updated in ISO 8601 format.
      * 
      */
     public String updateTime() {

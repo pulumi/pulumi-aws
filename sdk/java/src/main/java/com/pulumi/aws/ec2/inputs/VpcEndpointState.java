@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.VpcEndpointDnsEntryArgs;
+import com.pulumi.aws.ec2.inputs.VpcEndpointDnsOptionsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -77,6 +78,36 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<VpcEndpointDnsEntryArgs>>> dnsEntries() {
         return Optional.ofNullable(this.dnsEntries);
+    }
+
+    /**
+     * The DNS options for the endpoint. See dns_options below.
+     * 
+     */
+    @Import(name="dnsOptions")
+    private @Nullable Output<VpcEndpointDnsOptionsArgs> dnsOptions;
+
+    /**
+     * @return The DNS options for the endpoint. See dns_options below.
+     * 
+     */
+    public Optional<Output<VpcEndpointDnsOptionsArgs>> dnsOptions() {
+        return Optional.ofNullable(this.dnsOptions);
+    }
+
+    /**
+     * The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     * 
+     */
+    @Import(name="ipAddressType")
+    private @Nullable Output<String> ipAddressType;
+
+    /**
+     * @return The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+     * 
+     */
+    public Optional<Output<String>> ipAddressType() {
+        return Optional.ofNullable(this.ipAddressType);
     }
 
     /**
@@ -315,6 +346,8 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
         this.autoAccept = $.autoAccept;
         this.cidrBlocks = $.cidrBlocks;
         this.dnsEntries = $.dnsEntries;
+        this.dnsOptions = $.dnsOptions;
+        this.ipAddressType = $.ipAddressType;
         this.networkInterfaceIds = $.networkInterfaceIds;
         this.ownerId = $.ownerId;
         this.policy = $.policy;
@@ -452,6 +485,48 @@ public final class VpcEndpointState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dnsEntries(VpcEndpointDnsEntryArgs... dnsEntries) {
             return dnsEntries(List.of(dnsEntries));
+        }
+
+        /**
+         * @param dnsOptions The DNS options for the endpoint. See dns_options below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsOptions(@Nullable Output<VpcEndpointDnsOptionsArgs> dnsOptions) {
+            $.dnsOptions = dnsOptions;
+            return this;
+        }
+
+        /**
+         * @param dnsOptions The DNS options for the endpoint. See dns_options below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dnsOptions(VpcEndpointDnsOptionsArgs dnsOptions) {
+            return dnsOptions(Output.of(dnsOptions));
+        }
+
+        /**
+         * @param ipAddressType The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
+            $.ipAddressType = ipAddressType;
+            return this;
+        }
+
+        /**
+         * @param ipAddressType The IP address type for the endpoint. Valid values are `ipv4`, `dualstack`, and `ipv6`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipAddressType(String ipAddressType) {
+            return ipAddressType(Output.of(ipAddressType));
         }
 
         /**

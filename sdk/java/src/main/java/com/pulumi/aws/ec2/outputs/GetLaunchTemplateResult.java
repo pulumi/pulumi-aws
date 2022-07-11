@@ -41,6 +41,7 @@ public final class GetLaunchTemplateResult {
     private final List<GetLaunchTemplateCreditSpecification> creditSpecifications;
     private final Integer defaultVersion;
     private final String description;
+    private final Boolean disableApiStop;
     private final Boolean disableApiTermination;
     private final String ebsOptimized;
     private final List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications;
@@ -86,6 +87,7 @@ public final class GetLaunchTemplateResult {
         @CustomType.Parameter("creditSpecifications") List<GetLaunchTemplateCreditSpecification> creditSpecifications,
         @CustomType.Parameter("defaultVersion") Integer defaultVersion,
         @CustomType.Parameter("description") String description,
+        @CustomType.Parameter("disableApiStop") Boolean disableApiStop,
         @CustomType.Parameter("disableApiTermination") Boolean disableApiTermination,
         @CustomType.Parameter("ebsOptimized") String ebsOptimized,
         @CustomType.Parameter("elasticGpuSpecifications") List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications,
@@ -124,6 +126,7 @@ public final class GetLaunchTemplateResult {
         this.creditSpecifications = creditSpecifications;
         this.defaultVersion = defaultVersion;
         this.description = description;
+        this.disableApiStop = disableApiStop;
         this.disableApiTermination = disableApiTermination;
         this.ebsOptimized = ebsOptimized;
         this.elasticGpuSpecifications = elasticGpuSpecifications;
@@ -177,6 +180,9 @@ public final class GetLaunchTemplateResult {
     }
     public String description() {
         return this.description;
+    }
+    public Boolean disableApiStop() {
+        return this.disableApiStop;
     }
     public Boolean disableApiTermination() {
         return this.disableApiTermination;
@@ -292,6 +298,7 @@ public final class GetLaunchTemplateResult {
         private List<GetLaunchTemplateCreditSpecification> creditSpecifications;
         private Integer defaultVersion;
         private String description;
+        private Boolean disableApiStop;
         private Boolean disableApiTermination;
         private String ebsOptimized;
         private List<GetLaunchTemplateElasticGpuSpecification> elasticGpuSpecifications;
@@ -337,6 +344,7 @@ public final class GetLaunchTemplateResult {
     	      this.creditSpecifications = defaults.creditSpecifications;
     	      this.defaultVersion = defaults.defaultVersion;
     	      this.description = defaults.description;
+    	      this.disableApiStop = defaults.disableApiStop;
     	      this.disableApiTermination = defaults.disableApiTermination;
     	      this.ebsOptimized = defaults.ebsOptimized;
     	      this.elasticGpuSpecifications = defaults.elasticGpuSpecifications;
@@ -408,6 +416,10 @@ public final class GetLaunchTemplateResult {
         }
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
+            return this;
+        }
+        public Builder disableApiStop(Boolean disableApiStop) {
+            this.disableApiStop = Objects.requireNonNull(disableApiStop);
             return this;
         }
         public Builder disableApiTermination(Boolean disableApiTermination) {
@@ -588,7 +600,7 @@ public final class GetLaunchTemplateResult {
         public Builder vpcSecurityGroupIds(String... vpcSecurityGroupIds) {
             return vpcSecurityGroupIds(List.of(vpcSecurityGroupIds));
         }        public GetLaunchTemplateResult build() {
-            return new GetLaunchTemplateResult(arn, blockDeviceMappings, capacityReservationSpecifications, cpuOptions, creditSpecifications, defaultVersion, description, disableApiTermination, ebsOptimized, elasticGpuSpecifications, elasticInferenceAccelerators, enclaveOptions, filters, hibernationOptions, iamInstanceProfiles, id, imageId, instanceInitiatedShutdownBehavior, instanceMarketOptions, instanceRequirements, instanceType, kernelId, keyName, latestVersion, licenseSpecifications, maintenanceOptions, metadataOptions, monitorings, name, networkInterfaces, placements, privateDnsNameOptions, ramDiskId, securityGroupNames, tagSpecifications, tags, userData, vpcSecurityGroupIds);
+            return new GetLaunchTemplateResult(arn, blockDeviceMappings, capacityReservationSpecifications, cpuOptions, creditSpecifications, defaultVersion, description, disableApiStop, disableApiTermination, ebsOptimized, elasticGpuSpecifications, elasticInferenceAccelerators, enclaveOptions, filters, hibernationOptions, iamInstanceProfiles, id, imageId, instanceInitiatedShutdownBehavior, instanceMarketOptions, instanceRequirements, instanceType, kernelId, keyName, latestVersion, licenseSpecifications, maintenanceOptions, metadataOptions, monitorings, name, networkInterfaces, placements, privateDnsNameOptions, ramDiskId, securityGroupNames, tagSpecifications, tags, userData, vpcSecurityGroupIds);
         }
     }
 }

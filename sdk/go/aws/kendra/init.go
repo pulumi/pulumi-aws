@@ -21,8 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:kendra/experience:Experience":
+		r = &Experience{}
+	case "aws:kendra/faq:Faq":
+		r = &Faq{}
 	case "aws:kendra/index:Index":
 		r = &Index{}
+	case "aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList":
+		r = &QuerySuggestionsBlockList{}
+	case "aws:kendra/thesaurus:Thesaurus":
+		r = &Thesaurus{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -38,7 +46,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"kendra/experience",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kendra/faq",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"kendra/index",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kendra/querySuggestionsBlockList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kendra/thesaurus",
 		&module{version},
 	)
 }

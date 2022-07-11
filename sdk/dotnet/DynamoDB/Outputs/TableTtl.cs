@@ -14,11 +14,11 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableTtl
     {
         /// <summary>
-        /// The name of the table attribute to store the TTL timestamp in.
+        /// Name of the table attribute to store the TTL timestamp in.
         /// </summary>
         public readonly string AttributeName;
         /// <summary>
-        /// Indicates whether ttl is enabled (true) or disabled (false).
+        /// Whether TTL is enabled.
         /// </summary>
         public readonly bool? Enabled;
 

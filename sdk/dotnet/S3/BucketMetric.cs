@@ -89,7 +89,7 @@ namespace Pulumi.Aws.S3
         public Output<Outputs.BucketMetricFilter?> Filter { get; private set; } = null!;
 
         /// <summary>
-        /// Unique identifier of the metrics configuration for the bucket.
+        /// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketMetricFilterArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Unique identifier of the metrics configuration for the bucket.
+        /// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.S3
         public Input<Inputs.BucketMetricFilterGetArgs>? Filter { get; set; }
 
         /// <summary>
-        /// Unique identifier of the metrics configuration for the bucket.
+        /// Unique identifier of the metrics configuration for the bucket. Must be less than or equal to 64 characters in length.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

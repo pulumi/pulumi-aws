@@ -53,6 +53,12 @@ namespace Pulumi.Aws.DataSync
     public partial class EfsLocation : Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+        /// </summary>
+        [Output("accessPointArn")]
+        public Output<string?> AccessPointArn { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Output("arn")]
@@ -69,6 +75,18 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Output("efsFileSystemArn")]
         public Output<string> EfsFileSystemArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+        /// </summary>
+        [Output("fileSystemAccessRoleArn")]
+        public Output<string?> FileSystemAccessRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+        /// </summary>
+        [Output("inTransitEncryption")]
+        public Output<string?> InTransitEncryption { get; private set; } = null!;
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.
@@ -138,6 +156,12 @@ namespace Pulumi.Aws.DataSync
     public sealed class EfsLocationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+        /// </summary>
+        [Input("accessPointArn")]
+        public Input<string>? AccessPointArn { get; set; }
+
+        /// <summary>
         /// Configuration block containing EC2 configurations for connecting to the EFS File System.
         /// </summary>
         [Input("ec2Config", required: true)]
@@ -148,6 +172,18 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("efsFileSystemArn", required: true)]
         public Input<string> EfsFileSystemArn { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+        /// </summary>
+        [Input("fileSystemAccessRoleArn")]
+        public Input<string>? FileSystemAccessRoleArn { get; set; }
+
+        /// <summary>
+        /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+        /// </summary>
+        [Input("inTransitEncryption")]
+        public Input<string>? InTransitEncryption { get; set; }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.
@@ -175,6 +211,12 @@ namespace Pulumi.Aws.DataSync
     public sealed class EfsLocationState : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies the Amazon Resource Name (ARN) of the access point that DataSync uses to access the Amazon EFS file system.
+        /// </summary>
+        [Input("accessPointArn")]
+        public Input<string>? AccessPointArn { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the DataSync Location.
         /// </summary>
         [Input("arn")]
@@ -191,6 +233,18 @@ namespace Pulumi.Aws.DataSync
         /// </summary>
         [Input("efsFileSystemArn")]
         public Input<string>? EfsFileSystemArn { get; set; }
+
+        /// <summary>
+        /// Specifies an Identity and Access Management (IAM) role that DataSync assumes when mounting the Amazon EFS file system.
+        /// </summary>
+        [Input("fileSystemAccessRoleArn")]
+        public Input<string>? FileSystemAccessRoleArn { get; set; }
+
+        /// <summary>
+        /// Specifies whether you want DataSync to use TLS encryption when transferring data to or from your Amazon EFS file system. Valid values are `NONE` and `TLS1_2`.
+        /// </summary>
+        [Input("inTransitEncryption")]
+        public Input<string>? InTransitEncryption { get; set; }
 
         /// <summary>
         /// Subdirectory to perform actions as source or destination. Default `/`.

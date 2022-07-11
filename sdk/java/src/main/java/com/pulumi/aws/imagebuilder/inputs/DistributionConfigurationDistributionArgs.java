@@ -5,6 +5,7 @@ package com.pulumi.aws.imagebuilder.inputs;
 
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionContainerDistributionConfigurationArgs;
+import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionFastLaunchConfigurationArgs;
 import com.pulumi.aws.imagebuilder.inputs.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -47,6 +48,21 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
      */
     public Optional<Output<DistributionConfigurationDistributionContainerDistributionConfigurationArgs>> containerDistributionConfiguration() {
         return Optional.ofNullable(this.containerDistributionConfiguration);
+    }
+
+    /**
+     * Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+     * 
+     */
+    @Import(name="fastLaunchConfigurations")
+    private @Nullable Output<List<DistributionConfigurationDistributionFastLaunchConfigurationArgs>> fastLaunchConfigurations;
+
+    /**
+     * @return Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+     * 
+     */
+    public Optional<Output<List<DistributionConfigurationDistributionFastLaunchConfigurationArgs>>> fastLaunchConfigurations() {
+        return Optional.ofNullable(this.fastLaunchConfigurations);
     }
 
     /**
@@ -99,6 +115,7 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
     private DistributionConfigurationDistributionArgs(DistributionConfigurationDistributionArgs $) {
         this.amiDistributionConfiguration = $.amiDistributionConfiguration;
         this.containerDistributionConfiguration = $.containerDistributionConfiguration;
+        this.fastLaunchConfigurations = $.fastLaunchConfigurations;
         this.launchTemplateConfigurations = $.launchTemplateConfigurations;
         this.licenseConfigurationArns = $.licenseConfigurationArns;
         this.region = $.region;
@@ -162,6 +179,37 @@ public final class DistributionConfigurationDistributionArgs extends com.pulumi.
          */
         public Builder containerDistributionConfiguration(DistributionConfigurationDistributionContainerDistributionConfigurationArgs containerDistributionConfiguration) {
             return containerDistributionConfiguration(Output.of(containerDistributionConfiguration));
+        }
+
+        /**
+         * @param fastLaunchConfigurations Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fastLaunchConfigurations(@Nullable Output<List<DistributionConfigurationDistributionFastLaunchConfigurationArgs>> fastLaunchConfigurations) {
+            $.fastLaunchConfigurations = fastLaunchConfigurations;
+            return this;
+        }
+
+        /**
+         * @param fastLaunchConfigurations Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fastLaunchConfigurations(List<DistributionConfigurationDistributionFastLaunchConfigurationArgs> fastLaunchConfigurations) {
+            return fastLaunchConfigurations(Output.of(fastLaunchConfigurations));
+        }
+
+        /**
+         * @param fastLaunchConfigurations Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder fastLaunchConfigurations(DistributionConfigurationDistributionFastLaunchConfigurationArgs... fastLaunchConfigurations) {
+            return fastLaunchConfigurations(List.of(fastLaunchConfigurations));
         }
 
         /**

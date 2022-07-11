@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IdentityProvider{}
 	case "aws:cognito/resourceServer:ResourceServer":
 		r = &ResourceServer{}
+	case "aws:cognito/riskConfiguration:RiskConfiguration":
+		r = &RiskConfiguration{}
 	case "aws:cognito/user:User":
 		r = &User{}
 	case "aws:cognito/userGroup:UserGroup":
@@ -81,6 +83,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cognito/resourceServer",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cognito/riskConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

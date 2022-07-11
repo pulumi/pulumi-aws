@@ -73,7 +73,7 @@ type ReportPlan struct {
 	ReportDeliveryChannel ReportPlanReportDeliveryChannelOutput `pulumi:"reportDeliveryChannel"`
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSettingOutput `pulumi:"reportSetting"`
-	// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -128,7 +128,7 @@ type reportPlanState struct {
 	ReportDeliveryChannel *ReportPlanReportDeliveryChannel `pulumi:"reportDeliveryChannel"`
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting *ReportPlanReportSetting `pulumi:"reportSetting"`
-	// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -149,7 +149,7 @@ type ReportPlanState struct {
 	ReportDeliveryChannel ReportPlanReportDeliveryChannelPtrInput
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSettingPtrInput
-	// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
 	TagsAll pulumi.StringMapInput
@@ -168,7 +168,7 @@ type reportPlanArgs struct {
 	ReportDeliveryChannel ReportPlanReportDeliveryChannel `pulumi:"reportDeliveryChannel"`
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSetting `pulumi:"reportSetting"`
-	// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -182,7 +182,7 @@ type ReportPlanArgs struct {
 	ReportDeliveryChannel ReportPlanReportDeliveryChannelInput
 	// An object that identifies the report template for the report. Reports are built using a report template. Detailed below.
 	ReportSetting ReportPlanReportSettingInput
-	// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -308,7 +308,7 @@ func (o ReportPlanOutput) ReportSetting() ReportPlanReportSettingOutput {
 	return o.ApplyT(func(v *ReportPlan) ReportPlanReportSettingOutput { return v.ReportSetting }).(ReportPlanReportSettingOutput)
 }
 
-// Metadata that you can assign to help organize the report plans you create. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+// Metadata that you can assign to help organize the report plans you create. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ReportPlanOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ReportPlan) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

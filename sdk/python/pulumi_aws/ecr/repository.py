@@ -16,6 +16,7 @@ __all__ = ['RepositoryArgs', 'Repository']
 class RepositoryArgs:
     def __init__(__self__, *,
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -23,6 +24,8 @@ class RepositoryArgs:
         """
         The set of arguments for constructing a Repository resource.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[bool] force_delete: If `true`, will delete the repository even if it contains images.
+               Defaults to `false`.
         :param pulumi.Input['RepositoryImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
@@ -30,6 +33,8 @@ class RepositoryArgs:
         """
         if encryption_configurations is not None:
             pulumi.set(__self__, "encryption_configurations", encryption_configurations)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
         if image_scanning_configuration is not None:
             pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tag_mutability is not None:
@@ -50,6 +55,19 @@ class RepositoryArgs:
     @encryption_configurations.setter
     def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]]]):
         pulumi.set(self, "encryption_configurations", value)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, will delete the repository even if it contains images.
+        Defaults to `false`.
+        """
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete", value)
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")
@@ -105,6 +123,7 @@ class _RepositoryState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  image_scanning_configuration: Optional[pulumi.Input['RepositoryImageScanningConfigurationArgs']] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -116,6 +135,8 @@ class _RepositoryState:
         Input properties used for looking up and filtering Repository resources.
         :param pulumi.Input[str] arn: Full ARN of the repository.
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[bool] force_delete: If `true`, will delete the repository even if it contains images.
+               Defaults to `false`.
         :param pulumi.Input['RepositoryImageScanningConfigurationArgs'] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
@@ -128,6 +149,8 @@ class _RepositoryState:
             pulumi.set(__self__, "arn", arn)
         if encryption_configurations is not None:
             pulumi.set(__self__, "encryption_configurations", encryption_configurations)
+        if force_delete is not None:
+            pulumi.set(__self__, "force_delete", force_delete)
         if image_scanning_configuration is not None:
             pulumi.set(__self__, "image_scanning_configuration", image_scanning_configuration)
         if image_tag_mutability is not None:
@@ -166,6 +189,19 @@ class _RepositoryState:
     @encryption_configurations.setter
     def encryption_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RepositoryEncryptionConfigurationArgs']]]]):
         pulumi.set(self, "encryption_configurations", value)
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If `true`, will delete the repository even if it contains images.
+        Defaults to `false`.
+        """
+        return pulumi.get(self, "force_delete")
+
+    @force_delete.setter
+    def force_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "force_delete", value)
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")
@@ -258,6 +294,7 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -290,6 +327,8 @@ class Repository(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[bool] force_delete: If `true`, will delete the repository even if it contains images.
+               Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
@@ -341,6 +380,7 @@ class Repository(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
+                 force_delete: Optional[pulumi.Input[bool]] = None,
                  image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
                  image_tag_mutability: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -358,6 +398,7 @@ class Repository(pulumi.CustomResource):
             __props__ = RepositoryArgs.__new__(RepositoryArgs)
 
             __props__.__dict__["encryption_configurations"] = encryption_configurations
+            __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
             __props__.__dict__["image_tag_mutability"] = image_tag_mutability
             __props__.__dict__["name"] = name
@@ -378,6 +419,7 @@ class Repository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]]] = None,
+            force_delete: Optional[pulumi.Input[bool]] = None,
             image_scanning_configuration: Optional[pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']]] = None,
             image_tag_mutability: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -394,6 +436,8 @@ class Repository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Full ARN of the repository.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RepositoryEncryptionConfigurationArgs']]]] encryption_configurations: Encryption configuration for the repository. See below for schema.
+        :param pulumi.Input[bool] force_delete: If `true`, will delete the repository even if it contains images.
+               Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['RepositoryImageScanningConfigurationArgs']] image_scanning_configuration: Configuration block that defines image scanning configuration for the repository. By default, image scanning must be manually triggered. See the [ECR User Guide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/image-scanning.html) for more information about image scanning.
         :param pulumi.Input[str] image_tag_mutability: The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
         :param pulumi.Input[str] name: Name of the repository.
@@ -408,6 +452,7 @@ class Repository(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["encryption_configurations"] = encryption_configurations
+        __props__.__dict__["force_delete"] = force_delete
         __props__.__dict__["image_scanning_configuration"] = image_scanning_configuration
         __props__.__dict__["image_tag_mutability"] = image_tag_mutability
         __props__.__dict__["name"] = name
@@ -432,6 +477,15 @@ class Repository(pulumi.CustomResource):
         Encryption configuration for the repository. See below for schema.
         """
         return pulumi.get(self, "encryption_configurations")
+
+    @property
+    @pulumi.getter(name="forceDelete")
+    def force_delete(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If `true`, will delete the repository even if it contains images.
+        Defaults to `false`.
+        """
+        return pulumi.get(self, "force_delete")
 
     @property
     @pulumi.getter(name="imageScanningConfiguration")

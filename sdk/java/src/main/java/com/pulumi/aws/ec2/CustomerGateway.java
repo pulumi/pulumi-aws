@@ -112,14 +112,14 @@ public class CustomerGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deviceName);
     }
     /**
-     * The IP address of the gateway&#39;s Internet-routable external interface.
+     * The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
     @Export(name="ipAddress", type=String.class, parameters={})
     private Output<String> ipAddress;
 
     /**
-     * @return The IP address of the gateway&#39;s Internet-routable external interface.
+     * @return The IPv4 address for the customer gateway device&#39;s outside interface.
      * 
      */
     public Output<String> ipAddress() {

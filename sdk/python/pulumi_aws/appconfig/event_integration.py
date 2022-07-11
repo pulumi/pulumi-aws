@@ -26,7 +26,7 @@ class EventIntegrationArgs:
         :param pulumi.Input[str] eventbridge_bus: Specifies the EventBridge bus.
         :param pulumi.Input[str] description: Specifies the description of the Event Integration.
         :param pulumi.Input[str] name: Specifies the name of the Event Integration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "event_filter", event_filter)
         pulumi.set(__self__, "eventbridge_bus", eventbridge_bus)
@@ -89,7 +89,7 @@ class EventIntegrationArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the Event Integration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -115,7 +115,7 @@ class _EventIntegrationState:
         :param pulumi.Input['EventIntegrationEventFilterArgs'] event_filter: A block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[str] eventbridge_bus: Specifies the EventBridge bus.
         :param pulumi.Input[str] name: Specifies the name of the Event Integration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if arn is not None:
@@ -197,7 +197,7 @@ class _EventIntegrationState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Tags to apply to the Event Integration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -263,7 +263,7 @@ class EventIntegration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: A block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[str] eventbridge_bus: Specifies the EventBridge bus.
         :param pulumi.Input[str] name: Specifies the name of the Event Integration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -371,7 +371,7 @@ class EventIntegration(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EventIntegrationEventFilterArgs']] event_filter: A block that defines the configuration information for the event filter. The Event Filter block is documented below.
         :param pulumi.Input[str] eventbridge_bus: Specifies the EventBridge bus.
         :param pulumi.Input[str] name: Specifies the name of the Event Integration.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -431,7 +431,7 @@ class EventIntegration(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Tags to apply to the Event Integration. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        Tags to apply to the Event Integration. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

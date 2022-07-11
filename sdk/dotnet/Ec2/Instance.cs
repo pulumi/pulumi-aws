@@ -179,10 +179,16 @@ namespace Pulumi.Aws.Ec2
         public Output<int> CpuThreadsPerCore { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         /// </summary>
         [Output("creditSpecification")]
         public Output<Outputs.InstanceCreditSpecification?> CreditSpecification { get; private set; } = null!;
+
+        /// <summary>
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// </summary>
+        [Output("disableApiStop")]
+        public Output<bool> DisableApiStop { get; private set; } = null!;
 
         /// <summary>
         /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -340,6 +346,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("privateDns")]
         public Output<string> PrivateDns { get; private set; } = null!;
+
+        /// <summary>
+        /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        /// </summary>
+        [Output("privateDnsNameOptions")]
+        public Output<Outputs.InstancePrivateDnsNameOptions> PrivateDnsNameOptions { get; private set; } = null!;
 
         /// <summary>
         /// Private IP address to associate with the instance in a VPC.
@@ -520,10 +532,16 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? CpuThreadsPerCore { get; set; }
 
         /// <summary>
-        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         /// </summary>
         [Input("creditSpecification")]
         public Input<Inputs.InstanceCreditSpecificationArgs>? CreditSpecification { get; set; }
+
+        /// <summary>
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// </summary>
+        [Input("disableApiStop")]
+        public Input<bool>? DisableApiStop { get; set; }
 
         /// <summary>
         /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -675,6 +693,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("placementPartitionNumber")]
         public Input<int>? PlacementPartitionNumber { get; set; }
+
+        /// <summary>
+        /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        /// </summary>
+        [Input("privateDnsNameOptions")]
+        public Input<Inputs.InstancePrivateDnsNameOptionsArgs>? PrivateDnsNameOptions { get; set; }
 
         /// <summary>
         /// Private IP address to associate with the instance in a VPC.
@@ -835,10 +859,16 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? CpuThreadsPerCore { get; set; }
 
         /// <summary>
-        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. the provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
+        /// Configuration block for customizing the credit specification of the instance. See Credit Specification below for more details. This provider will only perform drift detection of its value when present in a configuration. Removing this configuration on existing instances will only stop managing it. It will not change the configuration back to the default for the instance type.
         /// </summary>
         [Input("creditSpecification")]
         public Input<Inputs.InstanceCreditSpecificationGetArgs>? CreditSpecification { get; set; }
+
+        /// <summary>
+        /// If true, enables [EC2 Instance Stop Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection).
+        /// </summary>
+        [Input("disableApiStop")]
+        public Input<bool>? DisableApiStop { get; set; }
 
         /// <summary>
         /// If true, enables [EC2 Instance Termination Protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html#Using_ChangingDisableAPITermination).
@@ -1020,6 +1050,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("privateDns")]
         public Input<string>? PrivateDns { get; set; }
+
+        /// <summary>
+        /// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
+        /// </summary>
+        [Input("privateDnsNameOptions")]
+        public Input<Inputs.InstancePrivateDnsNameOptionsGetArgs>? PrivateDnsNameOptions { get; set; }
 
         /// <summary>
         /// Private IP address to associate with the instance in a VPC.

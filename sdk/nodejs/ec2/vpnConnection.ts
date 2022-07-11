@@ -51,6 +51,46 @@ import * as utilities from "../utilities";
  *     staticRoutesOnly: true,
  * });
  * ```
+ * ### AWS Site to Site Private VPN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleGateway = new aws.directconnect.Gateway("exampleGateway", {amazonSideAsn: "64512"});
+ * const exampleTransitGateway = new aws.ec2transitgateway.TransitGateway("exampleTransitGateway", {
+ *     amazonSideAsn: 64513,
+ *     description: "terraform_ipsec_vpn_example",
+ *     transitGatewayCidrBlocks: ["10.0.0.0/24"],
+ * });
+ * const exampleCustomerGateway = new aws.ec2.CustomerGateway("exampleCustomerGateway", {
+ *     bgpAsn: "64514",
+ *     ipAddress: "10.0.0.1",
+ *     type: "ipsec.1",
+ *     tags: {
+ *         Name: "terraform_ipsec_vpn_example",
+ *     },
+ * });
+ * const exampleGatewayAssociation = new aws.directconnect.GatewayAssociation("exampleGatewayAssociation", {
+ *     dxGatewayId: exampleGateway.id,
+ *     associatedGatewayId: exampleTransitGateway.id,
+ *     allowedPrefixes: ["10.0.0.0/8"],
+ * });
+ * const exampleDirectConnectGatewayAttachment = aws.ec2transitgateway.getDirectConnectGatewayAttachmentOutput({
+ *     transitGatewayId: exampleTransitGateway.id,
+ *     dxGatewayId: exampleGateway.id,
+ * });
+ * const exampleVpnConnection = new aws.ec2.VpnConnection("exampleVpnConnection", {
+ *     customerGatewayId: exampleCustomerGateway.id,
+ *     outsideIpAddressType: "PrivateIpv4",
+ *     transitGatewayId: exampleTransitGateway.id,
+ *     transportTransitGatewayAttachmentId: exampleDirectConnectGatewayAttachment.apply(exampleDirectConnectGatewayAttachment => exampleDirectConnectGatewayAttachment.id),
+ *     type: "ipsec.1",
+ *     tags: {
+ *         Name: "terraform_ipsec_vpn_example",
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -121,6 +161,10 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     public readonly localIpv6NetworkCidr!: pulumi.Output<string>;
     /**
+     * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     */
+    public readonly outsideIpAddressType!: pulumi.Output<string>;
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
     public readonly remoteIpv4NetworkCidr!: pulumi.Output<string>;
@@ -152,6 +196,10 @@ export class VpnConnection extends pulumi.CustomResource {
      * The ID of the EC2 Transit Gateway.
      */
     public readonly transitGatewayId!: pulumi.Output<string | undefined>;
+    /**
+     * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     */
+    public readonly transportTransitGatewayAttachmentId!: pulumi.Output<string | undefined>;
     /**
      * The public IP address of the first VPN tunnel.
      */
@@ -374,6 +422,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["enableAcceleration"] = state ? state.enableAcceleration : undefined;
             resourceInputs["localIpv4NetworkCidr"] = state ? state.localIpv4NetworkCidr : undefined;
             resourceInputs["localIpv6NetworkCidr"] = state ? state.localIpv6NetworkCidr : undefined;
+            resourceInputs["outsideIpAddressType"] = state ? state.outsideIpAddressType : undefined;
             resourceInputs["remoteIpv4NetworkCidr"] = state ? state.remoteIpv4NetworkCidr : undefined;
             resourceInputs["remoteIpv6NetworkCidr"] = state ? state.remoteIpv6NetworkCidr : undefined;
             resourceInputs["routes"] = state ? state.routes : undefined;
@@ -382,6 +431,7 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
             resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["transportTransitGatewayAttachmentId"] = state ? state.transportTransitGatewayAttachmentId : undefined;
             resourceInputs["tunnel1Address"] = state ? state.tunnel1Address : undefined;
             resourceInputs["tunnel1BgpAsn"] = state ? state.tunnel1BgpAsn : undefined;
             resourceInputs["tunnel1BgpHoldtime"] = state ? state.tunnel1BgpHoldtime : undefined;
@@ -444,11 +494,13 @@ export class VpnConnection extends pulumi.CustomResource {
             resourceInputs["enableAcceleration"] = args ? args.enableAcceleration : undefined;
             resourceInputs["localIpv4NetworkCidr"] = args ? args.localIpv4NetworkCidr : undefined;
             resourceInputs["localIpv6NetworkCidr"] = args ? args.localIpv6NetworkCidr : undefined;
+            resourceInputs["outsideIpAddressType"] = args ? args.outsideIpAddressType : undefined;
             resourceInputs["remoteIpv4NetworkCidr"] = args ? args.remoteIpv4NetworkCidr : undefined;
             resourceInputs["remoteIpv6NetworkCidr"] = args ? args.remoteIpv6NetworkCidr : undefined;
             resourceInputs["staticRoutesOnly"] = args ? args.staticRoutesOnly : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["transportTransitGatewayAttachmentId"] = args ? args.transportTransitGatewayAttachmentId : undefined;
             resourceInputs["tunnel1DpdTimeoutAction"] = args ? args.tunnel1DpdTimeoutAction : undefined;
             resourceInputs["tunnel1DpdTimeoutSeconds"] = args ? args.tunnel1DpdTimeoutSeconds : undefined;
             resourceInputs["tunnel1IkeVersions"] = args ? args.tunnel1IkeVersions : undefined;
@@ -549,6 +601,10 @@ export interface VpnConnectionState {
      */
     localIpv6NetworkCidr?: pulumi.Input<string>;
     /**
+     * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     */
+    outsideIpAddressType?: pulumi.Input<string>;
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
     remoteIpv4NetworkCidr?: pulumi.Input<string>;
@@ -580,6 +636,10 @@ export interface VpnConnectionState {
      * The ID of the EC2 Transit Gateway.
      */
     transitGatewayId?: pulumi.Input<string>;
+    /**
+     * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     */
+    transportTransitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * The public IP address of the first VPN tunnel.
      */
@@ -803,6 +863,10 @@ export interface VpnConnectionArgs {
      */
     localIpv6NetworkCidr?: pulumi.Input<string>;
     /**
+     * Indicates if a Public S2S VPN or Private S2S VPN over AWS Direct Connect. Valid values are `PublicIpv4 | PrivateIpv4`
+     */
+    outsideIpAddressType?: pulumi.Input<string>;
+    /**
      * The IPv4 CIDR on the AWS side of the VPN connection.
      */
     remoteIpv4NetworkCidr?: pulumi.Input<string>;
@@ -822,6 +886,10 @@ export interface VpnConnectionArgs {
      * The ID of the EC2 Transit Gateway.
      */
     transitGatewayId?: pulumi.Input<string>;
+    /**
+     * . The attachment ID of the Transit Gateway attachment to Direct Connect Gateway. The ID is obtained through a data source only.
+     */
+    transportTransitGatewayAttachmentId?: pulumi.Input<string>;
     /**
      * The action to take after DPD timeout occurs for the first VPN tunnel. Specify restart to restart the IKE initiation. Specify clear to end the IKE session. Valid values are `clear | none | restart`.
      */
