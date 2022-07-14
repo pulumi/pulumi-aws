@@ -79,7 +79,7 @@ jobs:
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Set PACKAGE_VERSION to Env
-      run: echo "PACKAGE_VERSION=v$(pulumictl get version --language generic)" >>
+      run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
         $GITHUB_ENV
     - name: Build SDK
       run: make build_${{ matrix.language }}
@@ -342,7 +342,7 @@ jobs:
       name: Publish SDKs
       run: ./ci-scripts/ci/publish-tfgen-package ${{ github.workspace }}
     - name: Set PACKAGE_VERSION to Env
-      run: echo "PACKAGE_VERSION=v$(pulumictl get version --language generic)" >>
+      run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
         $GITHUB_ENV
     - name: Publish Java SDK
       uses: gradle/gradle-build-action@9b814496b50909128c6a52622b416c5ffa04db49
