@@ -84,7 +84,7 @@ jobs:
     - name: Update path
       run: echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
     - name: Set PACKAGE_VERSION to Env
-      run: echo "PACKAGE_VERSION=v$(pulumictl get version --language generic)" >>
+      run: echo "PACKAGE_VERSION=$(pulumictl get version --language generic)" >>
         $GITHUB_ENV
     - name: Build SDK
       run: make build_${{ matrix.language }}
