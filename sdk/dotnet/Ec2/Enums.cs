@@ -110,6 +110,17 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType C5n_Large { get; } = new InstanceType("c5n.large");
         public static InstanceType C5n_Metal { get; } = new InstanceType("c5n.metal");
         public static InstanceType C5n_XLarge { get; } = new InstanceType("c5n.xlarge");
+        public static InstanceType C6a_Large { get; } = new InstanceType("c6a.large");
+        public static InstanceType C6a_Metal { get; } = new InstanceType("c6a.metal");
+        public static InstanceType C6a_XLarge { get; } = new InstanceType("c6a.xlarge");
+        public static InstanceType C6a_2XLarge { get; } = new InstanceType("c6a.2xlarge");
+        public static InstanceType C6a_4XLarge { get; } = new InstanceType("c6a.4xlarge");
+        public static InstanceType C6a_8XLarge { get; } = new InstanceType("c6a.8xlarge");
+        public static InstanceType C6a_12XLarge { get; } = new InstanceType("c6a.12xlarge");
+        public static InstanceType C6a_16XLarge { get; } = new InstanceType("c6a.16xlarge");
+        public static InstanceType C6a_24XLarge { get; } = new InstanceType("c6a.24xlarge");
+        public static InstanceType C6a_32XLarge { get; } = new InstanceType("c6a.32xlarge");
+        public static InstanceType C6a_48XLarge { get; } = new InstanceType("c6a.48xlarge");
         public static InstanceType C6g_12XLarge { get; } = new InstanceType("c6g.12xlarge");
         public static InstanceType C6g_16XLarge { get; } = new InstanceType("c6g.16xlarge");
         public static InstanceType C6g_2XLarge { get; } = new InstanceType("c6g.2xlarge");
