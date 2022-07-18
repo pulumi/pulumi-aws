@@ -398,6 +398,7 @@ const (
 	InstanceType_M5zn_Metal    = InstanceType("m5zn.metal")
 	InstanceType_M5zn_XLarge   = InstanceType("m5zn.xlarge")
 	InstanceType_M6a_Large     = InstanceType("m6a.large")
+	InstanceType_M6a_Metal     = InstanceType("m6a.metal")
 	InstanceType_M6a_XLarge    = InstanceType("m6a.xlarge")
 	InstanceType_M6a_2XLarge   = InstanceType("m6a.2xlarge")
 	InstanceType_M6a_4XLarge   = InstanceType("m6a.4xlarge")

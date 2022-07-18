@@ -266,6 +266,7 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType M5zn_Metal { get; } = new InstanceType("m5zn.metal");
         public static InstanceType M5zn_XLarge { get; } = new InstanceType("m5zn.xlarge");
         public static InstanceType M6a_Large { get; } = new InstanceType("m6a.large");
+        public static InstanceType M6a_Metal { get; } = new InstanceType("m6a.metal");
         public static InstanceType M6a_XLarge { get; } = new InstanceType("m6a.xlarge");
         public static InstanceType M6a_2XLarge { get; } = new InstanceType("m6a.2xlarge");
         public static InstanceType M6a_4XLarge { get; } = new InstanceType("m6a.4xlarge");

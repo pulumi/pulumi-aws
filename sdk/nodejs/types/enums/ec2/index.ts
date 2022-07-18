@@ -231,6 +231,7 @@ export const InstanceType = {
     M5zn_Metal: "m5zn.metal",
     M5zn_XLarge: "m5zn.xlarge",
     M6a_Large: "m6a.large",
+    M6a_Metal: "m6a.metal",
     M6a_XLarge: "m6a.xlarge",
     M6a_2XLarge: "m6a.2xlarge",
     M6a_4XLarge: "m6a.4xlarge",

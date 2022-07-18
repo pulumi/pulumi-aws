@@ -3707,6 +3707,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "M5zn_XLarge", Value: "m5zn.xlarge"},
 
 					{Name: "M6a_Large", Value: "m6a.large"},
+					{Name: "M6a_Metal", Value: "m6a.metal"},
 					{Name: "M6a_XLarge", Value: "m6a.xlarge"},
 					{Name: "M6a_2XLarge", Value: "m6a.2xlarge"},
 					{Name: "M6a_4XLarge", Value: "m6a.4xlarge"},

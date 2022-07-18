@@ -240,6 +240,7 @@ class InstanceType(str, Enum):
     M5ZN_METAL = "m5zn.metal"
     M5ZN_X_LARGE = "m5zn.xlarge"
     M6A_LARGE = "m6a.large"
+    M6A_METAL = "m6a.metal"
     M6A_X_LARGE = "m6a.xlarge"
     M6A_2_X_LARGE = "m6a.2xlarge"
     M6A_4_X_LARGE = "m6a.4xlarge"
