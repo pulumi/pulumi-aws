@@ -346,7 +346,7 @@ jobs:
     - name: Publish Java SDK
       uses: gradle/gradle-build-action@9b814496b50909128c6a52622b416c5ffa04db49
       with:
-        arguments: publish
+        arguments: publishToSonatype closeAndReleaseSonatypeStagingRepository
         build-root-directory: ./sdk/java
         gradle-version: 7.4.1
     - if: failure() && github.event_name == 'push'
