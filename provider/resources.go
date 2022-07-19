@@ -3588,7 +3588,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "C6i_16XLarge", Value: "c6i.16xlarge"},
 					{Name: "C6i_24XLarge", Value: "c6i.24xlarge"},
 					{Name: "C6i_32XLarge", Value: "c6i.32xlarge"},
-					{Name: "C6i_Metal", Value: "c6id.metal"},
+					{Name: "C6i_Metal", Value: "c6i.metal"},
 					{Name: "C6id_Large", Value: "c6id.large"},
 					{Name: "C6id_XLarge", Value: "c6id.xlarge"},
 					{Name: "C6id_2XLarge", Value: "c6id.2xlarge"},
