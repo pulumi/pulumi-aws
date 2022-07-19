@@ -347,11 +347,9 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
 
 		return fmt.Errorf("unable to validate AWS credentials. Make sure you have: \n\n" +
-			" \t • Configured your AWS access key \n" +
-			" \t • Configured your AWS_ access key ID \n" +
-			" \t • Set your AWS region using `pulumi config set aws:region <region>`, e.g `us-west-2` \n" +
-			" \t You can set these via `aws configure`. \n\n" +
-			"See https://pulumi.io/install/aws.html for further details on configuration")
+			" \t • Set your AWS region, e.g. `pulumi config set aws:region us-west-2` \n" +
+			" \t • Configured your AWS credentials as per https://pulumi.io/install/aws.html \n" +
+			" \t You can also set these via cli using `aws configure`. \n\n")
 	}
 
 	return nil
