@@ -345,8 +345,9 @@ func preConfigureCallback(vars resource.PropertyMap, c shim.ResourceConfig) erro
 	config.SharedConfigFiles = []string{configPath}
 
 	if _, err := awsbase.GetAwsConfig(context.Background(), config); err != nil {
-		return fmt.Errorf("unable to validate AWS credentials " +
-			"- see https://pulumi.io/install/aws.html for details on configuration")
+		return fmt.Errorf("unable to validate AWS credentials "+
+			"- see https://pulumi.io/install/aws.html for details on configuration"+
+			"\n error: %v", err)
 	}
 
 	return nil
