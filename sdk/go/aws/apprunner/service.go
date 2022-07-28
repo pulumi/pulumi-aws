@@ -81,7 +81,7 @@ import (
 // 		_, err := apprunner.NewService(ctx, "example", &apprunner.ServiceArgs{
 // 			ServiceName: pulumi.String("example"),
 // 			SourceConfiguration: &apprunner.ServiceSourceConfigurationArgs{
-// 				AutoDeploymentEnabled: false,
+// 				AutoDeploymentsEnabled: pulumi.Bool(false),
 // 				ImageRepository: &apprunner.ServiceSourceConfigurationImageRepositoryArgs{
 // 					ImageConfiguration: &apprunner.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs{
 // 						Port: pulumi.String("8000"),
@@ -136,7 +136,7 @@ import (
 // 					ImageIdentifier:     pulumi.String("public.ecr.aws/aws-containers/hello-app-runner:latest"),
 // 					ImageRepositoryType: pulumi.String("ECR_PUBLIC"),
 // 				},
-// 				AutoDeploymentEnabled: false,
+// 				AutoDeploymentsEnabled: pulumi.Bool(false),
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("example-apprunner-service"),

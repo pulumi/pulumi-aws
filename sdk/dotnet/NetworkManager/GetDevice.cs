@@ -13,60 +13,12 @@ namespace Pulumi.Aws.NetworkManager
     {
         /// <summary>
         /// Retrieve information about a device.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.NetworkManager.GetDevice.InvokeAsync(new Aws.NetworkManager.GetDeviceArgs
-        ///         {
-        ///             GlobalNetworkIdId = @var.Global_network_id,
-        ///             DeviceId = @var.Device_id,
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetDeviceResult> InvokeAsync(GetDeviceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDeviceResult>("aws:networkmanager/getDevice:getDevice", args ?? new GetDeviceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Retrieve information about a device.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.NetworkManager.GetDevice.InvokeAsync(new Aws.NetworkManager.GetDeviceArgs
-        ///         {
-        ///             GlobalNetworkIdId = @var.Global_network_id,
-        ///             DeviceId = @var.Device_id,
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetDeviceResult> Invoke(GetDeviceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDeviceResult>("aws:networkmanager/getDevice:getDevice", args ?? new GetDeviceInvokeArgs(), options.WithDefaults());

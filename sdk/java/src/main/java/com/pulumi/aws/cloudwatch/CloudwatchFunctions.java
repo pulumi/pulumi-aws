@@ -35,10 +35,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -46,9 +53,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
+     *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
      *             .name(&#34;example-bus-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -67,10 +74,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -78,9 +92,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
+     *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
      *             .name(&#34;example-bus-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -99,10 +113,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -110,9 +131,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
+     *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
      *             .name(&#34;example-bus-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -131,10 +152,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventBusArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -142,9 +170,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
+     *         final var example = CloudwatchFunctions.getEventBus(GetEventBusArgs.builder()
      *             .name(&#34;example-bus-name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -163,10 +191,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -174,9 +209,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
+     *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
      *             .name(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -195,10 +230,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -206,9 +248,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
+     *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
      *             .name(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -227,10 +269,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -238,9 +287,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
+     *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
      *             .name(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -259,10 +308,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -270,9 +326,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
+     *         final var test = CloudwatchFunctions.getEventConnection(GetEventConnectionArgs.builder()
      *             .name(&#34;test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -291,10 +347,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -302,9 +365,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplepartner = Output.of(CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
+     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
      *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -323,10 +386,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -334,9 +404,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplepartner = Output.of(CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
+     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
      *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -355,10 +425,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -366,9 +443,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplepartner = Output.of(CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
+     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
      *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -387,10 +464,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -398,9 +482,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplepartner = Output.of(CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
+     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
      *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -419,10 +503,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -430,9 +521,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplepartner = Output.of(CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
+     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
      *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -451,10 +542,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetEventSourceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -462,9 +560,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var examplepartner = Output.of(CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
+     *         final var examplepartner = CloudwatchFunctions.getEventSource(GetEventSourceArgs.builder()
      *             .namePrefix(&#34;aws.partner/examplepartner.com&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -481,10 +579,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -492,9 +597,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
      *             .name(&#34;MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -511,10 +616,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -522,9 +634,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
      *             .name(&#34;MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -541,10 +653,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -552,9 +671,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
      *             .name(&#34;MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -571,10 +690,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -582,9 +708,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroup(GetLogGroupArgs.builder()
      *             .name(&#34;MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -601,10 +727,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -612,9 +745,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
      *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -631,10 +764,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -642,9 +782,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
      *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -661,10 +801,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -672,9 +819,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
      *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -691,10 +838,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -702,9 +856,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
      *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -721,10 +875,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -732,9 +893,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
      *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -751,10 +912,17 @@ public final class CloudwatchFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudwatch.CloudwatchFunctions;
+     * import com.pulumi.aws.cloudwatch.inputs.GetLogGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -762,9 +930,9 @@ public final class CloudwatchFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
+     *         final var example = CloudwatchFunctions.getLogGroups(GetLogGroupsArgs.builder()
      *             .logGroupNamePrefix(&#34;/MyImportantLogs&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

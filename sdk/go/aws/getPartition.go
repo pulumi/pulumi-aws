@@ -35,7 +35,7 @@ import (
 // 						"s3:ListBucket",
 // 					},
 // 					Resources: []string{
-// 						fmt.Sprintf("%v%v%v", "arn:", current.Partition, ":s3:::my-bucket"),
+// 						fmt.Sprintf("arn:%v:s3:::my-bucket", current.Partition),
 // 					},
 // 					Sid: pulumi.StringRef("1"),
 // 				},

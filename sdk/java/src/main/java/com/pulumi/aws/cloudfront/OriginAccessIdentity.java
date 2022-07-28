@@ -28,10 +28,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.OriginAccessIdentity;
+ * import com.pulumi.aws.cloudfront.OriginAccessIdentityArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -56,10 +63,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.Distribution;
+ * import com.pulumi.aws.cloudfront.DistributionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -88,10 +104,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.s3.BucketPolicy;
+ * import com.pulumi.aws.s3.BucketPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -99,7 +124,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var s3Policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;s3:GetObject&#34;)
  *                 .resources(String.format(&#34;%s/*&#34;, aws_s3_bucket.example().arn()))
@@ -108,11 +133,11 @@ import javax.annotation.Nullable;
  *                     .identifiers(aws_cloudfront_origin_access_identity.example().iam_arn())
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var example = new BucketPolicy(&#34;example&#34;, BucketPolicyArgs.builder()        
  *             .bucket(aws_s3_bucket.example().id())
- *             .policy(s3Policy.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(s3Policy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *     }

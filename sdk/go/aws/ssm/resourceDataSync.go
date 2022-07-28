@@ -34,7 +34,35 @@ import (
 // 		}
 // 		_, err = s3.NewBucketPolicy(ctx, "hogeBucketPolicy", &s3.BucketPolicyArgs{
 // 			Bucket: hogeBucketV2.Bucket,
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Sid\": \"SSMBucketPermissionsCheck\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": {\n", "                \"Service\": \"ssm.amazonaws.com\"\n", "            },\n", "            \"Action\": \"s3:GetBucketAcl\",\n", "            \"Resource\": \"arn:aws:s3:::tf-test-bucket-1234\"\n", "        },\n", "        {\n", "            \"Sid\": \" SSMBucketDelivery\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": {\n", "                \"Service\": \"ssm.amazonaws.com\"\n", "            },\n", "            \"Action\": \"s3:PutObject\",\n", "            \"Resource\": [\"arn:aws:s3:::tf-test-bucket-1234/*\"],\n", "            \"Condition\": {\n", "                \"StringEquals\": {\n", "                    \"s3:x-amz-acl\": \"bucket-owner-full-control\"\n", "                }\n", "            }\n", "        }\n", "    ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [
+//         {
+//             "Sid": "SSMBucketPermissionsCheck",
+//             "Effect": "Allow",
+//             "Principal": {
+//                 "Service": "ssm.amazonaws.com"
+//             },
+//             "Action": "s3:GetBucketAcl",
+//             "Resource": "arn:aws:s3:::tf-test-bucket-1234"
+//         },
+//         {
+//             "Sid": " SSMBucketDelivery",
+//             "Effect": "Allow",
+//             "Principal": {
+//                 "Service": "ssm.amazonaws.com"
+//             },
+//             "Action": "s3:PutObject",
+//             "Resource": ["arn:aws:s3:::tf-test-bucket-1234/*"],
+//             "Condition": {
+//                 "StringEquals": {
+//                     "s3:x-amz-acl": "bucket-owner-full-control"
+//                 }
+//             }
+//         }
+//     ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

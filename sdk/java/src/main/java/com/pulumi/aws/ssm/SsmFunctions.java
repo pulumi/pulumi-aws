@@ -38,10 +38,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -49,12 +56,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(SsmFunctions.getDocument(GetDocumentArgs.builder()
+     *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
      *             .documentFormat(&#34;YAML&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;content&#34;, foo.apply(getDocumentResult -&gt; getDocumentResult.content()));
+     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
      *     }
      * }
      * ```
@@ -63,10 +70,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -74,10 +88,10 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SsmFunctions.getDocument(GetDocumentArgs.builder()
+     *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(aws_ssm_document.test().name())
      *             .documentFormat(&#34;JSON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -96,10 +110,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -107,12 +128,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(SsmFunctions.getDocument(GetDocumentArgs.builder()
+     *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
      *             .documentFormat(&#34;YAML&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;content&#34;, foo.apply(getDocumentResult -&gt; getDocumentResult.content()));
+     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
      *     }
      * }
      * ```
@@ -121,10 +142,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -132,10 +160,10 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SsmFunctions.getDocument(GetDocumentArgs.builder()
+     *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(aws_ssm_document.test().name())
      *             .documentFormat(&#34;JSON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -154,10 +182,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -165,12 +200,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(SsmFunctions.getDocument(GetDocumentArgs.builder()
+     *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
      *             .documentFormat(&#34;YAML&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;content&#34;, foo.apply(getDocumentResult -&gt; getDocumentResult.content()));
+     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
      *     }
      * }
      * ```
@@ -179,10 +214,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -190,10 +232,10 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SsmFunctions.getDocument(GetDocumentArgs.builder()
+     *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(aws_ssm_document.test().name())
      *             .documentFormat(&#34;JSON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -212,10 +254,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -223,12 +272,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(SsmFunctions.getDocument(GetDocumentArgs.builder()
+     *         final var foo = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(&#34;AWS-GatherSoftwareInventory&#34;)
      *             .documentFormat(&#34;YAML&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;content&#34;, foo.apply(getDocumentResult -&gt; getDocumentResult.content()));
+     *         ctx.export(&#34;content&#34;, foo.applyValue(getDocumentResult -&gt; getDocumentResult.content()));
      *     }
      * }
      * ```
@@ -237,10 +286,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetDocumentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -248,10 +304,10 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SsmFunctions.getDocument(GetDocumentArgs.builder()
+     *         final var test = SsmFunctions.getDocument(GetDocumentArgs.builder()
      *             .name(aws_ssm_document.test().name())
      *             .documentFormat(&#34;JSON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -268,10 +324,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -279,12 +342,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getInstances(GetInstancesArgs.builder()
+     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name(&#34;PlatformTypes&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -301,10 +364,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -312,12 +382,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getInstances(GetInstancesArgs.builder()
+     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name(&#34;PlatformTypes&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -334,10 +404,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -345,12 +422,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getInstances(GetInstancesArgs.builder()
+     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name(&#34;PlatformTypes&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -367,10 +444,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -378,12 +462,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getInstances(GetInstancesArgs.builder()
+     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name(&#34;PlatformTypes&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -400,10 +484,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -411,12 +502,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getInstances(GetInstancesArgs.builder()
+     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name(&#34;PlatformTypes&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -433,10 +524,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstancesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -444,12 +542,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getInstances(GetInstancesArgs.builder()
+     *         final var example = SsmFunctions.getInstances(GetInstancesArgs.builder()
      *             .filters(GetInstancesFilterArgs.builder()
      *                 .name(&#34;PlatformTypes&#34;)
      *                 .values(&#34;Linux&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -466,10 +564,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -477,12 +582,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
+     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
      *                 .name(&#34;Enabled&#34;)
      *                 .values(&#34;true&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -499,10 +604,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -510,12 +622,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
+     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
      *                 .name(&#34;Enabled&#34;)
      *                 .values(&#34;true&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -532,10 +644,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -543,12 +662,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
+     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
      *                 .name(&#34;Enabled&#34;)
      *                 .values(&#34;true&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -565,10 +684,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -576,12 +702,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
+     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
      *                 .name(&#34;Enabled&#34;)
      *                 .values(&#34;true&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -598,10 +724,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -609,12 +742,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
+     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
      *                 .name(&#34;Enabled&#34;)
      *                 .values(&#34;true&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -631,10 +764,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetMaintenanceWindowsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -642,12 +782,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
+     *         final var example = SsmFunctions.getMaintenanceWindows(GetMaintenanceWindowsArgs.builder()
      *             .filters(GetMaintenanceWindowsFilterArgs.builder()
      *                 .name(&#34;Enabled&#34;)
      *                 .values(&#34;true&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -664,10 +804,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -675,9 +822,9 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(SsmFunctions.getParameter(GetParameterArgs.builder()
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
      *             .name(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -696,10 +843,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -707,9 +861,9 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(SsmFunctions.getParameter(GetParameterArgs.builder()
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
      *             .name(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -728,10 +882,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -739,9 +900,9 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(SsmFunctions.getParameter(GetParameterArgs.builder()
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
      *             .name(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -760,10 +921,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParameterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -771,9 +939,9 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(SsmFunctions.getParameter(GetParameterArgs.builder()
+     *         final var foo = SsmFunctions.getParameter(GetParameterArgs.builder()
      *             .name(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -806,10 +974,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -817,11 +992,11 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var centos = Output.of(SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
      *             .namePrefix(&#34;AWS-&#34;)
      *             .operatingSystem(&#34;CENTOS&#34;)
      *             .owner(&#34;AWS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -831,10 +1006,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -842,12 +1024,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var defaultCustom = Output.of(SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
      *             .defaultBaseline(true)
      *             .namePrefix(&#34;MyCustomBaseline&#34;)
      *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -866,10 +1048,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -877,11 +1066,11 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var centos = Output.of(SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
      *             .namePrefix(&#34;AWS-&#34;)
      *             .operatingSystem(&#34;CENTOS&#34;)
      *             .owner(&#34;AWS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -891,10 +1080,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -902,12 +1098,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var defaultCustom = Output.of(SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
      *             .defaultBaseline(true)
      *             .namePrefix(&#34;MyCustomBaseline&#34;)
      *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -926,10 +1122,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -937,11 +1140,11 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var centos = Output.of(SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
      *             .namePrefix(&#34;AWS-&#34;)
      *             .operatingSystem(&#34;CENTOS&#34;)
      *             .owner(&#34;AWS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -951,10 +1154,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -962,12 +1172,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var defaultCustom = Output.of(SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
      *             .defaultBaseline(true)
      *             .namePrefix(&#34;MyCustomBaseline&#34;)
      *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -986,10 +1196,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -997,11 +1214,11 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var centos = Output.of(SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *         final var centos = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
      *             .namePrefix(&#34;AWS-&#34;)
      *             .operatingSystem(&#34;CENTOS&#34;)
      *             .owner(&#34;AWS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1011,10 +1228,17 @@ public final class SsmFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetPatchBaselineArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1022,12 +1246,12 @@ public final class SsmFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var defaultCustom = Output.of(SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
+     *         final var defaultCustom = SsmFunctions.getPatchBaseline(GetPatchBaselineArgs.builder()
      *             .defaultBaseline(true)
      *             .namePrefix(&#34;MyCustomBaseline&#34;)
      *             .operatingSystem(&#34;WINDOWS&#34;)
      *             .owner(&#34;Self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

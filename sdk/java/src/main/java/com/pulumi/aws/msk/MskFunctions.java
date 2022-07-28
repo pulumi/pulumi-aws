@@ -30,10 +30,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,9 +48,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
+     *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
      *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -60,10 +67,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -71,9 +85,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
+     *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
      *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -90,10 +104,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,9 +122,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
+     *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
      *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -120,10 +141,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetBrokerNodesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,9 +159,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
+     *         final var example = MskFunctions.getBrokerNodes(GetBrokerNodesArgs.builder()
      *             .clusterArn(aws_msk_cluster.example().arn())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -150,10 +178,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -161,9 +196,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -180,10 +215,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -191,9 +233,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -210,10 +252,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -221,9 +270,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -240,10 +289,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -251,9 +307,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
      *             .clusterName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -270,10 +326,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -281,9 +344,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -300,10 +363,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -311,9 +381,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -330,10 +400,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -341,9 +418,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -360,10 +437,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -371,9 +455,9 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(MskFunctions.getConfiguration(GetConfigurationArgs.builder()
+     *         final var example = MskFunctions.getConfiguration(GetConfigurationArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -390,10 +474,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -401,16 +492,16 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var preferred = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;2.4.1.1&#34;,
      *                 &#34;2.4.1&#34;,
      *                 &#34;2.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var example = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .version(&#34;2.8.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -427,10 +518,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -438,16 +536,16 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var preferred = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;2.4.1.1&#34;,
      *                 &#34;2.4.1&#34;,
      *                 &#34;2.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var example = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .version(&#34;2.8.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -464,10 +562,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -475,16 +580,16 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var preferred = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;2.4.1.1&#34;,
      *                 &#34;2.4.1&#34;,
      *                 &#34;2.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var example = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .version(&#34;2.8.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -501,10 +606,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -512,16 +624,16 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var preferred = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;2.4.1.1&#34;,
      *                 &#34;2.4.1&#34;,
      *                 &#34;2.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var example = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .version(&#34;2.8.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -538,10 +650,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -549,16 +668,16 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var preferred = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;2.4.1.1&#34;,
      *                 &#34;2.4.1&#34;,
      *                 &#34;2.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var example = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .version(&#34;2.8.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -575,10 +694,17 @@ public final class MskFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.msk.MskFunctions;
+     * import com.pulumi.aws.msk.inputs.GetKafkaVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -586,16 +712,16 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var preferred = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var preferred = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;2.4.1.1&#34;,
      *                 &#34;2.4.1&#34;,
      *                 &#34;2.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var example = Output.of(MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
+     *         final var example = MskFunctions.getKafkaVersion(GetKafkaVersionArgs.builder()
      *             .version(&#34;2.8.0&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

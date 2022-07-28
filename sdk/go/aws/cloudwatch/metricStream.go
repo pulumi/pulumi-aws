@@ -32,7 +32,20 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metricStreamToFirehoseRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"streams.metrics.cloudwatch.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "streams.metrics.cloudwatch.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -42,7 +55,20 @@ import (
 // 			return err
 // 		}
 // 		firehoseToS3Role, err := iam.NewRole(ctx, "firehoseToS3Role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"firehose.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "firehose.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -76,7 +102,20 @@ import (
 // 		_, err = iam.NewRolePolicy(ctx, "metricStreamToFirehoseRolePolicy", &iam.RolePolicyArgs{
 // 			Role: metricStreamToFirehoseRole.ID(),
 // 			Policy: s3Stream.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Effect\": \"Allow\",\n", "            \"Action\": [\n", "                \"firehose:PutRecord\",\n", "                \"firehose:PutRecordBatch\"\n", "            ],\n", "            \"Resource\": \"", arn, "\"\n", "        }\n", "    ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [
+//         {
+//             "Effect": "Allow",
+//             "Action": [
+//                 "firehose:PutRecord",
+//                 "firehose:PutRecordBatch"
+//             ],
+//             "Resource": "%v"
+//         }
+//     ]
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -94,7 +133,27 @@ import (
 // 			Policy: pulumi.All(bucket.Arn, bucket.Arn).ApplyT(func(_args []interface{}) (string, error) {
 // 				bucketArn := _args[0].(string)
 // 				bucketArn1 := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Effect\": \"Allow\",\n", "            \"Action\": [\n", "                \"s3:AbortMultipartUpload\",\n", "                \"s3:GetBucketLocation\",\n", "                \"s3:GetObject\",\n", "                \"s3:ListBucket\",\n", "                \"s3:ListBucketMultipartUploads\",\n", "                \"s3:PutObject\"\n", "            ],\n", "            \"Resource\": [\n", "                \"", bucketArn, "\",\n", "                \"", bucketArn1, "/*\"\n", "            ]\n", "        }\n", "    ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [
+//         {
+//             "Effect": "Allow",
+//             "Action": [
+//                 "s3:AbortMultipartUpload",
+//                 "s3:GetBucketLocation",
+//                 "s3:GetObject",
+//                 "s3:ListBucket",
+//                 "s3:ListBucketMultipartUploads",
+//                 "s3:PutObject"
+//             ],
+//             "Resource": [
+//                 "%v",
+//                 "%v/*"
+//             ]
+//         }
+//     ]
+// }
+// `, bucketArn, bucketArn1), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

@@ -24,10 +24,17 @@ public final class AcmpcaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acmpca.AcmpcaFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,10 +42,10 @@ public final class AcmpcaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AcmpcaFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = AcmpcaFunctions.getCertificate(GetCertificateArgs.builder()
      *             .arn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23&#34;)
      *             .certificateAuthorityArn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -55,10 +62,17 @@ public final class AcmpcaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acmpca.AcmpcaFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -66,10 +80,10 @@ public final class AcmpcaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AcmpcaFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = AcmpcaFunctions.getCertificate(GetCertificateArgs.builder()
      *             .arn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23&#34;)
      *             .certificateAuthorityArn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -86,10 +100,17 @@ public final class AcmpcaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acmpca.AcmpcaFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -97,10 +118,10 @@ public final class AcmpcaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AcmpcaFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = AcmpcaFunctions.getCertificate(GetCertificateArgs.builder()
      *             .arn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23&#34;)
      *             .certificateAuthorityArn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -117,10 +138,17 @@ public final class AcmpcaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acmpca.AcmpcaFunctions;
+     * import com.pulumi.aws.acm.inputs.GetCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,10 +156,10 @@ public final class AcmpcaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AcmpcaFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var example = AcmpcaFunctions.getCertificate(GetCertificateArgs.builder()
      *             .arn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23&#34;)
      *             .certificateAuthorityArn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -148,10 +176,17 @@ public final class AcmpcaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acmpca.AcmpcaFunctions;
+     * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -159,9 +194,9 @@ public final class AcmpcaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AcmpcaFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *         final var example = AcmpcaFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
      *             .arn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -178,10 +213,17 @@ public final class AcmpcaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acmpca.AcmpcaFunctions;
+     * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -189,9 +231,9 @@ public final class AcmpcaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AcmpcaFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *         final var example = AcmpcaFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
      *             .arn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -208,10 +250,17 @@ public final class AcmpcaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acmpca.AcmpcaFunctions;
+     * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -219,9 +268,9 @@ public final class AcmpcaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AcmpcaFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *         final var example = AcmpcaFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
      *             .arn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -238,10 +287,17 @@ public final class AcmpcaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.acmpca.AcmpcaFunctions;
+     * import com.pulumi.aws.acmpca.inputs.GetCertificateAuthorityArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -249,9 +305,9 @@ public final class AcmpcaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(AcmpcaFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
+     *         final var example = AcmpcaFunctions.getCertificateAuthority(GetCertificateAuthorityArgs.builder()
      *             .arn(&#34;arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

@@ -26,10 +26,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpam;
+ * import com.pulumi.aws.ec2.VpcIpamArgs;
+ * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpamScope;
+ * import com.pulumi.aws.ec2.VpcIpamScopeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -37,11 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getRegion());
+ *         final var current = AwsFunctions.getRegion();
  * 
  *         var exampleVpcIpam = new VpcIpam(&#34;exampleVpcIpam&#34;, VpcIpamArgs.builder()        
  *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
- *                 .regionName(current.apply(getRegionResult -&gt; getRegionResult.name()))
+ *                 .regionName(current.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *                 .build())
  *             .build());
  * 

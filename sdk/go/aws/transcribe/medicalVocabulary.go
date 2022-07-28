@@ -47,7 +47,7 @@ import (
 // 			VocabularyFileUri: pulumi.All(exampleBucketV2.ID(), object.Key).ApplyT(func(_args []interface{}) (string, error) {
 // 				id := _args[0].(string)
 // 				key := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v", "s3://", id, "/", key), nil
+// 				return fmt.Sprintf("s3://%v/%v", id, key), nil
 // 			}).(pulumi.StringOutput),
 // 			Tags: pulumi.StringMap{
 // 				"tag1": pulumi.String("value1"),

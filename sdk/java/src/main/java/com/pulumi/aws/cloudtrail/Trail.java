@@ -28,80 +28,6 @@ import javax.annotation.Nullable;
  * &gt; **Tip:** For an organization trail, this resource must be in the master account of the organization.
  * 
  * ## Example Usage
- * ### Basic
- * 
- * Enable CloudTrail to capture all compatible management events in region.
- * For capturing events from services like IAM, `include_global_service_events` must be enabled.
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
- * 
- *         var fooBucketV2 = new BucketV2(&#34;fooBucketV2&#34;, BucketV2Args.builder()        
- *             .forceDestroy(true)
- *             .build());
- * 
- *         var fooBucketPolicy = new BucketPolicy(&#34;fooBucketPolicy&#34;, BucketPolicyArgs.builder()        
- *             .bucket(fooBucketV2.id())
- *             .policy(Output.tuple(fooBucketV2.arn(), fooBucketV2.arn()).apply(values -&gt; {
- *                 var fooBucketV2Arn = values.t1;
- *                 var fooBucketV2Arn1 = values.t2;
- *                 return &#34;&#34;&#34;
- * {
- *     &#34;Version&#34;: &#34;2012-10-17&#34;,
- *     &#34;Statement&#34;: [
- *         {
- *             &#34;Sid&#34;: &#34;AWSCloudTrailAclCheck&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: {
- *               &#34;Service&#34;: &#34;cloudtrail.amazonaws.com&#34;
- *             },
- *             &#34;Action&#34;: &#34;s3:GetBucketAcl&#34;,
- *             &#34;Resource&#34;: &#34;%s&#34;
- *         },
- *         {
- *             &#34;Sid&#34;: &#34;AWSCloudTrailWrite&#34;,
- *             &#34;Effect&#34;: &#34;Allow&#34;,
- *             &#34;Principal&#34;: {
- *               &#34;Service&#34;: &#34;cloudtrail.amazonaws.com&#34;
- *             },
- *             &#34;Action&#34;: &#34;s3:PutObject&#34;,
- *             &#34;Resource&#34;: &#34;%s/prefix/AWSLogs/%s/*&#34;,
- *             &#34;Condition&#34;: {
- *                 &#34;StringEquals&#34;: {
- *                     &#34;s3:x-amz-acl&#34;: &#34;bucket-owner-full-control&#34;
- *                 }
- *             }
- *         }
- *     ]
- * }
- * }
- * &#34;, fooBucketV2Arn,fooBucketV2Arn1,current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()));
- *             }))
- *             .build());
- * 
- *         var foobar = new Trail(&#34;foobar&#34;, TrailArgs.builder()        
- *             .s3BucketName(bucketV2.id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
- *             .includeGlobalServiceEvents(false)
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Data Event Logging
  * 
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
@@ -112,10 +38,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.aws.cloudtrail.inputs.TrailEventSelectorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -145,10 +80,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.aws.cloudtrail.inputs.TrailEventSelectorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -178,10 +122,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.S3Functions;
+ * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.aws.cloudtrail.inputs.TrailEventSelectorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -189,9 +143,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var important-bucket = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var important-bucket = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;important-bucket&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
  *             .s3BucketName(important_bucket.id())
@@ -213,10 +167,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.S3Functions;
+ * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.aws.cloudtrail.inputs.TrailAdvancedEventSelectorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -224,13 +188,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var not-important-bucket-1 = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var not-important-bucket-1 = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;not-important-bucket-1&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var not-important-bucket-2 = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var not-important-bucket-2 = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;not-important-bucket-2&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
  *             .advancedEventSelectors(            
@@ -268,10 +232,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.S3Functions;
+ * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+ * import com.pulumi.aws.cloudtrail.Trail;
+ * import com.pulumi.aws.cloudtrail.TrailArgs;
+ * import com.pulumi.aws.cloudtrail.inputs.TrailAdvancedEventSelectorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -279,17 +253,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var important-bucket-1 = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var important-bucket-1 = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;important-bucket-1&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var important-bucket-2 = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var important-bucket-2 = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;important-bucket-2&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var important-bucket-3 = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var important-bucket-3 = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;important-bucket-3&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var example = new Trail(&#34;example&#34;, TrailArgs.builder()        
  *             .advancedEventSelectors(            
@@ -345,75 +319,6 @@ import javax.annotation.Nullable;
  *                             .build())
  *                     .name(&#34;Log Delete* events for one S3 bucket&#34;)
  *                     .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Sending Events to CloudWatch Logs
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getPartition());
- * 
- *         var exampleLogGroup = new LogGroup(&#34;exampleLogGroup&#34;);
- * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;cloudtrail.%s&#34;
- *       },
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;
- *     }
- *   ]
- * }
- * &#34;, current.apply(getPartitionResult -&gt; getPartitionResult.dnsSuffix())))
- *             .build());
- * 
- *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(testRole.id())
- *             .policy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Sid&#34;: &#34;AWSCloudTrailCreateLogStream&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Action&#34;: [
- *         &#34;logs:CreateLogStream&#34;,
- *         &#34;logs:PutLogEvents&#34;
- *       ],
- *       &#34;Resource&#34;: &#34;%s:*&#34;
- *     }
- *   ]
- * }
- * &#34;, aws_cloudwatch_log_group.test().arn()))
- *             .build());
- * 
- *         var bucketV2 = new BucketV2(&#34;bucketV2&#34;);
- * 
- *         var exampleTrail = new Trail(&#34;exampleTrail&#34;, TrailArgs.builder()        
- *             .s3BucketName(data.aws_s3_bucket().important-bucket().id())
- *             .s3KeyPrefix(&#34;prefix&#34;)
- *             .cloudWatchLogsRoleArn(testRole.arn())
- *             .cloudWatchLogsGroupArn(exampleLogGroup.arn().apply(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *             .build());
  * 
  *     }

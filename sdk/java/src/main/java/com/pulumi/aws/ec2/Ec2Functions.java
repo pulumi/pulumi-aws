@@ -177,10 +177,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -188,7 +195,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -206,7 +213,7 @@ public final class Ec2Functions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -224,10 +231,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -235,7 +249,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -253,7 +267,7 @@ public final class Ec2Functions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -271,10 +285,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -282,7 +303,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -300,7 +321,7 @@ public final class Ec2Functions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -318,10 +339,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -329,7 +357,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -347,7 +375,7 @@ public final class Ec2Functions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -365,10 +393,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -376,7 +411,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -394,7 +429,7 @@ public final class Ec2Functions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -412,10 +447,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -423,7 +465,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+     *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
      *             .executableUsers(&#34;self&#34;)
      *             .filters(            
      *                 GetAmiFilterArgs.builder()
@@ -441,7 +483,7 @@ public final class Ec2Functions {
      *             .mostRecent(true)
      *             .nameRegex(&#34;^myami-\\d{3}&#34;)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -458,10 +500,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -469,13 +518,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
      *                 .build())
      *             .owners(&#34;099720109477&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -492,10 +541,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -503,13 +559,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
      *                 .build())
      *             .owners(&#34;099720109477&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -526,10 +582,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -537,13 +600,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
      *                 .build())
      *             .owners(&#34;099720109477&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -560,10 +623,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -571,13 +641,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var ubuntu = Ec2Functions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(GetAmiIdsFilterArgs.builder()
      *                 .name(&#34;name&#34;)
      *                 .values(&#34;ubuntu/images/ubuntu-*-*-amd64-server-*&#34;)
      *                 .build())
      *             .owners(&#34;099720109477&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -597,13 +667,21 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific coip pool ID
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -613,9 +691,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -635,13 +713,21 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific coip pool ID
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -651,9 +737,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -673,13 +759,21 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific coip pool ID
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -689,9 +783,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -711,13 +805,21 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific coip pool ID
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -727,9 +829,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -749,13 +851,21 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific coip pool ID
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -765,9 +875,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -787,13 +897,21 @@ public final class Ec2Functions {
      * ## Example Usage
      * 
      * The following example returns a specific coip pool ID
+     * 
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCoipPoolArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -803,9 +921,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var coipPoolId = config.get(&#34;coipPoolId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
+     *         final var selected = Ec2Functions.getCoipPool(GetCoipPoolArgs.builder()
      *             .id(coipPoolId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -864,10 +982,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnGateway;
+     * import com.pulumi.aws.ec2.VpnGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnConnection;
+     * import com.pulumi.aws.ec2.VpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -875,12 +1004,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
+     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;foo-prod&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
      *             .vpcId(aws_vpc.main().id())
@@ -889,8 +1018,8 @@ public final class Ec2Functions {
      * 
      *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -909,10 +1038,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnGateway;
+     * import com.pulumi.aws.ec2.VpnGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnConnection;
+     * import com.pulumi.aws.ec2.VpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -920,12 +1060,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
+     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;foo-prod&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
      *             .vpcId(aws_vpc.main().id())
@@ -934,8 +1074,8 @@ public final class Ec2Functions {
      * 
      *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -954,10 +1094,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnGateway;
+     * import com.pulumi.aws.ec2.VpnGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnConnection;
+     * import com.pulumi.aws.ec2.VpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -965,12 +1116,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
+     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;foo-prod&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
      *             .vpcId(aws_vpc.main().id())
@@ -979,8 +1130,8 @@ public final class Ec2Functions {
      * 
      *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -999,10 +1150,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnGateway;
+     * import com.pulumi.aws.ec2.VpnGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnConnection;
+     * import com.pulumi.aws.ec2.VpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1010,12 +1172,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
+     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;foo-prod&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
      *             .vpcId(aws_vpc.main().id())
@@ -1024,8 +1186,8 @@ public final class Ec2Functions {
      * 
      *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1044,10 +1206,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnGateway;
+     * import com.pulumi.aws.ec2.VpnGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnConnection;
+     * import com.pulumi.aws.ec2.VpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1055,12 +1228,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
+     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;foo-prod&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
      *             .vpcId(aws_vpc.main().id())
@@ -1069,8 +1242,8 @@ public final class Ec2Functions {
      * 
      *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1089,10 +1262,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetCustomerGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnGateway;
+     * import com.pulumi.aws.ec2.VpnGatewayArgs;
+     * import com.pulumi.aws.ec2.VpnConnection;
+     * import com.pulumi.aws.ec2.VpnConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1100,12 +1284,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
+     *         final var foo = Ec2Functions.getCustomerGateway(GetCustomerGatewayArgs.builder()
      *             .filters(GetCustomerGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;foo-prod&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *         var main = new VpnGateway(&#34;main&#34;, VpnGatewayArgs.builder()        
      *             .vpcId(aws_vpc.main().id())
@@ -1114,8 +1298,8 @@ public final class Ec2Functions {
      * 
      *         var transit = new VpnConnection(&#34;transit&#34;, VpnConnectionArgs.builder()        
      *             .vpnGatewayId(main.id())
-     *             .customerGatewayId(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
-     *             .type(foo.apply(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
+     *             .customerGatewayId(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.id()))
+     *             .type(foo.applyValue(getCustomerGatewayResult -&gt; getCustomerGatewayResult.type()))
      *             .staticRoutesOnly(false)
      *             .build());
      * 
@@ -1135,10 +1319,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1146,12 +1337,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(&#34;c5.18xlarge&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1169,10 +1360,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1180,12 +1378,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(&#34;c5.18xlarge&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1203,10 +1401,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1214,12 +1419,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(&#34;c5.18xlarge&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1237,10 +1442,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1248,12 +1460,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(&#34;c5.18xlarge&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1271,10 +1483,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1282,12 +1501,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(&#34;c5.18xlarge&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1305,10 +1524,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetDedicatedHostArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1316,12 +1542,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
+     *         final var test = Ec2Functions.getDedicatedHost(GetDedicatedHostArgs.builder()
      *             .filters(GetDedicatedHostFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(&#34;c5.18xlarge&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1340,10 +1566,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1351,12 +1584,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getEips(GetEipsArgs.builder()
+     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.apply(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.apply(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
+     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
      *     }
      * }
      * ```
@@ -1374,10 +1607,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1385,12 +1625,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getEips(GetEipsArgs.builder()
+     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.apply(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.apply(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
+     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
      *     }
      * }
      * ```
@@ -1408,10 +1648,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1419,12 +1666,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getEips(GetEipsArgs.builder()
+     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.apply(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.apply(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
+     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
      *     }
      * }
      * ```
@@ -1442,10 +1689,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1453,12 +1707,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getEips(GetEipsArgs.builder()
+     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.apply(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.apply(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
+     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
      *     }
      * }
      * ```
@@ -1476,10 +1730,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1487,12 +1748,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getEips(GetEipsArgs.builder()
+     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.apply(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.apply(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
+     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
      *     }
      * }
      * ```
@@ -1510,10 +1771,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetEipsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1521,12 +1789,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getEips(GetEipsArgs.builder()
+     *         final var example = Ec2Functions.getEips(GetEipsArgs.builder()
      *             .tags(Map.of(&#34;Env&#34;, &#34;dev&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;allocationIds&#34;, example.apply(getEipsResult -&gt; getEipsResult.allocationIds()));
-     *         ctx.export(&#34;publicIps&#34;, example.apply(getEipsResult -&gt; getEipsResult.publicIps()));
+     *         ctx.export(&#34;allocationIds&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.allocationIds()));
+     *         ctx.export(&#34;publicIps&#34;, example.applyValue(getEipsResult -&gt; getEipsResult.publicIps()));
      *     }
      * }
      * ```
@@ -1543,10 +1811,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1554,9 +1829,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1565,10 +1840,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1576,12 +1858,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1590,10 +1872,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1601,9 +1890,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1612,10 +1901,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1623,9 +1919,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1643,10 +1939,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1654,9 +1957,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1665,10 +1968,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1676,12 +1986,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1690,10 +2000,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1701,9 +2018,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1712,10 +2029,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1723,9 +2047,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1743,10 +2067,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1754,9 +2085,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1765,10 +2096,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1776,12 +2114,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1790,10 +2128,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1801,9 +2146,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1812,10 +2157,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1823,9 +2175,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1843,10 +2195,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1854,9 +2213,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1865,10 +2224,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1876,12 +2242,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1890,10 +2256,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1901,9 +2274,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1912,10 +2285,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1923,9 +2303,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1943,10 +2323,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1954,9 +2341,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1965,10 +2352,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1976,12 +2370,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1990,10 +2384,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2001,9 +2402,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2012,10 +2413,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2023,9 +2431,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2043,10 +2451,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2054,9 +2469,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAllocationId = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byAllocationId = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .id(&#34;eipalloc-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2065,10 +2480,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2076,12 +2498,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byFilter = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byFilter = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .filters(GetElasticIpFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2090,10 +2512,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2101,9 +2530,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byPublicIp = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byPublicIp = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .publicIp(&#34;1.2.3.4&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2112,10 +2541,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetElasticIpArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2123,9 +2559,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byTags = Output.of(Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
+     *         final var byTags = Ec2Functions.getElasticIp(GetElasticIpArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;exampleNameTagValue&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2143,10 +2579,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2154,12 +2597,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
      *             .filters(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2177,10 +2620,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2188,12 +2638,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
      *             .filters(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2211,10 +2661,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2222,12 +2679,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
      *             .filters(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2245,10 +2702,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2256,12 +2720,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
      *             .filters(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2279,10 +2743,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2290,12 +2761,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
      *             .filters(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2313,10 +2784,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2324,12 +2802,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(Ec2Functions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = Ec2Functions.getInstance(GetInstanceArgs.builder()
      *             .filters(            
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
      *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
      *             .instanceId(&#34;i-instanceid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2346,10 +2824,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2357,9 +2842,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
+     *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2376,10 +2861,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2387,9 +2879,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
+     *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2406,10 +2898,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2417,9 +2916,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
+     *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2436,10 +2935,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2447,9 +2953,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
+     *         final var example = Ec2Functions.getInstanceType(GetInstanceTypeArgs.builder()
      *             .instanceType(&#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2466,10 +2972,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2477,7 +2990,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(                
@@ -2487,7 +3000,7 @@ public final class Ec2Functions {
      *             .preferredInstanceTypes(            
      *                 &#34;t3.micro&#34;,
      *                 &#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2504,10 +3017,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2515,7 +3035,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(                
@@ -2525,7 +3045,7 @@ public final class Ec2Functions {
      *             .preferredInstanceTypes(            
      *                 &#34;t3.micro&#34;,
      *                 &#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2542,10 +3062,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2553,7 +3080,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(                
@@ -2563,7 +3090,7 @@ public final class Ec2Functions {
      *             .preferredInstanceTypes(            
      *                 &#34;t3.micro&#34;,
      *                 &#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2580,10 +3107,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2591,7 +3125,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(                
@@ -2601,7 +3135,7 @@ public final class Ec2Functions {
      *             .preferredInstanceTypes(            
      *                 &#34;t3.micro&#34;,
      *                 &#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2618,10 +3152,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2629,7 +3170,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(                
@@ -2639,7 +3180,7 @@ public final class Ec2Functions {
      *             .preferredInstanceTypes(            
      *                 &#34;t3.micro&#34;,
      *                 &#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2656,10 +3197,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2667,7 +3215,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOffering(GetInstanceTypeOfferingArgs.builder()
      *             .filters(GetInstanceTypeOfferingFilterArgs.builder()
      *                 .name(&#34;instance-type&#34;)
      *                 .values(                
@@ -2677,7 +3225,7 @@ public final class Ec2Functions {
      *             .preferredInstanceTypes(            
      *                 &#34;t3.micro&#34;,
      *                 &#34;t2.micro&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2694,10 +3242,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2705,7 +3260,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
      *                     .name(&#34;instance-type&#34;)
@@ -2718,7 +3273,7 @@ public final class Ec2Functions {
      *                     .values(&#34;usw2-az4&#34;)
      *                     .build())
      *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2735,10 +3290,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2746,7 +3308,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
      *                     .name(&#34;instance-type&#34;)
@@ -2759,7 +3321,7 @@ public final class Ec2Functions {
      *                     .values(&#34;usw2-az4&#34;)
      *                     .build())
      *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2776,10 +3338,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2787,7 +3356,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
      *                     .name(&#34;instance-type&#34;)
@@ -2800,7 +3369,7 @@ public final class Ec2Functions {
      *                     .values(&#34;usw2-az4&#34;)
      *                     .build())
      *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2817,10 +3386,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2828,7 +3404,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
      *                     .name(&#34;instance-type&#34;)
@@ -2841,7 +3417,7 @@ public final class Ec2Functions {
      *                     .values(&#34;usw2-az4&#34;)
      *                     .build())
      *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2858,10 +3434,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2869,7 +3452,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
      *                     .name(&#34;instance-type&#34;)
@@ -2882,7 +3465,7 @@ public final class Ec2Functions {
      *                     .values(&#34;usw2-az4&#34;)
      *                     .build())
      *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2899,10 +3482,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2910,7 +3500,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var example = Ec2Functions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .filters(            
      *                 GetInstanceTypeOfferingsFilterArgs.builder()
      *                     .name(&#34;instance-type&#34;)
@@ -2923,7 +3513,7 @@ public final class Ec2Functions {
      *                     .values(&#34;usw2-az4&#34;)
      *                     .build())
      *             .locationType(&#34;availability-zone-id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2940,10 +3530,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2951,7 +3548,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
+     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
      *                     .name(&#34;auto-recovery-supported&#34;)
@@ -2971,7 +3568,7 @@ public final class Ec2Functions {
      *                         &#34;g5.2xlarge&#34;,
      *                         &#34;g5.4xlarge&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2988,10 +3585,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2999,7 +3603,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
+     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
      *                     .name(&#34;auto-recovery-supported&#34;)
@@ -3019,7 +3623,7 @@ public final class Ec2Functions {
      *                         &#34;g5.2xlarge&#34;,
      *                         &#34;g5.4xlarge&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3036,10 +3640,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3047,7 +3658,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
+     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
      *                     .name(&#34;auto-recovery-supported&#34;)
@@ -3067,7 +3678,7 @@ public final class Ec2Functions {
      *                         &#34;g5.2xlarge&#34;,
      *                         &#34;g5.4xlarge&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3084,10 +3695,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3095,7 +3713,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
+     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
      *                     .name(&#34;auto-recovery-supported&#34;)
@@ -3115,7 +3733,7 @@ public final class Ec2Functions {
      *                         &#34;g5.2xlarge&#34;,
      *                         &#34;g5.4xlarge&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3132,10 +3750,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3143,7 +3768,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
+     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
      *                     .name(&#34;auto-recovery-supported&#34;)
@@ -3163,7 +3788,7 @@ public final class Ec2Functions {
      *                         &#34;g5.2xlarge&#34;,
      *                         &#34;g5.4xlarge&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3180,10 +3805,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3191,7 +3823,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
+     *         final var test = Ec2Functions.getInstanceTypes(GetInstanceTypesArgs.builder()
      *             .filters(            
      *                 GetInstanceTypesFilterArgs.builder()
      *                     .name(&#34;auto-recovery-supported&#34;)
@@ -3211,7 +3843,7 @@ public final class Ec2Functions {
      *                         &#34;g5.2xlarge&#34;,
      *                         &#34;g5.4xlarge&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3306,10 +3938,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3319,12 +3958,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Output.of(Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
+     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name(&#34;attachment.vpc-id&#34;)
      *                 .values(vpcId)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3341,10 +3980,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3354,12 +4000,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Output.of(Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
+     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name(&#34;attachment.vpc-id&#34;)
      *                 .values(vpcId)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3376,10 +4022,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3389,12 +4042,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Output.of(Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
+     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name(&#34;attachment.vpc-id&#34;)
      *                 .values(vpcId)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3411,10 +4064,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3424,12 +4084,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Output.of(Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
+     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name(&#34;attachment.vpc-id&#34;)
      *                 .values(vpcId)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3446,10 +4106,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3459,12 +4126,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Output.of(Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
+     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name(&#34;attachment.vpc-id&#34;)
      *                 .values(vpcId)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3481,10 +4148,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetInternetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3494,12 +4168,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var vpcId = config.get(&#34;vpcId&#34;);
-     *         final var default = Output.of(Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
+     *         final var default = Ec2Functions.getInternetGateway(GetInternetGatewayArgs.builder()
      *             .filters(GetInternetGatewayFilterArgs.builder()
      *                 .name(&#34;attachment.vpc-id&#34;)
      *                 .values(vpcId)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3516,10 +4190,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
+     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
+     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3527,14 +4210,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testIpamPreviewNextCidr = Output.of(Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
+     *         final var testIpamPreviewNextCidr = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
      *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
      *             .netmaskLength(28)
-     *             .build()));
+     *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
      *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .cidr(testIpamPreviewNextCidr.apply(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(testIpamPreviewNextCidr.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
      *             .build());
      * 
      *     }
@@ -3552,10 +4235,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
+     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
+     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3563,14 +4255,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testIpamPreviewNextCidr = Output.of(Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
+     *         final var testIpamPreviewNextCidr = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
      *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
      *             .netmaskLength(28)
-     *             .build()));
+     *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
      *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .cidr(testIpamPreviewNextCidr.apply(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(testIpamPreviewNextCidr.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
      *             .build());
      * 
      *     }
@@ -3588,10 +4280,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
+     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
+     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3599,14 +4300,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testIpamPreviewNextCidr = Output.of(Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
+     *         final var testIpamPreviewNextCidr = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
      *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
      *             .netmaskLength(28)
-     *             .build()));
+     *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
      *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .cidr(testIpamPreviewNextCidr.apply(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(testIpamPreviewNextCidr.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
      *             .build());
      * 
      *     }
@@ -3624,10 +4325,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetIpamPreviewNextCidrArgs;
+     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocation;
+     * import com.pulumi.aws.ec2.VpcIpamPoolCidrAllocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3635,14 +4345,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testIpamPreviewNextCidr = Output.of(Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
+     *         final var testIpamPreviewNextCidr = Ec2Functions.getIpamPreviewNextCidr(GetIpamPreviewNextCidrArgs.builder()
      *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
      *             .netmaskLength(28)
-     *             .build()));
+     *             .build());
      * 
      *         var testVpcIpamPoolCidrAllocation = new VpcIpamPoolCidrAllocation(&#34;testVpcIpamPoolCidrAllocation&#34;, VpcIpamPoolCidrAllocationArgs.builder()        
      *             .ipamPoolId(aws_vpc_ipam_pool.test().id())
-     *             .cidr(testIpamPreviewNextCidr.apply(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
+     *             .cidr(testIpamPreviewNextCidr.applyValue(getIpamPreviewNextCidrResult -&gt; getIpamPreviewNextCidrResult.cidr()))
      *             .build());
      * 
      *     }
@@ -3662,10 +4372,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3673,18 +4390,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
+     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
      *     }
      * }
      * ```
@@ -3702,10 +4419,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3713,18 +4437,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
+     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
      *     }
      * }
      * ```
@@ -3742,10 +4466,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3753,18 +4484,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
+     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
      *     }
      * }
      * ```
@@ -3782,10 +4513,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3793,18 +4531,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
+     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
      *     }
      * }
      * ```
@@ -3822,10 +4560,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3833,18 +4578,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
+     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
      *     }
      * }
      * ```
@@ -3862,10 +4607,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetKeyPairArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3873,18 +4625,18 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
+     *         final var example = Ec2Functions.getKeyPair(GetKeyPairArgs.builder()
      *             .keyName(&#34;test&#34;)
      *             .includePublicKey(true)
      *             .filters(GetKeyPairFilterArgs.builder()
      *                 .name(&#34;tag:Component&#34;)
      *                 .values(&#34;web&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;fingerprint&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
-     *         ctx.export(&#34;name&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.keyName()));
-     *         ctx.export(&#34;id&#34;, example.apply(getKeyPairResult -&gt; getKeyPairResult.id()));
+     *         ctx.export(&#34;fingerprint&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.fingerprint()));
+     *         ctx.export(&#34;name&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.keyName()));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getKeyPairResult -&gt; getKeyPairResult.id()));
      *     }
      * }
      * ```
@@ -3900,10 +4652,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3911,9 +4670,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
+     *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
      *             .name(&#34;test-launch-config&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3930,10 +4689,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3941,9 +4707,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
+     *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
      *             .name(&#34;test-launch-config&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3960,10 +4726,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -3971,9 +4744,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
+     *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
      *             .name(&#34;test-launch-config&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -3990,10 +4763,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4001,9 +4781,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ubuntu = Output.of(Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
+     *         final var ubuntu = Ec2Functions.getLaunchConfiguration(GetLaunchConfigurationArgs.builder()
      *             .name(&#34;test-launch-config&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4020,10 +4800,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4031,9 +4818,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .name(&#34;my-launch-template&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4042,10 +4829,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4053,12 +4847,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
      *                 .name(&#34;launch-template-name&#34;)
      *                 .values(&#34;some-template&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4075,10 +4869,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4086,9 +4887,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .name(&#34;my-launch-template&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4097,10 +4898,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4108,12 +4916,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
      *                 .name(&#34;launch-template-name&#34;)
      *                 .values(&#34;some-template&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4130,10 +4938,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4141,9 +4956,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .name(&#34;my-launch-template&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4152,10 +4967,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4163,12 +4985,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
      *                 .name(&#34;launch-template-name&#34;)
      *                 .values(&#34;some-template&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4185,10 +5007,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4196,9 +5025,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .name(&#34;my-launch-template&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4207,10 +5036,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4218,12 +5054,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
      *                 .name(&#34;launch-template-name&#34;)
      *                 .values(&#34;some-template&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4240,10 +5076,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4251,9 +5094,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .name(&#34;my-launch-template&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4262,10 +5105,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4273,12 +5123,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
      *                 .name(&#34;launch-template-name&#34;)
      *                 .values(&#34;some-template&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4295,10 +5145,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4306,9 +5163,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var default = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .name(&#34;my-launch-template&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4317,10 +5174,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLaunchTemplateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4328,12 +5192,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
+     *         final var test = Ec2Functions.getLaunchTemplate(GetLaunchTemplateArgs.builder()
      *             .filters(GetLaunchTemplateFilterArgs.builder()
      *                 .name(&#34;launch-template-name&#34;)
      *                 .values(&#34;some-template&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4352,10 +5216,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4365,9 +5236,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4386,10 +5257,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4399,9 +5277,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4420,10 +5298,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4433,9 +5318,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4454,10 +5339,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4467,9 +5359,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4488,10 +5380,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4501,9 +5400,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4522,10 +5421,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4535,9 +5441,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var localGatewayId = config.get(&#34;localGatewayId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGateway(GetLocalGatewayArgs.builder()
      *             .id(localGatewayId)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4559,10 +5465,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4572,9 +5485,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4596,10 +5509,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4609,9 +5529,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4633,10 +5553,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4646,9 +5573,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4670,10 +5597,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4683,9 +5617,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4707,10 +5641,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4720,9 +5661,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4744,10 +5685,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4757,9 +5705,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var awsEc2LocalGatewayRouteTable = config.get(&#34;awsEc2LocalGatewayRouteTable&#34;);
-     *         final var selected = Output.of(Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
      *             .localGatewayRouteTableId(awsEc2LocalGatewayRouteTable)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4872,10 +5820,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4883,9 +5838,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
+     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
      *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4902,10 +5857,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4913,9 +5875,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
+     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
      *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4932,10 +5894,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4943,9 +5912,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
+     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
      *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4962,10 +5931,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -4973,9 +5949,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
+     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
      *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -4992,10 +5968,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5003,9 +5986,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
+     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
      *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5022,10 +6005,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5033,9 +6023,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
+     *         final var example = Ec2Functions.getLocalGatewayVirtualInterfaceGroup(GetLocalGatewayVirtualInterfaceGroupArgs.builder()
      *             .localGatewayId(data.aws_ec2_local_gateway().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5052,10 +6042,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5063,7 +6060,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroups());
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
      * 
      *     }
      * }
@@ -5080,10 +6077,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5091,7 +6095,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroups());
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
      * 
      *     }
      * }
@@ -5108,10 +6112,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5119,7 +6130,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroups());
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
      * 
      *     }
      * }
@@ -5136,10 +6147,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5147,7 +6165,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroups());
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
      * 
      *     }
      * }
@@ -5164,10 +6182,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5175,7 +6200,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroups());
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
      * 
      *     }
      * }
@@ -5192,10 +6217,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewayVirtualInterfaceGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5203,7 +6235,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var all = Output.of(Ec2Functions.getLocalGatewayVirtualInterfaceGroups());
+     *         final var all = Ec2Functions.getLocalGatewayVirtualInterfaceGroups();
      * 
      *     }
      * }
@@ -5222,10 +6254,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5233,11 +6272,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Output.of(Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
+     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
      *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.apply(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
      *     }
      * }
      * ```
@@ -5255,10 +6294,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5266,11 +6312,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Output.of(Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
+     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
      *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.apply(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
      *     }
      * }
      * ```
@@ -5288,10 +6334,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5299,11 +6352,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Output.of(Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
+     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
      *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.apply(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
      *     }
      * }
      * ```
@@ -5321,10 +6374,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5332,11 +6392,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Output.of(Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
+     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
      *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.apply(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
      *     }
      * }
      * ```
@@ -5354,10 +6414,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5365,11 +6432,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Output.of(Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
+     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
      *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.apply(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
      *     }
      * }
      * ```
@@ -5387,10 +6454,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetLocalGatewaysArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5398,11 +6472,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var fooLocalGateways = Output.of(Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
+     *         final var fooLocalGateways = Ec2Functions.getLocalGateways(GetLocalGatewaysArgs.builder()
      *             .tags(Map.of(&#34;service&#34;, &#34;production&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, fooLocalGateways.apply(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
+     *         ctx.export(&#34;foo&#34;, fooLocalGateways.applyValue(getLocalGatewaysResult -&gt; getLocalGatewaysResult.ids()));
      *     }
      * }
      * ```
@@ -5420,10 +6494,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5431,11 +6514,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
-     *             .build()));
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .build());
      * 
      *     }
      * }
@@ -5444,10 +6527,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5455,12 +6545,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-name&#34;)
      *                 .values(&#34;my-prefix-list&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5479,10 +6569,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5490,11 +6589,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
-     *             .build()));
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .build());
      * 
      *     }
      * }
@@ -5503,10 +6602,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5514,12 +6620,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-name&#34;)
      *                 .values(&#34;my-prefix-list&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5538,10 +6644,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5549,11 +6664,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
-     *             .build()));
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .build());
      * 
      *     }
      * }
@@ -5562,10 +6677,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5573,12 +6695,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-name&#34;)
      *                 .values(&#34;my-prefix-list&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5597,10 +6719,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5608,11 +6739,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
-     *             .build()));
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .build());
      * 
      *     }
      * }
@@ -5621,10 +6752,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5632,12 +6770,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-name&#34;)
      *                 .values(&#34;my-prefix-list&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5656,10 +6794,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5667,11 +6814,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
-     *             .build()));
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .build());
      * 
      *     }
      * }
@@ -5680,10 +6827,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5691,12 +6845,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-name&#34;)
      *                 .values(&#34;my-prefix-list&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5715,10 +6869,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.AwsFunctions;
+     * import com.pulumi.aws.inputs.GetRegionArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5726,11 +6889,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(AwsFunctions.getRegion());
+     *         final var current = AwsFunctions.getRegion();
      * 
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
-     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
-     *             .build()));
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *             .name(String.format(&#34;com.amazonaws.%s.dynamodb&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
+     *             .build());
      * 
      *     }
      * }
@@ -5739,10 +6902,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetManagedPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5750,12 +6920,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
+     *         final var example = Ec2Functions.getManagedPrefixList(GetManagedPrefixListArgs.builder()
      *             .filters(GetManagedPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-name&#34;)
      *                 .values(&#34;my-prefix-list&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5772,10 +6942,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5785,9 +6962,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5797,10 +6974,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5808,10 +6992,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
      *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5828,10 +7012,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5841,9 +7032,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5853,10 +7044,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5864,10 +7062,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
      *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5884,10 +7082,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5897,9 +7102,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5909,10 +7114,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5920,10 +7132,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
      *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5940,10 +7152,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5953,9 +7172,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5965,10 +7184,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -5976,10 +7202,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
      *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -5996,10 +7222,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6009,9 +7242,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6021,10 +7254,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6032,10 +7272,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
      *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6052,10 +7292,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6065,9 +7312,9 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6077,10 +7324,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNatGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6088,10 +7342,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var default = Output.of(Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
+     *         final var default = Ec2Functions.getNatGateway(GetNatGatewayArgs.builder()
      *             .subnetId(aws_subnet.public().id())
      *             .tags(Map.of(&#34;Name&#34;, &#34;gw NAT&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6150,10 +7404,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6161,11 +7422,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.apply(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
      *     }
      * }
      * ```
@@ -6175,10 +7436,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6186,10 +7454,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6200,10 +7468,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6211,13 +7486,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name(&#34;association.subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6234,10 +7509,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6245,11 +7527,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.apply(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
      *     }
      * }
      * ```
@@ -6259,10 +7541,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6270,10 +7559,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6284,10 +7573,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6295,13 +7591,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name(&#34;association.subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6318,10 +7614,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6329,11 +7632,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.apply(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
      *     }
      * }
      * ```
@@ -6343,10 +7646,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6354,10 +7664,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6368,10 +7678,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6379,13 +7696,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name(&#34;association.subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6402,10 +7719,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6413,11 +7737,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.apply(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
      *     }
      * }
      * ```
@@ -6427,10 +7751,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6438,10 +7769,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6452,10 +7783,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6463,13 +7801,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name(&#34;association.subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6486,10 +7824,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6497,11 +7842,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.apply(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
      *     }
      * }
      * ```
@@ -6511,10 +7856,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6522,10 +7874,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6536,10 +7888,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6547,13 +7906,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name(&#34;association.subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6570,10 +7929,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6581,11 +7947,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkAcls = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var exampleNetworkAcls = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.apply(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkAcls.applyValue(getNetworkAclsResult -&gt; getNetworkAclsResult.ids()));
      *     }
      * }
      * ```
@@ -6595,10 +7961,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6606,10 +7979,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .tags(Map.of(&#34;Tier&#34;, &#34;Private&#34;))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6620,10 +7993,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkAclsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6631,13 +8011,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
+     *         final var example = Ec2Functions.getNetworkAcls(GetNetworkAclsArgs.builder()
      *             .vpcId(var_.vpc_id())
      *             .filters(GetNetworkAclsFilterArgs.builder()
      *                 .name(&#34;association.subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6654,10 +8034,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6665,9 +8052,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .id(&#34;eni-01234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6684,10 +8071,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6695,9 +8089,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .id(&#34;eni-01234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6714,10 +8108,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6725,9 +8126,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .id(&#34;eni-01234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6744,10 +8145,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6755,9 +8163,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .id(&#34;eni-01234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6774,10 +8182,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6785,9 +8200,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .id(&#34;eni-01234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6804,10 +8219,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6815,9 +8237,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bar = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *         final var bar = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
      *             .id(&#34;eni-01234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -6834,10 +8256,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6845,9 +8274,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces());
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -6856,10 +8285,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6867,11 +8303,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -6881,10 +8317,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6892,14 +8335,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name(&#34;subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -6915,10 +8358,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6926,9 +8376,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces());
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -6937,10 +8387,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6948,11 +8405,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -6962,10 +8419,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -6973,14 +8437,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name(&#34;subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -6996,10 +8460,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7007,9 +8478,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces());
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7018,10 +8489,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7029,11 +8507,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7043,10 +8521,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7054,14 +8539,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name(&#34;subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7077,10 +8562,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7088,9 +8580,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces());
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7099,10 +8591,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7110,11 +8609,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7124,10 +8623,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7135,14 +8641,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name(&#34;subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7158,10 +8664,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7169,9 +8682,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces());
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7180,10 +8693,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7191,11 +8711,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7205,10 +8725,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7216,14 +8743,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name(&#34;subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7239,10 +8766,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7250,9 +8784,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces());
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces();
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7261,10 +8795,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7272,11 +8813,11 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var example = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .tags(Map.of(&#34;Name&#34;, &#34;test&#34;))
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example1&#34;, example.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example1&#34;, example.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7286,10 +8827,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfacesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7297,14 +8845,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleNetworkInterfaces = Output.of(Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
+     *         final var exampleNetworkInterfaces = Ec2Functions.getNetworkInterfaces(GetNetworkInterfacesArgs.builder()
      *             .filters(GetNetworkInterfacesFilterArgs.builder()
      *                 .name(&#34;subnet-id&#34;)
      *                 .values(aws_subnet.test().id())
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.apply(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
+     *         ctx.export(&#34;example&#34;, exampleNetworkInterfaces.applyValue(getNetworkInterfacesResult -&gt; getNetworkInterfacesResult.ids()));
      *     }
      * }
      * ```
@@ -7318,10 +8866,23 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7348,7 +8909,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -7360,10 +8921,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7371,12 +8939,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -7391,10 +8959,23 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7421,7 +9002,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -7433,10 +9014,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7444,12 +9032,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -7464,10 +9052,23 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7494,7 +9095,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -7506,10 +9107,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7517,12 +9125,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -7537,10 +9145,23 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7567,7 +9188,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -7579,10 +9200,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7590,12 +9218,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -7610,10 +9238,23 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7640,7 +9281,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -7652,10 +9293,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7663,12 +9311,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -7683,10 +9331,23 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import com.pulumi.aws.ec2.NetworkAcl;
+     * import com.pulumi.aws.ec2.NetworkAclArgs;
+     * import com.pulumi.aws.ec2.NetworkAclRule;
+     * import com.pulumi.aws.ec2.NetworkAclRuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7713,7 +9374,7 @@ public final class Ec2Functions {
      *             .egress(false)
      *             .protocol(&#34;tcp&#34;)
      *             .ruleAction(&#34;allow&#34;)
-     *             .cidrBlock(privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult).apply(privateS3PrefixList -&gt; privateS3PrefixList.apply(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
+     *             .cidrBlock(privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult).applyValue(privateS3PrefixList -&gt; privateS3PrefixList.applyValue(getPrefixListResult -&gt; getPrefixListResult.cidrBlocks()[0])))
      *             .fromPort(443)
      *             .toPort(443)
      *             .build());
@@ -7725,10 +9386,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetPrefixListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7736,12 +9404,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
+     *         final var test = Ec2Functions.getPrefixList(GetPrefixListArgs.builder()
      *             .filters(GetPrefixListFilterArgs.builder()
      *                 .name(&#34;prefix-list-id&#34;)
      *                 .values(&#34;pl-68a54001&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -7762,10 +9430,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7775,18 +9452,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var route = Output.of(Ec2Functions.getRoute(GetRouteArgs.builder()
+     *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
      *             .routeTableId(aws_route_table.selected().id())
      *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var interface = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.apply(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
-     *             .build()));
+     *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
+     *             .build());
      * 
      *     }
      * }
@@ -7807,10 +9484,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7820,18 +9506,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var route = Output.of(Ec2Functions.getRoute(GetRouteArgs.builder()
+     *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
      *             .routeTableId(aws_route_table.selected().id())
      *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var interface = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.apply(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
-     *             .build()));
+     *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
+     *             .build());
      * 
      *     }
      * }
@@ -7852,10 +9538,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7865,18 +9560,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var route = Output.of(Ec2Functions.getRoute(GetRouteArgs.builder()
+     *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
      *             .routeTableId(aws_route_table.selected().id())
      *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var interface = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.apply(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
-     *             .build()));
+     *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
+     *             .build());
      * 
      *     }
      * }
@@ -7897,10 +9592,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.inputs.GetRouteArgs;
+     * import com.pulumi.aws.ec2.inputs.GetNetworkInterfaceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7910,18 +9614,18 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var route = Output.of(Ec2Functions.getRoute(GetRouteArgs.builder()
+     *         final var route = Ec2Functions.getRoute(GetRouteArgs.builder()
      *             .routeTableId(aws_route_table.selected().id())
      *             .destinationCidrBlock(&#34;10.0.1.0/24&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var interface = Output.of(Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
-     *             .id(route.apply(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
-     *             .build()));
+     *         final var interface = Ec2Functions.getNetworkInterface(GetNetworkInterfaceArgs.builder()
+     *             .id(route.applyValue(getRouteResult -&gt; getRouteResult.networkInterfaceId()))
+     *             .build());
      * 
      *     }
      * }
@@ -7942,10 +9646,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7955,12 +9668,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.apply(getRouteTableResult -&gt; getRouteTableResult.id()))
+     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
      *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
      *             .build());
@@ -7984,10 +9697,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -7997,12 +9719,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.apply(getRouteTableResult -&gt; getRouteTableResult.id()))
+     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
      *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
      *             .build());
@@ -8026,10 +9748,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8039,12 +9770,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.apply(getRouteTableResult -&gt; getRouteTableResult.id()))
+     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
      *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
      *             .build());
@@ -8068,10 +9799,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8081,12 +9821,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.apply(getRouteTableResult -&gt; getRouteTableResult.id()))
+     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
      *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
      *             .build());
@@ -8110,10 +9850,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8123,12 +9872,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.apply(getRouteTableResult -&gt; getRouteTableResult.id()))
+     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
      *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
      *             .build());
@@ -8152,10 +9901,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetRouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8165,12 +9923,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
+     *         final var selected = Ec2Functions.getRouteTable(GetRouteTableArgs.builder()
      *             .subnetId(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
-     *             .routeTableId(selected.apply(getRouteTableResult -&gt; getRouteTableResult.id()))
+     *             .routeTableId(selected.applyValue(getRouteTableResult -&gt; getRouteTableResult.id()))
      *             .destinationCidrBlock(&#34;10.0.1.0/22&#34;)
      *             .vpcPeeringConnectionId(&#34;pcx-45ff3dc1&#34;)
      *             .build());
@@ -8239,10 +9997,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8252,12 +10019,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
+     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.apply(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
      *             .cidrBlock(&#34;10.0.1.0/24&#34;)
      *             .build());
      * 
@@ -8283,10 +10050,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8296,12 +10072,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
+     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.apply(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
      *             .cidrBlock(&#34;10.0.1.0/24&#34;)
      *             .build());
      * 
@@ -8327,10 +10103,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8340,12 +10125,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
+     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.apply(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
      *             .cidrBlock(&#34;10.0.1.0/24&#34;)
      *             .build());
      * 
@@ -8371,10 +10156,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8384,12 +10178,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
+     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.apply(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
      *             .cidrBlock(&#34;10.0.1.0/24&#34;)
      *             .build());
      * 
@@ -8415,10 +10209,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8428,12 +10231,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
+     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.apply(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
      *             .cidrBlock(&#34;10.0.1.0/24&#34;)
      *             .build());
      * 
@@ -8459,10 +10262,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupArgs;
+     * import com.pulumi.aws.ec2.Subnet;
+     * import com.pulumi.aws.ec2.SubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8472,12 +10284,12 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var securityGroupId = config.get(&#34;securityGroupId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
+     *         final var selected = Ec2Functions.getSecurityGroup(GetSecurityGroupArgs.builder()
      *             .id(securityGroupId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
-     *             .vpcId(selected.apply(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSecurityGroupResult -&gt; getSecurityGroupResult.vpcId()))
      *             .cidrBlock(&#34;10.0.1.0/24&#34;)
      *             .build());
      * 
@@ -8497,10 +10309,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8508,12 +10327,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
      *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
      *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
      *             ))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8521,10 +10340,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8532,7 +10358,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
      *                     .name(&#34;group-name&#34;)
@@ -8542,7 +10368,7 @@ public final class Ec2Functions {
      *                     .name(&#34;vpc-id&#34;)
      *                     .values(var_.vpc_id())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8560,10 +10386,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8571,12 +10404,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
      *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
      *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
      *             ))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8584,10 +10417,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8595,7 +10435,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
      *                     .name(&#34;group-name&#34;)
@@ -8605,7 +10445,7 @@ public final class Ec2Functions {
      *                     .name(&#34;vpc-id&#34;)
      *                     .values(var_.vpc_id())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8623,10 +10463,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8634,12 +10481,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
      *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
      *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
      *             ))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8647,10 +10494,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8658,7 +10512,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
      *                     .name(&#34;group-name&#34;)
@@ -8668,7 +10522,7 @@ public final class Ec2Functions {
      *                     .name(&#34;vpc-id&#34;)
      *                     .values(var_.vpc_id())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8686,10 +10540,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8697,12 +10558,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
      *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
      *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
      *             ))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8710,10 +10571,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8721,7 +10589,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
      *                     .name(&#34;group-name&#34;)
@@ -8731,7 +10599,7 @@ public final class Ec2Functions {
      *                     .name(&#34;vpc-id&#34;)
      *                     .values(var_.vpc_id())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8749,10 +10617,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8760,12 +10635,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
      *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
      *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
      *             ))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8773,10 +10648,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8784,7 +10666,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
      *                     .name(&#34;group-name&#34;)
@@ -8794,7 +10676,7 @@ public final class Ec2Functions {
      *                     .name(&#34;vpc-id&#34;)
      *                     .values(var_.vpc_id())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8812,10 +10694,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8823,12 +10712,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .tags(Map.ofEntries(
      *                 Map.entry(&#34;Application&#34;, &#34;k8s&#34;),
      *                 Map.entry(&#34;Environment&#34;, &#34;dev&#34;)
      *             ))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8836,10 +10725,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSecurityGroupsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -8847,7 +10743,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
+     *         final var test = Ec2Functions.getSecurityGroups(GetSecurityGroupsArgs.builder()
      *             .filters(            
      *                 GetSecurityGroupsFilterArgs.builder()
      *                     .name(&#34;group-name&#34;)
@@ -8857,7 +10753,7 @@ public final class Ec2Functions {
      *                     .name(&#34;vpc-id&#34;)
      *                     .values(var_.vpc_id())
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -8871,25 +10767,6 @@ public final class Ec2Functions {
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(Ec2Functions.getSerialConsoleAccess());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess() {
@@ -8899,25 +10776,6 @@ public final class Ec2Functions {
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(Ec2Functions.getSerialConsoleAccess());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain() {
@@ -8927,25 +10785,6 @@ public final class Ec2Functions {
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(Ec2Functions.getSerialConsoleAccess());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(InvokeArgs args) {
@@ -8955,25 +10794,6 @@ public final class Ec2Functions {
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(Ec2Functions.getSerialConsoleAccess());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(InvokeArgs args) {
@@ -8983,25 +10803,6 @@ public final class Ec2Functions {
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(Ec2Functions.getSerialConsoleAccess());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetSerialConsoleAccessResult> getSerialConsoleAccess(InvokeArgs args, InvokeOptions options) {
@@ -9011,25 +10812,6 @@ public final class Ec2Functions {
      * Provides a way to check whether serial console access is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(Ec2Functions.getSerialConsoleAccess());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetSerialConsoleAccessResult> getSerialConsoleAccessPlain(InvokeArgs args, InvokeOptions options) {
@@ -9042,10 +10824,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9053,14 +10842,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
+     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
      *             .availabilityZone(&#34;us-west-2a&#34;)
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name(&#34;product-description&#34;)
      *                 .values(&#34;Linux/UNIX&#34;)
      *                 .build())
      *             .instanceType(&#34;t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9077,10 +10866,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9088,14 +10884,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
+     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
      *             .availabilityZone(&#34;us-west-2a&#34;)
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name(&#34;product-description&#34;)
      *                 .values(&#34;Linux/UNIX&#34;)
      *                 .build())
      *             .instanceType(&#34;t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9112,10 +10908,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9123,14 +10926,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
+     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
      *             .availabilityZone(&#34;us-west-2a&#34;)
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name(&#34;product-description&#34;)
      *                 .values(&#34;Linux/UNIX&#34;)
      *                 .build())
      *             .instanceType(&#34;t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9147,10 +10950,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9158,14 +10968,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
+     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
      *             .availabilityZone(&#34;us-west-2a&#34;)
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name(&#34;product-description&#34;)
      *                 .values(&#34;Linux/UNIX&#34;)
      *                 .build())
      *             .instanceType(&#34;t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9182,10 +10992,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9193,14 +11010,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
+     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
      *             .availabilityZone(&#34;us-west-2a&#34;)
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name(&#34;product-description&#34;)
      *                 .values(&#34;Linux/UNIX&#34;)
      *                 .build())
      *             .instanceType(&#34;t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9217,10 +11034,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSpotPriceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9228,14 +11052,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
+     *         final var example = Ec2Functions.getSpotPrice(GetSpotPriceArgs.builder()
      *             .availabilityZone(&#34;us-west-2a&#34;)
      *             .filters(GetSpotPriceFilterArgs.builder()
      *                 .name(&#34;product-description&#34;)
      *                 .values(&#34;Linux/UNIX&#34;)
      *                 .build())
      *             .instanceType(&#34;t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9256,10 +11080,20 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9269,14 +11103,14 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.apply(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.apply(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol(&#34;tcp&#34;)
@@ -9292,10 +11126,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9303,12 +11144,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;yakdriver&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9329,10 +11170,20 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9342,14 +11193,14 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.apply(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.apply(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol(&#34;tcp&#34;)
@@ -9365,10 +11216,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9376,12 +11234,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;yakdriver&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9402,10 +11260,20 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9415,14 +11283,14 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.apply(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.apply(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol(&#34;tcp&#34;)
@@ -9438,10 +11306,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9449,12 +11324,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;yakdriver&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9475,10 +11350,20 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9488,14 +11373,14 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.apply(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.apply(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol(&#34;tcp&#34;)
@@ -9511,10 +11396,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9522,12 +11414,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;yakdriver&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9548,10 +11440,20 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9561,14 +11463,14 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.apply(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.apply(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol(&#34;tcp&#34;)
@@ -9584,10 +11486,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9595,12 +11504,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;yakdriver&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9621,10 +11530,20 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import com.pulumi.aws.ec2.SecurityGroup;
+     * import com.pulumi.aws.ec2.SecurityGroupArgs;
+     * import com.pulumi.aws.ec2.inputs.SecurityGroupIngressArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9634,14 +11553,14 @@ public final class Ec2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var subnetId = config.get(&#34;subnetId&#34;);
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .id(subnetId)
-     *             .build()));
+     *             .build());
      * 
      *         var subnet = new SecurityGroup(&#34;subnet&#34;, SecurityGroupArgs.builder()        
-     *             .vpcId(selected.apply(getSubnetResult -&gt; getSubnetResult.vpcId()))
+     *             .vpcId(selected.applyValue(getSubnetResult -&gt; getSubnetResult.vpcId()))
      *             .ingress(SecurityGroupIngressArgs.builder()
-     *                 .cidrBlocks(selected.apply(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
+     *                 .cidrBlocks(selected.applyValue(getSubnetResult -&gt; getSubnetResult.cidrBlock()))
      *                 .fromPort(80)
      *                 .toPort(80)
      *                 .protocol(&#34;tcp&#34;)
@@ -9657,10 +11576,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetSubnetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9668,12 +11594,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getSubnet(GetSubnetArgs.builder()
+     *         final var selected = Ec2Functions.getSubnet(GetSubnetArgs.builder()
      *             .filters(GetSubnetFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;yakdriver&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -9778,10 +11704,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9789,7 +11722,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Output.of(Ec2Functions.getTransitGatewayRouteTables());
+     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
      *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
      *     }
@@ -9809,10 +11742,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9820,7 +11760,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Output.of(Ec2Functions.getTransitGatewayRouteTables());
+     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
      *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
      *     }
@@ -9840,10 +11780,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9851,7 +11798,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Output.of(Ec2Functions.getTransitGatewayRouteTables());
+     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
      *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
      *     }
@@ -9871,10 +11818,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9882,7 +11836,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Output.of(Ec2Functions.getTransitGatewayRouteTables());
+     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
      *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
      *     }
@@ -9902,10 +11856,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9913,7 +11874,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Output.of(Ec2Functions.getTransitGatewayRouteTables());
+     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
      *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
      *     }
@@ -9933,10 +11894,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetTransitGatewayRouteTablesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -9944,7 +11912,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleTransitGatewayRouteTables = Output.of(Ec2Functions.getTransitGatewayRouteTables());
+     *         final var exampleTransitGatewayRouteTables = Ec2Functions.getTransitGatewayRouteTables();
      * 
      *         ctx.export(&#34;example&#34;, data.aws_ec2_transit_gateway_route_table().example().ids());
      *     }
@@ -10029,10 +11997,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10040,9 +12015,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10051,10 +12026,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10062,7 +12044,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
      *                     .name(&#34;key&#34;)
@@ -10072,7 +12054,7 @@ public final class Ec2Functions {
      *                     .name(&#34;value&#34;)
      *                     .values(&#34;example.com&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10090,10 +12072,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10101,9 +12090,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10112,10 +12101,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10123,7 +12119,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
      *                     .name(&#34;key&#34;)
@@ -10133,7 +12129,7 @@ public final class Ec2Functions {
      *                     .name(&#34;value&#34;)
      *                     .values(&#34;example.com&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10151,10 +12147,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10162,9 +12165,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10173,10 +12176,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10184,7 +12194,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
      *                     .name(&#34;key&#34;)
@@ -10194,7 +12204,7 @@ public final class Ec2Functions {
      *                     .name(&#34;value&#34;)
      *                     .values(&#34;example.com&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10212,10 +12222,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10223,9 +12240,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10234,10 +12251,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10245,7 +12269,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
      *                     .name(&#34;key&#34;)
@@ -10255,7 +12279,7 @@ public final class Ec2Functions {
      *                     .name(&#34;value&#34;)
      *                     .values(&#34;example.com&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10273,10 +12297,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10284,9 +12315,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10295,10 +12326,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10306,7 +12344,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
      *                     .name(&#34;key&#34;)
@@ -10316,7 +12354,7 @@ public final class Ec2Functions {
      *                     .name(&#34;value&#34;)
      *                     .values(&#34;example.com&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10334,10 +12372,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10345,9 +12390,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .dhcpOptionsId(&#34;dopts-12345678&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10356,10 +12401,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcDhcpOptionsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10367,7 +12419,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
+     *         final var example = Ec2Functions.getVpcDhcpOptions(GetVpcDhcpOptionsArgs.builder()
      *             .filters(            
      *                 GetVpcDhcpOptionsFilterArgs.builder()
      *                     .name(&#34;key&#34;)
@@ -10377,7 +12429,7 @@ public final class Ec2Functions {
      *                     .name(&#34;value&#34;)
      *                     .values(&#34;example.com&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10395,10 +12447,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10406,13 +12467,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.apply(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
      *             .routeTableId(aws_route_table.private().id())
      *             .build());
      * 
@@ -10432,10 +12493,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10443,13 +12513,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.apply(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
      *             .routeTableId(aws_route_table.private().id())
      *             .build());
      * 
@@ -10469,10 +12539,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10480,13 +12559,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.apply(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
      *             .routeTableId(aws_route_table.private().id())
      *             .build());
      * 
@@ -10506,10 +12585,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10517,13 +12605,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.apply(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
      *             .routeTableId(aws_route_table.private().id())
      *             .build());
      * 
@@ -10543,10 +12631,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10554,13 +12651,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.apply(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
      *             .routeTableId(aws_route_table.private().id())
      *             .build());
      * 
@@ -10580,10 +12677,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointArgs;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociation;
+     * import com.pulumi.aws.ec2.VpcEndpointRouteTableAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10591,13 +12697,13 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpoint(GetVpcEndpointArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .serviceName(&#34;com.amazonaws.us-west-2.s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var privateS3 = new VpcEndpointRouteTableAssociation(&#34;privateS3&#34;, VpcEndpointRouteTableAssociationArgs.builder()        
-     *             .vpcEndpointId(s3.apply(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
+     *             .vpcEndpointId(s3.applyValue(getVpcEndpointResult -&gt; getVpcEndpointResult.id()))
      *             .routeTableId(aws_route_table.private().id())
      *             .build());
      * 
@@ -10618,10 +12724,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10629,10 +12746,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
@@ -10640,7 +12757,7 @@ public final class Ec2Functions {
      * 
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.apply(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
@@ -10650,10 +12767,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10661,9 +12785,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var custome = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10672,10 +12796,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10683,12 +12814,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
      *                 .name(&#34;service-name&#34;)
      *                 .values(&#34;some-service&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10707,10 +12838,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10718,10 +12860,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
@@ -10729,7 +12871,7 @@ public final class Ec2Functions {
      * 
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.apply(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
@@ -10739,10 +12881,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10750,9 +12899,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var custome = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10761,10 +12910,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10772,12 +12928,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
      *                 .name(&#34;service-name&#34;)
      *                 .values(&#34;some-service&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10796,10 +12952,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10807,10 +12974,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
@@ -10818,7 +12985,7 @@ public final class Ec2Functions {
      * 
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.apply(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
@@ -10828,10 +12995,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10839,9 +13013,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var custome = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10850,10 +13024,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10861,12 +13042,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
      *                 .name(&#34;service-name&#34;)
      *                 .values(&#34;some-service&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10885,10 +13066,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10896,10 +13088,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
@@ -10907,7 +13099,7 @@ public final class Ec2Functions {
      * 
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.apply(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
@@ -10917,10 +13109,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10928,9 +13127,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var custome = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10939,10 +13138,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10950,12 +13156,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
      *                 .name(&#34;service-name&#34;)
      *                 .values(&#34;some-service&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -10974,10 +13180,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -10985,10 +13202,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
@@ -10996,7 +13213,7 @@ public final class Ec2Functions {
      * 
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.apply(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
@@ -11006,10 +13223,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11017,9 +13241,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var custome = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -11028,10 +13252,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11039,12 +13270,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
      *                 .name(&#34;service-name&#34;)
      *                 .values(&#34;some-service&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -11063,10 +13294,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import com.pulumi.aws.ec2.VpcEndpoint;
+     * import com.pulumi.aws.ec2.VpcEndpointArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11074,10 +13316,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var s3 = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .service(&#34;s3&#34;)
      *             .serviceType(&#34;Gateway&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var foo = new Vpc(&#34;foo&#34;, VpcArgs.builder()        
      *             .cidrBlock(&#34;10.0.0.0/16&#34;)
@@ -11085,7 +13327,7 @@ public final class Ec2Functions {
      * 
      *         var ep = new VpcEndpoint(&#34;ep&#34;, VpcEndpointArgs.builder()        
      *             .vpcId(foo.id())
-     *             .serviceName(s3.apply(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
+     *             .serviceName(s3.applyValue(getVpcEndpointServiceResult -&gt; getVpcEndpointServiceResult.serviceName()))
      *             .build());
      * 
      *     }
@@ -11095,10 +13337,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11106,9 +13355,9 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var custome = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var custome = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .serviceName(&#34;com.amazonaws.vpce.us-west-2.vpce-svc-0e87519c997c63cd8&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -11117,10 +13366,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcEndpointServiceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11128,12 +13384,12 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
+     *         final var test = Ec2Functions.getVpcEndpointService(GetVpcEndpointServiceArgs.builder()
      *             .filters(GetVpcEndpointServiceFilterArgs.builder()
      *                 .name(&#34;service-name&#34;)
      *                 .values(&#34;some-service&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -11158,10 +13414,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11169,7 +13434,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Output.of(Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
@@ -11179,10 +13444,10 @@ public final class Ec2Functions {
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.apply(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -11209,10 +13474,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11220,7 +13494,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Output.of(Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
@@ -11230,10 +13504,10 @@ public final class Ec2Functions {
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.apply(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -11260,10 +13534,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11271,7 +13554,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Output.of(Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
@@ -11281,10 +13564,10 @@ public final class Ec2Functions {
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.apply(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -11311,10 +13594,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11322,7 +13614,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Output.of(Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
@@ -11332,10 +13624,10 @@ public final class Ec2Functions {
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.apply(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -11362,10 +13654,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11373,7 +13674,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Output.of(Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
@@ -11383,10 +13684,10 @@ public final class Ec2Functions {
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.apply(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -11413,10 +13714,19 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcIamPoolArgs;
+     * import com.pulumi.aws.ec2.Vpc;
+     * import com.pulumi.aws.ec2.VpcArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11424,7 +13734,7 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var testVpcIamPool = Output.of(Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
+     *         final var testVpcIamPool = Ec2Functions.getVpcIamPool(GetVpcIamPoolArgs.builder()
      *             .filters(            
      *                 GetVpcIamPoolFilterArgs.builder()
      *                     .name(&#34;description&#34;)
@@ -11434,10 +13744,10 @@ public final class Ec2Functions {
      *                     .name(&#34;address-family&#34;)
      *                     .values(&#34;ipv4&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var testVpc = new Vpc(&#34;testVpc&#34;, VpcArgs.builder()        
-     *             .ipv4IpamPoolId(testVpcIamPool.apply(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
+     *             .ipv4IpamPoolId(testVpcIamPool.applyValue(getVpcIamPoolResult -&gt; getVpcIamPoolResult.id()))
      *             .ipv4NetmaskLength(28)
      *             .build());
      * 
@@ -11457,10 +13767,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
+     * import com.pulumi.aws.ec2.RouteTable;
+     * import com.pulumi.aws.ec2.RouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11468,10 +13789,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pc = Output.of(Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
+     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(aws_vpc.foo().id())
@@ -11479,8 +13800,8 @@ public final class Ec2Functions {
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
@@ -11499,10 +13820,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
+     * import com.pulumi.aws.ec2.RouteTable;
+     * import com.pulumi.aws.ec2.RouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11510,10 +13842,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pc = Output.of(Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
+     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(aws_vpc.foo().id())
@@ -11521,8 +13853,8 @@ public final class Ec2Functions {
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
@@ -11541,10 +13873,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
+     * import com.pulumi.aws.ec2.RouteTable;
+     * import com.pulumi.aws.ec2.RouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11552,10 +13895,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pc = Output.of(Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
+     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(aws_vpc.foo().id())
@@ -11563,8 +13906,8 @@ public final class Ec2Functions {
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
@@ -11583,10 +13926,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
+     * import com.pulumi.aws.ec2.RouteTable;
+     * import com.pulumi.aws.ec2.RouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11594,10 +13948,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pc = Output.of(Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
+     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(aws_vpc.foo().id())
@@ -11605,8 +13959,8 @@ public final class Ec2Functions {
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
@@ -11625,10 +13979,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
+     * import com.pulumi.aws.ec2.RouteTable;
+     * import com.pulumi.aws.ec2.RouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11636,10 +14001,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pc = Output.of(Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
+     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(aws_vpc.foo().id())
@@ -11647,8 +14012,8 @@ public final class Ec2Functions {
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
@@ -11667,10 +14032,21 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpcPeeringConnectionArgs;
+     * import com.pulumi.aws.ec2.RouteTable;
+     * import com.pulumi.aws.ec2.RouteTableArgs;
+     * import com.pulumi.aws.ec2.Route;
+     * import com.pulumi.aws.ec2.RouteArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11678,10 +14054,10 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var pc = Output.of(Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
+     *         final var pc = Ec2Functions.getVpcPeeringConnection(GetVpcPeeringConnectionArgs.builder()
      *             .vpcId(aws_vpc.foo().id())
      *             .peerCidrBlock(&#34;10.0.1.0/22&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var rt = new RouteTable(&#34;rt&#34;, RouteTableArgs.builder()        
      *             .vpcId(aws_vpc.foo().id())
@@ -11689,8 +14065,8 @@ public final class Ec2Functions {
      * 
      *         var route = new Route(&#34;route&#34;, RouteArgs.builder()        
      *             .routeTableId(rt.id())
-     *             .destinationCidrBlock(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
-     *             .vpcPeeringConnectionId(pc.apply(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
+     *             .destinationCidrBlock(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.peerCidrBlock()))
+     *             .vpcPeeringConnectionId(pc.applyValue(getVpcPeeringConnectionResult -&gt; getVpcPeeringConnectionResult.id()))
      *             .build());
      * 
      *     }
@@ -11811,10 +14187,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11822,14 +14205,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;vpn-gw&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```
@@ -11846,10 +14229,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11857,14 +14247,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;vpn-gw&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```
@@ -11881,10 +14271,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11892,14 +14289,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;vpn-gw&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```
@@ -11916,10 +14313,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11927,14 +14331,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;vpn-gw&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```
@@ -11951,10 +14355,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11962,14 +14373,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;vpn-gw&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```
@@ -11986,10 +14397,17 @@ public final class Ec2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ec2.Ec2Functions;
+     * import com.pulumi.aws.ec2.inputs.GetVpnGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -11997,14 +14415,14 @@ public final class Ec2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
+     *         final var selected = Ec2Functions.getVpnGateway(GetVpnGatewayArgs.builder()
      *             .filters(GetVpnGatewayFilterArgs.builder()
      *                 .name(&#34;tag:Name&#34;)
      *                 .values(&#34;vpn-gw&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;vpnGatewayId&#34;, selected.apply(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
+     *         ctx.export(&#34;vpnGatewayId&#34;, selected.applyValue(getVpnGatewayResult -&gt; getVpnGatewayResult.id()));
      *     }
      * }
      * ```

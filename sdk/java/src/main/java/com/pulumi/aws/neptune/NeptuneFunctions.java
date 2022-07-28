@@ -24,10 +24,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -35,12 +42,12 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;1.0.3.0&#34;,
      *                 &#34;1.0.2.2&#34;,
      *                 &#34;1.0.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -57,10 +64,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,12 +82,12 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;1.0.3.0&#34;,
      *                 &#34;1.0.2.2&#34;,
      *                 &#34;1.0.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -90,10 +104,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,12 +122,12 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;1.0.3.0&#34;,
      *                 &#34;1.0.2.2&#34;,
      *                 &#34;1.0.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +144,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,12 +162,12 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;1.0.3.0&#34;,
      *                 &#34;1.0.2.2&#34;,
      *                 &#34;1.0.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -156,10 +184,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -167,12 +202,12 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;1.0.3.0&#34;,
      *                 &#34;1.0.2.2&#34;,
      *                 &#34;1.0.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -189,10 +224,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetEngineVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -200,12 +242,12 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
+     *         final var test = NeptuneFunctions.getEngineVersion(GetEngineVersionArgs.builder()
      *             .preferredVersions(            
      *                 &#34;1.0.3.0&#34;,
      *                 &#34;1.0.2.2&#34;,
      *                 &#34;1.0.2.1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -222,10 +264,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -233,13 +282,13 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engineVersion(&#34;1.0.3.0&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r5.large&#34;,
      *                 &#34;db.r4.large&#34;,
      *                 &#34;db.t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -256,10 +305,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -267,13 +323,13 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engineVersion(&#34;1.0.3.0&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r5.large&#34;,
      *                 &#34;db.r4.large&#34;,
      *                 &#34;db.t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -290,10 +346,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -301,13 +364,13 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engineVersion(&#34;1.0.3.0&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r5.large&#34;,
      *                 &#34;db.r4.large&#34;,
      *                 &#34;db.t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -324,10 +387,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -335,13 +405,13 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engineVersion(&#34;1.0.3.0&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r5.large&#34;,
      *                 &#34;db.r4.large&#34;,
      *                 &#34;db.t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -358,10 +428,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -369,13 +446,13 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engineVersion(&#34;1.0.3.0&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r5.large&#34;,
      *                 &#34;db.r4.large&#34;,
      *                 &#34;db.t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -392,10 +469,17 @@ public final class NeptuneFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.neptune.NeptuneFunctions;
+     * import com.pulumi.aws.docdb.inputs.GetOrderableDbInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -403,13 +487,13 @@ public final class NeptuneFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
+     *         final var test = NeptuneFunctions.getOrderableDbInstance(GetOrderableDbInstanceArgs.builder()
      *             .engineVersion(&#34;1.0.3.0&#34;)
      *             .preferredInstanceClasses(            
      *                 &#34;db.r5.large&#34;,
      *                 &#34;db.r4.large&#34;,
      *                 &#34;db.t3.medium&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

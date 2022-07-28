@@ -27,10 +27,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.cloudwatch.MetricStream;
+ * import com.pulumi.aws.cloudwatch.MetricStreamArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricStreamIncludeFilterArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -99,7 +117,7 @@ import javax.annotation.Nullable;
  * 
  *         var metricStreamToFirehoseRolePolicy = new RolePolicy(&#34;metricStreamToFirehoseRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(metricStreamToFirehoseRole.id())
- *             .policy(s3Stream.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .policy(s3Stream.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *     &#34;Version&#34;: &#34;2012-10-17&#34;,
  *     &#34;Statement&#34;: [
@@ -123,7 +141,7 @@ import javax.annotation.Nullable;
  * 
  *         var firehoseToS3RolePolicy = new RolePolicy(&#34;firehoseToS3RolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(firehoseToS3Role.id())
- *             .policy(Output.tuple(bucket.arn(), bucket.arn()).apply(values -&gt; {
+ *             .policy(Output.tuple(bucket.arn(), bucket.arn()).applyValue(values -&gt; {
  *                 var bucketArn = values.t1;
  *                 var bucketArn1 = values.t2;
  *                 return &#34;&#34;&#34;
@@ -158,10 +176,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.MetricStream;
+ * import com.pulumi.aws.cloudwatch.MetricStreamArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricStreamStatisticsConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

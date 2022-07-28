@@ -4,6 +4,8 @@
 package com.pulumi.aws.s3;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
+import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectPlainArgs;
@@ -16,6 +18,7 @@ import com.pulumi.aws.s3.inputs.GetObjectArgs;
 import com.pulumi.aws.s3.inputs.GetObjectPlainArgs;
 import com.pulumi.aws.s3.inputs.GetObjectsArgs;
 import com.pulumi.aws.s3.inputs.GetObjectsPlainArgs;
+import com.pulumi.aws.s3.outputs.GetAccountPublicAccessBlockResult;
 import com.pulumi.aws.s3.outputs.GetBucketObjectResult;
 import com.pulumi.aws.s3.outputs.GetBucketObjectsResult;
 import com.pulumi.aws.s3.outputs.GetBucketPolicyResult;
@@ -32,6 +35,216 @@ import java.util.concurrent.CompletableFuture;
 
 public final class S3Functions {
     /**
+     * The S3 account public access block data source returns account-level public access block configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlock() {
+        return getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * The S3 account public access block data source returns account-level public access block configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlockPlain() {
+        return getAccountPublicAccessBlockPlain(GetAccountPublicAccessBlockPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * The S3 account public access block data source returns account-level public access block configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs args) {
+        return getAccountPublicAccessBlock(args, InvokeOptions.Empty);
+    }
+    /**
+     * The S3 account public access block data source returns account-level public access block configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlockPlain(GetAccountPublicAccessBlockPlainArgs args) {
+        return getAccountPublicAccessBlockPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * The S3 account public access block data source returns account-level public access block configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", TypeShape.of(GetAccountPublicAccessBlockResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * The S3 account public access block data source returns account-level public access block configuration.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getAccountPublicAccessBlock();
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlockPlain(GetAccountPublicAccessBlockPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", TypeShape.of(GetAccountPublicAccessBlockResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Provides details about a specific S3 bucket.
      * 
      * This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
@@ -42,10 +255,22 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -53,21 +278,21 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+     *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
      *             .bucket(&#34;bucket.test.com&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var testZone = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var testZone = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Record(&#34;example&#34;, RecordArgs.builder()        
-     *             .zoneId(testZone.apply(getZoneResult -&gt; getZoneResult.id()))
+     *             .zoneId(testZone.applyValue(getZoneResult -&gt; getZoneResult.id()))
      *             .name(&#34;bucket&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.apply(getBucketResult -&gt; getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.apply(getBucketResult -&gt; getBucketResult.hostedZoneId()))
+     *                 .name(selected.applyValue(getBucketResult -&gt; getBucketResult.websiteDomain()))
+     *                 .zoneId(selected.applyValue(getBucketResult -&gt; getBucketResult.hostedZoneId()))
      *                 .build())
      *             .build());
      * 
@@ -78,10 +303,20 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+     * import com.pulumi.aws.cloudfront.Distribution;
+     * import com.pulumi.aws.cloudfront.DistributionArgs;
+     * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -89,13 +324,13 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+     *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
      *             .bucket(&#34;a-test-bucket&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var test = new Distribution(&#34;test&#34;, DistributionArgs.builder()        
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.apply(getBucketResult -&gt; getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.applyValue(getBucketResult -&gt; getBucketResult.bucketDomainName()))
      *                 .originId(&#34;s3-selected-bucket&#34;)
      *                 .build())
      *             .build());
@@ -119,10 +354,22 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -130,21 +377,21 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+     *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
      *             .bucket(&#34;bucket.test.com&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var testZone = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var testZone = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Record(&#34;example&#34;, RecordArgs.builder()        
-     *             .zoneId(testZone.apply(getZoneResult -&gt; getZoneResult.id()))
+     *             .zoneId(testZone.applyValue(getZoneResult -&gt; getZoneResult.id()))
      *             .name(&#34;bucket&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.apply(getBucketResult -&gt; getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.apply(getBucketResult -&gt; getBucketResult.hostedZoneId()))
+     *                 .name(selected.applyValue(getBucketResult -&gt; getBucketResult.websiteDomain()))
+     *                 .zoneId(selected.applyValue(getBucketResult -&gt; getBucketResult.hostedZoneId()))
      *                 .build())
      *             .build());
      * 
@@ -155,10 +402,20 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+     * import com.pulumi.aws.cloudfront.Distribution;
+     * import com.pulumi.aws.cloudfront.DistributionArgs;
+     * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -166,13 +423,13 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+     *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
      *             .bucket(&#34;a-test-bucket&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var test = new Distribution(&#34;test&#34;, DistributionArgs.builder()        
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.apply(getBucketResult -&gt; getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.applyValue(getBucketResult -&gt; getBucketResult.bucketDomainName()))
      *                 .originId(&#34;s3-selected-bucket&#34;)
      *                 .build())
      *             .build());
@@ -196,10 +453,22 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -207,21 +476,21 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+     *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
      *             .bucket(&#34;bucket.test.com&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var testZone = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var testZone = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Record(&#34;example&#34;, RecordArgs.builder()        
-     *             .zoneId(testZone.apply(getZoneResult -&gt; getZoneResult.id()))
+     *             .zoneId(testZone.applyValue(getZoneResult -&gt; getZoneResult.id()))
      *             .name(&#34;bucket&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.apply(getBucketResult -&gt; getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.apply(getBucketResult -&gt; getBucketResult.hostedZoneId()))
+     *                 .name(selected.applyValue(getBucketResult -&gt; getBucketResult.websiteDomain()))
+     *                 .zoneId(selected.applyValue(getBucketResult -&gt; getBucketResult.hostedZoneId()))
      *                 .build())
      *             .build());
      * 
@@ -232,10 +501,20 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+     * import com.pulumi.aws.cloudfront.Distribution;
+     * import com.pulumi.aws.cloudfront.DistributionArgs;
+     * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -243,13 +522,13 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+     *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
      *             .bucket(&#34;a-test-bucket&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var test = new Distribution(&#34;test&#34;, DistributionArgs.builder()        
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.apply(getBucketResult -&gt; getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.applyValue(getBucketResult -&gt; getBucketResult.bucketDomainName()))
      *                 .originId(&#34;s3-selected-bucket&#34;)
      *                 .build())
      *             .build());
@@ -273,10 +552,22 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+     * import com.pulumi.aws.route53.Route53Functions;
+     * import com.pulumi.aws.route53.inputs.GetZoneArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -284,21 +575,21 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+     *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
      *             .bucket(&#34;bucket.test.com&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var testZone = Output.of(Route53Functions.getZone(GetZoneArgs.builder()
+     *         final var testZone = Route53Functions.getZone(GetZoneArgs.builder()
      *             .name(&#34;test.com.&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Record(&#34;example&#34;, RecordArgs.builder()        
-     *             .zoneId(testZone.apply(getZoneResult -&gt; getZoneResult.id()))
+     *             .zoneId(testZone.applyValue(getZoneResult -&gt; getZoneResult.id()))
      *             .name(&#34;bucket&#34;)
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
-     *                 .name(selected.apply(getBucketResult -&gt; getBucketResult.websiteDomain()))
-     *                 .zoneId(selected.apply(getBucketResult -&gt; getBucketResult.hostedZoneId()))
+     *                 .name(selected.applyValue(getBucketResult -&gt; getBucketResult.websiteDomain()))
+     *                 .zoneId(selected.applyValue(getBucketResult -&gt; getBucketResult.hostedZoneId()))
      *                 .build())
      *             .build());
      * 
@@ -309,10 +600,20 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+     * import com.pulumi.aws.cloudfront.Distribution;
+     * import com.pulumi.aws.cloudfront.DistributionArgs;
+     * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -320,13 +621,13 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selected = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+     *         final var selected = S3Functions.getBucket(GetBucketArgs.builder()
      *             .bucket(&#34;a-test-bucket&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var test = new Distribution(&#34;test&#34;, DistributionArgs.builder()        
      *             .origins(DistributionOriginArgs.builder()
-     *                 .domainName(selected.apply(getBucketResult -&gt; getBucketResult.bucketDomainName()))
+     *                 .domainName(selected.applyValue(getBucketResult -&gt; getBucketResult.bucketDomainName()))
      *                 .originId(&#34;s3-selected-bucket&#34;)
      *                 .build())
      *             .build());
@@ -354,10 +655,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -365,15 +675,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bootstrapScript = Output.of(S3Functions.getBucketObject(GetBucketObjectArgs.builder()
+     *         final var bootstrapScript = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
      *             .bucket(&#34;ourcorp-deploy-config&#34;)
      *             .key(&#34;ec2-bootstrap-script.sh&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
      *             .instanceType(&#34;t2.micro&#34;)
      *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.apply(getBucketObjectResult -&gt; getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.body()))
      *             .build());
      * 
      *     }
@@ -388,10 +698,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -399,15 +718,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lambda = Output.of(S3Functions.getBucketObject(GetBucketObjectArgs.builder()
+     *         final var lambda = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
      *             .bucket(&#34;ourcorp-lambda-functions&#34;)
      *             .key(&#34;hello-world.zip&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.bucket()))
-     *             .s3Key(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
      *             .role(aws_iam_role.iam_for_lambda().arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
@@ -435,10 +754,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -446,15 +774,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bootstrapScript = Output.of(S3Functions.getBucketObject(GetBucketObjectArgs.builder()
+     *         final var bootstrapScript = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
      *             .bucket(&#34;ourcorp-deploy-config&#34;)
      *             .key(&#34;ec2-bootstrap-script.sh&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
      *             .instanceType(&#34;t2.micro&#34;)
      *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.apply(getBucketObjectResult -&gt; getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.body()))
      *             .build());
      * 
      *     }
@@ -469,10 +797,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -480,15 +817,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lambda = Output.of(S3Functions.getBucketObject(GetBucketObjectArgs.builder()
+     *         final var lambda = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
      *             .bucket(&#34;ourcorp-lambda-functions&#34;)
      *             .key(&#34;hello-world.zip&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.bucket()))
-     *             .s3Key(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
      *             .role(aws_iam_role.iam_for_lambda().arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
@@ -516,10 +853,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -527,15 +873,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bootstrapScript = Output.of(S3Functions.getBucketObject(GetBucketObjectArgs.builder()
+     *         final var bootstrapScript = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
      *             .bucket(&#34;ourcorp-deploy-config&#34;)
      *             .key(&#34;ec2-bootstrap-script.sh&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
      *             .instanceType(&#34;t2.micro&#34;)
      *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.apply(getBucketObjectResult -&gt; getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.body()))
      *             .build());
      * 
      *     }
@@ -550,10 +896,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -561,15 +916,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lambda = Output.of(S3Functions.getBucketObject(GetBucketObjectArgs.builder()
+     *         final var lambda = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
      *             .bucket(&#34;ourcorp-lambda-functions&#34;)
      *             .key(&#34;hello-world.zip&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.bucket()))
-     *             .s3Key(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
      *             .role(aws_iam_role.iam_for_lambda().arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
@@ -597,10 +952,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -608,15 +972,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bootstrapScript = Output.of(S3Functions.getBucketObject(GetBucketObjectArgs.builder()
+     *         final var bootstrapScript = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
      *             .bucket(&#34;ourcorp-deploy-config&#34;)
      *             .key(&#34;ec2-bootstrap-script.sh&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
      *             .instanceType(&#34;t2.micro&#34;)
      *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.apply(getBucketObjectResult -&gt; getBucketObjectResult.body()))
+     *             .userData(bootstrapScript.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.body()))
      *             .build());
      * 
      *     }
@@ -631,10 +995,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -642,15 +1015,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lambda = Output.of(S3Functions.getBucketObject(GetBucketObjectArgs.builder()
+     *         final var lambda = S3Functions.getBucketObject(GetBucketObjectArgs.builder()
      *             .bucket(&#34;ourcorp-lambda-functions&#34;)
      *             .key(&#34;hello-world.zip&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.bucket()))
-     *             .s3Key(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.key()))
-     *             .s3ObjectVersion(lambda.apply(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
+     *             .s3Bucket(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getBucketObjectResult -&gt; getBucketObjectResult.versionId()))
      *             .role(aws_iam_role.iam_for_lambda().arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
@@ -716,10 +1089,17 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -727,11 +1107,11 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
+     *         final var example = S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
      *             .bucket(&#34;example-bucket-name&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, example.apply(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
+     *         ctx.export(&#34;foo&#34;, example.applyValue(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
      *     }
      * }
      * ```
@@ -749,10 +1129,17 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -760,11 +1147,11 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
+     *         final var example = S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
      *             .bucket(&#34;example-bucket-name&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, example.apply(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
+     *         ctx.export(&#34;foo&#34;, example.applyValue(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
      *     }
      * }
      * ```
@@ -782,10 +1169,17 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -793,11 +1187,11 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
+     *         final var example = S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
      *             .bucket(&#34;example-bucket-name&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, example.apply(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
+     *         ctx.export(&#34;foo&#34;, example.applyValue(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
      *     }
      * }
      * ```
@@ -815,10 +1209,17 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -826,11 +1227,11 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
+     *         final var example = S3Functions.getBucketPolicy(GetBucketPolicyArgs.builder()
      *             .bucket(&#34;example-bucket-name&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;foo&#34;, example.apply(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
+     *         ctx.export(&#34;foo&#34;, example.applyValue(getBucketPolicyResult -&gt; getBucketPolicyResult.policy()));
      *     }
      * }
      * ```
@@ -846,26 +1247,6 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCanonicalUserIdResult> getCanonicalUserId() {
@@ -878,26 +1259,6 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain() {
@@ -910,26 +1271,6 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCanonicalUserIdResult> getCanonicalUserId(InvokeArgs args) {
@@ -942,26 +1283,6 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(InvokeArgs args) {
@@ -974,26 +1295,6 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetCanonicalUserIdResult> getCanonicalUserId(InvokeArgs args, InvokeOptions options) {
@@ -1006,26 +1307,6 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(S3Functions.getCanonicalUserId());
-     * 
-     *         ctx.export(&#34;canonicalUserId&#34;, current.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()));
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(InvokeArgs args, InvokeOptions options) {
@@ -1044,10 +1325,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1055,15 +1345,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bootstrapScript = Output.of(S3Functions.getObject(GetObjectArgs.builder()
+     *         final var bootstrapScript = S3Functions.getObject(GetObjectArgs.builder()
      *             .bucket(&#34;ourcorp-deploy-config&#34;)
      *             .key(&#34;ec2-bootstrap-script.sh&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
      *             .instanceType(&#34;t2.micro&#34;)
      *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.apply(getObjectResult -&gt; getObjectResult.body()))
+     *             .userData(bootstrapScript.applyValue(getObjectResult -&gt; getObjectResult.body()))
      *             .build());
      * 
      *     }
@@ -1078,10 +1368,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1089,15 +1388,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lambda = Output.of(S3Functions.getObject(GetObjectArgs.builder()
+     *         final var lambda = S3Functions.getObject(GetObjectArgs.builder()
      *             .bucket(&#34;ourcorp-lambda-functions&#34;)
      *             .key(&#34;hello-world.zip&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.apply(getObjectResult -&gt; getObjectResult.bucket()))
-     *             .s3Key(lambda.apply(getObjectResult -&gt; getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.apply(getObjectResult -&gt; getObjectResult.versionId()))
+     *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
      *             .role(aws_iam_role.iam_for_lambda().arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
@@ -1123,10 +1422,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1134,15 +1442,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bootstrapScript = Output.of(S3Functions.getObject(GetObjectArgs.builder()
+     *         final var bootstrapScript = S3Functions.getObject(GetObjectArgs.builder()
      *             .bucket(&#34;ourcorp-deploy-config&#34;)
      *             .key(&#34;ec2-bootstrap-script.sh&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
      *             .instanceType(&#34;t2.micro&#34;)
      *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.apply(getObjectResult -&gt; getObjectResult.body()))
+     *             .userData(bootstrapScript.applyValue(getObjectResult -&gt; getObjectResult.body()))
      *             .build());
      * 
      *     }
@@ -1157,10 +1465,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1168,15 +1485,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lambda = Output.of(S3Functions.getObject(GetObjectArgs.builder()
+     *         final var lambda = S3Functions.getObject(GetObjectArgs.builder()
      *             .bucket(&#34;ourcorp-lambda-functions&#34;)
      *             .key(&#34;hello-world.zip&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.apply(getObjectResult -&gt; getObjectResult.bucket()))
-     *             .s3Key(lambda.apply(getObjectResult -&gt; getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.apply(getObjectResult -&gt; getObjectResult.versionId()))
+     *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
      *             .role(aws_iam_role.iam_for_lambda().arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
@@ -1202,10 +1519,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1213,15 +1539,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bootstrapScript = Output.of(S3Functions.getObject(GetObjectArgs.builder()
+     *         final var bootstrapScript = S3Functions.getObject(GetObjectArgs.builder()
      *             .bucket(&#34;ourcorp-deploy-config&#34;)
      *             .key(&#34;ec2-bootstrap-script.sh&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
      *             .instanceType(&#34;t2.micro&#34;)
      *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.apply(getObjectResult -&gt; getObjectResult.body()))
+     *             .userData(bootstrapScript.applyValue(getObjectResult -&gt; getObjectResult.body()))
      *             .build());
      * 
      *     }
@@ -1236,10 +1562,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1247,15 +1582,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lambda = Output.of(S3Functions.getObject(GetObjectArgs.builder()
+     *         final var lambda = S3Functions.getObject(GetObjectArgs.builder()
      *             .bucket(&#34;ourcorp-lambda-functions&#34;)
      *             .key(&#34;hello-world.zip&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.apply(getObjectResult -&gt; getObjectResult.bucket()))
-     *             .s3Key(lambda.apply(getObjectResult -&gt; getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.apply(getObjectResult -&gt; getObjectResult.versionId()))
+     *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
      *             .role(aws_iam_role.iam_for_lambda().arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());
@@ -1281,10 +1616,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+     * import com.pulumi.aws.ec2.Instance;
+     * import com.pulumi.aws.ec2.InstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1292,15 +1636,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var bootstrapScript = Output.of(S3Functions.getObject(GetObjectArgs.builder()
+     *         final var bootstrapScript = S3Functions.getObject(GetObjectArgs.builder()
      *             .bucket(&#34;ourcorp-deploy-config&#34;)
      *             .key(&#34;ec2-bootstrap-script.sh&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var example = new Instance(&#34;example&#34;, InstanceArgs.builder()        
      *             .instanceType(&#34;t2.micro&#34;)
      *             .ami(&#34;ami-2757f631&#34;)
-     *             .userData(bootstrapScript.apply(getObjectResult -&gt; getObjectResult.body()))
+     *             .userData(bootstrapScript.applyValue(getObjectResult -&gt; getObjectResult.body()))
      *             .build());
      * 
      *     }
@@ -1315,10 +1659,19 @@ public final class S3Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetObjectArgs;
+     * import com.pulumi.aws.lambda.Function;
+     * import com.pulumi.aws.lambda.FunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1326,15 +1679,15 @@ public final class S3Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var lambda = Output.of(S3Functions.getObject(GetObjectArgs.builder()
+     *         final var lambda = S3Functions.getObject(GetObjectArgs.builder()
      *             .bucket(&#34;ourcorp-lambda-functions&#34;)
      *             .key(&#34;hello-world.zip&#34;)
-     *             .build()));
+     *             .build());
      * 
      *         var testLambda = new Function(&#34;testLambda&#34;, FunctionArgs.builder()        
-     *             .s3Bucket(lambda.apply(getObjectResult -&gt; getObjectResult.bucket()))
-     *             .s3Key(lambda.apply(getObjectResult -&gt; getObjectResult.key()))
-     *             .s3ObjectVersion(lambda.apply(getObjectResult -&gt; getObjectResult.versionId()))
+     *             .s3Bucket(lambda.applyValue(getObjectResult -&gt; getObjectResult.bucket()))
+     *             .s3Key(lambda.applyValue(getObjectResult -&gt; getObjectResult.key()))
+     *             .s3ObjectVersion(lambda.applyValue(getObjectResult -&gt; getObjectResult.versionId()))
      *             .role(aws_iam_role.iam_for_lambda().arn())
      *             .handler(&#34;exports.test&#34;)
      *             .build());

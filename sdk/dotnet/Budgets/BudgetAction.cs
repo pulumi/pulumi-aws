@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Budgets
     ///         var examplePolicy = new Aws.Iam.Policy("examplePolicy", new Aws.Iam.PolicyArgs
     ///         {
     ///             Description = "My example policy",
-    ///             Policy = @"{
+    ///             PolicyDocument = @"{
     ///   ""Version"": ""2012-10-17"",
     ///   ""Statement"": [
     ///     {

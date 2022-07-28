@@ -22,10 +22,17 @@ public final class TransferFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.transfer.TransferFunctions;
+     * import com.pulumi.aws.transfer.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -33,9 +40,9 @@ public final class TransferFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(TransferFunctions.getServer(GetServerArgs.builder()
+     *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
      *             .serverId(&#34;s-1234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -53,10 +60,17 @@ public final class TransferFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.transfer.TransferFunctions;
+     * import com.pulumi.aws.transfer.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -64,9 +78,9 @@ public final class TransferFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(TransferFunctions.getServer(GetServerArgs.builder()
+     *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
      *             .serverId(&#34;s-1234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -84,10 +98,17 @@ public final class TransferFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.transfer.TransferFunctions;
+     * import com.pulumi.aws.transfer.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -95,9 +116,9 @@ public final class TransferFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(TransferFunctions.getServer(GetServerArgs.builder()
+     *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
      *             .serverId(&#34;s-1234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -115,10 +136,17 @@ public final class TransferFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.transfer.TransferFunctions;
+     * import com.pulumi.aws.transfer.inputs.GetServerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -126,9 +154,9 @@ public final class TransferFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(TransferFunctions.getServer(GetServerArgs.builder()
+     *         final var example = TransferFunctions.getServer(GetServerArgs.builder()
      *             .serverId(&#34;s-1234567&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

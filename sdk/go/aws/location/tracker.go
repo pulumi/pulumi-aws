@@ -60,7 +60,7 @@ type Tracker struct {
 	TrackerArn pulumi.StringOutput `pulumi:"trackerArn"`
 	// The name of the tracker resource.
 	TrackerName pulumi.StringOutput `pulumi:"trackerName"`
-	// The timestamp for when the tracker resource was last update in ISO 8601 format.
+	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 }
 
@@ -110,7 +110,7 @@ type trackerState struct {
 	TrackerArn *string `pulumi:"trackerArn"`
 	// The name of the tracker resource.
 	TrackerName *string `pulumi:"trackerName"`
-	// The timestamp for when the tracker resource was last update in ISO 8601 format.
+	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
 	UpdateTime *string `pulumi:"updateTime"`
 }
 
@@ -129,7 +129,7 @@ type TrackerState struct {
 	TrackerArn pulumi.StringPtrInput
 	// The name of the tracker resource.
 	TrackerName pulumi.StringPtrInput
-	// The timestamp for when the tracker resource was last update in ISO 8601 format.
+	// The timestamp for when the tracker resource was last updated in ISO 8601 format.
 	UpdateTime pulumi.StringPtrInput
 }
 
@@ -289,7 +289,7 @@ func (o TrackerOutput) TrackerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.TrackerName }).(pulumi.StringOutput)
 }
 
-// The timestamp for when the tracker resource was last update in ISO 8601 format.
+// The timestamp for when the tracker resource was last updated in ISO 8601 format.
 func (o TrackerOutput) UpdateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.UpdateTime }).(pulumi.StringOutput)
 }

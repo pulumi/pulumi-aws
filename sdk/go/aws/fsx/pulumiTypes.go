@@ -1075,7 +1075,7 @@ func (o OntapFileSystemEndpointManagementArrayOutput) Index(i pulumi.IntInput) O
 }
 
 type OntapStorageVirtualMachineActiveDirectoryConfiguration struct {
-	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
 	NetbiosName                             *string                                                                                        `pulumi:"netbiosName"`
 	SelfManagedActiveDirectoryConfiguration *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfiguration"`
 }
@@ -1092,7 +1092,7 @@ type OntapStorageVirtualMachineActiveDirectoryConfigurationInput interface {
 }
 
 type OntapStorageVirtualMachineActiveDirectoryConfigurationArgs struct {
-	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
 	NetbiosName                             pulumi.StringPtrInput                                                                                 `pulumi:"netbiosName"`
 	SelfManagedActiveDirectoryConfiguration OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput `pulumi:"selfManagedActiveDirectoryConfiguration"`
 }
@@ -1174,7 +1174,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOntapSto
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
 }
 
-// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) NetbiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfiguration) *string { return v.NetbiosName }).(pulumi.StringPtrOutput)
 }
@@ -1209,7 +1209,7 @@ func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) Elem() 
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationOutput)
 }
 
-// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
 func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) NetbiosName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfiguration) *string {
 		if v == nil {

@@ -33,10 +33,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -100,7 +117,7 @@ import javax.annotation.Nullable;
  *                         .type(&#34;Lambda&#34;)
  *                         .parameters(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs.builder()
  *                             .parameterName(&#34;LambdaArn&#34;)
- *                             .parameterValue(lambdaProcessor.arn().apply(arn -&gt; String.format(&#34;%s:$LATEST&#34;, arn)))
+ *                             .parameterValue(lambdaProcessor.arn().applyValue(arn -&gt; String.format(&#34;%s:$LATEST&#34;, arn)))
  *                             .build())
  *                         .build())
  *                     .build())
@@ -120,10 +137,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -175,10 +201,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -226,10 +265,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.redshift.Cluster;
+ * import com.pulumi.aws.redshift.ClusterArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamRedshiftConfigurationS3BackupConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -257,7 +308,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
  *                 .roleArn(aws_iam_role.firehose_role().arn())
- *                 .clusterJdbcurl(Output.tuple(testCluster.endpoint(), testCluster.databaseName()).apply(values -&gt; {
+ *                 .clusterJdbcurl(Output.tuple(testCluster.endpoint(), testCluster.databaseName()).applyValue(values -&gt; {
  *                     var endpoint = values.t1;
  *                     var databaseName = values.t2;
  *                     return String.format(&#34;jdbc:redshift://%s/%s&#34;, endpoint,databaseName);
@@ -285,10 +336,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticsearch.Domain;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationProcessingConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -332,11 +394,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.elasticsearch.Domain;
+ * import com.pulumi.aws.elasticsearch.DomainArgs;
+ * import com.pulumi.aws.elasticsearch.inputs.DomainClusterConfigArgs;
+ * import com.pulumi.aws.elasticsearch.inputs.DomainEbsOptionsArgs;
+ * import com.pulumi.aws.elasticsearch.inputs.DomainVpcOptionsArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamElasticsearchConfigurationVpcConfigArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -364,7 +443,7 @@ import javax.annotation.Nullable;
  * 
  *         var firehose_elasticsearch = new RolePolicy(&#34;firehose-elasticsearch&#34;, RolePolicyArgs.builder()        
  *             .role(aws_iam_role.firehose().id())
- *             .policy(Output.tuple(testCluster.arn(), testCluster.arn()).apply(values -&gt; {
+ *             .policy(Output.tuple(testCluster.arn(), testCluster.arn()).applyValue(values -&gt; {
  *                 var testClusterArn = values.t1;
  *                 var testClusterArn1 = values.t2;
  *                 return &#34;&#34;&#34;
@@ -433,10 +512,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamSplunkConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -469,10 +557,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStream;
+ * import com.pulumi.aws.kinesis.FirehoseDeliveryStreamArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamS3ConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationArgs;
+ * import com.pulumi.aws.kinesis.inputs.FirehoseDeliveryStreamHttpEndpointConfigurationRequestConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

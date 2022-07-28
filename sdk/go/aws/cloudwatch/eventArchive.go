@@ -63,7 +63,7 @@ import (
 // 			Description:    pulumi.String("Archived events from order service"),
 // 			EventSourceArn: orderEventBus.Arn,
 // 			RetentionDays:  pulumi.Int(7),
-// 			EventPattern:   pulumi.String(fmt.Sprintf("%v%v%v", "{\n", "  \"source\": [\"company.team.order\"]\n", "}\n")),
+// 			EventPattern:   pulumi.String(fmt.Sprintf("{\n  \"source\": [\"company.team.order\"]\n}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

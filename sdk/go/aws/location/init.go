@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:location/geofenceCollection:GeofenceCollection":
+		r = &GeofenceCollection{}
 	case "aws:location/map:Map":
 		r = &Map{}
 	case "aws:location/placeIndex:PlaceIndex":
@@ -42,6 +44,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"location/geofenceCollection",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"location/map",

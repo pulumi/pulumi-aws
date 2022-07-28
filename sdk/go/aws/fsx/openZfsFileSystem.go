@@ -14,34 +14,6 @@ import (
 // Manages an Amazon FSx for OpenZFS file system.
 // See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/fsx"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := fsx.NewOpenZfsFileSystem(ctx, "test", &fsx.OpenZfsFileSystemArgs{
-// 			StorageCapacity: pulumi.Int(64),
-// 			SubnetIds: pulumi.String{
-// 				aws_subnet.Test1.Id,
-// 			},
-// 			DeploymentType:     pulumi.String("SINGLE_AZ_1"),
-// 			ThroughputCapacity: pulumi.Int(64),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // FSx File Systems can be imported using the `id`, e.g.,

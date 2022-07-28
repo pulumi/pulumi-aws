@@ -628,8 +628,10 @@ func (o TablePointInTimeRecoveryPtrOutput) Enabled() pulumi.BoolPtrOutput {
 type TableReplica struct {
 	// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica.
+	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery *bool `pulumi:"pointInTimeRecovery"`
+	// Whether to propagate the main table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+	PropagateTags *bool `pulumi:"propagateTags"`
 	// Region name of the replica.
 	RegionName string `pulumi:"regionName"`
 }
@@ -648,8 +650,10 @@ type TableReplicaInput interface {
 type TableReplicaArgs struct {
 	// ARN of the CMK that should be used for the AWS KMS encryption. This attribute should only be specified if the key is different from the default DynamoDB CMK, `alias/aws/dynamodb`.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
-	// Whether to enable Point In Time Recovery for the replica.
+	// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 	PointInTimeRecovery pulumi.BoolPtrInput `pulumi:"pointInTimeRecovery"`
+	// Whether to propagate the main table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+	PropagateTags pulumi.BoolPtrInput `pulumi:"propagateTags"`
 	// Region name of the replica.
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
@@ -710,9 +714,14 @@ func (o TableReplicaOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableReplica) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Whether to enable Point In Time Recovery for the replica.
+// Whether to enable Point In Time Recovery for the replica. Default is `false`.
 func (o TableReplicaOutput) PointInTimeRecovery() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableReplica) *bool { return v.PointInTimeRecovery }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to propagate the main table's tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+func (o TableReplicaOutput) PropagateTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TableReplica) *bool { return v.PropagateTags }).(pulumi.BoolPtrOutput)
 }
 
 // Region name of the replica.

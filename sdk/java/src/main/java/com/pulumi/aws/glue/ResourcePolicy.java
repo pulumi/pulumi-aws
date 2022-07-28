@@ -18,44 +18,6 @@ import javax.annotation.Nullable;
  * Provides a Glue resource policy. Only one can exist per region.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         final var currentPartition = Output.of(AwsFunctions.getPartition());
- * 
- *         final var currentRegion = Output.of(AwsFunctions.getRegion());
- * 
- *         final var glue-example-policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(&#34;glue:CreateTable&#34;)
- *                 .resources(String.format(&#34;arn:%s:glue:%s:%s:*&#34;, currentPartition.apply(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.apply(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId())))
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(&#34;*&#34;)
- *                     .type(&#34;AWS&#34;)
- *                     .build())
- *                 .build())
- *             .build()));
- * 
- *         var example = new ResourcePolicy(&#34;example&#34;, ResourcePolicyArgs.builder()        
- *             .policy(glue_example_policy.json())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

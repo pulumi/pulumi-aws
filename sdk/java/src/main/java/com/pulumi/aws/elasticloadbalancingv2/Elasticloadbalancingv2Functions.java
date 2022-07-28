@@ -31,10 +31,18 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -44,18 +52,18 @@ public final class Elasticloadbalancingv2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected443 = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.apply(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
      *             .port(443)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -80,10 +88,18 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -93,18 +109,18 @@ public final class Elasticloadbalancingv2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected443 = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.apply(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
      *             .port(443)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -129,10 +145,18 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -142,18 +166,18 @@ public final class Elasticloadbalancingv2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected443 = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.apply(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
      *             .port(443)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -178,10 +202,18 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -191,18 +223,18 @@ public final class Elasticloadbalancingv2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected443 = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.apply(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
      *             .port(443)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -227,10 +259,18 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -240,18 +280,18 @@ public final class Elasticloadbalancingv2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected443 = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.apply(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
      *             .port(443)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -276,10 +316,18 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetListenerArgs;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -289,18 +337,18 @@ public final class Elasticloadbalancingv2Functions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var listenerArn = config.get(&#34;listenerArn&#34;);
-     *         final var listener = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
+     *         final var listener = LbFunctions.getListener(GetListenerArgs.builder()
      *             .arn(listenerArn)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var selected = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(&#34;default-public&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var selected443 = Output.of(LbFunctions.getListener(GetListenerArgs.builder()
-     *             .loadBalancerArn(selected.apply(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
+     *         final var selected443 = LbFunctions.getListener(GetListenerArgs.builder()
+     *             .loadBalancerArn(selected.applyValue(getLoadBalancerResult -&gt; getLoadBalancerResult.arn()))
      *             .port(443)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -327,10 +375,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -341,10 +396,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -371,10 +426,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -385,10 +447,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -415,10 +477,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -429,10 +498,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -459,10 +528,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -473,10 +549,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -503,10 +579,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -517,10 +600,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -547,10 +630,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -561,10 +651,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbArn = config.get(&#34;lbArn&#34;).orElse(&#34;&#34;);
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = LbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .arn(lbArn)
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -591,10 +681,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -605,10 +702,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
      *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -635,10 +732,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -649,10 +753,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
      *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -679,10 +783,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -693,10 +804,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
      *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -723,10 +834,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -737,10 +855,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
      *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -767,10 +885,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -781,10 +906,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
      *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -811,10 +936,17 @@ public final class Elasticloadbalancingv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lb.LbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -825,10 +957,10 @@ public final class Elasticloadbalancingv2Functions {
      *         final var config = ctx.config();
      *         final var lbTgArn = config.get(&#34;lbTgArn&#34;).orElse(&#34;&#34;);
      *         final var lbTgName = config.get(&#34;lbTgName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
+     *         final var test = LbFunctions.getTargetGroup(GetTargetGroupArgs.builder()
      *             .arn(lbTgArn)
      *             .name(lbTgName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

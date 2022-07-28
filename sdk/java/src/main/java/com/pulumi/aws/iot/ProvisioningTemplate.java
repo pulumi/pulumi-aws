@@ -25,11 +25,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.iot.Policy;
+ * import com.pulumi.aws.iot.PolicyArgs;
+ * import com.pulumi.aws.iot.ProvisioningTemplate;
+ * import com.pulumi.aws.iot.ProvisioningTemplateArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -37,7 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var iotAssumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var iotAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -45,11 +60,11 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;iot.amazonaws.com&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var iotFleetProvisioning = new Role(&#34;iotFleetProvisioning&#34;, RoleArgs.builder()        
  *             .path(&#34;/service-role/&#34;)
- *             .assumeRolePolicy(iotAssumeRolePolicy.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(iotAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var iotFleetProvisioningRegistration = new RolePolicyAttachment(&#34;iotFleetProvisioningRegistration&#34;, RolePolicyAttachmentArgs.builder()        
@@ -57,21 +72,21 @@ import javax.annotation.Nullable;
  *             .policyArn(&#34;arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration&#34;)
  *             .build());
  * 
- *         final var devicePolicyPolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var devicePolicyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;iot:Subscribe&#34;)
  *                 .resources(&#34;*&#34;)
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var devicePolicyPolicy = new Policy(&#34;devicePolicyPolicy&#34;, PolicyArgs.builder()        
- *             .policy(devicePolicyPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(devicePolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var fleet = new ProvisioningTemplate(&#34;fleet&#34;, ProvisioningTemplateArgs.builder()        
  *             .description(&#34;My provisioning template&#34;)
  *             .provisioningRoleArn(iotFleetProvisioning.arn())
- *             .templateBody(devicePolicyPolicy.name().apply(name -&gt; serializeJson(
+ *             .templateBody(devicePolicyPolicy.name().applyValue(name -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;Parameters&#34;, jsonObject(
  *                         jsonProperty(&#34;SerialNumber&#34;, jsonObject(

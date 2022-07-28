@@ -24,13 +24,29 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
  * 
  * ## Example Usage
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.fsx.LustreFileSystem;
+ * import com.pulumi.aws.fsx.LustreFileSystemArgs;
+ * import com.pulumi.aws.fsx.DataRepositoryAssociation;
+ * import com.pulumi.aws.fsx.DataRepositoryAssociationArgs;
+ * import com.pulumi.aws.fsx.inputs.DataRepositoryAssociationS3Args;
+ * import com.pulumi.aws.fsx.inputs.DataRepositoryAssociationS3AutoExportPolicyArgs;
+ * import com.pulumi.aws.fsx.inputs.DataRepositoryAssociationS3AutoImportPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -54,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDataRepositoryAssociation = new DataRepositoryAssociation(&#34;exampleDataRepositoryAssociation&#34;, DataRepositoryAssociationArgs.builder()        
  *             .fileSystemId(exampleLustreFileSystem.id())
- *             .dataRepositoryPath(exampleBucketV2.id().apply(id -&gt; String.format(&#34;s3://%s&#34;, id)))
+ *             .dataRepositoryPath(exampleBucketV2.id().applyValue(id -&gt; String.format(&#34;s3://%s&#34;, id)))
  *             .fileSystemPath(&#34;/my-bucket&#34;)
  *             .s3(DataRepositoryAssociationS3Args.builder()
  *                 .autoExportPolicy(DataRepositoryAssociationS3AutoExportPolicyArgs.builder()

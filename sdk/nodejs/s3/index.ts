@@ -30,6 +30,7 @@ export * from "./bucketV2";
 export * from "./bucketVersioningV2";
 export * from "./bucketWebsiteConfigurationV2";
 export * from "./cannedAcl";
+export * from "./getAccountPublicAccessBlock";
 export * from "./getBucket";
 export * from "./getBucketObject";
 export * from "./getBucketObjects";

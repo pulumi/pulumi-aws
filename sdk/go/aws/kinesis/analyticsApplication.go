@@ -51,7 +51,7 @@ import (
 // 				Schema: &kinesis.AnalyticsApplicationInputsSchemaArgs{
 // 					RecordColumns: kinesis.AnalyticsApplicationInputsSchemaRecordColumnArray{
 // 						&kinesis.AnalyticsApplicationInputsSchemaRecordColumnArgs{
-// 							Mapping: pulumi.String(fmt.Sprintf("%v%v", "$", ".test")),
+// 							Mapping: pulumi.String(fmt.Sprintf("$.test")),
 // 							Name:    pulumi.String("test"),
 // 							SqlType: pulumi.String("VARCHAR(8)"),
 // 						},
@@ -146,8 +146,8 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Outputs: kinesis.AnalyticsApplicationOutputArray{
-// 				kinesis.AnalyticsApplicationOutputArgs{
+// 			Outputs: kinesis.AnalyticsApplicationOutputTypeArray{
+// 				&kinesis.AnalyticsApplicationOutputTypeArgs{
 // 					Name: pulumi.String("OUTPUT_1"),
 // 					Schema: &kinesis.AnalyticsApplicationOutputSchemaArgs{
 // 						RecordFormatType: pulumi.String("CSV"),

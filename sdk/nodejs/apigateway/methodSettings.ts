@@ -10,7 +10,7 @@ import {RestApi} from "./index";
 /**
  * Manages API Gateway Stage Method Settings. For example, CloudWatch logging and metrics.
  *
- * > **NOTE:** It is recommended to use this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
+ * > **NOTE:** We recommend using this resource in conjunction with the `aws.apigateway.Stage` resource instead of a stage managed by the `aws.apigateway.Deployment` resource optional `stageName` argument. Stages managed by the `aws.apigateway.Deployment` resource are recreated on redeployment and this resource will require a second apply to recreate the method settings.
  *
  * ## Example Usage
  *

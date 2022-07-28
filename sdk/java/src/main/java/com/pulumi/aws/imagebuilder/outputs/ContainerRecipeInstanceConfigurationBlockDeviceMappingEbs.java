@@ -38,6 +38,11 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
      */
     private final @Nullable String snapshotId;
     /**
+     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
+     * 
+     */
+    private final @Nullable Integer throughput;
+    /**
      * @return Size of the volume, in GiB.
      * 
      */
@@ -55,6 +60,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
         @CustomType.Parameter("iops") @Nullable Integer iops,
         @CustomType.Parameter("kmsKeyId") @Nullable String kmsKeyId,
         @CustomType.Parameter("snapshotId") @Nullable String snapshotId,
+        @CustomType.Parameter("throughput") @Nullable Integer throughput,
         @CustomType.Parameter("volumeSize") @Nullable Integer volumeSize,
         @CustomType.Parameter("volumeType") @Nullable String volumeType) {
         this.deleteOnTermination = deleteOnTermination;
@@ -62,6 +68,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
         this.iops = iops;
         this.kmsKeyId = kmsKeyId;
         this.snapshotId = snapshotId;
+        this.throughput = throughput;
         this.volumeSize = volumeSize;
         this.volumeType = volumeType;
     }
@@ -102,6 +109,13 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
         return Optional.ofNullable(this.snapshotId);
     }
     /**
+     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
+     * 
+     */
+    public Optional<Integer> throughput() {
+        return Optional.ofNullable(this.throughput);
+    }
+    /**
      * @return Size of the volume, in GiB.
      * 
      */
@@ -130,6 +144,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
         private @Nullable Integer iops;
         private @Nullable String kmsKeyId;
         private @Nullable String snapshotId;
+        private @Nullable Integer throughput;
         private @Nullable Integer volumeSize;
         private @Nullable String volumeType;
 
@@ -144,6 +159,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
     	      this.iops = defaults.iops;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.snapshotId = defaults.snapshotId;
+    	      this.throughput = defaults.throughput;
     	      this.volumeSize = defaults.volumeSize;
     	      this.volumeType = defaults.volumeType;
         }
@@ -168,6 +184,10 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
             this.snapshotId = snapshotId;
             return this;
         }
+        public Builder throughput(@Nullable Integer throughput) {
+            this.throughput = throughput;
+            return this;
+        }
         public Builder volumeSize(@Nullable Integer volumeSize) {
             this.volumeSize = volumeSize;
             return this;
@@ -176,7 +196,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
             this.volumeType = volumeType;
             return this;
         }        public ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs build() {
-            return new ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(deleteOnTermination, encrypted, iops, kmsKeyId, snapshotId, volumeSize, volumeType);
+            return new ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs(deleteOnTermination, encrypted, iops, kmsKeyId, snapshotId, throughput, volumeSize, volumeType);
         }
     }
 }

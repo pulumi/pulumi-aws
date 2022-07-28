@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Iam
         ///         var examplePolicy = new Aws.Iam.Policy("examplePolicy", new Aws.Iam.PolicyArgs
         ///         {
         ///             Path = "/",
-        ///             Policy = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
+        ///             PolicyDocument = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
         ///         });
         ///     }
         /// 
@@ -798,7 +798,7 @@ namespace Pulumi.Aws.Iam
         ///         var examplePolicy = new Aws.Iam.Policy("examplePolicy", new Aws.Iam.PolicyArgs
         ///         {
         ///             Path = "/",
-        ///             Policy = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
+        ///             PolicyDocument = examplePolicyDocument.Apply(examplePolicyDocument =&gt; examplePolicyDocument.Json),
         ///         });
         ///     }
         /// 

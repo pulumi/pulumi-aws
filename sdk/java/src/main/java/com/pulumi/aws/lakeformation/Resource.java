@@ -22,10 +22,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.S3Functions;
+ * import com.pulumi.aws.s3.inputs.GetBucketArgs;
+ * import com.pulumi.aws.lakeformation.Resource;
+ * import com.pulumi.aws.lakeformation.ResourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -33,12 +42,12 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleBucket = Output.of(S3Functions.getBucket(GetBucketArgs.builder()
+ *         final var exampleBucket = S3Functions.getBucket(GetBucketArgs.builder()
  *             .bucket(&#34;an-example-bucket&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleResource = new Resource(&#34;exampleResource&#34;, ResourceArgs.builder()        
- *             .arn(exampleBucket.apply(getBucketResult -&gt; getBucketResult.arn()))
+ *             .arn(exampleBucket.applyValue(getBucketResult -&gt; getBucketResult.arn()))
  *             .build());
  * 
  *     }

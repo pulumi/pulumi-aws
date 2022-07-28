@@ -21,10 +21,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.athena.Workgroup;
+ * import com.pulumi.aws.athena.WorkgroupArgs;
+ * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationArgs;
+ * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationArgs;
+ * import com.pulumi.aws.athena.inputs.WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs;
+ * import com.pulumi.aws.athena.Database;
+ * import com.pulumi.aws.athena.DatabaseArgs;
+ * import com.pulumi.aws.athena.NamedQuery;
+ * import com.pulumi.aws.athena.NamedQueryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -58,7 +75,7 @@ import javax.annotation.Nullable;
  *         var foo = new NamedQuery(&#34;foo&#34;, NamedQueryArgs.builder()        
  *             .workgroup(testWorkgroup.id())
  *             .database(hogeDatabase.name())
- *             .query(hogeDatabase.name().apply(name -&gt; String.format(&#34;SELECT * FROM %s limit 10;&#34;, name)))
+ *             .query(hogeDatabase.name().applyValue(name -&gt; String.format(&#34;SELECT * FROM %s limit 10;&#34;, name)))
  *             .build());
  * 
  *     }

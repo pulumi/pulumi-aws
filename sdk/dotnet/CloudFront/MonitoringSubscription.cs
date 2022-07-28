@@ -25,7 +25,7 @@ namespace Pulumi.Aws.CloudFront
     ///         var example = new Aws.CloudFront.MonitoringSubscription("example", new Aws.CloudFront.MonitoringSubscriptionArgs
     ///         {
     ///             DistributionId = aws_cloudfront_distribution.Example.Id,
-    ///             MonitoringSubscription = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs
+    ///             MonitoringSubscriptionDetails = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionArgs
     ///             {
     ///                 RealtimeMetricsSubscriptionConfig = new Aws.CloudFront.Inputs.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
     ///                 {

@@ -3,15 +3,33 @@
 
 package com.pulumi.aws.appmesh.inputs;
 
+import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteActionRewriteArgs;
 import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttp2RouteActionTargetArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GatewayRouteSpecHttp2RouteActionArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final GatewayRouteSpecHttp2RouteActionArgs Empty = new GatewayRouteSpecHttp2RouteActionArgs();
+
+    /**
+     * The gateway route action to rewrite.
+     * 
+     */
+    @Import(name="rewrite")
+    private @Nullable Output<GatewayRouteSpecHttp2RouteActionRewriteArgs> rewrite;
+
+    /**
+     * @return The gateway route action to rewrite.
+     * 
+     */
+    public Optional<Output<GatewayRouteSpecHttp2RouteActionRewriteArgs>> rewrite() {
+        return Optional.ofNullable(this.rewrite);
+    }
 
     /**
      * The target that traffic is routed to when a request matches the gateway route.
@@ -31,6 +49,7 @@ public final class GatewayRouteSpecHttp2RouteActionArgs extends com.pulumi.resou
     private GatewayRouteSpecHttp2RouteActionArgs() {}
 
     private GatewayRouteSpecHttp2RouteActionArgs(GatewayRouteSpecHttp2RouteActionArgs $) {
+        this.rewrite = $.rewrite;
         this.target = $.target;
     }
 
@@ -50,6 +69,27 @@ public final class GatewayRouteSpecHttp2RouteActionArgs extends com.pulumi.resou
 
         public Builder(GatewayRouteSpecHttp2RouteActionArgs defaults) {
             $ = new GatewayRouteSpecHttp2RouteActionArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param rewrite The gateway route action to rewrite.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rewrite(@Nullable Output<GatewayRouteSpecHttp2RouteActionRewriteArgs> rewrite) {
+            $.rewrite = rewrite;
+            return this;
+        }
+
+        /**
+         * @param rewrite The gateway route action to rewrite.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rewrite(GatewayRouteSpecHttp2RouteActionRewriteArgs rewrite) {
+            return rewrite(Output.of(rewrite));
         }
 
         /**

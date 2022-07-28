@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CodeArtifact
     ///     {
     ///         var example = new Aws.CodeArtifact.Domain("example", new Aws.CodeArtifact.DomainArgs
     ///         {
-    ///             Domain = "example",
+    ///             DomainName = "example",
     ///         });
     ///     }
     /// 

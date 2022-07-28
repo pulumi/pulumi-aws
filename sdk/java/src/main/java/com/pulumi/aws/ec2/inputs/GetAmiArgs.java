@@ -91,7 +91,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
      * A regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API. This
      * filtering is done locally on what AWS returns, and could have a performance
-     * impact if the result is large. It is recommended to combine this with other
+     * impact if the result is large. Combine this with other
      * options to narrow down the list AWS returns.
      * 
      */
@@ -102,7 +102,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
      * @return A regex string to apply to the AMI list returned
      * by AWS. This allows more advanced filtering not supported from the AWS API. This
      * filtering is done locally on what AWS returns, and could have a performance
-     * impact if the result is large. It is recommended to combine this with other
+     * impact if the result is large. Combine this with other
      * options to narrow down the list AWS returns.
      * 
      */
@@ -293,7 +293,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
          * @param nameRegex A regex string to apply to the AMI list returned
          * by AWS. This allows more advanced filtering not supported from the AWS API. This
          * filtering is done locally on what AWS returns, and could have a performance
-         * impact if the result is large. It is recommended to combine this with other
+         * impact if the result is large. Combine this with other
          * options to narrow down the list AWS returns.
          * 
          * @return builder
@@ -308,7 +308,7 @@ public final class GetAmiArgs extends com.pulumi.resources.InvokeArgs {
          * @param nameRegex A regex string to apply to the AMI list returned
          * by AWS. This allows more advanced filtering not supported from the AWS API. This
          * filtering is done locally on what AWS returns, and could have a performance
-         * impact if the result is large. It is recommended to combine this with other
+         * impact if the result is large. Combine this with other
          * options to narrow down the list AWS returns.
          * 
          * @return builder

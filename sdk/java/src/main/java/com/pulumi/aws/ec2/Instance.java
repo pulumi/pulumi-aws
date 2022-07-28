@@ -37,10 +37,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -48,7 +57,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var ubuntu = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
@@ -60,10 +69,10 @@ import javax.annotation.Nullable;
  *                     .values(&#34;hvm&#34;)
  *                     .build())
  *             .owners(&#34;099720109477&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var web = new Instance(&#34;web&#34;, InstanceArgs.builder()        
- *             .ami(ubuntu.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .ami(ubuntu.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t3.micro&#34;)
  *             .tags(Map.of(&#34;Name&#34;, &#34;HelloWorld&#34;))
  *             .build());
@@ -75,10 +84,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2.NetworkInterface;
+ * import com.pulumi.aws.ec2.NetworkInterfaceArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import com.pulumi.aws.ec2.inputs.InstanceNetworkInterfaceArgs;
+ * import com.pulumi.aws.ec2.inputs.InstanceCreditSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

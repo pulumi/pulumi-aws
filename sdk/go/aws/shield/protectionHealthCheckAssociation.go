@@ -57,7 +57,7 @@ import (
 // 		}
 // 		exampleProtection, err := shield.NewProtection(ctx, "exampleProtection", &shield.ProtectionArgs{
 // 			ResourceArn: exampleEip.ID().ApplyT(func(id string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v", "arn:", currentPartition.Partition, ":ec2:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":eip-allocation/", id), nil
+// 				return fmt.Sprintf("arn:%v:ec2:%v:%v:eip-allocation/%v", currentPartition.Partition, currentRegion.Name, currentCallerIdentity.AccountId, id), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

@@ -35,10 +35,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.kinesis.Stream;
+ * import com.pulumi.aws.kinesis.StreamArgs;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -88,10 +100,30 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.ssm.Document;
+ * import com.pulumi.aws.ssm.DocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -99,7 +131,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var ssmLifecycleTrust = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var ssmLifecycleTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -107,7 +139,7 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;events.amazonaws.com&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var stopInstance = new Document(&#34;stopInstance&#34;, DocumentArgs.builder()        
  *             .documentType(&#34;Command&#34;)
@@ -152,11 +184,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var ssmLifecycleRole = new Role(&#34;ssmLifecycleRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(ssmLifecycleTrust.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(ssmLifecycleTrust.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var ssmLifecyclePolicy = new Policy(&#34;ssmLifecyclePolicy&#34;, PolicyArgs.builder()        
- *             .policy(ssmLifecyclePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(ssmLifecyclePolicyDocument -&gt; ssmLifecyclePolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(ssmLifecyclePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(ssmLifecyclePolicyDocument -&gt; ssmLifecyclePolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *         var ssmLifecycleRolePolicyAttachment = new RolePolicyAttachment(&#34;ssmLifecycleRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
@@ -186,10 +218,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetRunCommandTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -220,10 +262,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetHttpTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -243,7 +298,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventTarget = new EventTarget(&#34;exampleEventTarget&#34;, EventTargetArgs.builder()        
- *             .arn(exampleStage.executionArn().apply(executionArn -&gt; String.format(&#34;%s/GET&#34;, executionArn)))
+ *             .arn(exampleStage.executionArn().applyValue(executionArn -&gt; String.format(&#34;%s/GET&#34;, executionArn)))
  *             .rule(exampleEventRule.id())
  *             .httpTarget(EventTargetHttpTargetArgs.builder()
  *                 .queryStringParameters(Map.of(&#34;Body&#34;, &#34;$.detail.body&#34;))
@@ -258,10 +313,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -286,16 +358,16 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
- *         final var eventBusInvokeRemoteEventBusPolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var eventBusInvokeRemoteEventBusPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .effect(&#34;Allow&#34;)
  *                 .actions(&#34;events:PutEvents&#34;)
  *                 .resources(&#34;arn:aws:events:eu-west-1:1234567890:event-bus/My-Event-Bus&#34;)
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var eventBusInvokeRemoteEventBusPolicy = new Policy(&#34;eventBusInvokeRemoteEventBusPolicy&#34;, PolicyArgs.builder()        
- *             .policy(eventBusInvokeRemoteEventBusPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .policy(eventBusInvokeRemoteEventBusPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var eventBusInvokeRemoteEventBusRolePolicyAttachment = new RolePolicyAttachment(&#34;eventBusInvokeRemoteEventBusRolePolicyAttachment&#34;, RolePolicyAttachmentArgs.builder()        
@@ -321,10 +393,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetInputTransformerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -358,10 +439,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventTargetInputTransformerArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -390,11 +480,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -420,7 +525,7 @@ import javax.annotation.Nullable;
  *                 .actions(                
  *                     &#34;logs:CreateLogStream&#34;,
  *                     &#34;logs:PutLogEvents&#34;)
- *                 .resources(exampleLogGroup.arn().apply(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *                 .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers(                    
  *                         &#34;events.amazonaws.com&#34;,
@@ -436,7 +541,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogResourcePolicy = new LogResourcePolicy(&#34;exampleLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyDocument(exampleLogPolicy.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(exampleLogPolicy -&gt; exampleLogPolicy.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policyDocument(exampleLogPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(exampleLogPolicy -&gt; exampleLogPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .policyName(&#34;guardduty-log-publishing-policy&#34;)
  *             .build());
  * 

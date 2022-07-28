@@ -21,50 +21,6 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `aws.ram.ResourceShare` and uses a data source in the _receiver_ account to create a `aws.ram.PrincipalAssociation` resource with the _receiver&#39;s_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `aws.ram.ResourceShareAccepter`.
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var alternate = new Provider(&#34;alternate&#34;, ProviderArgs.builder()        
- *             .profile(&#34;profile1&#34;)
- *             .build());
- * 
- *         var senderShare = new ResourceShare(&#34;senderShare&#34;, ResourceShareArgs.builder()        
- *             .allowExternalPrincipals(true)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-test-resource-share&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
- * 
- *         final var receiver = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var senderInvite = new PrincipalAssociation(&#34;senderInvite&#34;, PrincipalAssociationArgs.builder()        
- *             .principal(receiver.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()))
- *             .resourceShareArn(senderShare.arn())
- *             .build(), CustomResourceOptions.builder()
- *                 .provider(aws.alternate())
- *                 .build());
- * 
- *         var receiverAccept = new ResourceShareAccepter(&#34;receiverAccept&#34;, ResourceShareAccepterArgs.builder()        
- *             .shareArn(senderInvite.resourceShareArn())
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
  * ## Import
  * 
  * Resource share accepters can be imported using the resource share ARN, e.g.,

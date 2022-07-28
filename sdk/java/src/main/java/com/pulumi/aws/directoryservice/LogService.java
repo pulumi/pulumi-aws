@@ -20,10 +20,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
+ * import com.pulumi.aws.directoryservice.LogService;
+ * import com.pulumi.aws.directoryservice.LogServiceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -44,13 +57,13 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;ds.amazonaws.com&#34;)
  *                     .type(&#34;Service&#34;)
  *                     .build())
- *                 .resources(exampleLogGroup.arn().apply(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *                 .resources(exampleLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *                 .effect(&#34;Allow&#34;)
  *                 .build())
  *             .build());
  * 
  *         var ad_log_policyLogResourcePolicy = new LogResourcePolicy(&#34;ad-log-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
- *             .policyDocument(ad_log_policyPolicyDocument.apply(ad_log_policyPolicyDocument -&gt; ad_log_policyPolicyDocument.json()))
+ *             .policyDocument(ad_log_policyPolicyDocument.applyValue(ad_log_policyPolicyDocument -&gt; ad_log_policyPolicyDocument.json()))
  *             .policyName(&#34;ad-log-policy&#34;)
  *             .build());
  * 

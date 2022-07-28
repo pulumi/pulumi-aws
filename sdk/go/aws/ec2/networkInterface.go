@@ -33,8 +33,8 @@ import (
 // 			SecurityGroups: pulumi.StringArray{
 // 				pulumi.Any(aws_security_group.Web.Id),
 // 			},
-// 			Attachments: ec2.NetworkInterfaceAttachmentArray{
-// 				&ec2.NetworkInterfaceAttachmentArgs{
+// 			Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
+// 				&ec2.NetworkInterfaceAttachmentTypeArgs{
 // 					Instance:    pulumi.Any(aws_instance.Test.Id),
 // 					DeviceIndex: pulumi.Int(1),
 // 				},

@@ -531,12 +531,14 @@ type Endpoints struct {
 	Redshift                            *string `pulumi:"redshift"`
 	Redshiftdata                        *string `pulumi:"redshiftdata"`
 	Redshiftdataapiservice              *string `pulumi:"redshiftdataapiservice"`
+	Redshiftserverless                  *string `pulumi:"redshiftserverless"`
 	Rekognition                         *string `pulumi:"rekognition"`
 	Resiliencehub                       *string `pulumi:"resiliencehub"`
 	Resourcegroups                      *string `pulumi:"resourcegroups"`
 	Resourcegroupstagging               *string `pulumi:"resourcegroupstagging"`
 	Resourcegroupstaggingapi            *string `pulumi:"resourcegroupstaggingapi"`
 	Robomaker                           *string `pulumi:"robomaker"`
+	Rolesanywhere                       *string `pulumi:"rolesanywhere"`
 	Route53                             *string `pulumi:"route53"`
 	Route53domains                      *string `pulumi:"route53domains"`
 	Route53recoverycluster              *string `pulumi:"route53recoverycluster"`
@@ -911,12 +913,14 @@ type EndpointsArgs struct {
 	Redshift                            pulumi.StringPtrInput `pulumi:"redshift"`
 	Redshiftdata                        pulumi.StringPtrInput `pulumi:"redshiftdata"`
 	Redshiftdataapiservice              pulumi.StringPtrInput `pulumi:"redshiftdataapiservice"`
+	Redshiftserverless                  pulumi.StringPtrInput `pulumi:"redshiftserverless"`
 	Rekognition                         pulumi.StringPtrInput `pulumi:"rekognition"`
 	Resiliencehub                       pulumi.StringPtrInput `pulumi:"resiliencehub"`
 	Resourcegroups                      pulumi.StringPtrInput `pulumi:"resourcegroups"`
 	Resourcegroupstagging               pulumi.StringPtrInput `pulumi:"resourcegroupstagging"`
 	Resourcegroupstaggingapi            pulumi.StringPtrInput `pulumi:"resourcegroupstaggingapi"`
 	Robomaker                           pulumi.StringPtrInput `pulumi:"robomaker"`
+	Rolesanywhere                       pulumi.StringPtrInput `pulumi:"rolesanywhere"`
 	Route53                             pulumi.StringPtrInput `pulumi:"route53"`
 	Route53domains                      pulumi.StringPtrInput `pulumi:"route53domains"`
 	Route53recoverycluster              pulumi.StringPtrInput `pulumi:"route53recoverycluster"`
@@ -2188,6 +2192,10 @@ func (o EndpointsOutput) Redshiftdataapiservice() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Redshiftdataapiservice }).(pulumi.StringPtrOutput)
 }
 
+func (o EndpointsOutput) Redshiftserverless() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Redshiftserverless }).(pulumi.StringPtrOutput)
+}
+
 func (o EndpointsOutput) Rekognition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Rekognition }).(pulumi.StringPtrOutput)
 }
@@ -2210,6 +2218,10 @@ func (o EndpointsOutput) Resourcegroupstaggingapi() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Robomaker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Robomaker }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Rolesanywhere() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Rolesanywhere }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Route53() pulumi.StringPtrOutput {

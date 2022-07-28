@@ -27,10 +27,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolClient;
+ * import com.pulumi.aws.cognito.UserPoolClientArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -51,10 +59,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolClient;
+ * import com.pulumi.aws.cognito.UserPoolClientArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -73,85 +89,22 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Create a user pool client with pinpoint analytics
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var testUserPool = new UserPool(&#34;testUserPool&#34;);
- * 
- *         var testApp = new App(&#34;testApp&#34;);
- * 
- *         var testRole = new Role(&#34;testRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;sts:AssumeRole&#34;,
- *       &#34;Principal&#34;: {
- *         &#34;Service&#34;: &#34;cognito-idp.amazonaws.com&#34;
- *       },
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Sid&#34;: &#34;&#34;
- *     }
- *   ]
- * }
- *             &#34;&#34;&#34;)
- *             .build());
- * 
- *         var testRolePolicy = new RolePolicy(&#34;testRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .role(testRole.id())
- *             .policy(testApp.applicationId().apply(applicationId -&gt; &#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: [
- *         &#34;mobiletargeting:UpdateEndpoint&#34;,
- *         &#34;mobiletargeting:PutItems&#34;
- *       ],
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;arn:aws:mobiletargeting:*:%s:apps/%s*&#34;
- *     }
- *   ]
- * }
- * &#34;, current.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),applicationId)))
- *             .build());
- * 
- *         var testUserPoolClient = new UserPoolClient(&#34;testUserPoolClient&#34;, UserPoolClientArgs.builder()        
- *             .userPoolId(testUserPool.id())
- *             .analyticsConfiguration(UserPoolClientAnalyticsConfigurationArgs.builder()
- *                 .applicationId(testApp.applicationId())
- *                 .externalId(&#34;some_id&#34;)
- *                 .roleArn(testRole.arn())
- *                 .userDataShared(true)
- *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Create a user pool client with Cognito as the identity provider
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.UserPool;
+ * import com.pulumi.aws.cognito.UserPoolClient;
+ * import com.pulumi.aws.cognito.UserPoolClientArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

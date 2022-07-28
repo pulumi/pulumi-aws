@@ -33,7 +33,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         });
     ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
     ///         {
-    ///             DomainName = "example.com",
+    ///             Domain = "example.com",
     ///             CertificateName = "example-api",
     ///             CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
     ///             CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),

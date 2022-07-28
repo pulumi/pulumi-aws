@@ -24,10 +24,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.IdentityPool;
+ * import com.pulumi.aws.cognito.IdentityPoolArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.cognito.IdentityPoolRoleAttachment;
+ * import com.pulumi.aws.cognito.IdentityPoolRoleAttachmentArgs;
+ * import com.pulumi.aws.cognito.inputs.IdentityPoolRoleAttachmentRoleMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -42,7 +56,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var authenticatedRole = new Role(&#34;authenticatedRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(mainIdentityPool.id().apply(id -&gt; &#34;&#34;&#34;
+ *             .assumeRolePolicy(mainIdentityPool.id().applyValue(id -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Statement&#34;: [

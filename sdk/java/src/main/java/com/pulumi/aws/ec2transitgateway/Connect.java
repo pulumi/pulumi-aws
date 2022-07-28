@@ -20,14 +20,22 @@ import javax.annotation.Nullable;
  * Manages an EC2 Transit Gateway Connect.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2transitgateway.VpcAttachment;
+ * import com.pulumi.aws.ec2transitgateway.VpcAttachmentArgs;
+ * import com.pulumi.aws.ec2transitgateway.Connect;
+ * import com.pulumi.aws.ec2transitgateway.ConnectArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -35,14 +43,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Connect(&#34;example&#34;, ConnectArgs.builder()        
+ *         var example = new VpcAttachment(&#34;example&#34;, VpcAttachmentArgs.builder()        
  *             .subnetIds(aws_subnet.example().id())
  *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
  *             .vpcId(aws_vpc.example().id())
  *             .build());
  * 
  *         var attachment = new Connect(&#34;attachment&#34;, ConnectArgs.builder()        
- *             .transportAttachmentId(aws_ec2_transit_gateway_vpc_attachment.example().id())
+ *             .transportAttachmentId(example.id())
  *             .transitGatewayId(aws_ec2_transit_gateway.example().id())
  *             .build());
  * 

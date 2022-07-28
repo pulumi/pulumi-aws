@@ -29,10 +29,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -40,9 +47,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
      *             .name(&#34;tf-dx-connection&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -59,10 +66,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -70,9 +84,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
      *             .name(&#34;tf-dx-connection&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -89,10 +103,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -100,9 +121,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
      *             .name(&#34;tf-dx-connection&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -119,10 +140,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.codestarconnections.inputs.GetConnectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -130,9 +158,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
+     *         final var example = DirectconnectFunctions.getConnection(GetConnectionArgs.builder()
      *             .name(&#34;tf-dx-connection&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -149,10 +177,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -160,9 +195,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -179,10 +214,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -190,9 +232,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -209,10 +251,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -220,9 +269,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -239,10 +288,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetGatewayArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -250,9 +306,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var example = DirectconnectFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -272,10 +328,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -283,9 +346,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getLocation(GetLocationArgs.builder()
+     *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
      *             .locationCode(&#34;CS32A-24FL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -305,10 +368,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -316,9 +386,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getLocation(GetLocationArgs.builder()
+     *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
      *             .locationCode(&#34;CS32A-24FL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -338,10 +408,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -349,9 +426,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getLocation(GetLocationArgs.builder()
+     *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
      *             .locationCode(&#34;CS32A-24FL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -371,10 +448,17 @@ public final class DirectconnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.directconnect.DirectconnectFunctions;
+     * import com.pulumi.aws.directconnect.inputs.GetLocationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -382,9 +466,9 @@ public final class DirectconnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(DirectconnectFunctions.getLocation(GetLocationArgs.builder()
+     *         final var example = DirectconnectFunctions.getLocation(GetLocationArgs.builder()
      *             .locationCode(&#34;CS32A-24FL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -401,25 +485,6 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var available = Output.of(DirectconnectFunctions.getLocations());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocationsResult> getLocations() {
@@ -432,25 +497,6 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var available = Output.of(DirectconnectFunctions.getLocations());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain() {
@@ -463,25 +509,6 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var available = Output.of(DirectconnectFunctions.getLocations());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocationsResult> getLocations(InvokeArgs args) {
@@ -494,25 +521,6 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var available = Output.of(DirectconnectFunctions.getLocations());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args) {
@@ -525,25 +533,6 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var available = Output.of(DirectconnectFunctions.getLocations());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOptions options) {
@@ -556,25 +545,6 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the [`aws.directconnect.getLocation`](https://www.terraform.io/docs/providers/aws/d/dx_location.html) data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var available = Output.of(DirectconnectFunctions.getLocations());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args, InvokeOptions options) {

@@ -44,7 +44,7 @@ import (
 // 			},
 // 			RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
 // 				RoleArn:          pulumi.Any(aws_iam_role.Firehose_role.Arn),
-// 				ClusterJdbcurl:   pulumi.String(fmt.Sprintf("%v%v%v%v", "jdbc:redshift://", example.Endpoint, "/", example.DatabaseName)),
+// 				ClusterJdbcurl:   pulumi.String(fmt.Sprintf("jdbc:redshift://%v/%v", example.Endpoint, example.DatabaseName)),
 // 				Username:         pulumi.String("exampleuser"),
 // 				Password:         pulumi.String("Exampl3Pass"),
 // 				DataTableName:    pulumi.String("example-table"),

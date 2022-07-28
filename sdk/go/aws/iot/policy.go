@@ -43,7 +43,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
+// 		_, err = iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
 // 			Policy: pulumi.String(json0),
 // 		})
 // 		if err != nil {

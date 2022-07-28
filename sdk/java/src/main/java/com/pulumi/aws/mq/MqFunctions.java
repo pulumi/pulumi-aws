@@ -24,10 +24,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,13 +45,13 @@ public final class MqFunctions {
      *         final var config = ctx.config();
      *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
      *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byName = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerName(brokerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -61,10 +68,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -75,13 +89,13 @@ public final class MqFunctions {
      *         final var config = ctx.config();
      *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
      *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byName = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerName(brokerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -98,10 +112,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -112,13 +133,13 @@ public final class MqFunctions {
      *         final var config = ctx.config();
      *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
      *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byName = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerName(brokerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -135,10 +156,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -149,13 +177,13 @@ public final class MqFunctions {
      *         final var config = ctx.config();
      *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
      *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byName = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerName(brokerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -172,10 +200,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -186,13 +221,13 @@ public final class MqFunctions {
      *         final var config = ctx.config();
      *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
      *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byName = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerName(brokerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -209,10 +244,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.mq.inputs.GetBrokerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -223,13 +265,13 @@ public final class MqFunctions {
      *         final var config = ctx.config();
      *         final var brokerId = config.get(&#34;brokerId&#34;).orElse(&#34;&#34;);
      *         final var brokerName = config.get(&#34;brokerName&#34;).orElse(&#34;&#34;);
-     *         final var byId = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byId = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerId(brokerId)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byName = Output.of(MqFunctions.getBroker(GetBrokerArgs.builder()
+     *         final var byName = MqFunctions.getBroker(GetBrokerArgs.builder()
      *             .brokerName(brokerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -246,10 +288,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -257,25 +306,25 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = Output.of(MqFunctions.getInstanceTypeOfferings());
+     *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
-     *         final var engine = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var storage = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var instance = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var all = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -292,10 +341,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -303,25 +359,25 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = Output.of(MqFunctions.getInstanceTypeOfferings());
+     *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
-     *         final var engine = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var storage = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var instance = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var all = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -338,10 +394,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -349,25 +412,25 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = Output.of(MqFunctions.getInstanceTypeOfferings());
+     *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
-     *         final var engine = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var storage = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var instance = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var all = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -384,10 +447,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -395,25 +465,25 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = Output.of(MqFunctions.getInstanceTypeOfferings());
+     *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
-     *         final var engine = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var storage = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var instance = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var all = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -430,10 +500,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -441,25 +518,25 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = Output.of(MqFunctions.getInstanceTypeOfferings());
+     *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
-     *         final var engine = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var storage = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var instance = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var all = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -476,10 +553,17 @@ public final class MqFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.mq.MqFunctions;
+     * import com.pulumi.aws.ec2.inputs.GetInstanceTypeOfferingsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -487,25 +571,25 @@ public final class MqFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var empty = Output.of(MqFunctions.getInstanceTypeOfferings());
+     *         final var empty = MqFunctions.getInstanceTypeOfferings();
      * 
-     *         final var engine = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var engine = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var storage = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var storage = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var instance = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var instance = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var all = Output.of(MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
+     *         final var all = MqFunctions.getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs.builder()
      *             .engineType(&#34;ACTIVEMQ&#34;)
      *             .hostInstanceType(&#34;mq.m5.large&#34;)
      *             .storageType(&#34;EBS&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

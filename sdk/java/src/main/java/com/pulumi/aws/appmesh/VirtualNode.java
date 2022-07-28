@@ -35,10 +35,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appmesh.VirtualNode;
+ * import com.pulumi.aws.appmesh.VirtualNodeArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -75,10 +87,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicediscovery.HttpNamespace;
+ * import com.pulumi.aws.appmesh.VirtualNode;
+ * import com.pulumi.aws.appmesh.VirtualNodeArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -119,10 +144,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appmesh.VirtualNode;
+ * import com.pulumi.aws.appmesh.VirtualNodeArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerHealthCheckArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -167,10 +205,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.appmesh.VirtualNode;
+ * import com.pulumi.aws.appmesh.VirtualNodeArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecListenerPortMappingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecServiceDiscoveryDnsArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogArgs;
+ * import com.pulumi.aws.appmesh.inputs.VirtualNodeSpecLoggingAccessLogFileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * const example = new aws.apprunner.Service("example", {
  *     serviceName: "example",
  *     sourceConfiguration: {
- *         autoDeploymentEnabled: false,
+ *         autoDeploymentsEnabled: false,
  *         imageRepository: {
  *             imageConfiguration: {
  *                 port: "8000",
@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *             imageIdentifier: "public.ecr.aws/aws-containers/hello-app-runner:latest",
  *             imageRepositoryType: "ECR_PUBLIC",
  *         },
- *         autoDeploymentEnabled: false,
+ *         autoDeploymentsEnabled: false,
  *     },
  *     tags: {
  *         Name: "example-apprunner-service",

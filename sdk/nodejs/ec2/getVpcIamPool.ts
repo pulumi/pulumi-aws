@@ -69,9 +69,12 @@ export interface GetVpcIamPoolArgs {
      */
     filters?: inputs.ec2.GetVpcIamPoolFilter[];
     /**
-     * -
+     * The ID of the IPAM pool.
      */
     id?: string;
+    /**
+     * The ID of the IPAM pool you would like information on.
+     */
     ipamPoolId?: string;
     /**
      * A map of tags to assigned to the resource.
@@ -120,6 +123,9 @@ export interface GetVpcIamPoolResult {
      */
     readonly description: string;
     readonly filters?: outputs.ec2.GetVpcIamPoolFilter[];
+    /**
+     * The ID of the IPAM pool.
+     */
     readonly id?: string;
     readonly ipamPoolId?: string;
     /**
@@ -164,9 +170,12 @@ export interface GetVpcIamPoolOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcIamPoolFilterArgs>[]>;
     /**
-     * -
+     * The ID of the IPAM pool.
      */
     id?: pulumi.Input<string>;
+    /**
+     * The ID of the IPAM pool you would like information on.
+     */
     ipamPoolId?: pulumi.Input<string>;
     /**
      * A map of tags to assigned to the resource.

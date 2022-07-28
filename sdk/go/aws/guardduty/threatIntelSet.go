@@ -63,7 +63,7 @@ import (
 // 			Location: pulumi.All(myThreatIntelSetBucketObjectv2.Bucket, myThreatIntelSetBucketObjectv2.Key).ApplyT(func(_args []interface{}) (string, error) {
 // 				bucket := _args[0].(string)
 // 				key := _args[1].(string)
-// 				return fmt.Sprintf("%v%v%v%v", "https://s3.amazonaws.com/", bucket, "/", key), nil
+// 				return fmt.Sprintf("https://s3.amazonaws.com/%v/%v", bucket, key), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

@@ -41,10 +41,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoutingProfile{}
 	case "aws:connect/securityProfile:SecurityProfile":
 		r = &SecurityProfile{}
+	case "aws:connect/user:User":
+		r = &User{}
 	case "aws:connect/userHierarchyGroup:UserHierarchyGroup":
 		r = &UserHierarchyGroup{}
 	case "aws:connect/userHierarchyStructure:UserHierarchyStructure":
 		r = &UserHierarchyStructure{}
+	case "aws:connect/vocabulary:Vocabulary":
+		r = &Vocabulary{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -110,12 +114,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"connect/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"connect/userHierarchyGroup",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"connect/userHierarchyStructure",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"connect/vocabulary",
 		&module{version},
 	)
 }

@@ -65,14 +65,14 @@ public final class ClusterLoggingArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+     * The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
      * 
      */
     @Import(name="logExports")
     private @Nullable Output<List<String>> logExports;
 
     /**
-     * @return The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+     * @return The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
      * 
      */
     public Optional<Output<List<String>>> logExports() {
@@ -188,7 +188,7 @@ public final class ClusterLoggingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param logExports The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+         * @param logExports The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ClusterLoggingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param logExports The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+         * @param logExports The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class ClusterLoggingArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param logExports The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`.
+         * @param logExports The collection of exported log types. Log types include the connection log, user log and user activity log. Required when `log_destination_type` is `cloudwatch`. Valid log types are `connectionlog`, `userlog`, and `useractivitylog`.
          * 
          * @return builder
          * 

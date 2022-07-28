@@ -111,7 +111,7 @@ import (
 type Webhook struct {
 	pulumi.CustomResourceState
 
-	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrOutput `pulumi:"branchFilter"`
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType pulumi.StringPtrOutput `pulumi:"buildType"`
@@ -159,7 +159,7 @@ func GetWebhook(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Webhook resources.
 type webhookState struct {
-	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter *string `pulumi:"branchFilter"`
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType *string `pulumi:"buildType"`
@@ -176,7 +176,7 @@ type webhookState struct {
 }
 
 type WebhookState struct {
-	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrInput
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType pulumi.StringPtrInput
@@ -197,7 +197,7 @@ func (WebhookState) ElementType() reflect.Type {
 }
 
 type webhookArgs struct {
-	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter *string `pulumi:"branchFilter"`
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType *string `pulumi:"buildType"`
@@ -209,7 +209,7 @@ type webhookArgs struct {
 
 // The set of arguments for constructing a Webhook resource.
 type WebhookArgs struct {
-	// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+	// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 	BranchFilter pulumi.StringPtrInput
 	// The type of build this webhook will trigger. Valid values for this parameter are: `BUILD`, `BUILD_BATCH`.
 	BuildType pulumi.StringPtrInput
@@ -306,7 +306,7 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 	return o
 }
 
-// A regular expression used to determine which branches get built. Default is all branches are built. It is recommended to use `filterGroup` over `branchFilter`.
+// A regular expression used to determine which branches get built. Default is all branches are built. We recommend using `filterGroup` over `branchFilter`.
 func (o WebhookOutput) BranchFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Webhook) pulumi.StringPtrOutput { return v.BranchFilter }).(pulumi.StringPtrOutput)
 }

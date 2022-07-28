@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanRule {
     /**
-     * @return The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+     * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
      */
     private final @Nullable Integer completionWindow;
@@ -86,7 +86,7 @@ public final class PlanRule {
     }
 
     /**
-     * @return The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+     * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
      */
     public Optional<Integer> completionWindow() {

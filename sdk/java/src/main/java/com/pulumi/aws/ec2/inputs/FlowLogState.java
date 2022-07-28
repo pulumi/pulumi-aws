@@ -228,6 +228,36 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Transit Gateway Attachment ID to attach to
+     * 
+     */
+    @Import(name="transitGatewayAttachmentId")
+    private @Nullable Output<String> transitGatewayAttachmentId;
+
+    /**
+     * @return Transit Gateway Attachment ID to attach to
+     * 
+     */
+    public Optional<Output<String>> transitGatewayAttachmentId() {
+        return Optional.ofNullable(this.transitGatewayAttachmentId);
+    }
+
+    /**
+     * Transit Gateway ID to attach to
+     * 
+     */
+    @Import(name="transitGatewayId")
+    private @Nullable Output<String> transitGatewayId;
+
+    /**
+     * @return Transit Gateway ID to attach to
+     * 
+     */
+    public Optional<Output<String>> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
+    }
+
+    /**
      * VPC ID to attach to
      * 
      */
@@ -258,6 +288,8 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.trafficType = $.trafficType;
+        this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
+        this.transitGatewayId = $.transitGatewayId;
         this.vpcId = $.vpcId;
     }
 
@@ -564,6 +596,48 @@ public final class FlowLogState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder trafficType(String trafficType) {
             return trafficType(Output.of(trafficType));
+        }
+
+        /**
+         * @param transitGatewayAttachmentId Transit Gateway Attachment ID to attach to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayAttachmentId(@Nullable Output<String> transitGatewayAttachmentId) {
+            $.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            return this;
+        }
+
+        /**
+         * @param transitGatewayAttachmentId Transit Gateway Attachment ID to attach to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
+            return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
+        }
+
+        /**
+         * @param transitGatewayId Transit Gateway ID to attach to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayId(@Nullable Output<String> transitGatewayId) {
+            $.transitGatewayId = transitGatewayId;
+            return this;
+        }
+
+        /**
+         * @param transitGatewayId Transit Gateway ID to attach to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayId(String transitGatewayId) {
+            return transitGatewayId(Output.of(transitGatewayId));
         }
 
         /**

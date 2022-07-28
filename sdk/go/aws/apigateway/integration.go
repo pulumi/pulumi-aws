@@ -64,7 +64,7 @@ import (
 // 				"integration.request.header.X-Authorization": pulumi.String("'static'"),
 // 			},
 // 			RequestTemplates: pulumi.StringMap{
-// 				"application/xml": pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "{\n", "   \"body\" : ", "$", "input.json('", "$", "')\n", "}\n")),
+// 				"application/xml": pulumi.String(fmt.Sprintf("{\n   \"body\" : $input.json('$')\n}\n")),
 // 			},
 // 		})
 // 		if err != nil {
@@ -117,7 +117,20 @@ import (
 // 			return err
 // 		}
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"lambda.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "lambda.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -126,7 +139,7 @@ import (
 // 			Code:    pulumi.NewFileArchive("lambda.zip"),
 // 			Role:    role.Arn,
 // 			Handler: pulumi.String("lambda.lambda_handler"),
-// 			Runtime: pulumi.String("python3.6"),
+// 			Runtime: pulumi.String("python3.7"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -150,97 +163,8 @@ import (
 // 				id := _args[0].(string)
 // 				httpMethod := _args[1].(string)
 // 				path := _args[2].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "arn:aws:execute-api:", myregion, ":", accountId, ":", id, "/*/", httpMethod, path), nil
+// 				return fmt.Sprintf("arn:aws:execute-api:%v:%v:%v/*/%v%v", myregion, accountId, id, httpMethod, path), nil
 // 			}).(pulumi.StringOutput),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
-// ## VPC Link
-//
-// ```go
-// package main
-//
-// import (
-// 	"fmt"
-//
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/apigateway"
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/lb"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		cfg := config.New(ctx, "")
-// 		name := cfg.RequireObject("name")
-// 		subnetId := cfg.RequireObject("subnetId")
-// 		testLoadBalancer, err := lb.NewLoadBalancer(ctx, "testLoadBalancer", &lb.LoadBalancerArgs{
-// 			Internal:         pulumi.Bool(true),
-// 			LoadBalancerType: pulumi.String("network"),
-// 			Subnets: pulumi.StringArray{
-// 				pulumi.Any(subnetId),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testVpcLink, err := apigateway.NewVpcLink(ctx, "testVpcLink", &apigateway.VpcLinkArgs{
-// 			TargetArn: pulumi.String{
-// 				testLoadBalancer.Arn,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testRestApi, err := apigateway.NewRestApi(ctx, "testRestApi", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testResource, err := apigateway.NewResource(ctx, "testResource", &apigateway.ResourceArgs{
-// 			RestApi:  testRestApi.ID(),
-// 			ParentId: testRestApi.RootResourceId,
-// 			PathPart: pulumi.String("test"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		testMethod, err := apigateway.NewMethod(ctx, "testMethod", &apigateway.MethodArgs{
-// 			RestApi:       testRestApi.ID(),
-// 			ResourceId:    testResource.ID(),
-// 			HttpMethod:    pulumi.String("GET"),
-// 			Authorization: pulumi.String("NONE"),
-// 			RequestModels: pulumi.StringMap{
-// 				"application/json": pulumi.String("Error"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = apigateway.NewIntegration(ctx, "testIntegration", &apigateway.IntegrationArgs{
-// 			RestApi:    testRestApi.ID(),
-// 			ResourceId: testResource.ID(),
-// 			HttpMethod: testMethod.HttpMethod,
-// 			RequestTemplates: pulumi.StringMap{
-// 				"application/json": pulumi.String(""),
-// 				"application/xml":  pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "#set(", "$", "inputRoot = ", "$", "input.path('", "$", "'))\n{ }")),
-// 			},
-// 			RequestParameters: pulumi.StringMap{
-// 				"integration.request.header.X-Authorization": pulumi.String("'static'"),
-// 				"integration.request.header.X-Foo":           pulumi.String("'Bar'"),
-// 			},
-// 			Type:                  pulumi.String("HTTP"),
-// 			Uri:                   pulumi.String("https://www.google.de"),
-// 			IntegrationHttpMethod: pulumi.String("GET"),
-// 			PassthroughBehavior:   pulumi.String("WHEN_NO_MATCH"),
-// 			ContentHandling:       pulumi.String("CONVERT_TO_TEXT"),
-// 			ConnectionType:        pulumi.String("VPC_LINK"),
-// 			ConnectionId:          testVpcLink.ID(),
 // 		})
 // 		if err != nil {
 // 			return err

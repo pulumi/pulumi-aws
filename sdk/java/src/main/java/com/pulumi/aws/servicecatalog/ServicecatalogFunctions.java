@@ -34,10 +34,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetConstraintArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -45,10 +52,10 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
+     *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
      *             .acceptLanguage(&#34;en&#34;)
      *             .id(&#34;cons-hrvy0335&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -66,10 +73,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetConstraintArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -77,10 +91,10 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
+     *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
      *             .acceptLanguage(&#34;en&#34;)
      *             .id(&#34;cons-hrvy0335&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -98,10 +112,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetConstraintArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -109,10 +130,10 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
+     *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
      *             .acceptLanguage(&#34;en&#34;)
      *             .id(&#34;cons-hrvy0335&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -130,10 +151,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetConstraintArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -141,10 +169,10 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
+     *         final var example = ServicecatalogFunctions.getConstraint(GetConstraintArgs.builder()
      *             .acceptLanguage(&#34;en&#34;)
      *             .id(&#34;cons-hrvy0335&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -162,10 +190,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetLaunchPathsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -173,9 +208,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
+     *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
      *             .productId(&#34;prod-yakog5pdriver&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -193,10 +228,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetLaunchPathsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -204,9 +246,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
+     *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
      *             .productId(&#34;prod-yakog5pdriver&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -224,10 +266,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetLaunchPathsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -235,9 +284,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
+     *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
      *             .productId(&#34;prod-yakog5pdriver&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -255,10 +304,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetLaunchPathsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -266,9 +322,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
+     *         final var example = ServicecatalogFunctions.getLaunchPaths(GetLaunchPathsArgs.builder()
      *             .productId(&#34;prod-yakog5pdriver&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -285,10 +341,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -296,9 +359,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var portfolio = Output.of(ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
+     *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
      *             .id(&#34;port-07052002&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -315,10 +378,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -326,9 +396,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var portfolio = Output.of(ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
+     *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
      *             .id(&#34;port-07052002&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -345,10 +415,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -356,9 +433,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var portfolio = Output.of(ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
+     *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
      *             .id(&#34;port-07052002&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -375,10 +452,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -386,9 +470,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var portfolio = Output.of(ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
+     *         final var portfolio = ServicecatalogFunctions.getPortfolio(GetPortfolioArgs.builder()
      *             .id(&#34;port-07052002&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -406,10 +490,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioConstraintsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -417,9 +508,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
+     *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
      *             .portfolioId(&#34;port-3lli3b3an&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -437,10 +528,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioConstraintsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -448,9 +546,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
+     *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
      *             .portfolioId(&#34;port-3lli3b3an&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -468,10 +566,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioConstraintsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -479,9 +584,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
+     *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
      *             .portfolioId(&#34;port-3lli3b3an&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -499,10 +604,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.servicecatalog.inputs.GetPortfolioConstraintsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -510,9 +622,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
+     *         final var example = ServicecatalogFunctions.getPortfolioConstraints(GetPortfolioConstraintsArgs.builder()
      *             .portfolioId(&#34;port-3lli3b3an&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -532,10 +644,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -543,9 +662,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getProduct(GetProductArgs.builder()
+     *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
      *             .id(&#34;prod-dnigbtea24ste&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -565,10 +684,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -576,9 +702,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getProduct(GetProductArgs.builder()
+     *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
      *             .id(&#34;prod-dnigbtea24ste&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -598,10 +724,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -609,9 +742,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getProduct(GetProductArgs.builder()
+     *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
      *             .id(&#34;prod-dnigbtea24ste&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -631,10 +764,17 @@ public final class ServicecatalogFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.servicecatalog.ServicecatalogFunctions;
+     * import com.pulumi.aws.pricing.inputs.GetProductArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -642,9 +782,9 @@ public final class ServicecatalogFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ServicecatalogFunctions.getProduct(GetProductArgs.builder()
+     *         final var example = ServicecatalogFunctions.getProduct(GetProductArgs.builder()
      *             .id(&#34;prod-dnigbtea24ste&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

@@ -43,7 +43,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
+// 		_, err = iam.NewPolicy(ctx, "policy", &iam.PolicyArgs{
 // 			Path:        pulumi.String("/"),
 // 			Description: pulumi.String("My test policy"),
 // 			Policy:      pulumi.String(json0),

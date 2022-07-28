@@ -25,10 +25,31 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codestarconnections.Connection;
+ * import com.pulumi.aws.codestarconnections.ConnectionArgs;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.kms.KmsFunctions;
+ * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+ * import com.pulumi.aws.codepipeline.Pipeline;
+ * import com.pulumi.aws.codepipeline.PipelineArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -59,9 +80,9 @@ import javax.annotation.Nullable;
  *             &#34;&#34;&#34;)
  *             .build());
  * 
- *         final var s3kmskey = Output.of(KmsFunctions.getAlias(GetAliasArgs.builder()
+ *         final var s3kmskey = KmsFunctions.getAlias(GetAliasArgs.builder()
  *             .name(&#34;alias/myKmsKey&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var codepipeline = new Pipeline(&#34;codepipeline&#34;, PipelineArgs.builder()        
  *             .roleArn(codepipelineRole.arn())
@@ -69,7 +90,7 @@ import javax.annotation.Nullable;
  *                 .location(codepipelineBucket.bucket())
  *                 .type(&#34;S3&#34;)
  *                 .encryptionKey(PipelineArtifactStoreEncryptionKeyArgs.builder()
- *                     .id(s3kmskey.apply(getAliasResult -&gt; getAliasResult.arn()))
+ *                     .id(s3kmskey.applyValue(getAliasResult -&gt; getAliasResult.arn()))
  *                     .type(&#34;KMS&#34;)
  *                     .build())
  *                 .build())
@@ -130,7 +151,7 @@ import javax.annotation.Nullable;
  * 
  *         var codepipelinePolicy = new RolePolicy(&#34;codepipelinePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(codepipelineRole.id())
- *             .policy(Output.tuple(codepipelineBucket.arn(), codepipelineBucket.arn(), example.arn()).apply(values -&gt; {
+ *             .policy(Output.tuple(codepipelineBucket.arn(), codepipelineBucket.arn(), example.arn()).applyValue(values -&gt; {
  *                 var codepipelineBucketArn = values.t1;
  *                 var codepipelineBucketArn1 = values.t2;
  *                 var exampleArn = values.t3;

@@ -21,10 +21,17 @@ public final class Cloudhsmv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudhsmv2.Cloudhsmv2Functions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,9 +39,9 @@ public final class Cloudhsmv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var cluster = Output.of(Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
+     *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
      *             .clusterId(&#34;cluster-testclusterid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -51,10 +58,17 @@ public final class Cloudhsmv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudhsmv2.Cloudhsmv2Functions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -62,9 +76,9 @@ public final class Cloudhsmv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var cluster = Output.of(Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
+     *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
      *             .clusterId(&#34;cluster-testclusterid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -81,10 +95,17 @@ public final class Cloudhsmv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudhsmv2.Cloudhsmv2Functions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -92,9 +113,9 @@ public final class Cloudhsmv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var cluster = Output.of(Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
+     *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
      *             .clusterId(&#34;cluster-testclusterid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -111,10 +132,17 @@ public final class Cloudhsmv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cloudhsmv2.Cloudhsmv2Functions;
+     * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -122,9 +150,9 @@ public final class Cloudhsmv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var cluster = Output.of(Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
+     *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
      *             .clusterId(&#34;cluster-testclusterid&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

@@ -219,8 +219,23 @@ import (
 // 			OperatingSystem: pulumi.String("AMAZON_LINUX"),
 // 			Sources: ssm.PatchBaselineSourceArray{
 // 				&ssm.PatchBaselineSourceArgs{
-// 					Configuration: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "[amzn-main]\n", "name=amzn-main-Base\n", "mirrorlist=http://repo./", "$", "awsregion./", "$", "awsdomain//", "$", "releasever/main/mirror.list\n", "mirrorlist_expire=300\n", "metadata_expire=300\n", "priority=10\n", "failovermethod=priority\n", "fastestmirror_enabled=0\n", "gpgcheck=1\n", "gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga\n", "enabled=1\n", "retries=3\n", "timeout=5\n", "report_instanceid=yes\n", "\n")),
-// 					Name:          pulumi.String("My-AL2017.09"),
+// 					Configuration: pulumi.String(fmt.Sprintf(`[amzn-main]
+// name=amzn-main-Base
+// mirrorlist=http://repo./$awsregion./$awsdomain//$releasever/main/mirror.list
+// mirrorlist_expire=300
+// metadata_expire=300
+// priority=10
+// failovermethod=priority
+// fastestmirror_enabled=0
+// gpgcheck=1
+// gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-amazon-ga
+// enabled=1
+// retries=3
+// timeout=5
+// report_instanceid=yes
+//
+// `)),
+// 					Name: pulumi.String("My-AL2017.09"),
 // 					Products: pulumi.StringArray{
 // 						pulumi.String("AmazonLinux2017.09"),
 // 					},

@@ -32,7 +32,7 @@ import (
 // 		_, err := apigatewayv2.NewRouteResponse(ctx, "example", &apigatewayv2.RouteResponseArgs{
 // 			ApiId:            pulumi.Any(aws_apigatewayv2_api.Example.Id),
 // 			RouteId:          pulumi.Any(aws_apigatewayv2_route.Example.Id),
-// 			RouteResponseKey: pulumi.String(fmt.Sprintf("%v%v", "$", "default")),
+// 			RouteResponseKey: pulumi.String(fmt.Sprintf("$default")),
 // 		})
 // 		if err != nil {
 // 			return err

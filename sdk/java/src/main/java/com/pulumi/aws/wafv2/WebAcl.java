@@ -31,10 +31,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -95,10 +113,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleActionBlockArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -155,10 +191,36 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.RuleGroup;
+ * import com.pulumi.aws.wafv2.RuleGroupArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.WebAcl;
+ * import com.pulumi.aws.wafv2.WebAclArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclDefaultActionBlockArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleOverrideActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleStatementRuleGroupReferenceStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.WebAclVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

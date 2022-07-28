@@ -35,10 +35,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sns.TopicSubscription;
+ * import com.pulumi.aws.sns.TopicSubscriptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -60,10 +67,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sns.TopicSubscription;
+ * import com.pulumi.aws.sns.TopicSubscriptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -89,11 +105,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.sns.TopicArgs;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.sns.TopicSubscription;
+ * import com.pulumi.aws.sns.TopicSubscriptionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -104,7 +135,7 @@ import javax.annotation.Nullable;
  *         final var config = ctx.config();
  *         final var sns = config.get(&#34;sns&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
  *         final var sqs = config.get(&#34;sqs&#34;).orElse(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference));
- *         final var sns-topic-policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var sns-topic-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId(&#34;__default_policy_ID&#34;)
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
@@ -147,9 +178,9 @@ import javax.annotation.Nullable;
  *                     .resources(String.format(&#34;arn:aws:sns:%s:%s:%s&#34;, sns.region(),sns.account-id(),sns.name()))
  *                     .sid(&#34;__console_sub_0&#34;)
  *                     .build())
- *             .build()));
+ *             .build());
  * 
- *         final var sqs-queue-policy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var sqs-queue-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .policyId(String.format(&#34;arn:aws:sqs:%s:%s:%s/SQSDefaultPolicy&#34;, sqs.region(),sqs.account-id(),sqs.name()))
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .sid(&#34;example-sns-topic&#34;)
@@ -166,7 +197,7 @@ import javax.annotation.Nullable;
  *                     .values(String.format(&#34;arn:aws:sns:%s:%s:%s&#34;, sns.region(),sns.account-id(),sns.name()))
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var awsSns = new Provider(&#34;awsSns&#34;, ProviderArgs.builder()        
  *             .region(sns.region())

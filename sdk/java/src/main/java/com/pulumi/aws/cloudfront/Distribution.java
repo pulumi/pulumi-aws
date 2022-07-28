@@ -47,10 +47,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.cloudfront.Distribution;
+ * import com.pulumi.aws.cloudfront.DistributionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionLoggingConfigArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsGeoRestrictionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionViewerCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -185,10 +208,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.Distribution;
+ * import com.pulumi.aws.cloudfront.DistributionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupFailoverCriteriaArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

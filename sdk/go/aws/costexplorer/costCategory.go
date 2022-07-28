@@ -106,6 +106,10 @@ type CostCategory struct {
 	Rules CostCategoryRuleArrayOutput `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayOutput `pulumi:"splitChargeRules"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCostCategory registers a new resource with the given unique name, arguments, and options.
@@ -159,6 +163,10 @@ type costCategoryState struct {
 	Rules []CostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type CostCategoryState struct {
@@ -178,6 +186,10 @@ type CostCategoryState struct {
 	Rules CostCategoryRuleArrayInput
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (CostCategoryState) ElementType() reflect.Type {
@@ -195,6 +207,10 @@ type costCategoryArgs struct {
 	Rules []CostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []CostCategorySplitChargeRule `pulumi:"splitChargeRules"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a CostCategory resource.
@@ -209,6 +225,10 @@ type CostCategoryArgs struct {
 	Rules CostCategoryRuleArrayInput
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules CostCategorySplitChargeRuleArrayInput
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (CostCategoryArgs) ElementType() reflect.Type {
@@ -336,6 +356,16 @@ func (o CostCategoryOutput) Rules() CostCategoryRuleArrayOutput {
 // Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 func (o CostCategoryOutput) SplitChargeRules() CostCategorySplitChargeRuleArrayOutput {
 	return o.ApplyT(func(v *CostCategory) CostCategorySplitChargeRuleArrayOutput { return v.SplitChargeRules }).(CostCategorySplitChargeRuleArrayOutput)
+}
+
+// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+func (o CostCategoryOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+func (o CostCategoryOutput) TagsAll() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *CostCategory) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
 type CostCategoryArrayOutput struct{ *pulumi.OutputState }

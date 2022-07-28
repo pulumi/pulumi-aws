@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
+ * Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
  *
  * ## Example Usage
@@ -183,7 +183,15 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
-    public readonly trafficType!: pulumi.Output<string>;
+    public readonly trafficType!: pulumi.Output<string | undefined>;
+    /**
+     * Transit Gateway Attachment ID to attach to
+     */
+    public readonly transitGatewayAttachmentId!: pulumi.Output<string | undefined>;
+    /**
+     * Transit Gateway ID to attach to
+     */
+    public readonly transitGatewayId!: pulumi.Output<string | undefined>;
     /**
      * VPC ID to attach to
      */
@@ -196,7 +204,7 @@ export class FlowLog extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: FlowLogArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlowLogArgs | FlowLogState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -215,12 +223,11 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["trafficType"] = state ? state.trafficType : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FlowLogArgs | undefined;
-            if ((!args || args.trafficType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'trafficType'");
-            }
             resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
             resourceInputs["eniId"] = args ? args.eniId : undefined;
             resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
@@ -232,6 +239,8 @@ export class FlowLog extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["trafficType"] = args ? args.trafficType : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -303,6 +312,14 @@ export interface FlowLogState {
      */
     trafficType?: pulumi.Input<string>;
     /**
+     * Transit Gateway Attachment ID to attach to
+     */
+    transitGatewayAttachmentId?: pulumi.Input<string>;
+    /**
+     * Transit Gateway ID to attach to
+     */
+    transitGatewayId?: pulumi.Input<string>;
+    /**
      * VPC ID to attach to
      */
     vpcId?: pulumi.Input<string>;
@@ -360,7 +377,15 @@ export interface FlowLogArgs {
     /**
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      */
-    trafficType: pulumi.Input<string>;
+    trafficType?: pulumi.Input<string>;
+    /**
+     * Transit Gateway Attachment ID to attach to
+     */
+    transitGatewayAttachmentId?: pulumi.Input<string>;
+    /**
+     * Transit Gateway ID to attach to
+     */
+    transitGatewayId?: pulumi.Input<string>;
     /**
      * VPC ID to attach to
      */

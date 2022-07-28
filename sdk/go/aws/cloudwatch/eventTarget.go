@@ -32,8 +32,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		console, err := cloudwatch.NewEventRule(ctx, "console", &cloudwatch.EventRuleArgs{
-// 			Description:  pulumi.String("Capture all EC2 scaling events"),
-// 			EventPattern: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"source\": [\n", "    \"aws.autoscaling\"\n", "  ],\n", "  \"detail-type\": [\n", "    \"EC2 Instance Launch Successful\",\n", "    \"EC2 Instance Terminate Successful\",\n", "    \"EC2 Instance Launch Unsuccessful\",\n", "    \"EC2 Instance Terminate Unsuccessful\"\n", "  ]\n", "}\n")),
+// 			Description: pulumi.String("Capture all EC2 scaling events"),
+// 			EventPattern: pulumi.String(fmt.Sprintf(`{
+//   "source": [
+//     "aws.autoscaling"
+//   ],
+//   "detail-type": [
+//     "EC2 Instance Launch Successful",
+//     "EC2 Instance Terminate Successful",
+//     "EC2 Instance Launch Unsuccessful",
+//     "EC2 Instance Terminate Unsuccessful"
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -108,7 +119,24 @@ import (
 // 		}
 // 		stopInstance, err := ssm.NewDocument(ctx, "stopInstance", &ssm.DocumentArgs{
 // 			DocumentType: pulumi.String("Command"),
-// 			Content:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "  {\n", "    \"schemaVersion\": \"1.2\",\n", "    \"description\": \"Stop an instance\",\n", "    \"parameters\": {\n", "\n", "    },\n", "    \"runtimeConfig\": {\n", "      \"aws:runShellScript\": {\n", "        \"properties\": [\n", "          {\n", "            \"id\": \"0.aws:runShellScript\",\n", "            \"runCommand\": [\"halt\"]\n", "          }\n", "        ]\n", "      }\n", "    }\n", "  }\n")),
+// 			Content: pulumi.String(fmt.Sprintf(`  {
+//     "schemaVersion": "1.2",
+//     "description": "Stop an instance",
+//     "parameters": {
+//
+//     },
+//     "runtimeConfig": {
+//       "aws:runShellScript": {
+//         "properties": [
+//           {
+//             "id": "0.aws:runShellScript",
+//             "runCommand": ["halt"]
+//           }
+//         ]
+//       }
+//     }
+//   }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -214,7 +242,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = cloudwatch.NewEventTarget(ctx, "stopInstancesEventTarget", &cloudwatch.EventTargetArgs{
-// 			Arn:     pulumi.String(fmt.Sprintf("%v%v%v", "arn:aws:ssm:", _var.Aws_region, "::document/AWS-RunShellScript")),
+// 			Arn:     pulumi.String(fmt.Sprintf("arn:aws:ssm:%v::document/AWS-RunShellScript", _var.Aws_region)),
 // 			Input:   pulumi.String("{\"commands\":[\"halt\"]}"),
 // 			Rule:    stopInstancesEventRule.Name,
 // 			RoleArn: pulumi.Any(aws_iam_role.Ssm_lifecycle.Arn),
@@ -268,12 +296,12 @@ import (
 // 		}
 // 		_, err = cloudwatch.NewEventTarget(ctx, "exampleEventTarget", &cloudwatch.EventTargetArgs{
 // 			Arn: exampleStage.ExecutionArn.ApplyT(func(executionArn string) (string, error) {
-// 				return fmt.Sprintf("%v%v", executionArn, "/GET"), nil
+// 				return fmt.Sprintf("%v/GET", executionArn), nil
 // 			}).(pulumi.StringOutput),
 // 			Rule: exampleEventRule.ID(),
 // 			HttpTarget: &cloudwatch.EventTargetHttpTargetArgs{
 // 				QueryStringParameters: pulumi.StringMap{
-// 					"Body": pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.body")),
+// 					"Body": pulumi.String(fmt.Sprintf("$.detail.body")),
 // 				},
 // 				HeaderParameters: pulumi.StringMap{
 // 					"Env": pulumi.String("Test"),
@@ -304,7 +332,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		eventBusInvokeRemoteEventBusRole, err := iam.NewRole(ctx, "eventBusInvokeRemoteEventBusRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"events.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "events.amazonaws.com"
+//       },
+//       "Effect": "Allow"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -380,10 +420,10 @@ import (
 // 			Rule: exampleEventRule.ID(),
 // 			InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
 // 				InputPaths: pulumi.StringMap{
-// 					"instance": pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.instance")),
-// 					"status":   pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.status")),
+// 					"instance": pulumi.String(fmt.Sprintf("$.detail.instance")),
+// 					"status":   pulumi.String(fmt.Sprintf("$.detail.status")),
 // 				},
-// 				InputTemplate: pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"instance_id\": <instance>,\n", "  \"instance_status\": <status>\n", "}\n")),
+// 				InputTemplate: pulumi.String(fmt.Sprintf("{\n  \"instance_id\": <instance>,\n  \"instance_status\": <status>\n}\n")),
 // 			},
 // 		})
 // 		if err != nil {
@@ -416,8 +456,8 @@ import (
 // 			Rule: exampleEventRule.ID(),
 // 			InputTransformer: &cloudwatch.EventTargetInputTransformerArgs{
 // 				InputPaths: pulumi.StringMap{
-// 					"instance": pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.instance")),
-// 					"status":   pulumi.String(fmt.Sprintf("%v%v", "$", ".detail.status")),
+// 					"instance": pulumi.String(fmt.Sprintf("$.detail.instance")),
+// 					"status":   pulumi.String(fmt.Sprintf("$.detail.status")),
 // 				},
 // 				InputTemplate: pulumi.String("\"<instance> is in state <status>\""),
 // 			},
@@ -479,7 +519,7 @@ import (
 // 					},
 // 					Resources: pulumi.StringArray{
 // 						exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
-// 							return fmt.Sprintf("%v%v", arn, ":*"), nil
+// 							return fmt.Sprintf("%v:*", arn), nil
 // 						}).(pulumi.StringOutput),
 // 					},
 // 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{

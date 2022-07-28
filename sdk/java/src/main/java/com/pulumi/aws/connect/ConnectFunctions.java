@@ -26,6 +26,8 @@ import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
 import com.pulumi.aws.connect.inputs.GetRoutingProfilePlainArgs;
 import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
 import com.pulumi.aws.connect.inputs.GetSecurityProfilePlainArgs;
+import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupPlainArgs;
 import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
 import com.pulumi.aws.connect.inputs.GetUserHierarchyStructurePlainArgs;
 import com.pulumi.aws.connect.outputs.GetBotAssociationResult;
@@ -39,6 +41,7 @@ import com.pulumi.aws.connect.outputs.GetQueueResult;
 import com.pulumi.aws.connect.outputs.GetQuickConnectResult;
 import com.pulumi.aws.connect.outputs.GetRoutingProfileResult;
 import com.pulumi.aws.connect.outputs.GetSecurityProfileResult;
+import com.pulumi.aws.connect.outputs.GetUserHierarchyGroupResult;
 import com.pulumi.aws.connect.outputs.GetUserHierarchyStructureResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -55,10 +58,18 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
+     * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -66,12 +77,12 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
+     *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name(&#34;Test&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -89,10 +100,18 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
+     * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -100,12 +119,12 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
+     *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name(&#34;Test&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +142,18 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
+     * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,12 +161,12 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
+     *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name(&#34;Test&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -157,10 +184,18 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetBotAssociationArgs;
+     * import com.pulumi.aws.connect.inputs.GetBotAssociationLexBotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -168,12 +203,12 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
+     *         final var example = ConnectFunctions.getBotAssociation(GetBotAssociationArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .lexBot(GetBotAssociationLexBotArgs.builder()
      *                 .name(&#34;Test&#34;)
      *                 .build())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -192,10 +227,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -203,10 +245,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
+     *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -216,10 +258,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -227,10 +276,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
+     *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
      *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -249,10 +298,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -260,10 +316,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
+     *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -273,10 +329,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -284,10 +347,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
+     *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
      *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -306,10 +369,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -317,10 +387,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
+     *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -330,10 +400,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -341,10 +418,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
+     *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
      *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -363,10 +440,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -374,10 +458,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
+     *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -387,10 +471,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -398,10 +489,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
+     *         final var test = ConnectFunctions.getContactFlow(GetContactFlowArgs.builder()
      *             .contactFlowId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -420,10 +511,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -431,10 +529,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
+     *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -444,10 +542,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -455,10 +560,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
+     *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
      *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -477,10 +582,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -488,10 +600,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
+     *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -501,10 +613,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -512,10 +631,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
+     *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
      *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -534,10 +653,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -545,10 +671,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
+     *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -558,10 +684,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -569,10 +702,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
+     *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
      *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -591,10 +724,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -602,10 +742,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
+     *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -615,10 +755,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetContactFlowModuleArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -626,10 +773,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
+     *         final var example = ConnectFunctions.getContactFlowModule(GetContactFlowModuleArgs.builder()
      *             .contactFlowModuleId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -648,10 +795,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -659,10 +813,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
+     *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -672,10 +826,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -683,10 +844,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
+     *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
      *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -705,10 +866,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -716,10 +884,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
+     *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -729,10 +897,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -740,10 +915,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
+     *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
      *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -762,10 +937,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -773,10 +955,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
+     *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -786,10 +968,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -797,10 +986,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
+     *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
      *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -819,10 +1008,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -830,10 +1026,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
+     *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Test&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -843,10 +1039,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetHoursOfOperationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -854,10 +1057,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
+     *         final var test = ConnectFunctions.getHoursOfOperation(GetHoursOfOperationArgs.builder()
      *             .hoursOfOperationId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -876,10 +1079,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -887,9 +1097,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceAlias(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -899,10 +1109,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -910,9 +1127,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -931,10 +1148,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -942,9 +1166,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceAlias(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -954,10 +1178,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -965,9 +1196,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -986,10 +1217,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -997,9 +1235,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceAlias(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1009,10 +1247,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1020,9 +1265,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1041,10 +1286,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1052,9 +1304,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceAlias(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1064,10 +1316,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1075,9 +1334,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1096,10 +1355,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1107,9 +1373,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceAlias(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1119,10 +1385,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1130,9 +1403,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1151,10 +1424,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1162,9 +1442,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceAlias(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1174,10 +1454,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1185,9 +1472,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(ConnectFunctions.getInstance(GetInstanceArgs.builder()
+     *         final var foo = ConnectFunctions.getInstance(GetInstanceArgs.builder()
      *             .instanceId(&#34;97afc98d-101a-ba98-ab97-ae114fc115ec&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1204,10 +1491,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1215,10 +1509,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
+     *         final var example = ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
      *             .functionArn(&#34;arn:aws:lambda:us-west-2:123456789123:function:abcdefg&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1235,10 +1529,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1246,10 +1547,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
+     *         final var example = ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
      *             .functionArn(&#34;arn:aws:lambda:us-west-2:123456789123:function:abcdefg&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1266,10 +1567,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1277,10 +1585,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
+     *         final var example = ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
      *             .functionArn(&#34;arn:aws:lambda:us-west-2:123456789123:function:abcdefg&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1297,10 +1605,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetLambdaFunctionAssociationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1308,10 +1623,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
+     *         final var example = ConnectFunctions.getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs.builder()
      *             .functionArn(&#34;arn:aws:lambda:us-west-2:123456789123:function:abcdefg&#34;)
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1330,10 +1645,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetPromptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1341,10 +1663,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getPrompt(GetPromptArgs.builder()
+     *         final var example = ConnectFunctions.getPrompt(GetPromptArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Beep.wav&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1363,10 +1685,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetPromptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1374,10 +1703,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getPrompt(GetPromptArgs.builder()
+     *         final var example = ConnectFunctions.getPrompt(GetPromptArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Beep.wav&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1396,10 +1725,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetPromptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1407,10 +1743,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getPrompt(GetPromptArgs.builder()
+     *         final var example = ConnectFunctions.getPrompt(GetPromptArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Beep.wav&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1429,10 +1765,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetPromptArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1440,10 +1783,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getPrompt(GetPromptArgs.builder()
+     *         final var example = ConnectFunctions.getPrompt(GetPromptArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Beep.wav&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1462,10 +1805,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1473,10 +1823,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1486,10 +1836,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1497,10 +1854,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .queueId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1519,10 +1876,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1530,10 +1894,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1543,10 +1907,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1554,10 +1925,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .queueId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1576,10 +1947,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1587,10 +1965,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1600,10 +1978,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1611,10 +1996,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .queueId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1633,10 +2018,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1644,10 +2036,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1657,10 +2049,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQueueArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1668,10 +2067,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQueue(GetQueueArgs.builder()
+     *         final var example = ConnectFunctions.getQueue(GetQueueArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .queueId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1690,10 +2089,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1701,10 +2107,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
+     *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1714,10 +2120,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1725,10 +2138,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
+     *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .quickConnectId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1747,10 +2160,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1758,10 +2178,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
+     *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1771,10 +2191,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1782,10 +2209,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
+     *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .quickConnectId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1804,10 +2231,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1815,10 +2249,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
+     *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1828,10 +2262,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1839,10 +2280,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
+     *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .quickConnectId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1861,10 +2302,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1872,10 +2320,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
+     *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1885,10 +2333,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetQuickConnectArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1896,10 +2351,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
+     *         final var example = ConnectFunctions.getQuickConnect(GetQuickConnectArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .quickConnectId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1918,10 +2373,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1929,10 +2391,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
+     *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1942,10 +2404,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1953,10 +2422,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
+     *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .routingProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1975,10 +2444,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1986,10 +2462,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
+     *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1999,10 +2475,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2010,10 +2493,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
+     *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .routingProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2032,10 +2515,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2043,10 +2533,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
+     *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2056,10 +2546,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2067,10 +2564,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
+     *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .routingProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2089,10 +2586,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2100,10 +2604,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
+     *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2113,10 +2617,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetRoutingProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2124,10 +2635,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
+     *         final var example = ConnectFunctions.getRoutingProfile(GetRoutingProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .routingProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2146,10 +2657,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2157,10 +2675,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
+     *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2170,10 +2688,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2181,10 +2706,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
+     *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .securityProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2203,10 +2728,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2214,10 +2746,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
+     *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2227,10 +2759,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2238,10 +2777,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
+     *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .securityProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2260,10 +2799,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2271,10 +2817,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
+     *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2284,10 +2830,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2295,10 +2848,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
+     *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .securityProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2317,10 +2870,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2328,10 +2888,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
+     *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .name(&#34;Example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2341,10 +2901,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetSecurityProfileArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2352,10 +2919,10 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
+     *         final var example = ConnectFunctions.getSecurityProfile(GetSecurityProfileArgs.builder()
      *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
      *             .securityProfileId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2366,16 +2933,25 @@ public final class ConnectFunctions {
         return Deployment.getInstance().invokeAsync("aws:connect/getSecurityProfile:getSecurityProfile", TypeShape.of(GetSecurityProfileResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Provides details about a specific Amazon Connect User Hierarchy Structure
+     * Provides details about a specific Amazon Connect User Hierarchy Group.
      * 
      * ## Example Usage
+     * 
+     * By `name`
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2383,9 +2959,291 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
+     *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .name(&#34;Example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * By `hierarchy_group_id`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
+     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserHierarchyGroupResult> getUserHierarchyGroup(GetUserHierarchyGroupArgs args) {
+        return getUserHierarchyGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Amazon Connect User Hierarchy Group.
+     * 
+     * ## Example Usage
+     * 
+     * By `name`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .name(&#34;Example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * By `hierarchy_group_id`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
+     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserHierarchyGroupResult> getUserHierarchyGroupPlain(GetUserHierarchyGroupPlainArgs args) {
+        return getUserHierarchyGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about a specific Amazon Connect User Hierarchy Group.
+     * 
+     * ## Example Usage
+     * 
+     * By `name`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .name(&#34;Example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * By `hierarchy_group_id`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
+     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetUserHierarchyGroupResult> getUserHierarchyGroup(GetUserHierarchyGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", TypeShape.of(GetUserHierarchyGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Amazon Connect User Hierarchy Group.
+     * 
+     * ## Example Usage
+     * 
+     * By `name`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .name(&#34;Example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     * By `hierarchy_group_id`
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ConnectFunctions.getUserHierarchyGroup(GetUserHierarchyGroupArgs.builder()
+     *             .hierarchyGroupId(&#34;cccccccc-bbbb-cccc-dddd-111111111111&#34;)
+     *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetUserHierarchyGroupResult> getUserHierarchyGroupPlain(GetUserHierarchyGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:connect/getUserHierarchyGroup:getUserHierarchyGroup", TypeShape.of(GetUserHierarchyGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about a specific Amazon Connect User Hierarchy Structure
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
      *             .instanceId(aws_connect_instance.test().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2402,10 +3260,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2413,9 +3278,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
+     *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
      *             .instanceId(aws_connect_instance.test().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2432,10 +3297,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2443,9 +3315,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
+     *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
      *             .instanceId(aws_connect_instance.test().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -2462,10 +3334,17 @@ public final class ConnectFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.connect.ConnectFunctions;
+     * import com.pulumi.aws.connect.inputs.GetUserHierarchyStructureArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -2473,9 +3352,9 @@ public final class ConnectFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
+     *         final var test = ConnectFunctions.getUserHierarchyStructure(GetUserHierarchyStructureArgs.builder()
      *             .instanceId(aws_connect_instance.test().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

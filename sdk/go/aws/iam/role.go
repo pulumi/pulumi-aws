@@ -49,7 +49,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := iam.NewRole(ctx, "testRole", &iam.RoleArgs{
+// 		_, err = iam.NewRole(ctx, "testRole", &iam.RoleArgs{
 // 			AssumeRolePolicy: pulumi.String(json0),
 // 			Tags: pulumi.StringMap{
 // 				"tag-key": pulumi.String("tag-value"),

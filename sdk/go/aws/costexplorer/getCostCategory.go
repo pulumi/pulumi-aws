@@ -47,6 +47,8 @@ func LookupCostCategory(ctx *pulumi.Context, args *LookupCostCategoryArgs, opts 
 type LookupCostCategoryArgs struct {
 	// Unique name for the Cost Category.
 	CostCategoryArn string `pulumi:"costCategoryArn"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCostCategory.
@@ -65,6 +67,8 @@ type LookupCostCategoryResult struct {
 	Rules []GetCostCategoryRule `pulumi:"rules"`
 	// Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 	SplitChargeRules []GetCostCategorySplitChargeRule `pulumi:"splitChargeRules"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutputArgs, opts ...pulumi.InvokeOption) LookupCostCategoryResultOutput {
@@ -84,6 +88,8 @@ func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutput
 type LookupCostCategoryOutputArgs struct {
 	// Unique name for the Cost Category.
 	CostCategoryArn pulumi.StringInput `pulumi:"costCategoryArn"`
+	// Resource tags.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupCostCategoryOutputArgs) ElementType() reflect.Type {
@@ -141,6 +147,11 @@ func (o LookupCostCategoryResultOutput) Rules() GetCostCategoryRuleArrayOutput {
 // Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
 func (o LookupCostCategoryResultOutput) SplitChargeRules() GetCostCategorySplitChargeRuleArrayOutput {
 	return o.ApplyT(func(v LookupCostCategoryResult) []GetCostCategorySplitChargeRule { return v.SplitChargeRules }).(GetCostCategorySplitChargeRuleArrayOutput)
+}
+
+// Resource tags.
+func (o LookupCostCategoryResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupCostCategoryResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

@@ -101,14 +101,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
     @Import(name="automaticFailoverEnabled")
     private @Nullable Output<Boolean> automaticFailoverEnabled;
 
     /**
-     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+     * @return Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> automaticFailoverEnabled() {
@@ -910,7 +910,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param automaticFailoverEnabled Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+         * @param automaticFailoverEnabled Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -921,7 +921,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param automaticFailoverEnabled Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+         * @param automaticFailoverEnabled Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `num_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
          * 
          * @return builder
          * 

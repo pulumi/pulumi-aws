@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * The DynamoDB API expects attribute structure (name and type) to be passed along when creating or updating GSI/LSIs or creating the initial table. In these cases it expects the Hash / Range keys to be provided. Because these get re-used in numerous places (i.e the table's range key could be a part of one or more GSIs), they are stored on the table object to prevent duplication and increase consistency. If you add attributes here that are not used in these scenarios it can cause an infinite loop in planning.
  *
  * ## Example Usage
+ * ### Basic Example
  *
  * The following dynamodb table description models the table and GSI shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.html)
  *
@@ -159,7 +160,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Whether to enable Point In Time Recovery for the replica.
+     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      */
     public readonly pointInTimeRecovery!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecovery>;
     /**
@@ -329,7 +330,7 @@ export interface TableState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether to enable Point In Time Recovery for the replica.
+     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      */
     pointInTimeRecovery?: pulumi.Input<inputs.dynamodb.TablePointInTimeRecovery>;
     /**
@@ -427,7 +428,7 @@ export interface TableArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether to enable Point In Time Recovery for the replica.
+     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      */
     pointInTimeRecovery?: pulumi.Input<inputs.dynamodb.TablePointInTimeRecovery>;
     /**

@@ -33,10 +33,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -44,10 +51,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getExperience(GetExperienceArgs.builder()
+     *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
      *             .experienceId(&#34;87654321-1234-4321-4321-321987654321&#34;)
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -64,10 +71,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -75,10 +89,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getExperience(GetExperienceArgs.builder()
+     *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
      *             .experienceId(&#34;87654321-1234-4321-4321-321987654321&#34;)
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -95,10 +109,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -106,10 +127,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getExperience(GetExperienceArgs.builder()
+     *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
      *             .experienceId(&#34;87654321-1234-4321-4321-321987654321&#34;)
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -126,10 +147,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetExperienceArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -137,10 +165,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getExperience(GetExperienceArgs.builder()
+     *         final var example = KendraFunctions.getExperience(GetExperienceArgs.builder()
      *             .experienceId(&#34;87654321-1234-4321-4321-321987654321&#34;)
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -157,10 +185,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -168,10 +203,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(KendraFunctions.getFaq(GetFaqArgs.builder()
+     *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
      *             .faqId(&#34;87654321-1234-4321-4321-321987654321&#34;)
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -188,10 +223,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -199,10 +241,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(KendraFunctions.getFaq(GetFaqArgs.builder()
+     *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
      *             .faqId(&#34;87654321-1234-4321-4321-321987654321&#34;)
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -219,10 +261,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -230,10 +279,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(KendraFunctions.getFaq(GetFaqArgs.builder()
+     *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
      *             .faqId(&#34;87654321-1234-4321-4321-321987654321&#34;)
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -250,10 +299,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetFaqArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -261,10 +317,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(KendraFunctions.getFaq(GetFaqArgs.builder()
+     *         final var test = KendraFunctions.getFaq(GetFaqArgs.builder()
      *             .faqId(&#34;87654321-1234-4321-4321-321987654321&#34;)
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -281,10 +337,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -292,9 +355,9 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getIndex(GetIndexArgs.builder()
+     *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
      *             .id(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -311,10 +374,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -322,9 +392,9 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getIndex(GetIndexArgs.builder()
+     *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
      *             .id(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -341,10 +411,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -352,9 +429,9 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getIndex(GetIndexArgs.builder()
+     *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
      *             .id(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -371,10 +448,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetIndexArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -382,9 +466,9 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getIndex(GetIndexArgs.builder()
+     *         final var example = KendraFunctions.getIndex(GetIndexArgs.builder()
      *             .id(&#34;12345678-1234-1234-1234-123456789123&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -401,10 +485,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -412,10 +503,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
+     *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
      *             .querySuggestionsBlockListId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -432,10 +523,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -443,10 +541,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
+     *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
      *             .querySuggestionsBlockListId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -463,10 +561,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -474,10 +579,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
+     *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
      *             .querySuggestionsBlockListId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -494,10 +599,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetQuerySuggestionsBlockListArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -505,10 +617,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
+     *         final var example = KendraFunctions.getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs.builder()
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
      *             .querySuggestionsBlockListId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -525,10 +637,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -536,10 +655,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
+     *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
      *             .thesaurusId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -556,10 +675,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -567,10 +693,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
+     *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
      *             .thesaurusId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -587,10 +713,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -598,10 +731,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
+     *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
      *             .thesaurusId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -618,10 +751,17 @@ public final class KendraFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kendra.KendraFunctions;
+     * import com.pulumi.aws.kendra.inputs.GetThesaurusArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -629,10 +769,10 @@ public final class KendraFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
+     *         final var example = KendraFunctions.getThesaurus(GetThesaurusArgs.builder()
      *             .indexId(&#34;12345678-1234-1234-1234-123456789123&#34;)
      *             .thesaurusId(&#34;87654321-1234-4321-4321-321987654321&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

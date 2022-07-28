@@ -22,10 +22,37 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
+ * import com.pulumi.aws.ec2transitgateway.VpcAttachment;
+ * import com.pulumi.aws.ec2transitgateway.VpcAttachmentArgs;
+ * import com.pulumi.aws.ec2transitgateway.MulticastDomain;
+ * import com.pulumi.aws.ec2transitgateway.MulticastDomainArgs;
+ * import com.pulumi.aws.ec2transitgateway.MulticastDomainAssociation;
+ * import com.pulumi.aws.ec2transitgateway.MulticastDomainAssociationArgs;
+ * import com.pulumi.aws.ec2transitgateway.MulticastGroupSource;
+ * import com.pulumi.aws.ec2transitgateway.MulticastGroupSourceArgs;
+ * import com.pulumi.aws.ec2transitgateway.MulticastGroupMember;
+ * import com.pulumi.aws.ec2transitgateway.MulticastGroupMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -33,11 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var available = Output.of(AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
  *             .state(&#34;available&#34;)
- *             .build()));
+ *             .build());
  * 
- *         final var amazonLinux = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var amazonLinux = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .owners(&#34;amazon&#34;)
  *             .filters(            
@@ -49,7 +76,7 @@ import javax.annotation.Nullable;
  *                     .name(&#34;owner-alias&#34;)
  *                     .values(&#34;amazon&#34;)
  *                     .build())
- *             .build()));
+ *             .build());
  * 
  *         var vpc1 = new Vpc(&#34;vpc1&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
@@ -62,35 +89,35 @@ import javax.annotation.Nullable;
  *         var subnet1 = new Subnet(&#34;subnet1&#34;, SubnetArgs.builder()        
  *             .vpcId(vpc1.id())
  *             .cidrBlock(&#34;10.0.1.0/24&#34;)
- *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
  *         var subnet2 = new Subnet(&#34;subnet2&#34;, SubnetArgs.builder()        
  *             .vpcId(vpc1.id())
  *             .cidrBlock(&#34;10.0.2.0/24&#34;)
- *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[1]))
  *             .build());
  * 
  *         var subnet3 = new Subnet(&#34;subnet3&#34;, SubnetArgs.builder()        
  *             .vpcId(vpc2.id())
  *             .cidrBlock(&#34;10.1.1.0/24&#34;)
- *             .availabilityZone(available.apply(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
+ *             .availabilityZone(available.applyValue(getAvailabilityZonesResult -&gt; getAvailabilityZonesResult.names()[0]))
  *             .build());
  * 
  *         var instance1 = new Instance(&#34;instance1&#34;, InstanceArgs.builder()        
- *             .ami(amazonLinux.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .ami(amazonLinux.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t2.micro&#34;)
  *             .subnetId(subnet1.id())
  *             .build());
  * 
  *         var instance2 = new Instance(&#34;instance2&#34;, InstanceArgs.builder()        
- *             .ami(amazonLinux.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .ami(amazonLinux.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t2.micro&#34;)
  *             .subnetId(subnet2.id())
  *             .build());
  * 
  *         var instance3 = new Instance(&#34;instance3&#34;, InstanceArgs.builder()        
- *             .ami(amazonLinux.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .ami(amazonLinux.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t2.micro&#34;)
  *             .subnetId(subnet3.id())
  *             .build());

@@ -40,7 +40,30 @@ import (
 // 		}
 // 		_, err = s3.NewBucketPolicy(ctx, "allowCloudtrailLogging", &s3.BucketPolicyArgs{
 // 			Bucket: bucket.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2008-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"Put bucket policy needed for trails\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"", main.Arn, "\"\n", "      },\n", "      \"Action\": \"s3:PutObject\",\n", "      \"Resource\": \"arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*\"\n", "    },\n", "    {\n", "      \"Sid\": \"Get bucket policy needed for trails\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"", main.Arn, "\"\n", "      },\n", "      \"Action\": \"s3:GetBucketAcl\",\n", "      \"Resource\": \"arn:aws:s3:::tf-cloudtrail-logging-test-bucket\"\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2008-10-17",
+//   "Statement": [
+//     {
+//       "Sid": "Put bucket policy needed for trails",
+//       "Effect": "Allow",
+//       "Principal": {
+//         "AWS": "%v"
+//       },
+//       "Action": "s3:PutObject",
+//       "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*"
+//     },
+//     {
+//       "Sid": "Get bucket policy needed for trails",
+//       "Effect": "Allow",
+//       "Principal": {
+//         "AWS": "%v"
+//       },
+//       "Action": "s3:GetBucketAcl",
+//       "Resource": "arn:aws:s3:::tf-cloudtrail-logging-test-bucket"
+//     }
+//   ]
+// }
+// `, main.Arn, main.Arn)),
 // 		})
 // 		if err != nil {
 // 			return err

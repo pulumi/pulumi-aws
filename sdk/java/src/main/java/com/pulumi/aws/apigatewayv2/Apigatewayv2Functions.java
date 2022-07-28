@@ -27,10 +27,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,9 +45,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApi(GetApiArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
      *             .apiId(&#34;aabbccddee&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -57,10 +64,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -68,9 +82,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApi(GetApiArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
      *             .apiId(&#34;aabbccddee&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -87,10 +101,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -98,9 +119,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApi(GetApiArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
      *             .apiId(&#34;aabbccddee&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -117,10 +138,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApiArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -128,9 +156,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApi(GetApiArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApi(GetApiArgs.builder()
      *             .apiId(&#34;aabbccddee&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -147,10 +175,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -158,9 +193,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApis(GetApisArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
      *             .protocolType(&#34;HTTP&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -177,10 +212,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -188,9 +230,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApis(GetApisArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
      *             .protocolType(&#34;HTTP&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -207,10 +249,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -218,9 +267,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApis(GetApisArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
      *             .protocolType(&#34;HTTP&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -237,10 +286,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -248,9 +304,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApis(GetApisArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
      *             .protocolType(&#34;HTTP&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -267,10 +323,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -278,9 +341,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApis(GetApisArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
      *             .protocolType(&#34;HTTP&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -297,10 +360,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigatewayv2.inputs.GetApisArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -308,9 +378,9 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Apigatewayv2Functions.getApis(GetApisArgs.builder()
+     *         final var example = Apigatewayv2Functions.getApis(GetApisArgs.builder()
      *             .protocolType(&#34;HTTP&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -327,10 +397,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -338,11 +415,11 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Apigatewayv2Functions.getExport(GetExportArgs.builder()
+     *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
      *             .apiId(aws_apigatewayv2_route.test().api_id())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -359,10 +436,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -370,11 +454,11 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Apigatewayv2Functions.getExport(GetExportArgs.builder()
+     *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
      *             .apiId(aws_apigatewayv2_route.test().api_id())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -391,10 +475,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -402,11 +493,11 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Apigatewayv2Functions.getExport(GetExportArgs.builder()
+     *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
      *             .apiId(aws_apigatewayv2_route.test().api_id())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -423,10 +514,17 @@ public final class Apigatewayv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigatewayv2.Apigatewayv2Functions;
+     * import com.pulumi.aws.apigateway.inputs.GetExportArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -434,11 +532,11 @@ public final class Apigatewayv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(Apigatewayv2Functions.getExport(GetExportArgs.builder()
+     *         final var test = Apigatewayv2Functions.getExport(GetExportArgs.builder()
      *             .apiId(aws_apigatewayv2_route.test().api_id())
      *             .specification(&#34;OAS30&#34;)
      *             .outputType(&#34;JSON&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

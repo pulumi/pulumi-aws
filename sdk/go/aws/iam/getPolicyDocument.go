@@ -46,7 +46,7 @@ import (
 // 						"s3:ListBucket",
 // 					},
 // 					Resources: []string{
-// 						fmt.Sprintf("%v%v", "arn:aws:s3:::", _var.S3_bucket_name),
+// 						fmt.Sprintf("arn:aws:s3:::%v", _var.S3_bucket_name),
 // 					},
 // 					Conditions: []iam.GetPolicyDocumentStatementCondition{
 // 						iam.GetPolicyDocumentStatementCondition{
@@ -65,8 +65,8 @@ import (
 // 						"s3:*",
 // 					},
 // 					Resources: []string{
-// 						fmt.Sprintf("%v%v%v", "arn:aws:s3:::", _var.S3_bucket_name, "/home/&{aws:username}"),
-// 						fmt.Sprintf("%v%v%v", "arn:aws:s3:::", _var.S3_bucket_name, "/home/&{aws:username}/*"),
+// 						fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}", _var.S3_bucket_name),
+// 						fmt.Sprintf("arn:aws:s3:::%v/home/&{aws:username}/*", _var.S3_bucket_name),
 // 					},
 // 				},
 // 			},

@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Location
         public Output<string> TrackerName { get; private set; } = null!;
 
         /// <summary>
-        /// The timestamp for when the tracker resource was last update in ISO 8601 format.
+        /// The timestamp for when the tracker resource was last updated in ISO 8601 format.
         /// </summary>
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Location
         public Input<string>? TrackerName { get; set; }
 
         /// <summary>
-        /// The timestamp for when the tracker resource was last update in ISO 8601 format.
+        /// The timestamp for when the tracker resource was last updated in ISO 8601 format.
         /// </summary>
         [Input("updateTime")]
         public Input<string>? UpdateTime { get; set; }

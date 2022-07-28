@@ -52,10 +52,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainClusterConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -74,59 +82,25 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Access Policy
- * 
- * &gt; See also: [`aws.opensearch.DomainPolicy` resource](https://www.terraform.io/docs/providers/aws/r/opensearch_domain_policy.html)
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
- *         final var currentRegion = Output.of(AwsFunctions.getRegion());
- * 
- *         final var currentCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var example = new Domain(&#34;example&#34;, DomainArgs.builder()        
- *             .accessPolicies(&#34;&#34;&#34;
- * {
- *   &#34;Version&#34;: &#34;2012-10-17&#34;,
- *   &#34;Statement&#34;: [
- *     {
- *       &#34;Action&#34;: &#34;es:*&#34;,
- *       &#34;Principal&#34;: &#34;*&#34;,
- *       &#34;Effect&#34;: &#34;Allow&#34;,
- *       &#34;Resource&#34;: &#34;arn:aws:es:%s:%s:domain/%s/*&#34;,
- *       &#34;Condition&#34;: {
- *         &#34;IpAddress&#34;: {&#34;aws:SourceIp&#34;: [&#34;66.193.100.22/32&#34;]}
- *       }
- *     }
- *   ]
- * }
- * &#34;, currentRegion.apply(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
- *             .build());
- * 
- *     }
- * }
- * ```
  * ### Log Publishing to CloudWatch Logs
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
+ * import com.pulumi.aws.opensearch.Domain;
+ * import com.pulumi.aws.opensearch.DomainArgs;
+ * import com.pulumi.aws.opensearch.inputs.DomainLogPublishingOptionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -165,87 +139,6 @@ import javax.annotation.Nullable;
  *                 .logType(&#34;INDEX_SLOW_LOGS&#34;)
  *                 .build())
  *             .build());
- * 
- *     }
- * }
- * ```
- * ### VPC based OpenSearch
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * import com.pulumi.resources.CustomResourceOptions;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var config = ctx.config();
- *         final var vpc = config.get(&#34;vpc&#34;);
- *         final var domain = config.get(&#34;domain&#34;).orElse(&#34;tf-test&#34;);
- *         final var exampleVpc = Output.of(Ec2Functions.getVpc(GetVpcArgs.builder()
- *             .tags(Map.of(&#34;Name&#34;, vpc))
- *             .build()));
- * 
- *         final var exampleSubnetIds = Output.of(Ec2Functions.getSubnetIds(GetSubnetIdsArgs.builder()
- *             .vpcId(exampleVpc.apply(getVpcResult -&gt; getVpcResult.id()))
- *             .tags(Map.of(&#34;Tier&#34;, &#34;private&#34;))
- *             .build()));
- * 
- *         final var currentRegion = Output.of(AwsFunctions.getRegion());
- * 
- *         final var currentCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         var exampleSecurityGroup = new SecurityGroup(&#34;exampleSecurityGroup&#34;, SecurityGroupArgs.builder()        
- *             .description(&#34;Managed by Terraform&#34;)
- *             .vpcId(exampleVpc.apply(getVpcResult -&gt; getVpcResult.id()))
- *             .ingress(SecurityGroupIngressArgs.builder()
- *                 .fromPort(443)
- *                 .toPort(443)
- *                 .protocol(&#34;tcp&#34;)
- *                 .cidrBlocks(exampleVpc.apply(getVpcResult -&gt; getVpcResult.cidrBlock()))
- *                 .build())
- *             .build());
- * 
- *         var exampleServiceLinkedRole = new ServiceLinkedRole(&#34;exampleServiceLinkedRole&#34;, ServiceLinkedRoleArgs.builder()        
- *             .awsServiceName(&#34;opensearchservice.amazonaws.com&#34;)
- *             .build());
- * 
- *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .engineVersion(&#34;OpenSearch_1.0&#34;)
- *             .clusterConfig(DomainClusterConfigArgs.builder()
- *                 .instanceType(&#34;m4.large.search&#34;)
- *                 .zoneAwarenessEnabled(true)
- *                 .build())
- *             .vpcOptions(DomainVpcOptionsArgs.builder()
- *                 .subnetIds(                
- *                     exampleSubnetIds.apply(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[0]),
- *                     exampleSubnetIds.apply(getSubnetIdsResult -&gt; getSubnetIdsResult.ids()[1]))
- *                 .securityGroupIds(exampleSecurityGroup.id())
- *                 .build())
- *             .advancedOptions(Map.of(&#34;rest.action.multi.allow_explicit_index&#34;, &#34;true&#34;))
- *             .accessPolicies(&#34;&#34;&#34;
- * {
- * 	&#34;Version&#34;: &#34;2012-10-17&#34;,
- * 	&#34;Statement&#34;: [
- * 		{
- * 			&#34;Action&#34;: &#34;es:*&#34;,
- * 			&#34;Principal&#34;: &#34;*&#34;,
- * 			&#34;Effect&#34;: &#34;Allow&#34;,
- * 			&#34;Resource&#34;: &#34;arn:aws:es:%s:%s:domain/%s/*&#34;
- * 		}
- * 	]
- * }
- * &#34;, currentRegion.apply(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),domain))
- *             .tags(Map.of(&#34;Domain&#34;, &#34;TestDomain&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleServiceLinkedRole)
- *                 .build());
  * 
  *     }
  * }

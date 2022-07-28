@@ -33,10 +33,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -44,10 +51,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
      *             .excludeNumbers(true)
      *             .passwordLength(50)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -64,10 +71,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -75,10 +89,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
      *             .excludeNumbers(true)
      *             .passwordLength(50)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -95,10 +109,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -106,10 +127,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
      *             .excludeNumbers(true)
      *             .passwordLength(50)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -126,10 +147,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -137,10 +165,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
      *             .excludeNumbers(true)
      *             .passwordLength(50)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -157,10 +185,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -168,10 +203,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
      *             .excludeNumbers(true)
      *             .passwordLength(50)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -188,10 +223,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetRandomPasswordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -199,10 +241,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var test = Output.of(SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
+     *         final var test = SecretsmanagerFunctions.getRandomPassword(GetRandomPasswordArgs.builder()
      *             .excludeNumbers(true)
      *             .passwordLength(50)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -220,10 +262,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -231,9 +280,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-arn = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -242,10 +291,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -253,9 +309,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-name = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -273,10 +329,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -284,9 +347,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-arn = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -295,10 +358,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -306,9 +376,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-name = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -326,10 +396,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -337,9 +414,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-arn = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -348,10 +425,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -359,9 +443,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-name = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -379,10 +463,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -390,9 +481,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-arn = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -401,10 +492,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -412,9 +510,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-name = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -432,10 +530,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -443,9 +548,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-arn = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -454,10 +559,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -465,9 +577,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-name = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -485,10 +597,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -496,9 +615,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-arn = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-arn = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .arn(&#34;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -507,10 +626,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -518,9 +644,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-name = Output.of(SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
+     *         final var by-name = SecretsmanagerFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -538,10 +664,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -549,9 +682,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -569,10 +702,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -580,9 +720,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -600,10 +740,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -611,9 +758,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -631,10 +778,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretRotationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -642,9 +796,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecretRotation(GetSecretRotationArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -664,10 +818,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -675,9 +836,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var secret-version = Output.of(SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
+     *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -686,10 +847,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -697,10 +865,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-version-stage = Output.of(SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
+     *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
      *             .versionStage(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -720,10 +888,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -731,9 +906,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var secret-version = Output.of(SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
+     *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -742,10 +917,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -753,10 +935,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-version-stage = Output.of(SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
+     *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
      *             .versionStage(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -776,10 +958,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -787,9 +976,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var secret-version = Output.of(SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
+     *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -798,10 +987,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -809,10 +1005,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-version-stage = Output.of(SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
+     *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
      *             .versionStage(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -832,10 +1028,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -843,9 +1046,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var secret-version = Output.of(SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
+     *         final var secret-version = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -854,10 +1057,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.secretsmanager.inputs.GetSecretVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -865,10 +1075,10 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var by-version-stage = Output.of(SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
+     *         final var by-version-stage = SecretsmanagerFunctions.getSecretVersion(GetSecretVersionArgs.builder()
      *             .secretId(data.aws_secretsmanager_secret().example().id())
      *             .versionStage(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -885,10 +1095,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -896,9 +1113,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
      *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -915,10 +1132,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -926,9 +1150,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
      *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -945,10 +1169,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -956,9 +1187,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
      *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -975,10 +1206,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -986,9 +1224,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
      *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1005,10 +1243,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1016,9 +1261,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
      *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1035,10 +1280,17 @@ public final class SecretsmanagerFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.secretsmanager.SecretsmanagerFunctions;
+     * import com.pulumi.aws.kms.inputs.GetSecretsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1046,9 +1298,9 @@ public final class SecretsmanagerFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
+     *         final var example = SecretsmanagerFunctions.getSecrets(GetSecretsArgs.builder()
      *             .filters(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

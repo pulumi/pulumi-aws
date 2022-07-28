@@ -48,23 +48,31 @@ public final class GetVpcIamPoolPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * - 
+     * The ID of the IPAM pool.
      * 
      */
     @Import(name="id")
     private @Nullable String id;
 
     /**
-     * @return -
+     * @return The ID of the IPAM pool.
      * 
      */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
 
+    /**
+     * The ID of the IPAM pool you would like information on.
+     * 
+     */
     @Import(name="ipamPoolId")
     private @Nullable String ipamPoolId;
 
+    /**
+     * @return The ID of the IPAM pool you would like information on.
+     * 
+     */
     public Optional<String> ipamPoolId() {
         return Optional.ofNullable(this.ipamPoolId);
     }
@@ -145,7 +153,7 @@ public final class GetVpcIamPoolPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param id -
+         * @param id The ID of the IPAM pool.
          * 
          * @return builder
          * 
@@ -155,6 +163,12 @@ public final class GetVpcIamPoolPlainArgs extends com.pulumi.resources.InvokeArg
             return this;
         }
 
+        /**
+         * @param ipamPoolId The ID of the IPAM pool you would like information on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipamPoolId(@Nullable String ipamPoolId) {
             $.ipamPoolId = ipamPoolId;
             return this;

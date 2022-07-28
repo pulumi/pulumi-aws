@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .firewall import *
 from .firewall_policy import *
+from .get_firewall_policy import *
 from .logging_configuration import *
 from .resource_policy import *
 from .rule_group import *

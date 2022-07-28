@@ -38,10 +38,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -49,9 +56,9 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(KmsFunctions.getAlias(GetAliasArgs.builder()
+     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
      *             .name(&#34;alias/aws/s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -70,10 +77,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -81,9 +95,9 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(KmsFunctions.getAlias(GetAliasArgs.builder()
+     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
      *             .name(&#34;alias/aws/s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -102,10 +116,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -113,9 +134,9 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(KmsFunctions.getAlias(GetAliasArgs.builder()
+     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
      *             .name(&#34;alias/aws/s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -134,10 +155,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -145,9 +173,9 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var s3 = Output.of(KmsFunctions.getAlias(GetAliasArgs.builder()
+     *         final var s3 = KmsFunctions.getAlias(GetAliasArgs.builder()
      *             .name(&#34;alias/aws/s3&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -167,10 +195,19 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.Key;
+     * import com.pulumi.aws.kms.KeyArgs;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -211,10 +248,19 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.Key;
+     * import com.pulumi.aws.kms.KeyArgs;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -255,10 +301,19 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.Key;
+     * import com.pulumi.aws.kms.KeyArgs;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -299,10 +354,19 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.Key;
+     * import com.pulumi.aws.kms.KeyArgs;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetCipherTextArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -343,10 +407,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -354,21 +425,21 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAlias = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byId = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byAliasArn = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byKeyArn = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -388,10 +459,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -399,21 +477,21 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAlias = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byId = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byAliasArn = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byKeyArn = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -433,10 +511,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -444,21 +529,21 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAlias = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byId = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byAliasArn = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byKeyArn = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -478,10 +563,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -489,21 +581,21 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAlias = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byAlias = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byId = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byId = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byAliasArn = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byAliasArn = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byKeyArn = Output.of(KmsFunctions.getKey(GetKeyArgs.builder()
+     *         final var byKeyArn = KmsFunctions.getKey(GetKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -520,10 +612,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -531,21 +630,21 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAlias = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byId = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byAliasArn = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byKeyArn = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -562,10 +661,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -573,21 +679,21 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAlias = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byId = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byAliasArn = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byKeyArn = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -604,10 +710,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -615,21 +728,21 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAlias = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byId = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byAliasArn = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byKeyArn = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -646,10 +759,17 @@ public final class KmsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.kms.KmsFunctions;
+     * import com.pulumi.aws.kms.inputs.GetPublicKeyArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -657,21 +777,21 @@ public final class KmsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var byAlias = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byAlias = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byId = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byId = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byAliasArn = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byAliasArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:alias/my-key&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         final var byKeyArn = Output.of(KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
+     *         final var byKeyArn = KmsFunctions.getPublicKey(GetPublicKeyArgs.builder()
      *             .keyId(&#34;arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

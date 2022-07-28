@@ -21,10 +21,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueuePolicy;
+ * import com.pulumi.aws.sqs.QueuePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -36,7 +44,7 @@ import javax.annotation.Nullable;
  * 
  *         var test = new QueuePolicy(&#34;test&#34;, QueuePolicyArgs.builder()        
  *             .queueUrl(queue.id())
- *             .policy(queue.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .policy(queue.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Id&#34;: &#34;sqspolicy&#34;,

@@ -23,11 +23,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ses.DomainIdentity;
+ * import com.pulumi.aws.ses.DomainIdentityArgs;
+ * import com.pulumi.aws.ses.DomainDkim;
+ * import com.pulumi.aws.ses.DomainDkimArgs;
+ * import com.pulumi.aws.route53.Record;
+ * import com.pulumi.aws.route53.RecordArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -46,10 +57,10 @@ import javax.annotation.Nullable;
  *         for (var i = 0; i &lt; 3; i++) {
  *             new Record(&#34;exampleAmazonsesDkimRecord-&#34; + i, RecordArgs.builder()            
  *                 .zoneId(&#34;ABCDEFGHIJ123&#34;)
- *                 .name(exampleDomainDkim.dkimTokens()[range.value()].apply(dkimTokens -&gt; String.format(&#34;%s._domainkey&#34;, dkimTokens)))
+ *                 .name(exampleDomainDkim.dkimTokens()[range.value()].applyValue(dkimTokens -&gt; String.format(&#34;%s._domainkey&#34;, dkimTokens)))
  *                 .type(&#34;CNAME&#34;)
  *                 .ttl(&#34;600&#34;)
- *                 .records(exampleDomainDkim.dkimTokens()[range.value()].apply(dkimTokens -&gt; String.format(&#34;%s.dkim.amazonses.com&#34;, dkimTokens)))
+ *                 .records(exampleDomainDkim.dkimTokens()[range.value()].applyValue(dkimTokens -&gt; String.format(&#34;%s.dkim.amazonses.com&#34;, dkimTokens)))
  *                 .build());
  * 
  *         

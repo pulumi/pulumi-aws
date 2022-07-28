@@ -25,10 +25,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codepipeline.Pipeline;
+ * import com.pulumi.aws.codepipeline.PipelineArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineArtifactStoreEncryptionKeyArgs;
+ * import com.pulumi.aws.codepipeline.inputs.PipelineStageArgs;
+ * import com.pulumi.aws.codepipeline.Webhook;
+ * import com.pulumi.aws.codepipeline.WebhookArgs;
+ * import com.pulumi.aws.codepipeline.inputs.WebhookAuthenticationConfigurationArgs;
+ * import com.pulumi.aws.codepipeline.inputs.WebhookFilterArgs;
+ * import com.pulumi.github.RepositoryWebhook;
+ * import com.pulumi.github.RepositoryWebhookArgs;
+ * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

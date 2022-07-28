@@ -36,10 +36,33 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketAclV2;
+ * import com.pulumi.aws.s3.BucketAclV2Args;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import com.pulumi.aws.codebuild.Project;
+ * import com.pulumi.aws.codebuild.ProjectArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectArtifactsArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectCacheArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectEnvironmentArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectLogsConfigArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectLogsConfigCloudwatchLogsArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectLogsConfigS3LogsArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectSourceArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectSourceGitSubmodulesConfigArgs;
+ * import com.pulumi.aws.codebuild.inputs.ProjectVpcConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -73,7 +96,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRolePolicy = new RolePolicy(&#34;exampleRolePolicy&#34;, RolePolicyArgs.builder()        
  *             .role(exampleRole.name())
- *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).apply(values -&gt; {
+ *             .policy(Output.tuple(exampleBucketV2.arn(), exampleBucketV2.arn()).applyValue(values -&gt; {
  *                 var exampleBucketV2Arn = values.t1;
  *                 var exampleBucketV2Arn1 = values.t2;
  *                 return &#34;&#34;&#34;
@@ -172,7 +195,7 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .s3Logs(ProjectLogsConfigS3LogsArgs.builder()
  *                     .status(&#34;ENABLED&#34;)
- *                     .location(exampleBucketV2.id().apply(id -&gt; String.format(&#34;%s/build-log&#34;, id)))
+ *                     .location(exampleBucketV2.id().applyValue(id -&gt; String.format(&#34;%s/build-log&#34;, id)))
  *                     .build())
  *                 .build())
  *             .source(ProjectSourceArgs.builder()

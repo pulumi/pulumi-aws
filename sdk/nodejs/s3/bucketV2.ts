@@ -83,7 +83,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const bucketV2 = new aws.s3.BucketV2("bucketV2", {
  *     acl: "public-read",

@@ -73,7 +73,21 @@ import (
 // 			return err
 // 		}
 // 		_, err = elasticsearch.NewDomain(ctx, "example", &elasticsearch.DomainArgs{
-// 			AccessPolicies: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"es:*\",\n", "      \"Principal\": \"*\",\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:es:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":domain/", domain, "/*\",\n", "      \"Condition\": {\n", "        \"IpAddress\": {\"aws:SourceIp\": [\"66.193.100.22/32\"]}\n", "      }\n", "    }\n", "  ]\n", "}\n")),
+// 			AccessPolicies: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "es:*",
+//       "Principal": "*",
+//       "Effect": "Allow",
+//       "Resource": "arn:aws:es:%v:%v:domain/%v/*",
+//       "Condition": {
+//         "IpAddress": {"aws:SourceIp": ["66.193.100.22/32"]}
+//       }
+//     }
+//   ]
+// }
+// `, currentRegion.Name, currentCallerIdentity.AccountId, domain)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -102,8 +116,25 @@ import (
 // 			return err
 // 		}
 // 		_, err = cloudwatch.NewLogResourcePolicy(ctx, "exampleLogResourcePolicy", &cloudwatch.LogResourcePolicyArgs{
-// 			PolicyName:     pulumi.String("example"),
-// 			PolicyDocument: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"Service\": \"es.amazonaws.com\"\n", "      },\n", "      \"Action\": [\n", "        \"logs:PutLogEvents\",\n", "        \"logs:PutLogEventsBatch\",\n", "        \"logs:CreateLogStream\"\n", "      ],\n", "      \"Resource\": \"arn:aws:logs:*\"\n", "    }\n", "  ]\n", "}\n")),
+// 			PolicyName: pulumi.String("example"),
+// 			PolicyDocument: pulumi.String(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Effect": "Allow",
+//       "Principal": {
+//         "Service": "es.amazonaws.com"
+//       },
+//       "Action": [
+//         "logs:PutLogEvents",
+//         "logs:PutLogEventsBatch",
+//         "logs:CreateLogStream"
+//       ],
+//       "Resource": "arn:aws:logs:*"
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

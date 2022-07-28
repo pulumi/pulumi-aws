@@ -62,6 +62,10 @@ public final class GetVpcIamPoolResult {
      */
     private final String description;
     private final @Nullable List<GetVpcIamPoolFilter> filters;
+    /**
+     * @return The ID of the IPAM pool.
+     * 
+     */
     private final @Nullable String id;
     private final @Nullable String ipamPoolId;
     /**
@@ -203,6 +207,10 @@ public final class GetVpcIamPoolResult {
     public List<GetVpcIamPoolFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
     }
+    /**
+     * @return The ID of the IPAM pool.
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }

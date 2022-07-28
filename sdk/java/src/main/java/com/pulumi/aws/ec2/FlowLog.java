@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a VPC/Subnet/ENI Flow Log to capture IP traffic for a specific network
+ * Provides a VPC/Subnet/ENI/Transit Gateway/Transit Gateway Attachment Flow Log to capture IP traffic for a specific network
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group or a S3 Bucket.
  * 
  * ## Example Usage
@@ -26,10 +26,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -93,10 +105,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -120,10 +140,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.ec2.FlowLog;
+ * import com.pulumi.aws.ec2.FlowLogArgs;
+ * import com.pulumi.aws.ec2.inputs.FlowLogDestinationOptionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -342,14 +371,42 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trafficType", type=String.class, parameters={})
-    private Output<String> trafficType;
+    private Output</* @Nullable */ String> trafficType;
 
     /**
      * @return The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      * 
      */
-    public Output<String> trafficType() {
-        return this.trafficType;
+    public Output<Optional<String>> trafficType() {
+        return Codegen.optional(this.trafficType);
+    }
+    /**
+     * Transit Gateway Attachment ID to attach to
+     * 
+     */
+    @Export(name="transitGatewayAttachmentId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> transitGatewayAttachmentId;
+
+    /**
+     * @return Transit Gateway Attachment ID to attach to
+     * 
+     */
+    public Output<Optional<String>> transitGatewayAttachmentId() {
+        return Codegen.optional(this.transitGatewayAttachmentId);
+    }
+    /**
+     * Transit Gateway ID to attach to
+     * 
+     */
+    @Export(name="transitGatewayId", type=String.class, parameters={})
+    private Output</* @Nullable */ String> transitGatewayId;
+
+    /**
+     * @return Transit Gateway ID to attach to
+     * 
+     */
+    public Output<Optional<String>> transitGatewayId() {
+        return Codegen.optional(this.transitGatewayId);
     }
     /**
      * VPC ID to attach to
@@ -378,7 +435,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public FlowLog(String name, FlowLogArgs args) {
+    public FlowLog(String name, @Nullable FlowLogArgs args) {
         this(name, args, null);
     }
     /**
@@ -387,7 +444,7 @@ public class FlowLog extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public FlowLog(String name, FlowLogArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public FlowLog(String name, @Nullable FlowLogArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ec2/flowLog:FlowLog", name, args == null ? FlowLogArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

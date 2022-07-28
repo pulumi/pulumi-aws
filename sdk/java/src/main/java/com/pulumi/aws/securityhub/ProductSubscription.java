@@ -20,11 +20,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.securityhub.Account;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.securityhub.ProductSubscription;
+ * import com.pulumi.aws.securityhub.ProductSubscriptionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -34,10 +44,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;);
  * 
- *         final var current = Output.of(AwsFunctions.getRegion());
+ *         final var current = AwsFunctions.getRegion();
  * 
  *         var exampleProductSubscription = new ProductSubscription(&#34;exampleProductSubscription&#34;, ProductSubscriptionArgs.builder()        
- *             .productArn(String.format(&#34;arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement&#34;, current.apply(getRegionResult -&gt; getRegionResult.name())))
+ *             .productArn(String.format(&#34;arn:aws:securityhub:%s:733251395267:product/alertlogic/althreatmanagement&#34;, current.applyValue(getRegionResult -&gt; getRegionResult.name())))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAccount)
  *                 .build());

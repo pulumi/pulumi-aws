@@ -33,10 +33,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -44,9 +51,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getFramework(GetFrameworkArgs.builder()
+     *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
      *             .name(&#34;tf_example_backup_framework_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -63,10 +70,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -74,9 +88,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getFramework(GetFrameworkArgs.builder()
+     *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
      *             .name(&#34;tf_example_backup_framework_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -93,10 +107,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -104,9 +125,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getFramework(GetFrameworkArgs.builder()
+     *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
      *             .name(&#34;tf_example_backup_framework_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +144,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetFrameworkArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,9 +162,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getFramework(GetFrameworkArgs.builder()
+     *         final var example = BackupFunctions.getFramework(GetFrameworkArgs.builder()
      *             .name(&#34;tf_example_backup_framework_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -153,10 +181,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -164,9 +199,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getPlan(GetPlanArgs.builder()
+     *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
      *             .planId(&#34;tf_example_backup_plan_id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -183,10 +218,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -194,9 +236,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getPlan(GetPlanArgs.builder()
+     *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
      *             .planId(&#34;tf_example_backup_plan_id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -213,10 +255,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -224,9 +273,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getPlan(GetPlanArgs.builder()
+     *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
      *             .planId(&#34;tf_example_backup_plan_id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -243,10 +292,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -254,9 +310,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getPlan(GetPlanArgs.builder()
+     *         final var example = BackupFunctions.getPlan(GetPlanArgs.builder()
      *             .planId(&#34;tf_example_backup_plan_id&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -273,10 +329,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -284,9 +347,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
+     *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
      *             .name(&#34;tf_example_backup_report_plan_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -303,10 +366,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -314,9 +384,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
+     *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
      *             .name(&#34;tf_example_backup_report_plan_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -333,10 +403,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -344,9 +421,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
+     *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
      *             .name(&#34;tf_example_backup_report_plan_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -363,10 +440,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetReportPlanArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -374,9 +458,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
+     *         final var example = BackupFunctions.getReportPlan(GetReportPlanArgs.builder()
      *             .name(&#34;tf_example_backup_report_plan_name&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -393,10 +477,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -404,10 +495,10 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getSelection(GetSelectionArgs.builder()
+     *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
      *             .planId(data.aws_backup_plan().example().id())
      *             .selectionId(&#34;selection-id-example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -424,10 +515,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -435,10 +533,10 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getSelection(GetSelectionArgs.builder()
+     *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
      *             .planId(data.aws_backup_plan().example().id())
      *             .selectionId(&#34;selection-id-example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -455,10 +553,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -466,10 +571,10 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getSelection(GetSelectionArgs.builder()
+     *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
      *             .planId(data.aws_backup_plan().example().id())
      *             .selectionId(&#34;selection-id-example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -486,10 +591,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetSelectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -497,10 +609,10 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getSelection(GetSelectionArgs.builder()
+     *         final var example = BackupFunctions.getSelection(GetSelectionArgs.builder()
      *             .planId(data.aws_backup_plan().example().id())
      *             .selectionId(&#34;selection-id-example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -517,10 +629,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -528,9 +647,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getVault(GetVaultArgs.builder()
+     *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
      *             .name(&#34;example_backup_vault&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -547,10 +666,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -558,9 +684,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getVault(GetVaultArgs.builder()
+     *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
      *             .name(&#34;example_backup_vault&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -577,10 +703,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -588,9 +721,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getVault(GetVaultArgs.builder()
+     *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
      *             .name(&#34;example_backup_vault&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -607,10 +740,17 @@ public final class BackupFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.backup.BackupFunctions;
+     * import com.pulumi.aws.backup.inputs.GetVaultArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -618,9 +758,9 @@ public final class BackupFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(BackupFunctions.getVault(GetVaultArgs.builder()
+     *         final var example = BackupFunctions.getVault(GetVaultArgs.builder()
      *             .name(&#34;example_backup_vault&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

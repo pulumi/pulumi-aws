@@ -30,8 +30,21 @@ import (
 // 			return err
 // 		}
 // 		_, err = cloudsearch.NewDomainServiceAccessPolicy(ctx, "exampleDomainServiceAccessPolicy", &cloudsearch.DomainServiceAccessPolicyArgs{
-// 			DomainName:   exampleDomain.ID(),
-// 			AccessPolicy: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\":\"2012-10-17\",\n", "  \"Statement\":[{\n", "    \"Sid\":\"search_only\",\n", "    \"Effect\":\"Allow\",\n", "    \"Principal\":\"*\",\n", "    \"Action\":[\n", "      \"cloudsearch:search\",\n", "      \"cloudsearch:document\"\n", "    ],\n", "    \"Condition\":{\"IpAddress\":{\"aws:SourceIp\":\"192.0.2.0/32\"}}\n", "  }]\n", "}\n")),
+// 			DomainName: exampleDomain.ID(),
+// 			AccessPolicy: pulumi.String(fmt.Sprintf(`{
+//   "Version":"2012-10-17",
+//   "Statement":[{
+//     "Sid":"search_only",
+//     "Effect":"Allow",
+//     "Principal":"*",
+//     "Action":[
+//       "cloudsearch:search",
+//       "cloudsearch:document"
+//     ],
+//     "Condition":{"IpAddress":{"aws:SourceIp":"192.0.2.0/32"}}
+//   }]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

@@ -22,10 +22,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetLocalGatewayRouteTableArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.LocalGatewayRouteTableVpcAssociation;
+ * import com.pulumi.aws.ec2.LocalGatewayRouteTableVpcAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -33,16 +44,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleLocalGatewayRouteTable = Output.of(Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
+ *         final var exampleLocalGatewayRouteTable = Ec2Functions.getLocalGatewayRouteTable(GetLocalGatewayRouteTableArgs.builder()
  *             .outpostArn(&#34;arn:aws:outposts:us-west-2:123456789012:outpost/op-1234567890abcdef&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var exampleVpc = new Vpc(&#34;exampleVpc&#34;, VpcArgs.builder()        
  *             .cidrBlock(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleLocalGatewayRouteTableVpcAssociation = new LocalGatewayRouteTableVpcAssociation(&#34;exampleLocalGatewayRouteTableVpcAssociation&#34;, LocalGatewayRouteTableVpcAssociationArgs.builder()        
- *             .localGatewayRouteTableId(exampleLocalGatewayRouteTable.apply(getLocalGatewayRouteTableResult -&gt; getLocalGatewayRouteTableResult.id()))
+ *             .localGatewayRouteTableId(exampleLocalGatewayRouteTable.applyValue(getLocalGatewayRouteTableResult -&gt; getLocalGatewayRouteTableResult.id()))
  *             .vpcId(exampleVpc.id())
  *             .build());
  * 

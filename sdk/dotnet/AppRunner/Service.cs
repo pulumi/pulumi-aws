@@ -85,7 +85,7 @@ namespace Pulumi.Aws.AppRunner
     ///             ServiceName = "example",
     ///             SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
     ///             {
-    ///                 AutoDeploymentEnabled = false,
+    ///                 AutoDeploymentsEnabled = false,
     ///                 ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
     ///                 {
     ///                     ImageConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.AppRunner
     ///                     ImageIdentifier = "public.ecr.aws/aws-containers/hello-app-runner:latest",
     ///                     ImageRepositoryType = "ECR_PUBLIC",
     ///                 },
-    ///                 AutoDeploymentEnabled = false,
+    ///                 AutoDeploymentsEnabled = false,
     ///             },
     ///             Tags = 
     ///             {

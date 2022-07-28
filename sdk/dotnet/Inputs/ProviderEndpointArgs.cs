@@ -870,6 +870,9 @@ namespace Pulumi.Aws.Inputs
         [Input("redshiftdataapiservice")]
         public Input<string>? Redshiftdataapiservice { get; set; }
 
+        [Input("redshiftserverless")]
+        public Input<string>? Redshiftserverless { get; set; }
+
         [Input("rekognition")]
         public Input<string>? Rekognition { get; set; }
 
@@ -887,6 +890,9 @@ namespace Pulumi.Aws.Inputs
 
         [Input("robomaker")]
         public Input<string>? Robomaker { get; set; }
+
+        [Input("rolesanywhere")]
+        public Input<string>? Rolesanywhere { get; set; }
 
         [Input("route53")]
         public Input<string>? Route53 { get; set; }

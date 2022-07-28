@@ -52,7 +52,18 @@ import (
 // 			Repository: exampleRepository.Repository,
 // 			Domain:     exampleDomain.Domain,
 // 			PolicyDocument: exampleDomain.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Statement\": [\n", "        {\n", "            \"Action\": \"codeartifact:CreateRepository\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": \"*\",\n", "            \"Resource\": \"", arn, "\"\n", "        }\n", "    ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Statement": [
+//         {
+//             "Action": "codeartifact:CreateRepository",
+//             "Effect": "Allow",
+//             "Principal": "*",
+//             "Resource": "%v"
+//         }
+//     ]
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

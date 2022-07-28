@@ -26,14 +26,27 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * ### OpenAPI Specification
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.inputs.RestApiEndpointConfigurationArgs;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -69,8 +82,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().apply(body -&gt; serializeJson(
- *                 body)).apply(toJSON -&gt; computeSHA1(toJSON))))
+ *             .triggers(Map.of(&#34;redeployment&#34;, exampleRestApi.body().applyValue(body -&gt; serializeJson(
+ *                 body)).applyValue(toJSON -&gt; computeSHA1(toJSON))))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        
@@ -86,11 +99,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.Resource;
+ * import com.pulumi.aws.apigateway.ResourceArgs;
+ * import com.pulumi.aws.apigateway.Method;
+ * import com.pulumi.aws.apigateway.MethodArgs;
+ * import com.pulumi.aws.apigateway.Integration;
+ * import com.pulumi.aws.apigateway.IntegrationArgs;
+ * import com.pulumi.aws.apigateway.Deployment;
+ * import com.pulumi.aws.apigateway.DeploymentArgs;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -122,7 +151,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
  *             .restApi(exampleRestApi.id())
- *             .triggers(Map.of(&#34;redeployment&#34;, Output.tuple(exampleResource.id(), exampleMethod.id(), exampleIntegration.id()).apply(values -&gt; {
+ *             .triggers(Map.of(&#34;redeployment&#34;, Output.tuple(exampleResource.id(), exampleMethod.id(), exampleIntegration.id()).applyValue(values -&gt; {
  *                 var exampleResourceId = values.t1;
  *                 var exampleMethodId = values.t2;
  *                 var exampleIntegrationId = values.t3;
@@ -132,7 +161,7 @@ import javax.annotation.Nullable;
  *                         exampleMethodId, 
  *                         exampleIntegrationId
  *                     ));
- *             }).apply(toJSON -&gt; computeSHA1(toJSON))))
+ *             }).applyValue(toJSON -&gt; computeSHA1(toJSON))))
  *             .build());
  * 
  *         var exampleStage = new Stage(&#34;exampleStage&#34;, StageArgs.builder()        

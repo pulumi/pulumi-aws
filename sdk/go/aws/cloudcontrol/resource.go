@@ -40,7 +40,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := cloudcontrol.NewResource(ctx, "example", &cloudcontrol.ResourceArgs{
+// 		_, err = cloudcontrol.NewResource(ctx, "example", &cloudcontrol.ResourceArgs{
 // 			TypeName:     pulumi.String("AWS::ECS::Cluster"),
 // 			DesiredState: pulumi.String(json0),
 // 		})

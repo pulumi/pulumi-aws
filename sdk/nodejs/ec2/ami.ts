@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * // Create an AMI that will start a machine whose root device is backed by
- * // an EBS volume populated from a snapshot. It is assumed that such a snapshot
+ * // an EBS volume populated from a snapshot. We assume that such a snapshot
  * // already exists with the id "snap-xxxxxxxx".
  * const example = new aws.ec2.Ami("example", {
  *     ebsBlockDevices: [{

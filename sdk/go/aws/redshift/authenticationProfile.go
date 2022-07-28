@@ -36,7 +36,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := redshift.NewAuthenticationProfile(ctx, "example", &redshift.AuthenticationProfileArgs{
+// 		_, err = redshift.NewAuthenticationProfile(ctx, "example", &redshift.AuthenticationProfileArgs{
 // 			AuthenticationProfileName:    pulumi.String("example"),
 // 			AuthenticationProfileContent: pulumi.String(json0),
 // 		})

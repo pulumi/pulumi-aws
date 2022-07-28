@@ -25,10 +25,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.EventRule;
+ * import com.pulumi.aws.cloudwatch.EventRuleArgs;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.cloudwatch.EventTarget;
+ * import com.pulumi.aws.cloudwatch.EventTargetArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.sns.TopicPolicy;
+ * import com.pulumi.aws.sns.TopicPolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -68,7 +82,7 @@ import javax.annotation.Nullable;
  * 
  *         var default_ = new TopicPolicy(&#34;default&#34;, TopicPolicyArgs.builder()        
  *             .arn(awsLogins.arn())
- *             .policy(snsTopicPolicy.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(snsTopicPolicy -&gt; snsTopicPolicy.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(snsTopicPolicy -&gt; snsTopicPolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .build());
  * 
  *     }

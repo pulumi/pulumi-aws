@@ -29,8 +29,19 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-// 			RoleArn:    pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-// 			Definition: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",\n", "  \"StartAt\": \"HelloWorld\",\n", "  \"States\": {\n", "    \"HelloWorld\": {\n", "      \"Type\": \"Task\",\n", "      \"Resource\": \"", aws_lambda_function.Lambda.Arn, "\",\n", "      \"End\": true\n", "    }\n", "  }\n", "}\n")),
+// 			RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+// 			Definition: pulumi.String(fmt.Sprintf(`{
+//   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+//   "StartAt": "HelloWorld",
+//   "States": {
+//     "HelloWorld": {
+//       "Type": "Task",
+//       "Resource": "%v",
+//       "End": true
+//     }
+//   }
+// }
+// `, aws_lambda_function.Lambda.Arn)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -54,9 +65,20 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-// 			RoleArn:    pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-// 			Type:       pulumi.String("EXPRESS"),
-// 			Definition: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",\n", "  \"StartAt\": \"HelloWorld\",\n", "  \"States\": {\n", "    \"HelloWorld\": {\n", "      \"Type\": \"Task\",\n", "      \"Resource\": \"", aws_lambda_function.Lambda.Arn, "\",\n", "      \"End\": true\n", "    }\n", "  }\n", "}\n")),
+// 			RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+// 			Type:    pulumi.String("EXPRESS"),
+// 			Definition: pulumi.String(fmt.Sprintf(`{
+//   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+//   "StartAt": "HelloWorld",
+//   "States": {
+//     "HelloWorld": {
+//       "Type": "Task",
+//       "Resource": "%v",
+//       "End": true
+//     }
+//   }
+// }
+// `, aws_lambda_function.Lambda.Arn)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -82,10 +104,21 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := sfn.NewStateMachine(ctx, "sfnStateMachine", &sfn.StateMachineArgs{
-// 			RoleArn:    pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
-// 			Definition: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Comment\": \"A Hello World example of the Amazon States Language using an AWS Lambda Function\",\n", "  \"StartAt\": \"HelloWorld\",\n", "  \"States\": {\n", "    \"HelloWorld\": {\n", "      \"Type\": \"Task\",\n", "      \"Resource\": \"", aws_lambda_function.Lambda.Arn, "\",\n", "      \"End\": true\n", "    }\n", "  }\n", "}\n")),
+// 			RoleArn: pulumi.Any(aws_iam_role.Iam_for_sfn.Arn),
+// 			Definition: pulumi.String(fmt.Sprintf(`{
+//   "Comment": "A Hello World example of the Amazon States Language using an AWS Lambda Function",
+//   "StartAt": "HelloWorld",
+//   "States": {
+//     "HelloWorld": {
+//       "Type": "Task",
+//       "Resource": "%v",
+//       "End": true
+//     }
+//   }
+// }
+// `, aws_lambda_function.Lambda.Arn)),
 // 			LoggingConfiguration: &sfn.StateMachineLoggingConfigurationArgs{
-// 				LogDestination:       pulumi.String(fmt.Sprintf("%v%v", aws_cloudwatch_log_group.Log_group_for_sfn.Arn, ":*")),
+// 				LogDestination:       pulumi.String(fmt.Sprintf("%v:*", aws_cloudwatch_log_group.Log_group_for_sfn.Arn)),
 // 				IncludeExecutionData: pulumi.Bool(true),
 // 				Level:                pulumi.String("ERROR"),
 // 			},

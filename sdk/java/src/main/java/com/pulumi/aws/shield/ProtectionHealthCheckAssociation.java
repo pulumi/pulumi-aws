@@ -20,54 +20,6 @@ import javax.annotation.Nullable;
  * Blog post: [AWS Shield Advanced now supports Health Based Detection](https://aws.amazon.com/about-aws/whats-new/2020/02/aws-shield-advanced-now-supports-health-based-detection/)
  * 
  * ## Example Usage
- * ### Create an association between a protected EIP and a Route53 Health Check
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentRegion = Output.of(AwsFunctions.getRegion());
- * 
- *         final var currentCallerIdentity = Output.of(AwsFunctions.getCallerIdentity());
- * 
- *         final var currentPartition = Output.of(AwsFunctions.getPartition());
- * 
- *         var exampleEip = new Eip(&#34;exampleEip&#34;, EipArgs.builder()        
- *             .vpc(true)
- *             .tags(Map.of(&#34;Name&#34;, &#34;example&#34;))
- *             .build());
- * 
- *         var exampleProtection = new Protection(&#34;exampleProtection&#34;, ProtectionArgs.builder()        
- *             .resourceArn(exampleEip.id().apply(id -&gt; String.format(&#34;arn:%s:ec2:%s:%s:eip-allocation/%s&#34;, currentPartition.apply(getPartitionResult -&gt; getPartitionResult.partition()),currentRegion.apply(getRegionResult -&gt; getRegionResult.name()),currentCallerIdentity.apply(getCallerIdentityResult -&gt; getCallerIdentityResult.accountId()),id)))
- *             .build());
- * 
- *         var exampleHealthCheck = new HealthCheck(&#34;exampleHealthCheck&#34;, HealthCheckArgs.builder()        
- *             .ipAddress(exampleEip.publicIp())
- *             .port(80)
- *             .type(&#34;HTTP&#34;)
- *             .resourcePath(&#34;/ready&#34;)
- *             .failureThreshold(&#34;3&#34;)
- *             .requestInterval(&#34;30&#34;)
- *             .tags(Map.of(&#34;Name&#34;, &#34;tf-example-health-check&#34;))
- *             .build());
- * 
- *         var exampleProtectionHealthCheckAssociation = new ProtectionHealthCheckAssociation(&#34;exampleProtectionHealthCheckAssociation&#34;, ProtectionHealthCheckAssociationArgs.builder()        
- *             .healthCheckArn(exampleHealthCheck.arn())
- *             .shieldProtectionId(exampleProtection.id())
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

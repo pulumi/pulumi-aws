@@ -50,7 +50,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			DockerfileTemplateData: pulumi.String(fmt.Sprintf("%v%v%v", "FROM {{{ imagebuilder:parentImage }}}\n", "{{{ imagebuilder:environments }}}\n", "{{{ imagebuilder:components }}}\n")),
+// 			DockerfileTemplateData: pulumi.String(fmt.Sprintf("FROM {{{ imagebuilder:parentImage }}}\n{{{ imagebuilder:environments }}}\n{{{ imagebuilder:components }}}\n")),
 // 		})
 // 		if err != nil {
 // 			return err

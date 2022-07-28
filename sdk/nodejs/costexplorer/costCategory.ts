@@ -119,6 +119,14 @@ export class CostCategory extends pulumi.CustomResource {
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
     public readonly splitChargeRules!: pulumi.Output<outputs.costexplorer.CostCategorySplitChargeRule[] | undefined>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CostCategory resource with the given unique name, arguments, and options.
@@ -141,6 +149,8 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["ruleVersion"] = state ? state.ruleVersion : undefined;
             resourceInputs["rules"] = state ? state.rules : undefined;
             resourceInputs["splitChargeRules"] = state ? state.splitChargeRules : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CostCategoryArgs | undefined;
             if ((!args || args.ruleVersion === undefined) && !opts.urn) {
@@ -154,6 +164,8 @@ export class CostCategory extends pulumi.CustomResource {
             resourceInputs["ruleVersion"] = args ? args.ruleVersion : undefined;
             resourceInputs["rules"] = args ? args.rules : undefined;
             resourceInputs["splitChargeRules"] = args ? args.splitChargeRules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["effectiveEnd"] = undefined /*out*/;
             resourceInputs["effectiveStart"] = undefined /*out*/;
@@ -199,6 +211,14 @@ export interface CostCategoryState {
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
     splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -225,4 +245,12 @@ export interface CostCategoryArgs {
      * Configuration block for the split charge rules used to allocate your charges between your Cost Category values. See below.
      */
     splitChargeRules?: pulumi.Input<pulumi.Input<inputs.costexplorer.CostCategorySplitChargeRule>[]>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

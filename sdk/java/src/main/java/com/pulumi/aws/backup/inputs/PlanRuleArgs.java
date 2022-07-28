@@ -22,14 +22,14 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
     public static final PlanRuleArgs Empty = new PlanRuleArgs();
 
     /**
-     * The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+     * The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
      */
     @Import(name="completionWindow")
     private @Nullable Output<Integer> completionWindow;
 
     /**
-     * @return The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+     * @return The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
      * 
      */
     public Optional<Output<Integer>> completionWindow() {
@@ -189,7 +189,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param completionWindow The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+         * @param completionWindow The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class PlanRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param completionWindow The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+         * @param completionWindow The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
          * 
          * @return builder
          * 

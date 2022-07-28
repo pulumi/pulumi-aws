@@ -134,7 +134,7 @@ import (
 // 					CodeContentType: pulumi.String("PLAINTEXT"),
 // 				},
 // 				SqlApplicationConfiguration: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationArgs{
-// 					Input: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs{
+// 					Input: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs{
 // 						NamePrefix: pulumi.String("PREFIX_1"),
 // 						InputParallelism: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs{
 // 							Count: pulumi.Int(3),
@@ -166,8 +166,8 @@ import (
 // 							ResourceArn: pulumi.Any(aws_kinesis_stream.Example.Arn),
 // 						},
 // 					},
-// 					Outputs: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArray{
-// 						kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs{
+// 					Outputs: kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArray{
+// 						&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
 // 							Name: pulumi.String("OUTPUT_1"),
 // 							DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
 // 								RecordFormatType: pulumi.String("JSON"),
@@ -176,7 +176,7 @@ import (
 // 								ResourceArn: pulumi.Any(aws_lambda_function.Example.Arn),
 // 							},
 // 						},
-// 						kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs{
+// 						&kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputTypeArgs{
 // 							Name: pulumi.String("OUTPUT_2"),
 // 							DestinationSchema: &kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs{
 // 								RecordFormatType: pulumi.String("CSV"),

@@ -121,14 +121,14 @@ public final class TrackerState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The timestamp for when the tracker resource was last update in ISO 8601 format.
+     * The timestamp for when the tracker resource was last updated in ISO 8601 format.
      * 
      */
     @Import(name="updateTime")
     private @Nullable Output<String> updateTime;
 
     /**
-     * @return The timestamp for when the tracker resource was last update in ISO 8601 format.
+     * @return The timestamp for when the tracker resource was last updated in ISO 8601 format.
      * 
      */
     public Optional<Output<String>> updateTime() {
@@ -312,7 +312,7 @@ public final class TrackerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime The timestamp for when the tracker resource was last update in ISO 8601 format.
+         * @param updateTime The timestamp for when the tracker resource was last updated in ISO 8601 format.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class TrackerState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param updateTime The timestamp for when the tracker resource was last update in ISO 8601 format.
+         * @param updateTime The timestamp for when the tracker resource was last updated in ISO 8601 format.
          * 
          * @return builder
          * 

@@ -66,7 +66,7 @@ import (
 // 			PeerOwnerId: pulumi.Any(_var.Peer_owner_id),
 // 			PeerVpcId:   pulumi.Any(aws_vpc.Bar.Id),
 // 			VpcId:       pulumi.Any(aws_vpc.Foo.Id),
-// 			Accepter: &ec2.VpcPeeringConnectionAccepterArgs{
+// 			Accepter: &ec2.VpcPeeringConnectionAccepterTypeArgs{
 // 				AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 // 			},
 // 			Requester: &ec2.VpcPeeringConnectionRequesterArgs{

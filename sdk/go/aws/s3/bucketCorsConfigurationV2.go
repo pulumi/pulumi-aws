@@ -32,7 +32,7 @@ import (
 // 			return err
 // 		}
 // 		_, err = s3.NewBucketCorsConfigurationV2(ctx, "exampleBucketCorsConfigurationV2", &s3.BucketCorsConfigurationV2Args{
-// 			Bucket: exampleBucketV2.Bucket,
+// 			Bucket: exampleBucketV2.ID(),
 // 			CorsRules: s3.BucketCorsConfigurationV2CorsRuleArray{
 // 				&s3.BucketCorsConfigurationV2CorsRuleArgs{
 // 					AllowedHeaders: pulumi.StringArray{

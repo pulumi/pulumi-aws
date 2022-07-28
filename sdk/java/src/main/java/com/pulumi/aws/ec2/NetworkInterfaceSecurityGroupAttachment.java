@@ -35,10 +35,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.Instance;
+ * import com.pulumi.aws.ec2.InstanceArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachment;
+ * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -46,18 +59,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var ami = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var ami = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .filters(GetAmiFilterArgs.builder()
  *                 .name(&#34;name&#34;)
  *                 .values(&#34;amzn-ami-hvm-*&#34;)
  *                 .build())
  *             .owners(&#34;amazon&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var instance = new Instance(&#34;instance&#34;, InstanceArgs.builder()        
  *             .instanceType(&#34;t2.micro&#34;)
- *             .ami(ami.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .ami(ami.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .tags(Map.of(&#34;type&#34;, &#34;test-instance&#34;))
  *             .build());
  * 
@@ -80,10 +93,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.connect.inputs.GetInstanceArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachment;
+ * import com.pulumi.aws.ec2.NetworkInterfaceSecurityGroupAttachmentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -91,9 +115,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var instance = Output.of(Ec2Functions.getInstance(GetInstanceArgs.builder()
+ *         final var instance = Ec2Functions.getInstance(GetInstanceArgs.builder()
  *             .instanceId(&#34;i-1234567890abcdef0&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var sg = new SecurityGroup(&#34;sg&#34;, SecurityGroupArgs.builder()        
  *             .tags(Map.of(&#34;type&#34;, &#34;test-security-group&#34;))
@@ -101,7 +125,7 @@ import javax.annotation.Nullable;
  * 
  *         var sgAttachment = new NetworkInterfaceSecurityGroupAttachment(&#34;sgAttachment&#34;, NetworkInterfaceSecurityGroupAttachmentArgs.builder()        
  *             .securityGroupId(sg.id())
- *             .networkInterfaceId(instance.apply(getInstanceResult -&gt; getInstanceResult.networkInterfaceId()))
+ *             .networkInterfaceId(instance.applyValue(getInstanceResult -&gt; getInstanceResult.networkInterfaceId()))
  *             .build());
  * 
  *     }

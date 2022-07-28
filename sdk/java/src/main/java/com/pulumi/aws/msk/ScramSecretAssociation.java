@@ -19,12 +19,31 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.msk.Cluster;
+ * import com.pulumi.aws.msk.ClusterArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterClientAuthenticationArgs;
+ * import com.pulumi.aws.msk.inputs.ClusterClientAuthenticationSaslArgs;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.secretsmanager.Secret;
+ * import com.pulumi.aws.secretsmanager.SecretArgs;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.msk.ScramSecretAssociation;
+ * import com.pulumi.aws.msk.ScramSecretAssociationArgs;
+ * import com.pulumi.aws.secretsmanager.SecretPolicy;
+ * import com.pulumi.aws.secretsmanager.SecretPolicyArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -66,7 +85,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSecretPolicy = new SecretPolicy(&#34;exampleSecretPolicy&#34;, SecretPolicyArgs.builder()        
  *             .secretArn(exampleSecret.arn())
- *             .policy(exampleSecret.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .policy(exampleSecret.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Version&#34; : &#34;2012-10-17&#34;,
  *   &#34;Statement&#34; : [ {

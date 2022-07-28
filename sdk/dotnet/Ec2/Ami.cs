@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2
     ///     public MyStack()
     ///     {
     ///         // Create an AMI that will start a machine whose root device is backed by
-    ///         // an EBS volume populated from a snapshot. It is assumed that such a snapshot
+    ///         // an EBS volume populated from a snapshot. We assume that such a snapshot
     ///         // already exists with the id "snap-xxxxxxxx".
     ///         var example = new Aws.Ec2.Ami("example", new Aws.Ec2.AmiArgs
     ///         {

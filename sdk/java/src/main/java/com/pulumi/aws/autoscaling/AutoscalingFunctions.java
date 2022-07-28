@@ -25,10 +25,19 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -36,7 +45,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -46,10 +55,10 @@ public final class AutoscalingFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -74,10 +83,19 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -85,7 +103,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -95,10 +113,10 @@ public final class AutoscalingFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -123,10 +141,19 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,7 +161,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -144,10 +171,10 @@ public final class AutoscalingFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -172,10 +199,19 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -183,7 +219,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -193,10 +229,10 @@ public final class AutoscalingFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -221,10 +257,19 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -232,7 +277,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -242,10 +287,10 @@ public final class AutoscalingFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -270,10 +315,19 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.autoscaling.inputs.GetAmiIdsArgs;
+     * import com.pulumi.aws.autoscaling.Notification;
+     * import com.pulumi.aws.autoscaling.NotificationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -281,7 +335,7 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var groups = Output.of(AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
+     *         final var groups = AutoscalingFunctions.getAmiIds(GetAmiIdsArgs.builder()
      *             .filters(            
      *                 GetAmiIdsFilterArgs.builder()
      *                     .name(&#34;tag:Team&#34;)
@@ -291,10 +345,10 @@ public final class AutoscalingFunctions {
      *                     .name(&#34;tag-key&#34;)
      *                     .values(&#34;Environment&#34;)
      *                     .build())
-     *             .build()));
+     *             .build());
      * 
      *         var slackNotifications = new Notification(&#34;slackNotifications&#34;, NotificationArgs.builder()        
-     *             .groupNames(groups.apply(getAmiIdsResult -&gt; getAmiIdsResult.names()))
+     *             .groupNames(groups.applyValue(getAmiIdsResult -&gt; getAmiIdsResult.names()))
      *             .notifications(            
      *                 &#34;autoscaling:EC2_INSTANCE_LAUNCH&#34;,
      *                 &#34;autoscaling:EC2_INSTANCE_TERMINATE&#34;,
@@ -318,10 +372,17 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -329,9 +390,9 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var foo = AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
      *             .name(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -348,10 +409,17 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -359,9 +427,9 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var foo = AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
      *             .name(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -378,10 +446,17 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -389,9 +464,9 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var foo = AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
      *             .name(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -408,10 +483,17 @@ public final class AutoscalingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.autoscaling.AutoscalingFunctions;
+     * import com.pulumi.aws.alb.inputs.GetTargetGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -419,9 +501,9 @@ public final class AutoscalingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var foo = Output.of(AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
+     *         final var foo = AutoscalingFunctions.getGroup(GetTargetGroupArgs.builder()
      *             .name(&#34;foo&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

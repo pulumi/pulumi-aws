@@ -22,11 +22,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.Alias;
+ * import com.pulumi.aws.lambda.AliasArgs;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -77,11 +91,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import com.pulumi.aws.sns.TopicSubscription;
+ * import com.pulumi.aws.sns.TopicSubscriptionArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -110,7 +139,7 @@ import javax.annotation.Nullable;
  *             .code(new FileArchive(&#34;lambdatest.zip&#34;))
  *             .role(defaultRole.arn())
  *             .handler(&#34;exports.handler&#34;)
- *             .runtime(&#34;python3.6&#34;)
+ *             .runtime(&#34;python3.7&#34;)
  *             .build());
  * 
  *         var withSns = new Permission(&#34;withSns&#34;, PermissionArgs.builder()        
@@ -133,10 +162,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -152,7 +190,7 @@ import javax.annotation.Nullable;
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(&#34;MyDemoFunction&#34;)
  *             .principal(&#34;apigateway.amazonaws.com&#34;)
- *             .sourceArn(myDemoAPI.executionArn().apply(executionArn -&gt; String.format(&#34;%s/*{@literal /}*{@literal /}*&#34;, executionArn)))
+ *             .sourceArn(myDemoAPI.executionArn().applyValue(executionArn -&gt; String.format(&#34;%s/*{@literal /}*{@literal /}*&#34;, executionArn)))
  *             .build());
  * 
  *     }
@@ -162,11 +200,26 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.lambda.Function;
+ * import com.pulumi.aws.lambda.FunctionArgs;
+ * import com.pulumi.aws.lambda.Permission;
+ * import com.pulumi.aws.lambda.PermissionArgs;
+ * import com.pulumi.aws.cloudwatch.LogSubscriptionFilter;
+ * import com.pulumi.aws.cloudwatch.LogSubscriptionFilterArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.asset.FileArchive;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -198,14 +251,14 @@ import javax.annotation.Nullable;
  *             .code(new FileArchive(&#34;lamba_logging.zip&#34;))
  *             .handler(&#34;exports.handler&#34;)
  *             .role(defaultRole.arn())
- *             .runtime(&#34;python3.6&#34;)
+ *             .runtime(&#34;python3.7&#34;)
  *             .build());
  * 
  *         var loggingPermission = new Permission(&#34;loggingPermission&#34;, PermissionArgs.builder()        
  *             .action(&#34;lambda:InvokeFunction&#34;)
  *             .function(loggingFunction.name())
  *             .principal(&#34;logs.eu-west-1.amazonaws.com&#34;)
- *             .sourceArn(defaultLogGroup.arn().apply(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
+ *             .sourceArn(defaultLogGroup.arn().applyValue(arn -&gt; String.format(&#34;%s:*&#34;, arn)))
  *             .build());
  * 
  *         var loggingLogSubscriptionFilter = new LogSubscriptionFilter(&#34;loggingLogSubscriptionFilter&#34;, LogSubscriptionFilterArgs.builder()        

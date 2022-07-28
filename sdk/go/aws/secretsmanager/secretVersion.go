@@ -69,7 +69,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
+// 		_, err = secretsmanager.NewSecretVersion(ctx, "exampleSecretVersion", &secretsmanager.SecretVersionArgs{
 // 			SecretId:     pulumi.Any(aws_secretsmanager_secret.Example.Id),
 // 			SecretString: pulumi.String(json0),
 // 		})

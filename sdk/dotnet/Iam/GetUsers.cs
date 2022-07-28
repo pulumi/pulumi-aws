@@ -154,9 +154,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetUsersArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API.
-        /// This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. It is recommended to combine this with other
-        /// options to narrow down the list AWS returns.
+        /// Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
         /// </summary>
         [Input("nameRegex")]
         public string? NameRegex { get; set; }
@@ -175,9 +173,7 @@ namespace Pulumi.Aws.Iam
     public sealed class GetUsersInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// A regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API.
-        /// This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. It is recommended to combine this with other
-        /// options to narrow down the list AWS returns.
+        /// Regex string to apply to the IAM users list returned by AWS. This allows more advanced filtering not supported from the AWS API. This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. Combine this with other options to narrow down the list AWS returns.
         /// </summary>
         [Input("nameRegex")]
         public Input<string>? NameRegex { get; set; }

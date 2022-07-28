@@ -19,13 +19,23 @@ import javax.annotation.Nullable;
  * Provides a FSx Backup resource.
  * 
  * ## Lustre Example
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.LustreFileSystem;
+ * import com.pulumi.aws.fsx.LustreFileSystemArgs;
+ * import com.pulumi.aws.fsx.Backup;
+ * import com.pulumi.aws.fsx.BackupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -52,10 +62,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.WindowsFileSystem;
+ * import com.pulumi.aws.fsx.WindowsFileSystemArgs;
+ * import com.pulumi.aws.fsx.Backup;
+ * import com.pulumi.aws.fsx.BackupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -83,10 +102,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.OntapVolume;
+ * import com.pulumi.aws.fsx.OntapVolumeArgs;
+ * import com.pulumi.aws.fsx.Backup;
+ * import com.pulumi.aws.fsx.BackupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -110,13 +138,23 @@ import javax.annotation.Nullable;
  * ```
  * 
  * ## OpenZFS Example
+ * 
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.OpenZfsFileSystem;
+ * import com.pulumi.aws.fsx.OpenZfsFileSystemArgs;
+ * import com.pulumi.aws.fsx.Backup;
+ * import com.pulumi.aws.fsx.BackupArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

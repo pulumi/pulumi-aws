@@ -27,10 +27,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.batch.JobDefinition;
+ * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -83,10 +90,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.batch.JobDefinition;
+ * import com.pulumi.aws.batch.JobDefinitionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -94,7 +114,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var assumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var assumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
@@ -102,10 +122,10 @@ import javax.annotation.Nullable;
  *                     .identifiers(&#34;ecs-tasks.amazonaws.com&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var ecsTaskExecutionRole = new Role(&#34;ecsTaskExecutionRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(assumeRolePolicy.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(assumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var ecsTaskExecutionRolePolicy = new RolePolicyAttachment(&#34;ecsTaskExecutionRolePolicy&#34;, RolePolicyAttachmentArgs.builder()        
@@ -116,7 +136,7 @@ import javax.annotation.Nullable;
  *         var test = new JobDefinition(&#34;test&#34;, JobDefinitionArgs.builder()        
  *             .type(&#34;container&#34;)
  *             .platformCapabilities(&#34;FARGATE&#34;)
- *             .containerProperties(ecsTaskExecutionRole.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .containerProperties(ecsTaskExecutionRole.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;command&#34;: [&#34;echo&#34;, &#34;test&#34;],
  *   &#34;image&#34;: &#34;busybox&#34;,

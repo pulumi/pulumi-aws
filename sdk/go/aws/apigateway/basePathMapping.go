@@ -49,9 +49,9 @@ import (
 // 		exampleDomainName, err := apigateway.NewDomainName(ctx, "exampleDomainName", &apigateway.DomainNameArgs{
 // 			DomainName:            pulumi.String("example.com"),
 // 			CertificateName:       pulumi.String("example-api"),
-// 			CertificateBody:       readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/example.crt")),
-// 			CertificateChain:      readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/ca.crt")),
-// 			CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v%v", path.Module, "/example.com/example.key")),
+// 			CertificateBody:       readFileOrPanic(fmt.Sprintf("%v/example.com/example.crt", path.Module)),
+// 			CertificateChain:      readFileOrPanic(fmt.Sprintf("%v/example.com/ca.crt", path.Module)),
+// 			CertificatePrivateKey: readFileOrPanic(fmt.Sprintf("%v/example.com/example.key", path.Module)),
 // 		})
 // 		if err != nil {
 // 			return err

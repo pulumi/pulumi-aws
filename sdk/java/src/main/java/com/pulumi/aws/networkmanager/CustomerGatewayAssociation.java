@@ -22,11 +22,31 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.networkmanager.GlobalNetwork;
+ * import com.pulumi.aws.networkmanager.GlobalNetworkArgs;
+ * import com.pulumi.aws.networkmanager.Site;
+ * import com.pulumi.aws.networkmanager.SiteArgs;
+ * import com.pulumi.aws.networkmanager.Device;
+ * import com.pulumi.aws.networkmanager.DeviceArgs;
+ * import com.pulumi.aws.ec2.CustomerGateway;
+ * import com.pulumi.aws.ec2.CustomerGatewayArgs;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2.VpnConnection;
+ * import com.pulumi.aws.ec2.VpnConnectionArgs;
+ * import com.pulumi.aws.networkmanager.TransitGatewayRegistration;
+ * import com.pulumi.aws.networkmanager.TransitGatewayRegistrationArgs;
+ * import com.pulumi.aws.networkmanager.CustomerGatewayAssociation;
+ * import com.pulumi.aws.networkmanager.CustomerGatewayAssociationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

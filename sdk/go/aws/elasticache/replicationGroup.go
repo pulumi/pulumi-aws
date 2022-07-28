@@ -50,7 +50,7 @@ import (
 // 			AutomaticFailoverEnabled: pulumi.Bool(true),
 // 			Description:              pulumi.String("example description"),
 // 			NodeType:                 pulumi.String("cache.m4.large"),
-// 			NumberCacheClusters:      pulumi.Int(2),
+// 			NumCacheClusters:         pulumi.Int(2),
 // 			ParameterGroupName:       pulumi.String("default.redis3.2"),
 // 			Port:                     pulumi.Int(6379),
 // 			PreferredCacheClusterAzs: pulumi.StringArray{
@@ -87,11 +87,11 @@ import (
 // 				pulumi.String("us-west-2a"),
 // 				pulumi.String("us-west-2b"),
 // 			},
-// 			Description:         pulumi.String("example description"),
-// 			NodeType:            pulumi.String("cache.m4.large"),
-// 			NumberCacheClusters: pulumi.Int(2),
-// 			ParameterGroupName:  pulumi.String("default.redis3.2"),
-// 			Port:                pulumi.Int(6379),
+// 			Description:        pulumi.String("example description"),
+// 			NodeType:           pulumi.String("cache.m4.large"),
+// 			NumCacheClusters:   pulumi.Int(2),
+// 			ParameterGroupName: pulumi.String("default.redis3.2"),
+// 			Port:               pulumi.Int(6379),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -153,13 +153,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := elasticache.NewReplicationGroup(ctx, "test", &elasticache.ReplicationGroupArgs{
-// 			ReplicationGroupDescription: pulumi.String("test description"),
-// 			NodeType:                    pulumi.String("cache.t3.small"),
-// 			Port:                        pulumi.Int(6379),
-// 			ApplyImmediately:            pulumi.Bool(true),
-// 			AutoMinorVersionUpgrade:     pulumi.Bool(false),
-// 			MaintenanceWindow:           pulumi.String("tue:06:30-tue:07:30"),
-// 			SnapshotWindow:              pulumi.String("01:00-02:00"),
+// 			Description:             pulumi.String("test description"),
+// 			NodeType:                pulumi.String("cache.t3.small"),
+// 			Port:                    pulumi.Int(6379),
+// 			ApplyImmediately:        pulumi.Bool(true),
+// 			AutoMinorVersionUpgrade: pulumi.Bool(false),
+// 			MaintenanceWindow:       pulumi.String("tue:06:30-tue:07:30"),
+// 			SnapshotWindow:          pulumi.String("01:00-02:00"),
 // 			LogDeliveryConfigurations: elasticache.ReplicationGroupLogDeliveryConfigurationArray{
 // 				&elasticache.ReplicationGroupLogDeliveryConfigurationArgs{
 // 					Destination:     pulumi.Any(aws_cloudwatch_log_group.Example.Name),
@@ -203,11 +203,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		primary, err := elasticache.NewReplicationGroup(ctx, "primary", &elasticache.ReplicationGroupArgs{
-// 			Description:         pulumi.String("primary replication group"),
-// 			Engine:              pulumi.String("redis"),
-// 			EngineVersion:       pulumi.String("5.0.6"),
-// 			NodeType:            pulumi.String("cache.m5.large"),
-// 			NumberCacheClusters: pulumi.Int(1),
+// 			Description:      pulumi.String("primary replication group"),
+// 			Engine:           pulumi.String("redis"),
+// 			EngineVersion:    pulumi.String("5.0.6"),
+// 			NodeType:         pulumi.String("cache.m5.large"),
+// 			NumCacheClusters: pulumi.Int(1),
 // 		}, pulumi.Provider(aws.Other_region))
 // 		if err != nil {
 // 			return err
@@ -222,7 +222,7 @@ import (
 // 		_, err = elasticache.NewReplicationGroup(ctx, "secondary", &elasticache.ReplicationGroupArgs{
 // 			Description:              pulumi.String("secondary replication group"),
 // 			GlobalReplicationGroupId: example.GlobalReplicationGroupId,
-// 			NumberCacheClusters:      pulumi.Int(1),
+// 			NumCacheClusters:         pulumi.Int(1),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -254,7 +254,7 @@ type ReplicationGroup struct {
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
@@ -387,7 +387,7 @@ type replicationGroupState struct {
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -492,7 +492,7 @@ type ReplicationGroupState struct {
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
 	AvailabilityZones pulumi.StringArrayInput
@@ -599,7 +599,7 @@ type replicationGroupArgs struct {
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
@@ -690,7 +690,7 @@ type ReplicationGroupArgs struct {
 	// Only supported for engine type `"redis"` and if the engine version is 6 or higher.
 	// Defaults to `true`.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
-	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// List of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not considered.
 	AvailabilityZones pulumi.StringArrayInput
@@ -883,7 +883,7 @@ func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
 
-// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numberCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
+// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 func (o ReplicationGroupOutput) AutomaticFailoverEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolPtrOutput { return v.AutomaticFailoverEnabled }).(pulumi.BoolPtrOutput)
 }

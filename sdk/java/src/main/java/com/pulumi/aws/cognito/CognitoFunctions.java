@@ -30,10 +30,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,10 +48,10 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var client = Output.of(CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
+     *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
      *             .clientId(&#34;38fjsnc484p94kpqsnet7mpld0&#34;)
      *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -61,10 +68,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -72,10 +86,10 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var client = Output.of(CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
+     *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
      *             .clientId(&#34;38fjsnc484p94kpqsnet7mpld0&#34;)
      *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -92,10 +106,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -103,10 +124,10 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var client = Output.of(CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
+     *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
      *             .clientId(&#34;38fjsnc484p94kpqsnet7mpld0&#34;)
      *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +144,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,10 +162,10 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var client = Output.of(CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
+     *         final var client = CognitoFunctions.getUserPoolClient(GetUserPoolClientArgs.builder()
      *             .clientId(&#34;38fjsnc484p94kpqsnet7mpld0&#34;)
      *             .userPoolId(&#34;us-west-2_aaaaaaaaa&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -154,10 +182,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -165,9 +200,9 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
+     *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
      *             .userPoolId(aws_cognito_user_pool.main().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -184,10 +219,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -195,9 +237,9 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
+     *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
      *             .userPoolId(aws_cognito_user_pool.main().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -214,10 +256,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -225,9 +274,9 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
+     *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
      *             .userPoolId(aws_cognito_user_pool.main().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -244,10 +293,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolClientsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -255,9 +311,9 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
+     *         final var main = CognitoFunctions.getUserPoolClients(GetUserPoolClientsArgs.builder()
      *             .userPoolId(aws_cognito_user_pool.main().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -274,10 +330,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -285,9 +348,9 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sc = Output.of(CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
+     *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
      *             .userPoolId(aws_cognito_user_pool.my_pool().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -304,10 +367,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -315,9 +385,9 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sc = Output.of(CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
+     *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
      *             .userPoolId(aws_cognito_user_pool.my_pool().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -334,10 +404,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -345,9 +422,9 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sc = Output.of(CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
+     *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
      *             .userPoolId(aws_cognito_user_pool.my_pool().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -364,10 +441,17 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolSigningCertificateArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -375,9 +459,9 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var sc = Output.of(CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
+     *         final var sc = CognitoFunctions.getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs.builder()
      *             .userPoolId(aws_cognito_user_pool.my_pool().id())
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -394,10 +478,21 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetRestApiArgs;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
+     * import com.pulumi.aws.apigateway.Authorizer;
+     * import com.pulumi.aws.apigateway.AuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -405,18 +500,18 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selectedRestApi = Output.of(ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *         final var selectedRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
      *             .name(var_.api_gateway_name())
-     *             .build()));
+     *             .build());
      * 
-     *         final var selectedUserPools = Output.of(CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *         final var selectedUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
      *             .name(var_.cognito_user_pool_name())
-     *             .build()));
+     *             .build());
      * 
      *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
      *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selectedRestApi.apply(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedUserPools.apply(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *             .restApi(selectedRestApi.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
+     *             .providerArns(selectedUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
@@ -434,10 +529,21 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetRestApiArgs;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
+     * import com.pulumi.aws.apigateway.Authorizer;
+     * import com.pulumi.aws.apigateway.AuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -445,18 +551,18 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selectedRestApi = Output.of(ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *         final var selectedRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
      *             .name(var_.api_gateway_name())
-     *             .build()));
+     *             .build());
      * 
-     *         final var selectedUserPools = Output.of(CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *         final var selectedUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
      *             .name(var_.cognito_user_pool_name())
-     *             .build()));
+     *             .build());
      * 
      *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
      *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selectedRestApi.apply(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedUserPools.apply(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *             .restApi(selectedRestApi.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
+     *             .providerArns(selectedUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
@@ -474,10 +580,21 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetRestApiArgs;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
+     * import com.pulumi.aws.apigateway.Authorizer;
+     * import com.pulumi.aws.apigateway.AuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -485,18 +602,18 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selectedRestApi = Output.of(ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *         final var selectedRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
      *             .name(var_.api_gateway_name())
-     *             .build()));
+     *             .build());
      * 
-     *         final var selectedUserPools = Output.of(CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *         final var selectedUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
      *             .name(var_.cognito_user_pool_name())
-     *             .build()));
+     *             .build());
      * 
      *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
      *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selectedRestApi.apply(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedUserPools.apply(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *             .restApi(selectedRestApi.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
+     *             .providerArns(selectedUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }
@@ -514,10 +631,21 @@ public final class CognitoFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.apigateway.ApigatewayFunctions;
+     * import com.pulumi.aws.apigateway.inputs.GetRestApiArgs;
+     * import com.pulumi.aws.cognito.CognitoFunctions;
+     * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
+     * import com.pulumi.aws.apigateway.Authorizer;
+     * import com.pulumi.aws.apigateway.AuthorizerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -525,18 +653,18 @@ public final class CognitoFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var selectedRestApi = Output.of(ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
+     *         final var selectedRestApi = ApigatewayFunctions.getRestApi(GetRestApiArgs.builder()
      *             .name(var_.api_gateway_name())
-     *             .build()));
+     *             .build());
      * 
-     *         final var selectedUserPools = Output.of(CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+     *         final var selectedUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
      *             .name(var_.cognito_user_pool_name())
-     *             .build()));
+     *             .build());
      * 
      *         var cognito = new Authorizer(&#34;cognito&#34;, AuthorizerArgs.builder()        
      *             .type(&#34;COGNITO_USER_POOLS&#34;)
-     *             .restApi(selectedRestApi.apply(getRestApiResult -&gt; getRestApiResult.id()))
-     *             .providerArns(selectedUserPools.apply(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+     *             .restApi(selectedRestApi.applyValue(getRestApiResult -&gt; getRestApiResult.id()))
+     *             .providerArns(selectedUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
      *             .build());
      * 
      *     }

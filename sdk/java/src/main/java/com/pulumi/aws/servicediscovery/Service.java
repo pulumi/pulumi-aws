@@ -26,10 +26,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.servicediscovery.PrivateDnsNamespace;
+ * import com.pulumi.aws.servicediscovery.PrivateDnsNamespaceArgs;
+ * import com.pulumi.aws.servicediscovery.Service;
+ * import com.pulumi.aws.servicediscovery.ServiceArgs;
+ * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
+ * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckCustomConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -68,10 +81,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.servicediscovery.PublicDnsNamespace;
+ * import com.pulumi.aws.servicediscovery.PublicDnsNamespaceArgs;
+ * import com.pulumi.aws.servicediscovery.Service;
+ * import com.pulumi.aws.servicediscovery.ServiceArgs;
+ * import com.pulumi.aws.servicediscovery.inputs.ServiceDnsConfigArgs;
+ * import com.pulumi.aws.servicediscovery.inputs.ServiceHealthCheckConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

@@ -57,7 +57,7 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = Output.Tuple(sourceBucketV2.Arn, sourceBucketV2.Arn, destinationBucketV2.Arn).Apply(values =&gt;
+    ///             PolicyDocument = Output.Tuple(sourceBucketV2.Arn, sourceBucketV2.Arn, destinationBucketV2.Arn).Apply(values =&gt;
     ///             {
     ///                 var sourceBucketV2Arn = values.Item1;
     ///                 var sourceBucketV2Arn1 = values.Item2;

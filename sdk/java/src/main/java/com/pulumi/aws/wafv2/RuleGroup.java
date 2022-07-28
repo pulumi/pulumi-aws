@@ -28,10 +28,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.RuleGroup;
+ * import com.pulumi.aws.wafv2.RuleGroupArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionAllowArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementGeoMatchStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -75,10 +89,34 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.wafv2.IpSet;
+ * import com.pulumi.aws.wafv2.IpSetArgs;
+ * import com.pulumi.aws.wafv2.RegexPatternSet;
+ * import com.pulumi.aws.wafv2.RegexPatternSetArgs;
+ * import com.pulumi.aws.wafv2.inputs.RegexPatternSetRegularExpressionArgs;
+ * import com.pulumi.aws.wafv2.RuleGroup;
+ * import com.pulumi.aws.wafv2.RuleGroupArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionBlockArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementNotStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleVisibilityConfigArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleActionCountArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementOrStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs;
+ * import com.pulumi.aws.wafv2.inputs.RuleGroupVisibilityConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

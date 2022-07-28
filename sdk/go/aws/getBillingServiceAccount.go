@@ -41,7 +41,37 @@ import (
 // 		}
 // 		_, err = s3.NewBucketPolicy(ctx, "allowBillingLogging", &s3.BucketPolicyArgs{
 // 			Bucket: billingLogs.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Id\": \"Policy\",\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetBucketAcl\", \"s3:GetBucketPolicy\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:s3:::my-billing-tf-test-bucket\",\n", "      \"Principal\": {\n", "        \"AWS\": [\n", "          \"", main.Arn, "\"\n", "        ]\n", "      }\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:PutObject\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"arn:aws:s3:::my-billing-tf-test-bucket/*\",\n", "      \"Principal\": {\n", "        \"AWS\": [\n", "          \"", main.Arn, "\"\n", "        ]\n", "      }\n", "    }\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//   "Id": "Policy",
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": [
+//         "s3:GetBucketAcl", "s3:GetBucketPolicy"
+//       ],
+//       "Effect": "Allow",
+//       "Resource": "arn:aws:s3:::my-billing-tf-test-bucket",
+//       "Principal": {
+//         "AWS": [
+//           "%v"
+//         ]
+//       }
+//     },
+//     {
+//       "Action": [
+//         "s3:PutObject"
+//       ],
+//       "Effect": "Allow",
+//       "Resource": "arn:aws:s3:::my-billing-tf-test-bucket/*",
+//       "Principal": {
+//         "AWS": [
+//           "%v"
+//         ]
+//       }
+//     }
+//   ]
+// }
+// `, main.Arn, main.Arn)),
 // 		})
 // 		if err != nil {
 // 			return err

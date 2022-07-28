@@ -34,7 +34,30 @@ import (
 // 		_, err = efs.NewFileSystemPolicy(ctx, "policy", &efs.FileSystemPolicyArgs{
 // 			FileSystemId:                   fs.ID(),
 // 			BypassPolicyLockoutSafetyCheck: pulumi.Bool(true),
-// 			Policy:                         pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"Version\": \"2012-10-17\",\n", "    \"Id\": \"ExamplePolicy01\",\n", "    \"Statement\": [\n", "        {\n", "            \"Sid\": \"ExampleStatement01\",\n", "            \"Effect\": \"Allow\",\n", "            \"Principal\": {\n", "                \"AWS\": \"*\"\n", "            },\n", "            \"Resource\": \"", aws_efs_file_system.Test.Arn, "\",\n", "            \"Action\": [\n", "                \"elasticfilesystem:ClientMount\",\n", "                \"elasticfilesystem:ClientWrite\"\n", "            ],\n", "            \"Condition\": {\n", "                \"Bool\": {\n", "                    \"aws:SecureTransport\": \"true\"\n", "                }\n", "            }\n", "        }\n", "    ]\n", "}\n")),
+// 			Policy: pulumi.String(fmt.Sprintf(`{
+//     "Version": "2012-10-17",
+//     "Id": "ExamplePolicy01",
+//     "Statement": [
+//         {
+//             "Sid": "ExampleStatement01",
+//             "Effect": "Allow",
+//             "Principal": {
+//                 "AWS": "*"
+//             },
+//             "Resource": "%v",
+//             "Action": [
+//                 "elasticfilesystem:ClientMount",
+//                 "elasticfilesystem:ClientWrite"
+//             ],
+//             "Condition": {
+//                 "Bool": {
+//                     "aws:SecureTransport": "true"
+//                 }
+//             }
+//         }
+//     ]
+// }
+// `, aws_efs_file_system.Test.Arn)),
 // 		})
 // 		if err != nil {
 // 			return err

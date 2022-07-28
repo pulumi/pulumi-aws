@@ -40,7 +40,20 @@ import (
 // 			return err
 // 		}
 // 		replicationRole, err := iam.NewRole(ctx, "replicationRole", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"s3.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "s3.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -58,7 +71,42 @@ import (
 // 				sourceBucketV2Arn := _args[0].(string)
 // 				sourceBucketV2Arn1 := _args[1].(string)
 // 				destinationBucketV2Arn := _args[2].(string)
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetReplicationConfiguration\",\n", "        \"s3:ListBucket\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", sourceBucketV2Arn, "\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:GetObjectVersionForReplication\",\n", "        \"s3:GetObjectVersionAcl\",\n", "         \"s3:GetObjectVersionTagging\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": [\n", "        \"", sourceBucketV2Arn1, "/*\"\n", "      ]\n", "    },\n", "    {\n", "      \"Action\": [\n", "        \"s3:ReplicateObject\",\n", "        \"s3:ReplicateDelete\",\n", "        \"s3:ReplicateTags\"\n", "      ],\n", "      \"Effect\": \"Allow\",\n", "      \"Resource\": \"", destinationBucketV2Arn, "/*\"\n", "    }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": [
+//         "s3:GetReplicationConfiguration",
+//         "s3:ListBucket"
+//       ],
+//       "Effect": "Allow",
+//       "Resource": [
+//         "%v"
+//       ]
+//     },
+//     {
+//       "Action": [
+//         "s3:GetObjectVersionForReplication",
+//         "s3:GetObjectVersionAcl",
+//          "s3:GetObjectVersionTagging"
+//       ],
+//       "Effect": "Allow",
+//       "Resource": [
+//         "%v/*"
+//       ]
+//     },
+//     {
+//       "Action": [
+//         "s3:ReplicateObject",
+//         "s3:ReplicateDelete",
+//         "s3:ReplicateTags"
+//       ],
+//       "Effect": "Allow",
+//       "Resource": "%v/*"
+//     }
+//   ]
+// }
+// `, sourceBucketV2Arn, sourceBucketV2Arn1, destinationBucketV2Arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

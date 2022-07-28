@@ -19,7 +19,7 @@ import (
 // ## Example Usage
 // ### Basic
 //
-// The most simple event data store configuration requires us to only set the `name` and `retentionPeriod` attributes. The event data store will automatically capture all management events. To capture management events from all the regions, `multiRegionEnabled` must be `true`.
+// The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multiRegionEnabled` must be `true`.
 //
 // ```go
 // package main
@@ -31,9 +31,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cloudtrail.NewEventDataStore(ctx, "example", &cloudtrail.EventDataStoreArgs{
-// 			RetentionPeriod: pulumi.Int(7),
-// 		})
+// 		_, err := cloudtrail.NewEventDataStore(ctx, "example", nil)
 // 		if err != nil {
 // 			return err
 // 		}

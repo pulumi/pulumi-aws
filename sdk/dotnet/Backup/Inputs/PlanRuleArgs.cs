@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Backup.Inputs
     public sealed class PlanRuleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of time AWS Backup attempts a backup before canceling the job and returning an error.
+        /// The amount of time in minutes AWS Backup attempts a backup before canceling the job and returning an error.
         /// </summary>
         [Input("completionWindow")]
         public Input<int>? CompletionWindow { get; set; }

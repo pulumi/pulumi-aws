@@ -40,6 +40,11 @@ import (
 // 				S3Logs: &guardduty.OrganizationConfigurationDatasourcesS3LogsArgs{
 // 					AutoEnable: pulumi.Bool(true),
 // 				},
+// 				Kubernetes: &guardduty.OrganizationConfigurationDatasourcesKubernetesArgs{
+// 					AuditLogs: &guardduty.OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs{
+// 						Enable: pulumi.Bool(true),
+// 					},
+// 				},
 // 			},
 // 		})
 // 		if err != nil {
@@ -60,7 +65,7 @@ import (
 type OrganizationConfiguration struct {
 	pulumi.CustomResourceState
 
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
 	// Configuration for the collected datasources.
 	Datasources OrganizationConfigurationDatasourcesOutput `pulumi:"datasources"`
@@ -103,7 +108,7 @@ func GetOrganizationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationConfiguration resources.
 type organizationConfigurationState struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable *bool `pulumi:"autoEnable"`
 	// Configuration for the collected datasources.
 	Datasources *OrganizationConfigurationDatasources `pulumi:"datasources"`
@@ -112,7 +117,7 @@ type organizationConfigurationState struct {
 }
 
 type OrganizationConfigurationState struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable pulumi.BoolPtrInput
 	// Configuration for the collected datasources.
 	Datasources OrganizationConfigurationDatasourcesPtrInput
@@ -125,7 +130,7 @@ func (OrganizationConfigurationState) ElementType() reflect.Type {
 }
 
 type organizationConfigurationArgs struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable bool `pulumi:"autoEnable"`
 	// Configuration for the collected datasources.
 	Datasources *OrganizationConfigurationDatasources `pulumi:"datasources"`
@@ -135,7 +140,7 @@ type organizationConfigurationArgs struct {
 
 // The set of arguments for constructing a OrganizationConfiguration resource.
 type OrganizationConfigurationArgs struct {
-	// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+	// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 	AutoEnable pulumi.BoolInput
 	// Configuration for the collected datasources.
 	Datasources OrganizationConfigurationDatasourcesPtrInput
@@ -230,7 +235,7 @@ func (o OrganizationConfigurationOutput) ToOrganizationConfigurationOutputWithCo
 	return o
 }
 
-// When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+// Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
 func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.BoolOutput { return v.AutoEnable }).(pulumi.BoolOutput)
 }

@@ -12,35 +12,6 @@ namespace Pulumi.Aws.Fsx
     /// <summary>
     /// Provides a FSx Backup resource.
     /// 
-    /// ## Lustre Example
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new Aws.Fsx.LustreFileSystemArgs
-    ///         {
-    ///             StorageCapacity = 1200,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             DeploymentType = "PERSISTENT_1",
-    ///             PerUnitStorageThroughput = 50,
-    ///         });
-    ///         var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new Aws.Fsx.BackupArgs
-    ///         {
-    ///             FileSystemId = exampleLustreFileSystem.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Windows Example
     /// 
     /// ```csharp
@@ -91,35 +62,6 @@ namespace Pulumi.Aws.Fsx
     ///         var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new Aws.Fsx.BackupArgs
     ///         {
     ///             VolumeId = exampleOntapVolume.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## OpenZFS Example
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new Aws.Fsx.OpenZfsFileSystemArgs
-    ///         {
-    ///             StorageCapacity = 64,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             DeploymentType = "SINGLE_AZ_1",
-    ///             ThroughputCapacity = 64,
-    ///         });
-    ///         var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new Aws.Fsx.BackupArgs
-    ///         {
-    ///             FileSystemId = exampleOpenZfsFileSystem.Id,
     ///         });
     ///     }
     /// 

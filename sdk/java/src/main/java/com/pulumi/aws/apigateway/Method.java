@@ -24,10 +24,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.RestApiArgs;
+ * import com.pulumi.aws.apigateway.Resource;
+ * import com.pulumi.aws.apigateway.ResourceArgs;
+ * import com.pulumi.aws.apigateway.Method;
+ * import com.pulumi.aws.apigateway.MethodArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -59,10 +70,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cognito.CognitoFunctions;
+ * import com.pulumi.aws.cognito.inputs.GetUserPoolsArgs;
+ * import com.pulumi.aws.apigateway.RestApi;
+ * import com.pulumi.aws.apigateway.Resource;
+ * import com.pulumi.aws.apigateway.ResourceArgs;
+ * import com.pulumi.aws.apigateway.Authorizer;
+ * import com.pulumi.aws.apigateway.AuthorizerArgs;
+ * import com.pulumi.aws.apigateway.Method;
+ * import com.pulumi.aws.apigateway.MethodArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -72,9 +97,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var config = ctx.config();
  *         final var cognitoUserPoolName = config.get(&#34;cognitoUserPoolName&#34;);
- *         final var thisUserPools = Output.of(CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
+ *         final var thisUserPools = CognitoFunctions.getUserPools(GetUserPoolsArgs.builder()
  *             .name(cognitoUserPoolName)
- *             .build()));
+ *             .build());
  * 
  *         var thisRestApi = new RestApi(&#34;thisRestApi&#34;);
  * 
@@ -87,7 +112,7 @@ import javax.annotation.Nullable;
  *         var thisAuthorizer = new Authorizer(&#34;thisAuthorizer&#34;, AuthorizerArgs.builder()        
  *             .type(&#34;COGNITO_USER_POOLS&#34;)
  *             .restApi(thisRestApi.id())
- *             .providerArns(thisUserPools.apply(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
+ *             .providerArns(thisUserPools.applyValue(getUserPoolsResult -&gt; getUserPoolsResult.arns()))
  *             .build());
  * 
  *         var any = new Method(&#34;any&#34;, MethodArgs.builder()        

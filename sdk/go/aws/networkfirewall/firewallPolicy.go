@@ -52,50 +52,6 @@ import (
 // 	})
 // }
 // ```
-// ## Policy with a Custom Action for Stateless Inspection
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/networkfirewall"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := networkfirewall.NewFirewallPolicy(ctx, "test", &networkfirewall.FirewallPolicyArgs{
-// 			FirewallPolicy: &networkfirewall.FirewallPolicyFirewallPolicyArgs{
-// 				StatelessCustomActions: networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArray{
-// 					&networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionArgs{
-// 						ActionDefinition: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs{
-// 							PublishMetricAction: &networkfirewall.FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionPublishMetricActionArgs{
-// 								Dimension: []map[string]interface{}{
-// 									map[string]interface{}{
-// 										"value": "1",
-// 									},
-// 								},
-// 							},
-// 						},
-// 						ActionName: pulumi.String("ExampleCustomAction"),
-// 					},
-// 				},
-// 				StatelessDefaultActions: pulumi.StringArray{
-// 					pulumi.String("aws:pass"),
-// 					pulumi.String("ExampleCustomAction"),
-// 				},
-// 				StatelessFragmentDefaultActions: pulumi.StringArray{
-// 					pulumi.String("aws:drop"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 //
 // ## Import
 //

@@ -72,7 +72,7 @@ type Cluster struct {
 	FinalSnapshotName pulumi.StringPtrOutput `pulumi:"finalSnapshotName"`
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
-	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringOutput `pulumi:"maintenanceWindow"`
 	// Name of this node.
 	// * `endpoint`
@@ -165,7 +165,7 @@ type clusterState struct {
 	FinalSnapshotName *string `pulumi:"finalSnapshotName"`
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Name of this node.
 	// * `endpoint`
@@ -224,7 +224,7 @@ type ClusterState struct {
 	FinalSnapshotName pulumi.StringPtrInput
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn pulumi.StringPtrInput
-	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringPtrInput
 	// Name of this node.
 	// * `endpoint`
@@ -281,7 +281,7 @@ type clusterArgs struct {
 	FinalSnapshotName *string `pulumi:"finalSnapshotName"`
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
-	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow *string `pulumi:"maintenanceWindow"`
 	// Name of this node.
 	// * `endpoint`
@@ -331,7 +331,7 @@ type ClusterArgs struct {
 	FinalSnapshotName pulumi.StringPtrInput
 	// ARN of the KMS key used to encrypt the cluster at rest.
 	KmsKeyArn pulumi.StringPtrInput
-	// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+	// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 	MaintenanceWindow pulumi.StringPtrInput
 	// Name of this node.
 	// * `endpoint`
@@ -499,7 +499,7 @@ func (o ClusterOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
+// Specifies the weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). The minimum maintenance window is a 60 minute period. Example: `sun:23:00-mon:01:30`.
 func (o ClusterOutput) MaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.MaintenanceWindow }).(pulumi.StringOutput)
 }

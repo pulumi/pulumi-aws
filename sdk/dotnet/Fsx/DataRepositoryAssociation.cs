@@ -14,66 +14,6 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// &gt; **NOTE:** Data Repository Associations are only compatible with AWS FSx for Lustre File Systems and `PERSISTENT_2` deployment type.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucketV2 = new Aws.S3.BucketV2("exampleBucketV2", new Aws.S3.BucketV2Args
-    ///         {
-    ///         });
-    ///         var exampleBucketAclV2 = new Aws.S3.BucketAclV2("exampleBucketAclV2", new Aws.S3.BucketAclV2Args
-    ///         {
-    ///             Bucket = exampleBucketV2.Id,
-    ///             Acl = "private",
-    ///         });
-    ///         var exampleLustreFileSystem = new Aws.Fsx.LustreFileSystem("exampleLustreFileSystem", new Aws.Fsx.LustreFileSystemArgs
-    ///         {
-    ///             StorageCapacity = 1200,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             DeploymentType = "PERSISTENT_2",
-    ///             PerUnitStorageThroughput = 125,
-    ///         });
-    ///         var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation("exampleDataRepositoryAssociation", new Aws.Fsx.DataRepositoryAssociationArgs
-    ///         {
-    ///             FileSystemId = exampleLustreFileSystem.Id,
-    ///             DataRepositoryPath = exampleBucketV2.Id.Apply(id =&gt; $"s3://{id}"),
-    ///             FileSystemPath = "/my-bucket",
-    ///             S3 = new Aws.Fsx.Inputs.DataRepositoryAssociationS3Args
-    ///             {
-    ///                 AutoExportPolicy = new Aws.Fsx.Inputs.DataRepositoryAssociationS3AutoExportPolicyArgs
-    ///                 {
-    ///                     Events = 
-    ///                     {
-    ///                         "NEW",
-    ///                         "CHANGED",
-    ///                         "DELETED",
-    ///                     },
-    ///                 },
-    ///                 AutoImportPolicy = new Aws.Fsx.Inputs.DataRepositoryAssociationS3AutoImportPolicyArgs
-    ///                 {
-    ///                     Events = 
-    ///                     {
-    ///                         "NEW",
-    ///                         "CHANGED",
-    ///                         "DELETED",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// FSx Data Repository Associations can be imported using the `id`, e.g.,

@@ -37,6 +37,11 @@ public final class GetImageRecipeBlockDeviceMappingEb {
      */
     private final String snapshotId;
     /**
+     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
+     * 
+     */
+    private final Integer throughput;
+    /**
      * @return Size of the volume, in GiB.
      * 
      */
@@ -54,6 +59,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
         @CustomType.Parameter("iops") Integer iops,
         @CustomType.Parameter("kmsKeyId") String kmsKeyId,
         @CustomType.Parameter("snapshotId") String snapshotId,
+        @CustomType.Parameter("throughput") Integer throughput,
         @CustomType.Parameter("volumeSize") Integer volumeSize,
         @CustomType.Parameter("volumeType") String volumeType) {
         this.deleteOnTermination = deleteOnTermination;
@@ -61,6 +67,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
         this.iops = iops;
         this.kmsKeyId = kmsKeyId;
         this.snapshotId = snapshotId;
+        this.throughput = throughput;
         this.volumeSize = volumeSize;
         this.volumeType = volumeType;
     }
@@ -101,6 +108,13 @@ public final class GetImageRecipeBlockDeviceMappingEb {
         return this.snapshotId;
     }
     /**
+     * @return For GP3 volumes only. The throughput in MiB/s that the volume supports.
+     * 
+     */
+    public Integer throughput() {
+        return this.throughput;
+    }
+    /**
      * @return Size of the volume, in GiB.
      * 
      */
@@ -129,6 +143,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
         private Integer iops;
         private String kmsKeyId;
         private String snapshotId;
+        private Integer throughput;
         private Integer volumeSize;
         private String volumeType;
 
@@ -143,6 +158,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
     	      this.iops = defaults.iops;
     	      this.kmsKeyId = defaults.kmsKeyId;
     	      this.snapshotId = defaults.snapshotId;
+    	      this.throughput = defaults.throughput;
     	      this.volumeSize = defaults.volumeSize;
     	      this.volumeType = defaults.volumeType;
         }
@@ -167,6 +183,10 @@ public final class GetImageRecipeBlockDeviceMappingEb {
             this.snapshotId = Objects.requireNonNull(snapshotId);
             return this;
         }
+        public Builder throughput(Integer throughput) {
+            this.throughput = Objects.requireNonNull(throughput);
+            return this;
+        }
         public Builder volumeSize(Integer volumeSize) {
             this.volumeSize = Objects.requireNonNull(volumeSize);
             return this;
@@ -175,7 +195,7 @@ public final class GetImageRecipeBlockDeviceMappingEb {
             this.volumeType = Objects.requireNonNull(volumeType);
             return this;
         }        public GetImageRecipeBlockDeviceMappingEb build() {
-            return new GetImageRecipeBlockDeviceMappingEb(deleteOnTermination, encrypted, iops, kmsKeyId, snapshotId, volumeSize, volumeType);
+            return new GetImageRecipeBlockDeviceMappingEb(deleteOnTermination, encrypted, iops, kmsKeyId, snapshotId, throughput, volumeSize, volumeType);
         }
     }
 }

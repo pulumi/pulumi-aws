@@ -28,7 +28,39 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := batch.NewJobDefinition(ctx, "test", &batch.JobDefinitionArgs{
-// 			ContainerProperties: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "	\"command\": [\"ls\", \"-la\"],\n", "	\"image\": \"busybox\",\n", "	\"memory\": 1024,\n", "	\"vcpus\": 1,\n", "	\"volumes\": [\n", "      {\n", "        \"host\": {\n", "          \"sourcePath\": \"/tmp\"\n", "        },\n", "        \"name\": \"tmp\"\n", "      }\n", "    ],\n", "	\"environment\": [\n", "		{\"name\": \"VARNAME\", \"value\": \"VARVAL\"}\n", "	],\n", "	\"mountPoints\": [\n", "		{\n", "          \"sourceVolume\": \"tmp\",\n", "          \"containerPath\": \"/tmp\",\n", "          \"readOnly\": false\n", "        }\n", "	],\n", "    \"ulimits\": [\n", "      {\n", "        \"hardLimit\": 1024,\n", "        \"name\": \"nofile\",\n", "        \"softLimit\": 1024\n", "      }\n", "    ]\n", "}\n", "\n")),
+// 			ContainerProperties: pulumi.String(fmt.Sprintf(`{
+// 	"command": ["ls", "-la"],
+// 	"image": "busybox",
+// 	"memory": 1024,
+// 	"vcpus": 1,
+// 	"volumes": [
+//       {
+//         "host": {
+//           "sourcePath": "/tmp"
+//         },
+//         "name": "tmp"
+//       }
+//     ],
+// 	"environment": [
+// 		{"name": "VARNAME", "value": "VARVAL"}
+// 	],
+// 	"mountPoints": [
+// 		{
+//           "sourceVolume": "tmp",
+//           "containerPath": "/tmp",
+//           "readOnly": false
+//         }
+// 	],
+//     "ulimits": [
+//       {
+//         "hardLimit": 1024,
+//         "name": "nofile",
+//         "softLimit": 1024
+//       }
+//     ]
+// }
+//
+// `)),
 // 			Type: pulumi.String("container"),
 // 		})
 // 		if err != nil {
@@ -92,7 +124,19 @@ import (
 // 				pulumi.String("FARGATE"),
 // 			},
 // 			ContainerProperties: ecsTaskExecutionRole.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"command\": [\"echo\", \"test\"],\n", "  \"image\": \"busybox\",\n", "  \"fargatePlatformConfiguration\": {\n", "    \"platformVersion\": \"LATEST\"\n", "  },\n", "  \"resourceRequirements\": [\n", "    {\"type\": \"VCPU\", \"value\": \"0.25\"},\n", "    {\"type\": \"MEMORY\", \"value\": \"512\"}\n", "  ],\n", "  \"executionRoleArn\": \"", arn, "\"\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "command": ["echo", "test"],
+//   "image": "busybox",
+//   "fargatePlatformConfiguration": {
+//     "platformVersion": "LATEST"
+//   },
+//   "resourceRequirements": [
+//     {"type": "VCPU", "value": "0.25"},
+//     {"type": "MEMORY", "value": "512"}
+//   ],
+//   "executionRoleArn": "%v"
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

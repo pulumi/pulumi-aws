@@ -23,10 +23,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apigateway.Stage;
+ * import com.pulumi.aws.apigateway.StageArgs;
+ * import com.pulumi.aws.apigateway.DomainName;
+ * import com.pulumi.aws.apigateway.DomainNameArgs;
+ * import com.pulumi.aws.apigateway.BasePathMapping;
+ * import com.pulumi.aws.apigateway.BasePathMappingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -43,9 +54,9 @@ import javax.annotation.Nullable;
  *         var exampleDomainName = new DomainName(&#34;exampleDomainName&#34;, DomainNameArgs.builder()        
  *             .domainName(&#34;example.com&#34;)
  *             .certificateName(&#34;example-api&#34;)
- *             .certificateBody(Files.readString(String.format(&#34;%s/example.com/example.crt&#34;, path.module())))
- *             .certificateChain(Files.readString(String.format(&#34;%s/example.com/ca.crt&#34;, path.module())))
- *             .certificatePrivateKey(Files.readString(String.format(&#34;%s/example.com/example.key&#34;, path.module())))
+ *             .certificateBody(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.crt&#34;, path.module()))))
+ *             .certificateChain(Files.readString(Paths.get(String.format(&#34;%s/example.com/ca.crt&#34;, path.module()))))
+ *             .certificatePrivateKey(Files.readString(Paths.get(String.format(&#34;%s/example.com/example.key&#34;, path.module()))))
  *             .build());
  * 
  *         var exampleBasePathMapping = new BasePathMapping(&#34;exampleBasePathMapping&#34;, BasePathMappingArgs.builder()        

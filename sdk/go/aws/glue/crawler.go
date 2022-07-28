@@ -62,7 +62,7 @@ import (
 // 			JdbcTargets: glue.CrawlerJdbcTargetArray{
 // 				&glue.CrawlerJdbcTargetArgs{
 // 					ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
-// 					Path:           pulumi.String(fmt.Sprintf("%v%v", "database-name/", "%")),
+// 					Path:           pulumi.String(fmt.Sprintf("database-name/%v", "%")),
 // 				},
 // 			},
 // 		})
@@ -92,7 +92,7 @@ import (
 // 			Role:         pulumi.Any(aws_iam_role.Example.Arn),
 // 			S3Targets: glue.CrawlerS3TargetArray{
 // 				&glue.CrawlerS3TargetArgs{
-// 					Path: pulumi.String(fmt.Sprintf("%v%v", "s3://", aws_s3_bucket.Example.Bucket)),
+// 					Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Example.Bucket)),
 // 				},
 // 			},
 // 		})
@@ -131,7 +131,13 @@ import (
 // 			SchemaChangePolicy: &glue.CrawlerSchemaChangePolicyArgs{
 // 				DeleteBehavior: pulumi.String("LOG"),
 // 			},
-// 			Configuration: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v", "{\n", "  \"Version\":1.0,\n", "  \"Grouping\": {\n", "    \"TableGroupingPolicy\": \"CombineCompatibleSchemas\"\n", "  }\n", "}\n")),
+// 			Configuration: pulumi.String(fmt.Sprintf(`{
+//   "Version":1.0,
+//   "Grouping": {
+//     "TableGroupingPolicy": "CombineCompatibleSchemas"
+//   }
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -160,7 +166,7 @@ import (
 // 			MongodbTargets: glue.CrawlerMongodbTargetArray{
 // 				&glue.CrawlerMongodbTargetArgs{
 // 					ConnectionName: pulumi.Any(aws_glue_connection.Example.Name),
-// 					Path:           pulumi.String(fmt.Sprintf("%v%v", "database-name/", "%")),
+// 					Path:           pulumi.String(fmt.Sprintf("database-name/%v", "%")),
 // 				},
 // 			},
 // 		})
@@ -201,7 +207,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := glue.NewCrawler(ctx, "eventsCrawler", &glue.CrawlerArgs{
+// 		_, err = glue.NewCrawler(ctx, "eventsCrawler", &glue.CrawlerArgs{
 // 			DatabaseName:  pulumi.Any(aws_glue_catalog_database.Glue_database.Name),
 // 			Schedule:      pulumi.String("cron(0 1 * * ? *)"),
 // 			Role:          pulumi.Any(aws_iam_role.Glue_role.Arn),
@@ -209,7 +215,7 @@ import (
 // 			Configuration: pulumi.String(json0),
 // 			S3Targets: glue.CrawlerS3TargetArray{
 // 				&glue.CrawlerS3TargetArgs{
-// 					Path: pulumi.String(fmt.Sprintf("%v%v", "s3://", aws_s3_bucket.Data_lake_bucket.Bucket)),
+// 					Path: pulumi.String(fmt.Sprintf("s3://%v", aws_s3_bucket.Data_lake_bucket.Bucket)),
 // 				},
 // 			},
 // 		})

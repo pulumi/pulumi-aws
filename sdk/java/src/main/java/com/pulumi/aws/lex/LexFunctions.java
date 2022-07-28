@@ -30,10 +30,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetBotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,10 +48,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowersBot = Output.of(LexFunctions.getBot(GetBotArgs.builder()
+     *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
      *             .name(&#34;OrderFlowers&#34;)
      *             .version(&#34;$LATEST&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -61,10 +68,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetBotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -72,10 +86,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowersBot = Output.of(LexFunctions.getBot(GetBotArgs.builder()
+     *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
      *             .name(&#34;OrderFlowers&#34;)
      *             .version(&#34;$LATEST&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -92,10 +106,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetBotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -103,10 +124,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowersBot = Output.of(LexFunctions.getBot(GetBotArgs.builder()
+     *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
      *             .name(&#34;OrderFlowers&#34;)
      *             .version(&#34;$LATEST&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +144,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetBotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,10 +162,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowersBot = Output.of(LexFunctions.getBot(GetBotArgs.builder()
+     *         final var orderFlowersBot = LexFunctions.getBot(GetBotArgs.builder()
      *             .name(&#34;OrderFlowers&#34;)
      *             .version(&#34;$LATEST&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -154,10 +182,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -165,10 +200,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowersProd = Output.of(LexFunctions.getBotAlias(GetBotAliasArgs.builder()
+     *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
      *             .botName(&#34;OrderFlowers&#34;)
      *             .name(&#34;OrderFlowersProd&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -185,10 +220,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -196,10 +238,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowersProd = Output.of(LexFunctions.getBotAlias(GetBotAliasArgs.builder()
+     *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
      *             .botName(&#34;OrderFlowers&#34;)
      *             .name(&#34;OrderFlowersProd&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -216,10 +258,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -227,10 +276,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowersProd = Output.of(LexFunctions.getBotAlias(GetBotAliasArgs.builder()
+     *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
      *             .botName(&#34;OrderFlowers&#34;)
      *             .name(&#34;OrderFlowersProd&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -247,10 +296,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetBotAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -258,10 +314,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowersProd = Output.of(LexFunctions.getBotAlias(GetBotAliasArgs.builder()
+     *         final var orderFlowersProd = LexFunctions.getBotAlias(GetBotAliasArgs.builder()
      *             .botName(&#34;OrderFlowers&#34;)
      *             .name(&#34;OrderFlowersProd&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -278,10 +334,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetIntentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -289,10 +352,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowers = Output.of(LexFunctions.getIntent(GetIntentArgs.builder()
+     *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
      *             .name(&#34;OrderFlowers&#34;)
      *             .version(&#34;$LATEST&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -309,10 +372,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetIntentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -320,10 +390,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowers = Output.of(LexFunctions.getIntent(GetIntentArgs.builder()
+     *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
      *             .name(&#34;OrderFlowers&#34;)
      *             .version(&#34;$LATEST&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -340,10 +410,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetIntentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -351,10 +428,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowers = Output.of(LexFunctions.getIntent(GetIntentArgs.builder()
+     *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
      *             .name(&#34;OrderFlowers&#34;)
      *             .version(&#34;$LATEST&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -371,10 +448,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetIntentArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -382,10 +466,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var orderFlowers = Output.of(LexFunctions.getIntent(GetIntentArgs.builder()
+     *         final var orderFlowers = LexFunctions.getIntent(GetIntentArgs.builder()
      *             .name(&#34;OrderFlowers&#34;)
      *             .version(&#34;$LATEST&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -402,10 +486,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -413,10 +504,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var flowerTypes = Output.of(LexFunctions.getSlotType(GetSlotTypeArgs.builder()
+     *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
      *             .name(&#34;FlowerTypes&#34;)
      *             .version(&#34;1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -433,10 +524,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -444,10 +542,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var flowerTypes = Output.of(LexFunctions.getSlotType(GetSlotTypeArgs.builder()
+     *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
      *             .name(&#34;FlowerTypes&#34;)
      *             .version(&#34;1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -464,10 +562,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -475,10 +580,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var flowerTypes = Output.of(LexFunctions.getSlotType(GetSlotTypeArgs.builder()
+     *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
      *             .name(&#34;FlowerTypes&#34;)
      *             .version(&#34;1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -495,10 +600,17 @@ public final class LexFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lex.LexFunctions;
+     * import com.pulumi.aws.lex.inputs.GetSlotTypeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -506,10 +618,10 @@ public final class LexFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var flowerTypes = Output.of(LexFunctions.getSlotType(GetSlotTypeArgs.builder()
+     *         final var flowerTypes = LexFunctions.getSlotType(GetSlotTypeArgs.builder()
      *             .name(&#34;FlowerTypes&#34;)
      *             .version(&#34;1&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

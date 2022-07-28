@@ -117,14 +117,14 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enable Point In Time Recovery for the replica.
+     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
     @Import(name="pointInTimeRecovery")
     private @Nullable Output<TablePointInTimeRecoveryArgs> pointInTimeRecovery;
 
     /**
-     * @return Whether to enable Point In Time Recovery for the replica.
+     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
     public Optional<Output<TablePointInTimeRecoveryArgs>> pointInTimeRecovery() {
@@ -526,7 +526,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica.
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
          * 
          * @return builder
          * 
@@ -537,7 +537,7 @@ public final class TableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica.
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
          * 
          * @return builder
          * 

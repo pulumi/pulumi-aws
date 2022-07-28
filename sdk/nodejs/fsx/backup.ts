@@ -7,21 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Provides a FSx Backup resource.
  *
- * ## Lustre Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleLustreFileSystem = new aws.fsx.LustreFileSystem("exampleLustreFileSystem", {
- *     storageCapacity: 1200,
- *     subnetIds: [aws_subnet.example.id],
- *     deploymentType: "PERSISTENT_1",
- *     perUnitStorageThroughput: 50,
- * });
- * const exampleBackup = new aws.fsx.Backup("exampleBackup", {fileSystemId: exampleLustreFileSystem.id});
- * ```
- *
  * ## Windows Example
  *
  * ```typescript
@@ -51,21 +36,6 @@ import * as utilities from "../utilities";
  *     storageVirtualMachineId: aws_fsx_ontap_storage_virtual_machine.test.id,
  * });
  * const exampleBackup = new aws.fsx.Backup("exampleBackup", {volumeId: exampleOntapVolume.id});
- * ```
- *
- * ## OpenZFS Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleOpenZfsFileSystem = new aws.fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", {
- *     storageCapacity: 64,
- *     subnetIds: [aws_subnet.example.id],
- *     deploymentType: "SINGLE_AZ_1",
- *     throughputCapacity: 64,
- * });
- * const exampleBackup = new aws.fsx.Backup("exampleBackup", {fileSystemId: exampleOpenZfsFileSystem.id});
  * ```
  *
  * ## Import

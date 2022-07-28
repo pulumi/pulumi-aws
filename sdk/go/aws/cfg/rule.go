@@ -34,7 +34,20 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		role, err := iam.NewRole(ctx, "role", &iam.RoleArgs{
-// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "    {\n", "      \"Action\": \"sts:AssumeRole\",\n", "      \"Principal\": {\n", "        \"Service\": \"config.amazonaws.com\"\n", "      },\n", "      \"Effect\": \"Allow\",\n", "      \"Sid\": \"\"\n", "    }\n", "  ]\n", "}\n")),
+// 			AssumeRolePolicy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//     {
+//       "Action": "sts:AssumeRole",
+//       "Principal": {
+//         "Service": "config.amazonaws.com"
+//       },
+//       "Effect": "Allow",
+//       "Sid": ""
+//     }
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -58,7 +71,18 @@ import (
 // 		}
 // 		_, err = iam.NewRolePolicy(ctx, "rolePolicy", &iam.RolePolicyArgs{
 // 			Role: role.ID(),
-// 			Policy: pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": [\n", "  	{\n", "  		\"Action\": \"config:Put*\",\n", "  		\"Effect\": \"Allow\",\n", "  		\"Resource\": \"*\"\n", "\n", "  	}\n", "  ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": [
+//   	{
+//   		"Action": "config:Put*",
+//   		"Effect": "Allow",
+//   		"Resource": "*"
+//
+//   	}
+//   ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -138,7 +162,17 @@ import (
 // 				},
 // 				CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
 // 					PolicyRuntime: pulumi.String("guard-2.x.x"),
-// 					PolicyText: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "	  rule tableisactive when\n", "		  resourceType == \"AWS::DynamoDB::Table\" {\n", "		  configuration.tableStatus == ['ACTIVE']\n", "	  }\n", "	  \n", "	  rule checkcompliance when\n", "		  resourceType == \"AWS::DynamoDB::Table\"\n", "		  tableisactive {\n", "			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == \"ENABLED\"\n", "	  }\n")),
+// 					PolicyText: pulumi.String(fmt.Sprintf(`	  rule tableisactive when
+// 		  resourceType == "AWS::DynamoDB::Table" {
+// 		  configuration.tableStatus == ['ACTIVE']
+// 	  }
+//
+// 	  rule checkcompliance when
+// 		  resourceType == "AWS::DynamoDB::Table"
+// 		  tableisactive {
+// 			  supplementaryConfiguration.ContinuousBackupsDescription.pointInTimeRecoveryDescription.pointInTimeRecoveryStatus == "ENABLED"
+// 	  }
+// `)),
 // 				},
 // 			},
 // 		})

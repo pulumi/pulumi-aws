@@ -40,6 +40,10 @@ public final class GetCostCategoryRuleRule {
      * 
      */
     private final List<GetCostCategoryRuleRuleOr> ors;
+    /**
+     * @return Resource tags.
+     * 
+     */
     private final List<GetCostCategoryRuleRuleTag> tags;
 
     @CustomType.Constructor
@@ -93,6 +97,10 @@ public final class GetCostCategoryRuleRule {
     public List<GetCostCategoryRuleRuleOr> ors() {
         return this.ors;
     }
+    /**
+     * @return Resource tags.
+     * 
+     */
     public List<GetCostCategoryRuleRuleTag> tags() {
         return this.tags;
     }

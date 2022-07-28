@@ -28,7 +28,16 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := organizations.NewPolicy(ctx, "example", &organizations.PolicyArgs{
-// 			Content: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Statement\": {\n", "    \"Effect\": \"Allow\",\n", "    \"Action\": \"*\",\n", "    \"Resource\": \"*\"\n", "  }\n", "}\n", "\n")),
+// 			Content: pulumi.String(fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Statement": {
+//     "Effect": "Allow",
+//     "Action": "*",
+//     "Resource": "*"
+//   }
+// }
+//
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

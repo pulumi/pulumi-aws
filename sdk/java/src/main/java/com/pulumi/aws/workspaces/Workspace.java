@@ -26,10 +26,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.workspaces.WorkspacesFunctions;
+ * import com.pulumi.aws.workspaces.inputs.GetBundleArgs;
+ * import com.pulumi.aws.workspaces.Workspace;
+ * import com.pulumi.aws.workspaces.WorkspaceArgs;
+ * import com.pulumi.aws.workspaces.inputs.WorkspaceWorkspacePropertiesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -37,13 +47,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var valueWindows10 = Output.of(WorkspacesFunctions.getBundle(GetBundleArgs.builder()
+ *         final var valueWindows10 = WorkspacesFunctions.getBundle(GetBundleArgs.builder()
  *             .bundleId(&#34;wsb-bh8rsxt14&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var example = new Workspace(&#34;example&#34;, WorkspaceArgs.builder()        
  *             .directoryId(aws_workspaces_directory.example().id())
- *             .bundleId(valueWindows10.apply(getBundleResult -&gt; getBundleResult.id()))
+ *             .bundleId(valueWindows10.applyValue(getBundleResult -&gt; getBundleResult.id()))
  *             .userName(&#34;john.doe&#34;)
  *             .rootVolumeEncryptionEnabled(true)
  *             .userVolumeEncryptionEnabled(true)

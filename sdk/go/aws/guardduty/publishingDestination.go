@@ -54,7 +54,7 @@ import (
 // 					},
 // 					Resources: pulumi.StringArray{
 // 						gdBucket.Arn.ApplyT(func(arn string) (string, error) {
-// 							return fmt.Sprintf("%v%v", arn, "/*"), nil
+// 							return fmt.Sprintf("%v/*", arn), nil
 // 						}).(pulumi.StringOutput),
 // 					},
 // 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
@@ -93,7 +93,7 @@ import (
 // 						"kms:GenerateDataKey",
 // 					},
 // 					Resources: []string{
-// 						fmt.Sprintf("%v%v%v%v%v", "arn:aws:kms:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":key/*"),
+// 						fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentRegion.Name, currentCallerIdentity.AccountId),
 // 					},
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
@@ -110,13 +110,13 @@ import (
 // 						"kms:*",
 // 					},
 // 					Resources: []string{
-// 						fmt.Sprintf("%v%v%v%v%v", "arn:aws:kms:", currentRegion.Name, ":", currentCallerIdentity.AccountId, ":key/*"),
+// 						fmt.Sprintf("arn:aws:kms:%v:%v:key/*", currentRegion.Name, currentCallerIdentity.AccountId),
 // 					},
 // 					Principals: []iam.GetPolicyDocumentStatementPrincipal{
 // 						iam.GetPolicyDocumentStatementPrincipal{
 // 							Type: "AWS",
 // 							Identifiers: []string{
-// 								fmt.Sprintf("%v%v%v", "arn:aws:iam::", currentCallerIdentity.AccountId, ":root"),
+// 								fmt.Sprintf("arn:aws:iam::%v:root", currentCallerIdentity.AccountId),
 // 							},
 // 						},
 // 					},

@@ -27,10 +27,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -38,12 +45,12 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;arn&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.arn()));
-     *         ctx.export(&#34;description&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.description()));
+     *         ctx.export(&#34;arn&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.arn()));
+     *         ctx.export(&#34;description&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.description()));
      *     }
      * }
      * ```
@@ -59,10 +66,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -70,12 +84,12 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;arn&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.arn()));
-     *         ctx.export(&#34;description&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.description()));
+     *         ctx.export(&#34;arn&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.arn()));
+     *         ctx.export(&#34;description&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.description()));
      *     }
      * }
      * ```
@@ -91,10 +105,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -102,12 +123,12 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;arn&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.arn()));
-     *         ctx.export(&#34;description&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.description()));
+     *         ctx.export(&#34;arn&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.arn()));
+     *         ctx.export(&#34;description&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.description()));
      *     }
      * }
      * ```
@@ -123,10 +144,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetApplicationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,12 +162,12 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
+     *         final var example = ElasticbeanstalkFunctions.getApplication(GetApplicationArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
-     *         ctx.export(&#34;arn&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.arn()));
-     *         ctx.export(&#34;description&#34;, example.apply(getApplicationResult -&gt; getApplicationResult.description()));
+     *         ctx.export(&#34;arn&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.arn()));
+     *         ctx.export(&#34;description&#34;, example.applyValue(getApplicationResult -&gt; getApplicationResult.description()));
      *     }
      * }
      * ```
@@ -155,10 +183,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetHostedZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -166,7 +201,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ElasticbeanstalkFunctions.getHostedZone());
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
      * 
      *     }
      * }
@@ -183,10 +218,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetHostedZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -194,7 +236,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ElasticbeanstalkFunctions.getHostedZone());
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
      * 
      *     }
      * }
@@ -211,10 +253,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetHostedZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -222,7 +271,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ElasticbeanstalkFunctions.getHostedZone());
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
      * 
      *     }
      * }
@@ -239,10 +288,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetHostedZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -250,7 +306,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ElasticbeanstalkFunctions.getHostedZone());
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
      * 
      *     }
      * }
@@ -267,10 +323,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetHostedZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -278,7 +341,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ElasticbeanstalkFunctions.getHostedZone());
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
      * 
      *     }
      * }
@@ -295,10 +358,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetHostedZoneArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -306,7 +376,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = Output.of(ElasticbeanstalkFunctions.getHostedZone());
+     *         final var current = ElasticbeanstalkFunctions.getHostedZone();
      * 
      *     }
      * }
@@ -323,10 +393,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetSolutionStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -334,10 +411,10 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var multiDocker = Output.of(ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
+     *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
      *             .mostRecent(true)
      *             .nameRegex(&#34;^64bit Amazon Linux (.*) Multi-container Docker (.*)$&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -354,10 +431,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetSolutionStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -365,10 +449,10 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var multiDocker = Output.of(ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
+     *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
      *             .mostRecent(true)
      *             .nameRegex(&#34;^64bit Amazon Linux (.*) Multi-container Docker (.*)$&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -385,10 +469,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetSolutionStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -396,10 +487,10 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var multiDocker = Output.of(ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
+     *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
      *             .mostRecent(true)
      *             .nameRegex(&#34;^64bit Amazon Linux (.*) Multi-container Docker (.*)$&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -416,10 +507,17 @@ public final class ElasticbeanstalkFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elasticbeanstalk.ElasticbeanstalkFunctions;
+     * import com.pulumi.aws.elasticbeanstalk.inputs.GetSolutionStackArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -427,10 +525,10 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var multiDocker = Output.of(ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
+     *         final var multiDocker = ElasticbeanstalkFunctions.getSolutionStack(GetSolutionStackArgs.builder()
      *             .mostRecent(true)
      *             .nameRegex(&#34;^64bit Amazon Linux (.*) Multi-container Docker (.*)$&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

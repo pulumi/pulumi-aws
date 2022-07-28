@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const service = new aws.ecs.TaskDefinition("service", {
  *     family: "service",
@@ -129,7 +129,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const test = new aws.secretsmanager.SecretVersion("test", {
  *     secretId: aws_secretsmanager_secret.test.id,

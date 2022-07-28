@@ -29,10 +29,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apprunner.Service;
+ * import com.pulumi.aws.apprunner.ServiceArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositoryCodeConfigurationCodeConfigurationValuesArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceNetworkConfigurationEgressConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -79,10 +94,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apprunner.Service;
+ * import com.pulumi.aws.apprunner.ServiceArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -93,7 +118,7 @@ import javax.annotation.Nullable;
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
  *             .serviceName(&#34;example&#34;)
  *             .sourceConfiguration(ServiceSourceConfigurationArgs.builder()
- *                 .autoDeploymentEnabled(false)
+ *                 .autoDeploymentsEnabled(false)
  *                 .imageRepository(ServiceSourceConfigurationImageRepositoryArgs.builder()
  *                     .imageConfiguration(ServiceSourceConfigurationImageRepositoryImageConfigurationArgs.builder()
  *                         .port(&#34;8000&#34;)
@@ -112,10 +137,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.apprunner.ObservabilityConfiguration;
+ * import com.pulumi.aws.apprunner.ObservabilityConfigurationArgs;
+ * import com.pulumi.aws.apprunner.inputs.ObservabilityConfigurationTraceConfigurationArgs;
+ * import com.pulumi.aws.apprunner.Service;
+ * import com.pulumi.aws.apprunner.ServiceArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceObservabilityConfigurationArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryArgs;
+ * import com.pulumi.aws.apprunner.inputs.ServiceSourceConfigurationImageRepositoryImageConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -144,7 +183,7 @@ import javax.annotation.Nullable;
  *                     .imageIdentifier(&#34;public.ecr.aws/aws-containers/hello-app-runner:latest&#34;)
  *                     .imageRepositoryType(&#34;ECR_PUBLIC&#34;)
  *                     .build())
- *                 .autoDeploymentEnabled(false)
+ *                 .autoDeploymentsEnabled(false)
  *                 .build())
  *             .tags(Map.of(&#34;Name&#34;, &#34;example-apprunner-service&#34;))
  *             .build());

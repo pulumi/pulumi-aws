@@ -18,14 +18,14 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
     public static final OrganizationConfigurationState Empty = new OrganizationConfigurationState();
 
     /**
-     * When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
     @Import(name="autoEnable")
     private @Nullable Output<Boolean> autoEnable;
 
     /**
-     * @return When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+     * @return Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
      * 
      */
     public Optional<Output<Boolean>> autoEnable() {
@@ -89,7 +89,7 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param autoEnable When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+         * @param autoEnable Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class OrganizationConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param autoEnable When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
+         * @param autoEnable Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
          * 
          * @return builder
          * 

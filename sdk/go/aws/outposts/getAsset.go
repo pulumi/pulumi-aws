@@ -38,6 +38,8 @@ type GetAssetResult struct {
 	HostId string `pulumi:"hostId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The position of an asset in a rack measured in rack units.
+	RackElevation int `pulumi:"rackElevation"`
 	// The rack ID of the asset.
 	RackId string `pulumi:"rackId"`
 }
@@ -103,6 +105,11 @@ func (o GetAssetResultOutput) HostId() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetAssetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAssetResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The position of an asset in a rack measured in rack units.
+func (o GetAssetResultOutput) RackElevation() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAssetResult) int { return v.RackElevation }).(pulumi.IntOutput)
 }
 
 // The rack ID of the asset.

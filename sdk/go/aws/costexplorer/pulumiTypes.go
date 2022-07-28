@@ -406,7 +406,8 @@ type CostCategoryRuleRule struct {
 	// Return results that match both `Dimension` object.
 	Not *CostCategoryRuleRuleNot `pulumi:"not"`
 	// Return results that match both `Dimension` object.
-	Ors  []CostCategoryRuleRuleOr  `pulumi:"ors"`
+	Ors []CostCategoryRuleRuleOr `pulumi:"ors"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags *CostCategoryRuleRuleTags `pulumi:"tags"`
 }
 
@@ -431,7 +432,8 @@ type CostCategoryRuleRuleArgs struct {
 	// Return results that match both `Dimension` object.
 	Not CostCategoryRuleRuleNotPtrInput `pulumi:"not"`
 	// Return results that match both `Dimension` object.
-	Ors  CostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
+	Ors CostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags CostCategoryRuleRuleTagsPtrInput `pulumi:"tags"`
 }
 
@@ -537,6 +539,7 @@ func (o CostCategoryRuleRuleOutput) Ors() CostCategoryRuleRuleOrArrayOutput {
 	return o.ApplyT(func(v CostCategoryRuleRule) []CostCategoryRuleRuleOr { return v.Ors }).(CostCategoryRuleRuleOrArrayOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleOutput) Tags() CostCategoryRuleRuleTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRule) *CostCategoryRuleRuleTags { return v.Tags }).(CostCategoryRuleRuleTagsPtrOutput)
 }
@@ -615,6 +618,7 @@ func (o CostCategoryRuleRulePtrOutput) Ors() CostCategoryRuleRuleOrArrayOutput {
 	}).(CostCategoryRuleRuleOrArrayOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRulePtrOutput) Tags() CostCategoryRuleRuleTagsPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRule) *CostCategoryRuleRuleTags {
 		if v == nil {
@@ -629,7 +633,8 @@ type CostCategoryRuleRuleAnd struct {
 	CostCategory *CostCategoryRuleRuleAndCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleAndDimension `pulumi:"dimension"`
-	Tags      *CostCategoryRuleRuleAndTags      `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleAndTags `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleAndInput is an input type that accepts CostCategoryRuleRuleAndArgs and CostCategoryRuleRuleAndOutput values.
@@ -648,7 +653,8 @@ type CostCategoryRuleRuleAndArgs struct {
 	CostCategory CostCategoryRuleRuleAndCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleAndDimensionPtrInput `pulumi:"dimension"`
-	Tags      CostCategoryRuleRuleAndTagsPtrInput      `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleAndTagsPtrInput `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleAndArgs) ElementType() reflect.Type {
@@ -712,6 +718,7 @@ func (o CostCategoryRuleRuleAndOutput) Dimension() CostCategoryRuleRuleAndDimens
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndDimension { return v.Dimension }).(CostCategoryRuleRuleAndDimensionPtrOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleAndOutput) Tags() CostCategoryRuleRuleAndTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleAnd) *CostCategoryRuleRuleAndTags { return v.Tags }).(CostCategoryRuleRuleAndTagsPtrOutput)
 }
@@ -1616,7 +1623,8 @@ type CostCategoryRuleRuleNot struct {
 	CostCategory *CostCategoryRuleRuleNotCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleNotDimension `pulumi:"dimension"`
-	Tags      *CostCategoryRuleRuleNotTags      `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleNotTags `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleNotInput is an input type that accepts CostCategoryRuleRuleNotArgs and CostCategoryRuleRuleNotOutput values.
@@ -1635,7 +1643,8 @@ type CostCategoryRuleRuleNotArgs struct {
 	CostCategory CostCategoryRuleRuleNotCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleNotDimensionPtrInput `pulumi:"dimension"`
-	Tags      CostCategoryRuleRuleNotTagsPtrInput      `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleNotTagsPtrInput `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleNotArgs) ElementType() reflect.Type {
@@ -1725,6 +1734,7 @@ func (o CostCategoryRuleRuleNotOutput) Dimension() CostCategoryRuleRuleNotDimens
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotDimension { return v.Dimension }).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleNotOutput) Tags() CostCategoryRuleRuleNotTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotTags { return v.Tags }).(CostCategoryRuleRuleNotTagsPtrOutput)
 }
@@ -1773,6 +1783,7 @@ func (o CostCategoryRuleRuleNotPtrOutput) Dimension() CostCategoryRuleRuleNotDim
 	}).(CostCategoryRuleRuleNotDimensionPtrOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleNotPtrOutput) Tags() CostCategoryRuleRuleNotTagsPtrOutput {
 	return o.ApplyT(func(v *CostCategoryRuleRuleNot) *CostCategoryRuleRuleNotTags {
 		if v == nil {
@@ -2312,7 +2323,8 @@ type CostCategoryRuleRuleOr struct {
 	CostCategory *CostCategoryRuleRuleOrCostCategory `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension *CostCategoryRuleRuleOrDimension `pulumi:"dimension"`
-	Tags      *CostCategoryRuleRuleOrTags      `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *CostCategoryRuleRuleOrTags `pulumi:"tags"`
 }
 
 // CostCategoryRuleRuleOrInput is an input type that accepts CostCategoryRuleRuleOrArgs and CostCategoryRuleRuleOrOutput values.
@@ -2331,7 +2343,8 @@ type CostCategoryRuleRuleOrArgs struct {
 	CostCategory CostCategoryRuleRuleOrCostCategoryPtrInput `pulumi:"costCategory"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimension CostCategoryRuleRuleOrDimensionPtrInput `pulumi:"dimension"`
-	Tags      CostCategoryRuleRuleOrTagsPtrInput      `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags CostCategoryRuleRuleOrTagsPtrInput `pulumi:"tags"`
 }
 
 func (CostCategoryRuleRuleOrArgs) ElementType() reflect.Type {
@@ -2395,6 +2408,7 @@ func (o CostCategoryRuleRuleOrOutput) Dimension() CostCategoryRuleRuleOrDimensio
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrDimension { return v.Dimension }).(CostCategoryRuleRuleOrDimensionPtrOutput)
 }
 
+// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 func (o CostCategoryRuleRuleOrOutput) Tags() CostCategoryRuleRuleOrTagsPtrOutput {
 	return o.ApplyT(func(v CostCategoryRuleRuleOr) *CostCategoryRuleRuleOrTags { return v.Tags }).(CostCategoryRuleRuleOrTagsPtrOutput)
 }
@@ -3589,7 +3603,8 @@ type GetCostCategoryRuleRule struct {
 	// Return results that match both `Dimension` object.
 	Nots []GetCostCategoryRuleRuleNot `pulumi:"nots"`
 	// Return results that match both `Dimension` object.
-	Ors  []GetCostCategoryRuleRuleOr  `pulumi:"ors"`
+	Ors []GetCostCategoryRuleRuleOr `pulumi:"ors"`
+	// Resource tags.
 	Tags []GetCostCategoryRuleRuleTag `pulumi:"tags"`
 }
 
@@ -3614,7 +3629,8 @@ type GetCostCategoryRuleRuleArgs struct {
 	// Return results that match both `Dimension` object.
 	Nots GetCostCategoryRuleRuleNotArrayInput `pulumi:"nots"`
 	// Return results that match both `Dimension` object.
-	Ors  GetCostCategoryRuleRuleOrArrayInput  `pulumi:"ors"`
+	Ors GetCostCategoryRuleRuleOrArrayInput `pulumi:"ors"`
+	// Resource tags.
 	Tags GetCostCategoryRuleRuleTagArrayInput `pulumi:"tags"`
 }
 
@@ -3694,6 +3710,7 @@ func (o GetCostCategoryRuleRuleOutput) Ors() GetCostCategoryRuleRuleOrArrayOutpu
 	return o.ApplyT(func(v GetCostCategoryRuleRule) []GetCostCategoryRuleRuleOr { return v.Ors }).(GetCostCategoryRuleRuleOrArrayOutput)
 }
 
+// Resource tags.
 func (o GetCostCategoryRuleRuleOutput) Tags() GetCostCategoryRuleRuleTagArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRule) []GetCostCategoryRuleRuleTag { return v.Tags }).(GetCostCategoryRuleRuleTagArrayOutput)
 }
@@ -3723,7 +3740,8 @@ type GetCostCategoryRuleRuleAnd struct {
 	CostCategories []GetCostCategoryRuleRuleAndCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleAndDimension `pulumi:"dimensions"`
-	Tags       []GetCostCategoryRuleRuleAndTag       `pulumi:"tags"`
+	// Resource tags.
+	Tags []GetCostCategoryRuleRuleAndTag `pulumi:"tags"`
 }
 
 // GetCostCategoryRuleRuleAndInput is an input type that accepts GetCostCategoryRuleRuleAndArgs and GetCostCategoryRuleRuleAndOutput values.
@@ -3742,7 +3760,8 @@ type GetCostCategoryRuleRuleAndArgs struct {
 	CostCategories GetCostCategoryRuleRuleAndCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleAndDimensionArrayInput `pulumi:"dimensions"`
-	Tags       GetCostCategoryRuleRuleAndTagArrayInput       `pulumi:"tags"`
+	// Resource tags.
+	Tags GetCostCategoryRuleRuleAndTagArrayInput `pulumi:"tags"`
 }
 
 func (GetCostCategoryRuleRuleAndArgs) ElementType() reflect.Type {
@@ -3806,6 +3825,7 @@ func (o GetCostCategoryRuleRuleAndOutput) Dimensions() GetCostCategoryRuleRuleAn
 	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndDimension { return v.Dimensions }).(GetCostCategoryRuleRuleAndDimensionArrayOutput)
 }
 
+// Resource tags.
 func (o GetCostCategoryRuleRuleAndOutput) Tags() GetCostCategoryRuleRuleAndTagArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleAnd) []GetCostCategoryRuleRuleAndTag { return v.Tags }).(GetCostCategoryRuleRuleAndTagArrayOutput)
 }
@@ -4410,7 +4430,8 @@ type GetCostCategoryRuleRuleNot struct {
 	CostCategories []GetCostCategoryRuleRuleNotCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleNotDimension `pulumi:"dimensions"`
-	Tags       []GetCostCategoryRuleRuleNotTag       `pulumi:"tags"`
+	// Resource tags.
+	Tags []GetCostCategoryRuleRuleNotTag `pulumi:"tags"`
 }
 
 // GetCostCategoryRuleRuleNotInput is an input type that accepts GetCostCategoryRuleRuleNotArgs and GetCostCategoryRuleRuleNotOutput values.
@@ -4429,7 +4450,8 @@ type GetCostCategoryRuleRuleNotArgs struct {
 	CostCategories GetCostCategoryRuleRuleNotCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleNotDimensionArrayInput `pulumi:"dimensions"`
-	Tags       GetCostCategoryRuleRuleNotTagArrayInput       `pulumi:"tags"`
+	// Resource tags.
+	Tags GetCostCategoryRuleRuleNotTagArrayInput `pulumi:"tags"`
 }
 
 func (GetCostCategoryRuleRuleNotArgs) ElementType() reflect.Type {
@@ -4493,6 +4515,7 @@ func (o GetCostCategoryRuleRuleNotOutput) Dimensions() GetCostCategoryRuleRuleNo
 	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotDimension { return v.Dimensions }).(GetCostCategoryRuleRuleNotDimensionArrayOutput)
 }
 
+// Resource tags.
 func (o GetCostCategoryRuleRuleNotOutput) Tags() GetCostCategoryRuleRuleNotTagArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleNot) []GetCostCategoryRuleRuleNotTag { return v.Tags }).(GetCostCategoryRuleRuleNotTagArrayOutput)
 }
@@ -4867,7 +4890,8 @@ type GetCostCategoryRuleRuleOr struct {
 	CostCategories []GetCostCategoryRuleRuleOrCostCategory `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions []GetCostCategoryRuleRuleOrDimension `pulumi:"dimensions"`
-	Tags       []GetCostCategoryRuleRuleOrTag       `pulumi:"tags"`
+	// Resource tags.
+	Tags []GetCostCategoryRuleRuleOrTag `pulumi:"tags"`
 }
 
 // GetCostCategoryRuleRuleOrInput is an input type that accepts GetCostCategoryRuleRuleOrArgs and GetCostCategoryRuleRuleOrOutput values.
@@ -4886,7 +4910,8 @@ type GetCostCategoryRuleRuleOrArgs struct {
 	CostCategories GetCostCategoryRuleRuleOrCostCategoryArrayInput `pulumi:"costCategories"`
 	// Configuration block for the specific `Dimension` to use for `Expression`. See below.
 	Dimensions GetCostCategoryRuleRuleOrDimensionArrayInput `pulumi:"dimensions"`
-	Tags       GetCostCategoryRuleRuleOrTagArrayInput       `pulumi:"tags"`
+	// Resource tags.
+	Tags GetCostCategoryRuleRuleOrTagArrayInput `pulumi:"tags"`
 }
 
 func (GetCostCategoryRuleRuleOrArgs) ElementType() reflect.Type {
@@ -4950,6 +4975,7 @@ func (o GetCostCategoryRuleRuleOrOutput) Dimensions() GetCostCategoryRuleRuleOrD
 	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrDimension { return v.Dimensions }).(GetCostCategoryRuleRuleOrDimensionArrayOutput)
 }
 
+// Resource tags.
 func (o GetCostCategoryRuleRuleOrOutput) Tags() GetCostCategoryRuleRuleOrTagArrayOutput {
 	return o.ApplyT(func(v GetCostCategoryRuleRuleOr) []GetCostCategoryRuleRuleOrTag { return v.Tags }).(GetCostCategoryRuleRuleOrTagArrayOutput)
 }

@@ -20,38 +20,6 @@ import javax.annotation.Nullable;
  * Deploys an Application CloudFormation Stack from the Serverless Application Repository.
  * 
  * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentPartition = Output.of(AwsFunctions.getPartition());
- * 
- *         final var currentRegion = Output.of(AwsFunctions.getRegion());
- * 
- *         var postgres_rotator = new CloudFormationStack(&#34;postgres-rotator&#34;, CloudFormationStackArgs.builder()        
- *             .applicationId(&#34;arn:aws:serverlessrepo:us-east-1:297356227824:applications/SecretsManagerRDSPostgreSQLRotationSingleUser&#34;)
- *             .capabilities(            
- *                 &#34;CAPABILITY_IAM&#34;,
- *                 &#34;CAPABILITY_RESOURCE_POLICY&#34;)
- *             .parameters(Map.ofEntries(
- *                 Map.entry(&#34;endpoint&#34;, String.format(&#34;secretsmanager.%s.%s&#34;, currentRegion.apply(getRegionResult -&gt; getRegionResult.name()),currentPartition.apply(getPartitionResult -&gt; getPartitionResult.dnsSuffix()))),
- *                 Map.entry(&#34;functionName&#34;, &#34;func-postgres-rotator&#34;)
- *             ))
- *             .build());
- * 
- *     }
- * }
- * ```
  * 
  * ## Import
  * 

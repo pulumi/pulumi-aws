@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const test = new aws.cloudfront.Function("test", {
  *     runtime: "cloudfront-js-1.0",

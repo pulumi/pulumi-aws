@@ -28,12 +28,12 @@ namespace Pulumi.Aws.CodeArtifact
     ///         });
     ///         var exampleDomain = new Aws.CodeArtifact.Domain("exampleDomain", new Aws.CodeArtifact.DomainArgs
     ///         {
-    ///             Domain = "example",
+    ///             DomainName = "example",
     ///             EncryptionKey = exampleKey.Arn,
     ///         });
     ///         var exampleRepository = new Aws.CodeArtifact.Repository("exampleRepository", new Aws.CodeArtifact.RepositoryArgs
     ///         {
-    ///             Repository = "example",
+    ///             RepositoryName = "example",
     ///             Domain = exampleDomain.DomainName,
     ///         });
     ///         var exampleRepositoryPermissionsPolicy = new Aws.CodeArtifact.RepositoryPermissionsPolicy("exampleRepositoryPermissionsPolicy", new Aws.CodeArtifact.RepositoryPermissionsPolicyArgs

@@ -6,9 +6,13 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./medicalVocabulary";
+export * from "./vocabulary";
+export * from "./vocabularyFilter";
 
 // Import resources to register:
 import { MedicalVocabulary } from "./medicalVocabulary";
+import { Vocabulary } from "./vocabulary";
+import { VocabularyFilter } from "./vocabularyFilter";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +20,15 @@ const _module = {
         switch (type) {
             case "aws:transcribe/medicalVocabulary:MedicalVocabulary":
                 return new MedicalVocabulary(name, <any>undefined, { urn })
+            case "aws:transcribe/vocabulary:Vocabulary":
+                return new Vocabulary(name, <any>undefined, { urn })
+            case "aws:transcribe/vocabularyFilter:VocabularyFilter":
+                return new VocabularyFilter(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "transcribe/medicalVocabulary", _module)
+pulumi.runtime.registerResourceModule("aws", "transcribe/vocabulary", _module)
+pulumi.runtime.registerResourceModule("aws", "transcribe/vocabularyFilter", _module)

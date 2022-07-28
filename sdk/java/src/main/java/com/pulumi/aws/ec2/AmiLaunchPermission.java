@@ -22,10 +22,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.AmiLaunchPermission;
+ * import com.pulumi.aws.ec2.AmiLaunchPermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -45,10 +52,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.AmiLaunchPermission;
+ * import com.pulumi.aws.ec2.AmiLaunchPermissionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -59,31 +73,6 @@ import javax.annotation.Nullable;
  *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
  *             .group(&#34;all&#34;)
  *             .imageId(&#34;ami-12345678&#34;)
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Organization Access
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var current = Output.of(OrganizationsFunctions.getOrganization());
- * 
- *         var example = new AmiLaunchPermission(&#34;example&#34;, AmiLaunchPermissionArgs.builder()        
- *             .imageId(&#34;ami-12345678&#34;)
- *             .organizationArn(current.apply(getOrganizationResult -&gt; getOrganizationResult.arn()))
  *             .build());
  * 
  *     }

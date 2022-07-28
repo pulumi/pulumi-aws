@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Location.Outputs
     public sealed class MapConfiguration
     {
         /// <summary>
-        /// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+        /// Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
         /// </summary>
         public readonly string Style;
 

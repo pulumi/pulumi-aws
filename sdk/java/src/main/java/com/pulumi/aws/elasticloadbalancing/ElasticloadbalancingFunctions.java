@@ -28,10 +28,20 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -39,7 +49,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getHostedZoneId());
+     *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
      *             .zoneId(aws_route53_zone.primary().zone_id())
@@ -47,7 +57,7 @@ public final class ElasticloadbalancingFunctions {
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.apply(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -72,10 +82,20 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -83,7 +103,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getHostedZoneId());
+     *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
      *             .zoneId(aws_route53_zone.primary().zone_id())
@@ -91,7 +111,7 @@ public final class ElasticloadbalancingFunctions {
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.apply(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -116,10 +136,20 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -127,7 +157,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getHostedZoneId());
+     *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
      *             .zoneId(aws_route53_zone.primary().zone_id())
@@ -135,7 +165,7 @@ public final class ElasticloadbalancingFunctions {
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.apply(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -160,10 +190,20 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -171,7 +211,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getHostedZoneId());
+     *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
      *             .zoneId(aws_route53_zone.primary().zone_id())
@@ -179,7 +219,7 @@ public final class ElasticloadbalancingFunctions {
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.apply(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -204,10 +244,20 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -215,7 +265,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getHostedZoneId());
+     *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
      *             .zoneId(aws_route53_zone.primary().zone_id())
@@ -223,7 +273,7 @@ public final class ElasticloadbalancingFunctions {
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.apply(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -248,10 +298,20 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.elasticloadbalancing.inputs.GetHostedZoneIdArgs;
+     * import com.pulumi.aws.route53.Record;
+     * import com.pulumi.aws.route53.RecordArgs;
+     * import com.pulumi.aws.route53.inputs.RecordAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -259,7 +319,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getHostedZoneId());
+     *         final var main = ElbFunctions.getHostedZoneId();
      * 
      *         var www = new Record(&#34;www&#34;, RecordArgs.builder()        
      *             .zoneId(aws_route53_zone.primary().zone_id())
@@ -267,7 +327,7 @@ public final class ElasticloadbalancingFunctions {
      *             .type(&#34;A&#34;)
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(aws_elb.main().dns_name())
-     *                 .zoneId(main.apply(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
+     *                 .zoneId(main.applyValue(getHostedZoneIdResult -&gt; getHostedZoneIdResult.id()))
      *                 .evaluateTargetHealth(true)
      *                 .build())
      *             .build());
@@ -297,10 +357,17 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -310,9 +377,9 @@ public final class ElasticloadbalancingFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -339,10 +406,17 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -352,9 +426,9 @@ public final class ElasticloadbalancingFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -381,10 +455,17 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -394,9 +475,9 @@ public final class ElasticloadbalancingFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -423,10 +504,17 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.alb.inputs.GetLoadBalancerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -436,9 +524,9 @@ public final class ElasticloadbalancingFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var lbName = config.get(&#34;lbName&#34;).orElse(&#34;&#34;);
-     *         final var test = Output.of(ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
+     *         final var test = ElbFunctions.getLoadBalancer(GetLoadBalancerArgs.builder()
      *             .name(lbName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -460,10 +548,26 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -471,7 +575,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getServiceAccount());
+     *         final var main = ElbFunctions.getServiceAccount();
      * 
      *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
      * 
@@ -501,7 +605,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
@@ -538,10 +642,26 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -549,7 +669,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getServiceAccount());
+     *         final var main = ElbFunctions.getServiceAccount();
      * 
      *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
      * 
@@ -579,7 +699,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
@@ -616,10 +736,26 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -627,7 +763,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getServiceAccount());
+     *         final var main = ElbFunctions.getServiceAccount();
      * 
      *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
      * 
@@ -657,7 +793,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
@@ -694,10 +830,26 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -705,7 +857,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getServiceAccount());
+     *         final var main = ElbFunctions.getServiceAccount();
      * 
      *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
      * 
@@ -735,7 +887,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
@@ -772,10 +924,26 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -783,7 +951,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getServiceAccount());
+     *         final var main = ElbFunctions.getServiceAccount();
      * 
      *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
      * 
@@ -813,7 +981,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        
@@ -850,10 +1018,26 @@ public final class ElasticloadbalancingFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.elb.ElbFunctions;
+     * import com.pulumi.aws.cloudtrail.inputs.GetServiceAccountArgs;
+     * import com.pulumi.aws.s3.BucketV2;
+     * import com.pulumi.aws.s3.BucketAclV2;
+     * import com.pulumi.aws.s3.BucketAclV2Args;
+     * import com.pulumi.aws.s3.BucketPolicy;
+     * import com.pulumi.aws.s3.BucketPolicyArgs;
+     * import com.pulumi.aws.elb.LoadBalancer;
+     * import com.pulumi.aws.elb.LoadBalancerArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
+     * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -861,7 +1045,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var main = Output.of(ElbFunctions.getServiceAccount());
+     *         final var main = ElbFunctions.getServiceAccount();
      * 
      *         var elbLogs = new BucketV2(&#34;elbLogs&#34;);
      * 
@@ -891,7 +1075,7 @@ public final class ElasticloadbalancingFunctions {
      *     }
      *   ]
      * }
-     * &#34;, main.apply(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
+     * &#34;, main.applyValue(getServiceAccountResult -&gt; getServiceAccountResult.arn())))
      *             .build());
      * 
      *         var bar = new LoadBalancer(&#34;bar&#34;, LoadBalancerArgs.builder()        

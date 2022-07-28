@@ -332,41 +332,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// }
     /// ```
-    /// ### Using object lock configuration
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.S3.BucketV2("example", new Aws.S3.BucketV2Args
-    ///         {
-    ///             ObjectLockConfiguration = new Aws.S3.Inputs.BucketV2ObjectLockConfigurationArgs
-    ///             {
-    ///                 ObjectLockEnabled = "Enabled",
-    ///                 Rule = 
-    ///                 {
-    ///                     
-    ///                     {
-    ///                         { "defaultRetention", 
-    ///                         {
-    ///                             
-    ///                             {
-    ///                                 { "days", 5 },
-    ///                                 { "mode", "COMPLIANCE" },
-    ///                             },
-    ///                         } },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// ### Using replication configuration
     /// 
     /// ```csharp
@@ -470,7 +435,7 @@ namespace Pulumi.Aws.S3
     ///         });
     ///         var replicationPolicy = new Aws.Iam.Policy("replicationPolicy", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = Output.Tuple(source.Arn, source.Arn, destination.Arn).Apply(values =&gt;
+    ///             PolicyDocument = Output.Tuple(source.Arn, source.Arn, destination.Arn).Apply(values =&gt;
     ///             {
     ///                 var sourceArn = values.Item1;
     ///                 var sourceArn1 = values.Item2;

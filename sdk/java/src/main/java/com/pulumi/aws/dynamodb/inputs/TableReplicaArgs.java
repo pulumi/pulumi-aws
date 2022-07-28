@@ -32,18 +32,33 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to enable Point In Time Recovery for the replica.
+     * Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
     @Import(name="pointInTimeRecovery")
     private @Nullable Output<Boolean> pointInTimeRecovery;
 
     /**
-     * @return Whether to enable Point In Time Recovery for the replica.
+     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> pointInTimeRecovery() {
         return Optional.ofNullable(this.pointInTimeRecovery);
+    }
+
+    /**
+     * Whether to propagate the main table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+     * 
+     */
+    @Import(name="propagateTags")
+    private @Nullable Output<Boolean> propagateTags;
+
+    /**
+     * @return Whether to propagate the main table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+     * 
+     */
+    public Optional<Output<Boolean>> propagateTags() {
+        return Optional.ofNullable(this.propagateTags);
     }
 
     /**
@@ -66,6 +81,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
     private TableReplicaArgs(TableReplicaArgs $) {
         this.kmsKeyArn = $.kmsKeyArn;
         this.pointInTimeRecovery = $.pointInTimeRecovery;
+        this.propagateTags = $.propagateTags;
         this.regionName = $.regionName;
     }
 
@@ -109,7 +125,7 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica.
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
          * 
          * @return builder
          * 
@@ -120,13 +136,34 @@ public final class TableReplicaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica.
+         * @param pointInTimeRecovery Whether to enable Point In Time Recovery for the replica. Default is `false`.
          * 
          * @return builder
          * 
          */
         public Builder pointInTimeRecovery(Boolean pointInTimeRecovery) {
             return pointInTimeRecovery(Output.of(pointInTimeRecovery));
+        }
+
+        /**
+         * @param propagateTags Whether to propagate the main table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propagateTags(@Nullable Output<Boolean> propagateTags) {
+            $.propagateTags = propagateTags;
+            return this;
+        }
+
+        /**
+         * @param propagateTags Whether to propagate the main table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder propagateTags(Boolean propagateTags) {
+            return propagateTags(Output.of(propagateTags));
         }
 
         /**

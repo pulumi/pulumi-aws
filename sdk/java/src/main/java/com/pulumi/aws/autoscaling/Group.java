@@ -30,10 +30,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.LaunchTemplate;
+ * import com.pulumi.aws.ec2.LaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -65,10 +75,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.LaunchTemplate;
+ * import com.pulumi.aws.ec2.LaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -112,10 +134,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.LaunchTemplate;
+ * import com.pulumi.aws.ec2.LaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyInstancesDistributionArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -169,10 +204,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.LaunchTemplate;
+ * import com.pulumi.aws.ec2.LaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -226,10 +273,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.LaunchTemplate;
+ * import com.pulumi.aws.ec2.LaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -274,10 +333,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Ec2Functions;
+ * import com.pulumi.aws.ec2.inputs.GetAmiArgs;
+ * import com.pulumi.aws.ec2.LaunchTemplate;
+ * import com.pulumi.aws.ec2.LaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupLaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupTagArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupInstanceRefreshPreferencesArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -285,17 +359,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleAmi = Output.of(Ec2Functions.getAmi(GetAmiArgs.builder()
+ *         final var exampleAmi = Ec2Functions.getAmi(GetAmiArgs.builder()
  *             .mostRecent(true)
  *             .owners(&#34;amazon&#34;)
  *             .filters(GetAmiFilterArgs.builder()
  *                 .name(&#34;name&#34;)
  *                 .values(&#34;amzn-ami-hvm-*-x86_64-gp2&#34;)
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var exampleLaunchTemplate = new LaunchTemplate(&#34;exampleLaunchTemplate&#34;, LaunchTemplateArgs.builder()        
- *             .imageId(exampleAmi.apply(getAmiResult -&gt; getAmiResult.id()))
+ *             .imageId(exampleAmi.applyValue(getAmiResult -&gt; getAmiResult.id()))
  *             .instanceType(&#34;t3.nano&#34;)
  *             .build());
  * 
@@ -329,10 +403,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.LaunchTemplate;
+ * import com.pulumi.aws.ec2.LaunchTemplateArgs;
+ * import com.pulumi.aws.autoscaling.Group;
+ * import com.pulumi.aws.autoscaling.GroupArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupWarmPoolArgs;
+ * import com.pulumi.aws.autoscaling.inputs.GroupWarmPoolInstanceReusePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -868,7 +953,7 @@ public class Group extends com.pulumi.resources.CustomResource {
         return this.serviceLinkedRoleArn;
     }
     /**
-     * A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+     * A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
      * 
      */
@@ -876,7 +961,7 @@ public class Group extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<String>> suspendedProcesses;
 
     /**
-     * @return A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`.
+     * @return A list of processes to suspend for the Auto Scaling Group. The allowed values are `Launch`, `Terminate`, `HealthCheck`, `ReplaceUnhealthy`, `AZRebalance`, `AlarmNotification`, `ScheduledActions`, `AddToLoadBalancer`, `InstanceRefresh`.
      * Note that if you suspend either the `Launch` or `Terminate` process types, it can prevent your Auto Scaling Group from functioning properly.
      * 
      */

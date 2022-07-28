@@ -24,10 +24,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.waf.Rule;
+ * import com.pulumi.aws.waf.RuleArgs;
+ * import com.pulumi.aws.waf.RuleGroup;
+ * import com.pulumi.aws.waf.RuleGroupArgs;
+ * import com.pulumi.aws.waf.inputs.RuleGroupActivatedRuleArgs;
+ * import com.pulumi.aws.waf.inputs.RuleGroupActivatedRuleActionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

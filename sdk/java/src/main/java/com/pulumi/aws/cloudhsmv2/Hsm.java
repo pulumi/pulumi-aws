@@ -22,10 +22,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudhsmv2.Cloudhsmv2Functions;
+ * import com.pulumi.aws.cloudhsmv2.inputs.GetClusterArgs;
+ * import com.pulumi.aws.cloudhsmv2.Hsm;
+ * import com.pulumi.aws.cloudhsmv2.HsmArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -33,13 +42,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var cluster = Output.of(Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
+ *         final var cluster = Cloudhsmv2Functions.getCluster(GetClusterArgs.builder()
  *             .clusterId(var_.cloudhsm_cluster_id())
- *             .build()));
+ *             .build());
  * 
  *         var cloudhsmV2Hsm = new Hsm(&#34;cloudhsmV2Hsm&#34;, HsmArgs.builder()        
- *             .subnetId(cluster.apply(getClusterResult -&gt; getClusterResult.subnetIds()[0]))
- *             .clusterId(cluster.apply(getClusterResult -&gt; getClusterResult.clusterId()))
+ *             .subnetId(cluster.applyValue(getClusterResult -&gt; getClusterResult.subnetIds()[0]))
+ *             .clusterId(cluster.applyValue(getClusterResult -&gt; getClusterResult.clusterId()))
  *             .build());
  * 
  *     }

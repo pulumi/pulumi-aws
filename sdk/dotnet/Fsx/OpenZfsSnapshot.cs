@@ -14,66 +14,6 @@ namespace Pulumi.Aws.Fsx
     /// See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
     /// 
     /// ## Example Usage
-    /// ### Root volume Example
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new Aws.Fsx.OpenZfsFileSystemArgs
-    ///         {
-    ///             StorageCapacity = 64,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             DeploymentType = "SINGLE_AZ_1",
-    ///             ThroughputCapacity = 64,
-    ///         });
-    ///         var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new Aws.Fsx.OpenZfsSnapshotArgs
-    ///         {
-    ///             VolumeId = exampleOpenZfsFileSystem.RootVolumeId,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Child volume Example
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleOpenZfsFileSystem = new Aws.Fsx.OpenZfsFileSystem("exampleOpenZfsFileSystem", new Aws.Fsx.OpenZfsFileSystemArgs
-    ///         {
-    ///             StorageCapacity = 64,
-    ///             SubnetIds = 
-    ///             {
-    ///                 aws_subnet.Example.Id,
-    ///             },
-    ///             DeploymentType = "SINGLE_AZ_1",
-    ///             ThroughputCapacity = 64,
-    ///         });
-    ///         var exampleOpenZfsVolume = new Aws.Fsx.OpenZfsVolume("exampleOpenZfsVolume", new Aws.Fsx.OpenZfsVolumeArgs
-    ///         {
-    ///             ParentVolumeId = exampleOpenZfsFileSystem.RootVolumeId,
-    ///         });
-    ///         var exampleOpenZfsSnapshot = new Aws.Fsx.OpenZfsSnapshot("exampleOpenZfsSnapshot", new Aws.Fsx.OpenZfsSnapshotArgs
-    ///         {
-    ///             VolumeId = exampleOpenZfsVolume.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// 
     /// ## Import
     /// 

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const foo = new aws.ec2.LaunchTemplate("foo", {
  *     blockDeviceMappings: [{

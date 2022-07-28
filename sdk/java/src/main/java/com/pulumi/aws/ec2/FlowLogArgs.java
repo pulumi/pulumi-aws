@@ -186,15 +186,45 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
      * The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      * 
      */
-    @Import(name="trafficType", required=true)
-    private Output<String> trafficType;
+    @Import(name="trafficType")
+    private @Nullable Output<String> trafficType;
 
     /**
      * @return The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
      * 
      */
-    public Output<String> trafficType() {
-        return this.trafficType;
+    public Optional<Output<String>> trafficType() {
+        return Optional.ofNullable(this.trafficType);
+    }
+
+    /**
+     * Transit Gateway Attachment ID to attach to
+     * 
+     */
+    @Import(name="transitGatewayAttachmentId")
+    private @Nullable Output<String> transitGatewayAttachmentId;
+
+    /**
+     * @return Transit Gateway Attachment ID to attach to
+     * 
+     */
+    public Optional<Output<String>> transitGatewayAttachmentId() {
+        return Optional.ofNullable(this.transitGatewayAttachmentId);
+    }
+
+    /**
+     * Transit Gateway ID to attach to
+     * 
+     */
+    @Import(name="transitGatewayId")
+    private @Nullable Output<String> transitGatewayId;
+
+    /**
+     * @return Transit Gateway ID to attach to
+     * 
+     */
+    public Optional<Output<String>> transitGatewayId() {
+        return Optional.ofNullable(this.transitGatewayId);
     }
 
     /**
@@ -226,6 +256,8 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         this.subnetId = $.subnetId;
         this.tags = $.tags;
         this.trafficType = $.trafficType;
+        this.transitGatewayAttachmentId = $.transitGatewayAttachmentId;
+        this.transitGatewayId = $.transitGatewayId;
         this.vpcId = $.vpcId;
     }
 
@@ -477,7 +509,7 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder trafficType(Output<String> trafficType) {
+        public Builder trafficType(@Nullable Output<String> trafficType) {
             $.trafficType = trafficType;
             return this;
         }
@@ -490,6 +522,48 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder trafficType(String trafficType) {
             return trafficType(Output.of(trafficType));
+        }
+
+        /**
+         * @param transitGatewayAttachmentId Transit Gateway Attachment ID to attach to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayAttachmentId(@Nullable Output<String> transitGatewayAttachmentId) {
+            $.transitGatewayAttachmentId = transitGatewayAttachmentId;
+            return this;
+        }
+
+        /**
+         * @param transitGatewayAttachmentId Transit Gateway Attachment ID to attach to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayAttachmentId(String transitGatewayAttachmentId) {
+            return transitGatewayAttachmentId(Output.of(transitGatewayAttachmentId));
+        }
+
+        /**
+         * @param transitGatewayId Transit Gateway ID to attach to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayId(@Nullable Output<String> transitGatewayId) {
+            $.transitGatewayId = transitGatewayId;
+            return this;
+        }
+
+        /**
+         * @param transitGatewayId Transit Gateway ID to attach to
+         * 
+         * @return builder
+         * 
+         */
+        public Builder transitGatewayId(String transitGatewayId) {
+            return transitGatewayId(Output.of(transitGatewayId));
         }
 
         /**
@@ -514,7 +588,6 @@ public final class FlowLogArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public FlowLogArgs build() {
-            $.trafficType = Objects.requireNonNull($.trafficType, "expected parameter 'trafficType' to be non-null");
             return $;
         }
     }

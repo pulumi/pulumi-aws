@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.guardduty.outputs;
 
+import com.pulumi.aws.guardduty.outputs.OrganizationConfigurationDatasourcesKubernetes;
 import com.pulumi.aws.guardduty.outputs.OrganizationConfigurationDatasourcesS3Logs;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -12,18 +13,33 @@ import javax.annotation.Nullable;
 @CustomType
 public final class OrganizationConfigurationDatasources {
     /**
-     * @return Configuration for the builds to store logs to S3.
+     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+     * 
+     */
+    private final @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes;
+    /**
+     * @return Enable S3 Protection automatically for new member accounts.
      * 
      */
     private final @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs;
 
     @CustomType.Constructor
-    private OrganizationConfigurationDatasources(@CustomType.Parameter("s3Logs") @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs) {
+    private OrganizationConfigurationDatasources(
+        @CustomType.Parameter("kubernetes") @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes,
+        @CustomType.Parameter("s3Logs") @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs) {
+        this.kubernetes = kubernetes;
         this.s3Logs = s3Logs;
     }
 
     /**
-     * @return Configuration for the builds to store logs to S3.
+     * @return Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+     * 
+     */
+    public Optional<OrganizationConfigurationDatasourcesKubernetes> kubernetes() {
+        return Optional.ofNullable(this.kubernetes);
+    }
+    /**
+     * @return Enable S3 Protection automatically for new member accounts.
      * 
      */
     public Optional<OrganizationConfigurationDatasourcesS3Logs> s3Logs() {
@@ -39,6 +55,7 @@ public final class OrganizationConfigurationDatasources {
     }
 
     public static final class Builder {
+        private @Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes;
         private @Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs;
 
         public Builder() {
@@ -47,14 +64,19 @@ public final class OrganizationConfigurationDatasources {
 
         public Builder(OrganizationConfigurationDatasources defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.kubernetes = defaults.kubernetes;
     	      this.s3Logs = defaults.s3Logs;
         }
 
+        public Builder kubernetes(@Nullable OrganizationConfigurationDatasourcesKubernetes kubernetes) {
+            this.kubernetes = kubernetes;
+            return this;
+        }
         public Builder s3Logs(@Nullable OrganizationConfigurationDatasourcesS3Logs s3Logs) {
             this.s3Logs = s3Logs;
             return this;
         }        public OrganizationConfigurationDatasources build() {
-            return new OrganizationConfigurationDatasources(s3Logs);
+            return new OrganizationConfigurationDatasources(kubernetes, s3Logs);
         }
     }
 }

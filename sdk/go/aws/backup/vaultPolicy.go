@@ -34,7 +34,31 @@ import (
 // 		_, err = backup.NewVaultPolicy(ctx, "exampleVaultPolicy", &backup.VaultPolicyArgs{
 // 			BackupVaultName: exampleVault.Name,
 // 			Policy: exampleVault.Arn.ApplyT(func(arn string) (string, error) {
-// 				return fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Id\": \"default\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"default\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"*\"\n", "      },\n", "      \"Action\": [\n", "		\"backup:DescribeBackupVault\",\n", "		\"backup:DeleteBackupVault\",\n", "		\"backup:PutBackupVaultAccessPolicy\",\n", "		\"backup:DeleteBackupVaultAccessPolicy\",\n", "		\"backup:GetBackupVaultAccessPolicy\",\n", "		\"backup:StartBackupJob\",\n", "		\"backup:GetBackupVaultNotifications\",\n", "		\"backup:PutBackupVaultNotifications\"\n", "      ],\n", "      \"Resource\": \"", arn, "\"\n", "    }\n", "  ]\n", "}\n"), nil
+// 				return fmt.Sprintf(`{
+//   "Version": "2012-10-17",
+//   "Id": "default",
+//   "Statement": [
+//     {
+//       "Sid": "default",
+//       "Effect": "Allow",
+//       "Principal": {
+//         "AWS": "*"
+//       },
+//       "Action": [
+// 		"backup:DescribeBackupVault",
+// 		"backup:DeleteBackupVault",
+// 		"backup:PutBackupVaultAccessPolicy",
+// 		"backup:DeleteBackupVaultAccessPolicy",
+// 		"backup:GetBackupVaultAccessPolicy",
+// 		"backup:StartBackupJob",
+// 		"backup:GetBackupVaultNotifications",
+// 		"backup:PutBackupVaultNotifications"
+//       ],
+//       "Resource": "%v"
+//     }
+//   ]
+// }
+// `, arn), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

@@ -5,7 +5,10 @@ package com.pulumi.aws.costexplorer.inputs;
 
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetCostCategoryPlainArgs extends com.pulumi.resources.InvokeArgs {
@@ -27,10 +30,26 @@ public final class GetCostCategoryPlainArgs extends com.pulumi.resources.InvokeA
         return this.costCategoryArn;
     }
 
+    /**
+     * Resource tags.
+     * 
+     */
+    @Import(name="tags")
+    private @Nullable Map<String,String> tags;
+
+    /**
+     * @return Resource tags.
+     * 
+     */
+    public Optional<Map<String,String>> tags() {
+        return Optional.ofNullable(this.tags);
+    }
+
     private GetCostCategoryPlainArgs() {}
 
     private GetCostCategoryPlainArgs(GetCostCategoryPlainArgs $) {
         this.costCategoryArn = $.costCategoryArn;
+        this.tags = $.tags;
     }
 
     public static Builder builder() {
@@ -59,6 +78,17 @@ public final class GetCostCategoryPlainArgs extends com.pulumi.resources.InvokeA
          */
         public Builder costCategoryArn(String costCategoryArn) {
             $.costCategoryArn = costCategoryArn;
+            return this;
+        }
+
+        /**
+         * @param tags Resource tags.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tags(@Nullable Map<String,String> tags) {
+            $.tags = tags;
             return this;
         }
 

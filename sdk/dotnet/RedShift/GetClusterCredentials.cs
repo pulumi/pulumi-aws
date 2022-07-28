@@ -13,58 +13,12 @@ namespace Pulumi.Aws.RedShift
     {
         /// <summary>
         /// Provides redshift subnet group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.RedShift.GetClusterCredentials.InvokeAsync(new Aws.RedShift.GetClusterCredentialsArgs
-        ///         {
-        ///             Name = aws_redshift_cluster_credentials.Example.Name,
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClusterCredentialsResult> InvokeAsync(GetClusterCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterCredentialsResult>("aws:redshift/getClusterCredentials:getClusterCredentials", args ?? new GetClusterCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Provides redshift subnet group.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using Aws = Pulumi.Aws;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(Aws.RedShift.GetClusterCredentials.InvokeAsync(new Aws.RedShift.GetClusterCredentialsArgs
-        ///         {
-        ///             Name = aws_redshift_cluster_credentials.Example.Name,
-        ///         }));
-        ///     }
-        /// 
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetClusterCredentialsResult> Invoke(GetClusterCredentialsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetClusterCredentialsResult>("aws:redshift/getClusterCredentials:getClusterCredentials", args ?? new GetClusterCredentialsInvokeArgs(), options.WithDefaults());

@@ -29,14 +29,20 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * ### Basic
  * 
- * The most simple event data store configuration requires us to only set the `name` and `retention_period` attributes. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
+ * The most simple event data store configuration requires us to only set the `name` attribute. The event data store will automatically capture all management events. To capture management events from all the regions, `multi_region_enabled` must be `true`.
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudtrail.EventDataStore;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -44,9 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new EventDataStore(&#34;example&#34;, EventDataStoreArgs.builder()        
- *             .retentionPeriod(7)
- *             .build());
+ *         var example = new EventDataStore(&#34;example&#34;);
  * 
  *     }
  * }
@@ -60,10 +64,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.DynamodbFunctions;
+ * import com.pulumi.aws.dynamodb.inputs.GetTableArgs;
+ * import com.pulumi.aws.cloudtrail.EventDataStore;
+ * import com.pulumi.aws.cloudtrail.EventDataStoreArgs;
+ * import com.pulumi.aws.cloudtrail.inputs.EventDataStoreAdvancedEventSelectorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -71,9 +85,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var table = Output.of(DynamodbFunctions.getTable(GetTableArgs.builder()
+ *         final var table = DynamodbFunctions.getTable(GetTableArgs.builder()
  *             .name(&#34;not-important-dynamodb-table&#34;)
- *             .build()));
+ *             .build());
  * 
  *         var example = new EventDataStore(&#34;example&#34;, EventDataStoreArgs.builder()        
  *             .advancedEventSelectors(EventDataStoreAdvancedEventSelectorArgs.builder()
@@ -93,7 +107,7 @@ import javax.annotation.Nullable;
  *                         .build(),
  *                     EventDataStoreAdvancedEventSelectorFieldSelectorArgs.builder()
  *                         .field(&#34;resources.ARN&#34;)
- *                         .equals(table.apply(getTableResult -&gt; getTableResult.arn()))
+ *                         .equals(table.applyValue(getTableResult -&gt; getTableResult.arn()))
  *                         .build())
  *                 .build())
  *             .build());

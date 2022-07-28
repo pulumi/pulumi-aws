@@ -23,10 +23,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
+ * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
+ * import com.pulumi.aws.storagegateway.UploadBuffer;
+ * import com.pulumi.aws.storagegateway.UploadBufferArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -34,13 +43,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var testLocalDisk = Output.of(StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+ *         final var testLocalDisk = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
  *             .diskNode(aws_volume_attachment.test().device_name())
  *             .gatewayArn(aws_storagegateway_gateway.test().arn())
- *             .build()));
+ *             .build());
  * 
  *         var testUploadBuffer = new UploadBuffer(&#34;testUploadBuffer&#34;, UploadBufferArgs.builder()        
- *             .diskPath(testLocalDisk.apply(getLocalDiskResult -&gt; getLocalDiskResult.diskPath()))
+ *             .diskPath(testLocalDisk.applyValue(getLocalDiskResult -&gt; getLocalDiskResult.diskPath()))
  *             .gatewayArn(aws_storagegateway_gateway.test().arn())
  *             .build());
  * 
@@ -51,10 +60,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.storagegateway.StoragegatewayFunctions;
+ * import com.pulumi.aws.storagegateway.inputs.GetLocalDiskArgs;
+ * import com.pulumi.aws.storagegateway.UploadBuffer;
+ * import com.pulumi.aws.storagegateway.UploadBufferArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -62,10 +80,10 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var test = Output.of(StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
+ *         final var test = StoragegatewayFunctions.getLocalDisk(GetLocalDiskArgs.builder()
  *             .diskNode(aws_volume_attachment.test().device_name())
  *             .gatewayArn(aws_storagegateway_gateway.test().arn())
- *             .build()));
+ *             .build());
  * 
  *         var example = new UploadBuffer(&#34;example&#34;, UploadBufferArgs.builder()        
  *             .diskId(data.aws_storagegateway_local_disk().example().id())

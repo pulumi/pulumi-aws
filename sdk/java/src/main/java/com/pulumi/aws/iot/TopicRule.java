@@ -42,10 +42,25 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.sns.Topic;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iot.TopicRule;
+ * import com.pulumi.aws.iot.TopicRuleArgs;
+ * import com.pulumi.aws.iot.inputs.TopicRuleSnsArgs;
+ * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionArgs;
+ * import com.pulumi.aws.iot.inputs.TopicRuleErrorActionSnsArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -95,7 +110,7 @@ import javax.annotation.Nullable;
  * 
  *         var iamPolicyForLambda = new RolePolicy(&#34;iamPolicyForLambda&#34;, RolePolicyArgs.builder()        
  *             .role(role.id())
- *             .policy(mytopic.arn().apply(arn -&gt; &#34;&#34;&#34;
+ *             .policy(mytopic.arn().applyValue(arn -&gt; &#34;&#34;&#34;
  * {
  *   &#34;Version&#34;: &#34;2012-10-17&#34;,
  *   &#34;Statement&#34;: [

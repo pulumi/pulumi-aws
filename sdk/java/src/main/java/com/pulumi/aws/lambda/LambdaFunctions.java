@@ -36,10 +36,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -47,10 +54,10 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = Output.of(LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
      *             .functionName(&#34;my-lambda-func&#34;)
      *             .name(&#34;production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -67,10 +74,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -78,10 +92,10 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = Output.of(LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
      *             .functionName(&#34;my-lambda-func&#34;)
      *             .name(&#34;production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -98,10 +112,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -109,10 +130,10 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = Output.of(LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
      *             .functionName(&#34;my-lambda-func&#34;)
      *             .name(&#34;production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -129,10 +150,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.kms.inputs.GetAliasArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -140,10 +168,10 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var production = Output.of(LambdaFunctions.getAlias(GetAliasArgs.builder()
+     *         final var production = LambdaFunctions.getAlias(GetAliasArgs.builder()
      *             .functionName(&#34;my-lambda-func&#34;)
      *             .name(&#34;production&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -162,10 +190,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -173,9 +208,9 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = Output.of(LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
      *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -194,10 +229,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -205,9 +247,9 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = Output.of(LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
      *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -226,10 +268,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -237,9 +286,9 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = Output.of(LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
      *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -258,10 +307,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetCodeSigningConfigArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -269,9 +325,9 @@ public final class LambdaFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var existingCsc = Output.of(LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
+     *         final var existingCsc = LambdaFunctions.getCodeSigningConfig(GetCodeSigningConfigArgs.builder()
      *             .arn(String.format(&#34;arn:aws:lambda:%s:%s:code-signing-config:csc-0f6c334abcdea4d8b&#34;, var_.aws_region(),var_.aws_account()))
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -288,10 +344,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -301,9 +364,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
      *             .functionName(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -320,10 +383,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -333,9 +403,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
      *             .functionName(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -352,10 +422,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -365,9 +442,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
      *             .functionName(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -384,10 +461,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.cloudfront.inputs.GetFunctionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -397,9 +481,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getFunction(GetFunctionArgs.builder()
+     *         final var existing = LambdaFunctions.getFunction(GetFunctionArgs.builder()
      *             .functionName(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -416,10 +500,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -429,9 +520,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
      *             .functionName(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -448,10 +539,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -461,9 +559,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
      *             .functionName(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -480,10 +578,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -493,9 +598,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
      *             .functionName(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -512,10 +617,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetFunctionUrlArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -525,9 +637,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var functionName = config.get(&#34;functionName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
+     *         final var existing = LambdaFunctions.getFunctionUrl(GetFunctionUrlArgs.builder()
      *             .functionName(functionName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -580,10 +692,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -593,9 +712,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var layerName = config.get(&#34;layerName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
      *             .layerName(layerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -612,10 +731,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -625,9 +751,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var layerName = config.get(&#34;layerName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
      *             .layerName(layerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -644,10 +770,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -657,9 +790,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var layerName = config.get(&#34;layerName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
      *             .layerName(layerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -676,10 +809,17 @@ public final class LambdaFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.lambda.LambdaFunctions;
+     * import com.pulumi.aws.lambda.inputs.GetLayerVersionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -689,9 +829,9 @@ public final class LambdaFunctions {
      *     public static void stack(Context ctx) {
      *         final var config = ctx.config();
      *         final var layerName = config.get(&#34;layerName&#34;);
-     *         final var existing = Output.of(LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
+     *         final var existing = LambdaFunctions.getLayerVersion(GetLayerVersionArgs.builder()
      *             .layerName(layerName)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

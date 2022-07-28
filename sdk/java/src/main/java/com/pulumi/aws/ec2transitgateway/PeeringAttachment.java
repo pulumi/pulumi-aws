@@ -23,11 +23,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2transitgateway.TransitGateway;
+ * import com.pulumi.aws.ec2transitgateway.TransitGatewayArgs;
+ * import com.pulumi.aws.ec2transitgateway.PeeringAttachment;
+ * import com.pulumi.aws.ec2transitgateway.PeeringAttachmentArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -43,7 +56,7 @@ import javax.annotation.Nullable;
  *             .region(&#34;us-west-2&#34;)
  *             .build());
  * 
- *         final var peerRegion = Output.of(AwsFunctions.getRegion());
+ *         final var peerRegion = AwsFunctions.getRegion();
  * 
  *         var localTransitGateway = new TransitGateway(&#34;localTransitGateway&#34;, TransitGatewayArgs.builder()        
  *             .tags(Map.of(&#34;Name&#34;, &#34;Local TGW&#34;))
@@ -59,7 +72,7 @@ import javax.annotation.Nullable;
  * 
  *         var example = new PeeringAttachment(&#34;example&#34;, PeeringAttachmentArgs.builder()        
  *             .peerAccountId(peerTransitGateway.ownerId())
- *             .peerRegion(peerRegion.apply(getRegionResult -&gt; getRegionResult.name()))
+ *             .peerRegion(peerRegion.applyValue(getRegionResult -&gt; getRegionResult.name()))
  *             .peerTransitGatewayId(peerTransitGateway.id())
  *             .transitGatewayId(localTransitGateway.id())
  *             .tags(Map.of(&#34;Name&#34;, &#34;TGW Peering Requestor&#34;))

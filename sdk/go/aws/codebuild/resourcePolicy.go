@@ -58,7 +58,7 @@ import (
 // 							"Sid":    "default",
 // 							"Effect": "Allow",
 // 							"Principal": map[string]interface{}{
-// 								"AWS": fmt.Sprintf("%v%v%v%v%v", "arn:", currentPartition.Partition, ":iam::", currentCallerIdentity.AccountId, ":root"),
+// 								"AWS": fmt.Sprintf("arn:%v:iam::%v:root", currentPartition.Partition, currentCallerIdentity.AccountId),
 // 							},
 // 							"Action": []string{
 // 								"codebuild:BatchGetReportGroups",

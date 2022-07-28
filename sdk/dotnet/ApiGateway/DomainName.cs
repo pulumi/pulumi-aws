@@ -51,7 +51,7 @@ namespace Pulumi.Aws.ApiGateway
     ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
     ///         {
     ///             CertificateArn = aws_acm_certificate_validation.Example.Certificate_arn,
-    ///             DomainName = "api.example.com",
+    ///             Domain = "api.example.com",
     ///         });
     ///         // Example DNS record using Route53.
     ///         // Route53 is not specifically required; any DNS host can be used.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.ApiGateway
     ///     {
     ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
     ///         {
-    ///             DomainName = "api.example.com",
+    ///             Domain = "api.example.com",
     ///             CertificateName = "example-api",
     ///             CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
     ///             CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
@@ -107,96 +107,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                     Name = exampleDomainName.CloudfrontDomainName,
     ///                     ZoneId = exampleDomainName.CloudfrontZoneId,
     ///                     EvaluateTargetHealth = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Regional (ACM Certificate)
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
-    ///         {
-    ///             DomainName = "api.example.com",
-    ///             RegionalCertificateArn = aws_acm_certificate_validation.Example.Certificate_arn,
-    ///             EndpointConfiguration = new Aws.ApiGateway.Inputs.DomainNameEndpointConfigurationArgs
-    ///             {
-    ///                 Types = 
-    ///                 {
-    ///                     "REGIONAL",
-    ///                 },
-    ///             },
-    ///         });
-    ///         // Example DNS record using Route53.
-    ///         // Route53 is not specifically required; any DNS host can be used.
-    ///         var exampleRecord = new Aws.Route53.Record("exampleRecord", new Aws.Route53.RecordArgs
-    ///         {
-    ///             Name = exampleDomainName.Domain,
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Example.Id,
-    ///             Aliases = 
-    ///             {
-    ///                 new Aws.Route53.Inputs.RecordAliasArgs
-    ///                 {
-    ///                     EvaluateTargetHealth = true,
-    ///                     Name = exampleDomainName.RegionalDomainName,
-    ///                     ZoneId = exampleDomainName.RegionalZoneId,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### Regional (IAM Certificate)
-    /// 
-    /// ```csharp
-    /// using System.IO;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleDomainName = new Aws.ApiGateway.DomainName("exampleDomainName", new Aws.ApiGateway.DomainNameArgs
-    ///         {
-    ///             CertificateBody = File.ReadAllText($"{path.Module}/example.com/example.crt"),
-    ///             CertificateChain = File.ReadAllText($"{path.Module}/example.com/ca.crt"),
-    ///             CertificatePrivateKey = File.ReadAllText($"{path.Module}/example.com/example.key"),
-    ///             DomainName = "api.example.com",
-    ///             RegionalCertificateName = "example-api",
-    ///             EndpointConfiguration = new Aws.ApiGateway.Inputs.DomainNameEndpointConfigurationArgs
-    ///             {
-    ///                 Types = 
-    ///                 {
-    ///                     "REGIONAL",
-    ///                 },
-    ///             },
-    ///         });
-    ///         // Example DNS record using Route53.
-    ///         // Route53 is not specifically required; any DNS host can be used.
-    ///         var exampleRecord = new Aws.Route53.Record("exampleRecord", new Aws.Route53.RecordArgs
-    ///         {
-    ///             Name = exampleDomainName.Domain,
-    ///             Type = "A",
-    ///             ZoneId = aws_route53_zone.Example.Id,
-    ///             Aliases = 
-    ///             {
-    ///                 new Aws.Route53.Inputs.RecordAliasArgs
-    ///                 {
-    ///                     EvaluateTargetHealth = true,
-    ///                     Name = exampleDomainName.RegionalDomainName,
-    ///                     ZoneId = exampleDomainName.RegionalZoneId,
     ///                 },
     ///             },
     ///         });

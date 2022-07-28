@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ssm
     ///         var patchgroup = new Aws.Ssm.PatchGroup("patchgroup", new Aws.Ssm.PatchGroupArgs
     ///         {
     ///             BaselineId = production.Id,
-    ///             PatchGroup = "patch-group-name",
+    ///             PatchGroupName = "patch-group-name",
     ///         });
     ///     }
     /// 

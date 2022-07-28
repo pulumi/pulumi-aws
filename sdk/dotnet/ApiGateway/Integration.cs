@@ -120,7 +120,7 @@ namespace Pulumi.Aws.ApiGateway
     ///             Code = new FileArchive("lambda.zip"),
     ///             Role = role.Arn,
     ///             Handler = "lambda.lambda_handler",
-    ///             Runtime = "python3.6",
+    ///             Runtime = "python3.7",
     ///         });
     ///         var integration = new Aws.ApiGateway.Integration("integration", new Aws.ApiGateway.IntegrationArgs
     ///         {
@@ -144,84 +144,6 @@ namespace Pulumi.Aws.ApiGateway
     ///                 var path = values.Item3;
     ///                 return $"arn:aws:execute-api:{myregion}:{accountId}:{id}/*/{httpMethod}{path}";
     ///             }),
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
-    /// ## VPC Link
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var config = new Config();
-    ///         var name = config.RequireObject&lt;dynamic&gt;("name");
-    ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
-    ///         var testLoadBalancer = new Aws.LB.LoadBalancer("testLoadBalancer", new Aws.LB.LoadBalancerArgs
-    ///         {
-    ///             Internal = true,
-    ///             LoadBalancerType = "network",
-    ///             Subnets = 
-    ///             {
-    ///                 subnetId,
-    ///             },
-    ///         });
-    ///         var testVpcLink = new Aws.ApiGateway.VpcLink("testVpcLink", new Aws.ApiGateway.VpcLinkArgs
-    ///         {
-    ///             TargetArn = 
-    ///             {
-    ///                 testLoadBalancer.Arn,
-    ///             },
-    ///         });
-    ///         var testRestApi = new Aws.ApiGateway.RestApi("testRestApi", new Aws.ApiGateway.RestApiArgs
-    ///         {
-    ///         });
-    ///         var testResource = new Aws.ApiGateway.Resource("testResource", new Aws.ApiGateway.ResourceArgs
-    ///         {
-    ///             RestApi = testRestApi.Id,
-    ///             ParentId = testRestApi.RootResourceId,
-    ///             PathPart = "test",
-    ///         });
-    ///         var testMethod = new Aws.ApiGateway.Method("testMethod", new Aws.ApiGateway.MethodArgs
-    ///         {
-    ///             RestApi = testRestApi.Id,
-    ///             ResourceId = testResource.Id,
-    ///             HttpMethod = "GET",
-    ///             Authorization = "NONE",
-    ///             RequestModels = 
-    ///             {
-    ///                 { "application/json", "Error" },
-    ///             },
-    ///         });
-    ///         var testIntegration = new Aws.ApiGateway.Integration("testIntegration", new Aws.ApiGateway.IntegrationArgs
-    ///         {
-    ///             RestApi = testRestApi.Id,
-    ///             ResourceId = testResource.Id,
-    ///             HttpMethod = testMethod.HttpMethod,
-    ///             RequestTemplates = 
-    ///             {
-    ///                 { "application/json", "" },
-    ///                 { "application/xml", @"#set($inputRoot = $input.path('$'))
-    /// { }" },
-    ///             },
-    ///             RequestParameters = 
-    ///             {
-    ///                 { "integration.request.header.X-Authorization", "'static'" },
-    ///                 { "integration.request.header.X-Foo", "'Bar'" },
-    ///             },
-    ///             Type = "HTTP",
-    ///             Uri = "https://www.google.de",
-    ///             IntegrationHttpMethod = "GET",
-    ///             PassthroughBehavior = "WHEN_NO_MATCH",
-    ///             ContentHandling = "CONVERT_TO_TEXT",
-    ///             ConnectionType = "VPC_LINK",
-    ///             ConnectionId = testVpcLink.Id,
     ///         });
     ///     }
     /// 

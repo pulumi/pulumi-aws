@@ -110,6 +110,7 @@ import * as elb from "./elb";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
 import * as emrserverless from "./emrserverless";
+import * as fis from "./fis";
 import * as fms from "./fms";
 import * as fsx from "./fsx";
 import * as gamelift from "./gamelift";
@@ -160,8 +161,10 @@ import * as ram from "./ram";
 import * as rds from "./rds";
 import * as redshift from "./redshift";
 import * as redshiftdata from "./redshiftdata";
+import * as redshiftserverless from "./redshiftserverless";
 import * as resourcegroups from "./resourcegroups";
 import * as resourcegroupstaggingapi from "./resourcegroupstaggingapi";
+import * as rolesanywhere from "./rolesanywhere";
 import * as route53 from "./route53";
 import * as route53domains from "./route53domains";
 import * as route53recoverycontrol from "./route53recoverycontrol";
@@ -280,6 +283,7 @@ export {
     emr,
     emrcontainers,
     emrserverless,
+    fis,
     fms,
     fsx,
     gamelift,
@@ -330,8 +334,10 @@ export {
     rds,
     redshift,
     redshiftdata,
+    redshiftserverless,
     resourcegroups,
     resourcegroupstaggingapi,
+    rolesanywhere,
     route53,
     route53domains,
     route53recoverycontrol,

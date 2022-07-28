@@ -23,6 +23,10 @@ public final class CostCategoryRuleRuleAnd {
      * 
      */
     private final @Nullable CostCategoryRuleRuleAndDimension dimension;
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     private final @Nullable CostCategoryRuleRuleAndTags tags;
 
     @CustomType.Constructor
@@ -49,6 +53,10 @@ public final class CostCategoryRuleRuleAnd {
     public Optional<CostCategoryRuleRuleAndDimension> dimension() {
         return Optional.ofNullable(this.dimension);
     }
+    /**
+     * @return Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     * 
+     */
     public Optional<CostCategoryRuleRuleAndTags> tags() {
         return Optional.ofNullable(this.tags);
     }

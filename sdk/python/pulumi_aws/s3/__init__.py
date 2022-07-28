@@ -30,6 +30,7 @@ from .bucket_server_side_encryption_configuration_v2 import *
 from .bucket_v2 import *
 from .bucket_versioning_v2 import *
 from .bucket_website_configuration_v2 import *
+from .get_account_public_access_block import *
 from .get_bucket import *
 from .get_bucket_object import *
 from .get_bucket_objects import *

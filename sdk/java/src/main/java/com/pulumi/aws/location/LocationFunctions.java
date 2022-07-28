@@ -4,6 +4,8 @@
 package com.pulumi.aws.location;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
+import com.pulumi.aws.location.inputs.GetGeofenceCollectionPlainArgs;
 import com.pulumi.aws.location.inputs.GetMapArgs;
 import com.pulumi.aws.location.inputs.GetMapPlainArgs;
 import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
@@ -12,6 +14,7 @@ import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
 import com.pulumi.aws.location.inputs.GetRouteCalculatorPlainArgs;
 import com.pulumi.aws.location.inputs.GetTrackerArgs;
 import com.pulumi.aws.location.inputs.GetTrackerPlainArgs;
+import com.pulumi.aws.location.outputs.GetGeofenceCollectionResult;
 import com.pulumi.aws.location.outputs.GetMapResult;
 import com.pulumi.aws.location.outputs.GetPlaceIndexResult;
 import com.pulumi.aws.location.outputs.GetRouteCalculatorResult;
@@ -24,16 +27,24 @@ import java.util.concurrent.CompletableFuture;
 
 public final class LocationFunctions {
     /**
-     * Retrieve information about a Location Service Map.
+     * Retrieve information about a Location Service Geofence Collection.
      * 
      * ## Example Usage
+     * ### Basic Usage
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,9 +52,160 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getMap(GetMapArgs.builder()
+     *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
+     *             .collectionName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGeofenceCollectionResult> getGeofenceCollection(GetGeofenceCollectionArgs args) {
+        return getGeofenceCollection(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Location Service Geofence Collection.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
+     *             .collectionName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGeofenceCollectionResult> getGeofenceCollectionPlain(GetGeofenceCollectionPlainArgs args) {
+        return getGeofenceCollectionPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Retrieve information about a Location Service Geofence Collection.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
+     *             .collectionName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetGeofenceCollectionResult> getGeofenceCollection(GetGeofenceCollectionArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:location/getGeofenceCollection:getGeofenceCollection", TypeShape.of(GetGeofenceCollectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Location Service Geofence Collection.
+     * 
+     * ## Example Usage
+     * ### Basic Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetGeofenceCollectionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LocationFunctions.getGeofenceCollection(GetGeofenceCollectionArgs.builder()
+     *             .collectionName(&#34;example&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetGeofenceCollectionResult> getGeofenceCollectionPlain(GetGeofenceCollectionPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:location/getGeofenceCollection:getGeofenceCollection", TypeShape.of(GetGeofenceCollectionResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Retrieve information about a Location Service Map.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
      *             .mapName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -60,10 +222,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -71,9 +240,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getMap(GetMapArgs.builder()
+     *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
      *             .mapName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -90,10 +259,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -101,9 +277,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getMap(GetMapArgs.builder()
+     *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
      *             .mapName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -120,10 +296,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetMapArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -131,9 +314,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getMap(GetMapArgs.builder()
+     *         final var example = LocationFunctions.getMap(GetMapArgs.builder()
      *             .mapName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -150,10 +333,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -161,9 +351,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
+     *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
      *             .indexName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -180,10 +370,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -191,9 +388,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
+     *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
      *             .indexName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -210,10 +407,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -221,9 +425,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
+     *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
      *             .indexName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -240,10 +444,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetPlaceIndexArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -251,9 +462,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
+     *         final var example = LocationFunctions.getPlaceIndex(GetPlaceIndexArgs.builder()
      *             .indexName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -270,10 +481,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -281,9 +499,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
+     *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
      *             .calculatorName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -300,10 +518,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -311,9 +536,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
+     *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
      *             .calculatorName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -330,10 +555,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -341,9 +573,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
+     *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
      *             .calculatorName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -360,10 +592,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetRouteCalculatorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -371,9 +610,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
+     *         final var example = LocationFunctions.getRouteCalculator(GetRouteCalculatorArgs.builder()
      *             .calculatorName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -390,10 +629,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetTrackerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -401,9 +647,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getTracker(GetTrackerArgs.builder()
+     *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
      *             .trackerName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -420,10 +666,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetTrackerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -431,9 +684,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getTracker(GetTrackerArgs.builder()
+     *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
      *             .trackerName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -450,10 +703,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetTrackerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -461,9 +721,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getTracker(GetTrackerArgs.builder()
+     *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
      *             .trackerName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -480,10 +740,17 @@ public final class LocationFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.location.LocationFunctions;
+     * import com.pulumi.aws.location.inputs.GetTrackerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -491,9 +758,9 @@ public final class LocationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(LocationFunctions.getTracker(GetTrackerArgs.builder()
+     *         final var example = LocationFunctions.getTracker(GetTrackerArgs.builder()
      *             .trackerName(&#34;example&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

@@ -32,11 +32,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.TaskDefinition;
+ * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionPlacementConstraintArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -88,10 +97,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.TaskDefinition;
+ * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionProxyConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -101,7 +118,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
- *             .containerDefinitions(Files.readString(&#34;task-definitions/service.json&#34;))
+ *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
  *             .proxyConfiguration(TaskDefinitionProxyConfigurationArgs.builder()
  *                 .type(&#34;APPMESH&#34;)
  *                 .containerName(&#34;applicationContainerName&#34;)
@@ -122,10 +139,19 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.TaskDefinition;
+ * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeDockerVolumeConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -135,7 +161,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
- *             .containerDefinitions(Files.readString(&#34;task-definitions/service.json&#34;))
+ *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
  *             .volumes(TaskDefinitionVolumeArgs.builder()
  *                 .name(&#34;service-storage&#34;)
  *                 .dockerVolumeConfiguration(TaskDefinitionVolumeDockerVolumeConfigurationArgs.builder()
@@ -158,10 +184,20 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.TaskDefinition;
+ * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -171,7 +207,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
- *             .containerDefinitions(Files.readString(&#34;task-definitions/service.json&#34;))
+ *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
  *             .volumes(TaskDefinitionVolumeArgs.builder()
  *                 .name(&#34;service-storage&#34;)
  *                 .efsVolumeConfiguration(TaskDefinitionVolumeEfsVolumeConfigurationArgs.builder()
@@ -194,11 +230,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.secretsmanager.SecretVersion;
+ * import com.pulumi.aws.secretsmanager.SecretVersionArgs;
+ * import com.pulumi.aws.ecs.TaskDefinition;
+ * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -217,7 +265,7 @@ import javax.annotation.Nullable;
  * 
  *         var service = new TaskDefinition(&#34;service&#34;, TaskDefinitionArgs.builder()        
  *             .family(&#34;service&#34;)
- *             .containerDefinitions(Files.readString(&#34;task-definitions/service.json&#34;))
+ *             .containerDefinitions(Files.readString(Paths.get(&#34;task-definitions/service.json&#34;)))
  *             .volumes(TaskDefinitionVolumeArgs.builder()
  *                 .name(&#34;service-storage&#34;)
  *                 .fsxWindowsFileServerVolumeConfiguration(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs.builder()
@@ -238,10 +286,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.TaskDefinition;
+ * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionInferenceAcceleratorArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -293,10 +349,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecs.TaskDefinition;
+ * import com.pulumi.aws.ecs.TaskDefinitionArgs;
+ * import com.pulumi.aws.ecs.inputs.TaskDefinitionRuntimePlatformArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

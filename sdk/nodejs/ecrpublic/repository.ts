@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const usEast1 = new aws.Provider("usEast1", {region: "us-east-1"});
  * const foo = new aws.ecrpublic.Repository("foo", {

@@ -24,10 +24,24 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codedeploy.DeploymentConfig;
+ * import com.pulumi.aws.codedeploy.DeploymentConfigArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigMinimumHealthyHostsArgs;
+ * import com.pulumi.aws.codedeploy.DeploymentGroup;
+ * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagFilterArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -75,10 +89,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.codedeploy.DeploymentConfig;
+ * import com.pulumi.aws.codedeploy.DeploymentConfigArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs;
+ * import com.pulumi.aws.codedeploy.DeploymentGroup;
+ * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {

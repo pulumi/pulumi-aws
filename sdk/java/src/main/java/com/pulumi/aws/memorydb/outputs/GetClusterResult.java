@@ -63,7 +63,7 @@ public final class GetClusterResult {
      */
     private final String kmsKeyArn;
     /**
-     * @return The weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+     * @return The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      * 
      */
     private final String maintenanceWindow;
@@ -258,7 +258,7 @@ public final class GetClusterResult {
         return this.kmsKeyArn;
     }
     /**
-     * @return The weekly time range during which maintenance on the cluster is performed. It is specified as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
+     * @return The weekly time range during which maintenance on the cluster is performed. Specify as a range in the format `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC). Example: `sun:23:00-mon:01:30`.
      * 
      */
     public String maintenanceWindow() {

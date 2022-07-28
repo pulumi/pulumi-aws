@@ -21,6 +21,9 @@ namespace Pulumi.Aws.CostExplorer.Outputs
         /// Configuration block for the specific `Dimension` to use for `Expression`. See below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrDimensionResult> Dimensions;
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetCostCategoryRuleRuleOrTagResult> Tags;
 
         [OutputConstructor]

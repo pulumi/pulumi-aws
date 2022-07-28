@@ -21,10 +21,17 @@ public final class RamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -32,10 +39,10 @@ public final class RamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceOwner(&#34;SELF&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -44,10 +51,17 @@ public final class RamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -55,14 +69,14 @@ public final class RamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tagFilter = Output.of(RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name(&#34;NameOfTag&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
      *             .name(&#34;MyResourceName&#34;)
      *             .resourceOwner(&#34;SELF&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -79,10 +93,17 @@ public final class RamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -90,10 +111,10 @@ public final class RamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceOwner(&#34;SELF&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -102,10 +123,17 @@ public final class RamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -113,14 +141,14 @@ public final class RamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tagFilter = Output.of(RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name(&#34;NameOfTag&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
      *             .name(&#34;MyResourceName&#34;)
      *             .resourceOwner(&#34;SELF&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -137,10 +165,17 @@ public final class RamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -148,10 +183,10 @@ public final class RamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceOwner(&#34;SELF&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -160,10 +195,17 @@ public final class RamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -171,14 +213,14 @@ public final class RamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tagFilter = Output.of(RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name(&#34;NameOfTag&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
      *             .name(&#34;MyResourceName&#34;)
      *             .resourceOwner(&#34;SELF&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -195,10 +237,17 @@ public final class RamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -206,10 +255,10 @@ public final class RamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *         final var example = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceOwner(&#34;SELF&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -218,10 +267,17 @@ public final class RamFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ram.RamFunctions;
+     * import com.pulumi.aws.ram.inputs.GetResourceShareArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -229,14 +285,14 @@ public final class RamFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var tagFilter = Output.of(RamFunctions.getResourceShare(GetResourceShareArgs.builder()
+     *         final var tagFilter = RamFunctions.getResourceShare(GetResourceShareArgs.builder()
      *             .filters(GetResourceShareFilterArgs.builder()
      *                 .name(&#34;NameOfTag&#34;)
      *                 .values(&#34;exampleNameTagValue&#34;)
      *                 .build())
      *             .name(&#34;MyResourceName&#34;)
      *             .resourceOwner(&#34;SELF&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

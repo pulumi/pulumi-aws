@@ -109,7 +109,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := lambda.NewFunctionEventInvokeConfig(ctx, "example", &lambda.FunctionEventInvokeConfigArgs{
 // 			FunctionName: pulumi.Any(aws_lambda_function.Example.Function_name),
-// 			Qualifier:    pulumi.String(fmt.Sprintf("%v%v", "$", "LATEST")),
+// 			Qualifier:    pulumi.String(fmt.Sprintf("$LATEST")),
 // 		})
 // 		if err != nil {
 // 			return err

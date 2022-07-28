@@ -36,10 +36,17 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -62,10 +69,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.inputs.BucketWebsiteArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -75,7 +90,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
  *             .acl(&#34;public-read&#34;)
- *             .policy(Files.readString(&#34;policy.json&#34;))
+ *             .policy(Files.readString(Paths.get(&#34;policy.json&#34;)))
  *             .website(BucketWebsiteArgs.builder()
  *                 .indexDocument(&#34;index.html&#34;)
  *                 .errorDocument(&#34;error.html&#34;)
@@ -99,10 +114,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.inputs.BucketCorsRuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -130,10 +153,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -155,10 +186,18 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.inputs.BucketLoggingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -185,10 +224,21 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleArgs;
+ * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleExpirationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketLifecycleRuleNoncurrentVersionExpirationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -262,11 +312,28 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.inputs.BucketVersioningArgs;
+ * import com.pulumi.aws.s3.inputs.BucketReplicationConfigurationArgs;
+ * import com.pulumi.aws.iam.Policy;
+ * import com.pulumi.aws.iam.PolicyArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -334,7 +401,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var replicationPolicy = new Policy(&#34;replicationPolicy&#34;, PolicyArgs.builder()        
- *             .policy(Output.tuple(source.arn(), source.arn(), destination.arn()).apply(values -&gt; {
+ *             .policy(Output.tuple(source.arn(), source.arn(), destination.arn()).applyValue(values -&gt; {
  *                 var sourceArn = values.t1;
  *                 var sourceArn1 = values.t2;
  *                 var destinationArn = values.t3;
@@ -390,10 +457,22 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.kms.Key;
+ * import com.pulumi.aws.kms.KeyArgs;
+ * import com.pulumi.aws.s3.Bucket;
+ * import com.pulumi.aws.s3.BucketArgs;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleArgs;
+ * import com.pulumi.aws.s3.inputs.BucketServerSideEncryptionConfigurationRuleApplyServerSideEncryptionByDefaultArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -415,42 +494,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Using ACL policy grants
- * ```java
- * package generated_program;
- * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         final var currentUser = Output.of(S3Functions.getCanonicalUserId());
- * 
- *         var bucket = new Bucket(&#34;bucket&#34;, BucketArgs.builder()        
- *             .grants(            
- *                 BucketGrantArgs.builder()
- *                     .id(currentUser.apply(getCanonicalUserIdResult -&gt; getCanonicalUserIdResult.id()))
- *                     .type(&#34;CanonicalUser&#34;)
- *                     .permissions(&#34;FULL_CONTROL&#34;)
- *                     .build(),
- *                 BucketGrantArgs.builder()
- *                     .type(&#34;Group&#34;)
- *                     .permissions(                    
- *                         &#34;READ_ACP&#34;,
- *                         &#34;WRITE&#34;)
- *                     .uri(&#34;http://acs.amazonaws.com/groups/s3/LogDelivery&#34;)
- *                     .build())
  *             .build());
  * 
  *     }

@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Efs
     ///         var policy = new Aws.Efs.BackupPolicy("policy", new Aws.Efs.BackupPolicyArgs
     ///         {
     ///             FileSystemId = fs.Id,
-    ///             BackupPolicy = new Aws.Efs.Inputs.BackupPolicyBackupPolicyArgs
+    ///             BackupPolicyDetails = new Aws.Efs.Inputs.BackupPolicyBackupPolicyArgs
     ///             {
     ///                 Status = "ENABLED",
     ///             },

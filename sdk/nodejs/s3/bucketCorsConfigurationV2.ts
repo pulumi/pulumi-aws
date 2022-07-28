@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * const exampleBucketV2 = new aws.s3.BucketV2("exampleBucketV2", {});
  * const exampleBucketCorsConfigurationV2 = new aws.s3.BucketCorsConfigurationV2("exampleBucketCorsConfigurationV2", {
- *     bucket: exampleBucketV2.bucket,
+ *     bucket: exampleBucketV2.id,
  *     corsRules: [
  *         {
  *             allowedHeaders: ["*"],

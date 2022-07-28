@@ -14,14 +14,14 @@ public final class MapConfigurationArgs extends com.pulumi.resources.ResourceArg
     public static final MapConfigurationArgs Empty = new MapConfigurationArgs();
 
     /**
-     * Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+     * Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
      * 
      */
     @Import(name="style", required=true)
     private Output<String> style;
 
     /**
-     * @return Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+     * @return Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
      * 
      */
     public Output<String> style() {
@@ -53,7 +53,7 @@ public final class MapConfigurationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param style Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+         * @param style Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
          * 
          * @return builder
          * 
@@ -64,7 +64,7 @@ public final class MapConfigurationArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param style Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location-maps/latest/APIReference/API_CreateMap.html).
+         * @param style Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
          * 
          * @return builder
          * 

@@ -17,14 +17,14 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
     public static final OntapStorageVirtualMachineActiveDirectoryConfigurationArgs Empty = new OntapStorageVirtualMachineActiveDirectoryConfigurationArgs();
 
     /**
-     * The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+     * The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
      */
     @Import(name="netbiosName")
     private @Nullable Output<String> netbiosName;
 
     /**
-     * @return The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+     * @return The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
      * 
      */
     public Optional<Output<String>> netbiosName() {
@@ -64,7 +64,7 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
         }
 
         /**
-         * @param netbiosName The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+         * @param netbiosName The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
          * 
          * @return builder
          * 
@@ -75,7 +75,7 @@ public final class OntapStorageVirtualMachineActiveDirectoryConfigurationArgs ex
         }
 
         /**
-         * @param netbiosName The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+         * @param netbiosName The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. AWS limits to 15 characters because of standard NetBIOS naming limits.
          * 
          * @return builder
          * 

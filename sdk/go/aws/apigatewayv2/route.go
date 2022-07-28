@@ -31,14 +31,14 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		exampleApi, err := apigatewayv2.NewApi(ctx, "exampleApi", &apigatewayv2.ApiArgs{
 // 			ProtocolType:             pulumi.String("WEBSOCKET"),
-// 			RouteSelectionExpression: pulumi.String(fmt.Sprintf("%v%v", "$", "request.body.action")),
+// 			RouteSelectionExpression: pulumi.String(fmt.Sprintf("$request.body.action")),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = apigatewayv2.NewRoute(ctx, "exampleRoute", &apigatewayv2.RouteArgs{
 // 			ApiId:    exampleApi.ID(),
-// 			RouteKey: pulumi.String(fmt.Sprintf("%v%v", "$", "default")),
+// 			RouteKey: pulumi.String(fmt.Sprintf("$default")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -80,7 +80,7 @@ import (
 // 			ApiId:    exampleApi.ID(),
 // 			RouteKey: pulumi.String("ANY /example/{proxy+}"),
 // 			Target: exampleIntegration.ID().ApplyT(func(id string) (string, error) {
-// 				return fmt.Sprintf("%v%v", "integrations/", id), nil
+// 				return fmt.Sprintf("integrations/%v", id), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {

@@ -26,11 +26,27 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.pulumi.providers.aws;
+ * import com.pulumi.pulumi.providers.ProviderArgs;
+ * import com.pulumi.aws.cloudwatch.LogGroup;
+ * import com.pulumi.aws.cloudwatch.LogGroupArgs;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicy;
+ * import com.pulumi.aws.cloudwatch.LogResourcePolicyArgs;
+ * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.QueryLog;
+ * import com.pulumi.aws.route53.QueryLogArgs;
  * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -48,7 +64,7 @@ import javax.annotation.Nullable;
  *                 .provider(aws.us-east-1())
  *                 .build());
  * 
- *         final var route53-query-logging-policyPolicyDocument = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var route53-query-logging-policyPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(                
  *                     &#34;logs:CreateLogStream&#34;,
@@ -59,7 +75,7 @@ import javax.annotation.Nullable;
  *                     .type(&#34;Service&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var route53_query_logging_policyLogResourcePolicy = new LogResourcePolicy(&#34;route53-query-logging-policyLogResourcePolicy&#34;, LogResourcePolicyArgs.builder()        
  *             .policyDocument(route53_query_logging_policyPolicyDocument.json())

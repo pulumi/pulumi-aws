@@ -30,10 +30,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -41,10 +48,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getIpSet(GetIpSetArgs.builder()
+     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
      *             .name(&#34;some-ip-set&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -61,10 +68,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -72,10 +86,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getIpSet(GetIpSetArgs.builder()
+     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
      *             .name(&#34;some-ip-set&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -92,10 +106,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -103,10 +124,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getIpSet(GetIpSetArgs.builder()
+     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
      *             .name(&#34;some-ip-set&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -123,10 +144,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -134,10 +162,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getIpSet(GetIpSetArgs.builder()
+     *         final var example = Wafv2Functions.getIpSet(GetIpSetArgs.builder()
      *             .name(&#34;some-ip-set&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -154,10 +182,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -165,10 +200,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
+     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
      *             .name(&#34;some-regex-pattern-set&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -185,10 +220,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -196,10 +238,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
+     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
      *             .name(&#34;some-regex-pattern-set&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -216,10 +258,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -227,10 +276,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
+     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
      *             .name(&#34;some-regex-pattern-set&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -247,10 +296,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -258,10 +314,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
+     *         final var example = Wafv2Functions.getRegexPatternSet(GetRegexPatternSetArgs.builder()
      *             .name(&#34;some-regex-pattern-set&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -278,10 +334,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -289,10 +352,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
+     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
      *             .name(&#34;some-rule-group&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -309,10 +372,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -320,10 +390,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
+     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
      *             .name(&#34;some-rule-group&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -340,10 +410,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -351,10 +428,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
+     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
      *             .name(&#34;some-rule-group&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -371,10 +448,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -382,10 +466,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
+     *         final var example = Wafv2Functions.getRuleGroup(GetRuleGroupArgs.builder()
      *             .name(&#34;some-rule-group&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -402,10 +486,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -413,10 +504,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
      *             .name(&#34;some-web-acl&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -433,10 +524,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -444,10 +542,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
      *             .name(&#34;some-web-acl&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -464,10 +562,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -475,10 +580,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
      *             .name(&#34;some-web-acl&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -495,10 +600,17 @@ public final class Wafv2Functions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.waf.inputs.GetWebAclArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -506,10 +618,10 @@ public final class Wafv2Functions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = Output.of(Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
+     *         final var example = Wafv2Functions.getWebAcl(GetWebAclArgs.builder()
      *             .name(&#34;some-web-acl&#34;)
      *             .scope(&#34;REGIONAL&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

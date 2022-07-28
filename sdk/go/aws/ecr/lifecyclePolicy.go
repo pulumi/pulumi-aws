@@ -38,7 +38,24 @@ import (
 // 		}
 // 		_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
 // 			Repository: foo.Name,
-// 			Policy:     pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"rules\": [\n", "        {\n", "            \"rulePriority\": 1,\n", "            \"description\": \"Expire images older than 14 days\",\n", "            \"selection\": {\n", "                \"tagStatus\": \"untagged\",\n", "                \"countType\": \"sinceImagePushed\",\n", "                \"countUnit\": \"days\",\n", "                \"countNumber\": 14\n", "            },\n", "            \"action\": {\n", "                \"type\": \"expire\"\n", "            }\n", "        }\n", "    ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//     "rules": [
+//         {
+//             "rulePriority": 1,
+//             "description": "Expire images older than 14 days",
+//             "selection": {
+//                 "tagStatus": "untagged",
+//                 "countType": "sinceImagePushed",
+//                 "countUnit": "days",
+//                 "countNumber": 14
+//             },
+//             "action": {
+//                 "type": "expire"
+//             }
+//         }
+//     ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -67,7 +84,24 @@ import (
 // 		}
 // 		_, err = ecr.NewLifecyclePolicy(ctx, "foopolicy", &ecr.LifecyclePolicyArgs{
 // 			Repository: foo.Name,
-// 			Policy:     pulumi.Any(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "    \"rules\": [\n", "        {\n", "            \"rulePriority\": 1,\n", "            \"description\": \"Keep last 30 images\",\n", "            \"selection\": {\n", "                \"tagStatus\": \"tagged\",\n", "                \"tagPrefixList\": [\"v\"],\n", "                \"countType\": \"imageCountMoreThan\",\n", "                \"countNumber\": 30\n", "            },\n", "            \"action\": {\n", "                \"type\": \"expire\"\n", "            }\n", "        }\n", "    ]\n", "}\n")),
+// 			Policy: pulumi.Any(fmt.Sprintf(`{
+//     "rules": [
+//         {
+//             "rulePriority": 1,
+//             "description": "Keep last 30 images",
+//             "selection": {
+//                 "tagStatus": "tagged",
+//                 "tagPrefixList": ["v"],
+//                 "countType": "imageCountMoreThan",
+//                 "countNumber": 30
+//             },
+//             "action": {
+//                 "type": "expire"
+//             }
+//         }
+//     ]
+// }
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

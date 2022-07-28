@@ -29,10 +29,23 @@ import javax.annotation.Nullable;
  * ```java
  * package generated_program;
  * 
- * import java.util.*;
- * import java.io.*;
- * import java.nio.*;
- * import com.pulumi.*;
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.cloudformation.StackSet;
+ * import com.pulumi.aws.cloudformation.StackSetArgs;
+ * import com.pulumi.aws.iam.RolePolicy;
+ * import com.pulumi.aws.iam.RolePolicyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
  * public class App {
  *     public static void main(String[] args) {
@@ -40,7 +53,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = Output.of(IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *         final var aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .effect(&#34;Allow&#34;)
@@ -49,10 +62,10 @@ import javax.annotation.Nullable;
  *                     .type(&#34;Service&#34;)
  *                     .build())
  *                 .build())
- *             .build()));
+ *             .build());
  * 
  *         var aWSCloudFormationStackSetAdministrationRole = new Role(&#34;aWSCloudFormationStackSetAdministrationRole&#34;, RoleArgs.builder()        
- *             .assumeRolePolicy(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
+ *             .assumeRolePolicy(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json()))
  *             .build());
  * 
  *         var example = new StackSet(&#34;example&#34;, StackSetArgs.builder()        
@@ -86,12 +99,12 @@ import javax.annotation.Nullable;
  *             .statements(GetPolicyDocumentStatementArgs.builder()
  *                 .actions(&#34;sts:AssumeRole&#34;)
  *                 .effect(&#34;Allow&#34;)
- *                 .resources(example.executionRoleName().apply(executionRoleName -&gt; String.format(&#34;arn:aws:iam::*:role/%s&#34;, executionRoleName)))
+ *                 .resources(example.executionRoleName().applyValue(executionRoleName -&gt; String.format(&#34;arn:aws:iam::*:role/%s&#34;, executionRoleName)))
  *                 .build())
  *             .build());
  * 
  *         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new RolePolicy(&#34;aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy&#34;, RolePolicyArgs.builder()        
- *             .policy(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult).apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument -&gt; aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.apply(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .policy(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument -&gt; aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
  *             .role(aWSCloudFormationStackSetAdministrationRole.name())
  *             .build());
  * 

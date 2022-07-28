@@ -48,7 +48,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
+// 		_, err = s3control.NewBucketPolicy(ctx, "example", &s3control.BucketPolicyArgs{
 // 			Bucket: pulumi.Any(aws_s3control_bucket.Example.Arn),
 // 			Policy: pulumi.String(json0),
 // 		})

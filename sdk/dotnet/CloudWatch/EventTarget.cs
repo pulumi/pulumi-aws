@@ -177,7 +177,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         });
     ///         var ssmLifecyclePolicy = new Aws.Iam.Policy("ssmLifecyclePolicy", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = ssmLifecyclePolicyDocument.Apply(ssmLifecyclePolicyDocument =&gt; ssmLifecyclePolicyDocument.Json),
+    ///             PolicyDocument = ssmLifecyclePolicyDocument.Apply(ssmLifecyclePolicyDocument =&gt; ssmLifecyclePolicyDocument.Json),
     ///         });
     ///         var ssmLifecycleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.CloudWatch
     ///         }));
     ///         var eventBusInvokeRemoteEventBusPolicy = new Aws.Iam.Policy("eventBusInvokeRemoteEventBusPolicy", new Aws.Iam.PolicyArgs
     ///         {
-    ///             Policy = eventBusInvokeRemoteEventBusPolicyDocument.Apply(eventBusInvokeRemoteEventBusPolicyDocument =&gt; eventBusInvokeRemoteEventBusPolicyDocument.Json),
+    ///             PolicyDocument = eventBusInvokeRemoteEventBusPolicyDocument.Apply(eventBusInvokeRemoteEventBusPolicyDocument =&gt; eventBusInvokeRemoteEventBusPolicyDocument.Json),
     ///         });
     ///         var eventBusInvokeRemoteEventBusRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("eventBusInvokeRemoteEventBusRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
     ///         {

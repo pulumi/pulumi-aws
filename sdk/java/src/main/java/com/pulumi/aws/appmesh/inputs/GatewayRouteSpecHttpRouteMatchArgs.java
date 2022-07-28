@@ -3,10 +3,13 @@
 
 package com.pulumi.aws.appmesh.inputs;
 
+import com.pulumi.aws.appmesh.inputs.GatewayRouteSpecHttpRouteMatchHostnameArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resources.ResourceArgs {
@@ -14,23 +17,39 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
     public static final GatewayRouteSpecHttpRouteMatchArgs Empty = new GatewayRouteSpecHttpRouteMatchArgs();
 
     /**
-     * Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+     * The host name to rewrite.
      * 
      */
-    @Import(name="prefix", required=true)
-    private Output<String> prefix;
+    @Import(name="hostname")
+    private @Nullable Output<GatewayRouteSpecHttpRouteMatchHostnameArgs> hostname;
 
     /**
-     * @return Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+     * @return The host name to rewrite.
      * 
      */
-    public Output<String> prefix() {
-        return this.prefix;
+    public Optional<Output<GatewayRouteSpecHttpRouteMatchHostnameArgs>> hostname() {
+        return Optional.ofNullable(this.hostname);
+    }
+
+    /**
+     * The specified beginning characters to rewrite.
+     * 
+     */
+    @Import(name="prefix")
+    private @Nullable Output<String> prefix;
+
+    /**
+     * @return The specified beginning characters to rewrite.
+     * 
+     */
+    public Optional<Output<String>> prefix() {
+        return Optional.ofNullable(this.prefix);
     }
 
     private GatewayRouteSpecHttpRouteMatchArgs() {}
 
     private GatewayRouteSpecHttpRouteMatchArgs(GatewayRouteSpecHttpRouteMatchArgs $) {
+        this.hostname = $.hostname;
         this.prefix = $.prefix;
     }
 
@@ -53,18 +72,39 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param prefix Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+         * @param hostname The host name to rewrite.
          * 
          * @return builder
          * 
          */
-        public Builder prefix(Output<String> prefix) {
+        public Builder hostname(@Nullable Output<GatewayRouteSpecHttpRouteMatchHostnameArgs> hostname) {
+            $.hostname = hostname;
+            return this;
+        }
+
+        /**
+         * @param hostname The host name to rewrite.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostname(GatewayRouteSpecHttpRouteMatchHostnameArgs hostname) {
+            return hostname(Output.of(hostname));
+        }
+
+        /**
+         * @param prefix The specified beginning characters to rewrite.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefix(@Nullable Output<String> prefix) {
             $.prefix = prefix;
             return this;
         }
 
         /**
-         * @param prefix Specifies the path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+         * @param prefix The specified beginning characters to rewrite.
          * 
          * @return builder
          * 
@@ -74,7 +114,6 @@ public final class GatewayRouteSpecHttpRouteMatchArgs extends com.pulumi.resourc
         }
 
         public GatewayRouteSpecHttpRouteMatchArgs build() {
-            $.prefix = Objects.requireNonNull($.prefix, "expected parameter 'prefix' to be non-null");
             return $;
         }
     }

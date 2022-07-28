@@ -30,31 +30,6 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getDefaultKmsKey());
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.apply(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey() {
@@ -64,31 +39,6 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getDefaultKmsKey());
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.apply(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain() {
@@ -98,31 +48,6 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getDefaultKmsKey());
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.apply(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args) {
@@ -132,31 +57,6 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getDefaultKmsKey());
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.apply(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(InvokeArgs args) {
@@ -166,31 +66,6 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getDefaultKmsKey());
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.apply(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetDefaultKmsKeyResult> getDefaultKmsKey(InvokeArgs args, InvokeOptions options) {
@@ -200,31 +75,6 @@ public final class EbsFunctions {
      * Use this data source to get the default EBS encryption KMS key in the current region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getDefaultKmsKey());
-     * 
-     *         var example = new Volume(&#34;example&#34;, VolumeArgs.builder()        
-     *             .availabilityZone(&#34;us-west-2a&#34;)
-     *             .encrypted(true)
-     *             .kmsKeyId(current.apply(getDefaultKmsKeyResult -&gt; getDefaultKmsKeyResult.keyArn()))
-     *             .build());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetDefaultKmsKeyResult> getDefaultKmsKeyPlain(InvokeArgs args, InvokeOptions options) {
@@ -288,25 +138,6 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getEncryptionByDefault());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault() {
@@ -316,25 +147,6 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getEncryptionByDefault());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain() {
@@ -344,25 +156,6 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getEncryptionByDefault());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args) {
@@ -372,25 +165,6 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getEncryptionByDefault());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(InvokeArgs args) {
@@ -400,25 +174,6 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getEncryptionByDefault());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static Output<GetEncryptionByDefaultResult> getEncryptionByDefault(InvokeArgs args, InvokeOptions options) {
@@ -428,25 +183,6 @@ public final class EbsFunctions {
      * Provides a way to check whether default EBS encryption is enabled for your AWS account in the current AWS region.
      * 
      * ## Example Usage
-     * ```java
-     * package generated_program;
-     * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = Output.of(EbsFunctions.getEncryptionByDefault());
-     * 
-     *     }
-     * }
-     * ```
      * 
      */
     public static CompletableFuture<GetEncryptionByDefaultResult> getEncryptionByDefaultPlain(InvokeArgs args, InvokeOptions options) {
@@ -459,10 +195,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -470,7 +213,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -482,7 +225,7 @@ public final class EbsFunctions {
      *                     .build())
      *             .mostRecent(true)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -499,10 +242,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -510,7 +260,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -522,7 +272,7 @@ public final class EbsFunctions {
      *                     .build())
      *             .mostRecent(true)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -539,10 +289,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -550,7 +307,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -562,7 +319,7 @@ public final class EbsFunctions {
      *                     .build())
      *             .mostRecent(true)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -579,10 +336,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -590,7 +354,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -602,7 +366,7 @@ public final class EbsFunctions {
      *                     .build())
      *             .mostRecent(true)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -619,10 +383,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -630,7 +401,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -642,7 +413,7 @@ public final class EbsFunctions {
      *                     .build())
      *             .mostRecent(true)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -659,10 +430,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -670,7 +448,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getSnapshot(GetSnapshotArgs.builder()
      *             .filters(            
      *                 GetSnapshotFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -682,7 +460,7 @@ public final class EbsFunctions {
      *                     .build())
      *             .mostRecent(true)
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -700,10 +478,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -711,7 +496,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolumes = Output.of(EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -722,7 +507,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -740,10 +525,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -751,7 +543,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolumes = Output.of(EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -762,7 +554,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -780,10 +572,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -791,7 +590,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolumes = Output.of(EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -802,7 +601,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -820,10 +619,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -831,7 +637,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolumes = Output.of(EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -842,7 +648,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -860,10 +666,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -871,7 +684,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolumes = Output.of(EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -882,7 +695,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -900,10 +713,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetSnapshotIdsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -911,7 +731,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolumes = Output.of(EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
+     *         final var ebsVolumes = EbsFunctions.getSnapshotIds(GetSnapshotIdsArgs.builder()
      *             .filters(            
      *                 GetSnapshotIdsFilterArgs.builder()
      *                     .name(&#34;volume-size&#34;)
@@ -922,7 +742,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .owners(&#34;self&#34;)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -940,10 +760,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -951,7 +778,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -962,7 +789,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -980,10 +807,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -991,7 +825,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1002,7 +836,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1020,10 +854,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1031,7 +872,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1042,7 +883,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1060,10 +901,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1071,7 +919,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1082,7 +930,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1100,10 +948,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1111,7 +966,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1122,7 +977,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }
@@ -1140,10 +995,17 @@ public final class EbsFunctions {
      * ```java
      * package generated_program;
      * 
-     * import java.util.*;
-     * import java.io.*;
-     * import java.nio.*;
-     * import com.pulumi.*;
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ebs.EbsFunctions;
+     * import com.pulumi.aws.ebs.inputs.GetVolumeArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
      * 
      * public class App {
      *     public static void main(String[] args) {
@@ -1151,7 +1013,7 @@ public final class EbsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var ebsVolume = Output.of(EbsFunctions.getVolume(GetVolumeArgs.builder()
+     *         final var ebsVolume = EbsFunctions.getVolume(GetVolumeArgs.builder()
      *             .filters(            
      *                 GetVolumeFilterArgs.builder()
      *                     .name(&#34;volume-type&#34;)
@@ -1162,7 +1024,7 @@ public final class EbsFunctions {
      *                     .values(&#34;Example&#34;)
      *                     .build())
      *             .mostRecent(true)
-     *             .build()));
+     *             .build());
      * 
      *     }
      * }

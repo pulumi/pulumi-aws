@@ -60,7 +60,7 @@ import (
 // 			return err
 // 		}
 // 		json0 := string(tmpJSON0)
-// 		_, err := ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
+// 		_, err = ecs.NewTaskDefinition(ctx, "service", &ecs.TaskDefinitionArgs{
 // 			Family:               pulumi.String("service"),
 // 			ContainerDefinitions: pulumi.String(json0),
 // 			Volumes: ecs.TaskDefinitionVolumeArray{
@@ -162,8 +162,8 @@ import (
 // 						Driver:        pulumi.String("local"),
 // 						DriverOpts: pulumi.StringMap{
 // 							"type":   pulumi.String("nfs"),
-// 							"device": pulumi.String(fmt.Sprintf("%v%v", aws_efs_file_system.Fs.Dns_name, ":/")),
-// 							"o":      pulumi.String(fmt.Sprintf("%v%v%v", "addr=", aws_efs_file_system.Fs.Dns_name, ",rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport")),
+// 							"device": pulumi.String(fmt.Sprintf("%v:/", aws_efs_file_system.Fs.Dns_name)),
+// 							"o":      pulumi.String(fmt.Sprintf("addr=%v,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport", aws_efs_file_system.Fs.Dns_name)),
 // 						},
 // 					},
 // 				},
@@ -302,8 +302,35 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-// 			ContainerDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "[\n", "  {\n", "    \"cpu\": 10,\n", "    \"command\": [\"sleep\", \"10\"],\n", "    \"entryPoint\": [\"/\"],\n", "    \"environment\": [\n", "      {\"name\": \"VARNAME\", \"value\": \"VARVAL\"}\n", "    ],\n", "    \"essential\": true,\n", "    \"image\": \"jenkins\",\n", "    \"memory\": 128,\n", "    \"name\": \"jenkins\",\n", "    \"portMappings\": [\n", "      {\n", "        \"containerPort\": 80,\n", "        \"hostPort\": 8080\n", "      }\n", "    ],\n", "        \"resourceRequirements\":[\n", "            {\n", "                \"type\":\"InferenceAccelerator\",\n", "                \"value\":\"device_1\"\n", "            }\n", "        ]\n", "  }\n", "]\n", "\n")),
-// 			Family:               pulumi.String("test"),
+// 			ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
+//   {
+//     "cpu": 10,
+//     "command": ["sleep", "10"],
+//     "entryPoint": ["/"],
+//     "environment": [
+//       {"name": "VARNAME", "value": "VARVAL"}
+//     ],
+//     "essential": true,
+//     "image": "jenkins",
+//     "memory": 128,
+//     "name": "jenkins",
+//     "portMappings": [
+//       {
+//         "containerPort": 80,
+//         "hostPort": 8080
+//       }
+//     ],
+//         "resourceRequirements":[
+//             {
+//                 "type":"InferenceAccelerator",
+//                 "value":"device_1"
+//             }
+//         ]
+//   }
+// ]
+//
+// `)),
+// 			Family: pulumi.String("test"),
 // 			InferenceAccelerators: ecs.TaskDefinitionInferenceAcceleratorArray{
 // 				&ecs.TaskDefinitionInferenceAcceleratorArgs{
 // 					DeviceName: pulumi.String("device_1"),
@@ -333,11 +360,21 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-// 			ContainerDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "[\n", "  {\n", "    \"name\": \"iis\",\n", "    \"image\": \"mcr.microsoft.com/windows/servercore/iis\",\n", "    \"cpu\": 1024,\n", "    \"memory\": 2048,\n", "    \"essential\": true\n", "  }\n", "]\n", "\n")),
-// 			Cpu:                  pulumi.String("1024"),
-// 			Family:               pulumi.String("test"),
-// 			Memory:               pulumi.String("2048"),
-// 			NetworkMode:          pulumi.String("awsvpc"),
+// 			ContainerDefinitions: pulumi.String(fmt.Sprintf(`[
+//   {
+//     "name": "iis",
+//     "image": "mcr.microsoft.com/windows/servercore/iis",
+//     "cpu": 1024,
+//     "memory": 2048,
+//     "essential": true
+//   }
+// ]
+//
+// `)),
+// 			Cpu:         pulumi.String("1024"),
+// 			Family:      pulumi.String("test"),
+// 			Memory:      pulumi.String("2048"),
+// 			NetworkMode: pulumi.String("awsvpc"),
 // 			RequiresCompatibilities: pulumi.StringArray{
 // 				pulumi.String("FARGATE"),
 // 			},

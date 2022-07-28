@@ -13,6 +13,40 @@ import (
 
 // Manages an EC2 Transit Gateway Connect.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v5/go/aws/ec2transitgateway"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := ec2transitgateway.NewVpcAttachment(ctx, "example", &ec2transitgateway.VpcAttachmentArgs{
+// 			SubnetIds: pulumi.StringArray{
+// 				pulumi.Any(aws_subnet.Example.Id),
+// 			},
+// 			TransitGatewayId: pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+// 			VpcId:            pulumi.Any(aws_vpc.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2transitgateway.NewConnect(ctx, "attachment", &ec2transitgateway.ConnectArgs{
+// 			TransportAttachmentId: example.ID(),
+// 			TransitGatewayId:      pulumi.Any(aws_ec2_transit_gateway.Example.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // `aws_ec2_transit_gateway_connect` can be imported by using the EC2 Transit Gateway Connect identifier, e.g.,

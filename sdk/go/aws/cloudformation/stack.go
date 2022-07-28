@@ -30,7 +30,28 @@ import (
 // 			Parameters: pulumi.StringMap{
 // 				"VPCCidr": pulumi.String("10.0.0.0/16"),
 // 			},
-// 			TemplateBody: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Parameters\" : {\n", "    \"VPCCidr\" : {\n", "      \"Type\" : \"String\",\n", "      \"Default\" : \"10.0.0.0/16\",\n", "      \"Description\" : \"Enter the CIDR block for the VPC. Default is 10.0.0.0/16.\"\n", "    }\n", "  },\n", "  \"Resources\" : {\n", "    \"myVpc\": {\n", "      \"Type\" : \"AWS::EC2::VPC\",\n", "      \"Properties\" : {\n", "        \"CidrBlock\" : { \"Ref\" : \"VPCCidr\" },\n", "        \"Tags\" : [\n", "          {\"Key\": \"Name\", \"Value\": \"Primary_CF_VPC\"}\n", "        ]\n", "      }\n", "    }\n", "  }\n", "}\n", "\n")),
+// 			TemplateBody: pulumi.String(fmt.Sprintf(`{
+//   "Parameters" : {
+//     "VPCCidr" : {
+//       "Type" : "String",
+//       "Default" : "10.0.0.0/16",
+//       "Description" : "Enter the CIDR block for the VPC. Default is 10.0.0.0/16."
+//     }
+//   },
+//   "Resources" : {
+//     "myVpc": {
+//       "Type" : "AWS::EC2::VPC",
+//       "Properties" : {
+//         "CidrBlock" : { "Ref" : "VPCCidr" },
+//         "Tags" : [
+//           {"Key": "Name", "Value": "Primary_CF_VPC"}
+//         ]
+//       }
+//     }
+//   }
+// }
+//
+// `)),
 // 		})
 // 		if err != nil {
 // 			return err

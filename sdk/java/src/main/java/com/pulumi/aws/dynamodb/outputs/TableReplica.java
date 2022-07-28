@@ -18,10 +18,15 @@ public final class TableReplica {
      */
     private final @Nullable String kmsKeyArn;
     /**
-     * @return Whether to enable Point In Time Recovery for the replica.
+     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
     private final @Nullable Boolean pointInTimeRecovery;
+    /**
+     * @return Whether to propagate the main table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+     * 
+     */
+    private final @Nullable Boolean propagateTags;
     /**
      * @return Region name of the replica.
      * 
@@ -32,9 +37,11 @@ public final class TableReplica {
     private TableReplica(
         @CustomType.Parameter("kmsKeyArn") @Nullable String kmsKeyArn,
         @CustomType.Parameter("pointInTimeRecovery") @Nullable Boolean pointInTimeRecovery,
+        @CustomType.Parameter("propagateTags") @Nullable Boolean propagateTags,
         @CustomType.Parameter("regionName") String regionName) {
         this.kmsKeyArn = kmsKeyArn;
         this.pointInTimeRecovery = pointInTimeRecovery;
+        this.propagateTags = propagateTags;
         this.regionName = regionName;
     }
 
@@ -46,11 +53,18 @@ public final class TableReplica {
         return Optional.ofNullable(this.kmsKeyArn);
     }
     /**
-     * @return Whether to enable Point In Time Recovery for the replica.
+     * @return Whether to enable Point In Time Recovery for the replica. Default is `false`.
      * 
      */
     public Optional<Boolean> pointInTimeRecovery() {
         return Optional.ofNullable(this.pointInTimeRecovery);
+    }
+    /**
+     * @return Whether to propagate the main table&#39;s tags to a replica. Default is `false`. Changes to tags only move in one direction: from main to replica. In other words, tag drift on a replica will not trigger an update. Tag changes on the main table, whether from drift or configuration changes, are propagated to replicas.
+     * 
+     */
+    public Optional<Boolean> propagateTags() {
+        return Optional.ofNullable(this.propagateTags);
     }
     /**
      * @return Region name of the replica.
@@ -71,6 +85,7 @@ public final class TableReplica {
     public static final class Builder {
         private @Nullable String kmsKeyArn;
         private @Nullable Boolean pointInTimeRecovery;
+        private @Nullable Boolean propagateTags;
         private String regionName;
 
         public Builder() {
@@ -81,6 +96,7 @@ public final class TableReplica {
     	      Objects.requireNonNull(defaults);
     	      this.kmsKeyArn = defaults.kmsKeyArn;
     	      this.pointInTimeRecovery = defaults.pointInTimeRecovery;
+    	      this.propagateTags = defaults.propagateTags;
     	      this.regionName = defaults.regionName;
         }
 
@@ -92,11 +108,15 @@ public final class TableReplica {
             this.pointInTimeRecovery = pointInTimeRecovery;
             return this;
         }
+        public Builder propagateTags(@Nullable Boolean propagateTags) {
+            this.propagateTags = propagateTags;
+            return this;
+        }
         public Builder regionName(String regionName) {
             this.regionName = Objects.requireNonNull(regionName);
             return this;
         }        public TableReplica build() {
-            return new TableReplica(kmsKeyArn, pointInTimeRecovery, regionName);
+            return new TableReplica(kmsKeyArn, pointInTimeRecovery, propagateTags, regionName);
         }
     }
 }

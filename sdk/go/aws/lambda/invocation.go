@@ -52,7 +52,7 @@ import (
 // 			return err
 // 		}
 // 		json1 := string(tmpJSON1)
-// 		_, err := lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
+// 		_, err = lambda.NewInvocation(ctx, "example", &lambda.InvocationArgs{
 // 			FunctionName: pulumi.Any(aws_lambda_function.Lambda_function_test.Function_name),
 // 			Triggers: pulumi.StringMap{
 // 				"redeployment": sha1Hash(json0),
